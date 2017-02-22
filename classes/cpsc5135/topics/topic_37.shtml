@@ -1,0 +1,93 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Smalltalk Example (MyInteger)
+</p>
+
+<ol>
+<li> <a href="../smalltalk/myInt.st">MyIntExample</a> class demonstrates a new
+	kind of number. While we've been making use of it, note that "class"
+	has been ommitted from "MyIntExample methodsFor: '...'", otherwise the
+	defined methods in that section will be on the "class"-side rather
+	than on the "instance"-side and you won't get the behaviour that you
+	likely desire.  In addition, if there are instance variables,
+	these will only be created if an actual instance is created
+	(via a call to "super new" by convention) as we've done in
+	all but the factorial example. Run via
+	"((MyIntExample new setValue: 5) +: (MyIntExample new setValue: 7)) printOn: Transcript":
+<pre><code>
+Object subclass: #MyIntExample
+	instanceVariableNames: 'value'
+	classVariableNames: ''
+	poolDictionaries: ''
+!
+MyIntExample class comment: '
+	This provides students with a very basic example of a class definition.
+'
+!
+
+!
+MyIntExample methodsFor: 'creating and setting values'
+!
+
+setValue: x
+	value := x.
+! !
+
+!
+MyIntExample methodsFor: 'instance variable access'
+!
+
+getValue
+	^ value.
+! !
+
+!MyIntExample methodsFor: 'performing a sample computation and showing values'!
+
++: x
+       	^ MyIntExample new setValue: (value + (x getValue)).
+
+!
+
+printOn: stream
+	stream nextPutAll: value.
+	stream cr.
+! !
+</pre></code>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_37.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

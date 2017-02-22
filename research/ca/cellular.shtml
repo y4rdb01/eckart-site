@@ -1,0 +1,148 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>:
+	The <em>Cellular</em> Automata Simulation System
+</p>
+
+<p>
+The system consists of a compiler for the <em>Cellang</em> cellular automata
+programming language, along with the corresponding documentation, viewer,
+and various tools.  <em>Cellang</em> has been undergoing refinement for the 
+last several years, with corresponding upgrades to the compiler.
+PDF versions of the <a href="tutorial.pdf">tutorial</a> and 
+<a href="cellang.pdf">language reference manual</a>
+are available for those wanting more detailed information. A variety of
+<a href="examples/life/index.shtml">example</a> programs is also available.
+The most important distinguishing features of <em>Cellang</em>, include support 
+for:
+<ul>
+	<li> named constants, including constant arrays with values read in
+		from a file;
+
+	<li> any number of dimensions;
+
+	<li> compile time specification of each dimension's size;
+
+	<li> cell neighborhoods of any size (though bounded at compile time) 
+		and shape;
+
+	<li> positional and time dependent neighborhoods;
+
+	<li> associating multiple values (fields), including arrays, with 
+		each cell;
+
+	<li> associating a potentially unbounded number of mobile agents
+		[ Agents are mobile entities based on a mechanism of the same 
+		  name in the Creatures system, developed by Ian Stephenson 
+		  (ian@ohm.york.ac.uk).] with each cell; and
+
+	<li> local interactions only, since it is impossible to construct 
+		automata that contain any global control or references to 
+		global variables.  
+
+</ul>
+In addition, the compiler supports the integration of filter
+programs.  This ability means that you can write routines that massage
+the output created by the automata, and because they are compiled in,
+run much faster than by having to use separate programs and standard I/O
+(i.e., pipes) to do the same thing.
+</p>
+
+<p>
+The currently release also supports 3D viewing using OpenGL.
+Although at the present, viewing anything with more than several thousands
+active cells is somewhat slow, as processors become faster
+and hardware support for the 3D graphics more pervasive this will continue
+to improve.
+</p>
+
+<p>
+Both a
+<a href="cellular.unix.tar.gz">U<font size=-2>NIX</font></a>
+and a <a href="cellular.wintel.tar.gz">Windows</a>
+version of the system are available.  Please note that Windows users will
+need to
+use the <a href="http://www.winzip.com/">WinZip</a> command to unpack the
+Windows version of the system.
+An older version of the system is available for the Apple Macintosh.
+My special thanks to <a href="mailto:a_kowald@chemie.fu-berlin.de">Axel
+Kowald</a> for updating his <a href="cell4mac.sit.hqx">Apple
+Macintosh</a> port of the system.
+I am grateful for his work and willingness to make it available to others.
+</p>
+
+<p>
+The U<font size=-2>NIX</font> version 
+supports the X11, Iris Graphics Library, and OpenGL windowing
+systems and can generate shared memory multi-threaded code for multi-processor
+<a href="http://www.sun.com/">Sun</a> and 
+<a href="http://www.sgi.com/">SGI</a> machines.
+Both the U<font size=-2>NIX</font> and Windows versions also support the
+use of
+<a href="http://www.cs.utk.edu/~library/TechReports/1994/ut-cs-94-247.ps.Z">
+microvectors</a>, which can greatly (by a factor of 5 or more) increase the 
+speed at which some cellular automata execute.
+</p>
+
+<p>
+The distribution is about 20 MB unpacked.  Nearly all of the size is a GNU
+C compiler and various utilities for the Windows installation.  These
+items are also present in the U<font size=-2>NIX</font> distribution (though
+they aren't used).  They are in the <tt>wintel</tt> subdirectory and can be
+safely removed (after installation in the Windows case) in order to save
+space.
+</p>
+
+<p>
+A small, but growing, set of <a href="examples/life/index.shtml">examples</a>
+should help to illustrate the capabilities of the system.  Many are
+straightforward implementations of well known automata.  If you decide to use
+the <em>Cellular</em> system, any contributions that you would be willing to
+make to the examples page would be greatly appreciated.  Contributions should
+be addressed to the author of this page.
+</p>
+
+<p>
+From May 1993 through May 1997, this work was jointly supported by
+<a href="http://www.runet.edu/">Radford University</a> and
+<a href="http://www.usra.edu/">USRA</a> as part of a NASA/JOVE grant.
+During June and July of 1997, the work was supported by a grant from
+<a href="http://www.fuji-ric.co.jp/">Fuji Research Institute Corporation</a>.
+The 3D viewing capability was added in the Summer of 1998 as part of a
+research grant from the <a href="http://www.arl.mil/">US Army Research Lab</a>.
+The ability to perform computations in floating-point was added in the
+Summer of 1999, also as part of a
+research grant from the <a href="http://www.arl.mil/">US Army Research Lab</a>.
+</p>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,241 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Multiprocessors (Software)
+</p>
+
+<ol>
+<li> OS Types
+	<ol>
+	<li> OS for each CPU:
+		<ol>
+		<li> Each CPU gets its own private and fixed memory (although
+			some CPUs may be assigned more memory than others),
+			but the I/O devices can still be shared.
+		<li> System calls are handled by the (separate) OS
+			running on that CPU.
+		<li> There is no sharing of process data between the
+			OSes, so processes are scheduled only on the
+			CPU/OS on which they were created. Thus some
+			CPUs could be quite busy while others are idle.
+		<li> Likewise there is no sharing of memory pages, so
+			one OS can be thrashing, while another has
+			unused page frames.
+		<li> If a buffer cache of recently used disk blocks is
+			maintained by the OS, then dirty caches of the
+			same disk block can exist on multiple OSes.
+			This can lead to inconsistent results.
+			Eliminating the caches removes the problem, but
+			degrades performance considerably.
+		<li> Rarely used today.
+		</ol>
+	<li> Master-Slave:
+		<ol>
+		<li> Both the I/O devices and memory are shared by the CPUs.
+		<li> A single CPU is selected as the <em>master</em>
+			which runs the single instance of the OS.
+		<li> The remaining CPUs are <em>slaves</em>
+		<li> All system calls are handled by the master.
+		<li> The master schedules (user) processes to run on
+			slaves, with the master balancing the load
+			between all the slave CPUs.
+		<li> Page frames are shared in the single memory, and
+			there is only one set of buffer caches (on the
+			master) addressing some problems when each CPU
+			runs a separate OS.
+		<li> The master is the bottleneck for this design
+			(since it must handle all of the system calls),
+			limiting the number of slaves it can keep up with.
+		</ol>
+	<li> Symmetric Multiprocessors:
+		<ol>
+		<li> Both the I/O devices and memory are shared by the CPUs.
+		<li> Each CPU can run the OS as well as other (user) processes.
+		<li> The CPU on which a system call is made is the one
+			that traps to the kernel to process it.
+		<li> While there is no master CPU bottleneck, there
+			are only one set of OS data and these must be
+			locked when used to prevent multiple CPUs from
+			trying to alter them at the same time.
+		<li> Locking all of the OS data as a single unit is
+			about as bad as having a master CPU. But
+			protecting critical sections and data with
+			their own separate locks (mutices) enables
+			more parallelism to occur. Avoiding deadlocks
+			while maximizing the possible parallelism is
+			what makes this hard.
+		<li> This is the most popularly implemented method.
+		</ol>
+	</ol>
+<li> Process Synchronization
+	<ol>
+	<li> Disabling interrupts doesn't work since this only disables
+		the interrupts on the issuing CPU.
+	<li> A simple TSL instruction doesn't work either since 2 (or
+		more CPUs doing a TSL at the same time could both get
+		back a 0 (available) value if the timing were just right
+		(or wrong - depending upon your point of view).
+	<li> For the TSL to work, it must also lock the system bus in
+		order to prevent other CPUs from performing a TSL at
+		the "same" time.
+	<li> As you may recall from <a href="topic_13.shtml">earlier
+		in the semester</a>, mutual exclusion using TSL
+		is a type of <em>spin lock</em>.
+	<li> Unfortunately, caching doesn't eliminate the problem with
+		bus contention since the cache block containing the lock
+		also probably contains data needed in the critical section.
+		<ol>
+		<li> When the lock holder obtains the lock, the cache block
+			containing the TSL variable goes into its cache.
+		<li> When a requestor attempts to get the lock (but
+			fails) it still writes to the TSL variable, thus
+			invalidating the cache block in the lock holder and
+			moving the cache block to the cache of the requestor.
+		<li> If the cache block also holds data needed by the
+			lock holder (a likely possibility) then when the
+			lock holder does a write on that data it moves
+			the cache block back to the lock holder.
+		<li> This bouncing back and forth of the cache block
+			creates a lot of bus traffic. It can be greatly
+			reduced if the lock requestor first does a
+			normal (non-lock creating) read on the lock
+			variable and then only attempts a TSL if the
+			lock variable has a value of 0.
+		</ol>
+	<li> Switch or Spin? Sometimes a CPU needs to wait for a lock
+		before it can do anything else (e.g., it needs to look
+		at the process table to find the next process to
+		schedule), but other times if the lock isn't available
+		(say for a user process critical section) then a
+		new process can be scheduled to run (i.e., perform a
+		context switch). Which one to perform depends upon how
+		much "wasted" time might be spent spinning waiting for
+		the lock vs the time needed to switch to a new process
+		(and to switch back to this process later on).
+		Some CPUs have a special instruction which notifies the
+		CPU if a write was done within a specified address range.
+		The advantage being that such instructions block the
+		current thread while consuming less power.
+	</ol>
+<li> Scheduling at the process level is subsumed by examining the
+	scheduling of kernel threads, so the below focuses on kernel
+	threads (with the obvious carryovers to process scheduling). 
+	<ol>
+	<li> Time Sharing
+		<ol>
+		<li> Since a single OS data structure holds the list of
+			(prioritized) threads to run, when a CPU is
+			ready to switch to the next thread, it chooses
+			the one with the highest priority. In this way,
+			the CPUs are load balanced and the highest
+			priority work is always done first.
+		<li> However, if the current thread holds a lock on
+			which other threads are spinning, then switching
+			it out will cause those spinning threads to
+			continue spinning for a significant period of
+			time (since the lock holder won't be able to
+			release the lock until its rescheduled and
+			finishes with the locked resource). <em>Smart
+			scheduling</em> uses a process flag to indicate
+			that a thread holds a lock and the scheduler
+			can give it more time to finish with the
+			resource before preempting the thread.
+		<li> Another issue is that if a thread has been running
+			on CPU <em>n</em> and is preempted, then CPU
+			<em>n</em>'s cache and TLB probably contains 
+			a lot of data related to the thread. If the
+			thread is rescheduled to run on a different
+			CPU, then all of that data will need to be
+			reloaded - but if it is rescheduled on
+			CPU <em>n</em> much of the data may still be in
+			the cache and TLB, saving time. <em>Affinity
+			scheduling</em> tries to schedule threads on
+			the same CPU they ran on last if not too much
+			time has elapsed.
+		<li> Affinity scheduling can be accomplished by using
+			a <em>two-level scheduling algorithm</em> in
+			which the top level assigns the thread to a
+			CPU and the second level does the thread
+			scheduling for that CPU (though if a CPU is idle
+			then it will take a thread from another CPU).
+			Two-level scheduling roughly balances the load,
+			leverages cache affinity, and reduces contention
+			on the ready list (since each CPU maintains a
+			separate ready list for the second level of
+			scheduling).
+		</ol>
+	<li> Space Sharing
+		<ol>
+		<li> Useful when multiple threads need to communicate
+			with one another (and so benefit from running
+			at the same time).
+		<li> The threads in the group are assigned to different
+			CPUs. In the simplest version of space sharing
+			none of the threads starts until each has its
+			own CPU and they can be scheduled to start at
+			the same time. [Threads wouldn't block for I/O
+			and would remain running in the assigned CPU
+			until they complete.]
+		<li> Scheduling thread groups first-come first-served
+			is generally the most practical and works quite
+			well in practice.
+		<li> Eliminates context switching for the threads in the
+			group and reduces the time each thread waits to
+			synchronize with others in the group.
+		</ol>
+	<li> Gang Scheduling
+		<ol>
+		<li> Attempts to combine the benefits of time sharing
+			(CPU utilization) and space sharing
+			(synchronization responsiveness).
+		<li> The 3 parts of gang scheduling are:
+			<ol>
+			<li> Thread groups are scheduled as a unit (gang);
+			<li> All gang members run at the same time on
+				different CPUs; and
+			<li> All gang members start and end their time
+				slices together.
+			</ol>
+		<li> Unlike simple space sharing in which threads run
+			to completion, gang scheduling performs
+			synchronized context switches on the threads by
+			giving them the same time quantum.
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_63.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

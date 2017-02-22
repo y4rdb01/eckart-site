@@ -1,0 +1,62 @@
+# This CA implements a simulation of mobile predators (rabbits) and stationary
+# prey (grass).  Rabbits wander around randomly, with the prey reproducing (i.e.
+# appearing) at a steady rate and the rabbits reproducing only when they have 
+# had enough grass to eat.
+#
+2 dimensions of 
+	# 0 is empty space (blue), 1 is rabbit (red), 2 is grass (green).
+	#
+	display of 0..2
+
+	grass of 0..1
+agent of
+	# Direction of travel: North = 0, East = 1, South = 2, West = 3
+	#
+	dir of 0..3
+
+	energy of 0..255
+end
+
+# Predators eat and continue their random walks.  Reproduction also happens 
+# here.
+#
+grass := cell.grass
+rabbits := 0
+forall rabbit : agent
+	rabbits := 1
+
+	# Randomize the direction of travel.
+	#
+	dir := (rabbit.dir+4-1+random%3)%4
+
+	# The first rabbit eats all of the grass
+	energy := rabbit.energy
+	energy := energy + 5 when grass
+	grass := 0
+
+	# Reproduce?
+	#
+	if energy > 200 then
+		agent(random%4, energy/3) -> cell
+		agent(random%4, energy/3) -> cell
+		energy := energy/3
+	end
+
+	# Move on.
+	#
+	if energy > 1 then
+		agent(dir, energy-2) -> [0, 1] when dir = 0
+				     -> [1, 0] when dir = 1
+				     -> [0, -1] when dir = 2
+				     -> [-1, 0] when dir = 3
+	end
+end
+
+grass := 1 when !cell.grass & random%1000 < 3
+cell.grass := grass
+
+# Set display
+#
+cell.display := 1 when rabbits > 0
+	     := 2 when grass > 0
+	     := 0 otherwise

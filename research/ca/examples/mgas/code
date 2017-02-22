@@ -1,0 +1,43 @@
+# Simulate gas diffusion by `randomly' rotating the cell values in a
+# Margolus-neighborhood either clockwise or counter-clockwise.  The 
+# groupings are alternations of the two overlapping square neighborhoods:
+#
+#			0  1
+#			2  3  2
+#			   1  0
+#
+2 dimensions of 
+	const which of 0..3
+	rand  of 0..1
+	gas   of 0..1
+end
+
+neighbors[] for 4
+
+	:= cell, [1, 0], [0, -1], [1, -1]
+		when (cell.which=0 & time%2=1) | (cell.which=3 & time%2=0)
+
+	:= cell, [0, -1], [-1, 0], [-1, -1]
+		when (cell.which=1 & time%2=1) | (cell.which=2 & time%2=0)
+
+	:= cell, [-1, 0], [0, 1], [-1, 1]
+		when (cell.which=3 & time%2=1) | (cell.which=0 & time%2=0)
+
+	:= cell, [0, 1], [1, 0], [1, 1]
+		otherwise
+
+# Calculate the sum of the random fields in the neighborhood.
+#
+rand := 0
+forall i
+	rand := rand + neighbors[i].rand
+end
+
+cell.gas := neighbors[2].gas when rand%2 = 1     # Clockwise rotation
+         := neighbors[1].gas otherwise           # Counter-clockwise rotation
+
+# Stir the random values (using a von neumann neighborhood), so that they 
+# keep changing.
+#
+cell.rand := ([1, 0].rand + [0, 1].rand + [-1, 0].rand + [0, -1].rand
+                + cell.rand)%2

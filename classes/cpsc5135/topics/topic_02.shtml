@@ -1,0 +1,59 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Programming Languages
+</p>
+
+<ol>
+<li> What is a programming language?
+<li> Why study "concepts" instead of just learning multiple languages?
+	Languages come and go, but language concepts are lasting.
+	<a href="http://delivery.acm.org/10.1145/2670000/2663342/p30-ball.pdf?ip=66.168.178.185&id=2663342&acc=OPEN&key=4D4702B0C3E38B35%2E4D4702B0C3E38B35%2E4BAE65631C5B76B0%2E6D218144511F3437&CFID=683934119&CFTOKEN=30440110&__acm__=1434482566_9c9e154aaf7335bed8f352bfe75be494">Teach Foundational Language Principles (ACM, May 2015)</a>
+<li> Lists of most popular programming languages:
+	<ol>
+	<li> <a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">tiobe.com</a>
+	<li> <a href="http://langpop.com">langpop.com</a>
+	</ol>
+<li> History and evolution of programming languages:
+	<ol>
+	<li> <a href="http://rigaux.org/language-study/diagram-light.pdf">Tree of 36</a>
+	<li> <a href="http://rigaux.org/language-study/diagram.pdf">More complete</a>
+	<li> <a href="http://www.digibarn.com/collections/posters/tongues/ComputerLanguagesChart.png">With commentary</a>
+	<li> <a href="http://cdn.oreilly.com/news/graphics/prog_lang_poster.pdf">From O'Reilly</a>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_02.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,93 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Compilers & Interpreters
+</p>
+
+<ol>
+<li> <a href="CompiledVersusInterpreted.png">Compilation vs Interpretation</a>
+<li> Within a compiler, the typical stages of compilation are:
+	<ol>
+	<li> Lexical Analysis (identify the tokens)
+	<li> Syntactic Analysis (confirm proper program structure)
+	<li> Semantic Analysis (discern the program conformance to language "meaning" restrictions)
+	<li> (Intermediate) Code Generation (hardware independent "executable", e.g., <a href="https://en.wikipedia.org/wiki/UCSD_p-System">P-code</a>, <a href="https://en.wikipedia.org/wiki/Java_bytecode">Java Bytecode</a>, <a href="https://en.wikipedia.org/wiki/Common_Intermediate_Language">Common Intermediate Language</a>).
+	<li> Code Optimization [Optional]
+		<ol>
+		<li> Common subexpression elimination - avoid recalculations (e.g., x*x < x*x-8).
+		<li> Copy propigation - eliminate unnecessary assignments (e.g., x = y; print(x); )
+		<li> Dead-code elimination - if code is unreachable, then remove it.
+		<li> Loop optimization - some calculations may be moved out of the loop, counting down vs counting up, etc.
+		<li> In-lining function calls - for small non-recursive functions duplicating the code "in-line" saves the overhead for a function call and may enable additional optimizations (from above).
+		</ol>
+	<li> (Target Machine) Code Generation [Optional]
+	</ol>
+<li> The following table gives some examples that illustrate the differences
+	between Lexcial, Syntactic, and Semantic analysis:
+	<table width="65%" style="text-align: center; margin: auto">
+	</tr>
+		<th width="30%" style="text-align: center">English<br/>(Natural Language)</th>
+		<th nowrap="1" width="1%" style="text-align: center">Compilation/Translation<br/>Phase</th>
+		<th width="30%" style="text-align: center">Java<br/>(Artificial Language)</th>
+	</tr>
+	<tr>
+		<td>Identify words and punctuation</td>
+		<td><em>Lexical Analysis</em></td>
+		<td>Identify (reserved) keywords, programmer defined names,
+			punctuation, and comments</td>
+	</tr>
+	<tr>
+		<td>Ensure that sentences don't start with a "!" and that
+			each sentence contains a verb</td>
+		<td><em>Syntactic Analysis</em></td>
+		<td>Ensure that the keywords, identifiers, and punctuation
+			are correctly organized within the program</td>
+	</tr>
+	<tr>
+		<td>Check subject and verb agreement</td>
+		<td><em>Semantic Analysis</em></td>
+		<td>Check that variables are only assigned type compatible
+			values</td>
+	</tr>
+	</table>
+<li> Interpreters have become more sophisticated, performing
+	incremental compilation (also called
+	<a href="https://en.wikipedia.org/wiki/JIT_compiler">Just-in-time
+	compilation</a>). Smalltalk and Java systems were some
+	early adopters.
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_08.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

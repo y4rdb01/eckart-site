@@ -1,0 +1,122 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- C++ Example (ComplexNumber)
+</p>
+
+<ol>
+<li> <a href="../cc/complexNumbers.cc">Complex Numbers</a> example
+	<ol>
+	<li> classes
+	<li> All objects in this example are allocated on the run-time stack
+		(not in the heap, via "new", as is the case for all objects
+		in Java and Smalltalk).
+	<li> Visibility: private, protected, namespace, public, friend
+	<li> <a href="https://en.wikibooks.org/wiki/C%2B%2B_Programming/Operators/Operator_Overloading">Operator overloading</a> for: 
+			<ol>
+			<li> Arithmetic operators: +, -, *, /, %
+			<li> Bitwise operators: ^ (xor), |, &, ~ (complement), << (left shift), >> (right shift)
+			<li> Assignment operator: =
+			<li> Relational operators: ==, !=, >, <, >=, <=
+			<li> Logical operators: !, &&, ||
+			<li> Compound Assignment operators: +=, -=, *=, /=, %=, &= (bitwise), |= (bitwise), ^= (bitwise), <<= (bitwise), >>= (bitwise)
+			<li> Increment/Decremenet operators (prefix and postfix): ++, --
+			<li> Subscript operator: []
+			<li> Function Call operator: ()
+			<li> Address of, Reference, and Pointer operators: &, *, ->
+			<li> Comma operator: ,
+			<li> Member Access operators: ->, ->*
+			<li> Memory Management operators: new, new[], delete, delete[]
+			<li> Conversion operators: typename()
+			</ol>
+	<li> Copy constructor is different from assignment.
+<pre><code>
+	Complex x;	// calls default constructor
+	Complex y(3);	// calls constructor
+	Complex z = y;	// calls the copy constructor
+	x = y;		// calls the assignment operator
+</code></pre>
+		The assignment operator should check for the replacement
+		of an existing value, and also returns a reference (to
+		support chained assignments).
+	<li> C++ provides both a default copy constructor *and* a default
+		assignment operator (the only default operator created).
+		The default implementations are memberwise copies.
+	<li> The "virtual" keyword is required before any method in order for
+		its definition to overridden by any derived subclass. This is
+		in keeping with C++'s efficience goals - requiring extra
+		effort on the programmer's part - since virtual functions
+		require dynamic lookups. Java
+		implicitly treats all method declarations as "virtual".
+	<li> <a href="http://www.cplusplus.com/articles/ENywvCM9/">References vs pointers</a>:
+		Think of references as an alias to the original object. Using
+		"const" in a parameter declaration indicates that the members
+		of the reference cannot be changed. Unlike pointers, a
+		reference can only be created for pre-existing objects. 
+	<li> namespaces (vs packages in Java)
+	<li> Operations don't have to be members of a class. The "friend"
+		visibility enables non-member functions/operators access
+		to private and protected members of the class. Classes can
+		also be "friend"ly.
+	<li> Semi-colons (;) are required after class definitions and the
+		member definitions within classes. Semi-colons are <em>not</em>
+		required after function implementations outside of a class.
+	<li> "this" is a pointer to the object whose member function is being
+		executed and is used to refer to the object itself.
+	<li> "const" (for members) is the same as Java's "final". In C++
+		"const" is used in many additional contexts:
+		<ol>
+		<li> "const Complex zero;" means that only the "const"
+			members of the Complex class can be accessed.
+		<li> In Complex, "float function() const { return ... }"
+			declares a "const" member function that is unable
+			to change any class members (unless they are declared
+			as mutable).
+			.
+		<li> "const int& function() { return ... }" returns a "const&"
+			(or constant reference).
+		<li> Member functions can be overloaded by their "const"ness,
+			with the "const" member only being called for a
+			"const" object.
+		</ol>
+	<li> Member methods that are given implementations inside the class
+		declaration are automatically considered for "inline"
+		expansion - though it is only a suggestion to the compiler
+		(as are the explicitly declared "inline" methods and functions).
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_20.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

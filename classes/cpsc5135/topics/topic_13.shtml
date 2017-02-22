@@ -1,0 +1,264 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Prolog Examples (continued)
+</p>
+
+<ol>
+<li> Genealogy is not only an interest among those wanting to know more about
+	their own family history, but are also tremendously important with
+	respect to animal breeding - cats, dogs, and many farm animals
+	(e.g., cattle, goats).  The following is a simple example of how
+	Prolog can be used to represent and query such a relationship database.
+<pre><code>
+	% The following declarative predicates represent the
+	% information contained within the database.
+	%
+
+        % John
+        male('John').
+        marriedto('John', 'Martha').
+        childof('John', 'Randy').	% John is a child of Randy.
+        childof('John', 'JoAnn').	% John is a child of JoAnn.
+
+        % Mary
+        female('Mary').
+        marriedto('Mary', 'Chris').
+        childof('Mary', 'Randy').	% Mary is a child of Randy.
+        childof('Mary', 'JoAnn').	% Mary is a child of JoAnn.
+
+        % Martha
+        female('Martha').
+        marriedto('Martha', 'John').
+        childof('Martha', 'Mary').	% Martha is a child of Mary.
+        childof('Martha', 'Chris').	% Martha is a child of Chris.
+
+        % Chris
+        male('Chris').
+        marriedto('Chris', 'Mary').
+        childof('Chris', 'Frank').	% Chris is a child of Frank.
+        childof('Chris', 'Bess').	% Chris is a child of Bess.
+
+	% These predicates infer relationships from the above data.
+	%
+	grandparentof(GrandParent, GrandChild) :-
+        	parentof(GrandParent, Child),
+        	parentof(Child, GrandChild).
+
+	parentof(Parent, Child) :-
+        	childof(Child, Parent).
+
+	ancestor(Old, Young) :-
+        	parentof(Old, Young).
+	ancestor(Old, Young) :-
+        	parentof(Old, Child),
+        	ancestor(Child, Young).
+</code></pre>
+	Use the predicates to answer the following questions:
+	<ol>
+	<li> Who are Randy's parents?
+	<li> Who are Martha's grandparents?
+	<li> Does Bess have any grandchildren?
+	<li> How many progeny does Frank have? 
+	</ol>
+
+<li> Example: Magic squares were a favorite kind of maths puzzle many years
+	ago (probably because it kept the students occupied for so long).
+	Here's a straightforward program that solves the 3x3 magic squares.
+<pre><code>
+	magicSquare([[A1, A2, A3],
+		     [B1, B2, B3],
+		     [C1, C2, C3]]) :-
+
+		% Each Number only appears once.
+		uniqueValues([A1, A2, A3, B1, B2, B3, C1, C2, C3]),
+
+		% Horizontal lines
+		Tmp is A1 + A2 + A3,
+		Tmp =:= B1 + B2 + B3,
+		Tmp =:= C1 + C2 + C3,
+
+		% Vertical lines
+		Tmp =:= A1 + B1 + C1,
+		Tmp =:= A2 + B2 + C2,
+		Tmp =:= A3 + B3 + C3,
+
+		% Diagonal lines
+		Tmp =:= A1 + B2 + C3,
+		Tmp =:= A3 + B2 + C1.
+
+	uniqueValues([X1, X2, X3, X4, X5, X6, X7, X8, X9]) :-
+		value(X1), value(X2), value(X3), value(X4),
+		value(X5), value(X6), value(X7), value(X8), value(X9),
+		X1 \= X2, X1 \= X3, X1 \= X4, X1 \= X5, X1 \= X6, X1 \= X7, X1 \= X8, X1 \= X9,
+		X2 \= X3, X2 \= X4, X2 \= X5, X2 \= X6, X2 \= X7, X2 \= X8, X2 \= X9,
+		X3 \= X4, X3 \= X5, X3 \= X6, X3 \= X7, X3 \= X8, X3 \= X9,
+		X4 \= X5, X4 \= X6, X4 \= X7, X4 \= X8, X4 \= X9,
+		X5 \= X6, X5 \= X7, X5 \= X8, X5 \= X9,
+		X6 \= X7, X6 \= X8, X6 \= X9,
+		X7 \= X8, X7 \= X9,
+		X8 \= X9.
+
+	value(1).
+	value(2).
+	value(3).
+	value(4).
+	value(5).
+	value(6).
+	value(7).
+	value(8).
+	value(9).
+</code></pre>
+	<ol>
+	<li> QUESTION: Imagine how you would solve this in an
+		imperative language like Java. Why is the program
+		so much simpler in Prolog?
+	<li> NOTE: In principle you could extend the above to solve
+		Sudoku puzzles as well (it's really quite a short
+		program), but the resulting program would probably
+		take a very long time to run.  Why?
+	<li> MORE: Turns out there's a permutation predicate that you
+		can use instead of "uniqueValues" that returns the
+		various orders in which a list of things can be written:
+<pre><code>
+	lists:perm([X1, X2, X3, X4, X5, X6, X7, X8, X9], [1, 2, 3, 4, 5, 6, 7, 8, 9).
+</code></pre>
+	</ol>
+
+<li> Example: Insertion sort, because you can't see too many examples of
+	different sorting algorithms.
+<pre><code>
+	% Sort the list of numbers that is the 1st argument, so that they appear
+	% in ascending (increasing) order in the 2nd argument when completed.
+	%
+	insertionsort([], []).
+
+	insertionsort([ Item | RestUnsorted ], Sorted) :-
+		insertionsort(RestUnsorted, TempResult),
+		insertitem(Item, TempResult, Sorted).
+
+	% Inserts an item (argument 1) into the proper place within the list
+	% (argument 2) and returns the result (argument 3).
+	%
+	insertitem(Item, [], [Item]).
+
+	insertitem(Item, List, Result) :-
+		List = [ ListItem | _ ],
+		ListItem > Item,
+		append([ Item ], List, Result).
+
+	insertitem(Item, List, Result) :-
+		List = [ ListItem | RestList ],
+		insertitem(Item, RestList, RestResult),
+		append([ ListItem ], RestResult, Result).
+</code></pre>
+	And here's a sample use of the predicate:
+<pre><code>
+	?- insertionsort([3,6,2,7,3,1,9,3,2,7,4], X), print(X).
+	[1,2,2,3,3,3,4,6,7,7,9]
+	X = [1, 2, 2, 3, 3, 3, 4, 6, 7|...] ;
+	[1,2,2,3,3,4,3,6,7,7,9]
+	X = [1, 2, 2, 3, 3, 4, 3, 6, 7|...] ;
+	[1,2,2,3,3,4,6,3,7,7,9]
+	X = [1, 2, 2, 3, 3, 4, 6, 3, 7|...] ;
+	...
+
+	?- 
+</code></pre>
+	First, notice that a "print" was used to show the entire list since
+	swipl only displays the first portion of X's binding. Second,
+	notice that although the first result is a correctly sorted list, the
+	additional results are <strong>not</strong>.  This is because the
+	"insertitem" predicate is backtracking and using the third assertion
+	of that predicate.  This can be remedied by changing that assertion
+	to read as follows (preventing the unwanted backtracking):
+<pre><code>
+	insertitem(Item, List, Result) :-
+		List = [ ListItem | RestList ],
+		ListItem =< Item,			% New bit of code.
+		insertitem(Item, RestList, RestResult),
+		append([ ListItem ], RestResult, Result).
+</code></pre>
+
+<li> Permuatations is another example of a non-trivial recursive predicate, and
+	one that can be helpful for a variety of problems that must look at all
+	possibilities in order to decide upon the correct one. Once a list of
+	all permutations is obtained, then you can use use other predicates to
+	examine each possibility to determine the best choice.
+<pre><code>
+	% Permute yields a list of lists ("Permutations").
+	%
+	permute([], []).
+	permute([X], [[X]]).
+	permute(List, Permutations) :-
+		for_each(List, List, Permutations).
+
+	% Uses each element of "Member" as basis for a reduced permute
+	% problem on the other elements of "List". Returns a list of lists
+	% ("Permutations").
+	%
+	for_each([], _, []).
+	for_each([FirstMember | RestMembers], List, Permutations) :-
+		remove_first(FirstMember, List, SmallerList),
+		permute(SmallerList, SmallerListPermutes),
+		add_to_each(FirstMember, SmallerListPermutes, FirstPermutes),
+		for_each(RestMembers, List, RestPermutes),
+		append(FirstPermutes, RestPermutes, Permutations).
+
+	% Removes only the first occurrence of "Item" from the "List".
+	% Note the use of cut (!) to prevent backtracking.
+	%
+	remove_first(_, [], []).
+	remove_first(Item, [Item | RestList], RestList) :- !.
+	remove_first(Item, [ListItem | RestList], [ListItem | NewList]) :-
+		remove_first(Item, RestList, NewList), !.
+
+	% Adds the "Item" onto each sublist in the "List".
+	%
+	add_to_each(_, [], []).
+	add_to_each(Item, [List | RestLists], [[Item | List] | NewRestLists]) :-
+		add_to_each(Item, RestLists, NewRestLists).
+
+	% The above can be tested with a query like:
+	%
+	% permute([a, b, c, d], P).
+</code></pre>
+
+<li> <a href="http://sites.google.com/site/prologsite/prolog-problems">99 Prolog Problems</a>
+	you can use for more practice.
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_13.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

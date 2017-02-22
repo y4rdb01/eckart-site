@@ -1,0 +1,49 @@
+# A simple game of pinball using agents.
+
+2 dimensions of
+	# Distinguishes balls, bumpers and empty space for display.
+	display of 0..2
+
+        # A value of 1 indicates the presence of a bumper.
+        const bumper of 0..1
+agent of
+        # Indicates the direction of travel for the agent.
+        # (1 = north, 2 = east, 3 = south, 4 = west)
+        direction of 1..4
+end
+
+# Count the number of agents associated with this cell.
+count := 0
+forall a:agent
+        count := count + 1
+        ball := a
+end
+
+# Only single agents do anything.
+if count = 1 then
+        if cell.bumper then
+                # The agent has collided with a bumper and divides.
+                if ball.direction = 1 then
+                         agent(2) -> [1, 0]
+                         agent(4) -> [-1, 0]
+                elsif ball.direction = 2 then
+                         agent(1) -> [0, 1]
+                         agent(3) -> [0, -1]
+                elsif ball.direction = 3 then
+                         agent(2) -> [1, 0]
+                         agent(4) -> [-1, 0]
+                else
+                         agent(1) -> [0, 1]
+                         agent(3) -> [0, -1]
+                end
+	else
+                # The agent continues to travel.
+                ball -> [0, 1]  when ball.direction = 1
+                     -> [1, 0]  when ball.direction = 2
+                     -> [0, -1] when ball.direction = 3
+                     -> [-1, 0] when ball.direction = 4
+        end
+end
+
+cell.display := 2 when count = 1 & !cell.bumper
+             := 0 when count != 1 & !cell.bumper

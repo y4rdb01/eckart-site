@@ -1,0 +1,50 @@
+/* Generate the input data used by wave.  A single command line argument
+   indicates the size of each of two dimensions of the cell universe.
+
+   The file "my_rand.h" is located in the examples/data directory of the
+   distribution.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "my_rand.h"
+
+#define DENSITY	2
+
+int main(int argc, char *argv[]) {
+	int max_size, x, y;
+
+	/* Check usage. */
+	if (argc == 1) {
+                fprintf(stderr, "%s: size of automaton must be given.\n",
+                        argv[0]);
+                return 1;
+        } else if (argc > 2)
+		fprintf(stderr, "%s: extra options ignored.\n", argv[0]);
+
+	max_size = atoi(argv[1]);
+
+	printf("0\n");
+
+	for (x = 0; x < max_size; x++)
+		for (y = 0; y < max_size; y++) {
+			int display = 0;
+
+			/* Place a creature here? */
+			if (my_random()%100 < DENSITY) display = 1;
+
+			printf("[%d, %d] = %d, 0, 0, 0", x, y, display);
+
+			/* Place a random creature. */
+			if (display) {
+				/* Direction of travel. */
+				printf(", %d", my_random()%8);
+
+				/* Speed of travel. */
+				printf(", %d", my_random()%8);
+			}
+
+			printf("\n");
+		}
+	return 0;
+}

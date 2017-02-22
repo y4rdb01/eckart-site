@@ -1,0 +1,251 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Concurrency in Java
+</p>
+
+<ol>
+<li> Threads
+	<ol>
+	<li> Extend the <em>Thread</em> class
+		(override <em>run</em> method); or
+	<li> Implement the <em>Runnable</em> interface
+		(implement <em>run</em> method).
+	<li> Use the <em>start</em> method to begin (independent)
+		execution of the <em>run</em> method.
+	<li> Example:
+<pre><code>
+	class Counter extends Thread {
+		private int iterations;
+		private int step;
+		public Counter(int increment, int iter) {
+			step = increment;
+			iterations = iter;
+		}
+		public void run() {
+			int count = 0;
+			while (iterations > 0) {
+				System.out.println(count);
+				count += step;
+				iterations--;
+				try {
+					sleep(10);
+				} catch (InterruptedException ex) {}
+			}
+		}
+	}
+	class Example {
+		public static void main(String[] args) {
+			Counter c1 = new Counter(1, 300);
+			Counter c2 = new Counter(-1, 200);
+			System.out.println("Starting the threads ...");
+			c1.start();
+			c2.start();
+			System.out.println("Ho hum ...");
+			try {
+				c1.join();
+				c2.join();
+			} catch (InterruptedException ex) {}
+			System.out.println("Goodbye!");
+		}
+	}
+</code></pre>
+	<li> Thread pools (an example of an <em>Executor</em>
+		interface), enable an established set of existing
+		threads to be given tasks to complete as they
+		become available (having completed a previously
+		assigned task). Thread pools reduce overhead with
+		the creation and cleanup of threads, and setting
+		up a fixed pool size can more easily maintain
+		a consistent level of system performance.
+	</ol>
+<li> Communication is accomplished through shared objects (methods,
+	variables, and memory).
+<li> Synchronization
+	<ol>
+	<li> <em>synchronized</em> methods (see
+		<a href="topic_67.shtml#library">Library example</a>).
+		Note that there are separate intrinsic locks for
+		the <em>Class</em> (static methods) from the
+		class instances (objects), which each have their own
+		intrinsic lock.
+	<li> Code blocks may also be <em>synchronized</em> using a
+		special statement, but this
+		is accomplished with respect to an object (class
+		instance):
+<pre><code>
+	Person me = new Person();
+	...
+	synchronized (me) {
+		// Some statements, probably involving "me".
+	}
+	...
+</code></pre>
+	<li> <em>synchronized</em> (and
+		<a href="http://tutorials.jenkov.com/java-concurrency/volatile.html"><em>volatile</em></a>)
+		are used to implement the Lock and Semaphore classes
+		(and their variants).
+	<li> <em>join</em> is a good way for a thread to wait for
+		others to finish (as in the above example). 
+	<li> Here's an extended example. In particular notice the use of the
+		"volatile" and "synchronized" declarations:
+<pre><code>
+	/**
+	 * Simple example of multiple threads and synchronization to find prime #s.
+	 */
+	import java.io.*;
+	import java.util.*;
+
+	class Primes {
+		private int nextCandidate = 3;
+		private ArrayList&lt;Integer> list = new ArrayList&lt;Integer>();
+
+		/**
+		 * Only one thread at a time should change "nextCandidate".
+		 */
+		private synchronized int getNextCandidate() {
+			int tmp = nextCandidate;
+			nextCandidate += 2;
+			return tmp;
+		}
+
+		/**
+		 * Only one thread at a time should change "list".
+		 */
+		private synchronized void keepPrime(int prime) {
+			list.add(prime);
+		}
+
+		/**
+		 * Describes what each thread will do.
+		 */
+		private class Worker implements Runnable {
+			private Primes shared = null;
+
+			// If not declared as "volatile" it could be cached and the
+			// Worker wouldn't see the changed value enabling it to stop.
+			public volatile boolean stop = false;
+
+			public Worker(Primes instance) {
+				shared = instance;
+			}
+
+			public void run() {
+				while (!stop) {
+					int candidate = shared.getNextCandidate();
+					boolean isPrime = true;
+					for (int i = 3; i*i <= candidate; i++) {
+						if (candidate % i == 0) {
+							isPrime = false;
+							break;
+						}
+					}
+					if (isPrime) {
+						shared.keepPrime(candidate);
+					}
+				}
+			}
+		} 
+
+		private void findPrimes(int numWorkers) {
+			ArrayList&lt;Worker> workers = new ArrayList&lt;Worker>();
+			ArrayList&lt;Thread> threads = new ArrayList&lt;Thread>();
+
+			// Setup worker threads and start them.
+			for (int i = 0; i < numWorkers; i++) {
+				Worker w = new Worker(this);
+				workers.add(w);
+				Thread t = new Thread(w);
+				threads.add(t);
+				t.start();
+			}
+
+			// Let the threads work for 1 second.
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException ex) {}
+
+			// Stop the threads and wait for them to finish.
+			for (Worker w : workers) w.stop = true;
+			for (Thread t : threads) try {
+				t.join();
+			} catch (InterruptedException ex) {}
+
+			// Print primes found.
+			for (Integer prime : list) System.out.println(prime);
+		}
+
+		public static void main(String args[]) {
+			Primes p = new Primes();
+			int numWorkers = 1;
+
+			if (args.length > 0) numWorkers = Integer.parseInt(args[0]);
+
+			p.findPrimes(numWorkers);
+		}
+	}
+</code></pre>
+	</ol>
+<li> Concurrent Garbage Collection allows garbage collection processing
+	to proceed while the desired computations are progressing, thus
+	reducing the number and length of pauses that might occur as
+	available heap memory is low (requiring more storage to be
+	reclaimed before other computations can continue).
+<li> The original Java Memory Model was preceived as complex and
+	confusing, while preventing some runtime optimizations. It
+	was revised in 2004 for Java 5 (the textbook discusses
+	the original memory model). The model describes how Java
+	threads interact via the shared heap memory.  Here are some
+	key aspects of the Java Memory Model:
+	<ol>
+	<li> The heap is shared by all threads.
+	<li> If there is only one thread, then the semantics are that
+		the execution should behave as if all the actions
+		were performed serially (even if in reality they may
+		not be).
+	<li> Each thread has its own memory cache so that when it gets
+		the value of a variable, it may not be the latest value
+		from the shared memory.
+	<li> Entering a synchronized method/block forces the thread
+		to refresh its data with values from (shared) memory.
+	<li> Exiting the synchronized method/block causes cached data
+		to be written (flushed) back to (shared) memory.
+	<li> Writes to a <em>volatile</em> variable complete before a
+		subsequent <em>volatile</em> read on the same variable.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_68.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

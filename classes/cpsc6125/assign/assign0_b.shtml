@@ -1,0 +1,114 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>CPSC 6125: Assignment #0</strong>
+</p>
+
+<hr>
+
+<p>
+You are to write a C program (use the file name "stats.c") that reads in a
+list of numbers (from the standard input, stdio). The program determines and
+reports the smallest and largest values in the set of numbers, mean (average),
+median (middle value, choosing the lower of the two middle values if an even
+number of values is given), and the number of values above and at or below
+the mean (average). If command line arguments are given, the first command
+line argument is taken as the lower bound cutoff, with any values strictly
+less than that value being ignored (i.e., as if they had not appeared in the
+input).  Similarly, if a second command line argument is given, it is the
+upper bound cutoff, with any values strictly greater than that value being
+ignored.
+</p>
+
+<p>
+The set of input values can be positive, negative, or zero, and may be either
+integer or real numbers. Values may be given one or more per line of input,
+and there could be blank lines in the input. The program should report its
+results to standard output (i.e., stdout).
+A sample output might look like:
+<pre>
+# of values: 33
+Smallest: 79
+Largest: 93
+Mean: 86.5
+Median: 88
+# of values above the mean: 20
+# of values at or below the mean: 13
+</pre>
+The format of your output should mimic the style of the above sample output as
+much as possible.
+In order to receive full credit, your solution must:
+<ol>
+<li> use a dynamically allocated linked list that you build using "struct",
+<li> declare, implement, and use at least two functions in addition to "main",
+<li> at least one of these declared functions should have a formal parameter,
+	and
+<li> at least one of these declared functions should return a non-void type,
+</ol>
+</p>
+
+<p>
+Your program should take the input from standard input (e.g., keyboard and/or
+shell input redirection). Likewise, output should be written to standard
+output (e.g., screen) that can be redirected to a file using the shell if
+desired.
+</p>
+
+<p>
+You are responsible for creating your own test data. It's a good idea to
+create your test cases first, building upon your test data, as this will
+help you with your development. Be sure to include a variety of "corner cases"
+to ensure that your program doesn't work for only "normal" data.
+Test driven development (TDD) is a good practice that you should cultivate.
+</p>
+
+<p>
+As always, be sure to use good indentation, descriptive constant, variable,
+type, function, procedure, and class names.  Use named constants when
+appropriate.  Also use good commenting style, remembering that the first
+thing in any program file should be a comment that gives a brief overview
+of what the file contains (and should do).  You might find these
+<a href="../../common/comment-guide.shtml">commenting guidelines</a> helpful.
+</p>
+
+<p>
+Finally, please only submit your source code file(s) for the assignment
+(e.g., stats.c). In particular, do <em>not</em> submit zip, jar, tar, or
+other collections/archives.
+</p>
+
+<p>
+<strong>Good luck!</strong>
+</p>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

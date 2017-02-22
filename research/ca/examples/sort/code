@@ -1,0 +1,35 @@
+# This program demonstrates a  parallel bubble sort.
+
+1 dimensions of 
+	const which of 0..1
+	value of 0..255
+end
+
+# Determine which is the other cell with which comparisons (and swapping)
+# will be done.
+#
+if time%2 then
+	other := [-1] when cell.which
+	      := [1] otherwise
+else
+	other := [1] when cell.which
+	      := [-1] otherwise
+end
+
+# Don't sort past the stop mark, which is represented by a 0 value.
+#
+if cell.value & other.value then
+	# Swap the cells in a "bubble" when appropriate.
+	#
+	if time%2 then
+		cell.value := other.value 
+				when other.value < cell.value & !cell.which
+		           := other.value 
+				when cell.value < other.value & cell.which
+	else
+		cell.value := other.value 
+				when other.value < cell.value & cell.which
+		           := other.value 
+				when cell.value < other.value & !cell.which
+	end
+end

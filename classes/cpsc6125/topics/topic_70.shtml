@@ -1,0 +1,131 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Efficient Virtualization
+</p>
+
+<ol>
+<li> Consider the following hierarchy for a type 1 hypervisor:
+<img style="float: right" src="/eckart/classes/cpsc3125/topics/content/HypervisorExecutionModes.png" width="500" height="178" alt="Real vs Virtual User and Kernel Modes" />
+	<ol>
+	<li> User process - running in <em>virtual user mode</em> within the
+		VM, but in user mode within the hypervisor.
+	<li> Guest OS - running in <em>virtual kernel mode</em> within the
+		VM, but in user mode within the hypervisor.
+	<li> Virtual machine (VM) - running in user mode within the hypervisor.
+	<li> Hypervisor (type 1) - running in kernel mode.
+	<li> Physical hardware
+	</ol>
+<li> If the VM receives a request to execute an instruction that is only
+	allowed in kernel mode on the CPU (a sensitive instruction), then:
+	<ol>
+	<li> If the CPU does NOT support virtualization technology (VT), then
+		the instruction fails and the calling process (guest OS)
+		crashes.
+	<li> If VT is supported by the CPU, then the instruction will also be
+		privileged, thus causing a trap to the hypervisor. The
+		hypervisor then examines the instruction to determine the
+		type of issuing program:
+		<ol>
+		<li> Guest OS - the instruction is carried out by the
+			hypervisor on behalf of the guest OS. The instruction
+			must be performed by the hypervisor since it is the
+			only program running in "real" (not virtual) kernel
+			mode.
+		<li> User Process - the hypervisor emulates what the hardware
+			would do if the sensitive (and priveleged) instruction
+			was executed on the hardware in user mode.
+		</ol>
+	</ol>
+<li> Type 1 hypervisors existed on the x86 architecture before VT was
+	introduced in 2005. As indicated previously, to do this the hypervisor
+	used binary translation to rewrite those parts of the guest OS that
+	used priviledged instructions.
+	<ol>
+	<li> The x86 architecture had 4 rings of protected execution modes:
+		Ring 0 was the most priviledged, and Ring 3 the least.
+	<li> The hypervisor ran in Ring 0 (so it could run any instruction).
+	<li> The guest OS ran in Ring 1 (so it is more priviledged than user
+		processes so that if a user process attempts to access the
+		guest OS kernel memory, an access violation occurs).
+	<li> And User processes an in Ring 3.
+	<li> Code in the guest OS is rewritten a <em>basic block</em> at a
+		time. Basic blocks are straight-line code which end with a
+		branch (e.g., JMP) instruction. [All programs can be
+		(mathematically) partitioned into a set of basic blocks. Why?]
+	<li> The hypervisor examines each basic block and <strong>if</strong>
+		it contains any
+		sensitive instructions, replaces them with calls to the
+		corresponding hypervisor routines. The branch instruction is
+		also replaced with a call into the hypervisor (so that it
+		can examine and rewrite the next basic block).
+	<li> Any translated code is remembered (cached) so that it need not be
+		redone.
+	<li> Most executed instructions are not sensitive, so most basic
+		blocks can be executed as is with no binary translation. 
+		Furthemore, sensitive instructions in user programs are not
+		translated since they run in Ring 3 and will not be executed
+		anyway.
+	<li> The process of binary translation is essentially identical to
+		that of just-in-time (JIT) compilation used by many Java
+		Virtual Machines (JVMs).
+	</ol>
+<li> Type 2 hypervisors use the same basic techniques as type 1 hypervisors on 
+	both pre and post VT architectures.
+	<ol>
+	<li> Unlike for type 1 hypervisors, the guest OS running in a VM of a
+		type 2 hypervisor <strong>must not</strong> be aware of the
+		host OS that is also running.
+	<li> Most type 2 hypervisors include kernel module in Ring 0 that
+		manipulates the hardware via priviledged instructions to hide
+		the host OS from the guest OS (e.g., remapping elements of the
+		address space). Changing the hardware view in this way is
+		called a <em>world switch</em>, and requires the hardware view
+		be restored after the guest OS priviledged instruction(s) are
+		done. [The world switch is similar in concept to a context
+		switch for (non-virtualized) processes.]
+	</ol>
+<li> The trap-and-emulate capabilities provided by modern VT hardware
+	architectures can be costly because a lot of traps can get
+	generated, and traps are expensive (mostly by replacing or crowding 
+	out needed items in CPU memory caches, TLBs, etc). As a result,
+	binary translation (software) can sometimes lead to better long-term
+	performance (after most basic blocks have been seen and translated)
+	than that provided by the VT hardware solution.
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_70.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,102 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Prolog Basics
+</p>
+
+<ol>
+<li> <em>Pro</em>gramming in <em>Log</em>ic
+<li> Essentially a theorem prover that uses substitution (unification) to enumerate solutions
+<li> Basic Language Elements:
+	<ol>
+	<li> Comments: start with '%' and extend to EOL
+	<li> Base value types: atoms (lower case start or in single quotes), numbers, strings (double quotes), fail (predefine).
+	<li> Value type testing: atom(X), integer(X), real(X), string(X)
+	<li> Lists: [] (empty), [A, B, ..., N | Z] (matching with list tail)
+	<li> Math: +, -, *, / (float), // (quotient), rem
+	<li> Numeric Comparison: =:=, =\=, <, >, >=, =<
+	<li> Calculation: is
+	<li> Matching: =, \=
+	<li> Facts: names begin with lowerCase, end with "."
+<pre>
+	importantDate([1776, 7, 4], "US Independence").
+</pre>
+	<li> Logical And: ","
+	<li> Logical Or: alternate rule, ";"
+	<li> Logical Not: not(...)
+	<li> Variables/Parameters: begin with an UpperCase letter, "_" is an anonymous variable/parameter.
+	<li> Rules (or Clauses): predicate names begin with lowerCase, ":-" separates the head and the body, and it all ends with a "." (period).
+<pre>
+	bigEvent([Year, Month, Day | Time], Event) :-
+		(importantDate([Year | _], Event);
+			importantDate([_, _, Day | _], Event)),
+		write(Event).
+</pre>
+	<li> Predicates: set of facts and rules with the same name.
+	<li> Matching/Instantiation: =
+		<ol>
+		<li> Two terms match if:
+			<ol>
+			<li> They are the same atom.
+			<li> They are the same number.
+			<li> One or both are uninstantiated variables.
+			<li> Both are lists and the corresponding lists elements match (using compatible variable instantiations).
+			<li> Both are predicates with the same functor (predicate name), the same airity, and each of their corresponding arguments match (using compatible variable instantiations).
+			</ol>
+		<li> NOTE:
+			<ol>
+			<li> Matching is purely structural.
+			<li> "X is 1 + 2." yields "X = 3."
+			<li> "X = 1 + 2." yields "X = 1+2."
+			</ol>
+		</ol>
+	<li> Output: write, nl
+	<li> Others: ! (cut), not(X), \+ <operation> (not provable at this point in the computation - which is quite different from "not")
+	<li> Unification (and ';' for alternate solutions), backtracking and matching order.
+	<li> <em>trace</em> and <em>notrace</em>
+	</ol>
+<li> The name <strong>and</strong> airity of a predicate distinguish it from other predicates. Thus something defined as "p(X, Y) :- ..." (airity 2, called p/2) is different from "p(A, B, C) :- ..." (airity 3, called p/3).
+<li> There is no distinction between "input" and "output" parameters in Prolog. Thus unification can be used to test conditions as well as derive answers - depending upon the query issued (e.g., all parameters specified is a test, some parameters unbound causes a derivation).
+<li> Additional Resources:
+	<ol>
+	<li> <a href="http://www.learnprolognow.org/lpnpage.php?pageid=online">Learn Prolog Now!</a>
+	<li> <a href="http://classes.soe.ucsc.edu/cmps112/Spring03/languages/prolog/PrologIntro.pdf">Prolog: A Tutorial Introduction</a>
+	<li> <a href="http://www.amzi.com/AdventureInProlog/">Adventure In Prolog</a>
+	<li> <a href="http://homepages.inf.ed.ac.uk/pbrna/prologbook">Prolog Programming: A First Course</a>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_11.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,93 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- IPC: The Readers and Writers Problem
+</p>
+
+<ol>
+<li> <a href="https://en.wikipedia.org/wiki/Readers%E2%80%93writers_problem">The Readers and Writers Problem</a>
+<li> Data can usually be read by any number of processes, but
+	writing data should be done exclusively (no readers or
+	other writers). If readers read while writers wrote, then
+	a reader could get partially written data (e.g., if the
+	writer was changing a date, then the reader might get the
+	old day and month but the new year - reading a value that
+	might never have been "stored" in the database).
+<li> Use a mutex semaphore to protect a reader count variable,
+	and a semaphore to control access to the database.  The
+	first reader does a down(s(database)), while others don't.
+	Writers must do a down(s(database)) to write.
+<li> The solution on page 171 gives readers priority (i.e. a
+	steady stream of readers can prevent a writer from ever
+	getting to write).
+<pre><code>
+	int rc_mutex = 1;
+	int db_mutex = 1;
+	int readerCount = 0;
+
+	void reader() {
+		while (1) {
+			down(&rc_mutex);
+			if (1 == ++readerCount) down(&db_mutex);	// 1st reader grabs the database
+			up(&rc_mutex);
+
+			readDatabase();
+
+			down(&rc_mutex);
+			if (0 == --readerCount) up(&db_mutex);		// Last reader frees the database
+			up(&rc_mutex);
+		}
+	}
+
+	void writer() {
+		while (1) {
+			acquireData();
+
+			down(&db_mutex);
+			writeDatabase();
+			up(&db_mutex);
+		}
+	}
+</code></pre>
+<li> The above solution gives preference to readers. As long as there
+	are readers, the writer will be blocked. Furthermore, since
+	readers continue to be added even if there is a waiting writer,
+	the writer can be starved.
+<li> <a href="http://www.doc.ic.ac.uk/~jnm/book/book_applets/ReadersWriters.html">Java Applet</a> animation.
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_20.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

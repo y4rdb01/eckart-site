@@ -1,0 +1,67 @@
+<li> Java processing threads can be created by
+	<ol class="answer_list">
+	<li> Extending the "Thread" class and overriding the "run" method.
+	<li> Calling the "start" method defined by the "Object" class.
+	<li> Calling the "fork" method defined by the "Object" class.
+	<li> Implementing the "Runnable" interface and its "run" method.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Thread pools are beneficial in that they
+	<ol class="answer_list">
+	<li> Providing additional multiprocessing resources to the JVM.
+	<li> Reuse existing threads, reducing the overhead of thread
+		creation and cleanup.
+	<li> Enable a more consistent level of system performance by
+		limiting the number of active threads.
+	<li> Automatically provide support for mutual exclusion.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Communication between Java threads in the same JVM is typically
+	accomplished using
+	<ol class="answer_list">
+	<li> The Message Passing Interface (MPI)
+	<li> Semaphores
+	<li> Spin locks
+	<li> Shared objects (i.e., memory)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java's "synchronized" methods and code blocks implement mutual exclusion
+	via
+	<ol class="answer_list">
+	<li> Spin locks
+	<li> Semaphores
+	<li> Monitors
+	<li> Message Passing
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, garbage collection is performed as a(n)
+	<ol class="answer_list">
+	<li> Exception handler for the "OutOfMemoryError" exception.
+	<li> Programmer initiated action only.
+	<li> Time scheduled event, occurring exactly every 5 minutes.
+	<li> Separate concurrent processing thread.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the Java Memory Model
+	<ol class="answer_list">
+	<li> A single heap is shared by <strong>all</strong> threads.
+	<li> A single run-time stack is shared by <strong>all</strong> threads.
+	<li> Each thread has its own memory cache.
+	<li> Each thread has its own garbage collector.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Write a Java class definition/implementation (called "Shared") that
+	hides within it a single "Integer" attribute, prevents threads from
+	storing the attribute value in their local cache, and provides 
+	generally visible methods "getValue" and "setValue" that get and
+	set the value of the hidden "Integer" variable respectively - but
+	that only allow a single thread access (either read or write) to
+	the "Integer" variable at a time. You may use additional (hidden)
+	methods in your solution.
+</li><br/>

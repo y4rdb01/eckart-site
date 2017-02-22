@@ -1,0 +1,258 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Cryptographic Basics
+</p>
+
+<ol>
+<li> Terminology and Concepts:
+	<ol>
+	<li> <em>Plaintext</em> is the original text (or data) that was
+		meant to be directly consumed (e.g., either by a human or
+		a computer program).
+	<li> <em>Ciphertext</em> is the encrypted form of the plaintext
+		created by use of encryption software and a <em>key</em>.
+	<li> The <em>strength</em> of an encryption method refers to the
+		computational effort needed to convert the <em>ciphertext</em>
+		back into its original <em>plaintext</em> when the <em>key</em>
+		is not known.
+	<li> <em>Security by obscurity</em> relies on the secrecy of the
+		encryption process (i.e., the algorithm) rather than just
+		the <em>key</em> in order to prevent 3rd parties from
+		discovering the <em>plaintext</em> message.
+	<li> <em>Kerckhoffs' principle</em> states that encryption algorithms
+		should be public, so that the <em>key</em> is the sole
+		means for ensuring secrecy.
+	<li> The process of encryption and decryption:
+		<br/>
+		<a href="http://www.empress.com/marketing/encryption/EmpressSecurityWhitePaper.v11.htm"><img src="/eckart/classes/cpsc3125/topics/content/EncryptDecrypt.gif" alt="Relationships between plaintext, ciphertext, encryption, decryption, and keys" width="498" height="350" /></a>
+	<li> <a href="https://en.wikipedia.org/wiki/Alice_and_Bob">Alice, Bob, and others</a>
+		<ol>
+		<li> Alice is the sender of a secret (encrypted) message.
+		<li> Bob is the receiver of secret messages.
+		<li> Mallory is a man-in-the-middle attacker.
+		</ol>
+	</ol>
+<li> Symmetric (Secret) Key Cryptography
+	<ol>
+	<li> The encryption key is the same as the decryption key.
+	<li> Requires the secure exchange of the single key between the
+		parties (Alice and Bob) wishing to communicate.
+	<li> The secure exchange of the secret key can be problematic if
+		it is difficult for the parties to privately meet (e.g.,
+		physically distance from one another, one or more of the
+		parties are under government surveillence).
+	<li> The advantage of symmetric key cryptography is that the
+		algorithms are generally quite fast, and can handle large
+		quantities of information efficiently.
+	<li> NIST recommends both
+		<a href="https://en.wikipedia.org/wiki/Triple_DES">Triple DES</a> (TDES)
+		and the <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">Advanced Encryption Standard</a> (AES).
+		<ol>
+		<li> While TDES is widely used for electronic payments, it is
+			weaker than AES.
+		<li> TDES has a maximum key length of 168 bits, but due to
+			algorithmic weaknesses, the effective key size is 
+			only 112 bits.
+		<li> AES has a maximum effective key size of 256 bits, the
+			minimum amount many exports consider necessary to
+			ensure confidentiality. In 2003 the US Government
+			approved AES-256 for protection of classified
+			(including TOP SECRET) documents.
+		</ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Twofish">Twofish</a>
+		supports 256 bit keys. There are no published
+		full cryptanalytic attacks of Twofish.
+	</ol>
+<li> Asymmetric (Public / Private) Key Cryptography
+	<ol>
+	<li> The encryption key is different from the decryption key, but
+		they are related mathematically (e.g., RSA via prime number
+		factoring, ECC by the algebraic structure of
+		<a href="https://en.wikipedia.org/wiki/Elliptic_curve">elliptic
+		curves</a>).
+	<li> Does not require the secrect exchange of keys. For Bob to recieve
+		confidential messages from Alice:
+		<ol>
+		<li> Bob creates a public-private key pair.
+		<li> Bob publishes his public key to the world.
+		<li> Alice uses Bob's public key to encrypt her message.
+		<li> Alice sends the encrypted message to Bob.
+		<li> Bob receives the encrypted message from Alice.
+		<li> Bob decrypts the message using his private key (and no
+			one else can decrypt the message - not even Alice -
+			if Bob keep his private key private).
+		<li> Bob reads the message.
+		</ol>
+	<li> For two-way communication, both Alice and Bob must create
+		public-private key pairs (publishing their public keys).
+	<li> The algorithms developed thus far (e.g., RSA, ECC) are
+		computationally expensive and thus not normally used to
+		encrypt large amounts of data.
+	<li> Asymmetric cryptography is most often used to exchange a
+		symmetric key between individuals that cannot otherwise
+		securely exchange a single key. Both the
+		<a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">Pretty Good Privacy</a> (PGP)
+		and
+		<a href="https://en.wikipedia.org/wiki/GNU_Privacy_Guard">GNU Privacy Guard</a> (GPG).
+		systems use this technique.
+	</ol>
+<li> One-Way (Hash) Functions
+	<ol>
+	<li> For encryption, it's important that the process be reversible
+		(i.e., invertible).
+		That is, that given a ciphertext (and the correct key) the
+		original plaintext can be recovered.
+	<li> Cryptographic hash functions map text into a (generally fixed
+		size) result, and are not reversible. The hash function
+		results are called <em>hash values</em>
+		(or <em>message digests</em>).
+	<li> It's important that it be VERY difficult to find different
+		plaintext messages that yield the same hash value! When two
+		or more plaintext messages have the same hash value it's
+		called a <em>hash collision</em>.
+	<li> While non-reversibility sounds like a weakness, it can actually
+		be an advantage in some circumstances. For example, rather than
+		keeping the plaintext version of passwords, it's much better
+		to keep the hash value instead (and is why these systems can't
+		tell you what your password is when you forget it).
+	<li> One-way functions don't normally utilize a key, though they
+		sometimes incorporate a "salt" value to prevent dictionary
+		attacks.
+	<li> <a href="https://en.wikipedia.org/wiki/SHA-2">SHA256</a> and
+		<a href="https://en.wikipedia.org/wiki/SHA-2">SHA512</a>
+		<a href="https://en.wikipedia.org/wiki/Hash_function_security_summary">offer the most security</a>
+		and are recommended by the NIST.
+	</ol>
+<li> Digital Signatures
+	<ol>
+	<li> Provide non-repudiation, ensuring that the signer of a document			is unable to legitimately deny later on that they did (e.g.,
+		claiming that the signature was a forgery).
+	<li> The common way for Alice to sign a document is: 
+		<ol>
+		<li> Alice uses a One-way function (e.g., SHA512) to create
+			a message digest of the document.
+		<li> Alice then uses her private key to encrypt the document's
+			message digest.
+		<li> The encrypted message digest is Alice's signature. This
+			<em>signature block</em> is then appended to the
+			document.
+		<li> Anyone else can determine whether or not Alice signed
+			the document by decrypting her signature using Alice's
+			published public key, and then comparing the decrypted
+			message digest with an independently generated
+			message digest for the document.
+			<ol>
+			<li> If the digests match then Alice signed this
+				document and this is her signature.
+			<li> Otherwise, if the digests are different,
+				then this signature
+				isn't for this document. It could be an attempt
+				to forge a signature or it could be Alice's
+				signature on a different document.
+			<li> It is important to keep signatures associated
+				with the corresponding document. If they become
+				separated, the signature alone cannot help in
+				finding the document it corresponds to.
+			</ol>
+		<li> NOTE: The above uses public-key cryptography in reverse.
+			Previously the private-key decrypted ciphertext
+			generated using the public-key. Here, the opposite is
+			being done. Fortunately, RSA has this property.
+		</ol>
+	</ol>
+<li> Key Distribution
+	<ol>
+	<li> Bob can publish his public-key(s) on his web site (though
+		Mallory might find a way to replace it with his own, enabling
+		a man-in-the-middle attack, unbeknownst to Bob).
+	<li> Bob can have his public-key signed by a trusted third part, a
+		<em>Certificate Authority</em> (CA), that can be used to
+		ensure the integrity of Bob's published public-key (even if
+		it is on his web site - unless Mallory is able to sign his
+		own public-key with the CA, claiming to be Bob).
+	<li> <a href="https://en.wikipedia.org/wiki/Quantum_key_distribution">Quantum key distribution</a>
+		uses quantum mechanics to enable two parties to dynamically
+		generate a shared random symmetric key. Man-in-the-middle
+		attacks are thwarted because measurement (necessary for such
+		an attack) changes the state of the quantum system (quantum
+		entanglement of particle pairs are used). Thus Bob and Alice
+		can determine whether or not Mallory is attempting to listen
+		in.
+	</ol>
+<li> Key Storage
+	<ol>
+	<li> If either a private key or a symmetric key is shared beyond those
+		authorized to have it, then all encrypted and signed
+		documents are at risk (i.e., losing confidentiality and/or
+		integrity).
+	<li> Several companies provide products for secure key storage.
+		<a href="https://en.wikipedia.org/wiki/IBM_4764">IBM's
+		cryptographic products</a>, for example, use a
+		<a href="https://en.wikipedia.org/wiki/Hardware_security_module">Hardware Security Module</a> (HSM)
+		to render the keys unusable upon detection of tampering
+		(including physical access). 
+	<li> <a href="https://en.wikipedia.org/wiki/Trusted_Platform_Module">Trusted Platform Modules</a>
+		(TPMs) provide secure hardware to
+		both ensure the confidentiality of keys and to provide a
+		fast means for using those keys. If the TPM didn't run the
+		cryptographic algorithms itself, then the keys would have to
+		be copied to main memory (at which point ensuring their
+		confidentiality is more difficult). 
+	<li> If fully integrated into the hardware and OS, TPMs can be used to:
+		<ol>
+		<li> Securely encrypt the HDD or SSD. Microsoft has resisted
+			requests to create a backdoor for it's
+			<a href="https://en.wikipedia.org/wiki/BitLocker#Security_concerns">BitLocker</a>
+			system, but that doesn't guarantee that other
+			weaknesses don't exist (e.g., printed hardcopies of
+			the keys).
+		<li> Prevent the installation of any unauthorized
+			(e.g., unsigned) software. This is a concern among
+			some in the free software movement.
+		<li> Provide <em>remote attestation</em> to verify that this
+			machine is currently authorized to run a particular
+			software (or play specific media). If digital
+			rights management (DRM) is tied to specific hardware,
+			then conceivably purchase of books, music, and movies
+			could be made device specific - making them
+			non-transferable and non-portable.
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_55.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,110 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Hypervisors
+</p>
+
+<ol>
+<li> Type 1 Hypervisor
+<a href="https://en.wikipedia.org/wiki/Hypervisor"><img style="float: right" src="/eckart/classes/cpsc3125/topics/content/HypervisorTypes.png" width="402" height="251" img="Types of Hypervisors"/></a>
+	<ol>
+	<li> Runs directly on the physical hardware.
+	<li> Provides "copies" of the physical hardware (virtual machines)
+		each of which can run an OS.
+	<li> By having to support complete copies of the hardware, a type 1
+		hypervisor must also provide (at least for itself) many OS
+		services (e.g., rudimentary file system, process scheduling).
+	<li> More of the CPU cycles are used for running the VMs, their
+		corresponding OS, and associated user processes than is the
+		case for a type 2 hypervisor since there's one less layer of
+		implemented abstraction (making it more efficient).
+	</ol>
+<li> Type 2 Hypervisor
+	<ol>
+	<li> Runs within another OS (the <em>host operating system</em>) which
+		may or may not be running directly on the physical hardware.
+	<li> Also known as a <em>hosted hypervisor</em> since it runs on a
+		host operating system.
+	<li> Relies on the underlying OS (in which the hypervisor is running)
+		to help provide some services (e.g., allocate and schedule
+		resources, file systems).
+	<li> Because a type 2 hypervisor runs within an OS, its implementation
+		can be simpler than that of a type 1 hypervisor since the
+		host OS provides a file system, scheduleing, and other
+		services upon which it can build.
+	<li> Is less efficient than a type 1 hypervisor since there is an
+		extra implementation layer (the host OS) providing the
+		abstraction on which the hypervisor runs.
+	</ol>
+<li> Both types of hypervisors must execute the instructions on their
+	virtual machines in a <em>safe</em> manner.
+<li> The OS running in a virtual machine is called a <em>guest operating
+	system</em>.
+<li> Try installing and running a type 2 hypervisor:
+	<ol>
+	<li> Download a free ".iso" (disk image) file for
+		<a href="http://www.ubuntu.com/download/desktop">Ubuntu
+		Desktop</a> to install on the virtual machine you'll create.
+	<li> Microsoft's Hyper-V
+		<ol>
+		<li> Professional and Enterprise Editions of Windows 8, 8.1,
+			and 10 support Hyper-V on VT architectures.
+		<li> Use <a href="http://www.howtogeek.com/196158/how-to-create-and-run-virtual-machines-with-hyper-v/">these instructions</a>
+			to install and run Hyper-V.
+		</ol>
+	<li> VMware Workstation Pro
+		<ol>
+		<li> Works on both Windows and Linux host operating systems.
+		<li> Downlaod a trail copy of <a href="http://www.vmware.com/products/workstation/workstation-evaluation.html">VMware Workstation Pro</a>.
+		<li> Use <a href="http://www.wikihow.com/Use-VMware-Workstation">these
+			instructions</a> to install and run VMware Workstation.
+		</ol>
+	<li> VirtualBox
+		<ol>
+		<li> Runs on a wider variety of operating systems, in case
+			you don't have access to Windows (for Hyper-V) or you
+			have an older version of Windows.
+		<li> Download and install the
+			<a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox software</a>.
+		<li> You might want to check out this
+			<a href="https://theintercept.com/2015/09/16/getting-hacked-doesnt-bad/">detailed tutorial</a>
+			to help you get started.
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+		<a href="/eckart/classes/cpsc3125/questions/questions_69.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

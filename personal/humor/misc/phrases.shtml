@@ -1,0 +1,573 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+
+<table width="100%">
+<tr>
+<td valign="top" width="100">
+<table>
+
+<tr><td align="left">
+<strong>Seuss<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../../dr.seuss/bitsNbytes.shtml">Bits in Bytes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/grinch.coder.shtml">Grinch OO Coder</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/lunch.shtml">Lunch</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seusstrek.shtml">Star Trek</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seussbible.shtml">The Bible</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/inferno.shtml">Dante's Inferno</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/purity.shtml">Purity Test</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/trial.shtml">O.J. Trial</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/greeneggs.shtml">Green Eggs and Pork</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/compTech.shtml">Computer Manual</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/USville.shtml">USville</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/wedding.shtml">Wedding</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/404.shtml">404</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Beatles.shtml">Beatles</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/bobbit.shtml">Bobbit</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/clinton.shtml">Clinton</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/favorite_things.shtml">Favorite Things</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ham_xmas.shtml">Ham Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ICBM_pizza.shtml">ICBM Pizza</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/net_is_slow.shtml">Net Is Slow</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/pc_xmas.shtml">PC Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Poe.shtml">Poe</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/prayer.shtml">Prayer</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/queen.shtml">Queen</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/sermon.shtml">Sermon</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song.shtml">Song</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song_tests.shtml">Song Tests</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/thermo.shtml">Thermo</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/twas.shtml">Twas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unified.shtml">Unified</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unix_abc.shtml">Unix abc</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/warnings.shtml">Warnings</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/xmas.shtml">Santa's Unix Listing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/y2k_pie.shtml">Millenium Pie</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/microsoft.shtml">M$ TV Dinners</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Humor</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/1-liners.shtml">One Liners</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/admin.shtml">Administratium</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/bad_spec.shtml">Bad spec</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/daemon-OS.shtml">daemon OS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/days-off.shtml">Days off</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dead_horse.shtml">Dead horse</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dosfish.shtml">Dosfish</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/FAA.shtml">FAA report</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/GM-helpline.shtml">GM helpline</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grandpa.shtml">Family tree</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grounding.shtml">Strapping</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/H2O.shtml">H2O</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/haiku.shtml">Haiku</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/harvard.shtml">Harvard</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/job.shtml">Job</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/koans.shtml">Koans</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/loan.shtml">Loan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/memos.shtml">Memos</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/money.shtml">Money</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/moron.shtml">Moron</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/MS.shtml">MS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/wirth.shtml">Niklaus Wirth</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/accidents.shtml">Accidents</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/navy.shtml">Navy</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/phrases.shtml">Phrases</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/plan.shtml">Plan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/stench.shtml">The Project</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/study.shtml">Anything</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/SysAdmin.shtml">SysAdmin Woes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/thesis.shtml">Thesis</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/quantumPhysics.shtml">Quantum Physics</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/monk.shtml">Monk</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/proofByInduction.shtml">Proof by Induction</a>
+</td></tr>
+
+</table>
+</td>
+
+<td valign="top">
+
+<blockquote>
+
+
+<strong>A Guide to Effective Scientific Communication</strong><br/>
+
+<table>
+<tr>
+	<th>Phrase</th>
+	<th>Translation</th>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">It has long been known</td>
+
+	<td valign="top">I haven't bothered to look up the reference</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">It is believed</td>
+	<td valign="top">I think</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">It is generally believed</td>
+	<td valign="top">A couple of guys think so too</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">It is not unreasonable to assume</td>
+	<td valign="top">If you believe this, you'll believe anything</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">Of great theoretical importance</td>
+	<td valign="top">I find it kind of interesting</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">Of great practical importance</td>
+	<td valign="top">I can get some mileage out of it</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">Typical results are shown</td>
+	<td valign="top">The best results are shown</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">3 samples were choosen for further study</td>
+	<td valign="top">The others didn't make sense, so we ignored them</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">The 4 hour sample was not studied</td>
+	<td valign="top">I dropped it on the floor</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">The 4 hour determination may not be significant</td>
+	<td valign="top">I dropped it on the floor, but scooped most of it up</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">The significance of these results is unclear</td>
+	<td valign="top">Look at the pretty artifact is unclear</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">It has not been possible to provide definitive answers</td>
+	<td valign="top">The experiment was negative, but at least I can publish the data somewhere</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">Correct within an order of magnitude</td>
+	<td valign="top">Wrong</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">It might be argued that</td>
+	<td valign="top">I have such a good answer for this objection that I shall now raise it</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">Much additional work will be required</td>
+	<td valign="top">This paper is not very good, but neither is that of anyone else</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">These investigations proved highly rewarding</td>
+	<td valign="top">My grant is going to be renewed</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">It has long been known that...</td>
+	<td valign="top">I haven't bothered to look up the original reference</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">...of great theoretical and practical importance</td>
+	<td valign="top">...interesting to me</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">While it has not been possible to
+		provide definite answers to these questions.</td>
+        <td valign="top">The experiments didn't work
+               out, but I figured I could at 
+		least get a publication out of it.</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">The W-Pb system was chosen as
+		especially suitable to show the predicted behavior...</td>
+	<td valign="top">The fellow in the next lab had some already made up</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">High purity...<br/>
+		Very high purity...<br/>
+		Extremely high purity...<br/>
+		Super-purity...<br/>
+		Spectroscopically pure...</td>
+        <td valign="top">Composition unknown except for the exaggerated claims of the supplier</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">A fiducial reference line...</td>
+	<td valign="top">A scratch</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">Three of the samples were chosen for detailed study...</td>
+	<td valign="top">The results of the others didn't make sense and were ignored...</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">...handled with extreme care during the experiments</td>
+	<td valign="top">...not dropped on the floor</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">Typical results are shown...</td>
+	<td valign="top">The best results are shown...</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">Although some detail has been lost
+		in reproduction, it is clear from the
+		original micrograph that...</td>
+        <td valign="top">It is impossible to tell from the micrograph</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">Presumably at longer times...</td>
+	<td valign="top">I didn't take the time to find out</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">The agreement with the predicted curve is excellent</td>
+	<td valign="top">fair</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">good</td>
+	<td valign="top">poor</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">satisfactory</td>
+	<td valign="top">doubtful</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">fair</td>
+	<td valign="top">imaginary</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+
+	<td valign="top">...as good as could be expected</td>
+	<td valign="top">non-existent</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">These results will be reported at a later date</td>
+	<td valign="top">I might get around to this sometime</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">The most reliable values are those of Jones</td>
+	<td valign="top">He was a student of mine</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">It is suggested that...<br/>
+		It is believed that...<br/>
+		It may be that...</td>
+	<td valign="top">I think...</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">It is generally believed that....</td>
+	<td valign="top">I have such a good objection to this answer that I shall now raise it.</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">It is clear that much additional
+		work will be required before a
+		complete understanding...</td>
+        <td valign="top">I don't understand it</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">Unfortunately, a quantitative theory
+		to account for these effects has not
+		been formulated</td>
+        <td valign="top">Neither does anybody else</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+
+	<td valign="top">Correct within an order of magnitude</td>
+	<td valign="top">Wrong</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">It is to be hoped that this work
+		will stimulate further work in the field</td>
+	<td valign="top">This paper isn't very good but neither are any of the others
+		on this miserable subject</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td valign="top">Thanks are due to Joe Glotz for
+		assistance with the experiments and             
+		to John Doe for valuable discussions.</td>
+	<td valign="top">Glotz did the work and Doe explained what it meant.</td>
+</tr>
+</table>
+
+</blockquote>
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+

@@ -1,0 +1,78 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Object-Oriented Design
+</p>
+
+<ol>
+<li> Object-Oriented Design: Top-down programming starts at the highest levels
+	of abstraction whereas bottom-up programming starts at the lower levels
+	of abstraction. Object-oriented languages better support the refinement
+	of data structures and associated actions together than do
+	procedure-oriented languages, because objects are a combination of
+	data and behavior.
+	<ol>
+	<li> Identify the objects at a given level of abstraction
+	<li> Detail the behavior of those objects
+	<li> Clarify the relationships between the objects
+	<li> Implement the objects
+	<li> Repeat steps 1-4 above for a new level of abstraction
+	</ol>
+<li> Program Structure
+	<ol>
+	<li> There are differences in the preferred design of programs between
+		those written in an Object-Oriented language and those written
+		in a Procedure-Oriented langauge.
+	<li> These differences are exhibited by the availability (and use) of
+		different design patterns. Whereas a procedure-oriented
+		solution may favor numerous case statements within sub-programs
+		to identify which class of data is to be operated on (and
+		thus which operations to use), the
+		<a href="https://en.wikipedia.org/wiki/Command_pattern">Command</a>
+		(or <a href="https://en.wikipedia.org/wiki/Observer_pattern">Observer</a>)
+		pattern may be a better choice in an object-oriented langauge.
+	<li> Object-Oriented Design Pattern books:
+		<ol>
+		<li> <a href="http://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/ref=sr_1_1?s=books&ie=UTF8&qid=1396460676&sr=1-1&keywords=design+patterns+gang+of+four">Design Patterns</a> is the defacto standard reference.
+		<li> <a href="https://docs.google.com/file/d/0B_6WIwPo1qCtSi1WdmZMYWNKcHc/edit?pli=1">The Design Patterns Java Companion</a> is an excellent
+			book with a Java specific treatment patterns.
+		<li> <a href="http://www.amazon.com/The-Design-Patterns-Smalltalk-Companion/dp/0201184621">The Design Patterns SmallTalk Companion</a>
+		<li> <a href="https://en.wikibooks.org/wiki/C%2B%2B_Programming/Code/Design_Patterns">C++ Programming/Code/Design Patterns</a>
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_47.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

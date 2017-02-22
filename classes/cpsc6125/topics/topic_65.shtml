@@ -1,0 +1,322 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Multicomputers (Software)
+</p>
+
+<ol>
+<li> Low-Level Communication
+	<ol>
+	<li> Copying data is what slows down communication. In the
+		best case (no store-and-forward occuring) there will
+		be 3 copies (source RAM -> source network interface ->
+		target interface -> target RAM), but there could be
+		5 copies if the data must be copied from user space
+		to kernel space (at the source) and back again (at the
+		target). Mapping the network interface to the user
+		process' address space keeps the number of copies to 3.
+	<li> Mapping the network interace to only one process can
+		prevent other processes from sending/receiving
+		messages. And using a system call to frequently
+		(re)map the interace between processes introduces more
+		overhead. Mapping the interface to ALL processes
+		solves part of the problem.
+	<li> With the network interface mapped to many processes, their
+		access to the shared network interface buffer must be
+		synchronized. However, if one process holds the
+		resource, it can starve out others. Furthermore, the
+		OS kernel might need access (e.g., for remote file
+		access), but the sharing of the same buffer between
+		the kernel and user processes could enable a user
+		process access to information intended for the kernel!
+	<li> One solution is to have 2 network interfaces, one for
+		user processes and one for the OS. This is a relatively
+		simple solution used by many multicomputers.
+	<li> Node-to-Network Interface - Using DMA to copy data from
+		memory to the network interface requires the process
+		virtual page be pinned to the page frame (so that it
+		doesn't get swapped out while the copy is in progress).
+		Likewise, incoming data from the network interface
+		should be copied to a pinned page in RAM so that the
+		write doesn't corrupt the virtual page of some process
+		if the page frame were chosen for reuse. The page
+		would be unpinned after the copy was complete.
+		Unfortunately, pinning and unpinning pages adds both
+		complexity and additional overhead from the system calls
+		to pin/unpin.
+	<li> Remote Direct Memory Access (RDMA) - allows one computer
+		to directly read/write memory on another computer.
+		This still requires the pages on each machine be
+		pinned. It also typically uses a particular value
+		written to a pre-agreed location to indicate when the
+		data transfer is complete (requiring the receiver to
+		poll that memory location - which wastes CPU cycles).
+	</ol>
+<li> User-Level Communication
+	<ol>
+	<li> Explicit Messaging
+		<ol>
+		<li> Send and Receive
+			<ol>
+			<li> send(destination, &pointer_to_message_buffer);
+			<li> receive(source, &pointer_to_message_buffer);
+			<li> Send (receives) a message to (from) the
+				the indicated computer (and process).
+			<li> The usual case is for send/receive to
+				block until the operation is complete
+				(message sent or received).
+			<li> Addresses indicating the
+				destination/source are usually given
+				in two parts: CPU location;
+				and process ID (or port number).
+			</ol>
+		<li> Blocking vs Nonblocking
+			<ol>
+			<li> Blocking provides synchronous
+				communication since the send/receive
+				won't complete until the complete
+				message has been sent (or a message
+				from the indicated source has been
+				fully received). Note that a
+				sender/receiver could be blocked
+				(i.e., waiting) for a long time.
+				[NOTE: Synchronous for "send" is
+				sometimes used to mean that the sent
+				message has been received AND
+				acknowledged - but that's
+				not how it is being used here.]
+			<li> Nonblocking provides asynchronous communication.
+			<li> A nonblocking receive enables a process
+				to check to see if there are any
+				incoming messages to process, and if
+				not then it returns immediately
+				(indicating by it's return value that
+				no messages were available) so that
+				the process can proceed with other
+				work. Typically the process checks
+				again later for any waiting messages
+				(e.g., via polling). Alternate
+				mechanisms include the use of
+				interrupts (hard to use and debug),
+				pop-up threads (which are created
+				when the message arrives, process the
+				message, then exit), and active
+				messages (in which the message
+				interrupt handler directly calls the
+				receiver code pointed to by the
+				message itself - while fast and
+				requiring no data copying, it requires
+				total trust of the senders by the
+				receivers).
+			<li> A nonblocking send returns immediately,
+				with the actual message being sent
+				sometime (usually shortly) thereafter.
+				If many processes are sending messages,
+				a nonblocking send doesn't force the
+				process to wait before it can do
+				something else.
+			<li> A downside of a nonblocking "send" is
+				that the message buffer cannot be
+				reused until after the message has been sent.
+				<ol>
+				<li> Copying the message buffer to a
+					kernel before before returning
+					from "send" solves this, but
+					at the cost of the time (and
+					space) to make the data copy.
+				<li> Provide an interrupt back to the
+					user process when the send is
+					complete. No additional data
+					copying is needed, but it
+					complicates programming and
+					usage errors can be difficult
+					to debug.
+				<li> Copy the message buffer, but only
+					when the user process attempts
+					to reuse it for constructing
+					another message. This makes it
+					easy to use, and only makes
+					the additional data copy when
+					needed.
+				</ol>
+			</ol>
+		</ol>
+	<li> Remote Procedure Call (RPC)
+		<ol>
+		<li> Simplifies the programming model of message
+			passing by having the caller block, the
+			outgoing data is indicated by parameters,
+			while returned data is stored in a parameter
+			(or returned as function's value). Thus it
+			provides the semantics of blocking send and
+			receive call groups, but using the familiar
+			programming language semantics of procedure
+			calls.
+		<li> Anatomy of an RPC call:
+			<a href="https://jan.newmarch.name/go/rpc/chapter-rpc.html"><img style="float: right" src="/eckart/classes/cpsc3125/topics/content/RPCcall.png" width="400" height="300" alt="Remote Procedure Calls" /></a>
+			<ol>
+			<li> The client procedure calls the procedure
+				stub. The stub marshals the parameters
+				(i.e., packing the parameters into a
+				network message).
+			<li> The stub uses OS system calls to send the message.
+			<li> The kernel sends the message to the remote system.
+			<li> A server stub on the remote machine
+				unmarshals (i.e., unpacks from the
+				received message) the procedure call arguments.
+			<li> The server stub executes a local procedure call.
+			<li> The (server) procedure completes,
+				returning execution to the server stub.
+			<li> The server stub marshals the return
+				values into a return message.
+			<li> The remote OS sends the return message
+				to the originating system.
+			<li> The client stub reads the data from the
+				return message.
+			<li> The message data is unmarshalled. and the
+				return values are placed on the stack
+				for the local process.
+		</ol>
+		<li> Some limitations on RPC:
+			<ol>
+			<li> Parameter passing works fine for
+				non-pointers, but when a pointer is
+				passed, how is the remote system
+				suppose to follow the pointer and use
+				the value(s) it points to? So you
+				can't send a pointer to a complex
+				structure (e.g., tree) unless a
+				searlized version of the entire
+				structure is sent.
+			<li> In C this also complicates passing
+				arrays since their size isn't part of
+				the array type. The array size could
+				be explicitly given as one of the
+				parameters, but this means the client
+				stub must use this when
+				(un)marshalling data.
+			<li> It may not be possible for the stub to
+				deduce the types of the parameters
+				(e.g., the format string in printf)
+				without knowing/implementing some of
+				the remote procedure's semantics.
+			<li> The use of global variables in a procedure
+				implementation can prevent its being
+				moved to a remote server and used via
+				RPC. This is one reason why the use of
+				shared (non-parameter) variables in
+				procedure can be a bad idea.
+			</ol>
+		<li> Despite these limitations, RPC is widely used
+			(e.g., NFS is implemented using RPC).
+		</ol>
+	<li> Distributed Shared Memory
+		<ol>
+		<li> The basic idea is to page (with respect to the
+			virtual address space) across the network
+			rather than only to the local disk. Thus
+			pages for a process will be loaded into
+			page frames of the memory on other computers,
+			thus enabling access to shared variables.
+		<li> False Sharing occurs when data that is written
+			by two different processes (running on
+			different computers) happen to be on the
+			same "page". Thus as each process writes to
+			the shared page, it bounces back and forth
+			between the two computers. While the processes
+			aren't actually sharing the same variable,
+			because their data are on the same page, it
+			has the same impact on paging.
+		<li> Replication of pages when only reads are being
+			performed saves the effort of having to
+			keep only a single version of the page. This
+			is particularly useful for read-only pages
+			(e.g., those containing only code). However
+			if a write is done to a replicated page, then
+			all of the other replicates must be
+			invalidated (as their data will be old).
+		<li> Sequential Consistency when writing to a
+			replicated page can be accomplished if the
+			the writing computer sends an invalidate
+			message to all computers holding a replicate
+			of the page to be modified.
+			All must acknowledge
+			that they have unmapped and discarded the
+			page before the write can safely occur
+			(otherwise one of the replicates could also 
+			try to write to a copy of the same page -
+			yielding two versions of the same page that
+			are no longer the same). [Alternatively,
+			pages can be locked with multiple writes
+			occurring. The changes are reconciled with
+			other replicates before the lock is released.]
+		</ol>
+	</ol>
+<li> Scheduling on multicomputers is similar to scheduling on
+	multiprocessors, except that it generally depends on the
+	process already residing on the computer on which it will run.
+	Each computer performs low-level scheduling (dispatch)
+	independently under its own OS. However, high-level scheduling
+	(the assignment of processes to processors) is important to
+	balance the load accross computers. Gang scheduling can be
+	done so long as there is initial agreement on the processes
+	in the gang, the length of their time quantum, and a method to
+	coordinate the start of their scheduled executions.
+<li> Load Balancing on a multicomputer is accomplished by assigning
+	processes to computers (high-level scheduling) so that the
+	resource requirements on each computer are roughly the same.
+	A useful herusitic is to have processes on overloaded
+	computers move to less busy ones.
+	<ol>
+	<li> Sender-Initiated Distributed Heurisitic -
+		The overloaded computer probes other computers to
+		find one that is less loaded. If one is found, the
+		created process is migrated to the less loaded
+		computer. If a less loaded computer isn't found within
+		N probes, the process runs on the originating computer.
+	<li> Receiver-Initiated Distributed Heurisitic -
+		Very similar to the sender-initiated case, except that
+		less loaded machines probe N other computers to find
+		one that is overloaded whenever a process on the
+		less loaded machine completes.
+	<li> In either case, if most computers in the multicomputer
+		are equally loaded, then the overhead of probing will
+		result in few processes being off-loaded.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_65.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

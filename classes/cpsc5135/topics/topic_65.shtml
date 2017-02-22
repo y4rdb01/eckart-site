@@ -1,0 +1,184 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Java Virtual Machine (JVM)
+</p>
+
+<ol>
+<li> Class Loader
+	<ol>
+	<li> The Java compiler creates class files containing:
+		<ol>
+		<li> Bytecode instructions
+		<li> Symbol table (called <em>constant pool</em>)
+		<li> Other auxiliary data structures
+		<li> The full <a href="http://docs.oracle.com/javase/specs/jvms/se5.0/html/ClassFile.doc.html"><em>ClassFile</em></a> contents are:
+<pre><code>
+	ClassFile {
+		// Identifies the file format/protocol.
+		u4 magic;
+
+		// Indicate the version of this class file to determine if the JVM supports it.
+		u2 minor_version;
+		u2 major_version;
+
+		u2 constant_pool_count;
+		cp_info constant_pool[constant_pool_count-1];
+
+		// Indicates public, final, super, interface, or abstract.
+		u2 access_flags;
+
+		u2 this_class;
+		u2 super_class;
+
+		// Interfaces directly used by this class/interface.
+		u2 interfaces_count;
+		u2 interfaces[interfaces_count];
+
+		// Fields directly part of this class/interface.
+		u2 fields_count;
+		field_info fields[fields_count];
+
+		// Methods (instance and static), constructors, and initializations
+		// that directly appear in this class/interface.
+		u2 methods_count;
+		method_info methods[methods_count];
+
+		// Only SourceFile and Deprecated are currently recognized.
+		u2 attributes_count;
+		attribute_info attributes[attributes_count];
+	}
+</code></pre>
+		</ol>
+	<li> The JVM uses <a href="https://en.wikipedia.org/wiki/Java_Classloader">three types of class loaders</a>:
+		<ol>
+		<li> Bootstrap class loader is part of the core JVM
+			implementation (usually written in native code)
+			and loads the core Java libraries (located
+			in <JAVA_HOME>/jre/lib).
+		<li> Extensions class loader loads classes from the
+			extensions directories (i.e.,
+			<JAVA_HOME>/jre/lib/ext and those given by the
+			<em>java.ext.dirs</em> system property.
+		<li> System class loader loads code given by the
+			java classpath. These are programmer provided
+			classes (and jar files). 
+		</ol>
+	<li> The System ClassLoader object looks for classes in the
+		bytecode that are not already loaded and loads them
+		(from locations specified in the classpath).
+	<li> To define a custom system class loader, extend the
+		abstract java.lang.ClassLoader class and provide an
+		implementation of the <em>loadClass</em> method.
+		For more about Java class loaders (and how to write
+		one), check out the following tutorials:
+		<ol>
+		<li> <a href="http://www.javalobby.org/java/forums/t18345.html">A Look at the Java Class Loader</a>
+		<li> <a href="http://www.javaworld.com/article/2077260/learn-java/the-basics-of-java-class-loaders.html">The Basics of Java Class Loaders</a>
+		<li> <a href="http://zeroturnaround.com/rebellabs/rebel-labs-tutorial-do-you-really-get-classloaders/">Do You Really Get Classloaders?</a>
+		</ol>
+	</ol>
+<li> The Bytecode Verifier takes the binary form of the class and
+	adds it to the JVM run-time state. If an error occurs during
+	verification, then <em>VerifyError</em> is thrown (from the
+	point in the Java program that required this class or interface
+	to be verified). Verification consists of:
+	<ol>
+	<li> Ensure each instruction is a valid bytecode operation;
+	<li> Verify that all branch instructions branch to the
+		beginning of another instruction (and not into the
+		middle of an instruction);
+	<li> Confirm that all methods have a structurally correct
+		signature; and
+	<li> Verify that every instruction follows the Java type
+		specification.
+	</ol>
+<li> Linker
+	<ol>
+	<li> Reserves space for the static (final) fields of a class
+		(interface) and initializes them to the default
+		(e.g., 0).
+	<li> Replaces symbolic name references with direct (location)
+		references to increase efficiency.
+	<li> Note that unused classes are removed as a by-product of
+		garbage collection (and aren't explicitly unloaded). 
+	</ol>
+<li> Bytecode Interpreter
+	<ol>
+	<li> The JVM is a stack machine (no registers) to keep its
+		design simple and instruction set small.
+	<li> Executes the bytecode instructions
+	<li> Perform run-time checks (e.g., array indexing,
+		type cast checking, checks that references are
+		non-null before used).
+	<li> All threads share common instruction and
+		heap storage areas, but each gets its own:
+		<ol>
+		<li> Program/instruction counter
+		<li> Run-time stack with each activation record
+			having:
+			<ol>
+			<li> local variables (determiend at compile time);
+			<li> operand stack (determined at compile time
+				and is a stack within a stack used
+				for calculations - e.g., arithmetic);
+				and
+			<li> data area holds information for accessing:
+				<ol>
+				<li> the constant pool (table of
+					symbolic for class, field,
+					and method names);
+				<li> normal method return; and
+				<li> exception dispatch (e.g.,
+					non-normal method return).
+				</ol>
+			</ol>
+		</ol>
+	<li> Because constant pool lookups are an execution
+		bottleneck, the bytecode to find the location of the
+		symbolic name is replaced with the actual offset
+		location the first time it's executed to avoid
+		subsequent constant pool lookups.
+	<li> When the VM searches for a method (by class or
+		interface), it may need to
+		examine a chain of classes before it finds the
+		corresponding (super class) implementation, but
+		bytecode rewriting (and the use of optimized
+		lookup tables) avoids subsequent "unbounded" searches.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_65.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

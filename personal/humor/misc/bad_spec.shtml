@@ -1,0 +1,454 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+
+<table width="100%">
+<tr>
+<td valign="top" width="100">
+<table>
+
+<tr><td align="left">
+<strong>Seuss<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../../dr.seuss/bitsNbytes.shtml">Bits in Bytes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/grinch.coder.shtml">Grinch OO Coder</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/lunch.shtml">Lunch</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seusstrek.shtml">Star Trek</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seussbible.shtml">The Bible</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/inferno.shtml">Dante's Inferno</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/purity.shtml">Purity Test</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/trial.shtml">O.J. Trial</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/greeneggs.shtml">Green Eggs and Pork</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/compTech.shtml">Computer Manual</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/USville.shtml">USville</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/wedding.shtml">Wedding</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/404.shtml">404</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Beatles.shtml">Beatles</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/bobbit.shtml">Bobbit</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/clinton.shtml">Clinton</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/favorite_things.shtml">Favorite Things</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ham_xmas.shtml">Ham Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ICBM_pizza.shtml">ICBM Pizza</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/net_is_slow.shtml">Net Is Slow</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/pc_xmas.shtml">PC Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Poe.shtml">Poe</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/prayer.shtml">Prayer</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/queen.shtml">Queen</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/sermon.shtml">Sermon</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song.shtml">Song</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song_tests.shtml">Song Tests</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/thermo.shtml">Thermo</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/twas.shtml">Twas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unified.shtml">Unified</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unix_abc.shtml">Unix abc</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/warnings.shtml">Warnings</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/xmas.shtml">Santa's Unix Listing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/y2k_pie.shtml">Millenium Pie</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/microsoft.shtml">M$ TV Dinners</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Humor</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/1-liners.shtml">One Liners</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/admin.shtml">Administratium</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/bad_spec.shtml">Bad spec</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/daemon-OS.shtml">daemon OS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/days-off.shtml">Days off</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dead_horse.shtml">Dead horse</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dosfish.shtml">Dosfish</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/FAA.shtml">FAA report</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/GM-helpline.shtml">GM helpline</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grandpa.shtml">Family tree</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grounding.shtml">Strapping</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/H2O.shtml">H2O</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/haiku.shtml">Haiku</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/harvard.shtml">Harvard</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/job.shtml">Job</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/koans.shtml">Koans</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/loan.shtml">Loan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/memos.shtml">Memos</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/money.shtml">Money</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/moron.shtml">Moron</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/MS.shtml">MS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/wirth.shtml">Niklaus Wirth</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/accidents.shtml">Accidents</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/navy.shtml">Navy</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/phrases.shtml">Phrases</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/plan.shtml">Plan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/stench.shtml">The Project</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/study.shtml">Anything</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/SysAdmin.shtml">SysAdmin Woes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/thesis.shtml">Thesis</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/quantumPhysics.shtml">Quantum Physics</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/monk.shtml">Monk</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/proofByInduction.shtml">Proof by Induction</a>
+</td></tr>
+
+</table>
+</td>
+
+<td valign="top">
+
+<blockquote>
+
+
+<p>
+Mike Percy's boss gave him this to read after getting a particularly fuzzy user
+specification for a system change.  There is no author attribution or
+source noted.  It was just a photocopy...
+</p>
+ 
+<blockquote>
+Dear Mr. Architect,<br/>
+ 
+<p>
+Please design and build me a house.  I am not quite sure of what I need,
+so you should use your discretion.
+<p>
+ 
+<p>
+My house should have between two and forty-five bedrooms.  Just make
+sure the plans are such that bedrooms can be easily added or deleted.
+When you bring the blueprints to me, I will make the final decision of
+what I want.  Also bring me the cost breakdown for each configuration so
+that I can arbitrarily pick one.
+<p>
+ 
+<p>
+Keep in mind that the house I ultimately chose must cost less than the
+one I am currently living in.  Make sure, however, that you correct all
+the deficiencies that currently exist in my house (the floor of my
+kitchen vibrates when I walk across it, and the walls don't have nearly
+enough insulation in them).
+<p>
+ 
+<p>
+Also keep in mind as you design this house that I wish to keep yearly
+maintenance cost as low as possible.  This should mean the incorporation
+of extra-cost features like aluminum or vinyl siding.  If you chose not
+to specify aluminum, be prepared to explain in detail.
+<p>
+ 
+<p>
+Please take care that modern design practices and the latest materials
+are used in construction of the house.  The house should be really nice.
+However, be alerted that the kitchen should be designed to accommodate
+among other things, my 1952 Gibson refrigerator.
+<p>
+ 
+<p>
+To assure that you are building the correct house for our family, make
+sure that you contact each of the children and also the in-laws.  My
+mother-in-law will have very strong feelings about how the house ought
+to be designed since she visits with us at least once a year.  Make sure
+that you weigh all these options carefully and make the right decision.
+I, however, retain the right to override any decision you come up with.
+<p>
+ 
+<p>
+Please don't bother me with small details right now.  Your job is to
+develop the overall plans for this house.  Get the big picture.  It is
+not appropriate at this time to be choosing the color of the carpet.
+However, keep in mind that my wife likes green.
+<p>
+ 
+<p>
+Also do not worry at this time about acquiring resources to build this
+house.  Your first priority is to develop detailed plans and
+specifications.  However, once I accept these plans, I will expect to
+have the house under roof within 48 hours.
+<p>
+ 
+<p>
+While you are designing this house specifically for me, keep in mind
+that sooner or later I will have to sell this house.  It should have
+appeal to potential buyers.  Please make sure that before you finalize
+the plans, there is a consensus of the population in my area that they
+like the features this house has.
+<p>
+ 
+<p>
+You are advised to run up and look at my neighbor's house he had
+constructed last year.  We like it a great deal.  It has many features
+that we would like to have in our new home, particularly the 75-foot
+swimming pool.  With careful engineering I believe that you can design
+this into our new house without impacting the construction cost.
+<p>
+ 
+<p>
+Please prepare a complete set of blueprints.  It is not necessary at
+this time to do the real design since these blueprints will be used only
+for construction bids.  Please be advised however, that any increase of
+cost in the future as a result of design changes will result in you
+getting your hands slapped.
+<p>
+ 
+<p>
+You must be thrilled to be working on such an interesting project such
+as this.  To be able to use new kinds of construction and to be given
+such freedom in your designs is something that doesn't happen very
+often.  Contact me as rapidly as possible with your design ideas.
+I am enthusiastic about seeing what you can come up with.
+<p>
+ 
+<dl>
+<dt>P.S.</dt>
+<dd>
+      My wife has just told me that she disagrees with many on the
+      instructions I've given you in this letter.  As architect it is
+      your responsibility to resolve these issues.  I have tried in the
+      past and have been unable to accomplish this.  If you can't handle
+      this, I'll have to look for a new architect.
+</dd>
+ 
+<dt>P.P.S.</dt>
+<dd>
+        Perhaps what I need is not a house at all, but a travel trailer.
+        Please  advise me as early as possible if that is the case.
+</dd>
+</dl>
+</ul>
+</blockquote>
+
+</blockquote>
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+

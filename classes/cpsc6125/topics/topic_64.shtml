@@ -1,0 +1,118 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Multicomputers (Hardware)
+</p>
+
+<ol>
+<li> While multiprocessors use a simple communication model and are relatively
+	easy to program because of their shared memory, they have limited
+	scalability. Something else is needed to scale to thousands of CPUs -
+	a multicomputer.
+<li> Multicomputers use tightly coupled CPUs that do <strong>not</strong>
+	share memory. These are sometimes referred to as cluster computers
+	and COWS (Clusters of Workstations).
+<li> The nodes of a multicomputer are essentially stripped down
+	PCs (consisting of CPUs, a shared memory, and a network
+	interface - they may or may not have any other attached
+	devices such as a local disk). The critical component of
+	a multicomputer is its interconnection network(s).
+<li> Networks
+	<ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Network_topology">Interconnection Technology/Topology</a>
+		<ol>
+		<li> Star - single switch with only a single network "hop"
+			between any two nodes. One drawback is that this is a
+			blocking network in which only one communication can
+			occur at a time (just like a bus). Switch count grows
+			as O(1).
+		<li> Ring - each node can send a message either left or right.
+			If there are N nodes in the ring, then as many as
+			N/2 pairs of nodes can communicate at the same time
+			(e.g., all even numbered nodes communicate with the
+			node to the right). In the worst case, a message may
+			have to pass through N/2 nodes (acting as switches) to
+			get to its destination if its on the opposite side of
+			the ring. Switch count grows as O(N), where N is the
+			number of nodes, with each node having 2 network
+			interfaces.
+		<li> Grid/Mesh - nodes are layed out in a square grid with
+			connections to their neighboring nodes to the north,
+			south, east, and west. The longest communication path
+			between nodes, called the diameter, is 2*(sqrt(N) - 1),
+			where N is the number of nodes. Switch count grows
+			as O(N), with each node having 4 network interfaces.
+		<li> Tree - is an extension of the star, in which each star
+			end-point can be another star. If the tree is fat
+			(e.g., the number of children k for each parent is
+			large) then the longest communication path between
+			nodes is small, O(log<sub>k</sub>(N)), but fewer
+			nodes can communicate simultaneously (only 2 in the
+			worst case).
+		<li> Torus - improves the mesh by connecting the opposing
+			sides to make a "doughnut", reducing the diameter
+			of the network by half.
+		<li> Cube - has nodes at each vertex. Hypercubes are an
+			extension of this idea into higher dimensions.
+			The longest communication path in a hypercube grows
+			linearly with the number of nodes N (i.e., O(N)) -
+			making this a popular topology. A disadvantage of
+			the hypercube is that the number of connections at
+			each node is k, the dimensionality of the cube.
+		</ol>
+	<li> Network Interfaces
+		<ol>
+		<li> To support store-and-forward packet switching most
+			network interfaces have their own RAM so that they
+			don't have to wait on the node's local system bus
+			which could cause delays in storing an incoming
+			message or delivering the content of an outgoing
+			message due to system bus contention.
+		<li> Increasingly they include CPUs that can handle
+			communication related tasks (e.g., cryptography for
+			confidential communication, data compression,
+			broadcast, multicast).
+		<li> Unfortunately copying data from the application running
+			on the node, to the node's kernel buffer, and then
+			from the kernel buffer to the network interface's RAM
+			(and back again at the destination) introduces a good
+			bit of overhead to internode communication.
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_64.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

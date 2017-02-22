@@ -1,0 +1,72 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- NetLogo Example (Brownian Motion)
+</p>
+
+<ol>
+<li> <a href="../netlogo/brownian.nlogo">Brownian Motion</a>
+	(and in <a href="../netlogo/brownian3D.nlogo">3D</a>)
+	See <a href="http://ccl.northwestern.edu/netlogo/5.0/docs/3d.html">this material</a> for more information on creating 3D models in NetLogo.
+<pre><code>
+	to setup
+		resize-world 0 universeSize 0 universeSize
+		clear-all
+		initialize
+		colorize
+		reset-ticks
+	end
+
+	to randomWalk
+		ask turtles [
+			set heading random 360
+			forward 1
+		]
+		tick
+	end
+
+	to initialize
+		ask patch (universeSize / 2) (universeSize / 2) [
+			sprout particleCount [
+				set color white
+				set heading random 360
+			] 
+		]
+	end
+</code></pre>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_57.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

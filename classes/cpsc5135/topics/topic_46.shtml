@@ -1,0 +1,139 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Object-Oriented Languages
+</p>
+
+<ol>
+<li> The 4 primary concepts:
+	<ol>
+	<li> Dynamic Lookup determines which method to call at run-time
+		(i.e., dynamically). This is the foundation of the power
+		provided by polymorphism. The exact kind of object that's
+		getting the request determines which version of a method
+		gets executed. [REMEMBER: Dynamic lookup is completely
+		different from overloading, which is resolved at compile-time.]
+		<ol>
+		<li> Single dispatch (found in Smalltalk, C++, Objective-C,
+			and Java) uses only the receiving object of the
+			message to determine which message implementation to
+			use (overloading then might further distinguish
+			between methods within the identified class); whereas
+		<li> Multiple dispatch (found in Python and Common Lisp) uses
+			the receiving object as well as
+			all of the message parameters to determine which
+			message implementation to use.
+		</ol>
+	<li> Abstraction hides the implementation, which normally consists of
+		both operations and data (though the data aspect may be absent
+		as in the case for a set of mathematical operations like the
+		<em>Math</em> class in Java). 
+	<li> Subtyping provides a means for restricting a set (class) of
+		values by virtue of their behavior. Thus if an object
+		<em>sub</em> responds to all (and perhaps more) of the same
+		messages (methods) that the object <em>original</em> does,
+		then the set of values that <em>sub</em> represents is a
+		subtype of the set of values that <em>original</em> represents.
+		That is, <em>sub</em>'s type can be substituted for
+		<em>original</em>'s type and the execution should be
+		unhindered (this is called <em>substitutivity</em>). By using
+		the most generally applicable types in algorithm implementation
+		those implementations will have the greatest applicability.
+		This is why, in Java, you'll often see variable declarations
+		written like the following (and similarly for parameters):
+<pre><code>
+	AbstractCollection iterableCollection = new ArrayList();
+	Collection nonIterableCollection = new ArrayList();
+</code></pre>
+	<li> Inheritance is a reuse mechanism that enables subclasses to
+		reuse the attributes and methods (both their signatures as
+		well as their implementations) of their superclass(es),
+		reducing the maintenance effort for particular kinds of
+		code modifications.
+		<ol>
+		<li> Remember that in addition to the client (public) and
+			internal abstraction (private) interfaces,
+			inheritance adds a third interface viewpoint - that
+			to any subclasses (protected).
+		<li> Subtyping is a relation on interfaces (substitutivity)
+			whereas inheritance is a relation on implementations
+			(hierarchy).
+		<li> While subtyping != inheritance, many popular language
+			designs do tend to promote the two together (e.g.,
+			C++, Smalltalk, and Java).
+		<li> The book's counter-example (attributed to Alan Snyder)
+			uses a DoubleEndedQueue as the superclass for both
+			a Stack and a Queue. While the implementation is
+			shared (inheritance), neither Stack nor Queue would
+			support the full set of operations provided by
+			DoubleEndedQueue that would qualify them for
+			substitutivity. In "pidgin" code:
+<pre><code>
+	class DoubleEndedQueue {
+		private ...
+		public Object front()
+		       Object back()
+		       void addFront(Object)
+		       void addBack(Object)
+		       void removeFront()
+		       void removeBack()
+		       bool isFull()
+		       bool isEmpty()
+	}
+
+	class Stack extends DoubleEndedQueue {
+		public top = front()
+		       back() is NotAvailable
+		       push = addFront(Object)
+		       addBack(Object) is NotAvailable
+		       pop = removeFront()
+		       removeBack() is NotAvailable
+	}			
+
+	class Queue extends DoubleEndedQueue {
+		public front()
+		       back() is NotAvailable
+		       addFront(Object) is NotAvailable
+		       enqueue = addBack(Object)
+		       dequeue = removeFront()
+		       removeBack() is NotAvailable
+	}			
+</code></pre>
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_46.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

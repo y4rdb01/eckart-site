@@ -1,0 +1,60 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Cloud, Virtualization, and Containers
+</p>
+
+<ol>
+<li> Cloud Evolution:
+	<ol>
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+	<li> <a href="/eckart/classes/cpsc6125/papers/raas_2013_07.pdf">The Rise of RaaS: The Resource-as-a-Service Cloud</a>
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+	<li> <a href="https://queue.acm.org/detail.cfm?id=2756508">From the EDVAC to
+	WEBVACs</a>
+	</ol>
+<li> Application containers vs Virtual Machines:
+	<ol>
+	<li> <a href="http://www.zdnet.com/article/what-is-docker-and-why-is-it-so-darn-popular/">What is Docker and why is it so darn popular?</a>
+	<li> <a href="https://blogs.oracle.com/OTNGarage/entry/linux_containers_part_1_overview">Linux-Containers: Overview</a>
+	<li> <a href="https://en.wikipedia.org/wiki/CoreOS#Overview">CoreOS and Rocket/rkt</a>
+	<li> <a href="https://blog.risingstack.com/operating-system-containers-vs-application-containers/">Operating System Containers vs. Application Containers</a>
+	<li> <a href="http://www.itworld.com/article/2915530/virtualization/containers-vs-virtual-machines-how-to-tell-which-is-the-right-choice-for-your-enterprise.html">Containers vs. virtual machines: How to tell which is the right choice for your enterprise</a>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_75.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

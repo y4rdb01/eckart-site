@@ -1,0 +1,16 @@
+# The spins only Ising model from page 190 of "Cellular Automata Machines:
+# A New Environment for Modeling" by Toffoli and Margolus.
+
+2 dimensions of 
+        # Up = 1, Down = 0
+        spin of 0..1
+
+        which of 0..1
+end
+
+if cell.which then
+        sum := [0, 1].spin + [1, 0].spin + [0, -1].spin + [-1, 0].spin
+        cell.spin := !cell.spin when sum = 2
+end
+
+cell.which := !cell.which

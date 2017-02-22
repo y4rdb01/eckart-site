@@ -1,0 +1,79 @@
+# Flocking creatures.
+
+2 dimensions of 
+	display of 0..1
+
+	count of 0..7
+	total_dir of 0..63
+	total_speed of 0..63
+agent of
+	# Current direction of travel:
+	# North = 0, NorthEast = 1, East = 2, SouthEast = 3,
+	# South = 4, SouthWest = 5, West = 6, NorthWest = 7
+	dir of 0..7
+
+	# A zero value indicates a slow moving creature (but not stopped),
+	# whereas a value of 7 indicates top speed.
+	speed of 0..7
+end
+
+const top_speed := 7
+
+total_dir := 0
+total_speed := 0
+count := 0
+forall i:-10..10
+	forall j:-10..10
+		count := count + [i, j].count
+		total_dir := total_dir + [i, j].total_dir
+		total_speed := total_speed + [i, j].total_speed
+	end
+end
+avg_speed := total_speed / count when count > 0
+	  := -1 otherwise
+avg_dir   := total_dir / count when count > 0
+	  := -1 otherwise
+
+total_dir := 0
+total_speed := 0
+count := 0
+cell.display := 0
+forall creature : agent
+	count := count + 1
+	total_dir := total_dir + creature.dir
+	total_speed := total_speed + creature.speed
+
+	dir := avg_dir when avg_dir >= 0
+	    := creature.dir otherwise
+
+	speed := avg_speed when avg_speed >= 0
+	      := creature.speed otherwise
+
+	# Add a bit of randomness.
+	if random%100 < 10 then
+		dir := (dir+1)%8 when random%2
+		    := (dir+7)%8 otherwise
+	end
+	if random%100 < 10 then
+		speed := (speed+1)%8 when random%2
+		      := (speed+7)%8 otherwise
+	end
+
+	if time % (top_speed+1 - speed) != 0 then
+		agent(dir, speed) -> cell
+	else
+		agent(dir, speed) -> [0, 1]   when dir = 0
+				  -> [1, 1]   when dir = 1
+				  -> [1, 0]   when dir = 2
+				  -> [1, -1]  when dir = 3
+				  -> [0, -1]  when dir = 4
+				  -> [-1, -1] when dir = 5
+				  -> [-1, 0]  when dir = 6
+				  -> [-1, 1]  when dir = 7
+	end
+	cell.display := 1
+end
+
+cell.count := count
+cell.total_dir := total_dir
+cell.total_speed := total_speed

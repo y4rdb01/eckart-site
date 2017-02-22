@@ -1,0 +1,113 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Smalltalk Example (I/O)
+</p>
+
+<ol>
+<li> <a href="../smalltalk/IO.st">IOExample</a> class with read and write file
+	streams, copies input to the output. Changes double exclamation
+	points (!!) into a single occurence (!) unless there is a number
+	between them (no spaces) in which case it strips the exclamation
+	pionts (!) and just copies the number.  NOTE: Because exclamation
+	points have a special meaning for Smalltalk-X input files, they must
+	be escaped by using two (2) exclamation points to represent
+	a single exclamation point (e.g., in the character constants
+	towards the end of the example). Run via "IOExample new init copy":
+<pre><code>
+Object subclass: #IOExample
+	instanceVariableNames: 'input output'
+	classVariableNames: ''
+	poolDictionaries: ''
+!
+IOExample class comment: '
+	This provides students with a very basic I/O example.
+'
+!
+
+!
+IOExample methodsFor: 'initialize'
+!
+
+init
+	[ input := FileSelectionBrowser open asFilename readStream. ]
+		on: Error
+		do: [ :exception |
+			Dialog error: 'Unable to open file'.
+			exception retry.
+		].
+	[ output := FileSelectionBrowser open asFilename writeStream. ]
+		on: Error
+		do: [ :exception |
+			Dialog error: 'Unable to open file'.
+			exception retry.
+		].
+! !
+
+!
+IOExample methodsFor: 'copy input to output turning :: into :'
+!
+
+copy
+	| data lookAhead|
+	[ input atEnd ] whileFalse: [
+		data := input nextByte asCharacter.
+		(data = $!!)
+			ifTrue: [
+				(input atEnd) ifFalse: [
+					lookAhead := input peek.
+					(lookAhead = $!!)
+						ifTrue: [ input nextByte asCharacter. ].
+					(lookAhead asCharacter isDigit)
+						ifTrue: [
+							data := input nextDecimalInteger.
+				  			input nextByte.
+						].
+				].
+			].
+		output show: data.
+	].
+	input close.
+	output close.
+! !
+</pre></code>
+<li> Note that "nextDecimalInteger" doesn't skip any leading white space.
+	Take a look at the <a href="http://live.exept.de/ClassDoc/classDocOf:,ReadStream">ReadStream documentation</a>
+	for other messages that might be useful in reading input (e.g.,
+	"skipSeparators").
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_36.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

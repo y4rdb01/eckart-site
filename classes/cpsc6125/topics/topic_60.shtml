@@ -1,0 +1,226 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Defenses
+</p>
+
+<ol>
+<li> It is important to have multiple layers of defenses in place so that if
+	one layer is breached, there are others behind it to prevent further
+	advancement of the attack. This is called <em>defense in depth</em>.
+<li> User/Administrator Confirmation
+	<ol>
+	<li> Requiring user approval for software installation (to avoid the
+		Trojan Horse from doing a stealth installation of something
+		else, though this can easily be "hidden" amongst the real
+		software installation).
+	<li> Asking the user for confirmation if a system file (or
+		configuration) is being changed.  For example, later versions
+		of Microsoft Windows requires administrator confirmation for
+		registry changes.
+	<li> Informing the user if outbound communications are attempted.
+		However email and browser programs are often (partially)
+		exempted, making this less useful.
+	<li> The weakness of user confirmation is that a typical PC user may
+		not have the knowledge to determine the best action to take.
+	</ol>
+<li> Firewalls
+	<ol>
+	<li> Determine which network communication packets to allow through
+		based (ACCEPT or DENY) on a set of rules. There can be
+		different rules for inbound vs outbound traffic.
+	<li> ACCEPT means that the packet is allowed to pass through the
+		firewall, whereas DENY rejects the packet (removing it from
+		further consideration and taking no further action).
+	<li> <em>Stateless firewalls</em> only use the information within the
+		packet being considered. These are sufficient to blacklist or
+		whilelist certain IP addresses (as a source) and port
+		combinations (as a target).
+	<li> <em>Stateful firewalls</em> retain information about previous
+		packets that have been received or sent. This improves the
+		security as rules can be created to only ACCEPT in-bound
+		packets if they are in response to out-going requests
+		(i.e., only accept a packet from IP address 157.166.226.26
+		if an http request was sent within the last 5 minutes).
+	<li> An <em>Intrusion Detection System</em> (IDS) is a firewall that
+		inspects the contents of packets (not just the headers) to
+		search for possible threats.
+	<li> IDS can also be used in <a href="https://en.wikipedia.org/wiki/Data_loss_prevention_software#Network_DLP_.28a.k._data_in_motion_.3CDiM.3E.29">Data Loss Prevention</a> (DLP)
+		by ensuring no unencrypted personal identifying or financial
+		information (e.g., SSAN, Payment Card #) is sent out.
+	</ol>
+<li> Anti-virus Techniques
+	<ol>
+	<li> Scanners
+		<ol>
+		<li> Companies find and investigate new viruses, studying them
+			to discern their code so that the appropriate
+			substrings can be identified that ideally will match
+			all (and only) files infected with that virus.
+		<li> Fuzzy matches are sometimes used to allow matches even
+			if the virus has a few bytes changed.
+		<li> A <em>polymorphic virus</em> actually changes its code
+			when it infects new programs. Some rearrangement of
+			statements is usually possible, and/or the insertion
+			of various NOP instructions (or their equivalent -
+			e.g., adding 0 to something) can further complicate
+			the matching process.
+		<li> False positive matches can lead users to delete uninfected
+			files.
+		<li> False negative matches enables the virus to live for
+			another day.
+		<li> Finding the appropriate balance between these two is
+			seldom easy.
+		<li> Scans should be done on a regular basis since a viral
+			infection can occur at practically any time.
+		</ol>
+	<li> Integrity Checkers
+		<ol>
+		<li> With the system in a clean state (no malware) compute
+			a checksum (or better yet a cryptographic hash) for
+			each file in the system.
+		<li> Periodically recalculate the hash value for files and
+			compare the new value with the saved previous value.
+			If there's a difference, then rescan for a virus
+			and/or ask the user/administrator for a decision.
+		<li> This absolutely depends on the hash values being
+			calculated on non-infected files.
+		<li> It's important that the file hash values be secured,
+			since a virus that escapes detection could rewrite
+			them. Hiding them is insufficient, but putting them
+			on an SD Card that's mounted for read-only access
+			would make them less prone to virus manipulation.
+		<li> To further increase the confidence in the creation and
+			comparison of file hash values, the system could
+			be booted from a trusted external source (e.g., USB
+			drive), while disconnected from the network,
+			in order to perform these operations.
+		</ol>
+	<li> Behavioral Checkers
+		<ol>
+		<li> Examine the actions of processes (probably by being
+			memory-resident and intercepting system calls)
+			to catch questionable behavior (e.g., overwriting
+			the boot sector).
+		<li> Unfortunately some legitimate actions can be difficult
+			to distinguish from those of malware (e.g., compilers
+			rewriting executables).
+		<li> Having an anti-viral program intercepting system calls
+			also reduces system performance.
+		</ol>
+	<li> Virus Avoidance
+		<ol>
+		<li> An ounce of prevention is worth a pound of cure.
+			-- Benjamin Franklin
+		<li> Choose an OS that offers good security with a strong
+			kernel-user mode boundary (e.g., MINIX 3).
+		<li> Install only reputable software and only download it from
+			well-known and vetted sources.
+		<li> Acquire and install a good anti-virus package (and use it).
+		<li> Configure a personal firewall that only ACCEPTs responses
+			to out-going requests. Unless the system is running
+			services to be used by others, it shouldn't accept
+			unsolicited messages.
+		<li> Carefully examine URLs in messages before clicking on them
+			to ensure they link to where you think they should.
+		<li> Avoid opening email attachments unless they have been
+			scanned for a virus first.
+		<li> Keep frequent file backups. It's best to keep multiple
+			generations that you can restore from. Backing up only
+			the latest version may mean you only have the infected
+			version of the file.
+		<li> If you're going to download and run new (untrusted)
+			software, do so within a virtual machine (with its
+			own separate file system) to prevent infecting your
+			"base" system.
+		</ol>
+	</ol>
+<li> Code Signing uses digital signatures to ensure that downloaded
+	software (including web page code and controls) are what they
+	claim to be and come from the indicated (presumably trusted)
+	source.
+<li> Jailing
+	<ol>
+	<li> New software (the prisoner) is "proven" by running it in a jail.
+	<li> All system calls are intercepted before going to the OS, by
+		a program that plays the part of the "jailer".
+	<li> The jailer examines the system call and determines whether to
+		pass it along to the kernel, or to kill the prisoner.
+	<li> Running new software within its own virtual machine (until it
+		is fully trusted) is one implementation of this idea.
+	</ol>
+<li> Code Encapsulation
+	<ol>
+	<li> Sandboxing
+		<ol>
+		<li> Each program is limited to a range of addresses within
+			the virtual address space (enforced at run-time)
+			- its sandbox.
+		<li> Furthermore, the data associated with each program gets
+			a separate sandbox. The run-time prevents the execution
+			of anything in the data sandbox.
+		<li> A program cannot reference code outside its sandbox, nor
+			can it use data outside its corresponding data
+			sandbox.
+		<li> Much of the code can be checked before execution to ensure
+			that it is well-behaved.
+		<li> Run-time checks ensure these rules are adhered to by
+			the program code  which could not be checked
+			before execution (e.g., null pointer references,
+			out of bounds array indices).
+		</ol>
+	<li> Interpretation
+		<ol>
+		<li> Javascript, Java applets, and other client-side web
+			browser languages are interpreted by code within
+			the web browser.
+		<li> If a problem is encountered (e.g., null pointer reference)
+			during interpretation, the interpreter
+			can prevent the access.
+		<li> Requests to use resources (e.g., read local files,
+			load remote code) can be passed to a security manager
+			to determine whether or not the request is safe
+			to perform.
+		<li> The disadvantage of interpretation is that it is slower
+			than compiled code.
+		</ol>
+	<li> Java applets utilize both sandboxing and interpretation to
+		ensure safe execution.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_60.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

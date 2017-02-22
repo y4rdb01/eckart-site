@@ -1,0 +1,83 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Agent-based Modeling (ABM)
+</p>
+
+<ol>
+<li> Agent-based Modeling
+	<ol>
+	<li> Discrete or Continuous time, discrete space, fixed interaction
+		rules, mobile agents/actor with their own internal state and
+		rules, and optional messages/links for agent communication.
+		<ol>
+		<li> Consist of multiple (individual) actors (agents).
+		<li> Agents often exist within a modeled physical environment in
+			which they can move around.
+		<li> Agents can interact directly (via messaging) with one
+			another (though usually only if they are in close
+			proximity).
+		<li> Agents can interact with their environment (current
+			location) causing a change of state in the local
+			environment, themselves, or both. Note that this
+			enables <a href="https://en.wikipedia.org/wiki/Stigmergy">stigmergic</a>
+			interactions between agents.
+		<li> Some systems support multiple kinds of agents and allow
+			interaction between individuals, groups, and between
+			individuals and groups.
+		<li> Unlike Cellular Automata, some ABMs allow the rules
+			governing agent behavior to change - adding an
+			evolutionary or learning aspect to agent actions.
+		</ol>
+	<li> Examples:
+		<ol>
+		<li> <a href="https://en.wikipedia.org/wiki/Sugarscape">SugarScape</a>
+		<li> <a href="http://www.matsim.org/">Traffic modeling</a>
+		<li> <a href="https://en.wikipedia.org/wiki/Agent-based_computational_economics">Economics</a>
+		</ol>
+	</ol>
+<li> CA vs ABM
+	<ol>
+	<li> Both are Turing Complete
+	<li> Agent-based systems subsume the capabilities of Cellular Automata
+		systems. 
+	<li> It can be difficult to model arbitrary agents of an ABM within
+		a Cellular Automata, so when such capabilites are needed
+		using an ABM is highly recommended.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_51.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

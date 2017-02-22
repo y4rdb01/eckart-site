@@ -1,0 +1,93 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Unix Shell Command Line
+</p>
+
+<ol>
+<li> Input redirection
+	<ol>
+	<li> < (redirect input) 
+	</ol>
+<li> Output redirection
+	<ol>
+	<li> > (redirect output)
+	<li> &> (redirect output and error) [ >& also works ]
+	<li> >> (append redirected output)
+	<li> &>> (append redirected output and error)
+	</ol>
+<li> Pipes
+	<ol>
+	<li> Represented by the "|" symbol
+	<li> Feeds the output from the command on the left-hand side
+		as input to the command on the right-hand side.
+	<li> Example, "find / | more" paginates the listing of all files
+		and directories in the system. 
+	</ol>
+<li> Job control (part of shell)
+	<ol>
+	<li> ^c (kill a foreground process)
+	<li> ^z (suspend a process)
+	<li> & (start process in the background)
+	<li> jobs (lists currently child processes of shell)
+	<li> fg (places suspended or background process in the foreground)
+	<li> bg (places suspended process in background)
+	</ol>
+<li> Signals
+	<ol>
+	<li> Signals are not queued.  There is no mechanism for handling
+		multiple signals of the same kind.
+	<li> Processes may ignore most signals, but cannot ignore
+		SIGSTOP (halt) and SIGKILL (exit).
+	<li> If no signal handler is specified then the kernel will handle
+		the signal using the default handler (e.g. the SIGFPE default
+		handler dumps core and exits).
+	<li> Signals have no inherent priorities.
+	<li> The number of supported signals is limited to the word size of
+		the CPU (e.g. 32 bits).
+	<li> <em>kill -l</em> gives a listing of signals.
+	<li> A signal is sent by setting the appropriate bit in the
+		<em>signal</em> field of the processes <em>task_struct</em>.
+	<li> If the process has not blocked the signal and is waiting
+		but interruptible then its state is changed to running and
+		it is placed in the run queue.  Note that the process does not
+		necessarily get the CPU the moment the signal is generated.
+		Its priority will determine when it will run.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_24.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

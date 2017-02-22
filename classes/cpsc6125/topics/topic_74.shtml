@@ -1,0 +1,80 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- X as a Service (XaaS)
+</p>
+
+<ol>
+<li> <a href="http://csrc.nist.gov/publications/nistpubs/800-145/SP800-145.pdf">NIST's 3 Cloud service models</a>:
+	<ol>
+	<li> Infrastructure as a Service (IaaS)
+		<blockquote>
+		The consumer is able to provision and control processing,
+		storage, networks, and other basic resources in order to
+		deploy and run arbitrary software (e.g., OS, applications),
+		but cannot manage or control the underlying cloud
+		infrastructure.
+		</blockquote>
+	<li> Platform as a Service (PaaS)
+		<blockquote>
+		The consumer can deploy, configure, and control acquired or
+		consumer-created
+		applications built using programming languages, libraries,
+		services, and tools supported by the cloud provider. The
+		consumer cannot manage or control the underlying cloud
+		infrastructure, nor can they provision or control processing,
+		storage, networks, or other basic resources.
+		</blockquote>
+	<li> Software as a Service (SaaS)
+		<blockquote>
+		The consumer is able to use the provider's applications
+		running on a cloud infrastructure, which are accessible from
+		various client devices through either a thin client interface,
+		(e.g., web browser) or program interface. The consumer cannot
+		manage or control the underlying cloud infrastructure
+		(e.g., network, servers, operating systems, storage, or
+		applications) except those limited user specific settings
+		enabled by the application(s).
+		</blockquote>
+	</ol>
+<br/>
+<img style="display: block; margin-left: auto; margin-right: auto" src="/eckart/classes/cpsc3125/topics/content/XaaS.png" width="1000" height="577" alt="XaaS" />
+<br/>
+<br/>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_74.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

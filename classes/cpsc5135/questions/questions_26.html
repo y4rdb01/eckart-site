@@ -1,0 +1,246 @@
+<li> Code blocks are anonymous if they
+	<ol class="answer_list">
+	<li> Don't have any local variable declarations.
+	<li> Don't have any local type declarations.
+	<li> Don't contain a subpogram declaration.
+	<li> Aren't the body of a subprogram.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Procedures differ from functions in that
+	<ol class="answer_list">
+	<li> They <strong>must</strong> have parameters.
+	<li> They do <strong>not</strong> return a value.
+	<li> Their parameters <strong>must</strong> be Pass-by-Reference.
+	<li> They <strong>must</strong> have local variable declarations.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The <strong>best</strong> practice for functions is to
+	<ol class="answer_list">
+	<li> <strong>Always</strong> return a primitive type value.
+	<li> Avoid side-effects.
+	<li> Be idempotent.
+	<li> To have only Pass-by-Value parameters.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Formal parameters
+	<ol class="answer_list">
+	<li> Are named in the subprogram declaration.
+	<li> Are given when the subprogram is called.
+	<li> Can be variables or expressions.
+	<li> Are often referred to as arguments.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Actual parameters
+	<ol class="answer_list">
+	<li> Are named in the subprogram declaration.
+	<li> Are given when the subprogram is called.
+	<li> Can be variables or expressions.
+	<li> Are often referred to as arguments.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Pass-by-Reference passes
+	<ol class="answer_list">
+	<li> only the R-value of the actual parameter.
+	<li> only the L-value of the actual parameter.
+	<li> the R-value of the argument and the result is copied
+		back into the L-value upon return.
+	<li> the L-value of the argument and the result is copied
+		back into the R-value upon return.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Pass-by-Value passes
+	<ol class="answer_list">
+	<li> only the R-value of the actual parameter.
+	<li> only the L-value of the actual parameter.
+	<li> the R-value of the argument and the result is copied
+		back into the L-value upon return.
+	<li> the L-value of the argument and the result is copied
+		back into the R-value upon return.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Pass-by-Value-Result passes
+	<ol class="answer_list">
+	<li> only the R-value of the actual parameter.
+	<li> only the L-value of the actual parameter.
+	<li> the R-value of the argument and the result is copied
+		back into the L-value upon return.
+	<li> the L-value of the argument and the result is copied
+		back into the R-value upon return.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ functions support parameters that are
+	<ol class="answer_list">
+	<li> Pass-by-Name
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java methods support parameters that are
+	<ol class="answer_list">
+	<li> Pass-by-Name
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Ada subprograms support parameters that are
+	<ol class="answer_list">
+	<li> Pass-by-Name
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Lisp functions support parameters that are
+	<ol class="answer_list">
+	<li> Pass-by-Name
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Depending upon their implementation details, subprograms can cause side
+	effects when they
+	<ol class="answer_list">
+	<li> Perform I/O.
+	<li> Use Pass-by-Reference parameters.
+	<li> Use Pass-by-Value-Result parameters.
+	<li> When a subprogram implementation is nested within another
+		scope
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Aliasing <strong>always</strong> occurs whenever
+	<ol class="answer_list">
+	<li> A variable is passed as a subprogram argument.
+	<li> The formal and actual parameters names are the same.
+	<li> A variable memory location can be referenced by two
+		or more names.
+	<li> A subprogram is passed as an argument.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which parameter passing method is most efficient for large data structures?
+	<ol class="answer_list">
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Name
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following corresponds to the parameter passing mechanism that:
+	(i) Evaluates the actual parameter (R-value), then
+	(ii) Stores the R-value in the activation record for the subprogram
+		call (in the location, L-value, set aside for the corresponding
+		formal parameter), binding the R-value to the formal parameter.
+	<ol class="answer_list">
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Name
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following corresponds to the parameter passing mechanism that:
+	(i) Determines the L-value of the actual parameter, then
+	(ii) Stores the argument's L-value in
+		the formal parameter's L-value set aside in the activation
+		record for the corresponding formal parameter, binding the
+		L-value to the formal parameter.
+	<ol class="answer_list">
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Name
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following corresponds to the parameter passing mechanism that:
+	(i) Evaluates the actual parameter (R-value);
+	(ii) Stores the R-value in the activation record for the subprogram
+		call (in the location, L-value, set aside for the corresponding
+		formal parameter), binding the R-value to the formal parameter;
+		and then
+	(iii) Upon completion of the actions in the sub-program body, copies
+		the R-value from the activation record back out to the L-value
+		of the actual parameter.
+	<ol class="answer_list">
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Name
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ activation records don't need to store access links because
+	<ol class="answer_list">
+	<li> Nested function declarations aren't allowed.
+	<li> Nested function declarations only contain the signature -
+		<strong>not</strong> the implementation.
+	<li> Any variables referenced in a nested function implementation
+		<strong>must</strong> be declared "const".
+	<li> Access links are <strong>always</strong> needed in the
+		activation record to point to the enclosing static scope.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java activation records don't need to store access links because
+	<ol class="answer_list">
+	<li> Nested method declarations aren't allowed.
+	<li> Nested method declarations only contain the signature -
+		<strong>not</strong> the implementation.
+	<li> Any variables referenced in a nested method implementation
+		<strong>must</strong> be declared "final".
+	<li> Access links are <strong>always</strong> needed in the
+		activation record to point to the enclosing static scope.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Dynamic scoping is
+	<ol class="answer_list">
+	<li> Used by C++.
+	<li> Used by Java.
+	<li> The same as static scoping.
+	<li> Refers to objects allocated in the heap.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A tail call occurs when
+	<ol class="answer_list">
+	<li> A self-recursive call is the last action taken by a subprogram
+		before it returns.
+	<li> A self-recursive call appears in the return expression of a
+		subprogram.
+	<li> A self-recursive call in a sub-program contains no arguments.
+	<li> A self-recursive call in a sub-program contains only
+		Pass-by-Value parameters.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Tail recursive subprograms
+	<ol class="answer_list">
+	<li> <strong>Must</strong> have <strong>all</strong> of their
+		recursive calls be tail calls.
+	<li> Can be efficiently and effectively converted into (iterative)
+		loops by the compiler.
+	<li> Can reuse their current activation record when called recursively.
+	<li> <strong>Must</strong> push a new activation record onto the
+		run-time stack like <strong>all</strong> other recursive
+		subprograms.
+	<li> None of the above
+	</ol>
+</li><br/>

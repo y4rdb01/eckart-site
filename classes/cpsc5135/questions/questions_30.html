@@ -1,0 +1,260 @@
+<li> Smalltalk-X comments
+	<ol class="answer_list">
+	<li> Start with // and go to the end of the current line.
+	<li> Start with "/ and go to the end of the current line.
+	<li> Can appear within pairs of double quotes (e.g., " comment ").
+	<li> Can appear within pairs of curly braces (e.g., { comment }).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages only support single inheritance for
+	classes?
+	<ol class="answer_list">
+	<li> Java
+	<li> C++
+	<li> Smalltalk
+	<li> Prolog
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, <strong>all</strong> class instance variables behave as
+	if they were declared in C++ as
+	<ol class="answer_list">
+	<li> public
+	<li> protected
+	<li> private
+	<li> friend
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, <strong>all</strong> methods behave as if they were declared
+	in C++ as
+	<ol class="answer_list">
+	<li> public
+	<li> protected
+	<li> private
+	<li> friend
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, subclasses can override a method in the superclass when
+	<ol class="answer_list">
+	<li> the superclass method was declared virtual.
+	<li> the superclass method was declared protected.
+	<li> the superclass method was declared abstract.
+	<li> the superclass method was declared.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> While there is no abstract class "type" in Smalltalk (like there is in
+	Java), the programmer can prevent the creation of new instances by
+	<ol class="answer_list">
+	<li> Using a special comment.
+	<li> Defining the "abstract" method for the class.
+	<li> Having the "new" method return "self shouldNotImplement".
+	<li> Having the "new" method return "null".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> To indicate that a Smalltalk method is abstract, the programmer should
+	<ol class="answer_list">
+	<li> Use the "abstract" comment method for its documentation.
+	<li> Return "self subclassResponsibility" from the method.
+	<li> Return "self shouldNotImplement" from the method.
+	<li> Return "null" from the method.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is a kind of well-known
+	Smalltalk numeric object literal?
+	<ol class="answer_list">
+	<li> integer
+	<li> fraction
+	<li> floating point number
+	<li> transcendental number
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is a kind of well-known Smalltalk object literal?
+	<ol class="answer_list">
+	<li> symbol
+	<li> operator name
+	<li> character
+	<li> string
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is a kind of Smalltalk message?
+	<ol class="answer_list">
+	<li> Singleton
+	<li> Unary
+	<li> Pre-fix
+	<li> Keyword
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Smalltalk method names
+	<ol class="answer_list">
+	<li> <strong>Must</strong> start with an upper case letter.
+	<li> Start with a lower case letter by convention.
+	<li> May only contain letters.
+	<li> Are case sensitive.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> By convention, capitalized names in Smalltalk indicate that the
+	name refers to a
+	<ol class="answer_list">
+	<li> Class
+	<li> Shared object
+	<li> Method
+	<li> Class instance variable
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, execution is left to right after which of the following
+	rules of precedence (highest precedence appears first in each list)?
+	<ol class="answer_list">
+	<li> Parentheses, keyword messages, unary messages, binary messages.
+	<li> Unary messages, parentheses, binary messages, keyword messages.
+	<li> Parentheses, unary messages, binary messages, keyword messages.
+	<li> Parentheses, binary messages, unary messages, keyword messages.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following, in Smalltalk, is equivalent to:
+	<pre><code>
+	Transcript clear.
+	Transcript show: 'Hello'.
+	Transcript show: 'World'.
+	Transcript cr.
+	</code></pre>
+	<ol class="answer_list">
+	<li> Transcript clear; show: 'HelloWorld'; cr.
+	<li> Transcript cr; show: 'Hello'; show: 'World'; cr.
+	<li> Transcript show: 'Hello'; show: 'World'; cr.
+	<li> Transcript clear; show: 'Hello'; show: 'World'; cr.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Variables in Smalltalk
+	<ol class="answer_list">
+	<li> <strong>Must</strong> be declared with a specific type
+		(as in Java and C++).
+	<li> Are implicitly declared upon their first usage.
+	<li> <strong>Must</strong> be declared before used.
+	<li> Can only be assigned a value once - so they cannot be changed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The output of the following Smalltalk code is described as
+	<pre><code>
+	3 timesRepeat: [ | i | i := 0. Transcript show: i; cr. ].
+	</code></pre>
+	<ol class="answer_list">
+	<li> Illegal since you can pass a code block to a method.
+	<li> Prints the numbers 0, 1, 2 on separate lines.
+	<li> Prints the number 0 three times on the same line.
+	<li> Prints the number 0 three times on spearate lines.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The output of the following Smalltalk code is described as
+	<pre><code>
+	0 to: 2 do: [ :n | Transcript show: n squared; cr. ].
+	</code></pre>
+	<ol class="answer_list">
+	<li> Illegal since the semi-colon (;) after "squared" should
+		be a colon (:).
+	<li> Prints the numbers 0, 1, 2 on separate lines.
+	<li> Prints the numbers 0, 1, 4 on separate lines.
+	<li> Prints the numbers 0, 1, 4 on the same line.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, "="
+	<ol class="answer_list">
+	<li> Returns true when the left and right hand side are the same
+		object (pointer).
+	<li> Returns true when the left and right hand side describe the same
+		value (but not necessarily the same object).
+	<li> Assigns the variable on the left hand side the value described
+		on the right hand side.
+	<li> Does <strong>not</strong> exist as an operator.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, "=="
+	<ol class="answer_list">
+	<li> Returns true when the left and right hand side are the same
+		object (pointer).
+	<li> Returns true when the left and right hand side describe the same
+		value (but not necessarily the same object).
+	<li> Assigns the variable on the left hand side the value described
+		on the right hand side.
+	<li> Does <strong>not</strong> exist as an operator.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Conditional execution in Smalltalk is different from most imperative
+	languages because
+	<ol class="answer_list">
+	<li> It uses a special message format, e.g., (a < 3 : [ code_block_1 ] ? [ code_block_2 ] )
+	<li> It sends code blocks as part of "ifTrue" and "ifFalse" messages
+		to a boolean object.
+	<li> A code block is sent a message, "ifTrue" or "ifFalse", with a
+		boolean argument.
+	<li> They cannot be nested.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, what is the difference between the following two boolean
+	expressions?
+	<pre><code>
+	(3 < a) & (a < 12)
+
+	(3 < a) and: [ (a < 12) ]
+	</code></pre>
+	<ol class="answer_list">
+	<li> <strong>Both</strong> are equivalent
+		(and do full boolean evaluation).
+	<li> <strong>Both</strong> are equivalent
+		(and do short-circuit boolean evaluation).
+	<li> Only the first supports short-circuit boolean evaluation.
+	<li> Only the second supports short-circuit boolean evaluation.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> New classes in Smalltalk are created by
+	<ol class="answer_list">
+	<li> Declaring a new class using the "class" keyword.
+	<li> Sending a "subclass" message to any superclass.
+	<li> Sending a "subclass" message only to the "Object" superclass.
+	<li> Implicitly by declaring their methods and using the correct
+		commenting directives.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Methods in Smalltalk
+	<ol class="answer_list">
+	<li> <strong>Always</strong> return a value.
+	<li> Return values by preceding it with the carat (^) character.
+	<li> <strong>Always</strong> return the receiving instance as the
+		return value.
+	<li> Return the value of the last expression in the method unless
+		otherwise indicated.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Arrays in Smalltalk are
+	<ol class="answer_list">
+	<li> Like arrays in Java and C++, and are built into the language
+		syntax.
+	<li> A predefined class, and adhere to the class and message syntax
+		(e.g., they aren't indexed by "arrayName[index]").
+	<li> Predefined, and allow C++ and Java like references (e.g.,
+		arrayName[index]).
+	<li> <strong>Not</strong> part of the Smalltalk language.
+	<li> None of the above
+	</ol>
+</li><br/>

@@ -1,0 +1,2224 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Study Questions for Test #1
+</p>
+
+<style type="text/css">
+	ol.question_list {list-style-type: none;}
+	ol.question_list li:before {content: counter(question, decimal) ") ";}
+	ol.question_list li { counter-increment: question;}
+
+	ol.answer_list {list-style-type: none;}
+	ol.answer_list li:before {content: counter(answer, lower-latin) ") ";}
+	ol.answer_list li { counter-increment: answer;}
+
+	ul.bullet_list {list-style-type: disc;}
+	ul.bullet_list li:before {content: "";}
+	ul.bullet_list li { counter-increment: bogus;}
+</style>
+
+<p>
+The following list of exam study questions are provided as a means to help you
+assess your understanding of the topics presented in class. While every
+reasonable attempt has been made to create a comprehensive list of questions,
+they should <strong>not</strong> be the only means by which you assess your
+own understanding of the course materials. While many of these questions
+may appear on your exam, be aware that the exam may include questions
+that do not appear below. However, it is unlikely you will perform well on
+the exam if you have difficulty answering these questions correctly.
+</p>
+
+
+<ol class="question_list">
+<li> Which of the following are features/properties of <strong>all</strong> modern general
+	purpose programming languages?
+	<ol class="answer_list">
+	<li> Turing completeness
+	<li> Recursion
+	<li> Pattern matching
+	<li> Implicit variable declarations
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages were developed before 1965 and are
+	still in use today?
+	<ol class="answer_list">
+	<li> C
+	<li> Cobol
+	<li> Prolog
+	<li> Lisp
+	<li> Fortran
+	</ol>
+</li><br/>
+<li> Which of the following was the first major language to introduce
+	<strong>both</strong> recursion and garbage collection?
+	<ol class="answer_list">
+	<li> C
+	<li> Cobol
+	<li> Prolog
+	<li> Lisp
+	<li> Fortran
+	</ol>
+</li><br/>
+<li> Why is the study of programming language concepts more beneficial than
+	learning multiple programming languages?
+	<ol class="answer_list">
+	<li> Because <strong>all</strong> programming languages use the same small set of
+		concepts.
+	<li> Knowing concepts makes learning new languages that use them
+		much easier.
+	<li> You'd have to learn a huge number of languages to cover
+		<strong>all</strong> the basic concepts.
+	<li> It's not. Learning languages is more important because the
+		concepts <strong>always</strong> work together differently.
+	<li> It's not, because learning new languages is easier than
+		understanding the underlying concepts.
+	</ol>
+</li><br/>
+
+<li> Which of the following are part of Lisp?
+	<ol class="answer_list">
+	<li> Recursion
+	<li> Garbage Collection
+	<li> Programs and Data have the same format
+	<li> Post-fix function calls
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are true in Lisp?
+	<ol class="answer_list">
+	<li> Numbers evaluate to themselves
+	<li> <strong>All</strong> numbers are atoms
+	<li> <strong>No</strong> atom can also be a list
+	<li> <strong>All</strong> expressions are evaluated unless
+		<em>quote</em>'d
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "nil" value in Lisp is different from <strong>all</strong> other
+	values because it
+	<ol class="answer_list">
+	<li> <strong>always</strong> evaluates to itself.
+	<li> is <strong>both</strong> an atom and a list.
+	<li> is <strong>both</strong> a number (zero) and a list.
+	<li> also is the function that checks whether or not its argument is
+		the "nil" value.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Lisp functions?
+	<ol class="answer_list">
+	<li> head
+	<li> tail
+	<li> car
+	<li> cdr
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Lisp functions?
+	<ol class="answer_list">
+	<li> cons
+	<li> new
+	<li> cond
+	<li> quote
+	<li> escape
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Lisp functions?
+	<ol class="answer_list">
+	<li> define
+	<li> call
+	<li> exec
+	<li> run
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Lisp functions?
+	<ol class="answer_list">
+	<li> fun
+	<li> defun
+	<li> esc
+	<li> eval
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Lisp functions?
+	<ol class="answer_list">
+	<li> eq
+	<li> equal
+	<li> and
+	<li> or
+	<li> not
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Lisp functions?
+	<ol class="answer_list">
+	<li> atom
+	<li> isatom
+	<li> numberp
+	<li> isnumber
+	<li> islist
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Lisp functions?
+	<ol class="answer_list">
+	<li> lambda
+	<li> mapcar
+	<li> mapall
+	<li> applyall
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x)
+		(cond
+			((not x) 0)
+			(t (+ (fun (cdr (cdr x))) (car x)))
+		)
+	)
+
+	(fun (quote (1  2  3  4)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> 10
+	<li> 4
+	<li> 6
+	<li> 7
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((not y) y)
+			((eq x (car y)) x)
+			(t (fun x (cdr y)))
+		)
+	)
+
+	(fun 3 (quote (1  2  3  4)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> nil
+	<li> 3
+	<li> (1  2  3  4)
+	<li> (3  4)
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((not y) y)
+			((eq x (car (car y))) (cdr (car y)))
+			(t (fun x (cdr y)))
+		)
+	)
+
+	(fun 3 (quote ( (1 . a)  (2 . b)  (3 . c)  (4 . d))))
+	</code></pre>
+	<ol class="answer_list">
+	<li> c
+	<li> ((3 . c))
+	<li> ((3 . c)  (4 . d))
+	<li> nil
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x)
+		(cond
+			((not x) x)
+			(t (append (fun (cdr x)) (cons (car x) nil)))
+		)
+	)
+
+	(fun (quote (1  2  3  4)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> (1  2  3  4)
+	<li> ((1) (2) (3) (4))
+	<li> (4  3  2  1)
+	<li> ((4) (3) (2) (1))
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(or
+			(and (atom x) (cons x nil))
+			(cons (car y) (fun (cdr x) (cdr y)))
+		)
+	)
+
+	(fun (quote (a b c)) (quote (d e f)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> (d e f nil)
+	<li> (d e nil nil)
+	<li> (d e f . nil)
+	<li> (d e nil . nil)
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((or (not x) (not y)) nil)
+			(t (cons (cons (car x) (car y))
+				 (fun (cdr x) (cdr y)))
+			)
+		)
+	)
+
+	(fun (quote (1 2 3)) (quote (a b c)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> ( (1 . a) (2 . b) (3 . c) )
+	<li> ( (1 a) (2 b) (3 c) )
+	<li> ( (1) (a) (2) (b) (3) (c) )
+	<li> ( ( (1) (a) ) ( (2) (b) ) ( (3) (c) ) )
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((or (not x) (not y)) nil)
+			(t (cons (cons (car x)
+				       (cons (car y) nil))
+				 (fun (cdr x) (cdr y)))
+			)
+		)
+	)
+
+	(fun (quote (1 2 3)) (quote (a b c)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> ( (1 . a) (2 . b) (3 . c) )
+	<li> ( (1 a) (2 b) (3 c) )
+	<li> ( (1) (a) (2) (b) (3) (c) )
+	<li> ( ( (1) (a) ) ( (2) (b) ) ( (3) (c) ) )
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((or (not x) (not y)) nil)
+			(t (cons (cons (car x) nil)
+				 (cons (cons (car y) nil)
+				       (fun (cdr x) (cdr y))))
+			)
+		)
+	)
+
+	(fun (quote (1 2 3)) (quote (a b c)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> ( (1 . a) (2 . b) (3 . c) )
+	<li> ( (1 a) (2 b) (3 c) )
+	<li> ( (1) (a) (2) (b) (3) (c) )
+	<li> ( ( (1) (a) ) ( (2) (b) ) ( (3) (c) ) )
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((or (not x) (not y)) nil)
+			(t (cons (car x)
+				 (cons (car y)
+				       (fun (cdr x) (cdr y))))
+			)
+		)
+	)
+
+	(fun (quote (1 2 3)) (quote (a b c)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> ( (1 . a) (2 . b) (3 . c) )
+	<li> ( (1 a) (2 b) (3 c) )
+	<li> ( (1) (a) (2) (b) (3) (c) )
+	<li> ( ( (1) (a) ) ( (2) (b) ) ( (3) (c) ) )
+	<li> None of the above.
+	</ol>
+</li><br/>
+
+<li> Write the definition for the Lisp function "isEven" which takes a list
+	as its only parameter. The function returns "t" if the list has an
+	even number of elements and "nil" if it does not. Consider an empty
+	list to have an even number of items. Thus "(isEven nil)" and
+	"(isEven (quote (1 2 3 4)))" both return "t" while
+	"(isEven (quote (1 2 3)))" returns "nil".
+	Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "isOdd" which takes a list
+	as its only parameter. The function returns "t" if the list has an
+	odd number of elements and "nil" if it does not. Consider an empty
+	list to have an even number of items. Thus "(isOdd nil)" and
+	"(isOdd (quote (1 2 3 4)))" both return "nil" while
+	"(isOdd (quote (1 2 3)))" returns "t".
+	Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "sum" which takes a single
+	non-negative integer as its only parameter and sums
+	<strong>all</strong> the integers
+	from 0 up to and including that number. Thus "(sum 0)" returns "0"
+	and "(sum 5)" returns "15". Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "sum" which takes two
+	non-negative integers as its parameters and sums <strong>all</strong>
+	the integers
+	from the first integer up to and including the second integer. Thus
+	"(sum 3 6)" returns "18" and "(sum -2  2)" returns "0". If the numbers
+	are both the same, then return that number as the sum, e.g.,
+	"(sum 5  5)" returns "5". You may assume that the second number is
+	never strictly less than the first. Your solution may only use the
+	following built-in Lisp functions: defun, cons, append, cond, and,
+	or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "oddAdd" that takes a list of
+	numbers as its only parameter and returns the sum of every other number
+	in the list starting with the first number. Thus
+	"(oddAdd (quote (2  3  5  7)))" should return "7" and "(oddAdd nil)"
+	should return "0".  You can assume that the list will only contain
+	numbers. Your solution may only use the following built-in Lisp
+	functions: defun, cons, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "evenAdd" that takes a list of
+	numbers as its only parameter and returns the sum of every other number
+	in the list starting with the second number. Thus
+	"(evenAdd (quote (2  3  5  7)))" should return "10" and "(evenAdd nil)"
+	should return "0".  You can assume that the list will only contain
+	numbers. Your solution may only use the following built-in Lisp
+	functions: defun, cons, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "last" that takes a list
+	as its only parameter and returns the last element in that list.
+	Thus "(last nil)" should return "nil" and "(last (quote (a  1  b  2)))"
+	should return "2".  Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "nth" that takes a positive
+	integer and a non-empty list as its only parameters.
+	The function should return
+	the element of the list corresponding to the number given (counting the
+	first element in the list as "1").  Thus "(nth 1 (quote (a  b  c)))"
+	should return "a" and "(nth 4 (quote (a  1  b  2)))" should return "2".
+	Your solution may only use the following built-in Lisp functions:
+	defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "makeList" that takes a single
+	non-negative integer as its only parameter and creates a list of that
+	length with the integer values as the members of the list counting down
+	from the given integer.
+	Thus "(makeList 0)" should return "nil" and "(makeList 4)" should
+	return "(4  3  2  1)".  Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "makeList" that takes a single
+	non-negative integer as its only parameter and creates a list of that
+	length with the successive integer values as the members of the list
+	(i.e., counting up).
+	Thus "(makeList 0)" should return "nil" and "(makeList 4)" should
+	return "(1  2  3  4)".  Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "pair" that takes two lists
+	as its parameters.  The function should return a list of dotted pairs,
+	where the items in each pair are the corresponding items in the
+	two parameters. Thus "(pair (quote (1 2 3)) (quote (1 4 9)))" should
+	return "( (1 . 1) (2 . 4) (3 . 9) )", while "(pair nil nil)" should
+	return "nil".
+	Your solution may only use the following built-in Lisp functions:
+	defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "where" that takes two
+	parameters, an item to find and a list to find it in. The function
+	should return the position of the first matching item in the list
+	(positions start at 0), and if the item is not in the list the
+	function should return
+	"nil". Thus "(where (quote b) (quote (a b c)))" should return "1",
+	while "(where 2 (quote (a 1 b 4 c 7 u)))" should "nil".
+	Your solution may only use the following built-in Lisp functions:
+	defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "map" that takes a function
+	name and a list of lists.  The function should return a list that is
+	the result of applying its first argument to each successive nested
+	lists given by the second argument.  Thus
+	"(map (quote +) (quote ((1  2) (3  4) (5  6))))" should return
+	"(3  7  11)" while "(map (quote +) nil)" should return "nil". Be careful
+	that your function doesn't assume that the first parameter is "+".
+	Your solution may only use the following built-in Lisp functions:
+	defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+
+<li> Which of the following are <strong>not</strong> part of the layout of a
+	process in memory?
+	<ol class="answer_list">
+	<li> Constants
+	<li> Program comments
+	<li> Symbol table
+	<li> Run-time stack
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following <strong>are</strong> part of the layout of a
+	process in memory?
+	<ol class="answer_list">
+	<li> Heap
+	<li> Code
+	<li> Run-time stack
+	<li> Static variables
+	<li> Constants
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which parts of the processs layout in memory have a fixed size during
+	the execution of a compiled (non-interpreted) program?
+	<ol class="answer_list">
+	<li> Heap
+	<li> Symbol table
+	<li> Run-time stack
+	<li> Static variables
+	<li> Program comments
+	<li> Constants
+	<li> Code
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Why do the heap and run-time stack <strong>not</strong> have a fixed size
+	(during program execution) like the other parts of the process layout
+	in memory?
+	<ol class="answer_list">
+	<li> Not true, they do have a fixed size.
+	<li> The other parts are completely determined by the program text
+		(statically) while the heap and run-time stack sizes depend
+		on the input and execution path through the code.
+	<li> Not true, they can <strong>all</strong> vary in size during
+		program execution.
+	<li> Not true, only the heap varies in size, while the run-time stack
+		is fixed in size based on the number of declared methods and
+		functions.
+	<li> Not true, only the run-time stack varies in size since the heap
+		size is determined by the number of classes declared in the
+		code.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Reference counts are limited by:
+	<ol class="answer_list">
+	<li> The size (in bits) of the count.
+	<li> Inability to collect circular structures.
+	<li> <strong>All</strong> objects <strong>must</strong>
+		be of identical sizes.
+	<li> Doesn't work with recursion.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are true regarding reference counts?
+	<ol class="answer_list">
+	<li> Reclaims unused memory as soon as it is no longer needed.
+	<li> Is periodically run, so some allocated but unused memory is taking
+		up heap space at various times.
+	<li> Prevents any other computations while it is reclaiming unused
+		memory.
+	<li> Compacts the memory currently being used as part of the process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Mark and Sweep garbage collection algorithm
+	<ol class="answer_list">
+	<li> Uses less space (1 bit per object) than reference counting
+	<li> Can cause program execution to be delayed
+	<li> Is unable to collect circular structures
+	<li> Doesn't work with recursion
+	<li> <strong>Must</strong> examine every object memory location
+		in the heap
+	</ol>
+</li><br/>
+<li> Which of the following are true regarding the Mark and Sweep garbage
+	collection algorithm?
+	<ol class="answer_list">
+	<li> Reclaims unused memory as soon as it is no longer needed.
+	<li> Is periodically run, so some allocated but unused memory is taking
+		up heap space at various times.
+	<li> Prevents any other computations while it is reclaiming unused
+		memory.
+	<li> Compacts the memory currently being used as part of the process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The copying algorithms for garbage collection
+	<ol class="answer_list">
+	<li> Don't work with recursion
+	<li> Compact used memory as a by-product of the process
+	<li> Effectively halves the usable heap space
+	<li> Enable "real-time" garbage collection (i.e., no arbitrary
+		delays)
+	<li> Unable to collect circular structures
+	</ol>
+</li><br/>
+<li> Which of the following are true regarding copying algorithms for garbage
+	collection?
+	<ol class="answer_list">
+	<li> Reclaims unused memory as soon as it is no longer needed.
+	<li> Is periodically run, so some allocated but unused storage is taking
+		up heap space at various times.
+	<li> Prevents any other computations while it is reclaiming unused
+		memory.
+	<li> Compacts the memory currently being used as part of the process.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Interpreters differ from compilers by
+	<ol class="answer_list">
+	<li> <strong>Not</strong> producing an alternate version of the
+		source code.
+	<li> Directly accepting program input in addition to the program code.
+	<li> Executing the programs faster and more efficiently.
+	<li> Skipping lexical and syntactic analysis.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Compilers differ from interpreters by
+	<ol class="answer_list">
+	<li> Producing program output directly from the compiler.
+	<li> Creating either object code or an intermediate code version
+		of the program source code.
+	<li> Analyzing program input to perform code optimization.
+	<li> Supporting recursion in source programs.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are typical compilation stages?
+	<ol class="answer_list">
+	<li> Program input analysis
+	<li> Semantic analysis
+	<li> Code generation
+	<li> Output analysis
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are typical compilation stages?
+	<ol class="answer_list">
+	<li> Lexical analysis
+	<li> Syntactic analysis
+	<li> Code generation
+	<li> Output analysis
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following compilation stages are responsible for identifying
+	the words/tokens in a program?
+	<ol class="answer_list">
+	<li> Lexical analysis
+	<li> Syntactic analysis
+	<li> Semantic analysis
+	<li> Code generation
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following compilation stages are responsible for ensuring
+	that the structure of the program is legal?
+	<ol class="answer_list">
+	<li> Lexical analysis
+	<li> Syntactic analysis
+	<li> Semantic analysis
+	<li> Code generation
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following compilation stages are responsible for ensuring
+	that the program adheres to the language meaning and that the program
+	is unambiguous?
+	<ol class="answer_list">
+	<li> Lexical analysis
+	<li> Syntactic analysis
+	<li> Semantic analysis
+	<li> Code generation
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following compilation stages are responsible for creating
+	code (in another language) that corresponds to the original program?
+	<ol class="answer_list">
+	<li> Lexical analysis
+	<li> Syntactic analysis
+	<li> Semantic analysis
+	<li> Code generation
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following compilation stages are responsible for performing
+	copy propigation, in-line function calls, and common subexpression
+	elimination?
+	<ol class="answer_list">
+	<li> Lexical analysis
+	<li> Syntactic analysis
+	<li> Semantic analysis
+	<li> Code generation
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following compilation stages are responsible for issuing
+	compilation errors in a source program?
+	<ol class="answer_list">
+	<li> Lexical analysis
+	<li> Syntactic analysis
+	<li> Semantic analysis
+	<li> Code generation
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Just-in-time compilation
+	<ol class="answer_list">
+	<li> Is used by some interpreters (e.g., Java Virtual Machines).
+	<li> Improves the speed of "interpretation" based on execution paths.
+	<li> Enables compilers to generate object (or intermediate) code more
+		efficiently.
+	<li> Allows source programs to be typed into a compiler and object (or
+		intermediate) code to be generated incrementally.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> The complete set of non-terminals in the following grammar is:
+	<pre><code>
+	[1] &lt;item> ::= "(" &lt;list> ")"
+	[2]	      | ATOM
+	[3]	      | NUMBER
+	[4] &lt;list> ::= &lt;item> &lt;list>
+	[5]           | &lt;item> "." &lt;item>
+	[6]	      | epsilon
+	</code></pre>	
+	<ol class="answer_list">
+	<li> ATOM, NUMBER
+	<li> "(", ")", "."
+	<li> "(", ")", ATOM, NUMBER, "."
+	<li> &lt;item>, &lt;list>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The complete set of terminals in the following grammar is:
+	<pre><code>
+	[1] &lt;item> ::= "(" &lt;list> ")"
+	[2]	      | ATOM
+	[3]	      | NUMBER
+	[4] &lt;list> ::= &lt;item> &lt;list>
+	[5]           | &lt;item> "." &lt;item>
+	[6]	      | epsilon
+	</code></pre>	
+	<ol class="answer_list">
+	<li> ATOM, NUMBER
+	<li> "(", ")", "."
+	<li> "(", ")", ATOM, NUMBER, "."
+	<li> &lt;item>, &lt;list>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given the grammar:
+	<pre><code>
+	[1] &lt;statement> ::= "if" &lt;boolean> "then" &lt;statement>
+	[2]	      | "if" &lt;boolean> "then" &lt;statement> "else" &lt;statement>
+	[3]	      | VARIABLE "=" &lt;expression>
+	</code></pre>	
+	which of following is the left-most derivation (with &lt;statement> as
+	the starting non-terminal) corresponding to this interpretation
+	(as indicated by indentation)?
+	<pre><code>
+	if &lt;boolean_1> then
+		if &lt;boolean_2> then
+			a = &lt;expression>
+		else
+			b = &lt;expression>
+	</code></pre>	
+	<ol class="answer_list">
+	<li> 1 -> 2 -> 3 -> 3
+	<li> 2 -> 1 -> 3 -> 3
+	<li> 2 -> 3 -> 1 -> 3
+	<li> 1 -> 3 -> 2 -> 3
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given the grammar:
+	<pre><code>
+	[1] &lt;statement> ::= "if" &lt;boolean> "then" &lt;statement>
+	[2]	      | "if" &lt;boolean> "then" &lt;statement> "else" &lt;statement>
+	[3]	      | VARIABLE "=" &lt;expression>
+	</code></pre>	
+	which of following is the left-most derivation (with &lt;statement> as
+	the starting non-terminal) corresponding to this interpretation
+	(as indicated by indentation)?
+	<pre><code>
+	if &lt;boolean_1> then
+		if &lt;boolean_2> then
+			a = &lt;expression>
+	else
+		b = &lt;expression>
+	</code></pre>	
+	<ol class="answer_list">
+	<li> 1 -> 2 -> 3 -> 3
+	<li> 2 -> 1 -> 3 -> 3
+	<li> 2 -> 3 -> 1 -> 3
+	<li> 1 -> 3 -> 2 -> 3
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given the grammar:
+	<pre><code>
+	[1] &lt;item> ::= "(" &lt;list> ")"
+	[2]	      | ATOM
+	[3] &lt;list> ::= &lt;item> &lt;list>
+	[4]           | &lt;item> "." &lt;item>
+	[5]	      | epsilon
+	</code></pre>	
+	which of following is the left-most derivation (with &lt;item> as
+	the starting non-terminal) of?
+	<pre><code>
+	( a ( b . c ) d )
+	</code></pre>	
+	<ol class="answer_list">
+	<li> 1 -> 3 -> 3 -> 2 -> 1 -> 4 -> 3 -> 2 -> 2 -> 2 -> 5
+	<li> 1 -> 3 -> 2 -> 1 -> 3 -> 2 -> 4 -> 3 -> 2 -> 2 -> 5
+	<li> 1 -> 3 -> 3 -> 3 -> 1 -> 4 -> 2 -> 2 -> 2 -> 2 -> 5
+	<li> 1 -> 3 -> 2 -> 3 -> 1 -> 4 -> 2 -> 2 -> 3 -> 2 -> 5
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given the grammar:
+	<pre><code>
+	[1] &lt;item> ::= "(" &lt;list> ")"
+	[2]	      | ATOM
+	[3] &lt;list> ::= &lt;item> &lt;list>
+	[4]           | &lt;item> "." &lt;item>
+	[5]	      | epsilon
+	</code></pre>	
+	which of following is the left-most derivation (with &lt;item> as
+	the starting non-terminal) of?
+	<pre><code>
+	( a ( b ) )
+	</code></pre>	
+	<ol class="answer_list">
+	<li> 1 -> 1 -> 2 -> 1 -> 1 -> 3 -> 2 -> 5
+	<li> 1 -> 4 -> 2 -> 1 -> 2 -> 3 -> 2 -> 5
+	<li> 1 -> 3 -> 3 -> 2 -> 1 -> 2 -> 3 -> 5 -> 5
+	<li> 1 -> 3 -> 2 -> 3 -> 1 -> 3 -> 2 -> 5 -> 5
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are parts of a BNF grammar:
+	<ol class="answer_list">
+	<li> Start symbol (a non-terminal)
+	<li> Set of terminal symbols
+	<li> Set of production rules
+	<li> Set of regular expressions
+	<li> Set of non-terminal symbols
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are allowed in an Extended BNF grammar?
+	<ol class="answer_list">
+	<li> "*" to indicate 0 or more times
+	<li> "[ ]" to indicate 0 or 1 times
+	<li> "{ }" to indicate 0 or more times
+	<li> "&lt; >" to indicate 1 or more times
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Imperative "statements"
+	<ol class="answer_list">
+	<li> Cause a change in program state.
+	<li> Are generally more efficient than "declarative" statements.
+	<li> Define new variables, types, and functions.
+	<li> Are more reliable than "declarative" statements.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Declarative "statements"
+	<ol class="answer_list">
+	<li> Cause a change in program state.
+	<li> Are generally more efficient than "imperative" statements.
+	<li> Define new variables, types, and functions.
+	<li> Are more reliable than "imperative" statements.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages are primarily imperative in nature?
+	<ol class="answer_list">
+	<li> Java
+	<li> Cobol
+	<li> Lisp
+	<li> Prolog
+	<li> Fortran
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages are primarily declarative in nature?
+	<ol class="answer_list">
+	<li> Java
+	<li> Cobol
+	<li> Lisp
+	<li> Prolog
+	<li> Fortran
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> The base value types available in Prolog include:
+	<ol class="answer_list">
+	<li> atoms
+	<li> lists
+	<li> numbers
+	<li> strings
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Prolog rules/clauses/facts with the same name
+	<ol class="answer_list">
+	<li> <strong>Must always</strong> appear together in the Prolog
+		source code.
+	<li> Are <strong>always</strong> part of the same predicate.
+	<li> <strong>Must</strong> have different formal parameters.
+	<li> <strong>Must always</strong> have variables as part of
+		their formal parameters.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following Prolog statements gives "X" the value of 4 more than
+	"Y"?
+	<ol class="answer_list">
+	<li> X =:= Y + 4
+	<li> X == Y + 4
+	<li> X = Y + 4
+	<li> X is Y + 4
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If the expression "[ a, [ b, c], d ]" is matched to the expression
+	"[ X | Y]" in Prolog, which of the following bindings are true?
+	<ol class="answer_list">
+	<li> X = [ a, [ b ] ]
+	<li> X = [ a, [ b, c ] ]
+	<li> X = [ a ]
+	<li> X = [ a, [ b, c], d ]
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If the expression "[ a, [ b, c], d ]" is matched to the expression
+	"[ X | Y]" in Prolog, which of the following bindings are true?
+	<ol class="answer_list">
+	<li> Y = [ d ]
+	<li> Y = [ a, [ b, c ] ]
+	<li> Y = [ d ]
+	<li> Y = [ [ b, c], d ]
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If the expression "[ a, [ b, c], d ]" is matched to the expression
+	"[ _, [ X | Y ] | Z ]" in Prolog, which of the following bindings
+	are true?
+	<ol class="answer_list">
+	<li> X = [ a ]
+	<li> X = b
+	<li> X = [ b ]
+	<li> X = [ [ b, c] ]
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If the expression "[ a, [ b, c], d ]" is matched to the expression
+	"[ _, [ X | Y ] | Z ]" in Prolog, which of the following bindings
+	are true?
+	<ol class="answer_list">
+	<li> Y = [ b, c ]
+	<li> Y = c
+	<li> Y = [ c ]
+	<li> Y = [ d ]
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If the expression "[ a, [ b, c], d ]" is matched to the expression
+	"[ _, [ X | Y ] | Z ]" in Prolog, which of the following bindings
+	are true?
+	<ol class="answer_list">
+	<li> Z = d
+	<li> Z = [ d ]
+	<li> Z = [ [ b, c], d ]
+	<li> Z = [ c, d ]
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> a feature of Prolog?
+	<ol class="answer_list">
+	<li> Backtracking
+	<li> Unification
+	<li> Pattern matching
+	<li> Variable/Parameter instantiation
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A primary difference between Prolog programs from those of other languages
+	(e.g., Lisp, C++, Java) is
+	<ol class="answer_list">
+	<li> Variables/Parameters cannot be assigned values
+	<li> It doesn't support garbage collection
+	<li> There is no distinction between predicate input and output
+	<li> It supports recursion
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+	pred(X, 0) :- atom(X).
+	pred([ ], 0).
+	pred([ _ | X ], Y) :- pred(X, Z), Y is 1 + Z.
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred(a, 1).
+	<li> pred([a], 0).
+	<li> pred([a], 1).
+	<li> pred([a, b], 2).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+   	pred([ ], X, X).
+	pred([ H | T ], X, Y) :- pred(T, [ H | X ], Y). 
+	pred(X, Y) :- pred(X, [ ], Z).
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred([b, c], [c, b, a]).
+	<li> pred([a, b, c], [a, b, c]).
+	<li> pred([a, b, c], [c, b, a]).
+	<li> pred([a, b, c], [b, a]).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+	pred(X):- pred(X, X).
+	pred([ ], [ ]).
+	pred([ X | Y ], Z):- pred(Y,Tmp), append(Tmp, [ X ], Z).
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred([a]).
+	<li> pred([a, b]).
+	<li> pred([a, b, c]).
+	<li> pred([a, b, b, a]).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+	pred(X, [X | _]).
+	pred(X, [_ | Y]) :- pred(X, Y).
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred(a, [b, c, d]).
+	<li> pred([a], [ [b], [c], [d] ]).
+	<li> pred([a], [a, b, c, d]).
+	<li> pred([a], [ [a], [b], [c], [d] ]).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+	pred( _, []).
+	pred(X, [ Y | Z ]) :-
+       		X \= Y,
+        	pred(X, Z).
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred(a, [b, c, d]).
+	<li> pred([a], [ [b], [c], [d] ]).
+	<li> pred([a], [a, b, c, d]).
+	<li> pred([a], [ [a], [b], [c], [d] ]).
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Write the definitions for the Prolog predicate "isEven" which takes a list
+	as its only parameter. The predicate should succeed if the number of
+	items in the list is even, and should fail if the list contains an odd
+	number of items. Thus "isEven([ z ])" and "isEven([ 1, a, 2 ])" should
+	fail, but "isEven([ ])" and "isEven([ 1, 2, c, d ])" should succeed.
+	Do <strong>not</strong> use the Prolog built-in "length" predicate.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "isOdd" which takes a list
+	as its only parameter. The predicate should succeed if the number of
+	items in the list is odd, and should fail if the list contains an even
+	number of items. Thus "isOdd([ z ])" and "isOdd([ 1, a, 2 ])" should
+	succeed, but "isOdd([ ])" and "isOdd([ 1, 2, c, d ])" should fail.
+	Do <strong>not</strong> use the Prolog built-in "length" predicate.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "sum" which takes two
+	numeric parameters. The predicate confirms that the sum of every
+	number starting with zero up to and including the value of the first
+	parameter is equal to the value of the second parameter. Thus
+	"sum(6, 21)", "sum(2, 3)", and "sum(5, 15)" should
+	succeed, but "sum(3, 2)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "sum" which takes three
+	numeric parameters. The predicate confirms that the sum of every
+	number starting with the first parameter, up to and including the
+	second parameter is equal to the value of the third parameter. Thus
+	"sum(3, 6, 18)", "sum(-2, 2, 0)", and "sum(5, 5, 5)" should
+	succeed, but "sum(2, 3, 3)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "oddAdd" which takes two
+	parameters: a list of numbers; and a number. The predicate confirms
+	that the sum of every other number in the list (starting with the
+	first number) is given as the second parameter.  Thus
+	"oddAdd([ ], 0)" and "oddAdd([2, 3, 5, 7], 7)" should succeed,
+	but "oddAdd([ 2, 3 ], 3)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "evenAdd" which takes two
+	parameters: a list of numbers; and a number. The predicate confirms
+	that the sum of every other number in the list (starting with the
+	second number) is given as the second parameter.  Thus
+	"evenAdd([ ], 0)" and "evenAdd([2, 3, 5, 7], 10)" should succeed,
+	but "evenAdd([ 2, 3 ], 2)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "last" which takes two
+	parameters: a list; and an item. The predicate confirms
+	that the item is the last element in the list.  Thus
+	"last([ ], [ ])" and "last([2, 3, 5, 7], 7)" should succeed,
+	but "last([ 2, 3 ], 2)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "nth" which takes three
+	parameters: a list; a number index; and an item. The predicate confirms
+	that the item is the nth element in the list (with the first element
+	being the 1th item).  You can assume that the number index is at least
+	1 and less than or equal to the size of the list (with the exception
+	of the empty list). Thus "nth([ ], 1, [ ])" and
+	"nth([2, 3, 5, 7], 3, 5)" should succeed,
+	but "nth([ 2, 3 ], 2, 2)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "makeList" which takes two
+	parameters: a non-negative integer; and a list. The predicate creates
+	a list of the integer values counting down to 1. Thus "makeList(0, [ ])"
+	and "makeList(4, [4, 3, 2, 1])" should succeed, but "makeList(2, [ 2 ])"
+	and "makeList(3, [ 1, 2, 3])" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "makeList" which takes two
+	parameters: a non-negative integer; and a list. The predicate creates
+	a list of the integer values counting up starting from 1. Thus
+	"makeList(0, [ ])" and "makeList(4, [1, 2, 3, 4])" should succeed,
+	but "makeList(2, [ 2 ])" and "makeList(3, [ 3, 2, 1])" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "pair" which takes three
+	parameters. The first and second parameters are lists of items while
+	the third is a list of item pairings from the elements of the first
+	two parameters. Thus "pair([], [], [])." and
+	"pair([1, 2, 3], [1, 4, 9], [ [1, 1], [2, 4], [3, 9] ])." should
+	succeed, but "pair([1, 2, 3], [1, 4], [ [1, 1], [2, 4] ])." and
+	"pair([1, 2, 3], [a, b, c], [ [1, a], [2, b] ])." should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "where" that takes three
+	parameters, an item to find, a list to find the item in, and the
+	first position in the list in which the item is located. Positions
+	start at 0, and if the item is not in the list the third parameter
+	should be -1.  Thus "where(b, [a, b, c], 1)." and
+	"where(d, [1, 2], -1)." should both succeed while
+	"where(c, [a 1 b 4 c 7 u], 2)." should fail.
+</li><br/>
+
+<li> Types
+	<ol class="answer_list">
+	<li> Organize concepts and information.
+	<li> Provide a consistent interpretation of bits in memory.
+	<li> <strong>Must always</strong> be named.
+	<li> <strong>Must</strong> be explicitly declared.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Types are used by:
+	<ol class="answer_list">
+	<li> Lisp
+	<li> Java
+	<li> Prolog
+	<li> Assemblers
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Type checking by a language enables the compiler/interpreter to ensure
+	that
+	<ol class="answer_list">
+	<li> programs are free of semantic errors.
+	<li> programs are free of syntactic errors.
+	<li> operations and data are used consistently.
+	<li> programs which compile without error will <strong>not</strong>
+		have any run-time errors.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <strong>not</strong> type errors?
+	<ol class="answer_list">
+	<li> Using a Character (char) value as it it were an Integer (int).
+	<li> Dividing by a 0 value.
+	<li> Taking the "car" (or "cdr") of a number in Lisp.
+	<li> Calling a function at an address that isn't a function.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Declared types enable:
+	<ol class="answer_list">
+	<li> Compilers to generate more efficient code.
+	<li> Programmers to develop shorter (source code) programs.
+	<li> <strong>All</strong> program semantic errors to be avoided.
+	<li> <strong>All</strong> type checking to be done at compile time.
+	<li> Stronger type checking by <strong>both</strong> compilers
+		and interpreters.
+	</ol>
+</li><br/>
+
+<li> Casting an integer value as a function pointer
+	<ol class="answer_list">
+	<li> Alters the bits in the integer value.
+	<li> Creates a dangling reference.
+	<li> Is <strong>not</strong> type safe.
+	<li> Is safe only if the language supports garbage collection.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Dangling references
+	<ol class="answer_list">
+	<li> Can only occur with heap allocated objects.
+	<li> Are <strong>always</strong> prevented by garbage collection.
+	<li> Can be created (pointing into the run-time stack)
+		in languages like C.
+	<li> Can only occur when pointer arithmetic is allowed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Run-time type checking
+	<ol class="answer_list">
+	<li> Occurs when the program is executing.
+	<li> Makes programs run slower than compile-time type checking.
+	<li> Catches fewer errors than compile-time type checking.
+	<li> Generally requires more effort to test programs.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Compile-time type checking
+	<ol class="answer_list">
+	<li> Occurs when the program is executing.
+	<li> Occurs when the compiler is executing.
+	<li> Can reduce the need for many kinds of program testing.
+	<li> Generally enables compiled programs to run faster.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Compilers that
+	<ol class="answer_list">
+	<li> Don't pass programs that would cause run-time errors are "sound".
+	<li> Flag something as an error that would be okay at run-time are
+		"conservative".
+	<li> Don't pass programs that would cause run-time errors are
+		"conservative".
+	<li> Flag something as an error that would be okay at run-time are
+		"sound".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When compile-time type checking doesn't pass a program that would cause
+	a run-time error, the type checker is said to be
+	<ol class="answer_list">
+	<li> Conservative
+	<li> Progressive
+	<li> Safe
+	<li> Sound
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When compile-time type checking might flag something as an error that
+	would <strong>not</strong> cause a run-time error, the type checker
+	is said to be
+	<ol class="answer_list">
+	<li> Conservative
+	<li> Progressive
+	<li> Safe
+	<li> Sound
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Most type checkers are
+	<ol class="answer_list">
+	<li> Safe and Sound
+	<li> Progressive and Safe
+	<li> Conservative and Sound
+	<li> Safe and Conservative
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Type inference is used by
+	<ol class="answer_list">
+	<li> Only by assemblers since they have no typed declarations.
+	<li> Only by languages whose programs <strong>must</strong>
+		be compiled.
+	<li> Only by languages whose programs <strong>must</strong>
+		be interpreted.
+	<li> Nearly all modern general purpose programming languages
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Strong type checking generally depends upon
+	<ol class="answer_list">
+	<li> Named types
+	<li> Type inference
+	<li> At least some run-time checking
+	<li> At least some compile-time checking
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which of the following are forms of polymorphism?
+	<ol class="answer_list">
+	<li> Subtype (e.g., inheritance)
+	<li> Implicit parametric (e.g., untype parameters)
+	<li> Union (e.g., variant records)
+	<li> Explicit parametric (e.g., generics)
+	<li> Ad hoc (e.g., overloading)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java supports which of the following forms of polymorphism?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ supports which of the following forms of polymorphism?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Lisp supports which of the following forms of polymorphism?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Prolog supports which of the following forms of polymorphism?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Explicit parametric polymorphism in
+	<ol class="answer_list">
+	<li> Java is available for <strong>all</strong> types.
+	<li> C++ is available for <strong>all</strong> types.
+	<li> Java is available for only reference types (allocated on the heap).
+	<li> C++ is available for only reference types (allocated on the heap).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Ad hoc polymorphism is determined by the
+	<ol class="answer_list">
+	<li> Type and number of formal parameters in Java and C++.
+	<li> Type and number of formal parameters as well as the return
+		type in Ada.
+	<li> Number of parameters in Lisp.
+	<li> Number of parameters in Prolog.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following polymorphism forms can be completely
+	resolved at compile-time?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following polymorphism forms <strong>must</strong> generally
+	be resolved at run-time (i.e., cannot always be resolved
+	at compile-time)?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, inheritance and interaces enable which type(s) of polymorphism?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Generics in <strong>both</strong> Ada and Java, and templates in C++ are
+	examples of which type(s) of polymorphism?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> "Type A is Float" is an example of
+	<ol class="answer_list">
+	<li> A named type declaration.
+	<li> An implicit type declaration.
+	<li> An anonymous type declaration.
+	<li> A transparent type declaration.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Generally for type declarations like "Type A is Integer" and
+	"Type B is Integer"
+	<ol class="answer_list">
+	<li> A and B are the same type.
+	<li> A and B are different types (not castable to one another).
+	<li> A and B are different types but are automatically casted to
+		one another when necessary.
+	<li> A and Integer (likewise B and Integer) can automatically be
+		cast to one another.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Opaque type declarations
+	<ol class="answer_list">
+	<li> Define a new type that is unequal to <strong>all</strong>
+		other types.
+	<li> <strong>Must</strong> be named.
+	<li> <strong>Must</strong> be anonymous.
+	<li> Are also transparent.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Anonymous type declarations
+	<ol class="answer_list">
+	<li> Are also transparent.
+	<li> <strong>Must</strong> not be named.
+	<li> Are also opaque.
+	<li> Are castable to any other type.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> C++ is a superset of
+	<ol class="answer_list">
+	<li> Java
+	<li> C#
+	<li> C
+	<li> Objective-C
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The last line of the following code snippet:
+	<pre><code>
+	float x = 4;
+	float *p = &x;
+	x = 12.0/*p /* some comment */;
+	</code></pre>
+	in C/C++ is
+	<ol class="answer_list">
+	<li> Ambiguous - could be dividing by data pointed to by "p"
+		or a comment.
+	<li> Syntactically wrong - can't have a (semi)nested comment.
+	<li> Is a division followed by a comment.
+	<li> Is a simple assignment (to the variable "x") followed
+		by a comment.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Dangling references can be created in C/C++ without using dynamic/heap
+	storage by
+	<ol class="answer_list">
+	<li> returning a locally declared array as the result of a function.
+	<li> attempting to assign a value to the -1 element of an array.
+	<li> using the address operator (&) to return the address of a local
+		variable from a function. 
+	<li> returning a function name as the result of a function.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Functions in C/C++ can
+	<ol class="answer_list">
+	<li> Be assigned to variables.
+	<li> Can be defined to take a variable number of parameters.
+	<li> Can be recursive.
+	<li> Can be passed as parameters.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C libraries
+	<ol class="answer_list">
+	<li> Provide much of the functional capabilities of C (e.g., I/O is
+		provided by libraries and is <strong>not</strong> built into
+		the language).
+	<li> Can be used with C++ programs and are fully compatible with the
+		C++ libraries.
+	<li> Cannot be used with C++ programs.
+	<li> Can be used with C++ programs but are not necessarily compatible
+		with the C++ libraries.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Objects (class instances) in C++ are
+	<ol class="answer_list">
+	<li> Only allocated on the run-time stack.
+	<li> Only allocated on the heap.
+	<li> Allocated on either the run-time stack or the heap.
+	<li> <strong>Must</strong> be allocated on <strong>both</strong>
+		the run-time stack and the heap.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ has the following visibility classifications:
+	<ol class="answer_list">
+	<li> public
+	<li> private
+	<li> protected
+	<li> friend
+	<li> namespace
+	</ol>
+</li><br/>
+<li> C++ allows overloading
+	<ol class="answer_list">
+	<li> Only for arithmetic operations
+	<li> Only for bitwise operations
+	<li> Only for I/O operations
+	<li> For nearly all operations
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following in C++ is using a non-copy constructor?
+	<ol class="answer_list">
+	<li> Person p;
+	<li> Person p(bob);
+	<li> Person p = george;
+	<li> Person bob, george; bob = george;
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following in C++ is using a copying constructor?
+	<ol class="answer_list">
+	<li> Person p;
+	<li> Person p(bob);
+	<li> Person p = george;
+	<li> Person bob, george; bob = george;
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ assignments differ from copying constructors
+	<ol class="answer_list">
+	<li> Because they should check for previous (already assigned) values.
+	<li> By their syntax of usage.
+	<li> There are no differences.
+	<li> Because they should return a reference to their left-hand side
+		(l-value).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ provides
+	<ol class="answer_list">
+	<li> A default constructor for each class.
+	<li> A default assignment operation for each class.
+	<li> A default input operations for each class.
+	<li> A default output operations for each class.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C++, to allow a subclass to override a method in the superclass
+	<ol class="answer_list">
+	<li> The superclass method <strong>must</strong>
+		be declared as "abstract".
+	<li> The superclass method <strong>must</strong>
+		be declared as "virtual".
+	<li> The subclass <strong>must</strong> extend the
+		superclass as "virtual".
+	<li> The subclass <strong>must</strong> extend the
+		superclass as "abstract".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Method overrides in C++
+	<ol class="answer_list">
+	<li> Work exactly the same as in Java.
+	<li> <strong>Must</strong> be declared as "virtual" in the superclass.
+	<li> <strong>Must</strong> be declared as "virtual" in the subclass.
+	<li> <strong>Must</strong> be declared as "virtual" in
+		<strong>both</strong> the superclass and the subclass.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C++, "friends" of a class have access to <strong>all</strong> of the
+	<ol class="answer_list">
+	<li> class' public members.
+	<li> class' private members.
+	<li> class' protected members.
+	<li> class' other friends.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Inline expansion of functions in C++
+	<ol class="answer_list">
+	<li> Are automatically done by the compiler when possible.
+	<li> Are automatically considered when the method implementation
+		is given inside the class definition.
+	<li> Is guaranteed whenever the "inline" directive is used in
+		the function declaration.
+	<li> Is only possible for overridden member functions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "const" declaration in C++ is similar to Java's
+	<ol class="answer_list">
+	<li> virtual
+	<li> final
+	<li> static
+	<li> abstract
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "const" declaration in this C++ member function declaration
+	<pre><code>
+	type function() const { ... }
+	</code></pre>
+	indicates that "function"
+	<ol class="answer_list">
+	<li> can only access "const" members of its class.
+	<li> cannot change any members of the class instance (unless they
+		are declared a mutable).
+	<li> returns a value that cannot be changed.
+	<li> cannot be expanded in-line.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Give the implementation for a C++ class called "Power" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"exp"</dt>
+		<dd>
+		takes two integer values as its parameters. The first
+		parameter is the "base" and the second is the "expoent". The
+		returned result is the base multipled by itself exponent times.
+		</dd>
+	</dl>
+	</blockquote>
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Prime" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"isPrime"</dt>
+		<dd>
+		takes a single integer value as its parameter. The function
+		returns the integer if it is a prime number and returns 0
+		otherwise.
+		</dd>
+	</dl>
+	</blockquote>
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Largest" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"newNumber"</dt>
+		<dd>
+		takes a single integer value as its parameter. If this is the
+		first time the method is called, then the parameter is set as
+		the largest number seen thus far. If a number has already been
+		seen, then the larger of the current largest number and the
+		provided parameter is retained.
+		</dd>
+	<dt>"largest"</dt>
+		<dd>
+		takes no parameters but returns the largest number recorded
+		(via calls to "newNumber") thus far.
+		</dd>
+	</dl>
+	</blockquote>
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Palindrome" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"addChar"</dt>
+		<dd>
+		takes a single character value as its parameter
+		and adds it to the list of characters. No value is returned.
+		</dd>
+	<dt>"isPal"</dt>
+		<dd>
+		takes no parameters but returns 1 if the set of characters
+		added thus far is a palindrome (given the order in which they
+		were added) and returns 0 otherwise.
+		</dd>
+	<dt>"clear"</dt>
+		<dd>
+		takes no parameters and removes <strong>all</strong>
+		previously added characters. No value is returned.
+		</dd>
+	</dl>
+	</blockquote>
+	Remember that a string of characters is a palindrome if it reads the
+	same both forwards and backwards (e.g., racecar).
+	You may assume that no more than 100 characters will ever be added
+	(before "clear" is called).
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Frequent" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"addCharacter"</dt>
+		<dd>
+		takes a single character parameter. The character is added to
+		the end of the list of characters that have been added thus far.
+		</dd>
+		<dd>
+	<dt>"clear"</dt>
+		<dd>
+		erases the memory of any characters that have been seen thus
+		far, enabling a new set of characters to be examined via the
+		"addCharacter" function.
+		</dd>
+		<dd>
+	<dt>"mostOften"</dt>
+		<dd>
+		returns the character that has been added (via "addCharacter")
+		the most number of times since "clear" was last called. If no
+		characters have been added, then return the space (' ')
+		character.
+		</dd>
+	</dl>
+	</blockquote>
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Stats" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"addNumber"</dt>
+		<dd>
+		takes a single integer value as its parameter
+		and adds it to the list of numbers about which statistics
+		can be reported. No value is returned.
+		</dd>
+	<dt>"largest"</dt>
+		<dd>
+		takes no parameters but returns the value of the
+		largest number added thus far.
+		</dd>
+	<dt>"mean"</dt>
+		<dd>
+		takes no parameters but returns the average of
+		<strong>all</strong> of the numbers added thus far.
+		</dd>
+	<dt>"clear"</dt>
+		<dd>
+		takes no parameters and removes <strong>all</strong>
+		previously added numbers. No value is returned.
+		</dd>
+	</dl>
+	</blockquote>
+	You may assume that no more than 100 numbers will ever be added
+	(before "clear" is called).
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+
+<li> Thrown exceptions in C++
+	<ol class="answer_list">
+	<li> <strong>Must</strong> extend a common exception class as in Java.
+	<li> <strong>Must</strong> be a class instance.
+	<li> Can be any value (either class instance or primitive type value).
+	<li> <strong>Must</strong> be a primitive type value.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "static" declaration in C++ is similar to Java's
+	<ol class="answer_list">
+	<li> virtual
+	<li> final
+	<li> static
+	<li> abstract
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Templates in C++
+	<ol class="answer_list">
+	<li> Work exactly like generics in Java.
+	<li> Can be instantiated with primitive types.
+	<li> Can be anonymously instantiated.
+	<li> <strong>Must</strong> be instantiated with a new class/type
+		name (e.g., like Ada).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ thrown exceptions are
+	<ol class="answer_list">
+	<li> Caught and handled by try-catch blocks similar to those in Java.
+	<li> Handled by the special "finalize" member function defined within
+		a class.
+	<li> <strong>Must</strong> be caught and handled in the "main" function.
+	<li> Ignored if <strong>not</strong> caught and handled within the
+		code block they were first thrown from.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> While the number and types of parameters of overloaded functions
+	<strong>must</strong> match, C++
+	<ol class="answer_list">
+	<li> Requires that their semantics also match.
+	<li> Allows the semantics to be very different.
+	<li> Allows different semantics, but only within specific constraints.
+	<li> Also requires that they throw the same exceptions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Recursive class definitions in C++
+	<ol class="answer_list">
+	<li> Are of unknown size until an instance is created via the
+		"new" operator.
+	<li> <strong>Must</strong> use pointers to the nested occurrences.
+	<li> Cannot use inline functions because they would be expanded an
+		infinite number of times.
+	<li> <strong>Must</strong> be declared as private.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Nested class definitions in C++
+	<ol class="answer_list">
+	<li> Are <strong>not</strong> allowed.
+	<li> Can only be created as heap allocations.
+	<li> Can only be created as run-time stack allocations.
+	<li> <strong>Must</strong> be declared as private.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "new" operator in C++
+	<ol class="answer_list">
+	<li> Is similar to the "new" operator in Java.
+	<li> Allocates space on the run-time stack.
+	<li> Allocates space from the heap.
+	<li> Returns the memory address of the allocated memory.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ has the "delete" operation in order to
+	<ol class="answer_list">
+	<li> Remove class definitions that are no longer needed.
+	<li> Allow programmers to suggest heap storage to garbage collect,
+		but doesn't actually free the space itself.
+	<li> Do nothing since C++ has garbage collection just like Java.
+	<li> Remove the top entry from the run-time stack.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages support garbage collection of dynamic
+	memory allocations?
+	<ol class="answer_list">
+	<li> Lisp
+	<li> Java
+	<li> C++
+	<li> Prolog
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "typename" keyword in C++ can be used to
+	<ol class="answer_list">
+	<li> Disambiguate situations in which a qualified dependent type
+		could also be interpreted as a statement/expression.
+	<li> Declare a new type definition.
+	<li> Indicate the return type of a method/function.
+	<li> Indicate a template parameter, as a relacement for "class".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What did C.A.R. Hoare describe as his billion dollar mistake?
+	<ol class="answer_list">
+	<li> The design and creation of Lisp.
+	<li> The introduction of garbage collection.
+	<li> The design and creation of C++.
+	<li> The introduction of null (pointer) references.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Why did C.A.R. Hoare include null (pointer) references into the design
+	of Algol W in 1965?
+	<ol class="answer_list">
+	<li> It was easy to implement.
+	<li> To ensure that <strong>all</strong> uses of references were
+		absolutely safe.
+	<li> It was the feature most requested by developers.
+	<li> To enable polymorphism.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Having two comment types like C++'s and Java's // and /* ... */ is
+	<ol class="answer_list">
+	<li> Completely unnecessary.
+	<li> Error prone.
+	<li> Useful if // is generally used and /* ... */ is used for
+		commenting out larger blocks of code (e.g., debugging).
+	<li> Essential for supporting proper documentation.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ destructors are called
+	<ol class="answer_list">
+	<li> When objects on the run-time stack go out of scope.
+	<li> When heap objects are deallocated.
+	<li> Only by explicit programmer coded calls.
+	<li> Never, C++ doesn't have destructors (only finalize methods).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Unlike Java, C++ method implementations
+	<ol class="answer_list">
+	<li> <strong>Must</strong> be given in the class declaration.
+	<li> May occur inside or outside the class declaration.
+	<li> <strong>Must all</strong> appear in the same file as the class
+		declaration.
+	<li> May appear in separate files from the class declaration.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A "pure virtual" function in C++ (e.g., "virtual int doit() = 0")
+	<ol class="answer_list">
+	<li> Cannot be overridden in a subclass.
+	<li> Requires its class to also be "virtual".
+	<li> Corresponds to "abstract" methods in Java.
+	<li> <strong>Must</strong> be overridden in a non-virtual subclass.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C++, name clashes occur when two member names
+	<ol class="answer_list">
+	<li> Declared within the same class are the same.
+	<li> Inherited from different classes are the same.
+	<li> Are names of overloaded functions.
+	<li> Are names of overloaded exceptions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ uses which of the following ways to resolve name clashes?
+	<ol class="answer_list">
+	<li> Disallow
+	<li> Implicit resolution
+	<li> Explicit resolution
+	<li> Inherited resolution
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Multiple inheritance in C++ means that a new class definition can extend
+	<ol class="answer_list">
+	<li> the same class multiple times (getting additional copies
+		of its instance and class variables).
+	<li> multiple different classes, thus combining their
+		capabilities within the new class.
+	<li> a pre-existing class, and that other class definitions
+		can also extend that same pre-existing class.
+	<li> itself, as a way to create recursive data structures.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The diamond problem refers to:
+	<ol class="answer_list">
+	<li> Java classes that <strong>both</strong> extend a class and
+		implement an interface.
+	<li> Prolog predicates that match two tails (e.g., "[ X | Y | Z]").
+	<li> C++ classes that extend a single class.
+	<li> Smalltalk methods that return objects <strong>not</strong>
+		of the receiver's class.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The diamond problem is a special kind of name clash that
+	<ol class="answer_list">
+	<li> Can occur in <strong>all</strong> object-oriented languages.
+	<li> Can occur only in Java because it has <strong>both</strong>
+		inheritance and interfaces.
+	<li> Can occur in C++ because it allows multiple inheritance.
+	<li> Is addressed in Java primarily through the implementation
+		of (multiple) interfaces.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Block structures
+	<ol class="answer_list">
+	<li> Organize related declarations and statements.
+	<li> Can be nested only a limited (though large) number of times.
+	<li> Contain only statements - declarations <strong>must</strong>
+		be at the class or method level.
+	<li> In some languages limit the kinds of declarations they may
+		contain (e.g., no function declarations/implementations).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Declarations in a block are
+	<ol class="answer_list">
+	<li> visible only within that block - and <strong>not</strong>
+		in nested blocks.
+	<li> only allocated on the run-time stack (for non-static variables).
+	<li> visible in nested blocks unless hidden by nested declarations.
+	<li> only allocated on from the heap (for non-static variables).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The scope and lifetime of a variable declaration
+	<ol class="answer_list">
+	<li> Are <strong>always</strong> the same.
+	<li> Are <strong>never</strong> the same.
+	<li> Can be different if the variable declaration is hidden in a
+		nested block.
+	<li> Can be different if the value is allocated in the heap.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The scope of a declaration is
+	<ol class="answer_list">
+	<li> The region of the program text the variable resides within the
+		symbol table.
+	<li> The time period in a running program that the variable/value
+		has allocated space.
+	<li> The region of the program text in which the declaration is visible.
+	<li> Is the same as the lifetime of the variable declaration.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The lifetime of a declaration is
+	<ol class="answer_list">
+	<li> The region of the program text the variable resides within the
+		symbol table.
+	<li> The time period in a running program that the variable/value
+		has allocated space.
+	<li> The region of the program text in which the declaration is visible.
+	<li> Is the same as the scope of the variable declaration.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of these are ways to make the scope and lifetime of a variable
+	declaration different?
+	<ol class="answer_list">
+	<li> Hide the variable name in the outer scope by declaring a variable
+		of the same name within a nested scope.
+	<li> For most compilers, declare a variable within an anonymous
+		block (so that it's storage allocation would occur within
+		the named "parent" block).
+	<li> Cannot be done, the scope and lifetime of variable declarations
+		are <strong>always</strong> the same.
+	<li> Declare the variable as static within a nested scope (e.g., a
+		function).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Unless specifically indicated otherwise, block structured languages
+	(e.g., Java, C++) nearly always allocate memory for variable
+	declarations within blocks
+	<ol class="answer_list">
+	<li> statically (to reduce the memory footprint).
+	<li> on the run-time stack.
+	<li> in the heap.
+	<li> either in the heap or run-time stack, whichever has the most
+		space remaining.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A characteristic of block structured languages is that of the declarations
+	supported by the language (e.g., variable, class, function)
+	<ol class="answer_list">
+	<li> variable declarations are <strong>always</strong>
+		allowed within a block.
+	<li> only function declarations (but <strong>not</strong> their
+		implementations) may appear within a block.
+	<li> type (and class) declarations may be given, but only if they are
+		anonymous.
+	<li> <strong>all</strong> may appear within a block.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Symbol tables are used by the compiler
+	<ol class="answer_list">
+	<li> Only as a convenience to make compilation faster.
+	<li> To keep track of declarations and their scope.
+	<li> To determine when declared variables should be deallocated.
+	<li> To ensure that the scope and lifetimes of declarations are the
+		same (part of semantic analysis).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Symbol tables are often implemented as
+	<ol class="answer_list">
+	<li> Stacks
+	<li> Priority queues
+	<li> Bucket hash tables
+	<li> Association lists
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In a symbol table implemented via bucket hashing, declarations of the
+	same name are
+	<ol class="answer_list">
+	<li> <strong>Always</strong> placed in the same bucket.
+	<li> <strong>Always</strong> placed in different buckets.
+	<li> Sometimes placed in the same bucket.
+	<li> <strong>Never</strong> allowed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In a bucket hashing symbol table
+	<ol class="answer_list">
+	<li> New entries are <strong>always</strong> placed at the end
+		of the bucket/list.
+	<li> New entries are <strong>always</strong> placed at the
+		beginning of the bucket/list.
+	<li> The first entry in every bucket/list is deleted when a scope is
+		exited.
+	<li> The last entry in every bucket/list is deleted when a scope is
+		exited.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Bucket hashing is well suited for symbol table implementations because
+	<ol class="answer_list">
+	<li> Inserting new declarations takes constant, O(1), time.
+	<li> When exiting a scope, declaration removal takes O(n^2) time
+		where n is the number of declarations to be removed.
+	<li> Name lookup is fast since it <strong>must</strong> be the first
+		item in the bucket/list.
+	<li> Nested declarations automatically hide previous declarations
+		of the same name (which will appear later in the bucket/list).
+	<li> None of the above
+	</ol>
+</li><br/>
+
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

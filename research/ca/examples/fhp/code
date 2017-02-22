@@ -1,0 +1,54 @@
+# An fhp latice gas automata.
+#
+2 dimensions of 
+        const which of 0..1
+        count of 0..6
+
+        # The presence (1) of a particle traveling in the given direction.
+        #
+        particle[] for 6 of 0..1
+end
+
+# Hexagonal neighborhood.
+#
+neighbor[] for 6
+        := [-1, 1], [0, 1], [1, 0], [0, -1], [-1, -1], [-1, 0] when cell.which
+        := [0, 1], [1, 1], [1, 0], [1, -1], [0, -1], [-1, 0] otherwise
+
+# Find out how many particles are incident on this cell.
+#
+count := 0
+first := -1
+forall i
+        if neighbor[i].particle[i+%3] then
+                count := count + 1
+                if first < 0 then
+                        first := i
+                else
+                        last  := i
+                end
+        end
+end
+cell.count := count
+
+if count = 2 & first+3 = last then
+        if random%2 then
+                # Rotate Clockwise
+                #
+                forall i
+                        cell.particle[i+%1] := neighbor[i+%3].particle[i]
+                end
+        else
+                # Rotate Counter-Clockwise
+                #
+                forall i
+                        cell.particle[i-%1] := neighbor[i+%3].particle[i]
+                end
+        end
+else
+        # The incoming particles pass through unabated.
+        #
+        forall i
+                cell.particle[i] := neighbor[i+%3].particle[i]
+        end
+end

@@ -1,0 +1,341 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- NetLogo Basics
+</p>
+
+<ol>
+<li> Comments begin with a semi-colon (;) and extend to the
+	end of the current line.
+<li> Agents:
+	<ol>
+	<li> <em>turtles</em> move and exist within specific
+		patches
+	<li> <em>patches</em> are the grid of square locations
+		that make up the universe
+	<li> <em>links</em> connect two turtles for
+		communication/interaction
+	<li> <em>observer</em> doesn't exist within a location
+		but can (over)see the universe of
+		<em>patches</em> and <em>turtles</em>.
+		The <em>observer</em> (and <em>patches</em>)
+		can make new <em>turtles</em>.
+	</ol>
+<li> Locations:
+	<ol>
+	<li> A <em>patch</em> has coordinates "pxcor" and
+		"pycor". By default these range from -16 to
+		16 (but can be changed).
+	<li> <em>Turtles</em> have coordinates "xcor" and
+		"ycor".
+	<li> Although <em>patch</em> coordinates must be
+		integers, <em>tutrles</em> can have decimal
+		locations, so they can be anywhere within
+		the <em>patch</em>.
+	</ol>
+<li> Commands and Reporters tell agents what to do
+	<ol>
+	<li> Builtin commands and reporters are called
+		<em>primitives</em>, but if they are
+		user defined they're called <em>procedures</em>.
+	<li> Commands generally change the value/state of a
+		patch, turtle, or link.
+	<li> Reporters are like functions in "traditional'
+		languages - returning (<em>report</em>ing)
+		a value based on their input parameters and
+		current state of the universe.
+	<li> Examples:
+<pre><code>
+	to setup			; Define new command procedure "setup"
+		random-seed 123
+		set-patch-size 5	; Sets patch size to 5 pixels on a side
+		resize-world 0 63 0 63	; Set x and y min/max values
+		clear-all		; Makes a "clean" universe
+		reset-ticks		; Sets the global time counter to 0
+	end
+
+	to go
+		ask turtles [		; For all turtles in the universe
+			ifelse 1 = random 2
+				[ right 90 ]	; Turn right 90 degrees
+				[ left 90 ]	; Turn left 90 degrees
+			fd 1		; Move forward one step
+		]
+		tick	; Advance the global clock (+1) and update all patches
+	end
+
+	to-report turtleColorCount [thisColor]	; Define new reporter procedure
+		let count 0
+		foreach turtles [
+			if thisColor = ([color] of ?)
+				[set count (count + 1)]
+		]
+		report count
+	end
+</code></pre>
+	<li> By default, all commands are to the
+		<em>observer</em>. To give commands to
+		<em>turtles</em>, <em>patches</em>, and
+		<em>links</em> use the "ask" command.
+	</ol>
+<li> Buttons, Switches, and Sliders
+	<ol>
+	<li> Normally a button is labeled with the code
+		(procedure name) that it runs. Typically
+		there are "setup" and "go" buttons.
+	<li> Buttons may be "once" or "forever" depending
+		on how often they run their associated
+		code when clicked.
+	<li> Sliders and switches are used to declare and set the
+		values of global variables that are used in the
+		program. Variables used by sliders and switches
+		should <strong>not</strong> be declared in the
+		code (as this would be a duplicate declaration).
+	</ol>
+<li> Variables
+	<ol>
+	<li> Agent variables (for turtles, patches, and links)
+		are replicated for each agent of that type
+		and are thus similar to class instance
+		variables (from Java).
+	<li> Global variables have only a single instance
+		for the entire universe (and are similar to
+		class variables in Java).
+	<li> Some pre-existing <em>turtle</em> variables:
+		<ol>
+		<li> color
+		<li> xcor
+		<li> ycor
+		<li> heading
+		</ol>
+	<li> Some pre-existing <em>patch</em> variables:
+		<ol>
+		<li> pcolor
+		<li> pxcor
+		<li> pycor
+		</ol>
+	<li> Some pre-existing <em>link</em> variables:
+		<ol>
+		<li> color
+		</ol>
+	<li> Declare variables
+<pre><code>
+	globals [turtle-count score]	; Declare global variables
+	turtles-own [cooperationChance]
+	patches-own [deadOrAlive]
+	links-own [direction]
+</code></pre>
+		Global variables can also be established by adding sliders,
+		choosers, switches, or an input box to the model.
+	<li> Local variables are only visible within the
+		procedure in which they are declared.
+<pre><code>
+	to swap [direction]
+		ifelse direction = 0
+			[	; Swap left to right
+				let temp [pcolor] of patch-at -1 0
+				ask patch-at -1 0 [ set color [color] of patch-at 1 0 ]
+				ask patch-at 1 0 [ set color temp ]
+			]
+			[	; Swap top to bottom
+				let temp [pcolor] of patch-at 0 1
+				ask patch-at 0 1 [ set color [color] of patch-at 0 -1 ]
+				ask patch-at 0 -1 [ set color temp ]
+			]
+	end
+</code></pre>
+	</ol>
+<li> Lists (aka Arrays)
+	<ol>
+	<li> <em>turtles</em> represents the entire
+		list of currently existing turtles.
+	<li> <em>patches</em> represents all the
+		grid elements in the universe.
+	<li> Creating lists
+<pre><code>
+	set primeList [2 3 5 7 11 13]
+		; [2 3 5 7 11 13]
+	set factorialList [ [1 1] [2 2] [3 6] [4 24] [5 120] ]
+		; [ [1 1] [2 2] [3 6] [4 24] [5 120] ]
+	set twoRandomItems list (random 10) (random 10)
+		; [0 8] or similar
+	set longList (list 1 "Alice" 2 (random 3) 4 "Bob" 5 (random 6) "Carol" 7 8)
+		; [1 "Alice" 2 2 4 "Bob" 5 0 "Carol" 7 8] or similar
+</code></pre>
+	<li> "item n list" ("item n string") yields the
+		nth element of the list (or string)
+		using 0 based indexing.
+	<li> Setting items (first item is at location 0)
+<pre><code>
+	set longList replace-item 5 longList "Robert"
+		; [1 "Alice" 2 2 4 "Robert" 5 0 "Carol" 7 8]
+</code></pre>
+	<li> Adding to lists
+<pre><code>
+	set primeList lput 17 primeList			; Adds 17 to end of primeList
+	set factorialList fput [0 1] factorialList	; Adds item to front of factorialList
+</code></pre>
+	<li> Remove items from lists
+<pre><code>
+	set longList but-last longList
+		; [1 "Alice" 2 2 4 "Robert" 5 0 "Carol" 7]
+	set longList but-first longList
+		; ["Alice" 2 2 4 "Robert" 5 0 "Carol" 7]
+</code></pre>
+	<li> length gives the number of items in a list
+	</ol>
+<li> Looping (commands can be code blocks)
+	<ol>
+	<li> "loop" executes a command (list) forever, however
+		a forever button should generally be used as
+		this allows the user to stop the loop by
+		clicking the button a second time.
+	<li> while
+<pre><code>
+	; Move a turtle forward until it finds a companion
+	while [ other turtles-here ]
+		[fd 1]
+</code></pre>
+	<li> repeat
+<pre><code>
+	; Draws a square when run by a turtle
+	pen-down
+	repeat 4 [fd 1 right 90]
+	pen-up
+</code></pre>
+	<li> foreach
+<pre><code>
+	foreach primeList show
+		; shows the items one per line
+	(foreach [1 3 5] [2 4 6] [ show word "sum is " (?1 + ?2) ])
+		; sum is 3
+		; sum is 7
+		; sum is 11
+
+	; Every turtle in the universe draws a square.
+	pen-down
+	foreach turtles [ repeat 4 [ fd 1 right 90 ] ]
+	pen-up
+</code></pre>
+	<li> map
+<pre><code>
+	show map [? * ? * ?] primeList
+		; [8 27 125 343 1331 2197]
+	show (map + [1 2 3] [2 4 6])
+		; [3 6 9]
+	show (map [?1 + ?2 = ?3] [1 2 3] [2 4 6] [3 5 9])
+		; [true false true]
+</code></pre>
+	<li> reduce
+<pre><code>
+	show reduce * [1 2 3 4 5 6 7 8 9 10]
+		; 3628800 which is 10!
+	show reduce + [1 2 3 4 5 6 7 8 9 10]
+		; 55
+</code></pre>
+	<li> filter
+<pre><code>
+	show filter is-number? longList
+		; [2 2 4 5 0 7]
+	show filter [0 = remainder ?  2] primeList
+		; [2]
+</code></pre>
+	</ol>
+<li> Color values
+	<ol>
+	<li> <a href="http://ccl.northwestern.edu/netlogo/5.0/docs/programming.html#colors">NetLogo color map</a>
+	<li> As RGB values (for patches, turtles, and links):
+<pre><code>
+	set pcolor [255 255 255]	; White
+</code></pre>
+	<li> Or as RGB alpha values (not available for patches):
+<pre><code>
+	set color [0 255 0 85]		; 1/3 "opaque" green
+</code></pre>
+	</ol>
+<li> Turtles
+	<ol>
+	<li> hatch
+<pre><code>
+	hatch 3 	; Parent makes 3 new turtles (inherit variable values from parent)
+	hatch 1 [fd 12]	; Parent makes a new turtle that then moves away
+</code></pre>
+	<li> sprout
+<pre><code>
+	sprout 5 	 ; Patch creates 5 new turtles (random headings and color)
+	sprout 1 [ set color green ] ; Patch makes a new turtle that turns green
+</code></pre>
+	<li> heading
+<pre><code>
+	show heading	; shows the heading for the turtle (0 is north)
+	set heading 225	; face turtle to the southwest
+</code></pre>
+	<li> forward n - turtle moves forward n patches in the
+		direction it was already headed. The "jump"
+		command is similar, but the turtle doesn't
+		travel through the intervening patches.
+	<li> right or left
+<pre><code>
+	right 90 	; turn turtle to the right by 90 degrees
+	left 45 	; turn turtle to the left by 45 degrees
+	right -90 	; turn turtle to the LEFT by 90 degrees
+</code></pre>
+	</ol>
+<li> Links
+	<ol>
+	<li> links to turtles (or nodes) together
+	<li> undirected
+<pre><code>
+	ask turtle 12 [ create-link-with turtle 4 ]
+		; create link between turtles 12 and 4
+</code></pre>
+	<li> directed
+<pre><code>
+	ask turtle 1 [ create-link-to turtle 0 ]
+		; create link from turtle 1 to turtle 0
+	ask turtle 42 [ create-link-from turtle 4 ]
+		; create link from turtle 4 to turtle 42
+</code></pre>
+	</ol>
+<li> Additional NetLogo Resources
+	<ol>
+	<li> <a href="http://ccl.northwestern.edu/netlogo/5.0/docs/programming.html">Programming tutorial</a>
+	<li> <a href="http://ccl.northwestern.edu/netlogo/5.0/docs/">Users' Manual</a>
+	<li> <a href="http://ccl.northwestern.edu/netlogo/models/index.cgi">Library</a> of NetLogo models
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_52.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

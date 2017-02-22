@@ -1,0 +1,162 @@
+<li> Comments in NetLogo programs
+	<ol class="answer_list">
+	<li> Begin with a lb (#) and extend to the end of the line.
+	<li> Begin with a percent (%) and extend to the end of the line.
+	<li> Begin with a double slash (//) and extend to the end of the line.
+	<li> Are contained between double quotes (").
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> NetLogo supports which of the following four kinds of entities?
+	<ol class="answer_list">
+	<li> Agents, patches, links, and an oracle.
+	<li> Turtles, patches, links, and an observer.
+	<li> Turtles, cells, links, and an observer.
+	<li> Agents, cells, links, and an oracle.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The location of a <em>patch</em> in NetLogo is given by
+	<ol class="answer_list">
+	<li> "x" and "y"
+	<li> "px" and "py"
+	<li> "xcor" and "ycor"
+	<li> "pxcor" and "pycor"
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The location of a <em>turtle</em> in NetLogo is given by
+	<ol class="answer_list">
+	<li> "x" and "y"
+	<li> "px" and "py"
+	<li> "xcor" and "ycor"
+	<li> "pxcor" and "pycor"
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Patch coordinates in NetLogo <strong>must</strong> be
+	<ol class="answer_list">
+	<li> Given only in two dimensions.
+	<li> Integer values.
+	<li> Non-negative numbers.
+	<li> Given as relative locations to the current patch.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Turtle coordinates in NetLogo <strong>must</strong> be
+	<ol class="answer_list">
+	<li> Given only in two dimensions.
+	<li> Integer values.
+	<li> Non-negative numbers.
+	<li> Given as relative locations to the current patch.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In NetLogo, to have one or more patches, turtles, or links
+	perform an action, the request <strong>must</strong>
+	<ol class="answer_list">
+	<li> Be given via the "ask" command.
+	<li> Appear within a user defined procedure named "go".
+	<li> Specify the location of the entities.
+	<li> Occur within a loop if more than one entity is involved.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The NetLogo user interface elements (e.g., button, switch, and slider)
+	communicate with the program via
+	<ol class="answer_list">
+	<li> Return values when the program calls the UI elements.
+	<li> User defined procedures called by the UI elements.
+	<li> UI generated exceptions handled in the code.
+	<li> Global variables set (or used) by the UI elements.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Non-global variables can be defined, in NetLogo, for
+	<ol class="answer_list">
+	<li> Procedures and code blocks
+	<li> Turtles
+	<li> Patches
+	<li> Links
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Lists, in NetLogo, are similar to arrays in other languages but
+	<ol class="answer_list">
+	<li> <strong>Must</strong> be indexed starting at zero (0).
+	<li> Are less efficient than arrays.
+	<li> Their size is fixed after being declared.
+	<li> Can only hold primitive values (e.g., <strong>not</strong>
+		other lists).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> To execute a NetLogo action forever, you can either use a forever button
+	(in the UI) or the command
+	<ol class="answer_list">
+	<li> while
+	<li> repeat
+	<li> loop
+	<li> foreach
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In NetLogo, the "map" command
+	<ol class="answer_list">
+	<li> Successively applies a command to a list of arguments.
+	<li> Assigns (maps) evenly across <strong>all</strong> patches
+		in the universe.
+	<li> Gives the location of a patch in the universe.
+	<li> Gives the location of a turtle in the universe.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In NetLogo, the "reduce" command
+	<ol class="answer_list">
+	<li> Reduces the size of a list (i.e., array) by the specified amount.
+	<li> Combines elements of a list using the specified operator.
+	<li> Removes turtles that meet the indicated criteria.
+	<li> Removes links that meet the indicated criteria.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Unlike patches, turtles in NetLogo can be created
+	<ol class="answer_list">
+	<li> By an existing turtle, using the "hatch" command.
+	<li> By two or more existing turtles, using the "mate" command.
+	<li> By a patch using the "grow" command.
+	<li> By a patch using the "sprout" command.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the following NetLogo code snippet,
+	<pre><code>
+	patches-own [ status? count ]
+
+	to task
+		ask patches [
+			set count 0
+			foreach [ status? ] of neighbors [
+				if ? [ set count count + 1 ]
+			]
+		]
+		ask patches [
+			ifelse 0 = count mod 2
+				[ set status? true ]
+				[ set status? false ]
+		]
+	end
+	</code></pre>
+	using a single "ask patches [...]", rather than the two used above,
+	would yield different results because
+	<ol class="answer_list">
+        <li> Every execution would yield different results (even on the same
+		data) whether one (1) or two "ask patches" was used.
+        <li> The number of "neighbors" used in the calculation would change.
+        <li> Not all of the "count" values would be calculated before the
+		setting of "status?" values began.
+        <li> They wouldn't, <strong>both</strong> would actually give the
+		same results each time they ran on the same data.
+        <li> None of the above
+        </ol>
+</li><br/>

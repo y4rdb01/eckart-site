@@ -1,0 +1,172 @@
+<li> Exceptions are intended to
+	<ol class="answer_list">
+	<li> Handle hardware errors.
+	<li> Asynchronously handle interrupts.
+	<li> Terminate program execution.
+	<li> Separate error handling code from the rest of the code.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When an exception is raised/thrown
+	<ol class="answer_list">
+	<li> Its handler is determined through static scoping.
+	<li> Its handler is determined through dynamic scoping.
+	<li> Execution transfers to the textually closest matching handler.
+	<li> The run-time stack is popped and normal execution transfers to
+		the next most recent subprogram call.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Raised/thrown exceptions may
+	<ol class="answer_list">
+	<li> Only contain data from the current run-time stack activation
+		record.
+	<li> <strong>Never</strong> contain additional information.
+	<li> Contain any data accessible at the point in the program where
+		the exception occurred.
+	<li> Propagate down the run-time stack (i.e., through the subprogram
+		calling chain) searching for a matching handler.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a raised/thrown exception contains a reference (i.e., pointer) to
+	data in the current activation record, then
+	<ol class="answer_list">
+	<li> A dangling reference could be created if the exception
+		propagates down the run-time stack.
+	<li> The exception will be handled without difficulty so long as
+		a matching handler can be found.
+	<li> Exceptions are <strong>never</strong> allowed to hold data
+		references.
+	<li> Exceptions are only allowed to hold references to static data.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are exception handling semantic models?
+	<ol class="answer_list">
+	<li> Termination
+	<li> Abortion
+	<li> Resumption
+	<li> Retry
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The termination exception model, in combination with a loop and flag,
+	can be used to implement the semantics of the
+	<ol class="answer_list">
+	<li> Abortion model
+	<li> Resumption model
+	<li> Continuation model
+	<li> Execution model
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java natively supports which of the following exception semantic models?
+	<ol class="answer_list">
+	<li> Termination
+	<li> Abortion
+	<li> Resumption
+	<li> Retry
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ natively supports which of the following exception semantic models?
+	<ol class="answer_list">
+	<li> Termination
+	<li> Abortion
+	<li> Resumption
+	<li> Retry
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Smalltalk natively supports which of the following exception semantic
+	models?
+	<ol class="answer_list">
+	<li> Termination
+	<li> Abortion
+	<li> Resumption
+	<li> Retry
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the termination model of exception handling, execution transfers from
+	the current code block to an appropriate handler (if it exists).
+	Execution then
+	<ol class="answer_list">
+	<li> Continues with the code following the handler.
+	<li> Continues with the statement that raised the exception.
+	<li> Continues with the statement following the one that raised the
+		exception.
+	<li> Continues with the first statement in the code block that
+		raised the exception.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the resumption model of exception handling, execution transfers from
+        the current code block to an appropriate handler (if it exists).
+        Execution then
+	<ol class="answer_list">
+	<li> Continues with the code following the handler.
+	<li> Continues with the statement that raised the exception.
+	<li> Continues with the statement following the one that raised the
+		exception.
+	<li> Continues with the first statement in the code block that
+		raised the exception.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the retry model of exception handling, execution transfers from
+        the current code block to an appropriate handler (if it exists).
+        Execution then
+	<ol class="answer_list">
+	<li> Continues with the code following the handler.
+	<li> Continues with the statement that raised the exception.
+	<li> Continues with the statement following the one that raised the
+		exception.
+	<li> Continues with the first statement in the code block that
+		raised the exception.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "finally" block in Java's <em>try-catch-finally</em> statement
+	guarantees that
+	<ol class="answer_list">
+	<li> Its actions will be executed only if no exception is raised.
+	<li> Its actions will be executed before the object is garbage
+		collected.
+	<li> Its actions will <strong>always</strong> be executed.
+	<li> No exceptions will be propagated beyond the subprogram
+		containing it.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages have a mechanism
+	that guarantees some group of statements will be executed regardless
+	of whether or not an exception is raised/thrown?
+	<ol class="answer_list">
+	<li> C++
+	<li> Java
+	<li> Smalltalk
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Raising/throwing and handling exceptions in languages such as Java and
+	C++ are
+	<ol class="answer_list">
+	<li> Just as efficient as non-exception code.
+	<li> About twice as slow as non-exception code.
+	<li> About 10-20 times slower than non-exception code.
+	<li> About 100-200 times slower than non-exception code.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Exceptions should be used
+	<ol class="answer_list">
+	<li> For any condition that should happen only once (e.g., end of file).
+	<li> To terminate loops.
+	<li> Only for rare/unusual processing.
+	<li> To propagate out of a deeply nested set of subprogram calls when
+		an anticipated condition occurs.
+	<li> None of the above
+	</ol>
+</li><br/>

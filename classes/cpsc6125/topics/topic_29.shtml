@@ -1,0 +1,241 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Virtual Memory
+</p>
+
+<ol>
+<li> Virtual Memory
+	<ol>
+	<li> Originally if a program/process was to big for the available
+		memory you had to break it up into pieces and use either
+		files to communicate between programs that ran one after
+		another or use overlays (allowing the data that flows from
+		one "program piece" to the next to remain in memory).
+		This can require VERY large efforts on the part of programmers!
+	<li> With virtual memory the size of a process can be larger than
+		physical memory.  The OS does the "overlays" automatically, by
+		break things up into uniform sized pieces.  Only those pieces
+		needed for executing a specific instruction (i.e., the code,
+		data, stack, heap...) have to be in memory.
+	</ol>
+<li> Paging
+	<ol>
+	<li> Is the most common virtual memory technique.
+	<li> Program generated addresses (which may use indexing, base,
+		segment registers and other things) are really virtual
+		addresses in a virtual address space.  
+	<li> The virtual address space is divided up into equal size pages,
+		with page frames being the corresponding blocks in physical
+		memory (which are of the same size).
+		[Long ago, in the 1960s, photos used to go
+		into photo frames that you put on your desk - so naturally
+		pages go into page frames.]
+		Transfers between disk and memory are always a full
+		page at a time (no partial pages). Thus the preferred page
+		size is influenced by the possible disk block sizes, as it's
+		best when these are the same.
+	<li> The Memory Management Unit (MMU) converts the virtual address into
+		a physical memory address (see the excellent example on page
+		197 of your book):
+		<ol>
+		<li> The virtual address is used to examine the page (map)
+			table, to see which virtual memory page contains the
+			address.
+		<li> The page (map) table indicates whether or not the page
+			containing the virtual address is currently loaded into
+			a page frame (using a present/absent bit), and if so
+			which page frame contains that page.
+		<li> The base addresses of both the page and the page frame
+			are then used to adjust the virtual address to get
+			the corresponding physical/real address which can
+			then be put out on the memory bus.
+		<li> If the desired page is not in a page frame, a page fault
+			occurs.  If there are free (unused) pages frames
+			then the page can be copied from disk directly to that 
+			unused page frame, otherwise a currently used page
+			frame must be freed by copying it back to its
+			corresponding position on disk.
+		</ol>
+	<li> Paging uses page sizes that are a power of 2. In this way, the
+		higher order bits of a virtual address are used to represent
+		the page number in the  page (map) table. Thus, given a
+		virtual memory address, you can use a bit-wise "and" (& in C)
+		to peel off that value to use as an index into the array that
+		represents the page map table (to find out whether or not the
+		page is currently in a page frame - and if it is, which one).
+	</ol>
+<li> Page Tables
+	<ol>
+	<li> Translating an Address
+		<br/>
+		<img src="/eckart/classes/cpsc3125/topics/content/VirtualAddressTranslation.png" alt="How to translate a virtual address into a physical address" width="906" height="446" />
+	<li> Page Table entry Flags
+		<ol>
+		<li> Caching disabled - turn off caching (= 1)
+			(useful for device drivers if using memory mapped I/O).
+		<li> Referenced - indicates the page has been read or written	
+			(= 1). This is used by the page replacement algorithm.
+		<li> Modified - when set (= 1) this means that the page has
+			been written to in physical memory and so the page
+			must be saved to disk if it is replaced.
+		<li> Protection (Permission) - indicates what kind of access
+			is permitted (e.g., shared libraries should only be
+			readable).
+		<li> Present/Absent - indicates that the page is
+			currently loaded into a page frame (= 1).
+		</ol>
+	</ol>
+<li> Speedier Paging
+	<ol>
+	<li> Address translation must be super fast since it will happen OFTEN!
+		At least once for every instruction (to retrieve it) and
+		perhaps 5 (or more) times per instruction (depending upon the
+		kind of machine instructions available).
+	<li> As virtual memories get bigger then the page table will increase
+		in size (if the page size remains unchanged). Furthermore,
+		every process needs its own page table (since each has its own
+		virtual address space).
+	<li> Fortunately, in practice, most programs make use of a small
+		number of pages during the vast majority of their execution.
+	<li> Translation Lookaside Buffers (TLBs)
+		<ol>
+		<li> Special hardware in the Memory Management Unit (MMU)
+			that holds a small number of page table entires
+			(e.g., 32) - which is a small fraction of the total.
+		<li> Unlike the page table, the TLB includes the virtual page
+			number as a field. This is necessary since the
+			virtual page number is the index into the page table,
+			but not having all of the entires in the TLB means that
+			we need to indicate the value explicitly.
+		<li> TLBs use <a href="https://en.wikipedia.org/wiki/Associative_storage">content addressable memory</a>
+			(also called associative memory) to make finding the
+			corresponding table row fast (otherwise a linear
+			search would be needed - MUCH TO SLOW).
+		<li> If a virtual address doesn't correspond to one of the rows
+			in the TLB, then (and only then) is the lookup performed
+			using the full page table (in memory). In this case,
+			the newly retrieved entry is stored in the TLB
+			(replacing one of the existing TBL entries - but not
+			before writing the modified and referenced bits of
+			the replaced TLB entry back to the page table).
+		</ol>
+	<li> It turns out that if the TLB is somewhat larger (e.g., 64 entries)
+		then the TLB can be managed by software rather that depending
+		on MMU hardware support.
+		<ol>
+		<li> Using a Software based TLB makes the MMU much simpler
+			(which is why it's seen on RISC machines like
+			SPARC and MIPS).
+		<li> A simpler MMU enables the chip real-estate to be used
+			for other performance enhancements (e.g., more
+			cache).
+		<li> A <em>soft miss</em> is when a page entry is not in the
+			TLB but the page entry is in memory (requiring about
+			10-20 machine instructions to load the page's entry
+			into the TLB).
+		<li> A <em>hard miss</em> is when a page entry is not in memory				and must first be retrieved from disk before the entry
+			can be put into the TLB. <em>Hard miss</em>es are about
+			a million times slower than a <em>soft miss</em>.
+		</ol>
+	</ol>
+<li> Large Memory Paging
+	<ol>
+	<li> Multi-Level Page Tables. For example, in a 32-bit address space:
+		<ol>
+		<li> The offset may remain 12 bits, giving a 4K page size.
+		<li> The 20-bit page number/index would be divided up into
+			two 10-bit indices.
+		<li> The first 10-bit index (PT1) indicates which grouping of
+			1024 pages (2^10) to examine (i.e., the page frame
+			number of the desired section of the full page table).
+			That is, the subset of larger page table to look at.
+		<li> The second 10-bit index (PT2) is the page number within
+			the page group identified by PT1. It's the page indexed
+			by PT2 that has the page frame number and other
+			information (e.g., referenced, modified, and present
+			bits).
+		<li> More levels can be used (the above uses just 2) as the
+			address space becomes larger (e.g., 64-bits).
+		</ol>
+	<li> Inverted Page Tables
+		<ol>
+		<li> Rather than keeping a page table of the virtual address
+			space for each process, the <em>inverted page table</em>
+			has an entry for each page frame and keeps track of
+			which page in which process the page frame currently
+			holds.
+		<li> When process <em>n</em> references page <em>p</em> in
+			its virtual address space, the inverted page table
+			has to be searched to find an entry corresponding to
+			(n, p).
+			<ol>
+			<li> If the entry is found, then the index in the table
+				indicates the page frame, so the physical
+				address can be calculated using the offset.
+			<li> If the entry is NOT found, then a page frame must
+				be freed up (possibly saving information back
+				to disk), and the desired page loaded into the
+				freed up page frame (and the corresponding
+				entry in the <em>inverted page table</em>
+				updated).
+			</ol>
+		<li> Unfortunately, searching the <em>inverted page table</em>
+			is time consuming (as this is just regular memory and
+			not content addressable memory as in a TLB) and would
+			not be acceptable.
+			<ol>
+			<li> Loading the most often (or most recently) used
+				pages into the TLB makes most lookups fast,
+				but a TLB miss still requires searching the
+				<em>inverted page table</em>.
+			<li> A hash table (e.g., using bucket chaining) can
+				use (n, p) to compute the hash and the
+				associated value would be the page frame number.
+				If the hash table has as many indices as page
+				frames, and if the hash function does a good
+				job of evenly distributing the computed hash
+				values, then each chain should be 1 or 2 entries
+				long. Thus the search should be MUCH quicker
+				than a linear search and when coupled with the
+				TLB should provide good performance.
+			</ol>
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_29.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

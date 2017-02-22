@@ -1,0 +1,169 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Exceptions
+</p>
+
+<ol>
+<li> Intended for abnormal circumstances, exceptions are raised/thrown,
+	stopping the current exeuction within a code block. When an exception
+	is raised/thrown, execution transfers to an exception handler
+	(usually located at the end of this code block or at the end of
+	a <strong>dynamically enclosing</strong> code block), often
+	refered to as "catching" the exception. 
+<li> In addition to transferring program control out of a code block,
+	exceptions also carry with them data about the exception
+	which can be helpful in resolving the abnormality without
+	aborting the entire program.
+<li> Question: Why should exception handlers be found through
+	dynamic (rather than static/lexcial) scoping?
+<li> Exception propigation:
+	<ol>
+	<li> If unhandled, most languages automatically propigate an
+		exception either with the same name (e.g., Java), or
+		less commonly as an anonymous exception (e.g.,
+		Ada - when the name of the exception subtype is not
+		within the scope of the handler) until either an
+		appropriate exception handler is found or the
+		program terminates.
+	<li> When an exception is propigated outside of a block (e.g.,
+		sub-program) its activation is popped off the run-time
+		stack. Thus, if the exception "carries" to its handler
+		information about the cause that was in one of those
+		activation records (e.g., a reference to storage in
+		the activation record - which C++ easily allows),
+		then that data may not be accessible (or could possibly
+		contain values different from what were intended due
+		to the processing of the exception).
+	<li> If an exception is propigated outside of a sub-program
+		<strong>and</strong> if the language does
+		<strong>not</strong> support garbage collection
+		<strong>and</strong> if the activation record held the
+		only reference to a dynamically allocated object,
+		then that object will not be collected (the programmer
+		cannot explicitly deallocate it since the sole
+		reference is now gone), thus representing a memory
+		leak in the program.
+	</ol>
+<li> Exception handling semantics
+	<ol>
+	<li> Termination Model - used by Java and C++ this terminates
+		execution of the current code block and transfers
+		program control to the closest dynamically enclosing
+		exception handler. This is also the default model used
+		by Smalltalk.
+	<li> Continuation/Resumption Model - after the exception
+		handler actions are performed, execution resumes with
+		the instruction that caused the exception.
+		The intention is that the exception handler adjusts
+		the state of the computation so that continuation is
+		meaningful. Smalltalk enables continuation semantics
+		for code blocks.  The continuation can resume execution
+		where the exception occurred via the message
+		"proceedWith: <x>", where "<x>" describes the
+		value to use in place of the expression that
+		caused the exception (the "resume" message
+		behaves like "proceedWith: nil").
+<pre><code>
+[ | result |
+        Transcript showCR: 'Before'.
+        result := 1 / 0.
+        Transcript show: 'result = '; showCR: result.
+        Transcript showCR: 'After'.
+]
+        on: ZeroDivide  "A subclass of Error"
+        do: [:exception |
+                Transcript showCR: 'Exception handled...'.
+                exception proceedWith: 42.
+        ]
+</code></pre>
+	<li> Retry Model - after the exception handler actions are
+		performed, the offending block of code can be executed
+		again (presumably with the program state adjusted
+		to prevent recurrence of the exception).  Smalltalk
+		enables retry semantics by sending a "retry" message
+		to the exception at the end of the handler. Retry
+		semantics can be "programmed" into other languages
+		(e.g., Java, C++) by embedding the <em>try-catch</em>
+		block within a loop:
+<pre><code>
+	boolean done = false;
+	while (!done) {
+		try {
+			// Do something
+			done = true;
+		} catch (Exception ex) {
+			// Fix whatever
+		}
+	}
+</code></pre>
+	</ol>
+<li> Cleanup:
+	<ol>
+	<li> In Java there is a mechanism to provide for additional
+		(generally "cleanup") actions even if an exception
+		was raised (halting normal processing).  The optional
+		"finally" part of Java's <em>try-catch-finally</em>
+		construct contains statements that are always executed
+		regardless of whether or not an exception was thrown
+		by the execution of the statements in the "try".
+	<li> Smalltalk has a similar mechanism to Java's "finally".
+		The "ensure" of Smalltalk's <em>on-do-ensure</em>
+		message for code blocks also provides expressions that
+		are always executed regardless of whether or not an
+		exception was thrown by the execution of the 
+		expressions in the code block.
+	<li> C++ does <strong>not</strong> have a mechanism
+		corresponding to Java's "finally".
+	</ol>
+<li> Efficiency
+	<ol>
+	<li> Exceptions in languages like Java and C++ are typically
+		implemented using a <a href="https://en.wikipedia.org/wiki/Exception_handling#Exception_handling_implementation">zero-cost</a> (or table-driven) model.
+		Such a model introduces no additional execution costs
+		(though there are space costs) if an exception is
+		not raised/thrown. However, when an exception is
+		raised/thrown, the execution time can be 10-20 times
+		greater than if the condition had been checked in
+		the mainline code with an <em>if-then</em> statement.
+	<li> Because execution time can be so much greater when an
+		exception is thrown, their use should be reserved for
+		unusual processing (i.e., events that are not normally
+		expected to occur).
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_42.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

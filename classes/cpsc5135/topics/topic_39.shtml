@@ -1,0 +1,71 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Goto Statements vs Structured Programming
+</p>
+
+<ol>
+<li> Goto Statements
+	<ol>
+	<li> Enable a jump to another statement in an executing program.
+		Jumps are not limited to only going "forward", but
+		may also go "backward" (textually) in the code.
+	<li> This capability, when misused, can quickly give rise to
+		programs that are <em>very difficult</em> to understand
+		(and debug).
+	<li> <a href="https://en.wikipedia.org/wiki/Edsger_W._Dijkstra">Edsger Dijkstra</a>'s letter to the editor (of the <a href="http://www.acm.org">Communications of the ACM</a>): <a href="https://www.cs.utexas.edu/users/EWD/ewd02xx/EWD215.PDF">Goto Statement Considered Harmful</a>
+	<li> Spaghetti code is the term commonly used to described the
+		tangled mass of exeuction paths that can result from
+		an undisciplined use of the goto statement. Such
+		programs were difficult to understand and debug.
+	<li> Structured programming and the corresponding structured
+		control constructs were developed starting in the
+		1960s, to ease the creation of correct and
+		reliable programs.
+	<li> For whatever reason, pasta dishes have become an
+		accepted way of describing several basic programming
+		paradigms. Several of them are
+		<a href="https://en.wikipedia.org/wiki/Spaghetti_code#Related_terms">described here</a>.
+	</ol>
+<li> Structured programming provides a
+	single entry and a single exit point for a block of
+	code. Forward jumps within the block, usually to the
+	end, are often supported. However, jumps into the
+	middle of a block of code, or "backward" jumps are
+	not supported. 
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_39.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

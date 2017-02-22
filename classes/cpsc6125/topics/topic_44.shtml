@@ -1,0 +1,195 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Clocks
+</p>
+
+<ol>
+<li> Clocks (timers) provide the time of day, prevent CPU monopolization
+	(via preemptive scheduling), and enable time ordered serialization
+	of independent events.
+<li> Clock Hardware
+	<ol>
+	<li> Can take the form of a device driver, though the device
+		itself is neither a block nor a character device and
+		may have no data, but is simply a regularly occurring
+		interrupt.
+	<li> A simple line voltage clock causes an interrupt on
+		every cycle (50-60 Hz) based on the electric grid's
+		AC frequencey. While once quite common, they are now
+		rare, likely because of their inherent inaccuracies due to
+		the variability in AC line frequencies.
+	<li> A crystal clock uses a crystal to generate the frequency,
+		which is fed to a counter (likely kept in a special register)
+		to make it count down to 0.
+		<ol>
+		<li> When the counter gets to 0, it causes a CPU interrupt.
+		<li> A register is used to reload the (starting) count value.
+		<li> The value of the starting count value can be adjusted
+			to account for small variations in crystal frequencies.
+		</ol>
+	<li> Programmable clocks
+		<ol>
+		<li> One-shot mode:
+			load the counter (explicitly) once and get a 
+			single interrupt.  Repeats must be done explicitly.
+		<li> Square-wave mode:
+			Reloads the counter automatically after each clock
+			generated interrupt, to create regular clock ticks.
+		<li> The interrupt frequency can be controlled by software
+			by adjusting the starting value in the count down
+			register.
+		</ol>
+	</ol>
+<li> What time is it?
+	<ol>
+	<li> A low powered (battery) clock can keep track of the current
+		time even when the computer is turned off.
+	<li> If the current time is not available (dead battery?), then
+		the time can be entered by a human upon startup, or obtained
+		via the network (e.g., from
+		<a href="https://www.nist.gov/pml/div688/grp40/its.cfm">NIST's
+		Internet Time Service</a>).
+	<li> Time is generally counted as clock ticks (usually in microseconds)
+		since the <em>epoch</em>:
+		<ol>
+		<li> Unix epoch: 1 Jan 1970 at 12:00am
+			(0:00 on a 24 hour clock) UTC.
+		<li> Windows epoch: 1 Jan 1980 at 12:00am
+			(0:00 on a 24 hour clock) UTC.
+		</ol>
+	</ol>
+<li> Clock Software
+	<ol>
+	<li> A clock driver is usually responsible for the following:
+		<ol>
+		<li> Maintaining the time of day;
+		<li> Preventing processes from running too long;
+		<li> Accounting for CPU usage;
+		<li> Handling the ALARM system call;
+		<li> Providing watchdog timers for parts of the OS; and
+		<li> Profiling, monitoring, and statistics gathering.
+		</ol>
+	<li> Time of day involves keeping track of the number of clock
+		ticks.
+		<ol>
+		<li> There are about 31,557,600 seconds in an average year.
+		<li> If you only counted seconds, then a 32 bit counter would
+			last for 136 years. But counting milliseconds, it
+			would last less than 2 months.
+		<li> However, you can count nanoseconds for just over 584 years
+			using a 64 bit counter!
+		<li> And if you don't have 64 bit counters, you can use multiple
+			smaller counters as the equivalent.
+		</ol>
+	<li> Whenever the clock counter gets to 0, the clock driver
+		gets an interrupt and can decrement its time quantum. When
+		the time quantum becomes 0 the clock driver can initiate
+	 	a context switch for processes, to prevent one from hogging 
+		the CPU.
+	<li> CPU accounting
+		<ol>
+		<li> Should use a second timer (probably stored in a
+			register) that is unique to each process (and distinct
+			from the main system timer). When interrupts occur,
+			the process specific timer should be saved off with
+			other process specific values.  In this way, a process
+			won't be "charged" for the time taken to handle
+			interrupts.
+		<li> A simpler, but less accurate, mechanism is often used
+			in which a counter (one per process) in the proc_table
+			is incremented whenever the clock tick occurs. This
+			charges the currently running process for the full
+			clock tick (even if most of the time was spent handling
+			interrupts).
+		</ol>
+	<li> Alarms can be sent by simulating multiple clocks with the
+		single physical clock.  An easy way to take care of many
+		such simulated clocks is to keep a chain of times (either
+		with absolute times or relative to one another) in sorted
+		order.
+		<ol>
+		<li> If absolute times are used, then upon each clock tick
+			the current time is compared to the first item in
+			the list. If equal (or greater) then send the
+			alarm/signal and remove it from the queue.
+		<li> If relative times are kept, the first one in the chain
+			must be decremented at each clock tick. When it
+			reaches 0, the alarm/signal is sent and the entry
+			removed from the queue. Note that the next time given
+			in the list has the number of clock ticks that should
+			occur before its alarm/signal should be given.
+		<li> Absolute alarms tend to be more accurate since there's a
+			greater opportunity for missed clock ticks (or times
+			needing fractional clock ticks) to skew a long sequence
+			of relative times.
+		</ol>
+	<li> Watchdog timers are similar to alarms, but are often done
+		by making the desired procedure call rather than causing a
+		signal.  This is okay since watchdog timers are for kernel
+		processes, and using a procedure call makes the process
+		faster.
+	<li> Profiling, if provided, allows timings to be taken on a
+		piece of software to see where in the code most of the time 
+		is being spent.  At every clock tick the clock driver checks
+		to see if the current process is being profiled and if so
+		increments the counter corresponding to a range of addresses
+		that the program counter falls within.
+	</ol>
+<li> Soft Timers
+	<ol>
+	<li> Sometimes a timer with a different frequency than the main
+		system timer is needed.
+	<li> The overhead of interrupts can be avoided by using polling.
+	<li> However, busy wait polling is also wasteful. Furthermore, on
+		average, a poll will be late in detecting that an event should
+		occur by half of the polling period.
+	<li> Instead, soft timers use the occassion of the kernel software
+		running (for a variety of reasons, such as interrupt handling,
+		context switching, system calls, etc) to check whether a
+		soft timer has "expired". If so, the appropriate work is
+		performed (there's no need to switch to kernel mode - since
+		we're already there).
+	<li> Effectively distributing the polling over a wide variety of
+		kernel actions (that already occur) is an efficient use
+		of resources. Furthermore, studies suggest that on average
+		the kernel is activated every 2-18 microseconds. So on average
+		a 10 microsecond soft timer is feasible.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_44.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

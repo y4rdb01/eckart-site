@@ -1,0 +1,420 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+
+<table width="100%">
+<tr>
+<td valign="top" width="100">
+<table>
+
+<tr><td align="left">
+<strong>Seuss<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../../dr.seuss/bitsNbytes.shtml">Bits in Bytes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/grinch.coder.shtml">Grinch OO Coder</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/lunch.shtml">Lunch</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seusstrek.shtml">Star Trek</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seussbible.shtml">The Bible</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/inferno.shtml">Dante's Inferno</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/purity.shtml">Purity Test</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/trial.shtml">O.J. Trial</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/greeneggs.shtml">Green Eggs and Pork</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/compTech.shtml">Computer Manual</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/USville.shtml">USville</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/wedding.shtml">Wedding</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/404.shtml">404</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Beatles.shtml">Beatles</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/bobbit.shtml">Bobbit</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/clinton.shtml">Clinton</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/favorite_things.shtml">Favorite Things</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ham_xmas.shtml">Ham Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ICBM_pizza.shtml">ICBM Pizza</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/net_is_slow.shtml">Net Is Slow</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/pc_xmas.shtml">PC Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Poe.shtml">Poe</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/prayer.shtml">Prayer</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/queen.shtml">Queen</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/sermon.shtml">Sermon</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song.shtml">Song</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song_tests.shtml">Song Tests</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/thermo.shtml">Thermo</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/twas.shtml">Twas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unified.shtml">Unified</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unix_abc.shtml">Unix abc</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/warnings.shtml">Warnings</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/xmas.shtml">Santa's Unix Listing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/y2k_pie.shtml">Millenium Pie</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/microsoft.shtml">M$ TV Dinners</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Humor</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/1-liners.shtml">One Liners</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/admin.shtml">Administratium</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/bad_spec.shtml">Bad spec</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/daemon-OS.shtml">daemon OS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/days-off.shtml">Days off</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dead_horse.shtml">Dead horse</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dosfish.shtml">Dosfish</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/FAA.shtml">FAA report</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/GM-helpline.shtml">GM helpline</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grandpa.shtml">Family tree</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grounding.shtml">Strapping</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/H2O.shtml">H2O</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/haiku.shtml">Haiku</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/harvard.shtml">Harvard</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/job.shtml">Job</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/koans.shtml">Koans</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/loan.shtml">Loan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/memos.shtml">Memos</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/money.shtml">Money</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/moron.shtml">Moron</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/MS.shtml">MS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/wirth.shtml">Niklaus Wirth</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/accidents.shtml">Accidents</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/navy.shtml">Navy</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/phrases.shtml">Phrases</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/plan.shtml">Plan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/stench.shtml">The Project</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/study.shtml">Anything</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/SysAdmin.shtml">SysAdmin Woes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/thesis.shtml">Thesis</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/quantumPhysics.shtml">Quantum Physics</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/monk.shtml">Monk</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/proofByInduction.shtml">Proof by Induction</a>
+</td></tr>
+
+</table>
+</td>
+
+<td valign="top">
+
+<blockquote>
+
+
+<p>
+This is original, written in light of the AT&T-BSDI lawsuit, and the
+recent trend with Sun towards System V and away from Good Ol' BSD.
+</p>
+
+<strong>Berkeley California</strong><br/>
+(Sung to the tune "Hotel California" by the Eagles)<br/>
+<blockquote>
+ In a dark dim machine room<br/>
+ Cool A/C in my hair<br/>
+ Warm smell of silicon<br/>
+ Rising up through the air<br/>
+ Up ahead in the distance<br/>
+ I saw a Solarian(tm) light<br/>
+ My kernel grew heavy, and my disk grew slim<br/>
+ I had to halt(8) for the night<br/>
+ The backup spun in the tape drive<br/>
+ I heard a terminal bell<br/>
+ And I was thinking to myself<br/>
+ This could be BSD or USL<br/>
+ Then they started a lawsuit<br/>
+ And they showed me the way<br/>
+ There were salesmen down the corridor<br/>
+ I thought I heard them say<br/>
+<br/>
+ Welcome to Berkeley California<br/>
+ Such a lovely place<br/>
+ Such a lovely place (backgrounded)<br/>
+ Such a lovely trace(1)<br/>
+ Plenty of jobs at Berkeley California<br/>
+ Any time of year<br/>
+ Any time of year (backgrounded)<br/>
+ You can find one here<br/>
+ You can find one here<br/>
+<br/>
+ Their code was definately twisted<br/>
+ But they've got the stock market trends<br/>
+ They've got a lot of pretty, pretty lawyers<br/>
+ That they call friends<br/>
+ How they dance in the courtroom<br/>
+ See BSDI sweat<br/>
+ Some sue to remember<br/>
+ Some sue to forget<br/>
+ So I called up Kernighan<br/>
+ Please bring me ctime(3)<br/>
+ He said<br/>
+ We haven't had that tm_year since 1969<br/>
+ And still those functions are calling from far away<br/>
+ Wake up Jobs in the middle of the night<br/>
+ Just to hear them say<br/>
+<br/>
+ Welcome to Berkeley California<br/>
+ Such a lovely Place<br/>
+ Such a lovely Place (backgrounded)<br/>
+ Such a lovely trace(1)<br/>
+ They're livin' it up suing Berkeley California<br/>
+ What a nice surprise<br/>
+ What a nice surprise (backgrounded)<br/>
+ Bring your alibies<br/>
+<br/>
+ Windows NT a dreaming<br/>
+ Pink OS on ice<br/>
+ And they said<br/>
+ We are all just prisoners here<br/>
+ Of a marketing device<br/>
+ And in the judges's chambers<br/>
+ They gathered for the feast<br/>
+ They diff(1)'d the source code listings<br/>
+ But they can't kill -9 the beast<br/>
+ Last thing I remember<br/>
+ I was restore(8)'ing | more(1)<br/>
+ I had to find the soft link back to the path I was before<br/>
+ sleep(3) said the pagedaemon<br/>
+ We are programmed to recv(2)<br/>
+ You can swap out any time you like<br/>
+ But you can never leave(1)<br/>
+<br/>
+ [ substitute whirring of disk and tape drives for guitar solo ]<br/>
+</blockquote>
+<br/>
+Written by David Barr (barr@pop.psu.edu)<br/>
+and Ken Hornstein (kenh@physci.psu.edu)<br/>
+and a little help from Greg Nagy (nagy@cs.psu.edu)<br/>
+
+</blockquote>
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+

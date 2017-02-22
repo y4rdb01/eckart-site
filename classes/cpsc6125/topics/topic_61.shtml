@@ -1,0 +1,150 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Computing & Communication Styles
+</p>
+
+<ol>
+<li> Making single CPU systems faster is limited by:
+	<ol>
+	<li> The speed of light. Signals are limited at how far they can travel
+		as the clock speed of the computer increases - thus CPUs
+		must get smaller and more compact as the clock speed increases.
+	<li> As CPUs get smaller, so do the "wires" that connect the components
+		on a chip. As these wires get smaller, higher voltages are
+		needed. [If you think of electricity like water, then as the
+		pipes get smaller, you need more water pressure (voltage) to
+		push the same amount of water (electrons) through. This is an
+		oversimplification, but it gets the basic idea across.]
+	<li> Voltage times current is wattage (power). Since the vast majority
+		of CPUs aren't constructed using superconductors, the resistance
+		in the "wires" generates heat that must be dissipated (least
+		things start to melt).
+	<li> Dissipating heat becomes more difficult as CPUs get smaller, since
+		there's less surface area that can be used to transfer the heat
+		so that it can be conducted elsewhere. 
+	</ol>
+<li> Making a single CPU faster is a form of vertical scaling. Horizontal
+	scaling is exemplified by increasing the number of CPUs.
+<li> Multiprocessor systems use horizontal scaling to increase their
+	computational power.
+<li> Generally, to be effective, horizontal scaling requires that the
+	communication between system components be very fast.
+<li> The categories of multiprocessor systems are generally partitioned based
+	on the relationship between instructions and data, and the type of
+	communication system used to connect the components.
+	<ol>
+	<li> Instructions and Data
+		<ol>
+		<li> <a href="https://en.wikipedia.org/wiki/SISD">SISD</a>:
+			Single Instruction, Single Data. This is your
+			typical single CPU computer that operates on only
+			a single piece of data at a time.
+		<li> <a href="https://en.wikipedia.org/wiki/SIMD">SIMD</a>:
+			Single Instruction, Multiple Data. Graphical
+			Processing Units (GPUs) are good examples of this
+			architecture. Large groups of data, representing a
+			portion of a displayed image, are operated on
+			simultaneously (e.g., increase the brightness by 50%).
+		<li> <a href="https://en.wikipedia.org/wiki/MISD">MISD</a>:
+			Multiple Instruction, Single Data. This is not a
+			commonly found architecture. The best example is
+			a fault tolerant computer that performs the same set of
+			instructions on the same data but in different computers.
+			The Space Shuttle control computers used this technique
+			- even relying on physical voting (e.g., 2 of 3 motors
+			that moved the vertical stabilizer could overpower the
+			3rd) of the results to ensure that the majority won.
+		<li> <a href="https://en.wikipedia.org/wiki/MIMD">MIMD</a>:
+			Multiple Instruction, Multiple Data. Typical examples
+			of this architecture include distributed systems (i.e.,
+			the Internet) and symmetric multiproccessors (i.e.,
+			computers with multiple CPUs that share a single memory).
+		</ol>
+	<li> Communication
+		<ol>
+		<li> Bus: A shared system bus is still the most common means
+			of communication between computer components. The
+			<a href="https://en.wikipedia.org/wiki/Ethernet#Shared_media">early Ethernet standards</a>
+			(10Base5, 10Base2) were also busses.
+			While busses are simple, their drawback is contention
+			and collisions, with only one message allowed on the bus
+			at a time.
+		<li> Interconnect: Provides for pathways between components so
+			that multiple pairs of components can be
+			connected/communicating at the same time.
+			<ol>
+			<li> <a href="https://en.wikipedia.org/wiki/Circuit_switching">Circuit switched</a>:
+				Forms a dedicated pathway between the components
+				for the duration of the time in which they are
+				communicating. Plain Old Telephone Service (POTS)
+				is an excellent example of this.
+			<li> <a href="https://en.wikipedia.org/wiki/Packet_switching">Packet switched</a>:
+				Divides a communication up into small chunks
+				(i.e., packets), with each packet being sent
+				separately to the recipient. Packets are passed
+				along to the next network segment dynamically,
+				and thus may each take a different path through
+				the network on their way to the recipient.
+				The typical implementation is
+				<em>store-and-forward</em> in which the entire
+				packet is received (and stored) before it is
+				sent along the next network segment.
+			<li> Whereas circuit switching maintains a single
+				path through the network, packet switching
+				"creates" a new path for each packet. This
+				allows packets to be routed around slow or
+				failed portions of the network after
+				communication has started.
+			</ol>
+		<li> Tight vs Loose Coupling
+			<ol>
+			<li> Tightly coupled systems have very short latencies
+				for communication and the interconnect is
+				completely controlled within the confines of
+				a single system.
+			<li> Loosely coupled systems have much longer latency
+				times and the interconnect is controlled
+				separately from the CPU components. A collection
+				of separate computers communicating over the
+				Internet is an example of this.
+			</ol>
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_61.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

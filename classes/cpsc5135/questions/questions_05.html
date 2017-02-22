@@ -1,0 +1,125 @@
+<li> Write the definition for the Lisp function "isEven" which takes a list
+	as its only parameter. The function returns "t" if the list has an
+	even number of elements and "nil" if it does not. Consider an empty
+	list to have an even number of items. Thus "(isEven nil)" and
+	"(isEven (quote (1 2 3 4)))" both return "t" while
+	"(isEven (quote (1 2 3)))" returns "nil".
+	Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "isOdd" which takes a list
+	as its only parameter. The function returns "t" if the list has an
+	odd number of elements and "nil" if it does not. Consider an empty
+	list to have an even number of items. Thus "(isOdd nil)" and
+	"(isOdd (quote (1 2 3 4)))" both return "nil" while
+	"(isOdd (quote (1 2 3)))" returns "t".
+	Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "sum" which takes a single
+	non-negative integer as its only parameter and sums
+	<strong>all</strong> the integers
+	from 0 up to and including that number. Thus "(sum 0)" returns "0"
+	and "(sum 5)" returns "15". Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "sum" which takes two
+	non-negative integers as its parameters and sums <strong>all</strong>
+	the integers
+	from the first integer up to and including the second integer. Thus
+	"(sum 3 6)" returns "18" and "(sum -2  2)" returns "0". If the numbers
+	are both the same, then return that number as the sum, e.g.,
+	"(sum 5  5)" returns "5". You may assume that the second number is
+	never strictly less than the first. Your solution may only use the
+	following built-in Lisp functions: defun, cons, append, cond, and,
+	or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "oddAdd" that takes a list of
+	numbers as its only parameter and returns the sum of every other number
+	in the list starting with the first number. Thus
+	"(oddAdd (quote (2  3  5  7)))" should return "7" and "(oddAdd nil)"
+	should return "0".  You can assume that the list will only contain
+	numbers. Your solution may only use the following built-in Lisp
+	functions: defun, cons, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "evenAdd" that takes a list of
+	numbers as its only parameter and returns the sum of every other number
+	in the list starting with the second number. Thus
+	"(evenAdd (quote (2  3  5  7)))" should return "10" and "(evenAdd nil)"
+	should return "0".  You can assume that the list will only contain
+	numbers. Your solution may only use the following built-in Lisp
+	functions: defun, cons, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "last" that takes a list
+	as its only parameter and returns the last element in that list.
+	Thus "(last nil)" should return "nil" and "(last (quote (a  1  b  2)))"
+	should return "2".  Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "nth" that takes a positive
+	integer and a non-empty list as its only parameters.
+	The function should return
+	the element of the list corresponding to the number given (counting the
+	first element in the list as "1").  Thus "(nth 1 (quote (a  b  c)))"
+	should return "a" and "(nth 4 (quote (a  1  b  2)))" should return "2".
+	Your solution may only use the following built-in Lisp functions:
+	defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "makeList" that takes a single
+	non-negative integer as its only parameter and creates a list of that
+	length with the integer values as the members of the list counting down
+	from the given integer.
+	Thus "(makeList 0)" should return "nil" and "(makeList 4)" should
+	return "(4  3  2  1)".  Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "makeList" that takes a single
+	non-negative integer as its only parameter and creates a list of that
+	length with the successive integer values as the members of the list
+	(i.e., counting up).
+	Thus "(makeList 0)" should return "nil" and "(makeList 4)" should
+	return "(1  2  3  4)".  Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "pair" that takes two lists
+	as its parameters.  The function should return a list of dotted pairs,
+	where the items in each pair are the corresponding items in the
+	two parameters. Thus "(pair (quote (1 2 3)) (quote (1 4 9)))" should
+	return "( (1 . 1) (2 . 4) (3 . 9) )", while "(pair nil nil)" should
+	return "nil".
+	Your solution may only use the following built-in Lisp functions:
+	defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "where" that takes two
+	parameters, an item to find and a list to find it in. The function
+	should return the position of the first matching item in the list
+	(positions start at 0), and if the item is not in the list the
+	function should return
+	"nil". Thus "(where (quote b) (quote (a b c)))" should return "1",
+	while "(where 2 (quote (a 1 b 4 c 7 u)))" should "nil".
+	Your solution may only use the following built-in Lisp functions:
+	defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "map" that takes a function
+	name and a list of lists.  The function should return a list that is
+	the result of applying its first argument to each successive nested
+	lists given by the second argument.  Thus
+	"(map (quote +) (quote ((1  2) (3  4) (5  6))))" should return
+	"(3  7  11)" while "(map (quote +) nil)" should return "nil". Be careful
+	that your function doesn't assume that the first parameter is "+".
+	Your solution may only use the following built-in Lisp functions:
+	defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>

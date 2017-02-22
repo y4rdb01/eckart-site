@@ -1,0 +1,390 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+
+<table width="100%">
+<tr>
+<td valign="top" width="100">
+<table>
+
+<tr><td align="left">
+<strong>Seuss<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../../dr.seuss/bitsNbytes.shtml">Bits in Bytes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/grinch.coder.shtml">Grinch OO Coder</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/lunch.shtml">Lunch</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seusstrek.shtml">Star Trek</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seussbible.shtml">The Bible</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/inferno.shtml">Dante's Inferno</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/purity.shtml">Purity Test</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/trial.shtml">O.J. Trial</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/greeneggs.shtml">Green Eggs and Pork</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/compTech.shtml">Computer Manual</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/USville.shtml">USville</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/wedding.shtml">Wedding</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/404.shtml">404</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Beatles.shtml">Beatles</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/bobbit.shtml">Bobbit</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/clinton.shtml">Clinton</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/favorite_things.shtml">Favorite Things</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ham_xmas.shtml">Ham Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ICBM_pizza.shtml">ICBM Pizza</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/net_is_slow.shtml">Net Is Slow</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/pc_xmas.shtml">PC Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Poe.shtml">Poe</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/prayer.shtml">Prayer</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/queen.shtml">Queen</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/sermon.shtml">Sermon</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song.shtml">Song</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song_tests.shtml">Song Tests</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/thermo.shtml">Thermo</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/twas.shtml">Twas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unified.shtml">Unified</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unix_abc.shtml">Unix abc</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/warnings.shtml">Warnings</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/xmas.shtml">Santa's Unix Listing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/y2k_pie.shtml">Millenium Pie</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/microsoft.shtml">M$ TV Dinners</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Humor</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/1-liners.shtml">One Liners</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/admin.shtml">Administratium</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/bad_spec.shtml">Bad spec</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/daemon-OS.shtml">daemon OS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/days-off.shtml">Days off</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dead_horse.shtml">Dead horse</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dosfish.shtml">Dosfish</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/FAA.shtml">FAA report</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/GM-helpline.shtml">GM helpline</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grandpa.shtml">Family tree</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grounding.shtml">Strapping</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/H2O.shtml">H2O</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/haiku.shtml">Haiku</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/harvard.shtml">Harvard</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/job.shtml">Job</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/koans.shtml">Koans</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/loan.shtml">Loan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/memos.shtml">Memos</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/money.shtml">Money</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/moron.shtml">Moron</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/MS.shtml">MS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/wirth.shtml">Niklaus Wirth</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/accidents.shtml">Accidents</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/navy.shtml">Navy</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/phrases.shtml">Phrases</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/plan.shtml">Plan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/stench.shtml">The Project</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/study.shtml">Anything</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/SysAdmin.shtml">SysAdmin Woes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/thesis.shtml">Thesis</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/quantumPhysics.shtml">Quantum Physics</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/monk.shtml">Monk</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/proofByInduction.shtml">Proof by Induction</a>
+</td></tr>
+
+</table>
+</td>
+
+<td valign="top">
+
+<blockquote>
+
+
+And Now, a modern version of Edgar Allen Poe's "The Raven"...<br/>
+<br/>
+<strong>Abort, Retry, Ignore?</strong><br/>
+<blockquote>
+Once upon a midnight dreary, fingers cramped and vision bleary,<br/>
+System manuals piled high and wasted paper on the floor,<br/>
+Longing for the warmth of bed sheets, still I sat there doing spreadsheets.<br/>
+Having reached the bottom line I took a floppy from the drawer,<br/>
+I then invoked the SAVE command and waited for the disk to store,<br/>
+Only this and nothing more.<br/>
+<br/>
+Deep into the monitor peering, long I sat there wond'ring, fearing,<br/>
+Doubting, while the disk kept churning, turning yet to churn some more.<br/>
+But the silence was unbroken, and the stillness gave no token.<br/>
+"Save!" I said, "You cursed mother!  Save my data from before!"<br/>
+One thing did the phosphors answer, only this and nothing more,<br/>
+Just, "Abort, Retry, Ignore?"<br/>
+<br/>
+Was this some occult illusion, some maniacal intrusion?<br/>
+These were choices undesired, ones I'd never faced before.<br/>
+Carefully I weighed the choices as the disk made impish noises.<br/>
+The cursor flashed, insistent, waiting, baiting me to type some more.<br/>
+Clearly I must press a key, choosing one and nothing more,<br/>
+>From "Abort, Retry, Ignore?"<br/>
+<br/>
+With fingers pale and trembling, slowly toward the keyboard bending,<br/>
+Longing for a happy ending, hoping all would be restored,<br/>
+Praying for some guarantee, timidly, I pressed a key.<br/>
+But on the screen there still persisted words appearing as before.<br/>
+Ghastly grim they blinked and taunted, haunted, as my patience wore,<br/>
+Saying "Abort, Retry, Ignore?"<br/>
+<br/>
+I tried to catch the chips off guard, and pressed again, but twice as hard.<br/>
+I pleaded with the cursed machine: I begged and cried and then I swore.<br/>
+Now in mighty desperation, trying random combinations,<br/>
+Still there came the incantation, just as senseless as before.<br/>
+Cursor blinking, angrily winking, blinking nonsense as before.<br/>
+Reading, "Abort, Retry, Ignore?"<br/>
+<br/>
+There I sat, distraught, exhausted, by my own machine accosted.<br/>
+Getting up I turned away and paced across the office floor.<br/>
+And then I saw a dreadful sight: a lightning bolt cut through the night.<br/>
+A gasp of horror overtook me, shook me to my very core.<br/>
+The lightning zapped my previous data, lost and gone forevermore.<br/>
+Not even, "Abort, Retry, Ignore?"<br/>
+<br/>
+To this day I do not know the place to which lost data go.<br/>
+What demonic nether world us wrought where lost data will be stored,<br/>
+Beyond the reach of mortal souls, beyond the ether, into black holes?<br/>
+But sure as there's C, Pascal, Lotus, Ashton-Tate and more,<br/>
+You will one day be left to wander, lost on some Plutonian shore,<br/>
+Pleading, "Abort, Retry, Ignore?"<br/>
+</blockquote>
+
+</blockquote>
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+

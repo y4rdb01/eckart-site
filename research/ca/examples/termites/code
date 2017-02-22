@@ -1,0 +1,60 @@
+# This CA implements a simulation of mobile gathering agents (termites) that
+# randomly wander about picking up wood chips when they stumble across them
+# and depositing them into piles.
+#
+2 dimensions of 
+	chip of 0..1
+
+	# 0 is empty space (blue), 1 is a wood chip (yellow), 2 is termite 
+	# (red).
+	#
+	display of 0..2
+agent of
+	# Direction of travel:
+	# North = 0, NorthEast = 1, East = 2, SouthEast = 3,
+	# South = 4, SouthWest = 5, West = 6, NorthWest = 7
+	#
+	dir of 0..7
+
+	have_chip of 0..1
+	seen_chip of 0..1
+end
+
+termites := 0
+chip := cell.chip
+forall termite : agent
+	termites := 1
+
+	# Randomize the direction of travel.
+	#
+	dir := (termite.dir+8-1+random%3)%8
+
+	have_chip := termite.have_chip
+	seen_chip := termite.seen_chip
+
+	if have_chip & seen_chip & !chip then
+		have_chip := 0
+		seen_chip := 0
+		chip := 1
+	elsif have_chip & chip then
+		seen_chip := 1
+	elsif !have_chip & chip then
+		have_chip := 1
+		seen_chip := 0
+		chip := 0
+	end
+
+	agent(dir, have_chip, seen_chip) -> [0, 1]   when dir = 0
+		   			 -> [1, 1]   when dir = 1
+		   			 -> [1, 0]   when dir = 2
+		   			 -> [1, -1]  when dir = 3
+		   			 -> [0, -1]  when dir = 4
+		   			 -> [-1, -1] when dir = 5
+		   			 -> [-1, 0]  when dir = 6
+		   			 -> [-1, 1]  when dir = 7
+end
+
+cell.chip := chip
+cell.display := 2 when termites
+	     := 1 when chip
+	     := 0 otherwise

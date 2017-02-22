@@ -1,0 +1,78 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Using Smalltalk-X
+</p>
+
+<ol>
+<li> To start Smalltalk on the machines in the CCT 450 Lab, boot them
+	into Windows 7, then start "C:\stx\projects\smalltalk\stx". This
+	will (eventually) bring up 2 windows: ST/X Launcher, and
+	Getting Started (which only appears the first time you launch
+	stx). This is an interactive mode that allows you to browse
+	classes and test code fragments (within the workspace).
+<li> To run code fragments:
+	<ol>
+	<li> Open a workspace using the ST/X Launcher's "Tool" menu
+		and selecting "Workspace".
+	<li> Type (or paste) a test code fragment into the workspace
+		(e.g., "Transcript show: (5 squared); cr").
+	<li> Highlight the code fragment and then execute it by
+		clicking the thunderbolt icon (or by using the
+		"DoIt" choice in the "Execute" menu).
+	</ol>
+<li> To run your code from a file (file should use ".st" extension by
+	convention), you'll need to:
+	<ol>
+	<li> Start the file browser from the "ST/X Launcher" using the
+		"File" menu and choosing the "File Browser".
+	<li> In the file browser, navigate to the folder where your
+		source files are located and highlight the desired
+		file.
+	<li> Under the file browser's "File" menu, choose the
+		"FileIn to Namespace...". Use the "Smalltalk"
+		namespace (it should already be selected by default)
+		and click "OK". NOTE: Any errors in the file will
+		be indicated in the ST/X Launcher (which is the
+		Transcript window). Make sure your code loads
+		cleanly before continuing!
+	<li> Open a workspace (see above) and test your class(es)
+		with code fragments (e.g., "Example new
+		doSomething: 'Hello'").
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_32.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

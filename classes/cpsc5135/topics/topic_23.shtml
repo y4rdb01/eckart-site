@@ -1,0 +1,123 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Block Structures
+</p>
+
+<ol>
+<li> Have beginning and end markers, collect together related
+	declarations and statements into a single "action".
+<li> Blocks can be nested arbitrarily deep.
+<li> Block declarations are available from the point of declaration
+	until the end of their declaring block. Declarations are not
+	available outside the block, though they may hide declarations
+	outside the block.
+<pre><code>
+	{					// Java style (outer) block
+		int x = 3;
+		...
+		if (x % 2 == 0) {		// An inner block
+			int x = 5;		// Hides "x" from outer block
+			int y = 7;
+			System.out.println(x);
+		} else if (3 &lt; x && x &lt; 9) {	// Second inner block
+			// Some languages (e.g., Java, C/C++) allow empty blocks
+		} else {			// Third inner block 
+			int y = 2;
+			for (int k = 0; k &lt; x; k++) {
+				// A triple nested block
+				float y = 9.0;
+
+				// In Java, "k" is declared within the scope of the for loop
+				System.out.println(x, y, k);
+			}
+		}
+		System.out.println(x, y, z, k);	// Illegal. "y", "k", and "z" not defined.
+		...
+		int z = x*x;	// Most languages don't allow declarations here
+		...
+	}
+</code></pre>
+<li> Memory for (variable) declarations:
+	<ol>
+	<li> Is allocated (on the run-time stack) for declarations
+		within the block, when that block's instructions
+		start executing.
+	<li> Memory is deallocated when the block is complete (and
+		those declarations go "out of scope").
+	<li> NOTE: While conceptually true, this needn't be strictly
+		true. Annonymous blocks (e.g., used by "if" and "for")
+		may have their space allocated by the non-annonymous
+		blocks that contain them (e.g., functions, procedures,
+		and methods).
+	</ol>
+<li> Some languages with blocks don't permit all types of declarations
+	to appear within blocks.
+	<ol>
+	<li> C and C++ don't allow function implementations to be
+		nested within blocks (though the declaration of a
+		function withOUT the function body is allowed).
+	<li> Java allows not only variables, but entire classes to be
+		specified (delcared with an implementation) within
+		a block.
+	</ol>
+<li> Scope vs Lifetime
+	<ol>
+	<li> <em>Scope</em> - the region of program text in which the
+		declaration can be used (i.e., is visible).
+	<li> <em>Lifetime</em> - the time period within a running
+		program for which a specific declaration has an
+		allocated location (i.e., memory space) for values.
+	<li> We often think of scope and lifetime being the same (and
+		that's often true), but the lifetime can be longer
+		than the scope when:
+		<ol>
+		<li> the visibility (scope) of a declaration is hidden
+			by a declaration of the same name within a
+			nested block; or
+		<li> the storage for the delcaration is created
+			<em>before</em> the variable is "declared"
+			(e.g., variables in anonymous/in-line blocks
+			have storage allocated by enclosing named block,
+			variables declared within the middle of a
+			block - as in Java).
+		<li> the variable is declared "static" (e.g., as in
+			Java, C, and C++) within a sub-program or class.
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_23.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

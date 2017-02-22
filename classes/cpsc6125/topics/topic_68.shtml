@@ -1,0 +1,175 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Background & Virtualization Requirements
+</p>
+
+<ol>
+<li> Some of the reasons organizations use many computers rather than a single
+	large computer:
+	<ol>
+	<li> Software run by the company requires different operating systems.
+	<li> Different large applications run by the organization may
+		experience problems from time to time, and if they run on
+		different computers, then problems with one application will
+		not impact the others.
+	<li> If an attacker compromises one system (and the applications that
+		run on that computer) then the remaining sytems (and their
+		applications) won't also be immediately compromised.
+	<li> A separate computer system may be used for development and
+		testing of new software (if the organization develops software,
+		either for sale or for its own use).
+	<li> Using a separate computer for testing newly acquired software
+		(perhaps open source software) that is not yet fully trusted
+		by the organization.
+	</ol>
+<li> Large numbers of separate computers are:
+	<ol>
+	<li> Time consuming to administer.
+	<li> Expensive for the amount of computer power used, since machines
+		aren't (and shouldn't be) run at 100% capacity. Thus if
+		computers are never run at more than 80% capacity, then for
+		every 5 computers, there's essentially 1 computer equivalent
+		of processing power going unused.
+	<li> Wasteful in that many times some computers will be near idle
+		while others are quite busy. This unbalanced utilization
+		profile means that each computer must be provisioned for the
+		worst case load on its applications.
+	</ol>
+<li> A <em>hypervisor</em> (or Virtual Machine Monitor - VMM) enables a single
+	physical computer to look as if it is really many different computers,
+	each running its own copy of the (potentially different) operating
+	system. Each of this non-physical computers is called a <em>virtual
+	machine</em>.
+<li> Using virtual machines (VMs) on a hypervisor in place of separate physical
+	machines, we can gain many of the benefits above:
+	<ol>
+	<li> while reducing the effort to administer disparate systems.
+	<li> by purchasing and using a single large multicomputer, thus
+		reducing the wasted CPU cycles of unbalanced utilization
+		(since the VMs share the same resources).
+	<li> by requiring less combined computational overhead because of the
+		more balanced utilization.
+	<li> and by reducing the overall cost since some elements of the
+		separate computer systems will not be fully replicated in
+		the multicomputer (e.g., power supplies).
+	</ol>
+<li> Some additional advantages of running VMs on a multicomputer (over
+	separate physical computers) are that they often:
+	<ol>
+	<li> use less electricity;
+	<li> generate less heat and require less cooling (a further savings
+		on electricity costs);
+	<li> take up less space in the data center;
+	<li> migrating an application to another (multicomputer) server is
+		easier, simply save a snapshot of the running VM (and its
+		applications), copy it to the new server, and let it continue
+		where it left off (this is great for both load balancing and
+		disaster recovery); and
+	<li> legacy software that requires older versions of the OS not
+		available on the newer hardware can still be run within a VM.
+	</ol>
+<li> The biggest downside of using many VMs on a single multicomputer
+	(instead of separate operating systems running on separate physical
+	computers) is that there are now more single points of failure for
+	the system. Whereas a single power supply would take out only a
+	single computer before, now it might cause the entire set of VMs to
+	fail (if the multicomputer on which they run relies on a single
+	power suppy).
+<li> Hypervisors are an important enabler for cloud-based computing since it
+	allows many different companies to purchase compute power (using their
+	choice of OS) while the cloud provider can increase the efficient use
+	of hardware by having many of the VMs (perhaps running applications
+	from competitors) executing on the same hardware.
+<li> Virtualization (and hypervisors) date back to the mid-1960s with IBM's
+	CP-40, with the first commercial product (CP/CMS) based on this
+	research work appearing in May 1968.
+<li> VMware released its first hypervisor for the x86 architecture in 1999.
+<li> Hypervisors provide a virtual machine that is indistinguishable by the
+	OS from the physical hardware.
+<li> The computer architecture hardware requirements for virtualization were
+	described in 1974 by Gerald Popek and Robert Goldberg:
+	<ol>
+	<li> <em>Safety</em>: all virtualized resources are fully controlled
+		by the hypervisor.
+		<ol>
+		<li> Interpretation provides saftey but at the loss of
+			efficiency (see below).
+		<li> Some instructions can be safely executed directly
+			(without interpretation), but others cannot be.
+		</ol>
+	<li> <em>Fidelity</em>: the behavior of a program running on the
+		hypervisor is identical to that of the program running
+		directly on the bare hardware.
+		<ol>
+		<li> Sensitive instructions behave differently depending upon
+			whether they are executed in kernel mode or user mode.
+		<li> Priviledged instructions cause a trap if executed in
+			user mode.
+		<li> A machine architecture is virtualizable only if the
+			collection of sensitive instructions is a subset of
+			the priviledged instructions. Thus, any instruction
+			that could have different behavior depending on mode
+			<em>must</em> trap if executed in user mode. [This is
+			why the x86 architecture could not be virtualized
+			until 2005 when Intel and AMD introduced
+			<em>virtualization technology</em> and <em>secure
+			virtual machine</em> respectively - generically
+			referred to as VT.]
+		<li> Hypervisors for the x86 architecture prior to 2005 rewrote
+			code just before exeuction, substituting an equivalent
+			that safely and fully emulated the original code.
+			These rewrites (called <em>binary translation</em>)
+			enable the <em>trap-and-emulate</em> approach to
+			virtualization on pre-VT x86 computers.
+		<li> Not all instructions must be rewritten. Non-priviledged
+			but sensitive instructions running in user mode are
+			okay to run as is, while priviledged sensitive
+			instructions are handled by trap-and-emulate (and the
+			hypervisor redirects traps to its own handlers).
+		</ol>
+	<li> <em>Efficiency</em>: the degree to which the code in the VM runs
+		without intervention by the hypervisor.
+	</ol>
+<li> Whereas <em>full virtualization</em> provides a VM that looks just like
+	the underlying hardware, <em>Paravirtualization</em> uses
+	<em>hypercalls</em> that the OS on the VM must use to access
+	certain capabilities - so that the OS must be aware of and use the
+	virtual machine API.
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_68.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

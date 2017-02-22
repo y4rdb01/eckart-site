@@ -1,0 +1,127 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Deadlock Avoidance
+</p>
+
+<ol>
+<li> Deadlock avoidance is predicated on the idea that resources are always
+	granted such that all processes could finish if the remaining
+	resources were allocated/scheduled in a specific fashion.
+	<ol>
+	<li> If the current resource allocation enables all processes to finish
+		under at least one resource allocation scenario, then the
+		system is in a <em>safe state</em> with respect to deadlock.
+	<li> If there are no resource allocation scenarios that enables all
+		processes to finish, then the system is in a
+		<em>unsafe state</em> with respect to deadlock.
+	<li> Deadlock avoidance prevents allocating resources that would put
+		the system into an <em>unsafe state</em>.
+	</ol>
+<li> Resource Trajectories
+	<ol>
+	<li> Based on the known requests for resources that
+		processes can make (which is hypothetical only),
+		certain execution sequences lead to deadlock.
+	<li> Areas of the execution graph for
+		which this is true must NOT be entered if deadlock
+		is to be avoided.
+	</ol>
+<li> Banker's Algorithm for a single resource
+	<ol>
+	<li> Analogy with a banker as the OS
+		<ol>
+		<li> money as resources,
+		<li> customers as processes, and
+		<li> the max credit limit as the maximum resources a process
+			might need to complete.
+		</ol>
+	<li> The banker need not keep resources to meet everyones
+		max at the same time.  She must however, be able to
+		eventually meet everyones maximum,  thus at any given
+		time she must be able to fullfil the max credit of
+		at least one customer (this is a safe state).  When 
+		a customer finishes, those resources are returned 
+		and can be used to fulfil another's request, and so 
+		on.
+	<li> Deadlock occurs whenever the banker is unable to
+		fulfil the request of anyone.
+	<li> An unsafe state (within the context of the Banker's algorithm)
+		doesn't guarantee that deadlock will
+		occur, it just means that deadlock is possible (since the
+		process may not end up needing the maximum resource allocation).
+	</ol>
+<li> Banker's Algorithm for multiple resources
+	<ol>
+	<li> Each process states its total resource needs
+		before starting. [In practice, an unrealistic
+		assumption with the exception of batch systems.]
+	<li> Two (2) matrices are kept
+		<ol>
+		<li> One showing the number of each kind of resource
+			allocated to each process, and
+		<li> The other showing the number of each kind of resource
+			still needed in order to finish.	
+		</ol>
+	<li> Three (3) vectors
+		<ol>
+		<li> E shows the # of existing resoruces
+		<li> P shows the # of possessed/granted resources
+		<li> A show # of available resources
+		</ol>
+	<li> To determine if a state is safe:
+		<ol>
+		<li> Find a process whose unmet resource needs are
+		   	&lt;= A, if none can be found then deadlock will
+			eventually occur.
+		<li> Assume the chosen process requests all its needed
+		   	resources, completes and returns these to A.
+		<li> Repeat 1 and 2 above until either all processes
+		   	terminate (state is safe) or deadlock (unsafe)
+		</ol>
+	</ol>
+<li> Unfortunately, the Banker's algorithm is only applicable in special
+	circumstances (e.g., batch processing) since:
+	<ol>
+	<li> The # of process is constantly changing,
+	<li> The # of resources can change (e.g., devices break), and
+	<li> Most processes don't know ahead of time all of the
+		resources that they will need.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_49.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

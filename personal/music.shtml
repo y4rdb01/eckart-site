@@ -1,0 +1,367 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: CD Collection
+</p>
+
+<script type="text/javascript">
+	// Capitalize the first letter of each word in the string.
+	//
+	function ucwords (str) {
+    		return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+	}
+
+        // Builds link to reference CDDB.com for this artist/album.
+        //
+        function music_info_link(elem, artist, album) {
+		var container = document.getElementById(elem);
+		var link = document.createElement('a');
+
+        	container.appendChild(link);
+
+		link.setAttribute("href", 'http://www.gracenote.com/music/search-adv.html?xd=on&qartist=' + artist.replace(/_/g, '+') + '&xd=on&qdisc=' + album.replace(/_/g, '+') + '"');
+		
+		link.innerHTML= ucwords(album.replace(/_/g, ' ')) + ' (' + ucwords(artist.replace(/_/g, ' ')) + ')';
+
+        	container.appendChild(document.createElement('br'));
+        }
+</script>
+
+<br/>
+
+<blockquote>
+<img style="{text-align:left}" src="cd.gif" alt="spinning compact disk" border="0" width="32" height="32" />
+Most of the music I like listening to is from the 60's and 70's.  I also like
+some stuff from the late 50's and also from the early 80's.  The following is
+a listing of most of the music I've collected over the years. [While each
+item is clickable, the original source that I used - 
+<a href="http://www.gracenote.com/" target="_new">gracenote.com</a> - provided
+a list of the tracks on that album, it has since been removed and the primary
+alternative - <a href="http://freedb.org">freedb.org</a> - is not currently
+available. As soon as I find a workable database I'll switch this up as the
+links below don't work. Sorry for the inconvenience.] 
+
+
+<h4 align="center">Pop and Rock</h4>
+<blockquote id="pop">
+<script type="text/javascript">
+	music_info_link("pop", "abba", "gold");
+	music_info_link("pop", "abba", "more_gold");
+	music_info_link("pop", "aerosmith", "greatest_hits");
+	music_info_link("pop", "albert_hammond", "it_never_rains_in_southern_california_a_golden_classics_edition");
+	music_info_link("pop", "al_stewart", "year_of_the_cat");
+	music_info_link("pop", "america", "greatest_hits");
+	music_info_link("pop", "arlo_guthrie", "the_best_of_arlo_guthrie");
+	music_info_link("pop", "atlanta_rhythm_section", "the_best_of");
+	music_info_link("pop", "bachman_turner_overdrive", "btos_greatest");
+	music_info_link("pop", "barry_manilow", "ultimate_manilow");
+	music_info_link("pop", "beach_boys", "endless_summer");
+	music_info_link("pop", "beach_boys", "good_vibrations");
+	music_info_link("pop", "bee_gees", "best_of_the_bee_gees");
+	music_info_link("pop", "billy_joel", "piano_man");
+	music_info_link("pop", "billy_joel", "the_stranger");
+	music_info_link("pop", "BJ_thomas", "BJ_thomas_classics");
+	music_info_link("pop", "blondie__pat_benatar", "back_to_back_hits");
+	music_info_link("pop", "blood_sweat_and_tears", "blood_sweat_and_tears");
+	music_info_link("pop", "bobbie_gentry", "bobbie_gentry_greatest_hits");
+	music_info_link("pop", "bobby_goldsboro", "all_time_greatest_hits");
+	music_info_link("pop", "bob_newhart", "best_of_the_button_down_mind");
+	music_info_link("pop", "bob_seger_the_silver_bullet_band", "greatest_hits");
+	music_info_link("pop", "bob_welch", "the_best_of_bob_welch");
+	music_info_link("pop", "box_tops", "the_ultimate_box_tops");
+	music_info_link("pop", "bread", "anthology_of_bread");
+	music_info_link("pop", "broadway_cast", "fiddler_on_the_roof");
+	music_info_link("pop", "bryan_adams", "anthology__disc_1");
+	music_info_link("pop", "bryan_adams", "anthology__disc_2");
+	music_info_link("pop", "buddy_holly", "from_the_original_master_tapes");
+	music_info_link("pop", "carly_simon", "hello_big_man");
+	music_info_link("pop", "carly_simon", "the_best_of_carly_simon");
+	music_info_link("pop", "carole_king", "her_greatest_hits_songs_of_long_ago");
+	music_info_link("pop", "carole_king", "tapestry");
+	music_info_link("pop", "charlie_rich", "greatest_hits");
+	music_info_link("pop", "cher", "bang_bang_and_other_hits");
+	music_info_link("pop", "cher", "greatest_hits");
+	music_info_link("pop", "chicago", "greatest_hits_vol_1");
+	music_info_link("pop", "chris_botti", "a_thousand_kisses_deep");
+	music_info_link("pop", "cream", "disraeli_gears");
+	music_info_link("pop", "creedence_clearwater_revival", "chronicle");
+	music_info_link("pop", "creedence_clearwater_revival", "cosmos_factory");
+	music_info_link("pop", "crosby_stills__nash", "csn");
+	music_info_link("pop", "dan_fogelberg", "phoenix");
+	music_info_link("pop", "dan_fogelberg", "souvenirs");
+	music_info_link("pop", "dan_fogelberg__tim_weisberg", "twin_sons_of_different_mothers");
+	music_info_link("pop", "diana_ross_and_the_supremes", "command_performances_20_greatest_hits");
+	music_info_link("pop", "dionne_warwick", "greatest_hits_1979_1990");
+	music_info_link("pop", "don_mclean", "american_pie");
+	music_info_link("pop", "donovan", "donovans_greatest_hits");
+	music_info_link("pop", "doobie_brothers", "best_of_the_doobies");
+	music_info_link("pop", "dusty_springfield", "dusty_in_memphis");
+	music_info_link("pop", "electric_light_orchestra", "discovery");
+	music_info_link("pop", "elton_john", "goodbye_yellow_brick_road_disc_1");
+	music_info_link("pop", "elton_john", "goodbye_yellow_brick_road_disc_2");
+	music_info_link("pop", "england_dan_and_john_ford_coley", "best_of_england_dan_and_john_ford_coley");
+	music_info_link("pop", "eric_carmen", "the_best_of_eric_carmen");
+	music_info_link("pop", "eric_clapton", "the_cream_of_clapton");
+	music_info_link("pop", "eurythmics", "ultimate_collection");
+	music_info_link("pop", "firefall", "firefall_greatest_hits");
+	music_info_link("pop", "fleetwood_mac", "greatest_hits");
+	music_info_link("pop", "frankie_valli_and_the_four_seasons", "anthology_disc_1");
+	music_info_link("pop", "frankie_valli_and_the_four_seasons", "anthology_disc_2");
+	music_info_link("pop", "gary_pucket__the_union_gap", "greatest_hits");
+	music_info_link("pop", "gary_wright", "the_dream_weaver");
+	music_info_link("pop", "george_harrison", "the_best_of_george_harrison");
+	music_info_link("pop", "glen_campbell", "the_very_best_of_glen_campbell");
+	music_info_link("pop", "gloria_gaynor", "the_best_of_gloria_gaynor");
+	music_info_link("pop", "gordon_lightfoot", "if_you_could_read_my_mind");
+	music_info_link("pop", "gordon_lightfoot", "summertime_dream");
+	music_info_link("pop", "harry_chapin", "greatest_stories_live");
+	music_info_link("pop", "heart", "dreamboat_annie");
+	music_info_link("pop", "heart", "heart");
+	music_info_link("pop", "heart", "little_queen");
+	music_info_link("pop", "heart_to_heart", "the_spirit_of_christmas");
+	music_info_link("pop", "helen_reddy", "all_time_hits");
+	music_info_link("pop", "herb_alpert", "rise");
+	music_info_link("pop", "herb_alpert_the_tijuana_brass", "bullish");
+	music_info_link("pop", "herb_alpert_the_tijuana_brass", "classics_vol_1");
+	music_info_link("pop", "hermans_hermits", "their_greatest_hits");
+	music_info_link("pop", "huey_lewis_and_the_news", "time_flies_the_best_of_huey_lewis_and_the_news");
+	music_info_link("pop", "jan__dean", "greatest_hits");
+	music_info_link("pop", "janis_ian", "between_the_lines");
+	music_info_link("pop", "janis_joplin", "janis_joplin");
+	music_info_link("pop", "jefferson_airplane", "the_worst_of_jefferson_airplane");
+	music_info_link("pop", "jefferson_starship", "red_octopus");
+	music_info_link("pop", "jethro_tull", "M.U._the_best_of_jethro_tull");
+	music_info_link("pop", "jim_croce", "the_legend_of_jim_croce");
+	music_info_link("pop", "jimmy_buffett", "songs_you_know_by_heart");
+	music_info_link("pop", "jim_stafford", "greatest_hits");
+	music_info_link("pop", "jim_stafford", "the_best_of_jim_stafford");
+	music_info_link("pop", "joan_baez", "diamonds_and_rust");
+	music_info_link("pop", "john_denver", "john_denver_greatest_hits");
+	music_info_link("pop", "john_denver", "john_denvers_greatest_hits_vol_2");
+	music_info_link("pop", "johnny_horton", "johnny_hortons_greatest_hits");
+	music_info_link("pop", "johnny_rivers", "greatest_hits");
+	music_info_link("pop", "joni_mitchell", "hits");
+	music_info_link("pop", "jose_feliciano", "absolutely_the_best");
+	music_info_link("pop", "journey", "greatest_hits");
+	music_info_link("pop", "kansas", "point_of_know_return");
+	music_info_link("pop", "kc_and_the_sunshine_band", "the_best_of_kc_and_the_sunshine_band");
+	music_info_link("pop", "kenny_loggins", "return_to_pooh_corner");
+	music_info_link("pop", "kingston_trio", "the_very_best_of_the_kingston_trio");
+	music_info_link("pop", "little_river_band", "LRB_the_definitive_collection");
+	music_info_link("pop", "lobo", "lobo_greatest_hits");
+	music_info_link("pop", "lynyrd_skynyrd", "gold_and_platinum_disc_1");
+	music_info_link("pop", "lynyrd_skynyrd", "gold_and_platinum_disc_2");
+	music_info_link("pop", "mamas_the_papas", "16_greatest_hits");
+	music_info_link("pop", "manfred_mann", "manfred_mann_greatest_hits");
+	music_info_link("pop", "mary_hopkin", "post_card");
+	music_info_link("pop", "mason_williams", "the_mason_williams_phonograph_record");
+	music_info_link("pop", "meat_loaf", "bat_out_of_hell");
+	music_info_link("pop", "melanie", "the_best_of_melanie");
+	music_info_link("pop", "neil_diamond", "his_12_greatest_hits");
+	music_info_link("pop", "neil_diamond", "jonathan_livingston_seagull");
+	music_info_link("pop", "neil_diamond", "the_greatest_hits_1966_1992_disc_1");
+	music_info_link("pop", "neil_diamond", "the_greatest_hits_1966_1992_disc_2");
+	music_info_link("pop", "original_london_cast", "jesus_christ_superstar");
+	music_info_link("pop", "paul_mccartney_wings", "wings_over_america_disc_1");
+	music_info_link("pop", "paul_mccartney_wings", "wings_over_america_disc_2");
+	music_info_link("pop", "paul_revere_and_the_raiders", "greatest_hits");
+	music_info_link("pop", "paul_simon", "still_crazy_after_all_these_years");
+	music_info_link("pop", "peter_paul_and_mary", "peter_paul_and_mary_in_concert_disc_1");
+	music_info_link("pop", "peter_paul_and_mary", "peter_paul_and_mary_in_concert_disc_2");
+	music_info_link("pop", "pete_seeger", "pete_seegers_greatest_hits");
+	music_info_link("pop", "petula_clark", "petula_clark_greatest_hits");
+	music_info_link("pop", "pink_floyd", "the_wall_disc_1");
+	music_info_link("pop", "pink_floyd", "the_wall_disc_2");
+	music_info_link("pop", "poco", "crazy_loving_the_best_of_poco_1975_1982");
+	music_info_link("pop", "procol_harum", "best_of_procol_harum");
+	music_info_link("pop", "queen", "greatest_hits");
+	music_info_link("pop", "ray_stevens", "greatest_hits");
+	music_info_link("pop", "rem", "out_of_time");
+	music_info_link("pop", "ricky_nelson", "all_time_greatest_hits");
+	music_info_link("pop", "roberta_flack", "softly_with_these_songs");
+	music_info_link("pop", "seals_and_crofts", "seals_and_crofts_greatest_hits");
+	music_info_link("pop", "sheryl_crow", "the_very_best_of_sheryl_crow");
+	music_info_link("pop", "simon_and_garfunkel", "bookends");
+	music_info_link("pop", "simon_and_garfunkel", "bridge_over_troubled_water");
+	music_info_link("pop", "simon_and_garfunkel", "parsley_sage_rosemary_and_thyme");
+	music_info_link("pop", "simon_and_garfunkel", "sounds_of_silence");
+	music_info_link("pop", "simon_and_garfunkel", "wednesday_morning_3am");
+	music_info_link("pop", "smokey_robinson_and_the_miracles", "18_greatest_hits");
+	music_info_link("pop", "sonny__cher", "all_i_ever_need_is_you");
+	music_info_link("pop", "steppenwolf", "16_greatest_hits");
+	music_info_link("pop", "steve_miller_band", "greatest_hits_1974_78");
+	music_info_link("pop", "strawberry_alarm_clock", "anthology");
+	music_info_link("pop", "supertramp", "the_very_best_of_supertramp");
+	music_info_link("pop", "sweet", "the_best_of_sweet");
+	music_info_link("pop", "taylor_james", "greatest_hits");
+	music_info_link("pop", "tesla", "five_man_acoustical_jam");
+	music_info_link("pop", "the_5th_dimension", "greatest_hits_on_earth");
+	music_info_link("pop", "the_alan_parsons_project", "ammonia_avenue");
+	music_info_link("pop", "the_alan_parsons_project", "eye_in_the_sky");
+	music_info_link("pop", "the_alan_parsons_project", "i_robot");
+	music_info_link("pop", "the_alan_parsons_project", "pyramid");
+	music_info_link("pop", "the_alan_parsons_project", "the_turn_of_a_friendly_card");
+	music_info_link("pop", "the_association", "the_associations_greatest_hits");
+	music_info_link("pop", "the_babys", "best_of_babys");
+	music_info_link("pop", "the_band", "the_best_of_the_band");
+	music_info_link("pop", "the_beatles", "abbey_road");
+	music_info_link("pop", "the_beatles", "a_hard_days_night");
+	music_info_link("pop", "the_beatles", "beatles_for_sale");
+	music_info_link("pop", "the_beatles", "help");
+	music_info_link("pop", "the_beatles", "let_it_be");
+	music_info_link("pop", "the_beatles", "magical_mystery_tour");
+	music_info_link("pop", "the_beatles", "please_please_me");
+	music_info_link("pop", "the_beatles", "revolver");
+	music_info_link("pop", "the_beatles", "rubber_soul");
+	music_info_link("pop", "the_beatles", "sgt_peppers_lonely_hearts_club_band");
+	music_info_link("pop", "the_beatles", "the_beatles_white_album_disc_1");
+	music_info_link("pop", "the_beatles", "the_beatles_white_album_disc_2");
+	music_info_link("pop", "the_beatles", "with_the_beatles");
+	music_info_link("pop", "the_beatles", "yellow_submarine");
+	music_info_link("pop", "the_byrds", "original_singles_vol_1");
+	music_info_link("pop", "the_carpenters", "the_singles_1969_1973");
+	music_info_link("pop", "the_eagles", "desperado");
+	music_info_link("pop", "the_eagles", "eagles");
+	music_info_link("pop", "the_eagles", "hotel_california");
+	music_info_link("pop", "the_eagles", "one_of_these_nights");
+	music_info_link("pop", "the_eagles", "on_the_border");
+	music_info_link("pop", "the_eagles", "the_long_run");
+	music_info_link("pop", "the_everly_brothers", "born_yesterday");
+	music_info_link("pop", "the_everly_brothers", "the_reunion_concert");
+	music_info_link("pop", "the_five_americans", "western_union");
+	music_info_link("pop", "the_grass_roots", "the_grass_roots_greatest_hits_vol_1");
+	music_info_link("pop", "the_grass_roots", "the_grass_roots_greatest_hits_vol_2");
+	music_info_link("pop", "the_guess_who", "greatest_of_best_of_the_guess_who");
+	music_info_link("pop", "the_hollies", "all_time_greatest_hits");
+	music_info_link("pop", "the_hollies", "the_hollies_greatest_hits");
+	music_info_link("pop", "the_j_geils_band", "freeze_frame");
+	music_info_link("pop", "the_kinks", "the_singles_collection");
+	music_info_link("pop", "the_lovin_spoonful", "the_very_best_of_the_lovin_spoonful");
+	music_info_link("pop", "the_monkees", "20_smash_hits");
+	music_info_link("pop", "the_moody_blues", "days_of_future_past");
+	music_info_link("pop", "the_moody_blues", "every_good_boy_deserves_favour");
+	music_info_link("pop", "the_moody_blues", "in_search_of_the_lost_chord");
+	music_info_link("pop", "the_moody_blues", "keys_of_the_kingdom");
+	music_info_link("pop", "the_moody_blues", "long_distance_voyager");
+	music_info_link("pop", "the_moody_blues", "octave");
+	music_info_link("pop", "the_moody_blues", "question_of_balance");
+	music_info_link("pop", "the_moody_blues", "seventh_sojourn");
+	music_info_link("pop", "the_moody_blues", "strange_times");
+	music_info_link("pop", "the_moody_blues", "sur_la_mer");
+	music_info_link("pop", "the_moody_blues", "the_other_side_of_life");
+	music_info_link("pop", "the_moody_blues", "the_present");
+	music_info_link("pop", "the_moody_blues", "threshold_of_a_dream");
+	music_info_link("pop", "the_moody_blues", "to_our_childrens_childrens_children");
+	music_info_link("pop", "the_partridge_family", "david_cassidy_and_the_partridge_family_the_definitive_collection");
+	music_info_link("pop", "the_righteous_brothers", "greatest_hits");
+	music_info_link("pop", "the_royal_guardsmen", "anthology");
+	music_info_link("pop", "the_searchers", "greatest_hits");
+	music_info_link("pop", "the_tokens", "lion_sleeps_tonight");
+	music_info_link("pop", "the_turtles", "20_greatest_hits");
+	music_info_link("pop", "the_turtles", "turtle_wax__the_best_of_the_turtles_volume_2");
+	music_info_link("pop", "the_ventures", "walk_dont_run_all_time_greatest_hits");
+	music_info_link("pop", "three_dog_night", "the_best_of_three_dog_night");
+	music_info_link("pop", "tom_lehrer", "an_evening_wasted_with_tom_lehrer");
+	music_info_link("pop", "tom_lehrer", "revisited");
+	music_info_link("pop", "tom_lehrer", "that_was_the_year_that_was");
+	music_info_link("pop", "tommy_james_and_the_shondells", "the_best_of_tommy_james_and_the_shondells");
+	music_info_link("pop", "various_artists", "best_of_the_bubblegum_years");
+	music_info_link("pop", "various_artists", "fame_L.A._mgm_televison_original_soundtrack");
+	music_info_link("pop", "various_artists", "rock_on_1974");
+	music_info_link("pop", "various_artists", "super_hits_of_the_70s__have_a_nice_day_vol_14");
+	music_info_link("pop", "various_artists", "the_rockin_70s");
+	music_info_link("pop", "various_artists", "the_summer_of_peace_love_and_music_volume_2");
+	music_info_link("pop", "various", "classic_instrumentals");
+	music_info_link("pop", "various", "super_hits_of_the_70s__have_a_nice_day_vol_19");
+	music_info_link("pop", "vince_guaraldi", "oh_good_grief");
+	music_info_link("pop", "yardbirds", "20_greatest_hits");
+</script>
+</blockquote>
+<h4 align=center>Classical</h4>
+<blockquote id="class">
+<script type="text/javascript">
+	music_info_link("class", "andre_previn_royal_philharmonic_orchestra", "rachmoninoff_symphony_no_2");
+	music_info_link("class", "bach_murray", "the_great_organ_at_methuen");
+	music_info_link("class", "edvard_grieg", "grieg_greatest_hits");
+	music_info_link("class", "erich_kunzel_cincinnati_symphony_orchestra", "battle_music_of_beethoven_and_liszt");
+	music_info_link("class", "erich_kunzel_cincinnati_symphony_orchestra", "tchaikovsky_1812_overture");
+	music_info_link("class", "herbert_von_karajan", "beethoven_symphony_no_9");
+	music_info_link("class", "herbert_von_karajan_berlin_philharmonic_orchestra", "strauss_r_also_sprach_zarathustra_don_juan");
+	music_info_link("class", "herbert_von_karajan_berlin_philharmonic_orchestra", "the_planets");
+	music_info_link("class", "leonard_bernstein_new_york_philharmonic", "prokofiev_peter_and_the_wolf_saint_saens_carnival_of_the_animals_bernstein_CBS");
+	music_info_link("class", "leonard_slatkin_st_louis_symphony_orchestra", "bolero");
+	music_info_link("class", "leonard_slatkin_st_louis_symphony_orchestra", "marche_slav_and_other_russian_favorites");
+	music_info_link("class", "lorin_maazel_berliner_philharmoniker", "rachmaninov_symphonic_dances_op_45_intermezzo_vocalise_op_34_no_14");
+	music_info_link("class", "louis_lane_atlanta_symphony_orchestra", "copland_appalachian_spring_rodeo_fanfare_for_the_common_man");
+	music_info_link("class", "maazel", "the_cleveland_orchestra_tchaikovsky_symphony_no_4_in_f_minor_op_36");
+	music_info_link("class", "malcolm_frager_on_bosendorfer_imperial_concert_grand", "malcolm_frager_plays_chopin");
+	music_info_link("class", "mozart", "the_greatest_hits_disc_1");
+	music_info_link("class", "mozart", "the_greatest_hits_disc_2");
+	music_info_link("class", "neville_marriner_academy_of_st_martin_in_the_fields", "grieg_peer_gynt_marriner");
+	music_info_link("class", "raymond_leppard_english_chamber_orchestra", "baroque_favorites");
+	music_info_link("class", "richard_wagner", "music_of_wagner");
+	music_info_link("class", "robert_shaw_atlanta_symphony_orchestra", "stravinsky_the_firebird_and_borodin_prince_igor");
+	music_info_link("class", "rudolf_serkin_with_boston_symphony_orchestra_seiji_ozawa", "beethoven_piano_concerto_no_5_in_e_flat_major_rudolf_serkin_boston_symphony_orchestra_seiji_ozawa_conducting_op_73");
+	music_info_link("class", "seiji_ozawa", "berlin_philharmonic_orchestra_alexis_weissenberg_gershwin_rhapsody_in_blue_catfish_row_etc");
+	music_info_link("class", "seiji_ozawa_boston_symphony_orchestra", "beethoven_symphony_no_5_egmont_overture");
+	music_info_link("class", "sergei_rachmaninov", "piano_concerto_no_3_in_d_minor");
+	music_info_link("class", "the_cleveland_orchestra_christoph_von_dohnanyi", "schubert_unfinished_symphony_beethoven_symphony_no_8_in_f");
+</script>
+</blockquote>
+<h4 align=center>Other</h4>
+<blockquote id="other">
+<script type="text/javascript">
+	music_info_link("other", "broadway_cast", "fiddler_on_the_roof");
+	music_info_link("other", "dennis_mccarthy", "star_trek_the_next_generation_encounter_at_farpoint");
+	music_info_link("other", "israel", "folk_songs_and_dances");
+	music_info_link("other", "james_galway_flute", "regensburger_domspatzen_in_dulci_jubilo_christmas_with_james_galway");
+	music_info_link("other", "james_galway", "in_the_pink");
+	music_info_link("other", "johnny_cash", "johnny_cash_sings_his_best");
+	music_info_link("other", "kenny_g", "breathless");
+	music_info_link("other", "kenny_rogers", "christmas_in_america");
+	music_info_link("other", "louis_armstrong", "what_a_wonderful_world");
+	music_info_link("other", "mustafa_kemal_ataturk", "ataturk_diyor_ki");
+	music_info_link("other", "no_strings_attached", "in_the_vinyl_tradition_volume_II");
+	music_info_link("other", "ron_jones", "star_trek_the_next_generation_volume_two");
+	music_info_link("other", "streisand_barbra", "classical_barbra");
+	music_info_link("other", "the_birdsongs", "bird_songs_53_all_american_bird_songs_and_calls");
+	music_info_link("other", "various", "all_the_best_from_israel");
+	music_info_link("other", "various_artists", "thats_bluegrass_disc_1");
+	music_info_link("other", "various_artists", "thats_bluegrass_disc_2");
+	music_info_link("other", "various_artists", "the_digital_domain_a_demonstration");
+	music_info_link("other", "various_artists", "the_time_life_treasury_of_christmas_volume_1_disc_1");
+	music_info_link("other", "various_artists", "the_time_life_treasury_of_christmas_volume_1_disc_2");
+	music_info_link("other", "woody_guthrie", "the_greatest_songs_of_woody_guthrie");
+</script>
+</blockquote>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

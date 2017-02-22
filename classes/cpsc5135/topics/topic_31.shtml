@@ -1,0 +1,111 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Smalltalk Exceptions
+</p>
+
+<ol>
+<li> Are subclasses of the <em>GenericException</em>
+	class, which provides the messages:
+	messageText (the error description),
+	originator (the throwing object),
+	notifierString (the default description of
+	the receiver), and others.
+<li> <em>Error</em> (displays in an exception window
+	if not handled), <em>Warning</em> (shows in a
+	dialog unless handled), and
+	<em>Notification</em> (which are not shown,
+	by default) are existing
+	<em>GenericException</em> subclasses that
+	represent decreasing degrees of severity.
+<li> Exception handlers are indicated as messages on code blocks:
+<pre><code>
+	| numerator denominator result |
+	numerator := (Dialog request: 'Enter numerator> ') asNumber.
+	denominator := (Dialog request: 'Enter denominator> ') asNumber.
+	[ result := numerator / denominator. ]
+		on: ZeroDivide		"A subclass of Error"
+		do: [ :exception | Dialog warn: 'Denominator is 0.'. ].
+	Transcript showCR: result.
+</code></pre>
+	Unlike Java, C++, and Ada, Smalltalk allows
+	the entire code block to be retried with
+	new values:
+<pre><code>
+	[ result := numerator / denominator ]
+		on: ZeroDivide		"A subclass of Error"
+		do: [ :exception |
+			Dialog warn: 'Denominator is 0.'.
+			denominator := 0.00000000001.
+			exception retry.
+		].
+</code></pre>
+	It's also possible to pick up where the exception
+	occurred by using "proceedWith:" (or "resume"
+	which behaves like "proceedWith: nil")
+	instead of "retry".
+<pre><code>
+[ | result |
+	Transcript showCR: 'Before'.
+	result := 1 / 0.
+	Transcript show: 'result = '; showCR: result.
+	Transcript showCR: 'After'.
+]
+	on: ZeroDivide	"A subclass of Error"
+	do: [ :exception |
+		Transcript showCR: 'Exception handled...'.
+		exception proceedWith: 42.
+	]
+</code></pre>
+	Code blocks also support the "ensure" message
+	which operates analagously to the "finally"
+	in Java try-catch-finally blocks:
+<pre><code>
+	[ result := numerator / denominator ]
+		on: ZeroDivide		"A subclass of Error"
+		do: [ :exception |
+			denominator := 0.00000000001.
+			exception retry.
+		]
+		ensure: [ Dialog warn: 'Denominator is 0.'. ].
+</code></pre>
+	NOTE: The above code actually displays the
+	dialog twice since the block is retried.
+	Unfortunately, using resume instead does not
+	yield the naive expected result.
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_31.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

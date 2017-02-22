@@ -1,0 +1,136 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- I/O Virtualization
+</p>
+
+<ol>
+<li> While instructions to access physical (host) I/O devices (e.g., via
+	control registers) are sensitive instructions (and would therefore
+	trap to the hypervisor which can pass the information to and from
+	the correct physical device to the appropriate guest OS), this simple
+	approach isn't going to work well for most devices:
+	<ol>
+	<li> While printers are spooled by the guest OS, the output of
+		multiple guest OSs could be interleaved.
+	<li> Having multiple guest OSs sharing the same disk drive partitions,
+		each thinking that they have the entire partition available
+		to them, creates the same kind of problem that we had with
+		sharing physical memory.
+	<li> Data from a keyboard (or mouse) intended for a (user) process on
+		one guest OS could be given to another (user) process on a
+		different guest OS.
+	</ol>
+<li> Similar to the use of a shadow page table by the hypervisor to share
+	physical memory, the hypervisor can create intermediate representations
+	of resources (e.g., a file that represents the guest physical disk
+	partitiion) that are mediated by the hypervisor in a similar way
+	(since low-level access requires the use of sensitive instructions).
+<li> Using the hypervisor to mediate between guest physical devices and host
+	physical devices enables the devices to be different.
+	<ol>
+	<li> For example, the guest OS can run as if it's using older
+		hardware (e.g., HDD) while the host physical device is
+		really using newer/faster/better hardware (e.g., SSD).
+	<li> This use of virtualization enables hardware upgrades without
+		the need to upgrade software (e.g., device drivers).
+	</ol>
+<li> I/O MMUs
+	<ol>
+	<li> Similar to the regular (memory) MMU, I/O MMUs uses page tables to
+		map guest physical addresses to host physical addresses -
+		which prevents the DMA uses by different VMs (for their
+		corresponding guest OS) from using memory that is assigned
+		to another VM.
+	<li> <em>Device pass through</em> allows host physical devices to be
+		assigned (mapped directly) to a specific VM (and its guest OS).
+		Neither the device nor the VM (or guest OS) is aware of the
+		mapping since the I/O MMU is taking care of all the details.
+	<li> <em>Device isolation</em> allows devices to directly access their
+		assigned VMs without compromising a guest OS on another VM.
+		Thus the I/O MMU prevents a DMA operation from a physical
+		HDD from placing data into the guest physical address space of
+		an unintended VM.
+	<li> I/O MMUs also perform <em>interrupt remapping</em>. When an
+		interrupt appears on the physical system bus, the I/O MMU
+		uses an interrupt remapping table to convert the interrupt
+		(and the corresponding interrupt vector) to one that the
+		current VM expects.
+	</ol>
+<li> Device Domains
+	<ol>
+	<li> For a typical type 1 hypervisor installation, the hypervisor
+		must have a device driver for the attached physical devices.
+		However, the device manufacturer may not always provide
+		drivers for your particular hypervisor.
+	<li> One solution is to assign a specific VM (a device domain) serve
+		as the single point of control for devices. When the
+		hypervisor receives requests for this device, it shuttles
+		the converted request to the device domain (a VM) for
+		processing.
+	<li> In this way, device domains partially play the role of a host OS
+		for a type 2 hypervisor.
+	</ol>
+<li> Single Root I/O Virtualization (SR-IOV)
+	<ol>
+	<li> Using remapping and emulation by the hypervisor introduces
+		inefficiencies in device sharing.
+	<li> Device emulation often doesn't provide the full capabilities
+		of more complex and feature rich devices.
+	<li> Domain devices eliminates device emulation by the hypervisor (thus
+		providing access to more - or all - of its functionality),
+		but device use must still pass through the hypervisor that
+		remaps requests to the domain device (this is more efficient
+		if paravirtualization is used, but the paravirtualization
+		calls must still pass through the hypervisor).
+	<li> SR-IOV devices provide separate memory spaces, interrupts, and
+		DMA channels for each VM - without intervention by the
+		hypervisor. Each VM operates as if it is the only user of the
+		device. Since the device is providing the virtualization, this
+		both simplifies the hypervisor and improves its operational
+		efficiency.
+	<li> Provide <em>physical functions</em> that configure the device
+		operation. These are NOT available to the guest OS.
+	<li> <em>Virtual functions</em> ARE available to the guest OS, but
+		do not enable any device configuration.
+	<li> By providing both types of functions, SR-IOVs can constrain what
+		VMs are able to do while providing access to most of the
+		device's functionality.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_72.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

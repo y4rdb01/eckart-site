@@ -1,0 +1,407 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+
+<table width="100%">
+<tr>
+<td valign="top" width="100">
+<table>
+
+<tr><td align="left">
+<strong>Seuss<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../../dr.seuss/bitsNbytes.shtml">Bits in Bytes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/grinch.coder.shtml">Grinch OO Coder</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/lunch.shtml">Lunch</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seusstrek.shtml">Star Trek</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seussbible.shtml">The Bible</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/inferno.shtml">Dante's Inferno</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/purity.shtml">Purity Test</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/trial.shtml">O.J. Trial</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/greeneggs.shtml">Green Eggs and Pork</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/compTech.shtml">Computer Manual</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/USville.shtml">USville</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/wedding.shtml">Wedding</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/404.shtml">404</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Beatles.shtml">Beatles</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/bobbit.shtml">Bobbit</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/clinton.shtml">Clinton</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/favorite_things.shtml">Favorite Things</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ham_xmas.shtml">Ham Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ICBM_pizza.shtml">ICBM Pizza</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/net_is_slow.shtml">Net Is Slow</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/pc_xmas.shtml">PC Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Poe.shtml">Poe</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/prayer.shtml">Prayer</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/queen.shtml">Queen</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/sermon.shtml">Sermon</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song.shtml">Song</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song_tests.shtml">Song Tests</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/thermo.shtml">Thermo</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/twas.shtml">Twas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unified.shtml">Unified</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unix_abc.shtml">Unix abc</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/warnings.shtml">Warnings</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/xmas.shtml">Santa's Unix Listing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/y2k_pie.shtml">Millenium Pie</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/microsoft.shtml">M$ TV Dinners</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Humor</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/1-liners.shtml">One Liners</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/admin.shtml">Administratium</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/bad_spec.shtml">Bad spec</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/daemon-OS.shtml">daemon OS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/days-off.shtml">Days off</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dead_horse.shtml">Dead horse</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dosfish.shtml">Dosfish</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/FAA.shtml">FAA report</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/GM-helpline.shtml">GM helpline</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grandpa.shtml">Family tree</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grounding.shtml">Strapping</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/H2O.shtml">H2O</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/haiku.shtml">Haiku</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/harvard.shtml">Harvard</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/job.shtml">Job</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/koans.shtml">Koans</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/loan.shtml">Loan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/memos.shtml">Memos</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/money.shtml">Money</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/moron.shtml">Moron</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/MS.shtml">MS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/wirth.shtml">Niklaus Wirth</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/accidents.shtml">Accidents</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/navy.shtml">Navy</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/phrases.shtml">Phrases</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/plan.shtml">Plan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/stench.shtml">The Project</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/study.shtml">Anything</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/SysAdmin.shtml">SysAdmin Woes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/thesis.shtml">Thesis</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/quantumPhysics.shtml">Quantum Physics</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/monk.shtml">Monk</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/proofByInduction.shtml">Proof by Induction</a>
+</td></tr>
+
+</table>
+</td>
+
+<td valign="top">
+
+<blockquote>
+
+
+<p>
+WASHINGTON, DC -- In the Department of Housing and Urban
+Development (HUD) 2001 appropriations bill -- which Congress will vote
+on when it returns for its year-end lame-duck session -- $400,000 has
+been earmarked to build a "memorial" to Dr. Seuss, the author of Green
+Eggs and Ham, The Cat in the Hat, and other children's books.
+</p>
+
+<p>
+The memorial would be built by the Springfield Library and
+Museum Association in Springfield, Massachusetts -- so it's no surprise
+that the provision to spend $400,000 was inserted into the bill by two
+Massachusetts Democrats, Senator Edward Kennedy and Rep. Richard Neal.
+</p>
+
+<p>
+In opposition to this wasteful "pork" spending, and in tribute
+to Dr. Seuss, the Libertarian Party issued the following statement:
+</p>
+
+<blockquote>
+<strong>Green Eggs And Pork</strong><br/>
+<br/>
+We do not like it<br/>
+Pork-I-Am,<br/>
+This spendaholic<br/>
+Uncle Sam.<br/>
+<br/>
+We do not like those<br/>
+Rs and Ds,<br/>
+Who can't resist more<br/>
+subsidies.<br/>
+<br/>
+We do not like the cash they waste;<br/>
+sky-high taxes spent in haste.<br/>
+Frugality, they have erased,<br/>
+and every bill, of pork it tastes.<br/>
+<br/>
+We do not like it on the Hill,<br/>
+When snuck into HUD's spending bill.<br/>
+It shouldn't pass -- we bet it will<br/>
+More money from the public till.<br/>
+<br/>
+If YOU don't like<br/>
+this Pork-I-Am<br/>
+Start voting<br/>
+Libertarian.<br/>
+<br/>
+WE would not vote for<br/>
+Pork-I-Am.<br/>
+Or subsidize<br/>
+green eggs and ham.<br/>
+<br/>
+Job training programs<br/>
+for the Grinch?<br/>
+We would not even<br/>
+budge an inch.<br/>
+<br/>
+And if a cat<br/>
+needed a hat?<br/>
+Free enterprise is<br/>
+there for that.<br/>
+<br/>
+Now, just in case you are obtuse<br/>
+I'll make it clear, with no excuse<br/>
+We would not do it for a moose<br/>
+We would not do it for a goose<br/>
+And as you may by now deduce --<br/>
+We'd vote "no" on Dr. Seuss.<br/>
+<blockquote>
+
+</blockquote>
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+

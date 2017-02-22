@@ -1,0 +1,165 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Distributed Systems (Networks)
+</p>
+
+<ol>
+<li> Distributed systems are really just loosely coupled multicomputers but
+	with their own peripherals and separate operating system at each node.
+	<ol>
+	<li> Whereas the interconnection network of a multicomputer is
+		specifically designed to optimize the intended use of that
+		system, distributed systems are more general purpose and the
+		interconnection network is not typically designed with a
+		specific class of applications in mind. A consequence of this
+		is that multicomputers typically reside completely within
+		a single room while distributed system may be spread out over
+		the entire planet.
+	<li> Both distributed systems and multicomputers have CPU(s), memory,
+		and network interfaces, distributed systems have additional
+		peripheral devices attached (whereas a multicomputer may not
+		even have a local disk).
+	</ol>
+<li> Network Hardware
+	<ol>
+	<li> All modern data networks are dynamically switched/routed packet
+		based networks. Information is sent in small fixed sized
+		data packets with each switch/router determining the next
+		place to send a packet. The advantage of this system is that
+		packets can be rerouted around network congestion or failed
+		communication nodes.
+	<li> Ethernet
+<a href="http://www.windowsecurity.com/whitepapers/misc/Excerpts_from_The_Encyclopedia_of_Networking_.html"><img style="float: right" src="/eckart/classes/cpsc3125/topics/content/InternetTopology1.gif" width="400" height="354" alt="Internet Topology" /></a>
+		<ol>
+		<li> Example of a Local Area Network (LAN) with typical
+			coverage over a building or small campus.
+		<li> The first version of Ethernet used coaxial cable to
+			electrically wire all of the network interaces for
+			the computers directly together.
+		<li> Since two (or more) computers transmitting at the same
+			time would collide (making both messages unintelligble)
+			a computer was to listen before transmitting (and
+			only transmit when no signal was detected).
+		<li> However, in the time between listening and transmitting,
+			another computer could begin transmitting a signal.
+			When such a collision was detected, both computers
+			stopped transmitting, waited a random period of
+			time (between 0 and T microseconds), and retried
+			sending their messages. If there was again a collision,
+			the computer would wait between 2 and 2T microseconds
+			(doubling the interval after each collision up to some
+			maximum interval size). This is called <em>binary
+			exponential backoff</em>
+		<li> Together, this scheme is called <em>carrier sense
+			multiple access with collision detection</em>
+			(CSMA/CD).
+		<li> Because this early implementation limited the range and
+			number of computers that could be attached, network
+			switches are now used to segment traffic thus reducing
+			collisions (and completely eliminating them if no more
+			than one computer is connected to each switch port).
+		</ol>
+	<li> The Internet
+		<ol>
+		<li> Example of a Wide Area Network (WAN) with geographic
+			coverage beyond that
+			of a LAN (and may include federations of other
+			networks). 
+		<li> Grew out of the ARPANET, whose first permanent link was
+			established on 21 November 1969. Other networks were
+			added over the years (e.g., CSNET, NSFNET), and the
+			collection has become a large planetary network.
+		<li> Specialized computers called <em>routers</em> direct the
+			traffic on the network. Routers receive messages,
+			examine the message header to determine where it needs
+			to go, and then sends it to another router (or to
+			a network switch) towards its final destination.
+		</ol>
+	</ol>
+<li> Network Services & Protocols
+	<ol>
+	<li> Connection-oriented services provide a logical pipe (though not
+		necessarily a physical/electrical pipe as per circuit
+		switching) that enables two computers to communicate
+		with one another. Connection-oriented services do not
+		require each communication to include the destination
+		address since it is already known. Also, since this is a
+		logical pipe, messages are received in the order they were
+		sent (which is important for audio and video applications).
+	<li> Connectionless services send each message packet out as
+		separate items (like FedEx packages). Thus each packet
+		must contain a destination address. However, like packages,
+		packets sent to the same destination may not arrive in the 
+		order they were sent.
+	<li> Quality of Service characterizes the reliability and priority
+		with which data is received. For 100% reliability,
+		<em>acknowledgement packet</em>s are sent in reply. If the
+		sender of a packet on a reliable services doesn't receive
+		an acknowledgement within a perdetermined period of time,
+		the message will be resent (and this process will continue
+		until either an acknowledgement is received, or the service
+		is terminated). Applications such as audio and video might
+		dispense with a reliable connection (and thus acknowledgements)
+		since missing a bit of a conversation (e.g., Skype) is not
+		usually catastrophic and the acknowledge packets add extra
+		communication overhead.
+	<li> Datagram provides an UNacknowledged (i.e., unreliable delivery)
+		connectionless service.
+	<li> In contrast to the <em>User Datagram Protocol</em> (UDP),
+		the <em>Transmission Control Protocol</em>
+		(the TCP of TCP/IP) provides a reliable connection-oriented
+		service. Check out this <a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol#Comparison_of_UDP_and_TCP">comparison of UDP and TCP</a>.
+	<li> The <em>Internet Protocol</em> (the IP of TCP/IP) only provides
+		a datagram service to the specified Internet (Protocol)
+		address. Thus TCP is layered on top of IP to provide a
+		reliable service.
+	<li> Since IP addresses are numbers, which many people find hard to
+		remember, the <em>Domain Name Service</em> (DNS) is used to
+		translate an easier to remember name (e.g., wikipedia.org)
+		into its IP address (e.g., 208.80.154.224). [Use "nslookup"
+		to find the IP addresses for other named hosts.]
+	<li> <em>Reliable User Datagram Protocol</em> (RUDP) is like UDP,
+		except that acknowledgement packets are sent back to the sender
+		for each received datagram. 
+	<li> Request-Reply is similar to RUDP, except that instead of sending
+		back an acknowledgement packet, the response to the request
+		serves as the acknowledgement.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_66.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

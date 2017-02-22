@@ -1,0 +1,54 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Type Inference
+</p>
+
+<ol>
+<li> Not everything is declared with a specific type, so type inference infers
+	types from the information that is given. For example, an expression
+	given for the condition in an <em>if-then</em> statement should be of
+	type boolean but the expression could involve lots of arithmetic
+	operations and comparisons (along with boolean operations like
+	<em>and</em>, <em>or</em>, and <em>not</em>).
+<li> Type checking often depends on type inference (since the results of
+	expressions must be inferred).
+<li> [ Students are not expected to know the details of the ML
+	Type Inference algorithm, but reading through section
+	6.3.2 is encouraged. ]
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_16.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

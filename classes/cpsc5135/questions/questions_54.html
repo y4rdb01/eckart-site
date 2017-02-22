@@ -1,0 +1,30 @@
+<li> Write a NetLogo program that uses a default 2-dimensional patch universe.
+	Initially <strong>all</strong> patches have a random value
+	(between 0 and 9) assigned.
+	With each time tick, a patch examines the value of its 8 neighbors 
+	along with its own value. The current patch changes its value to that
+	of a neighboring patch that meets the following conditions:
+	<ul class="bullet_list">
+	<li> If the current patch has an <em>even</em> value and the
+		neighboring patch with the highest value is greater than
+		the value of the current patch.
+	<li> If the current patch has an <em>odd</em> value and the
+		neighboring patch with the lowest value is less than the
+		value of the current patch.
+	</ul>
+</li><br/>
+<li> Write a NetLogo program that uses a default 2-dimensional patch universe.
+	Each patch keeps track of its current temperature (nowTemp) and
+	the temperature prior to that (recentTemp). Initially each patch
+	is assigned a random temperature from 0 to 100 (inclusive). The
+	average nowTemp of the patch's neighbors is calculated.
+	<ul class="bullet_list">
+	<li> If the neighbor average temperature is greater than the nowTemp
+		of the patch, then the patch's new nowTemp becomes the greater
+		of the average and the patch's recentTemp.
+	<li> Otherwise the patch's new nowTemp becomes the lesser
+		of the average and the patch's recentTemp.
+	</ul>
+	In either case, the patch's recentTemp becomes the value of nowTemp
+	(before it is changed).
+</li><br/>

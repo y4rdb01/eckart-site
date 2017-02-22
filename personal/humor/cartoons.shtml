@@ -1,0 +1,68 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Some Favorite Cartoons
+</p>
+
+<br/>
+
+<div style="text-align: center; margin: auto">
+<a href="http://www.shoecomics.com"><img id="shoe" src="" alt="Shoe comic strip" /></a>
+</div>
+
+<br/>
+
+<div style="text-align: center; margin: auto">
+<a href="http://www.gocomics.com/nonsequitur"><img style="vertical-align: middle; float; left" id="nonsequitur" src="" alt="Non-sequitor comic strip" /></a>
+</div>
+
+<br/>
+
+<div style="text-align: center; margin: auto">
+<a href="http://www.grimmy.com"><img id="grimmy" src="" alt="Grimmy comic strip" /></a>
+</div>
+
+<script>
+var date = new Date();
+var fullYear = date.getFullYear();
+var year = fullYear%100;
+var month = ("0" + (date.getMonth() + 1)).slice(-2);
+var day = ("0" + date.getDate()).slice(-2);
+
+document.getElementById("nonsequitur").src = "http://synd.imgsrv.uclick.com/comics/nq/" + fullYear + "/nq" + year + month + day + ".gif";
+document.getElementById("shoe").src = "http://www.shoecomics.com/archives/shoe_daily/shoe_daily" + month + day + year + ".jpg";
+document.getElementById("grimmy").src = 
+	"http://www.grimmy.com/images/MGG_Archive/MGG_" + fullYear + "/MGG-" + fullYear + "-" + month + "-" + day + ".gif";
+
+</script>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,5704 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Study Questions for Final Exam
+</p>
+
+<style type="text/css">
+	ol.question_list {list-style-type: none;}
+	ol.question_list li:before {content: counter(question, decimal) ") ";}
+	ol.question_list li { counter-increment: question;}
+
+	ol.answer_list {list-style-type: none;}
+	ol.answer_list li:before {content: counter(answer, lower-latin) ") ";}
+	ol.answer_list li { counter-increment: answer;}
+
+	ul.bullet_list {list-style-type: disc;}
+	ul.bullet_list li:before {content: "";}
+	ul.bullet_list li { counter-increment: bogus;}
+</style>
+
+<p>
+The following list of exam study questions are provided as a means to help you
+assess your understanding of the topics presented in class. While every
+reasonable attempt has been made to create a comprehensive list of questions,
+they should <strong>not</strong> be the only means by which you assess your
+own understanding of the course materials. While many of these questions
+may appear on your exam, be aware that the exam may include questions
+that do not appear below. However, it is unlikely you will perform well on
+the exam if you have difficulty answering these questions correctly.
+</p>
+
+
+<ol class="question_list">
+<li> Which of the following are features/properties of <strong>all</strong> modern general
+	purpose programming languages?
+	<ol class="answer_list">
+	<li> Turing completeness
+	<li> Recursion
+	<li> Pattern matching
+	<li> Implicit variable declarations
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages were developed before 1965 and are
+	still in use today?
+	<ol class="answer_list">
+	<li> C
+	<li> Cobol
+	<li> Prolog
+	<li> Lisp
+	<li> Fortran
+	</ol>
+</li><br/>
+<li> Which of the following was the first major language to introduce
+	<strong>both</strong> recursion and garbage collection?
+	<ol class="answer_list">
+	<li> C
+	<li> Cobol
+	<li> Prolog
+	<li> Lisp
+	<li> Fortran
+	</ol>
+</li><br/>
+<li> Why is the study of programming language concepts more beneficial than
+	learning multiple programming languages?
+	<ol class="answer_list">
+	<li> Because <strong>all</strong> programming languages use the same small set of
+		concepts.
+	<li> Knowing concepts makes learning new languages that use them
+		much easier.
+	<li> You'd have to learn a huge number of languages to cover
+		<strong>all</strong> the basic concepts.
+	<li> It's not. Learning languages is more important because the
+		concepts <strong>always</strong> work together differently.
+	<li> It's not, because learning new languages is easier than
+		understanding the underlying concepts.
+	</ol>
+</li><br/>
+
+<li> Which of the following are part of Lisp?
+	<ol class="answer_list">
+	<li> Recursion
+	<li> Garbage Collection
+	<li> Programs and Data have the same format
+	<li> Post-fix function calls
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are true in Lisp?
+	<ol class="answer_list">
+	<li> Numbers evaluate to themselves
+	<li> <strong>All</strong> numbers are atoms
+	<li> <strong>No</strong> atom can also be a list
+	<li> <strong>All</strong> expressions are evaluated unless
+		<em>quote</em>'d
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "nil" value in Lisp is different from <strong>all</strong> other
+	values because it
+	<ol class="answer_list">
+	<li> <strong>always</strong> evaluates to itself.
+	<li> is <strong>both</strong> an atom and a list.
+	<li> is <strong>both</strong> a number (zero) and a list.
+	<li> also is the function that checks whether or not its argument is
+		the "nil" value.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Lisp functions?
+	<ol class="answer_list">
+	<li> head
+	<li> tail
+	<li> car
+	<li> cdr
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Lisp functions?
+	<ol class="answer_list">
+	<li> cons
+	<li> new
+	<li> cond
+	<li> quote
+	<li> escape
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Lisp functions?
+	<ol class="answer_list">
+	<li> define
+	<li> call
+	<li> exec
+	<li> run
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Lisp functions?
+	<ol class="answer_list">
+	<li> fun
+	<li> defun
+	<li> esc
+	<li> eval
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Lisp functions?
+	<ol class="answer_list">
+	<li> eq
+	<li> equal
+	<li> and
+	<li> or
+	<li> not
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Lisp functions?
+	<ol class="answer_list">
+	<li> atom
+	<li> isatom
+	<li> numberp
+	<li> isnumber
+	<li> islist
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Lisp functions?
+	<ol class="answer_list">
+	<li> lambda
+	<li> mapcar
+	<li> mapall
+	<li> applyall
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x)
+		(cond
+			((not x) 0)
+			(t (+ (fun (cdr (cdr x))) (car x)))
+		)
+	)
+
+	(fun (quote (1  2  3  4)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> 10
+	<li> 4
+	<li> 6
+	<li> 7
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((not y) y)
+			((eq x (car y)) x)
+			(t (fun x (cdr y)))
+		)
+	)
+
+	(fun 3 (quote (1  2  3  4)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> nil
+	<li> 3
+	<li> (1  2  3  4)
+	<li> (3  4)
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((not y) y)
+			((eq x (car (car y))) (cdr (car y)))
+			(t (fun x (cdr y)))
+		)
+	)
+
+	(fun 3 (quote ( (1 . a)  (2 . b)  (3 . c)  (4 . d))))
+	</code></pre>
+	<ol class="answer_list">
+	<li> c
+	<li> ((3 . c))
+	<li> ((3 . c)  (4 . d))
+	<li> nil
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x)
+		(cond
+			((not x) x)
+			(t (append (fun (cdr x)) (cons (car x) nil)))
+		)
+	)
+
+	(fun (quote (1  2  3  4)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> (1  2  3  4)
+	<li> ((1) (2) (3) (4))
+	<li> (4  3  2  1)
+	<li> ((4) (3) (2) (1))
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(or
+			(and (atom x) (cons x nil))
+			(cons (car y) (fun (cdr x) (cdr y)))
+		)
+	)
+
+	(fun (quote (a b c)) (quote (d e f)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> (d e f nil)
+	<li> (d e nil nil)
+	<li> (d e f . nil)
+	<li> (d e nil . nil)
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((or (not x) (not y)) nil)
+			(t (cons (cons (car x) (car y))
+				 (fun (cdr x) (cdr y)))
+			)
+		)
+	)
+
+	(fun (quote (1 2 3)) (quote (a b c)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> ( (1 . a) (2 . b) (3 . c) )
+	<li> ( (1 a) (2 b) (3 c) )
+	<li> ( (1) (a) (2) (b) (3) (c) )
+	<li> ( ( (1) (a) ) ( (2) (b) ) ( (3) (c) ) )
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((or (not x) (not y)) nil)
+			(t (cons (cons (car x)
+				       (cons (car y) nil))
+				 (fun (cdr x) (cdr y)))
+			)
+		)
+	)
+
+	(fun (quote (1 2 3)) (quote (a b c)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> ( (1 . a) (2 . b) (3 . c) )
+	<li> ( (1 a) (2 b) (3 c) )
+	<li> ( (1) (a) (2) (b) (3) (c) )
+	<li> ( ( (1) (a) ) ( (2) (b) ) ( (3) (c) ) )
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((or (not x) (not y)) nil)
+			(t (cons (cons (car x) nil)
+				 (cons (cons (car y) nil)
+				       (fun (cdr x) (cdr y))))
+			)
+		)
+	)
+
+	(fun (quote (1 2 3)) (quote (a b c)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> ( (1 . a) (2 . b) (3 . c) )
+	<li> ( (1 a) (2 b) (3 c) )
+	<li> ( (1) (a) (2) (b) (3) (c) )
+	<li> ( ( (1) (a) ) ( (2) (b) ) ( (3) (c) ) )
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((or (not x) (not y)) nil)
+			(t (cons (car x)
+				 (cons (car y)
+				       (fun (cdr x) (cdr y))))
+			)
+		)
+	)
+
+	(fun (quote (1 2 3)) (quote (a b c)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> ( (1 . a) (2 . b) (3 . c) )
+	<li> ( (1 a) (2 b) (3 c) )
+	<li> ( (1) (a) (2) (b) (3) (c) )
+	<li> ( ( (1) (a) ) ( (2) (b) ) ( (3) (c) ) )
+	<li> None of the above.
+	</ol>
+</li><br/>
+
+<li> Write the definition for the Lisp function "isEven" which takes a list
+	as its only parameter. The function returns "t" if the list has an
+	even number of elements and "nil" if it does not. Consider an empty
+	list to have an even number of items. Thus "(isEven nil)" and
+	"(isEven (quote (1 2 3 4)))" both return "t" while
+	"(isEven (quote (1 2 3)))" returns "nil".
+	Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "isOdd" which takes a list
+	as its only parameter. The function returns "t" if the list has an
+	odd number of elements and "nil" if it does not. Consider an empty
+	list to have an even number of items. Thus "(isOdd nil)" and
+	"(isOdd (quote (1 2 3 4)))" both return "nil" while
+	"(isOdd (quote (1 2 3)))" returns "t".
+	Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "sum" which takes a single
+	non-negative integer as its only parameter and sums
+	<strong>all</strong> the integers
+	from 0 up to and including that number. Thus "(sum 0)" returns "0"
+	and "(sum 5)" returns "15". Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "sum" which takes two
+	non-negative integers as its parameters and sums <strong>all</strong>
+	the integers
+	from the first integer up to and including the second integer. Thus
+	"(sum 3 6)" returns "18" and "(sum -2  2)" returns "0". If the numbers
+	are both the same, then return that number as the sum, e.g.,
+	"(sum 5  5)" returns "5". You may assume that the second number is
+	never strictly less than the first. Your solution may only use the
+	following built-in Lisp functions: defun, cons, append, cond, and,
+	or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "oddAdd" that takes a list of
+	numbers as its only parameter and returns the sum of every other number
+	in the list starting with the first number. Thus
+	"(oddAdd (quote (2  3  5  7)))" should return "7" and "(oddAdd nil)"
+	should return "0".  You can assume that the list will only contain
+	numbers. Your solution may only use the following built-in Lisp
+	functions: defun, cons, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "evenAdd" that takes a list of
+	numbers as its only parameter and returns the sum of every other number
+	in the list starting with the second number. Thus
+	"(evenAdd (quote (2  3  5  7)))" should return "10" and "(evenAdd nil)"
+	should return "0".  You can assume that the list will only contain
+	numbers. Your solution may only use the following built-in Lisp
+	functions: defun, cons, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "last" that takes a list
+	as its only parameter and returns the last element in that list.
+	Thus "(last nil)" should return "nil" and "(last (quote (a  1  b  2)))"
+	should return "2".  Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "nth" that takes a positive
+	integer and a non-empty list as its only parameters.
+	The function should return
+	the element of the list corresponding to the number given (counting the
+	first element in the list as "1").  Thus "(nth 1 (quote (a  b  c)))"
+	should return "a" and "(nth 4 (quote (a  1  b  2)))" should return "2".
+	Your solution may only use the following built-in Lisp functions:
+	defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "makeList" that takes a single
+	non-negative integer as its only parameter and creates a list of that
+	length with the integer values as the members of the list counting down
+	from the given integer.
+	Thus "(makeList 0)" should return "nil" and "(makeList 4)" should
+	return "(4  3  2  1)".  Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "makeList" that takes a single
+	non-negative integer as its only parameter and creates a list of that
+	length with the successive integer values as the members of the list
+	(i.e., counting up).
+	Thus "(makeList 0)" should return "nil" and "(makeList 4)" should
+	return "(1  2  3  4)".  Your solution may only use the following
+	built-in Lisp functions: defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "pair" that takes two lists
+	as its parameters.  The function should return a list of dotted pairs,
+	where the items in each pair are the corresponding items in the
+	two parameters. Thus "(pair (quote (1 2 3)) (quote (1 4 9)))" should
+	return "( (1 . 1) (2 . 4) (3 . 9) )", while "(pair nil nil)" should
+	return "nil".
+	Your solution may only use the following built-in Lisp functions:
+	defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "where" that takes two
+	parameters, an item to find and a list to find it in. The function
+	should return the position of the first matching item in the list
+	(positions start at 0), and if the item is not in the list the
+	function should return
+	"nil". Thus "(where (quote b) (quote (a b c)))" should return "1",
+	while "(where 2 (quote (a 1 b 4 c 7 u)))" should "nil".
+	Your solution may only use the following built-in Lisp functions:
+	defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+<li> Write the definition for the Lisp function "map" that takes a function
+	name and a list of lists.  The function should return a list that is
+	the result of applying its first argument to each successive nested
+	lists given by the second argument.  Thus
+	"(map (quote +) (quote ((1  2) (3  4) (5  6))))" should return
+	"(3  7  11)" while "(map (quote +) nil)" should return "nil". Be careful
+	that your function doesn't assume that the first parameter is "+".
+	Your solution may only use the following built-in Lisp functions:
+	defun, cons, append, cond, and, or, not, eq,
+	car, cdr, +, -, &lt;, >, >=, &lt;= 
+</li><br/>
+
+<li> Which of the following are <strong>not</strong> part of the layout of a
+	process in memory?
+	<ol class="answer_list">
+	<li> Constants
+	<li> Program comments
+	<li> Symbol table
+	<li> Run-time stack
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following <strong>are</strong> part of the layout of a
+	process in memory?
+	<ol class="answer_list">
+	<li> Heap
+	<li> Code
+	<li> Run-time stack
+	<li> Static variables
+	<li> Constants
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which parts of the processs layout in memory have a fixed size during
+	the execution of a compiled (non-interpreted) program?
+	<ol class="answer_list">
+	<li> Heap
+	<li> Symbol table
+	<li> Run-time stack
+	<li> Static variables
+	<li> Program comments
+	<li> Constants
+	<li> Code
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Why do the heap and run-time stack <strong>not</strong> have a fixed size
+	(during program execution) like the other parts of the process layout
+	in memory?
+	<ol class="answer_list">
+	<li> Not true, they do have a fixed size.
+	<li> The other parts are completely determined by the program text
+		(statically) while the heap and run-time stack sizes depend
+		on the input and execution path through the code.
+	<li> Not true, they can <strong>all</strong> vary in size during
+		program execution.
+	<li> Not true, only the heap varies in size, while the run-time stack
+		is fixed in size based on the number of declared methods and
+		functions.
+	<li> Not true, only the run-time stack varies in size since the heap
+		size is determined by the number of classes declared in the
+		code.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Reference counts are limited by:
+	<ol class="answer_list">
+	<li> The size (in bits) of the count.
+	<li> Inability to collect circular structures.
+	<li> <strong>All</strong> objects <strong>must</strong>
+		be of identical sizes.
+	<li> Doesn't work with recursion.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are true regarding reference counts?
+	<ol class="answer_list">
+	<li> Reclaims unused memory as soon as it is no longer needed.
+	<li> Is periodically run, so some allocated but unused memory is taking
+		up heap space at various times.
+	<li> Prevents any other computations while it is reclaiming unused
+		memory.
+	<li> Compacts the memory currently being used as part of the process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Mark and Sweep garbage collection algorithm
+	<ol class="answer_list">
+	<li> Uses less space (1 bit per object) than reference counting
+	<li> Can cause program execution to be delayed
+	<li> Is unable to collect circular structures
+	<li> Doesn't work with recursion
+	<li> <strong>Must</strong> examine every object memory location
+		in the heap
+	</ol>
+</li><br/>
+<li> Which of the following are true regarding the Mark and Sweep garbage
+	collection algorithm?
+	<ol class="answer_list">
+	<li> Reclaims unused memory as soon as it is no longer needed.
+	<li> Is periodically run, so some allocated but unused memory is taking
+		up heap space at various times.
+	<li> Prevents any other computations while it is reclaiming unused
+		memory.
+	<li> Compacts the memory currently being used as part of the process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The copying algorithms for garbage collection
+	<ol class="answer_list">
+	<li> Don't work with recursion
+	<li> Compact used memory as a by-product of the process
+	<li> Effectively halves the usable heap space
+	<li> Enable "real-time" garbage collection (i.e., no arbitrary
+		delays)
+	<li> Unable to collect circular structures
+	</ol>
+</li><br/>
+<li> Which of the following are true regarding copying algorithms for garbage
+	collection?
+	<ol class="answer_list">
+	<li> Reclaims unused memory as soon as it is no longer needed.
+	<li> Is periodically run, so some allocated but unused storage is taking
+		up heap space at various times.
+	<li> Prevents any other computations while it is reclaiming unused
+		memory.
+	<li> Compacts the memory currently being used as part of the process.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Interpreters differ from compilers by
+	<ol class="answer_list">
+	<li> <strong>Not</strong> producing an alternate version of the
+		source code.
+	<li> Directly accepting program input in addition to the program code.
+	<li> Executing the programs faster and more efficiently.
+	<li> Skipping lexical and syntactic analysis.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Compilers differ from interpreters by
+	<ol class="answer_list">
+	<li> Producing program output directly from the compiler.
+	<li> Creating either object code or an intermediate code version
+		of the program source code.
+	<li> Analyzing program input to perform code optimization.
+	<li> Supporting recursion in source programs.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are typical compilation stages?
+	<ol class="answer_list">
+	<li> Program input analysis
+	<li> Semantic analysis
+	<li> Code generation
+	<li> Output analysis
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are typical compilation stages?
+	<ol class="answer_list">
+	<li> Lexical analysis
+	<li> Syntactic analysis
+	<li> Code generation
+	<li> Output analysis
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following compilation stages are responsible for identifying
+	the words/tokens in a program?
+	<ol class="answer_list">
+	<li> Lexical analysis
+	<li> Syntactic analysis
+	<li> Semantic analysis
+	<li> Code generation
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following compilation stages are responsible for ensuring
+	that the structure of the program is legal?
+	<ol class="answer_list">
+	<li> Lexical analysis
+	<li> Syntactic analysis
+	<li> Semantic analysis
+	<li> Code generation
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following compilation stages are responsible for ensuring
+	that the program adheres to the language meaning and that the program
+	is unambiguous?
+	<ol class="answer_list">
+	<li> Lexical analysis
+	<li> Syntactic analysis
+	<li> Semantic analysis
+	<li> Code generation
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following compilation stages are responsible for creating
+	code (in another language) that corresponds to the original program?
+	<ol class="answer_list">
+	<li> Lexical analysis
+	<li> Syntactic analysis
+	<li> Semantic analysis
+	<li> Code generation
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following compilation stages are responsible for performing
+	copy propigation, in-line function calls, and common subexpression
+	elimination?
+	<ol class="answer_list">
+	<li> Lexical analysis
+	<li> Syntactic analysis
+	<li> Semantic analysis
+	<li> Code generation
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following compilation stages are responsible for issuing
+	compilation errors in a source program?
+	<ol class="answer_list">
+	<li> Lexical analysis
+	<li> Syntactic analysis
+	<li> Semantic analysis
+	<li> Code generation
+	<li> Code optimization
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Just-in-time compilation
+	<ol class="answer_list">
+	<li> Is used by some interpreters (e.g., Java Virtual Machines).
+	<li> Improves the speed of "interpretation" based on execution paths.
+	<li> Enables compilers to generate object (or intermediate) code more
+		efficiently.
+	<li> Allows source programs to be typed into a compiler and object (or
+		intermediate) code to be generated incrementally.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> The complete set of non-terminals in the following grammar is:
+	<pre><code>
+	[1] &lt;item> ::= "(" &lt;list> ")"
+	[2]	      | ATOM
+	[3]	      | NUMBER
+	[4] &lt;list> ::= &lt;item> &lt;list>
+	[5]           | &lt;item> "." &lt;item>
+	[6]	      | epsilon
+	</code></pre>	
+	<ol class="answer_list">
+	<li> ATOM, NUMBER
+	<li> "(", ")", "."
+	<li> "(", ")", ATOM, NUMBER, "."
+	<li> &lt;item>, &lt;list>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The complete set of terminals in the following grammar is:
+	<pre><code>
+	[1] &lt;item> ::= "(" &lt;list> ")"
+	[2]	      | ATOM
+	[3]	      | NUMBER
+	[4] &lt;list> ::= &lt;item> &lt;list>
+	[5]           | &lt;item> "." &lt;item>
+	[6]	      | epsilon
+	</code></pre>	
+	<ol class="answer_list">
+	<li> ATOM, NUMBER
+	<li> "(", ")", "."
+	<li> "(", ")", ATOM, NUMBER, "."
+	<li> &lt;item>, &lt;list>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given the grammar:
+	<pre><code>
+	[1] &lt;statement> ::= "if" &lt;boolean> "then" &lt;statement>
+	[2]	      | "if" &lt;boolean> "then" &lt;statement> "else" &lt;statement>
+	[3]	      | VARIABLE "=" &lt;expression>
+	</code></pre>	
+	which of following is the left-most derivation (with &lt;statement> as
+	the starting non-terminal) corresponding to this interpretation
+	(as indicated by indentation)?
+	<pre><code>
+	if &lt;boolean_1> then
+		if &lt;boolean_2> then
+			a = &lt;expression>
+		else
+			b = &lt;expression>
+	</code></pre>	
+	<ol class="answer_list">
+	<li> 1 -> 2 -> 3 -> 3
+	<li> 2 -> 1 -> 3 -> 3
+	<li> 2 -> 3 -> 1 -> 3
+	<li> 1 -> 3 -> 2 -> 3
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given the grammar:
+	<pre><code>
+	[1] &lt;statement> ::= "if" &lt;boolean> "then" &lt;statement>
+	[2]	      | "if" &lt;boolean> "then" &lt;statement> "else" &lt;statement>
+	[3]	      | VARIABLE "=" &lt;expression>
+	</code></pre>	
+	which of following is the left-most derivation (with &lt;statement> as
+	the starting non-terminal) corresponding to this interpretation
+	(as indicated by indentation)?
+	<pre><code>
+	if &lt;boolean_1> then
+		if &lt;boolean_2> then
+			a = &lt;expression>
+	else
+		b = &lt;expression>
+	</code></pre>	
+	<ol class="answer_list">
+	<li> 1 -> 2 -> 3 -> 3
+	<li> 2 -> 1 -> 3 -> 3
+	<li> 2 -> 3 -> 1 -> 3
+	<li> 1 -> 3 -> 2 -> 3
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given the grammar:
+	<pre><code>
+	[1] &lt;item> ::= "(" &lt;list> ")"
+	[2]	      | ATOM
+	[3] &lt;list> ::= &lt;item> &lt;list>
+	[4]           | &lt;item> "." &lt;item>
+	[5]	      | epsilon
+	</code></pre>	
+	which of following is the left-most derivation (with &lt;item> as
+	the starting non-terminal) of?
+	<pre><code>
+	( a ( b . c ) d )
+	</code></pre>	
+	<ol class="answer_list">
+	<li> 1 -> 3 -> 3 -> 2 -> 1 -> 4 -> 3 -> 2 -> 2 -> 2 -> 5
+	<li> 1 -> 3 -> 2 -> 1 -> 3 -> 2 -> 4 -> 3 -> 2 -> 2 -> 5
+	<li> 1 -> 3 -> 3 -> 3 -> 1 -> 4 -> 2 -> 2 -> 2 -> 2 -> 5
+	<li> 1 -> 3 -> 2 -> 3 -> 1 -> 4 -> 2 -> 2 -> 3 -> 2 -> 5
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given the grammar:
+	<pre><code>
+	[1] &lt;item> ::= "(" &lt;list> ")"
+	[2]	      | ATOM
+	[3] &lt;list> ::= &lt;item> &lt;list>
+	[4]           | &lt;item> "." &lt;item>
+	[5]	      | epsilon
+	</code></pre>	
+	which of following is the left-most derivation (with &lt;item> as
+	the starting non-terminal) of?
+	<pre><code>
+	( a ( b ) )
+	</code></pre>	
+	<ol class="answer_list">
+	<li> 1 -> 1 -> 2 -> 1 -> 1 -> 3 -> 2 -> 5
+	<li> 1 -> 4 -> 2 -> 1 -> 2 -> 3 -> 2 -> 5
+	<li> 1 -> 3 -> 3 -> 2 -> 1 -> 2 -> 3 -> 5 -> 5
+	<li> 1 -> 3 -> 2 -> 3 -> 1 -> 3 -> 2 -> 5 -> 5
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are parts of a BNF grammar:
+	<ol class="answer_list">
+	<li> Start symbol (a non-terminal)
+	<li> Set of terminal symbols
+	<li> Set of production rules
+	<li> Set of regular expressions
+	<li> Set of non-terminal symbols
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are allowed in an Extended BNF grammar?
+	<ol class="answer_list">
+	<li> "*" to indicate 0 or more times
+	<li> "[ ]" to indicate 0 or 1 times
+	<li> "{ }" to indicate 0 or more times
+	<li> "&lt; >" to indicate 1 or more times
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Imperative "statements"
+	<ol class="answer_list">
+	<li> Cause a change in program state.
+	<li> Are generally more efficient than "declarative" statements.
+	<li> Define new variables, types, and functions.
+	<li> Are more reliable than "declarative" statements.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Declarative "statements"
+	<ol class="answer_list">
+	<li> Cause a change in program state.
+	<li> Are generally more efficient than "imperative" statements.
+	<li> Define new variables, types, and functions.
+	<li> Are more reliable than "imperative" statements.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages are primarily imperative in nature?
+	<ol class="answer_list">
+	<li> Java
+	<li> Cobol
+	<li> Lisp
+	<li> Prolog
+	<li> Fortran
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages are primarily declarative in nature?
+	<ol class="answer_list">
+	<li> Java
+	<li> Cobol
+	<li> Lisp
+	<li> Prolog
+	<li> Fortran
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> The base value types available in Prolog include:
+	<ol class="answer_list">
+	<li> atoms
+	<li> lists
+	<li> numbers
+	<li> strings
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Prolog rules/clauses/facts with the same name
+	<ol class="answer_list">
+	<li> <strong>Must always</strong> appear together in the Prolog
+		source code.
+	<li> Are <strong>always</strong> part of the same predicate.
+	<li> <strong>Must</strong> have different formal parameters.
+	<li> <strong>Must always</strong> have variables as part of
+		their formal parameters.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following Prolog statements gives "X" the value of 4 more than
+	"Y"?
+	<ol class="answer_list">
+	<li> X =:= Y + 4
+	<li> X == Y + 4
+	<li> X = Y + 4
+	<li> X is Y + 4
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If the expression "[ a, [ b, c], d ]" is matched to the expression
+	"[ X | Y]" in Prolog, which of the following bindings are true?
+	<ol class="answer_list">
+	<li> X = [ a, [ b ] ]
+	<li> X = [ a, [ b, c ] ]
+	<li> X = [ a ]
+	<li> X = [ a, [ b, c], d ]
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If the expression "[ a, [ b, c], d ]" is matched to the expression
+	"[ X | Y]" in Prolog, which of the following bindings are true?
+	<ol class="answer_list">
+	<li> Y = [ d ]
+	<li> Y = [ a, [ b, c ] ]
+	<li> Y = [ d ]
+	<li> Y = [ [ b, c], d ]
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If the expression "[ a, [ b, c], d ]" is matched to the expression
+	"[ _, [ X | Y ] | Z ]" in Prolog, which of the following bindings
+	are true?
+	<ol class="answer_list">
+	<li> X = [ a ]
+	<li> X = b
+	<li> X = [ b ]
+	<li> X = [ [ b, c] ]
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If the expression "[ a, [ b, c], d ]" is matched to the expression
+	"[ _, [ X | Y ] | Z ]" in Prolog, which of the following bindings
+	are true?
+	<ol class="answer_list">
+	<li> Y = [ b, c ]
+	<li> Y = c
+	<li> Y = [ c ]
+	<li> Y = [ d ]
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If the expression "[ a, [ b, c], d ]" is matched to the expression
+	"[ _, [ X | Y ] | Z ]" in Prolog, which of the following bindings
+	are true?
+	<ol class="answer_list">
+	<li> Z = d
+	<li> Z = [ d ]
+	<li> Z = [ [ b, c], d ]
+	<li> Z = [ c, d ]
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> a feature of Prolog?
+	<ol class="answer_list">
+	<li> Backtracking
+	<li> Unification
+	<li> Pattern matching
+	<li> Variable/Parameter instantiation
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A primary difference between Prolog programs from those of other languages
+	(e.g., Lisp, C++, Java) is
+	<ol class="answer_list">
+	<li> Variables/Parameters cannot be assigned values
+	<li> It doesn't support garbage collection
+	<li> There is no distinction between predicate input and output
+	<li> It supports recursion
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+	pred(X, 0) :- atom(X).
+	pred([ ], 0).
+	pred([ _ | X ], Y) :- pred(X, Z), Y is 1 + Z.
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred(a, 1).
+	<li> pred([a], 0).
+	<li> pred([a], 1).
+	<li> pred([a, b], 2).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+   	pred([ ], X, X).
+	pred([ H | T ], X, Y) :- pred(T, [ H | X ], Y). 
+	pred(X, Y) :- pred(X, [ ], Z).
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred([b, c], [c, b, a]).
+	<li> pred([a, b, c], [a, b, c]).
+	<li> pred([a, b, c], [c, b, a]).
+	<li> pred([a, b, c], [b, a]).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+	pred(X):- pred(X, X).
+	pred([ ], [ ]).
+	pred([ X | Y ], Z):- pred(Y,Tmp), append(Tmp, [ X ], Z).
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred([a]).
+	<li> pred([a, b]).
+	<li> pred([a, b, c]).
+	<li> pred([a, b, b, a]).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+	pred(X, [X | _]).
+	pred(X, [_ | Y]) :- pred(X, Y).
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred(a, [b, c, d]).
+	<li> pred([a], [ [b], [c], [d] ]).
+	<li> pred([a], [a, b, c, d]).
+	<li> pred([a], [ [a], [b], [c], [d] ]).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+	pred( _, []).
+	pred(X, [ Y | Z ]) :-
+       		X \= Y,
+        	pred(X, Z).
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred(a, [b, c, d]).
+	<li> pred([a], [ [b], [c], [d] ]).
+	<li> pred([a], [a, b, c, d]).
+	<li> pred([a], [ [a], [b], [c], [d] ]).
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Write the definitions for the Prolog predicate "isEven" which takes a list
+	as its only parameter. The predicate should succeed if the number of
+	items in the list is even, and should fail if the list contains an odd
+	number of items. Thus "isEven([ z ])" and "isEven([ 1, a, 2 ])" should
+	fail, but "isEven([ ])" and "isEven([ 1, 2, c, d ])" should succeed.
+	Do <strong>not</strong> use the Prolog built-in "length" predicate.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "isOdd" which takes a list
+	as its only parameter. The predicate should succeed if the number of
+	items in the list is odd, and should fail if the list contains an even
+	number of items. Thus "isOdd([ z ])" and "isOdd([ 1, a, 2 ])" should
+	succeed, but "isOdd([ ])" and "isOdd([ 1, 2, c, d ])" should fail.
+	Do <strong>not</strong> use the Prolog built-in "length" predicate.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "sum" which takes two
+	numeric parameters. The predicate confirms that the sum of every
+	number starting with zero up to and including the value of the first
+	parameter is equal to the value of the second parameter. Thus
+	"sum(6, 21)", "sum(2, 3)", and "sum(5, 15)" should
+	succeed, but "sum(3, 2)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "sum" which takes three
+	numeric parameters. The predicate confirms that the sum of every
+	number starting with the first parameter, up to and including the
+	second parameter is equal to the value of the third parameter. Thus
+	"sum(3, 6, 18)", "sum(-2, 2, 0)", and "sum(5, 5, 5)" should
+	succeed, but "sum(2, 3, 3)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "oddAdd" which takes two
+	parameters: a list of numbers; and a number. The predicate confirms
+	that the sum of every other number in the list (starting with the
+	first number) is given as the second parameter.  Thus
+	"oddAdd([ ], 0)" and "oddAdd([2, 3, 5, 7], 7)" should succeed,
+	but "oddAdd([ 2, 3 ], 3)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "evenAdd" which takes two
+	parameters: a list of numbers; and a number. The predicate confirms
+	that the sum of every other number in the list (starting with the
+	second number) is given as the second parameter.  Thus
+	"evenAdd([ ], 0)" and "evenAdd([2, 3, 5, 7], 10)" should succeed,
+	but "evenAdd([ 2, 3 ], 2)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "last" which takes two
+	parameters: a list; and an item. The predicate confirms
+	that the item is the last element in the list.  Thus
+	"last([ ], [ ])" and "last([2, 3, 5, 7], 7)" should succeed,
+	but "last([ 2, 3 ], 2)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "nth" which takes three
+	parameters: a list; a number index; and an item. The predicate confirms
+	that the item is the nth element in the list (with the first element
+	being the 1th item).  You can assume that the number index is at least
+	1 and less than or equal to the size of the list (with the exception
+	of the empty list). Thus "nth([ ], 1, [ ])" and
+	"nth([2, 3, 5, 7], 3, 5)" should succeed,
+	but "nth([ 2, 3 ], 2, 2)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "makeList" which takes two
+	parameters: a non-negative integer; and a list. The predicate creates
+	a list of the integer values counting down to 1. Thus "makeList(0, [ ])"
+	and "makeList(4, [4, 3, 2, 1])" should succeed, but "makeList(2, [ 2 ])"
+	and "makeList(3, [ 1, 2, 3])" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "makeList" which takes two
+	parameters: a non-negative integer; and a list. The predicate creates
+	a list of the integer values counting up starting from 1. Thus
+	"makeList(0, [ ])" and "makeList(4, [1, 2, 3, 4])" should succeed,
+	but "makeList(2, [ 2 ])" and "makeList(3, [ 3, 2, 1])" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "pair" which takes three
+	parameters. The first and second parameters are lists of items while
+	the third is a list of item pairings from the elements of the first
+	two parameters. Thus "pair([], [], [])." and
+	"pair([1, 2, 3], [1, 4, 9], [ [1, 1], [2, 4], [3, 9] ])." should
+	succeed, but "pair([1, 2, 3], [1, 4], [ [1, 1], [2, 4] ])." and
+	"pair([1, 2, 3], [a, b, c], [ [1, a], [2, b] ])." should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "where" that takes three
+	parameters, an item to find, a list to find the item in, and the
+	first position in the list in which the item is located. Positions
+	start at 0, and if the item is not in the list the third parameter
+	should be -1.  Thus "where(b, [a, b, c], 1)." and
+	"where(d, [1, 2], -1)." should both succeed while
+	"where(c, [a 1 b 4 c 7 u], 2)." should fail.
+</li><br/>
+
+<li> Types
+	<ol class="answer_list">
+	<li> Organize concepts and information.
+	<li> Provide a consistent interpretation of bits in memory.
+	<li> <strong>Must always</strong> be named.
+	<li> <strong>Must</strong> be explicitly declared.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Types are used by:
+	<ol class="answer_list">
+	<li> Lisp
+	<li> Java
+	<li> Prolog
+	<li> Assemblers
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Type checking by a language enables the compiler/interpreter to ensure
+	that
+	<ol class="answer_list">
+	<li> programs are free of semantic errors.
+	<li> programs are free of syntactic errors.
+	<li> operations and data are used consistently.
+	<li> programs which compile without error will <strong>not</strong>
+		have any run-time errors.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <strong>not</strong> type errors?
+	<ol class="answer_list">
+	<li> Using a Character (char) value as it it were an Integer (int).
+	<li> Dividing by a 0 value.
+	<li> Taking the "car" (or "cdr") of a number in Lisp.
+	<li> Calling a function at an address that isn't a function.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Declared types enable:
+	<ol class="answer_list">
+	<li> Compilers to generate more efficient code.
+	<li> Programmers to develop shorter (source code) programs.
+	<li> <strong>All</strong> program semantic errors to be avoided.
+	<li> <strong>All</strong> type checking to be done at compile time.
+	<li> Stronger type checking by <strong>both</strong> compilers
+		and interpreters.
+	</ol>
+</li><br/>
+
+<li> Casting an integer value as a function pointer
+	<ol class="answer_list">
+	<li> Alters the bits in the integer value.
+	<li> Creates a dangling reference.
+	<li> Is <strong>not</strong> type safe.
+	<li> Is safe only if the language supports garbage collection.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Dangling references
+	<ol class="answer_list">
+	<li> Can only occur with heap allocated objects.
+	<li> Are <strong>always</strong> prevented by garbage collection.
+	<li> Can be created (pointing into the run-time stack)
+		in languages like C.
+	<li> Can only occur when pointer arithmetic is allowed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Run-time type checking
+	<ol class="answer_list">
+	<li> Occurs when the program is executing.
+	<li> Makes programs run slower than compile-time type checking.
+	<li> Catches fewer errors than compile-time type checking.
+	<li> Generally requires more effort to test programs.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Compile-time type checking
+	<ol class="answer_list">
+	<li> Occurs when the program is executing.
+	<li> Occurs when the compiler is executing.
+	<li> Can reduce the need for many kinds of program testing.
+	<li> Generally enables compiled programs to run faster.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Compilers that
+	<ol class="answer_list">
+	<li> Don't pass programs that would cause run-time errors are "sound".
+	<li> Flag something as an error that would be okay at run-time are
+		"conservative".
+	<li> Don't pass programs that would cause run-time errors are
+		"conservative".
+	<li> Flag something as an error that would be okay at run-time are
+		"sound".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When compile-time type checking doesn't pass a program that would cause
+	a run-time error, the type checker is said to be
+	<ol class="answer_list">
+	<li> Conservative
+	<li> Progressive
+	<li> Safe
+	<li> Sound
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When compile-time type checking might flag something as an error that
+	would <strong>not</strong> cause a run-time error, the type checker
+	is said to be
+	<ol class="answer_list">
+	<li> Conservative
+	<li> Progressive
+	<li> Safe
+	<li> Sound
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Most type checkers are
+	<ol class="answer_list">
+	<li> Safe and Sound
+	<li> Progressive and Safe
+	<li> Conservative and Sound
+	<li> Safe and Conservative
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Type inference is used by
+	<ol class="answer_list">
+	<li> Only by assemblers since they have no typed declarations.
+	<li> Only by languages whose programs <strong>must</strong>
+		be compiled.
+	<li> Only by languages whose programs <strong>must</strong>
+		be interpreted.
+	<li> Nearly all modern general purpose programming languages
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Strong type checking generally depends upon
+	<ol class="answer_list">
+	<li> Named types
+	<li> Type inference
+	<li> At least some run-time checking
+	<li> At least some compile-time checking
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which of the following are forms of polymorphism?
+	<ol class="answer_list">
+	<li> Subtype (e.g., inheritance)
+	<li> Implicit parametric (e.g., untype parameters)
+	<li> Union (e.g., variant records)
+	<li> Explicit parametric (e.g., generics)
+	<li> Ad hoc (e.g., overloading)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java supports which of the following forms of polymorphism?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ supports which of the following forms of polymorphism?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Lisp supports which of the following forms of polymorphism?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Prolog supports which of the following forms of polymorphism?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Explicit parametric polymorphism in
+	<ol class="answer_list">
+	<li> Java is available for <strong>all</strong> types.
+	<li> C++ is available for <strong>all</strong> types.
+	<li> Java is available for only reference types (allocated on the heap).
+	<li> C++ is available for only reference types (allocated on the heap).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Ad hoc polymorphism is determined by the
+	<ol class="answer_list">
+	<li> Type and number of formal parameters in Java and C++.
+	<li> Type and number of formal parameters as well as the return
+		type in Ada.
+	<li> Number of parameters in Lisp.
+	<li> Number of parameters in Prolog.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following polymorphism forms can be completely
+	resolved at compile-time?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following polymorphism forms <strong>must</strong> generally
+	be resolved at run-time (i.e., cannot always be resolved
+	at compile-time)?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, inheritance and interaces enable which type(s) of polymorphism?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Generics in <strong>both</strong> Ada and Java, and templates in C++ are
+	examples of which type(s) of polymorphism?
+	<ol class="answer_list">
+	<li> Subtype
+	<li> Implicit parametric
+	<li> Explicit parametric
+	<li> Ad hoc
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> "Type A is Float" is an example of
+	<ol class="answer_list">
+	<li> A named type declaration.
+	<li> An implicit type declaration.
+	<li> An anonymous type declaration.
+	<li> A transparent type declaration.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Generally for type declarations like "Type A is Integer" and
+	"Type B is Integer"
+	<ol class="answer_list">
+	<li> A and B are the same type.
+	<li> A and B are different types (not castable to one another).
+	<li> A and B are different types but are automatically casted to
+		one another when necessary.
+	<li> A and Integer (likewise B and Integer) can automatically be
+		cast to one another.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Opaque type declarations
+	<ol class="answer_list">
+	<li> Define a new type that is unequal to <strong>all</strong>
+		other types.
+	<li> <strong>Must</strong> be named.
+	<li> <strong>Must</strong> be anonymous.
+	<li> Are also transparent.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Anonymous type declarations
+	<ol class="answer_list">
+	<li> Are also transparent.
+	<li> <strong>Must</strong> not be named.
+	<li> Are also opaque.
+	<li> Are castable to any other type.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> C++ is a superset of
+	<ol class="answer_list">
+	<li> Java
+	<li> C#
+	<li> C
+	<li> Objective-C
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The last line of the following code snippet:
+	<pre><code>
+	float x = 4;
+	float *p = &x;
+	x = 12.0/*p /* some comment */;
+	</code></pre>
+	in C/C++ is
+	<ol class="answer_list">
+	<li> Ambiguous - could be dividing by data pointed to by "p"
+		or a comment.
+	<li> Syntactically wrong - can't have a (semi)nested comment.
+	<li> Is a division followed by a comment.
+	<li> Is a simple assignment (to the variable "x") followed
+		by a comment.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Dangling references can be created in C/C++ without using dynamic/heap
+	storage by
+	<ol class="answer_list">
+	<li> returning a locally declared array as the result of a function.
+	<li> attempting to assign a value to the -1 element of an array.
+	<li> using the address operator (&) to return the address of a local
+		variable from a function. 
+	<li> returning a function name as the result of a function.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Functions in C/C++ can
+	<ol class="answer_list">
+	<li> Be assigned to variables.
+	<li> Can be defined to take a variable number of parameters.
+	<li> Can be recursive.
+	<li> Can be passed as parameters.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C libraries
+	<ol class="answer_list">
+	<li> Provide much of the functional capabilities of C (e.g., I/O is
+		provided by libraries and is <strong>not</strong> built into
+		the language).
+	<li> Can be used with C++ programs and are fully compatible with the
+		C++ libraries.
+	<li> Cannot be used with C++ programs.
+	<li> Can be used with C++ programs but are not necessarily compatible
+		with the C++ libraries.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Objects (class instances) in C++ are
+	<ol class="answer_list">
+	<li> Only allocated on the run-time stack.
+	<li> Only allocated on the heap.
+	<li> Allocated on either the run-time stack or the heap.
+	<li> <strong>Must</strong> be allocated on <strong>both</strong>
+		the run-time stack and the heap.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ has the following visibility classifications:
+	<ol class="answer_list">
+	<li> public
+	<li> private
+	<li> protected
+	<li> friend
+	<li> namespace
+	</ol>
+</li><br/>
+<li> C++ allows overloading
+	<ol class="answer_list">
+	<li> Only for arithmetic operations
+	<li> Only for bitwise operations
+	<li> Only for I/O operations
+	<li> For nearly all operations
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following in C++ is using a non-copy constructor?
+	<ol class="answer_list">
+	<li> Person p;
+	<li> Person p(bob);
+	<li> Person p = george;
+	<li> Person bob, george; bob = george;
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following in C++ is using a copying constructor?
+	<ol class="answer_list">
+	<li> Person p;
+	<li> Person p(bob);
+	<li> Person p = george;
+	<li> Person bob, george; bob = george;
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ assignments differ from copying constructors
+	<ol class="answer_list">
+	<li> Because they should check for previous (already assigned) values.
+	<li> By their syntax of usage.
+	<li> There are no differences.
+	<li> Because they should return a reference to their left-hand side
+		(l-value).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ provides
+	<ol class="answer_list">
+	<li> A default constructor for each class.
+	<li> A default assignment operation for each class.
+	<li> A default input operations for each class.
+	<li> A default output operations for each class.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C++, to allow a subclass to override a method in the superclass
+	<ol class="answer_list">
+	<li> The superclass method <strong>must</strong>
+		be declared as "abstract".
+	<li> The superclass method <strong>must</strong>
+		be declared as "virtual".
+	<li> The subclass <strong>must</strong> extend the
+		superclass as "virtual".
+	<li> The subclass <strong>must</strong> extend the
+		superclass as "abstract".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Method overrides in C++
+	<ol class="answer_list">
+	<li> Work exactly the same as in Java.
+	<li> <strong>Must</strong> be declared as "virtual" in the superclass.
+	<li> <strong>Must</strong> be declared as "virtual" in the subclass.
+	<li> <strong>Must</strong> be declared as "virtual" in
+		<strong>both</strong> the superclass and the subclass.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C++, "friends" of a class have access to <strong>all</strong> of the
+	<ol class="answer_list">
+	<li> class' public members.
+	<li> class' private members.
+	<li> class' protected members.
+	<li> class' other friends.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Inline expansion of functions in C++
+	<ol class="answer_list">
+	<li> Are automatically done by the compiler when possible.
+	<li> Are automatically considered when the method implementation
+		is given inside the class definition.
+	<li> Is guaranteed whenever the "inline" directive is used in
+		the function declaration.
+	<li> Is only possible for overridden member functions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "const" declaration in C++ is similar to Java's
+	<ol class="answer_list">
+	<li> virtual
+	<li> final
+	<li> static
+	<li> abstract
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "const" declaration in this C++ member function declaration
+	<pre><code>
+	type function() const { ... }
+	</code></pre>
+	indicates that "function"
+	<ol class="answer_list">
+	<li> can only access "const" members of its class.
+	<li> cannot change any members of the class instance (unless they
+		are declared a mutable).
+	<li> returns a value that cannot be changed.
+	<li> cannot be expanded in-line.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Give the implementation for a C++ class called "Power" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"exp"</dt>
+		<dd>
+		takes two integer values as its parameters. The first
+		parameter is the "base" and the second is the "expoent". The
+		returned result is the base multipled by itself exponent times.
+		</dd>
+	</dl>
+	</blockquote>
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Prime" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"isPrime"</dt>
+		<dd>
+		takes a single integer value as its parameter. The function
+		returns the integer if it is a prime number and returns 0
+		otherwise.
+		</dd>
+	</dl>
+	</blockquote>
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Largest" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"newNumber"</dt>
+		<dd>
+		takes a single integer value as its parameter. If this is the
+		first time the method is called, then the parameter is set as
+		the largest number seen thus far. If a number has already been
+		seen, then the larger of the current largest number and the
+		provided parameter is retained.
+		</dd>
+	<dt>"largest"</dt>
+		<dd>
+		takes no parameters but returns the largest number recorded
+		(via calls to "newNumber") thus far.
+		</dd>
+	</dl>
+	</blockquote>
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Palindrome" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"addChar"</dt>
+		<dd>
+		takes a single character value as its parameter
+		and adds it to the list of characters. No value is returned.
+		</dd>
+	<dt>"isPal"</dt>
+		<dd>
+		takes no parameters but returns 1 if the set of characters
+		added thus far is a palindrome (given the order in which they
+		were added) and returns 0 otherwise.
+		</dd>
+	<dt>"clear"</dt>
+		<dd>
+		takes no parameters and removes <strong>all</strong>
+		previously added characters. No value is returned.
+		</dd>
+	</dl>
+	</blockquote>
+	Remember that a string of characters is a palindrome if it reads the
+	same both forwards and backwards (e.g., racecar).
+	You may assume that no more than 100 characters will ever be added
+	(before "clear" is called).
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Frequent" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"addCharacter"</dt>
+		<dd>
+		takes a single character parameter. The character is added to
+		the end of the list of characters that have been added thus far.
+		</dd>
+		<dd>
+	<dt>"clear"</dt>
+		<dd>
+		erases the memory of any characters that have been seen thus
+		far, enabling a new set of characters to be examined via the
+		"addCharacter" function.
+		</dd>
+		<dd>
+	<dt>"mostOften"</dt>
+		<dd>
+		returns the character that has been added (via "addCharacter")
+		the most number of times since "clear" was last called. If no
+		characters have been added, then return the space (' ')
+		character.
+		</dd>
+	</dl>
+	</blockquote>
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Stats" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"addNumber"</dt>
+		<dd>
+		takes a single integer value as its parameter
+		and adds it to the list of numbers about which statistics
+		can be reported. No value is returned.
+		</dd>
+	<dt>"largest"</dt>
+		<dd>
+		takes no parameters but returns the value of the
+		largest number added thus far.
+		</dd>
+	<dt>"mean"</dt>
+		<dd>
+		takes no parameters but returns the average of
+		<strong>all</strong> of the numbers added thus far.
+		</dd>
+	<dt>"clear"</dt>
+		<dd>
+		takes no parameters and removes <strong>all</strong>
+		previously added numbers. No value is returned.
+		</dd>
+	</dl>
+	</blockquote>
+	You may assume that no more than 100 numbers will ever be added
+	(before "clear" is called).
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+
+<li> Thrown exceptions in C++
+	<ol class="answer_list">
+	<li> <strong>Must</strong> extend a common exception class as in Java.
+	<li> <strong>Must</strong> be a class instance.
+	<li> Can be any value (either class instance or primitive type value).
+	<li> <strong>Must</strong> be a primitive type value.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "static" declaration in C++ is similar to Java's
+	<ol class="answer_list">
+	<li> virtual
+	<li> final
+	<li> static
+	<li> abstract
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Templates in C++
+	<ol class="answer_list">
+	<li> Work exactly like generics in Java.
+	<li> Can be instantiated with primitive types.
+	<li> Can be anonymously instantiated.
+	<li> <strong>Must</strong> be instantiated with a new class/type
+		name (e.g., like Ada).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ thrown exceptions are
+	<ol class="answer_list">
+	<li> Caught and handled by try-catch blocks similar to those in Java.
+	<li> Handled by the special "finalize" member function defined within
+		a class.
+	<li> <strong>Must</strong> be caught and handled in the "main" function.
+	<li> Ignored if <strong>not</strong> caught and handled within the
+		code block they were first thrown from.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> While the number and types of parameters of overloaded functions
+	<strong>must</strong> match, C++
+	<ol class="answer_list">
+	<li> Requires that their semantics also match.
+	<li> Allows the semantics to be very different.
+	<li> Allows different semantics, but only within specific constraints.
+	<li> Also requires that they throw the same exceptions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Recursive class definitions in C++
+	<ol class="answer_list">
+	<li> Are of unknown size until an instance is created via the
+		"new" operator.
+	<li> <strong>Must</strong> use pointers to the nested occurrences.
+	<li> Cannot use inline functions because they would be expanded an
+		infinite number of times.
+	<li> <strong>Must</strong> be declared as private.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Nested class definitions in C++
+	<ol class="answer_list">
+	<li> Are <strong>not</strong> allowed.
+	<li> Can only be created as heap allocations.
+	<li> Can only be created as run-time stack allocations.
+	<li> <strong>Must</strong> be declared as private.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "new" operator in C++
+	<ol class="answer_list">
+	<li> Is similar to the "new" operator in Java.
+	<li> Allocates space on the run-time stack.
+	<li> Allocates space from the heap.
+	<li> Returns the memory address of the allocated memory.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ has the "delete" operation in order to
+	<ol class="answer_list">
+	<li> Remove class definitions that are no longer needed.
+	<li> Allow programmers to suggest heap storage to garbage collect,
+		but doesn't actually free the space itself.
+	<li> Do nothing since C++ has garbage collection just like Java.
+	<li> Remove the top entry from the run-time stack.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages support garbage collection of dynamic
+	memory allocations?
+	<ol class="answer_list">
+	<li> Lisp
+	<li> Java
+	<li> C++
+	<li> Prolog
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "typename" keyword in C++ can be used to
+	<ol class="answer_list">
+	<li> Disambiguate situations in which a qualified dependent type
+		could also be interpreted as a statement/expression.
+	<li> Declare a new type definition.
+	<li> Indicate the return type of a method/function.
+	<li> Indicate a template parameter, as a relacement for "class".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What did C.A.R. Hoare describe as his billion dollar mistake?
+	<ol class="answer_list">
+	<li> The design and creation of Lisp.
+	<li> The introduction of garbage collection.
+	<li> The design and creation of C++.
+	<li> The introduction of null (pointer) references.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Why did C.A.R. Hoare include null (pointer) references into the design
+	of Algol W in 1965?
+	<ol class="answer_list">
+	<li> It was easy to implement.
+	<li> To ensure that <strong>all</strong> uses of references were
+		absolutely safe.
+	<li> It was the feature most requested by developers.
+	<li> To enable polymorphism.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Having two comment types like C++'s and Java's // and /* ... */ is
+	<ol class="answer_list">
+	<li> Completely unnecessary.
+	<li> Error prone.
+	<li> Useful if // is generally used and /* ... */ is used for
+		commenting out larger blocks of code (e.g., debugging).
+	<li> Essential for supporting proper documentation.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ destructors are called
+	<ol class="answer_list">
+	<li> When objects on the run-time stack go out of scope.
+	<li> When heap objects are deallocated.
+	<li> Only by explicit programmer coded calls.
+	<li> Never, C++ doesn't have destructors (only finalize methods).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Unlike Java, C++ method implementations
+	<ol class="answer_list">
+	<li> <strong>Must</strong> be given in the class declaration.
+	<li> May occur inside or outside the class declaration.
+	<li> <strong>Must all</strong> appear in the same file as the class
+		declaration.
+	<li> May appear in separate files from the class declaration.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A "pure virtual" function in C++ (e.g., "virtual int doit() = 0")
+	<ol class="answer_list">
+	<li> Cannot be overridden in a subclass.
+	<li> Requires its class to also be "virtual".
+	<li> Corresponds to "abstract" methods in Java.
+	<li> <strong>Must</strong> be overridden in a non-virtual subclass.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C++, name clashes occur when two member names
+	<ol class="answer_list">
+	<li> Declared within the same class are the same.
+	<li> Inherited from different classes are the same.
+	<li> Are names of overloaded functions.
+	<li> Are names of overloaded exceptions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ uses which of the following ways to resolve name clashes?
+	<ol class="answer_list">
+	<li> Disallow
+	<li> Implicit resolution
+	<li> Explicit resolution
+	<li> Inherited resolution
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Multiple inheritance in C++ means that a new class definition can extend
+	<ol class="answer_list">
+	<li> the same class multiple times (getting additional copies
+		of its instance and class variables).
+	<li> multiple different classes, thus combining their
+		capabilities within the new class.
+	<li> a pre-existing class, and that other class definitions
+		can also extend that same pre-existing class.
+	<li> itself, as a way to create recursive data structures.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The diamond problem refers to:
+	<ol class="answer_list">
+	<li> Java classes that <strong>both</strong> extend a class and
+		implement an interface.
+	<li> Prolog predicates that match two tails (e.g., "[ X | Y | Z]").
+	<li> C++ classes that extend a single class.
+	<li> Smalltalk methods that return objects <strong>not</strong>
+		of the receiver's class.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The diamond problem is a special kind of name clash that
+	<ol class="answer_list">
+	<li> Can occur in <strong>all</strong> object-oriented languages.
+	<li> Can occur only in Java because it has <strong>both</strong>
+		inheritance and interfaces.
+	<li> Can occur in C++ because it allows multiple inheritance.
+	<li> Is addressed in Java primarily through the implementation
+		of (multiple) interfaces.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Block structures
+	<ol class="answer_list">
+	<li> Organize related declarations and statements.
+	<li> Can be nested only a limited (though large) number of times.
+	<li> Contain only statements - declarations <strong>must</strong>
+		be at the class or method level.
+	<li> In some languages limit the kinds of declarations they may
+		contain (e.g., no function declarations/implementations).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Declarations in a block are
+	<ol class="answer_list">
+	<li> visible only within that block - and <strong>not</strong>
+		in nested blocks.
+	<li> only allocated on the run-time stack (for non-static variables).
+	<li> visible in nested blocks unless hidden by nested declarations.
+	<li> only allocated on from the heap (for non-static variables).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The scope and lifetime of a variable declaration
+	<ol class="answer_list">
+	<li> Are <strong>always</strong> the same.
+	<li> Are <strong>never</strong> the same.
+	<li> Can be different if the variable declaration is hidden in a
+		nested block.
+	<li> Can be different if the value is allocated in the heap.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The scope of a declaration is
+	<ol class="answer_list">
+	<li> The region of the program text the variable resides within the
+		symbol table.
+	<li> The time period in a running program that the variable/value
+		has allocated space.
+	<li> The region of the program text in which the declaration is visible.
+	<li> Is the same as the lifetime of the variable declaration.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The lifetime of a declaration is
+	<ol class="answer_list">
+	<li> The region of the program text the variable resides within the
+		symbol table.
+	<li> The time period in a running program that the variable/value
+		has allocated space.
+	<li> The region of the program text in which the declaration is visible.
+	<li> Is the same as the scope of the variable declaration.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of these are ways to make the scope and lifetime of a variable
+	declaration different?
+	<ol class="answer_list">
+	<li> Hide the variable name in the outer scope by declaring a variable
+		of the same name within a nested scope.
+	<li> For most compilers, declare a variable within an anonymous
+		block (so that it's storage allocation would occur within
+		the named "parent" block).
+	<li> Cannot be done, the scope and lifetime of variable declarations
+		are <strong>always</strong> the same.
+	<li> Declare the variable as static within a nested scope (e.g., a
+		function).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Unless specifically indicated otherwise, block structured languages
+	(e.g., Java, C++) nearly always allocate memory for variable
+	declarations within blocks
+	<ol class="answer_list">
+	<li> statically (to reduce the memory footprint).
+	<li> on the run-time stack.
+	<li> in the heap.
+	<li> either in the heap or run-time stack, whichever has the most
+		space remaining.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A characteristic of block structured languages is that of the declarations
+	supported by the language (e.g., variable, class, function)
+	<ol class="answer_list">
+	<li> variable declarations are <strong>always</strong>
+		allowed within a block.
+	<li> only function declarations (but <strong>not</strong> their
+		implementations) may appear within a block.
+	<li> type (and class) declarations may be given, but only if they are
+		anonymous.
+	<li> <strong>all</strong> may appear within a block.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Symbol tables are used by the compiler
+	<ol class="answer_list">
+	<li> Only as a convenience to make compilation faster.
+	<li> To keep track of declarations and their scope.
+	<li> To determine when declared variables should be deallocated.
+	<li> To ensure that the scope and lifetimes of declarations are the
+		same (part of semantic analysis).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Symbol tables are often implemented as
+	<ol class="answer_list">
+	<li> Stacks
+	<li> Priority queues
+	<li> Bucket hash tables
+	<li> Association lists
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In a symbol table implemented via bucket hashing, declarations of the
+	same name are
+	<ol class="answer_list">
+	<li> <strong>Always</strong> placed in the same bucket.
+	<li> <strong>Always</strong> placed in different buckets.
+	<li> Sometimes placed in the same bucket.
+	<li> <strong>Never</strong> allowed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In a bucket hashing symbol table
+	<ol class="answer_list">
+	<li> New entries are <strong>always</strong> placed at the end
+		of the bucket/list.
+	<li> New entries are <strong>always</strong> placed at the
+		beginning of the bucket/list.
+	<li> The first entry in every bucket/list is deleted when a scope is
+		exited.
+	<li> The last entry in every bucket/list is deleted when a scope is
+		exited.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Bucket hashing is well suited for symbol table implementations because
+	<ol class="answer_list">
+	<li> Inserting new declarations takes constant, O(1), time.
+	<li> When exiting a scope, declaration removal takes O(n^2) time
+		where n is the number of declarations to be removed.
+	<li> Name lookup is fast since it <strong>must</strong> be the first
+		item in the bucket/list.
+	<li> Nested declarations automatically hide previous declarations
+		of the same name (which will appear later in the bucket/list).
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which element of the activation record (AR) on the run-time stack (RTS)
+	holds a link to the previous AR on the RTS?
+	<ol class="answer_list">
+	<li> Miscellaneous storage
+	<li> Dynamic link
+	<li> Intermediate results
+	<li> Access link
+	<li> Static variables
+	<li> Local variables
+	<li> Passed parameters
+	<li> Program counter
+	<li> Template arguments
+	<li> Return result
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which element of the activation record (AR) on the run-time stack
+	holds a link to the most recent AR of enclosing scope to the function
+	corresponding to this AR?
+	<ol class="answer_list">
+	<li> Miscellaneous storage
+	<li> Dynamic link
+	<li> Intermediate results
+	<li> Access link
+	<li> Static variables
+	<li> Local variables
+	<li> Passed parameters
+	<li> Program counter
+	<li> Template arguments
+	<li> Return result
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which element of the activation record (AR) on the run-time stack
+	contains the return address for this function call instance?
+	<ol class="answer_list">
+	<li> Miscellaneous storage
+	<li> Dynamic link
+	<li> Intermediate results
+	<li> Access link
+	<li> Static variables
+	<li> Local variables
+	<li> Passed parameters
+	<li> Program counter
+	<li> Template arguments
+	<li> Return result
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which element of the activation record (AR) on the run-time stack
+	holds the result of the function call (if any)?
+	<ol class="answer_list">
+	<li> Miscellaneous storage
+	<li> Dynamic link
+	<li> Intermediate results
+	<li> Access link
+	<li> Static variables
+	<li> Local variables
+	<li> Passed parameters
+	<li> Program counter
+	<li> Template arguments
+	<li> Return result
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which element of the activation record (AR) on the run-time stack
+	contains argument values (if any) that the subprogram was called with?
+	<ol class="answer_list">
+	<li> Miscellaneous storage
+	<li> Dynamic link
+	<li> Intermediate results
+	<li> Access link
+	<li> Static variables
+	<li> Local variables
+	<li> Passed parameters
+	<li> Program counter
+	<li> Template arguments
+	<li> Return result
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which element of the activation record (AR) on the run-time stack
+	represents the space set aside for any subprogram variable declarations?
+	<ol class="answer_list">
+	<li> Miscellaneous storage
+	<li> Dynamic link
+	<li> Intermediate results
+	<li> Access link
+	<li> Static variables
+	<li> Local variables
+	<li> Passed parameters
+	<li> Program counter
+	<li> Template arguments
+	<li> Return result
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which element of the activation record (AR) on the run-time stack
+	holds space set aside for temporary values needed during subprogram
+	execution?
+	<ol class="answer_list">
+	<li> Miscellaneous storage
+	<li> Dynamic link
+	<li> Intermediate results
+	<li> Access link
+	<li> Static variables
+	<li> Local variables
+	<li> Passed parameters
+	<li> Program counter
+	<li> Template arguments
+	<li> Return result
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The names of formal parameters are
+	<ol class="answer_list">
+	<li> <strong>Always</strong> stored in the activation record along
+		with their corresponding values.
+	<li> <strong>Never</strong> stored in the activation record.
+	<li> Stored in the activation record, but only if there is a name clash.
+	<li> Stored in the activation record, but only if there is a local
+		variable with the same name as the formal parameter.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The names of local variables are
+	<ol class="answer_list">
+	<li> <strong>Always</strong> stored in the activation record along
+		with their corresponding values.
+	<li> <strong>Never</strong> stored in the activation record.
+	<li> Stored in the activation record, but only if there is a name clash.
+	<li> Stored in the activation record, but only if there is a formal
+		parameter with the same name as the local variable.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following isn't required if the amount of space to reserve
+	for a subprogram's activation record are fixed in size?
+	<ol class="answer_list">
+	<li> Template arguments
+	<li> Access link
+	<li> Dynamic link
+	<li> Temporal link
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is required if nested subprogram implementations
+	and recursion are supported?
+	<ol class="answer_list">
+	<li> Template arguments
+	<li> Access link
+	<li> Dynamic link
+	<li> Temporal link
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Code blocks are anonymous if they
+	<ol class="answer_list">
+	<li> Don't have any local variable declarations.
+	<li> Don't have any local type declarations.
+	<li> Don't contain a subpogram declaration.
+	<li> Aren't the body of a subprogram.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Procedures differ from functions in that
+	<ol class="answer_list">
+	<li> They <strong>must</strong> have parameters.
+	<li> They do <strong>not</strong> return a value.
+	<li> Their parameters <strong>must</strong> be Pass-by-Reference.
+	<li> They <strong>must</strong> have local variable declarations.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The <strong>best</strong> practice for functions is to
+	<ol class="answer_list">
+	<li> <strong>Always</strong> return a primitive type value.
+	<li> Avoid side-effects.
+	<li> Be idempotent.
+	<li> To have only Pass-by-Value parameters.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Formal parameters
+	<ol class="answer_list">
+	<li> Are named in the subprogram declaration.
+	<li> Are given when the subprogram is called.
+	<li> Can be variables or expressions.
+	<li> Are often referred to as arguments.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Actual parameters
+	<ol class="answer_list">
+	<li> Are named in the subprogram declaration.
+	<li> Are given when the subprogram is called.
+	<li> Can be variables or expressions.
+	<li> Are often referred to as arguments.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Pass-by-Reference passes
+	<ol class="answer_list">
+	<li> only the R-value of the actual parameter.
+	<li> only the L-value of the actual parameter.
+	<li> the R-value of the argument and the result is copied
+		back into the L-value upon return.
+	<li> the L-value of the argument and the result is copied
+		back into the R-value upon return.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Pass-by-Value passes
+	<ol class="answer_list">
+	<li> only the R-value of the actual parameter.
+	<li> only the L-value of the actual parameter.
+	<li> the R-value of the argument and the result is copied
+		back into the L-value upon return.
+	<li> the L-value of the argument and the result is copied
+		back into the R-value upon return.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Pass-by-Value-Result passes
+	<ol class="answer_list">
+	<li> only the R-value of the actual parameter.
+	<li> only the L-value of the actual parameter.
+	<li> the R-value of the argument and the result is copied
+		back into the L-value upon return.
+	<li> the L-value of the argument and the result is copied
+		back into the R-value upon return.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ functions support parameters that are
+	<ol class="answer_list">
+	<li> Pass-by-Name
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java methods support parameters that are
+	<ol class="answer_list">
+	<li> Pass-by-Name
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Ada subprograms support parameters that are
+	<ol class="answer_list">
+	<li> Pass-by-Name
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Lisp functions support parameters that are
+	<ol class="answer_list">
+	<li> Pass-by-Name
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Depending upon their implementation details, subprograms can cause side
+	effects when they
+	<ol class="answer_list">
+	<li> Perform I/O.
+	<li> Use Pass-by-Reference parameters.
+	<li> Use Pass-by-Value-Result parameters.
+	<li> When a subprogram implementation is nested within another
+		scope
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Aliasing <strong>always</strong> occurs whenever
+	<ol class="answer_list">
+	<li> A variable is passed as a subprogram argument.
+	<li> The formal and actual parameters names are the same.
+	<li> A variable memory location can be referenced by two
+		or more names.
+	<li> A subprogram is passed as an argument.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which parameter passing method is most efficient for large data structures?
+	<ol class="answer_list">
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Name
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following corresponds to the parameter passing mechanism that:
+	(i) Evaluates the actual parameter (R-value), then
+	(ii) Stores the R-value in the activation record for the subprogram
+		call (in the location, L-value, set aside for the corresponding
+		formal parameter), binding the R-value to the formal parameter.
+	<ol class="answer_list">
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Name
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following corresponds to the parameter passing mechanism that:
+	(i) Determines the L-value of the actual parameter, then
+	(ii) Stores the argument's L-value in
+		the formal parameter's L-value set aside in the activation
+		record for the corresponding formal parameter, binding the
+		L-value to the formal parameter.
+	<ol class="answer_list">
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Name
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following corresponds to the parameter passing mechanism that:
+	(i) Evaluates the actual parameter (R-value);
+	(ii) Stores the R-value in the activation record for the subprogram
+		call (in the location, L-value, set aside for the corresponding
+		formal parameter), binding the R-value to the formal parameter;
+		and then
+	(iii) Upon completion of the actions in the sub-program body, copies
+		the R-value from the activation record back out to the L-value
+		of the actual parameter.
+	<ol class="answer_list">
+	<li> Pass-by-Value
+	<li> Pass-by-Value-Result
+	<li> Pass-by-Name
+	<li> Pass-by-Reference
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ activation records don't need to store access links because
+	<ol class="answer_list">
+	<li> Nested function declarations aren't allowed.
+	<li> Nested function declarations only contain the signature -
+		<strong>not</strong> the implementation.
+	<li> Any variables referenced in a nested function implementation
+		<strong>must</strong> be declared "const".
+	<li> Access links are <strong>always</strong> needed in the
+		activation record to point to the enclosing static scope.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java activation records don't need to store access links because
+	<ol class="answer_list">
+	<li> Nested method declarations aren't allowed.
+	<li> Nested method declarations only contain the signature -
+		<strong>not</strong> the implementation.
+	<li> Any variables referenced in a nested method implementation
+		<strong>must</strong> be declared "final".
+	<li> Access links are <strong>always</strong> needed in the
+		activation record to point to the enclosing static scope.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Dynamic scoping is
+	<ol class="answer_list">
+	<li> Used by C++.
+	<li> Used by Java.
+	<li> The same as static scoping.
+	<li> Refers to objects allocated in the heap.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A tail call occurs when
+	<ol class="answer_list">
+	<li> A self-recursive call is the last action taken by a subprogram
+		before it returns.
+	<li> A self-recursive call appears in the return expression of a
+		subprogram.
+	<li> A self-recursive call in a sub-program contains no arguments.
+	<li> A self-recursive call in a sub-program contains only
+		Pass-by-Value parameters.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Tail recursive subprograms
+	<ol class="answer_list">
+	<li> <strong>Must</strong> have <strong>all</strong> of their
+		recursive calls be tail calls.
+	<li> Can be efficiently and effectively converted into (iterative)
+		loops by the compiler.
+	<li> Can reuse their current activation record when called recursively.
+	<li> <strong>Must</strong> push a new activation record onto the
+		run-time stack like <strong>all</strong> other recursive
+		subprograms.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Being a first class object means
+	<ol class="answer_list">
+	<li> Having the ability to implement the object within any scope/block.
+	<li> Being able to declare typed object variables and assign the
+		object values.
+	<li> Having the ability to pass the objects as parameters.
+	<li> Being able to return them as subprogram results.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C++, which of the following are first class objects?
+	<ol class="answer_list">
+	<li> Primitive types
+	<li> Functions/methods
+	<li> Classes
+	<li> Exceptions
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, which of the following are first class objects?
+	<ol class="answer_list">
+	<li> Primitive types
+	<li> Functions/methods
+	<li> Classes
+	<li> Exceptions
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> <strong>Both</strong> the Callback and Observer patterns
+	<ol class="answer_list">
+	<li> Can often make use of simple function pointers to enable
+		later event notification handling.
+	<li> Require functions/methods as first class objects to enable later
+		event notification handling.
+	<li> Can be accomplished in Java without the need to embed "handlers"
+		within class instances.
+	<li> Are little used in modern software systems.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A closure
+	<ol class="answer_list">
+	<li> Is a combination of pointers to a subprogram and an
+		activation record.
+	<li> Requires an access link in the activation record.
+	<li> Is unnecessary if subprograms are first class objects but their
+		implementations cannot be statically nested within another
+		scope.
+	<li> Is unnecessary if subprograms are <strong>not</strong>
+		first class objects but their implementations can be
+		statically nested within another scope.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> With respect to the run-time stack (RTS), each
+	<ol class="answer_list">
+	<li> Function <em>invocation</em> gets its own entry on the RTS. 
+	<li> Variable declared within a function is stored on the RTS
+		only once.
+	<li> Function <em>definition</em> gets its own entry on the RTS.
+	<li> Non-static variable declared within a function is stored on the
+		RTS once for each time the function is <em>invoked</em>.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A function's entry on the run-time stack (RTS) is removed whenever
+	<ol class="answer_list">
+	<li> The function <em>definition</em> is removed/deleted.
+	<li> Another function is called/invoked.
+	<li> Another function is defined.
+	<li> The function <em>invocation</em> for that entry is finished.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The run-time stack is
+	<ol class="answer_list">
+	<li> <strong>Not</strong> really a stack, but operates more like a
+		queue.
+	<li> An actual stack with entries added and removed from the top only.
+	<li> Really a priority queue, with functions defined more recently
+		appearing toward the top (i.e., front) of the queue.
+	<li> Only required for languages that support garbage collection.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Entries on the run-time stack (RTS) correspond to
+	<ol class="answer_list">
+	<li> Function definitions.
+	<li> Function invocations.
+	<li> Variable declarations.
+	<li> Dynamic space allocations.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Entries on the run-time stack (RTS) are often called
+	<ol class="answer_list">
+	<li> Subprogram allocations.
+	<li> Heap records.
+	<li> Activation records.
+	<li> Run-time allocations.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Smalltalk was created in the 1970s by
+	<ol class="answer_list">
+	<li> IBM
+	<li> Microsoft
+	<li> Kodak
+	<li> Xerox
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, <strong>all</strong>
+	<ol class="answer_list">
+	<li> Objects are class (or meta class) instances.
+	<li> Class definitions are objects.
+	<li> Private data is available to other instances of the same class
+		(as in C++ and Java).
+	<li> Methods are public.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Smalltalk differs from C++ and Java in that
+	<ol class="answer_list">
+	<li> It supports garbage collection.
+	<li> There are no primitive types.
+	<li> Only single class inheritance is supported.
+	<li> Code blocks are first class objects.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Smalltalk was designed
+	<ol class="answer_list">
+	<li> As a teaching language for children under 10 years old.
+	<li> As a completely new language.
+	<li> Borrowed heavily from C++ for its design.
+	<li> To be the user interaction language for the Dynabook computer.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Smalltalk-X comments
+	<ol class="answer_list">
+	<li> Start with // and go to the end of the current line.
+	<li> Start with "/ and go to the end of the current line.
+	<li> Can appear within pairs of double quotes (e.g., " comment ").
+	<li> Can appear within pairs of curly braces (e.g., { comment }).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages only support single inheritance for
+	classes?
+	<ol class="answer_list">
+	<li> Java
+	<li> C++
+	<li> Smalltalk
+	<li> Prolog
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, <strong>all</strong> class instance variables behave as
+	if they were declared in C++ as
+	<ol class="answer_list">
+	<li> public
+	<li> protected
+	<li> private
+	<li> friend
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, <strong>all</strong> methods behave as if they were declared
+	in C++ as
+	<ol class="answer_list">
+	<li> public
+	<li> protected
+	<li> private
+	<li> friend
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, subclasses can override a method in the superclass when
+	<ol class="answer_list">
+	<li> the superclass method was declared virtual.
+	<li> the superclass method was declared protected.
+	<li> the superclass method was declared abstract.
+	<li> the superclass method was declared.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> While there is no abstract class "type" in Smalltalk (like there is in
+	Java), the programmer can prevent the creation of new instances by
+	<ol class="answer_list">
+	<li> Using a special comment.
+	<li> Defining the "abstract" method for the class.
+	<li> Having the "new" method return "self shouldNotImplement".
+	<li> Having the "new" method return "null".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> To indicate that a Smalltalk method is abstract, the programmer should
+	<ol class="answer_list">
+	<li> Use the "abstract" comment method for its documentation.
+	<li> Return "self subclassResponsibility" from the method.
+	<li> Return "self shouldNotImplement" from the method.
+	<li> Return "null" from the method.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is a kind of well-known
+	Smalltalk numeric object literal?
+	<ol class="answer_list">
+	<li> integer
+	<li> fraction
+	<li> floating point number
+	<li> transcendental number
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is a kind of well-known Smalltalk object literal?
+	<ol class="answer_list">
+	<li> symbol
+	<li> operator name
+	<li> character
+	<li> string
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is a kind of Smalltalk message?
+	<ol class="answer_list">
+	<li> Singleton
+	<li> Unary
+	<li> Pre-fix
+	<li> Keyword
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Smalltalk method names
+	<ol class="answer_list">
+	<li> <strong>Must</strong> start with an upper case letter.
+	<li> Start with a lower case letter by convention.
+	<li> May only contain letters.
+	<li> Are case sensitive.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> By convention, capitalized names in Smalltalk indicate that the
+	name refers to a
+	<ol class="answer_list">
+	<li> Class
+	<li> Shared object
+	<li> Method
+	<li> Class instance variable
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, execution is left to right after which of the following
+	rules of precedence (highest precedence appears first in each list)?
+	<ol class="answer_list">
+	<li> Parentheses, keyword messages, unary messages, binary messages.
+	<li> Unary messages, parentheses, binary messages, keyword messages.
+	<li> Parentheses, unary messages, binary messages, keyword messages.
+	<li> Parentheses, binary messages, unary messages, keyword messages.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following, in Smalltalk, is equivalent to:
+	<pre><code>
+	Transcript clear.
+	Transcript show: 'Hello'.
+	Transcript show: 'World'.
+	Transcript cr.
+	</code></pre>
+	<ol class="answer_list">
+	<li> Transcript clear; show: 'HelloWorld'; cr.
+	<li> Transcript cr; show: 'Hello'; show: 'World'; cr.
+	<li> Transcript show: 'Hello'; show: 'World'; cr.
+	<li> Transcript clear; show: 'Hello'; show: 'World'; cr.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Variables in Smalltalk
+	<ol class="answer_list">
+	<li> <strong>Must</strong> be declared with a specific type
+		(as in Java and C++).
+	<li> Are implicitly declared upon their first usage.
+	<li> <strong>Must</strong> be declared before used.
+	<li> Can only be assigned a value once - so they cannot be changed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The output of the following Smalltalk code is described as
+	<pre><code>
+	3 timesRepeat: [ | i | i := 0. Transcript show: i; cr. ].
+	</code></pre>
+	<ol class="answer_list">
+	<li> Illegal since you can pass a code block to a method.
+	<li> Prints the numbers 0, 1, 2 on separate lines.
+	<li> Prints the number 0 three times on the same line.
+	<li> Prints the number 0 three times on spearate lines.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The output of the following Smalltalk code is described as
+	<pre><code>
+	0 to: 2 do: [ :n | Transcript show: n squared; cr. ].
+	</code></pre>
+	<ol class="answer_list">
+	<li> Illegal since the semi-colon (;) after "squared" should
+		be a colon (:).
+	<li> Prints the numbers 0, 1, 2 on separate lines.
+	<li> Prints the numbers 0, 1, 4 on separate lines.
+	<li> Prints the numbers 0, 1, 4 on the same line.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, "="
+	<ol class="answer_list">
+	<li> Returns true when the left and right hand side are the same
+		object (pointer).
+	<li> Returns true when the left and right hand side describe the same
+		value (but not necessarily the same object).
+	<li> Assigns the variable on the left hand side the value described
+		on the right hand side.
+	<li> Does <strong>not</strong> exist as an operator.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, "=="
+	<ol class="answer_list">
+	<li> Returns true when the left and right hand side are the same
+		object (pointer).
+	<li> Returns true when the left and right hand side describe the same
+		value (but not necessarily the same object).
+	<li> Assigns the variable on the left hand side the value described
+		on the right hand side.
+	<li> Does <strong>not</strong> exist as an operator.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Conditional execution in Smalltalk is different from most imperative
+	languages because
+	<ol class="answer_list">
+	<li> It uses a special message format, e.g., (a < 3 : [ code_block_1 ] ? [ code_block_2 ] )
+	<li> It sends code blocks as part of "ifTrue" and "ifFalse" messages
+		to a boolean object.
+	<li> A code block is sent a message, "ifTrue" or "ifFalse", with a
+		boolean argument.
+	<li> They cannot be nested.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Smalltalk, what is the difference between the following two boolean
+	expressions?
+	<pre><code>
+	(3 < a) & (a < 12)
+
+	(3 < a) and: [ (a < 12) ]
+	</code></pre>
+	<ol class="answer_list">
+	<li> <strong>Both</strong> are equivalent
+		(and do full boolean evaluation).
+	<li> <strong>Both</strong> are equivalent
+		(and do short-circuit boolean evaluation).
+	<li> Only the first supports short-circuit boolean evaluation.
+	<li> Only the second supports short-circuit boolean evaluation.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> New classes in Smalltalk are created by
+	<ol class="answer_list">
+	<li> Declaring a new class using the "class" keyword.
+	<li> Sending a "subclass" message to any superclass.
+	<li> Sending a "subclass" message only to the "Object" superclass.
+	<li> Implicitly by declaring their methods and using the correct
+		commenting directives.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Methods in Smalltalk
+	<ol class="answer_list">
+	<li> <strong>Always</strong> return a value.
+	<li> Return values by preceding it with the carat (^) character.
+	<li> <strong>Always</strong> return the receiving instance as the
+		return value.
+	<li> Return the value of the last expression in the method unless
+		otherwise indicated.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Arrays in Smalltalk are
+	<ol class="answer_list">
+	<li> Like arrays in Java and C++, and are built into the language
+		syntax.
+	<li> A predefined class, and adhere to the class and message syntax
+		(e.g., they aren't indexed by "arrayName[index]").
+	<li> Predefined, and allow C++ and Java like references (e.g.,
+		arrayName[index]).
+	<li> <strong>Not</strong> part of the Smalltalk language.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Exceptions in Smalltalk
+	<ol class="answer_list">
+	<li> Can be created from any existing class.
+	<li> <strong>Must</strong> be subclasses of the "Exception" class.
+	<li> <strong>Must</strong> be subclasses of the "GenericException"
+		class.
+	<li> Occur whenever an object is "thrown".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are subclasses of the
+	"GenericException" class in Smalltalk?
+	<ol class="answer_list">
+	<li> Error
+	<li> Warning
+	<li> Message
+	<li> Notification
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The equivalent of C++'s try-catch block in Smalltalk looks like:
+	<pre><code>
+	X on: Y do: Z
+	</code></pre>
+	in which
+	<ol class="answer_list">
+	<li> X <strong>must</strong> describe a kind of exception.
+	<li> Y <strong>must</strong> be a code block.
+	<li> Z <strong>must</strong> be a keyword method call.
+	<li> Z <strong>must</strong> be a code block.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Smalltalk exception handling semantics include
+	<ol class="answer_list">
+	<li> Terminate execution of the code block.
+	<li> Terminate execution of the entire program.
+	<li> Retry execution of the code block from the beginning.
+	<li> Resume execution of the code block from the point of the exception.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Write a Smalltalk expression that sums the numbers from 1 to 100 and
+	prints the result on the "Transcript".
+</li><br/>
+<li> Write a Smalltalk expression that gets a number via a "Dialog" and
+	prints whether or not it is a prime number on the "Transcript".
+</li><br/>
+<li> Write a Smalltalk expression that gets a string via a "Dialog" and
+	prints whether or not it is a palindrome on the "Transcript".
+</li><br/>
+
+<li> The convention for Smalltalk-X code files is that they end with the
+	extension:
+	<ol class="answer_list">
+	<li> .small
+	<li> .st
+	<li> .stx
+	<li> .txt
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When loading Smalltalk-X code files, it is recommended that you use
+	<ol class="answer_list">
+	<li> "ST/X" namespace.
+	<li> "Smalltalk" namespace.
+	<li> A new namespace (i.e., one that you provide a new name for).
+	<li> Any namespace, it doesn't matter which one.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> It is recommended that Smalltalk-X programs be tested by providing
+	<ol class="answer_list">
+	<li> Test expressions in the "Workspace" window.
+	<li> Including test expressions in the program code file.
+	<li> Putting them into a special test code file that ends in ".stx".
+	<li> Choosing the "Test code" menu option from the ST/X Launcher
+		file menu.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Smalltalk-X supports the interactive execution of expressions
+	(e.g., code fragments)
+	<ol class="answer_list">
+	<li> By putting them into the "Workspace", highlighting them,
+		then clicking on the thunderbolt icon.
+	<li> Providing the filename containing the expression in the
+		"Workspace" and clicking the "Execute" menu option.
+	<li> By putting them into the "Workspace", highlighting them,
+		then choosing the "DoIt" option from the "Execute" menu.
+	<li> Providing the expression in the "Execute" window and
+		hitting return.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Give the implementation for a Smalltalk class called "Power" that has
+	no instance variables but the following single method:
+	<blockquote>
+	<dl>
+	<dt>"exp"</dt>
+		<dd>
+		takes two integer values as its parameters. The first
+		parameter is the "base" and the second is the "expoent".
+		The returned result is the base multipled by itself exponent
+		times. For example, "Transcript showCR: (Power new exp: 2 3)"
+		should display "8" as the result.
+		</dd>
+	</dl>
+        Be sure to define appropriate constructor(s) or other supporting
+	methods as necessary.
+	</blockquote>
+</li><br/>
+<li> Give the implementation for a Smalltalk class called "Prime" that has
+	no instance variables but the following single method:
+	<blockquote>
+	<dl>
+	<dt>"isPrime"</dt>
+		<dd>
+		takes a single integer value as its parameter. The method
+		returns a true value if the integer is a prime number and
+		returns false otherwise. 
+		</dd>
+	</dl>
+        Be sure to define appropriate constructor(s) or other supporting
+	methods as necessary.
+	</blockquote>
+</li><br/>
+
+<li> Give the implementation for a Smalltalk class called "Prime" that has
+	no instance variables but the following two methods:
+	<blockquote>
+	<dl>
+	<dt>"isPrime"</dt>
+		<dd>
+		takes a single integer value as its parameter. The method
+		returns a true value if the integer is a prime number and
+		returns false otherwise. 
+		</dd>
+	<dt>"checker"</dt>
+		<dd>
+		takes no parameters but continually asks the user for numeric
+		input via a dialog box. The method checks whether or not the
+		input was a prime number, printing "Is prime." to the console
+		if the number was prime and "Is NOT prime." to the console if
+		it was not a prime number. The method ends when the user enters
+		a negative number.
+		</dd>
+	</dl>
+        Be sure to define appropriate constructor(s) or other supporting
+	methods as necessary.
+	</blockquote>
+</li><br/>
+<li> Give the implementation for a Smalltalk class called "Largest" that has
+	one or more instance variables and the following four methods:
+	<blockquote>
+	<dl>
+	<dt>"new"</dt>
+		<dd>
+		creates a new instance of "Largest".
+		</dd>
+	<dt>"init"</dt>
+		<dd>
+		initializes the instance with the appropriate default values.
+		</dd>
+	<dt>"newNumber"</dt>
+		<dd>
+		takes a single integer value as its parameter. If this is the
+		first time the method is called, then the parameter is set as
+		the largest number seen thus far. If a number has already been
+		seen, then the larger of the current largest number and the
+		provided parameter is retained.
+		</dd>
+	<dt>"largest"</dt>
+		<dd>
+		takes no parameters but returns the largest number recorded
+		(via calls to "newNumber") thus far.
+		</dd>
+	</dl>
+        Be sure to define appropriate constructor(s) or other supporting
+	methods as necessary.
+	</blockquote>
+</li><br/>
+
+<li> Give the implementation for a Smalltalk class called "Palindrome" that has
+	one or more instance variables and the following methods:
+	<blockquote>
+	<dl>
+	<dt>"new"</dt>
+		<dd>
+		creates a new instance of "Palindrome".
+		</dd>
+	<dt>"init"</dt>
+		<dd>
+		initializes the instance with the appropriate default values.
+		</dd>
+	<dt>"addCharacter"</dt>
+		<dd>
+		takes a single character parameter. The character is added
+		to the end of the list of characters that have been added
+		thus far.
+		</dd>
+	<dt>"isPalindrome"</dt>
+		<dd>
+		returns a true value if the set of characters forms a
+		palindrome, and returns false otherwise.  If no characters
+		have been recorded thus far, then return false.
+		</dd>
+	<dt>"clear"</dt>
+		<dd>
+		erases the set of characters that have been seen thus far,
+		enabling a new set of characters to be constructed via the
+		"addCharacter" method.
+		</dd>
+	</dl>
+        Be sure to define appropriate constructor(s) or other supporting
+	methods as necessary.
+	</blockquote>
+</li><br/>
+<li> Give the implementation for a Smalltalk class called "Frequent" that has
+	one or more instance variables and the following methods:
+	<blockquote>
+	<dl>
+	<dt>"new"</dt>
+		<dd>
+		creates a new instance of "Frequent".
+		</dd>
+	<dt>"init"</dt>
+		<dd>
+		initializes the instance with the appropriate default values.
+		</dd>
+	<dt>"addCharacter"</dt>
+		<dd>
+		takes a single character parameter. The character is added
+		to the end of the list of characters that have been added
+		thus far.
+		</dd>
+	<dt>"clear"</dt>
+		<dd>
+		erases the memory of any characters that have been seen thus
+		far, enabling a new set of characters to be examined via the
+		"addCharacter" method.
+		</dd>
+	<dt>"mostOften"</dt>
+		<dd>
+		returns the character that has been added (via "addCharacter")
+		the most number of times since "clear" was last called. If
+		no characters have been added, then return the space (' ')
+		character.
+		</dd>
+	</dl>
+        Be sure to define appropriate constructor(s) or other supporting
+	methods as necessary.
+	</blockquote>
+</li><br/>
+
+<li> Give the implementation for a Smalltalk class called "Frequent" that has
+	one or more instance variables and the following methods:
+	<blockquote>
+	<dl>
+	<dt>"new"</dt>
+		<dd>
+		creates a new instance of "Frequent".
+		</dd>
+	<dt>"init"</dt>
+		<dd>
+		initializes the instance with the appropriate default values.
+		</dd>
+	<dt>"readFile"</dt>
+		<dd>
+		queries the user to enter a file name. If there is a problem
+		with the indicated file, the method should repeatedly query
+		the user until a valid file is given.
+		</dd>
+	<dt>"mostOften"</dt>
+		<dd>
+		returns the character that appears most often in the file
+		indicated by the most recent call to "readFile".
+		</dd>
+	</dl>
+        Be sure to define appropriate constructor(s) or other supporting
+	methods as necessary.
+	</blockquote>
+</li><br/>
+<li> Give the implementation for a Smalltalk class called "CountAll" that has
+	one or more instance variables and the following methods:
+	<blockquote>
+	<dl>
+	<dt>"new"</dt>
+		<dd>
+		creates a new instance of "CountAll".
+		</dd>
+	<dt>"init"</dt>
+		<dd>
+		initializes the instance with the appropriate default values.
+		</dd>
+	<dt>"readFile"</dt>
+		<dd>
+		queries the user to enter a file name. If there is a problem
+		with the indicated file, the method should repeatedly query
+		the user until a valid file is given.
+		</dd>
+	<dt>"count"</dt>
+		<dd>
+		returns the number of characters in the file
+		indicated by the most recent call to "readFile".
+		</dd>
+	</dl>
+        Be sure to define appropriate constructor(s) or other supporting
+	methods as necessary.
+	</blockquote>
+</li><br/>
+
+<li> Give the implementation for a Smalltalk class called "Stats" that has
+	the following methods:
+	<blockquote>
+	<dl>
+	<dt>"addNumber"</dt>
+		<dd>
+		takes a single integer value as its parameter
+		and adds it to the list of numbers about which statistics
+		can be reported. The receiving instance is returned.
+		</dd>
+	<dt>"largest"</dt>
+		<dd>
+		takes no parameters but returns the value of the
+		largest number added thus far.
+		</dd>
+	<dt>"mean"</dt>
+		<dd>
+		takes no parameters but returns the average of
+		<strong>all</strong> of the numbers added thus far.
+		</dd>
+	<dt>"clear"</dt>
+		<dd>
+		takes no parameters and removes <strong>all</strong>
+		previously added numbers. The receiving instance is returned.
+		</dd>
+	</dl>
+	You may assume that no more than 100 numbers will ever be added.
+        (before "clear" is called).  Be sure to define appropriate
+	constructor(s) or other supporting methods as necessary.
+	</blockquote>
+</li><br/>
+
+<li> A Smalltalk-X file may contain
+	<ol class="answer_list">
+	<li> Multiple class and method definitions.
+	<li> Only a single class definition.
+	<li> Only a single method definition
+	<li> Only a single class definition along with <strong>all</strong>
+		of its method definitions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Smalltalk-X uses "!  !" on a line by itself to
+	<ol class="answer_list">
+	<li> separate class and method definition from one another.
+	<li> separate class definitions from their corresponding method
+		definitions.
+	<li> separate method declarations from their implementations.
+	<li> end declaration sections (e.g., a section of related method
+		definitions).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Smalltalk-X uses a single exclamation point ("!") on a line by itself
+	to separate
+	<ol class="answer_list">
+	<li> Method definitions from one another within the same section of
+		related method definitions.
+	<li> A class definition from its corresponding method definitions.
+	<li> A class (and its corresponding method) definitions from other
+		class/method definitions.
+	<li> Method declarations from their implementations.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which of the following are generally true about "goto" statements?
+	<ol class="answer_list">
+	<li> They can jump forward to a location later in the current code
+		block.
+	<li> They can jump backward to a location earlier in the current code
+		block.
+	<li> They can jump between threads of execution in the same process.
+	<li> They can jump between threads of execution in different processes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What technique(s) were developed, starting in the 1960s, to aid the
+	development of correct and reliable programs?
+	<ol class="answer_list">
+	<li> Object-based programming
+	<li> Object-oriented programming
+	<li> Object-relational programming
+	<li> Structured programming
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The drawbacks presented by the use of "goto" statements were most notably
+	questioned by
+	<ol class="answer_list">
+	<li> Alan Turing
+	<li> Edsger Dijkstra
+	<li> C. A. R. Hoare
+	<li> Vinton Cerf
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The idea of language constructs adhering to a single entry and single exit
+	point semantics is called
+	<ol class="answer_list">
+	<li> Ravioli programming
+	<li> Object-oriented programming
+	<li> Structured programming
+	<li> Object-relational programming
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Structured programming provides
+	<ol class="answer_list">
+	<li> Information hiding.
+	<li> Single entry and single exit point semantics.
+	<li> Type and subprogram grouping (modularity).
+	<li> Single inheritance.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which of the following are properties of the
+	<em>if-then-elsif-else-end</em> statement?
+	<ol class="answer_list">
+	<li> It is ambiguous.
+	<li> Other <em>if-then-elsif-else-end</em> statements can be nested
+		within the "then", "elsif", and "else" parts.
+	<li> The control flow is always textually forward.
+	<li> No more than one of the statement blocks will be executed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In a <em>if-then-elsif-else-end</em> statement, multiple other
+	statements may be appear within  the
+	<ol class="answer_list">
+	<li> "then" portion.
+	<li> "elsif" portion.
+	<li> "else" portion.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the EBNF for the <em>if-then-elsif-else-end</em> statement,
+	<ol class="answer_list">
+	<li> The "then" portion <strong>must</strong> be present.
+	<li> The "elsif" portion may only occur 0 or 1 times.
+	<li> The "elsif" portion may occur 0 or more times.
+	<li> The "else" portion <strong>must</strong> be present.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are properties of the <em>case</em> statement?
+	<ol class="answer_list">
+	<li> It is ambiguous.
+	<li> The expression given may be any primitive type (e.g., from Java
+		or C++).
+	<li> No statements are shared by multiple "when" clauses except
+		through duplication of the statement.
+	<li> Nesting of <em>case</em> statements is <strong>not</strong>
+		allowed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The <em>case</em> statement is
+	<ol class="answer_list">
+	<li> Semantically equivalent to the <em>if-then-elsif-else-end</em>
+		statement, with each being able to implement the
+		semantics of the other in a given program.
+	<li> More efficient than the <em>if-then-elsif-else-end</em> statement
+		in some circumstances.
+	<li> Unable to implement all of the semantics possible with the
+		<em>if-then-elsif-else-end</em> statement.
+	<li> <strong>Not</strong> a structured programming compliant construct.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the EBNF for the <em>case</em> statement,
+	<ol class="answer_list">
+	<li> One or more expressions ("expr") may be given.
+	<li> Zero or more "when" sections can be given.
+	<li> The "otherwise" section <strong>must</strong> be present.
+	<li> Both the "when" and "otherwise" portions <strong>must</strong>
+		contain one or more statements.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which of the following are properties of the
+	<em>while-loop-end</em> statement?
+	<ol class="answer_list">
+	<li> It is ambiguous.
+	<li> Nesting of <em>while-loop-end</em> statements is allowed.
+	<li> The control flow is <strong>always</strong> textually forward.
+	<li> The loop <strong>must</strong> execute at least once.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are properties of the
+	<em>loop-until</em> statement?
+	<ol class="answer_list">
+	<li> It is ambiguous.
+	<li> Nesting of <em>loop-until</em> statements is allowed.
+	<li> The control flow is <strong>always</strong> textually forward.
+	<li> The loop <strong>must</strong> execute at least once.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are properties of the
+	<em>for-loop-end</em> statement?
+	<ol class="answer_list">
+	<li> It is ambiguous.
+	<li> Nesting of <em>for-loop-end</em> statements is allowed.
+	<li> The control flow is <strong>always</strong> textually forward.
+	<li> The loop <strong>must</strong> execute at least once.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The generalized <em>for-loop-end</em> statement
+	<ol class="answer_list">
+	<li> Can iterate over collections (using iterators that yield a
+		sequence of values).
+	<li> <strong>Must</strong> start counting from 0 for index values.
+	<li> <strong>Must</strong> incremement by 1 for index values.
+	<li> Can simultaneously count over multiple index values.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are properties of the generalized
+        <em>loop-end</em> (with <em>exit/break</em>) statement?
+	<ol class="answer_list">
+	<li> It is ambiguous.
+	<li> They can completely replace the use of <strong>all</strong>
+		other types of looping (e.g., <em>while-loop-end</em>,
+		<em>loop-until</em>, <em>for-loop-end</em>).
+	<li> The loops can be "named", reducing the need for
+		"loop escape flags" by programmers.
+	<li> The <em>exit/break</em> statements may appear anywhere in the loop.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The use of multiple <em>exit/break</em> statements within a loop
+	<ol class="answer_list">
+	<li> Is <strong>not</strong> allowed.
+	<li> Is confusing and violates the principle of structured programming.
+	<li> In combination with the "when" clause improves readability
+		over placing <em>exit/break</em> within an
+		<em>if-then-elsif-else-end</em> statement.
+	<li> Can lead to spaghetti code.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "loop and a half" problem (where some of the loop's logic
+	<strong>must</strong> be repeated either before or after the loop)
+	<ol class="answer_list">
+	<li> Is just part of programming, and cannot be circumvented.
+	<li> Is best handled by the use of the <em>for-loop-end</em> statement.
+	<li> Is best handled by the use of the <em>loop-until</em> statement.
+	<li> Can often be eliminated by the use of an <em>exit/break</em>
+		statement within a generalized <em>loop-end</em>.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An example violation of the principle of structured programming occurs
+	when
+	<ol class="answer_list">
+	<li> A "return" statement in a subprogram appears in the middle
+		of the subprogram text.
+	<li> Multiple "exit" statements appear within a loop.
+	<li> A subprogram's "return" statement appears within a loop.
+	<li> Multiple "return" statements appear within a subprogram.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Exceptions are intended to
+	<ol class="answer_list">
+	<li> Handle hardware errors.
+	<li> Asynchronously handle interrupts.
+	<li> Terminate program execution.
+	<li> Separate error handling code from the rest of the code.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When an exception is raised/thrown
+	<ol class="answer_list">
+	<li> Its handler is determined through static scoping.
+	<li> Its handler is determined through dynamic scoping.
+	<li> Execution transfers to the textually closest matching handler.
+	<li> The run-time stack is popped and normal execution transfers to
+		the next most recent subprogram call.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Raised/thrown exceptions may
+	<ol class="answer_list">
+	<li> Only contain data from the current run-time stack activation
+		record.
+	<li> <strong>Never</strong> contain additional information.
+	<li> Contain any data accessible at the point in the program where
+		the exception occurred.
+	<li> Propagate down the run-time stack (i.e., through the subprogram
+		calling chain) searching for a matching handler.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a raised/thrown exception contains a reference (i.e., pointer) to
+	data in the current activation record, then
+	<ol class="answer_list">
+	<li> A dangling reference could be created if the exception
+		propagates down the run-time stack.
+	<li> The exception will be handled without difficulty so long as
+		a matching handler can be found.
+	<li> Exceptions are <strong>never</strong> allowed to hold data
+		references.
+	<li> Exceptions are only allowed to hold references to static data.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are exception handling semantic models?
+	<ol class="answer_list">
+	<li> Termination
+	<li> Abortion
+	<li> Resumption
+	<li> Retry
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The termination exception model, in combination with a loop and flag,
+	can be used to implement the semantics of the
+	<ol class="answer_list">
+	<li> Abortion model
+	<li> Resumption model
+	<li> Continuation model
+	<li> Execution model
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java natively supports which of the following exception semantic models?
+	<ol class="answer_list">
+	<li> Termination
+	<li> Abortion
+	<li> Resumption
+	<li> Retry
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ natively supports which of the following exception semantic models?
+	<ol class="answer_list">
+	<li> Termination
+	<li> Abortion
+	<li> Resumption
+	<li> Retry
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Smalltalk natively supports which of the following exception semantic
+	models?
+	<ol class="answer_list">
+	<li> Termination
+	<li> Abortion
+	<li> Resumption
+	<li> Retry
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the termination model of exception handling, execution transfers from
+	the current code block to an appropriate handler (if it exists).
+	Execution then
+	<ol class="answer_list">
+	<li> Continues with the code following the handler.
+	<li> Continues with the statement that raised the exception.
+	<li> Continues with the statement following the one that raised the
+		exception.
+	<li> Continues with the first statement in the code block that
+		raised the exception.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the resumption model of exception handling, execution transfers from
+        the current code block to an appropriate handler (if it exists).
+        Execution then
+	<ol class="answer_list">
+	<li> Continues with the code following the handler.
+	<li> Continues with the statement that raised the exception.
+	<li> Continues with the statement following the one that raised the
+		exception.
+	<li> Continues with the first statement in the code block that
+		raised the exception.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the retry model of exception handling, execution transfers from
+        the current code block to an appropriate handler (if it exists).
+        Execution then
+	<ol class="answer_list">
+	<li> Continues with the code following the handler.
+	<li> Continues with the statement that raised the exception.
+	<li> Continues with the statement following the one that raised the
+		exception.
+	<li> Continues with the first statement in the code block that
+		raised the exception.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "finally" block in Java's <em>try-catch-finally</em> statement
+	guarantees that
+	<ol class="answer_list">
+	<li> Its actions will be executed only if no exception is raised.
+	<li> Its actions will be executed before the object is garbage
+		collected.
+	<li> Its actions will <strong>always</strong> be executed.
+	<li> No exceptions will be propagated beyond the subprogram
+		containing it.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages have a mechanism
+	that guarantees some group of statements will be executed regardless
+	of whether or not an exception is raised/thrown?
+	<ol class="answer_list">
+	<li> C++
+	<li> Java
+	<li> Smalltalk
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Raising/throwing and handling exceptions in languages such as Java and
+	C++ are
+	<ol class="answer_list">
+	<li> Just as efficient as non-exception code.
+	<li> About twice as slow as non-exception code.
+	<li> About 10-20 times slower than non-exception code.
+	<li> About 100-200 times slower than non-exception code.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Exceptions should be used
+	<ol class="answer_list">
+	<li> For any condition that should happen only once (e.g., end of file).
+	<li> To terminate loops.
+	<li> Only for rare/unusual processing.
+	<li> To propagate out of a deeply nested set of subprogram calls when
+		an anticipated condition occurs.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> The structured programming design paradigm is characterized by
+	<ol class="answer_list">
+	<li> Decomposition of actions into smaller and simpler elements.
+	<li> Use of Single-Entry/Single-Exit language constructs.
+	<li> Detailed refinement of decomposed elements.
+	<li> Recursive application of decomposition and refinement.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The structured programming design paradigm is also known as
+	<ol class="answer_list">
+	<li> Top-down development with stepwise refinement.
+	<li> Recursive top-down development.
+	<li> Single-Entry/Single-Exit design.
+	<li> Middle-out development.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The <em>Structured Program Theorem</em> states that any computable
+	function can be described using
+	<ol class="answer_list">
+	<li> Sequential execution of statements/subprograms.
+	<li> Support for recursive subprogram execution.
+	<li> Selection between two possible statements/subprograms
+		based on a boolean expression.
+	<li> Iteration until a particular boolean expression is true.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A "bottom-up" design approach
+	<ol class="answer_list">
+	<li> Is the principle behind language libraries.
+	<li> Is more efficient than the "top-down" approach.
+	<li> Is less error prone than the "top-down" approach.
+	<li> Creates a set of relatively independent components from which
+		to build solutions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Components in a language library (e.g., "iostream" in C++) are
+	characterized by
+	<ol class="answer_list">
+	<li> An interface that describes the visible parts of a component.
+	<li> Documentation describing how to program with the component.
+	<li> A specification that describes the component's behavior.
+	<li> One or more implementations that implement the specification.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Language library (e.g., "iostream" in C++) component characterizations
+	can have multiple
+	<ol class="answer_list">
+	<li> Interfaces
+	<li> Documentation sets
+	<li> Specifications
+	<li> Implementations
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Abstractions of a service/capability
+	<ol class="answer_list">
+	<li> Enable clients to be independent of the service/capability
+		implementation.
+	<li> Aren't directly usable by client programs.
+	<li> Provide the specification for a programmer to implement the
+		service/capability.
+	<li> Are <strong>always</strong> implemented as abstract classes
+		in Java and C++.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Procedural abstractions
+	<ol class="answer_list">
+	<li> Hide changes to "global" variables.
+	<li> Hide the computation and intermediate results.
+	<li> Provide reusable behavior.
+	<li> Focus on hiding the organization and storage of data.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Data abstractions
+	<ol class="answer_list">
+	<li> Are commonly implemented as Abstract Data Types (ADTs).
+	<li> Are limited to a single implementation per data abstraction.
+	<li> Encourage, but don't require, data access via published interfaces.
+	<li> Focus on hiding the organization and storage of data.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An Abstract Data Type (ADT) typically consists of
+	<ol class="answer_list">
+	<li> A single (data) type.
+	<li> An algebraic representation of its semantics.
+	<li> A set of operations for creating and manipulating values of the
+		(data) type.
+	<li> A list of exceptions associated with the (data) type.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following language paradigms provide support for the proper
+	implementation and enforcement of Abstract Data Types (ADTs)?
+	<ol class="answer_list">
+	<li> Module/Package oriented.
+	<li> Object-based.
+	<li> Data oriented.
+	<li> Object-oriented.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Languages supporting the Module/Package paradigm support
+	<ol class="answer_list">
+	<li> Only single inheritance.
+	<li> Grouping subprograms together without any associated types.
+	<li> Multiple named types and subprograms to be grouped together.
+	<li> Information hiding (in most languages).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Languages supporting the Object-based paradigm support
+	<ol class="answer_list">
+	<li> Either single or multiple inheritance.
+	<li> Parameterized polymorphism.
+	<li> Information hiding (in most languages).
+	<li> Enables multiple named types to be grouped together.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Languages supporting the Object-oriented paradigm support
+	<ol class="answer_list">
+	<li> Implementation reuse.
+	<li> Parameterized polymorphism.
+	<li> Grouping subprograms together without any associated data
+		structure(s).
+	<li> Subtype polymorphism.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Abstract Data Type (ADT) operations are partitioned into the following
+	categories
+	<ol class="answer_list">
+	<li> Constructors
+	<li> Indexers
+	<li> Operators
+	<li> Observers
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Abstract Data Type (ADT) "Constructor" operations
+	<ol class="answer_list">
+	<li> Build/destroy elements of the type.
+	<li> Combines elements to create new elements of the type.
+	<li> Map type elements to one another.
+	<li> Return a result of some other type.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Examples of "Constructor" operations for an Abstract Data Type (ADT)
+	include
+	<ol class="answer_list">
+	<li> Assignment
+	<li> Union
+	<li> Setters
+	<li> Mutators
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Abstract Data Type (ADT) "Operator" operations
+	<ol class="answer_list">
+	<li> Build/destroy elements of the type.
+	<li> Combines items into a new type.
+	<li> Map type elements to one another.
+	<li> Return a result of some other type.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Examples of "Operator" operations for an Abstract Data Type (ADT)
+	include
+	<ol class="answer_list">
+	<li> Addition
+	<li> Comparison
+	<li> Assignment
+	<li> Union
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Abstract Data Type (ADT) "Observer" operations
+	<ol class="answer_list">
+	<li> Build/destroy elements of the type.
+	<li> Map type elements to one another.
+	<li> Return a result of some other type.
+	<li> Return a result of the same type.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Examples of "Observer" operations for an Abstract Data Type (ADT)
+	include
+	<ol class="answer_list">
+	<li> Getters
+	<li> Comparison
+	<li> Search
+	<li> Iterators
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Templates/Generics (i.e., explicit parametric polymorphism)
+	<ol class="answer_list">
+	<li> Work like macros and are thus <strong>not</strong> type checked.
+	<li> <strong>Always</strong> reduce the size of the source code.
+	<li> <strong>Always</strong> reduce the size of the compiler
+		generated code.
+	<li> Enable an algorithm and/or data structure to be reused over a
+		variety of other functions and data.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages support templates/generics (i.e.,
+	explicit parametric polymorphism)?
+	<ol class="answer_list">
+	<li> Ada
+	<li> C++
+	<li> Java
+	<li> Smalltalk
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages support implicit
+	parametric polymorphism within the language? 
+	<ol class="answer_list">
+	<li> Lisp
+	<li> C++
+	<li> Java
+	<li> Prolog
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages support explicit
+	parametric polymorphism within the language? 
+	<ol class="answer_list">
+	<li> C++
+	<li> Java
+	<li> Prolog
+	<li> Smalltalk
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which of the following is <strong>not</strong> a primary concept of
+	object-oriented languages?
+	<ol class="answer_list">
+	<li> Dynamic Lookup
+	<li> Generics
+	<li> Subtyping
+	<li> Inheritance
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The object-oriented language concept of Dynamic Lookup
+	<ol class="answer_list">
+	<li> Identifies which overloaded subprogram to execute.
+	<li> Determines which subprogram to execute at run-time.
+	<li> Identifies which subprogram to execute at compile-time.
+	<li> Is the foundation of subtype polymorphism's power.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The two kinds of Dynamic Lookup dispatch are
+	<ol class="answer_list">
+	<li> Linear
+	<li> Single
+	<li> Multiple 
+	<li> Hierarchical
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which kind of Dynamic Lookup dispatch uses only the receiving object
+	of the message to determine which method implementation to execute?
+	<ol class="answer_list">
+	<li> Linear
+	<li> Single
+	<li> Multiple 
+	<li> Hierarchical
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which kind of Dynamic Lookup dispatch uses the receiving object along with
+	the message parameters to determine which method implementation to
+	execute?
+	<ol class="answer_list">
+	<li> Linear
+	<li> Single
+	<li> Multiple 
+	<li> Hierarchical
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The object-oriented language concept of Abstraction
+	<ol class="answer_list">
+	<li> Uses step-wise refinement during program execution.
+	<li> Enables the overriding of method definitions.
+	<li> Hides subprogram implementation details.
+	<li> Hides data structure details (if any).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The object-oriented language concept of Subtyping
+	<ol class="answer_list">
+	<li> Provides that type <em>B</em> is a subtype of <em>A</em> whenever
+		<em>A</em> is a subclass of <em>B</em>.
+	<li> Provides that type <em>A</em> is a subtype of <em>B</em> whenever
+		<em>A</em> is a subclass of <em>B</em>.
+	<li> Provides that type <em>A</em> is a subtype of <em>B</em> whenever
+		<em>A</em> responds to <strong>all</strong> of the messages
+		that <em>B</em> responds to.
+	<li> Provides that type <em>B</em> is a subtype of <em>A</em> whenever
+		<em>A</em> responds to <strong>all</strong> of the messages
+		that <em>B</em> responds to.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When type <em>A</em> can be replaced with type <em>B</em> in declaration
+	without hindering the execution of the program,
+	this is an example of the principle of
+	<ol class="answer_list">
+	<li> Applicability
+	<li> Replaceability
+	<li> Susbstitutivity
+	<li> Transferability
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The object-oriented language concept of Inheritance
+	<ol class="answer_list">
+	<li> Is the basis for code reusability.
+	<li> Is equivalent to subtyping.
+	<li> Enables implicit polymorphism.
+	<li> Adds the "protected" interface viewpoint.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Top-down programming
+	<ol class="answer_list">
+	<li> Starts at the highest levels of abstraction.
+	<li> Can only be done with an object-oriented language.
+	<li> Can be done with any programming language.
+	<li> Is identical to programming by induction.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Bottom-up programming
+	<ol class="answer_list">
+	<li> Can only be done with an object-oriented language.
+	<li> Can be done with any programming language.
+	<li> Starts at the lowest levels of abstraction.
+	<li> Is identical to programming by induction.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Object-oriented languages support data and subprogram refinement better
+	than procedure-oriented languages because
+	<ol class="answer_list">
+	<li> Inheritance provides code reuse.
+	<li> There is no difference, both are the same.
+	<li> Objects are a combination of data and behavior.
+	<li> Dynamic Lookup performs refinement at run-time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Object-oriented design is characterized by which of the following?
+	<ol class="answer_list">
+	<li> Starting at the highest level of abstraction.
+	<li> Detailing the behavior of identified objects.
+	<li> Determining which existing object classes to extend.
+	<li> Clarifying the relationships between objects.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Object-oriented design is characterized by which of the following?
+	<ol class="answer_list">
+	<li> Starting at the lowest level of abstraction.
+	<li> Detailing the behavior of identified objects.
+	<li> Clarifying the relationships between objects.
+	<li> Creating generic data organization classes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Object-oriented design is characterized by which of the following?
+	<ol class="answer_list">
+	<li> Identifying the objects at a given level of abstraction.
+	<li> Clarifying the relationships between objects.
+	<li> Creating generic data organization classes.
+	<li> Implementing the data organization and behavior of objects.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Object-oriented design is characterized by which of the following?
+	<ol class="answer_list">
+	<li> Detailing the behavior of identified objects.
+	<li> Determining which existing object classes to extend.
+	<li> Clarifying the relationships between objects.
+	<li> Creating generic data organization classes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Object-oriented design is characterized by which of the following?
+	<ol class="answer_list">
+	<li> Identifying the objects at a given level of abstraction.
+	<li> Detailing the behavior of identified objects.
+	<li> Determining which existing object classes to extend.
+	<li> Implementing the data organization and behavior of objects.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Object-oriented design is characterized by which of the following?
+	<ol class="answer_list">
+	<li> Starting at the highest level of abstraction.
+	<li> Determining which existing object classes to extend.
+	<li> Creating generic data organization classes.
+	<li> Implementing the data organization and behavior of objects.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The differences between the preferred design of programs using
+	Object-Oriented versus Procedure-Oriented languages are exhibited by
+	<ol class="answer_list">
+	<li> The available language libraries.
+	<li> The available design patterns.
+	<li> Personal programmer preference.
+	<li> Relational design methodologies.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> The key advantage(s) of models being simplified descriptions of real-world
+	processes
+	<ol class="answer_list">
+	<li> Are absent, since some details are missed.
+	<li> Is they are easier to understand.
+	<li> Are that they can often be reused for a different domain (e.g.,
+		a tornado model can be used for huricanes).
+	<li> Depend upon the specific process being modeled.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Computed simulation results are used to predict what will happen with a
+	real-world process
+	<ol class="answer_list">
+	<li> So they usually need to run faster than real-time.
+	<li> Making them helpful for experiments that would otherwise
+		be too costly to conduct.
+	<li> To inform future human actions.
+	<li> Over which we have limited control.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When available, actual real-world data is compared to computed simulation
+	results (i.e., predictions) in order to
+	<ol class="answer_list">
+	<li> Determine what should have happened in the real-world.
+	<li> Evaluate the accuracy of the model in specific circumstances.
+	<li> Create suitable test data.
+	<li> Enable improvement of the underlying simulation model.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The <strong>best</strong> models are the ones that
+	<ol class="answer_list">
+	<li> Address a wide variety of scenarios.
+	<li> Explain the vast majority of behavior.
+	<li> <strong>Always</strong> agree with expert opinions.
+	<li> Use the simplest descriptions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A characteristic of emergent behavior in simulations is that
+	<ol class="answer_list">
+	<li> Results after a sufficiently long period of time are unpredictable
+		without actually running the simulation.
+	<li> It <strong>always</strong> describes a Turing Complete system.
+	<li> Complex rule sets are <strong>always</strong> needed.
+	<li> They are often extremely sensitive to their initial conditions.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Discrete time simulations
+	<ol class="answer_list">
+	<li> use fixed time increments between actions. 
+	<li> can use varying time increments between actions that can be
+		any (fractional) value greater than 0.
+	<li> sometimes calculate when the next interaction between model
+		elements will occur (e.g., pool balls colliding) and advance
+		the time to that point in the simulation.
+	<li> are almost never used since the real-world is continuous.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Simulations that divide space up into discrete units
+	<ol class="answer_list">
+	<li> Are almost never used since the real-world is continuous.
+	<li> <strong>Must</strong> use a unit that is extremely small in size
+		to mimic the real-world as closely as possible.
+	<li> Use a single unit (of fixed size) arranged so that every point in
+		space resides in one of these units.
+	<li> <strong>Must</strong> also use discrete time as well.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A preferred technique to make discrete simulations more accurate,
+	while maintaining efficient execution, is to
+	<ol class="answer_list">
+	<li> <strong>Always</strong> use the absolute smallest discrete
+		unit size possible.
+	<li> Run the complete simulation at one size, and then run it again
+		at a smaller size (e.g., half). Stop when halving doesn't
+		yield a significant difference. 
+	<li> Adjust the discrete parameter (e.g., by halving - down to a
+		predetermined minimum size) during run-time
+		if doing so reduces the amount of error.
+	<li> Rewrite the simulation rules so that they are continuous.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Cellular Automata simulations use
+	<ol class="answer_list">
+	<li> Discrete time
+	<li> Continuous time
+	<li> Discrete space
+	<li> Continuous space
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The cells in a Cellular Automata simulation are usually
+	<ol class="answer_list">
+	<li> Updated according to a uniform set of rules shared by
+		<strong>all</strong> cells.
+	<li> Of varying sizes to allow computer calculations to focus on the
+		most needed areas.
+	<li> Updated synchronously so that it appears as if
+		<strong>all</strong> cells were updated simultaneously.
+	<li> Of varying shapes to better fit the real-world situation being
+		modeled.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> One of the most well known Cellular Automata models is
+	<ol class="answer_list">
+	<li> Schelling's Segregation
+	<li> Craig Reynolds' Boids
+	<li> Langton's Loops
+	<li> Conway's Game of Life
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Conway's Game of Life exists on a 2-dimensional square grid
+	<ol class="answer_list">
+	<li> With each cell either "alive" or "dead".
+	<li> Using only the values of its North, South, East, and West neighbors
+		to determine its next value.
+	<li> And exhibits complex emergent behavior that is Turing complete.
+	<li> With rules that cause cells to die of both overcrowding and
+		loneliness.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which class of Cellular Automata is described as quickly settling into a
+	stable homogeneous state, with any randomness in the initial
+	conditions disappearing.
+	<ol class="answer_list">
+	<li> Class 1
+	<li> Class 2
+	<li> Class 3
+	<li> Class 4
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which class of Cellular Automata is described as quickly settling into
+	stable or short-period oscillating structures, while the impact of
+	any remaining initial randomness on the final pattern tends to be
+	localized.
+	<ol class="answer_list">
+	<li> Class 1
+	<li> Class 2
+	<li> Class 3
+	<li> Class 4
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which class of Cellular Automata is described as giving rise to
+	pseudo-random or chaotic behavior, with any stable structures that
+	emerge being local in <strong>both</strong> time and space and
+	are quickly destroyed by the surrounding noise.
+	<ol class="answer_list">
+	<li> Class 1
+	<li> Class 2
+	<li> Class 3
+	<li> Class 4
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which class of Cellular Automata is described as giving rise to
+	interesting and complex behaviors that are neither random nor
+	simple short-period oscillators.
+	<ol class="answer_list">
+	<li> Class 1
+	<li> Class 2
+	<li> Class 3
+	<li> Class 4
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Agent-based Modeling (ABM) differs from Cellular Automata (CA) in that they
+	<ol class="answer_list">
+	<li> Can use continuous time units whereas CA are limited to discrete
+		time steps.
+	<li> Divide space into discrete units. 
+	<li> Support mobile entities that can change locations.
+	<li> Are Turing complete but CA are <strong>not</strong>.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Agent-based Modeling (ABM) and Cellular Automata (CA) share these
+	characteristic(s)
+	<ol class="answer_list">
+	<li> The ability to move entities from one location to another.
+	<li> Turing completeness.
+	<li> Stigmergic interactions between spacial locations.
+	<li> Divide space into discrete units. 
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Comments in NetLogo programs
+	<ol class="answer_list">
+	<li> Begin with a lb (#) and extend to the end of the line.
+	<li> Begin with a percent (%) and extend to the end of the line.
+	<li> Begin with a double slash (//) and extend to the end of the line.
+	<li> Are contained between double quotes (").
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> NetLogo supports which of the following four kinds of entities?
+	<ol class="answer_list">
+	<li> Agents, patches, links, and an oracle.
+	<li> Turtles, patches, links, and an observer.
+	<li> Turtles, cells, links, and an observer.
+	<li> Agents, cells, links, and an oracle.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The location of a <em>patch</em> in NetLogo is given by
+	<ol class="answer_list">
+	<li> "x" and "y"
+	<li> "px" and "py"
+	<li> "xcor" and "ycor"
+	<li> "pxcor" and "pycor"
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The location of a <em>turtle</em> in NetLogo is given by
+	<ol class="answer_list">
+	<li> "x" and "y"
+	<li> "px" and "py"
+	<li> "xcor" and "ycor"
+	<li> "pxcor" and "pycor"
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Patch coordinates in NetLogo <strong>must</strong> be
+	<ol class="answer_list">
+	<li> Given only in two dimensions.
+	<li> Integer values.
+	<li> Non-negative numbers.
+	<li> Given as relative locations to the current patch.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Turtle coordinates in NetLogo <strong>must</strong> be
+	<ol class="answer_list">
+	<li> Given only in two dimensions.
+	<li> Integer values.
+	<li> Non-negative numbers.
+	<li> Given as relative locations to the current patch.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In NetLogo, to have one or more patches, turtles, or links
+	perform an action, the request <strong>must</strong>
+	<ol class="answer_list">
+	<li> Be given via the "ask" command.
+	<li> Appear within a user defined procedure named "go".
+	<li> Specify the location of the entities.
+	<li> Occur within a loop if more than one entity is involved.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The NetLogo user interface elements (e.g., button, switch, and slider)
+	communicate with the program via
+	<ol class="answer_list">
+	<li> Return values when the program calls the UI elements.
+	<li> User defined procedures called by the UI elements.
+	<li> UI generated exceptions handled in the code.
+	<li> Global variables set (or used) by the UI elements.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Non-global variables can be defined, in NetLogo, for
+	<ol class="answer_list">
+	<li> Procedures and code blocks
+	<li> Turtles
+	<li> Patches
+	<li> Links
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Lists, in NetLogo, are similar to arrays in other languages but
+	<ol class="answer_list">
+	<li> <strong>Must</strong> be indexed starting at zero (0).
+	<li> Are less efficient than arrays.
+	<li> Their size is fixed after being declared.
+	<li> Can only hold primitive values (e.g., <strong>not</strong>
+		other lists).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> To execute a NetLogo action forever, you can either use a forever button
+	(in the UI) or the command
+	<ol class="answer_list">
+	<li> while
+	<li> repeat
+	<li> loop
+	<li> foreach
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In NetLogo, the "map" command
+	<ol class="answer_list">
+	<li> Successively applies a command to a list of arguments.
+	<li> Assigns (maps) evenly across <strong>all</strong> patches
+		in the universe.
+	<li> Gives the location of a patch in the universe.
+	<li> Gives the location of a turtle in the universe.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In NetLogo, the "reduce" command
+	<ol class="answer_list">
+	<li> Reduces the size of a list (i.e., array) by the specified amount.
+	<li> Combines elements of a list using the specified operator.
+	<li> Removes turtles that meet the indicated criteria.
+	<li> Removes links that meet the indicated criteria.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Unlike patches, turtles in NetLogo can be created
+	<ol class="answer_list">
+	<li> By an existing turtle, using the "hatch" command.
+	<li> By two or more existing turtles, using the "mate" command.
+	<li> By a patch using the "grow" command.
+	<li> By a patch using the "sprout" command.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the following NetLogo code snippet,
+	<pre><code>
+	patches-own [ status? count ]
+
+	to task
+		ask patches [
+			set count 0
+			foreach [ status? ] of neighbors [
+				if ? [ set count count + 1 ]
+			]
+		]
+		ask patches [
+			ifelse 0 = count mod 2
+				[ set status? true ]
+				[ set status? false ]
+		]
+	end
+	</code></pre>
+	using a single "ask patches [...]", rather than the two used above,
+	would yield different results because
+	<ol class="answer_list">
+        <li> Every execution would yield different results (even on the same
+		data) whether one (1) or two "ask patches" was used.
+        <li> The number of "neighbors" used in the calculation would change.
+        <li> Not all of the "count" values would be calculated before the
+		setting of "status?" values began.
+        <li> They wouldn't, <strong>both</strong> would actually give the
+		same results each time they ran on the same data.
+        <li> None of the above
+        </ol>
+</li><br/>
+
+<li> Write a NetLogo program that uses a default 2-dimensional patch universe,
+	which causes every patch to blink in unison alternating between white
+	and black.
+</li><br/>
+<li> Write a NetLogo program that uses a default 2-dimensional patch universe.
+	Every patch can have one of two colors: white or black. Initially,
+	patches whose x and y coordinates sum to an even number get colored
+	white, while all others are colored black. During each timestep,
+	each patch changes to display the opposing color.
+</li><br/>
+
+<li> Write a NetLogo program that uses a default 2-dimensional patch universe.
+	Initially <strong>all</strong> patches have a random value
+	(between 0 and 9) assigned.
+	With each time tick, a patch examines the value of its 8 neighbors 
+	along with its own value. The current patch changes its value to that
+	of a neighboring patch that meets the following conditions:
+	<ul class="bullet_list">
+	<li> If the current patch has an <em>even</em> value and the
+		neighboring patch with the highest value is greater than
+		the value of the current patch.
+	<li> If the current patch has an <em>odd</em> value and the
+		neighboring patch with the lowest value is less than the
+		value of the current patch.
+	</ul>
+</li><br/>
+<li> Write a NetLogo program that uses a default 2-dimensional patch universe.
+	Each patch keeps track of its current temperature (nowTemp) and
+	the temperature prior to that (recentTemp). Initially each patch
+	is assigned a random temperature from 0 to 100 (inclusive). The
+	average nowTemp of the patch's neighbors is calculated.
+	<ul class="bullet_list">
+	<li> If the neighbor average temperature is greater than the nowTemp
+		of the patch, then the patch's new nowTemp becomes the greater
+		of the average and the patch's recentTemp.
+	<li> Otherwise the patch's new nowTemp becomes the lesser
+		of the average and the patch's recentTemp.
+	</ul>
+	In either case, the patch's recentTemp becomes the value of nowTemp
+	(before it is changed).
+</li><br/>
+
+<li> Write a NetLogo program that uses a default 2-dimensional patch universe.
+	Extend the game of life so that each live patch can be sick. Initially,
+	a live patch has a 10% chance of being sick. Patches can only become
+	sick when they are born. A patch that is born is sick if any of its
+	neighboring patches is also sick. Healthy live
+	patches should be colored green while sick live patches are colored
+	red.  Sick live patches become healthy after 3 time ticks.
+</li><br/>
+
+<li> Write a NetLogo program that uses a default 2-dimensional patch universe.
+	Modify the Schelling segregation model so that it incorporates a
+	bias for diversity. The example presented in class only considers the
+	number of patch neighbors that are of the same "flavor" as the patch
+	itself. The diversity bias makes a patch unhappy (i.e., "happy?" is
+	false) if the number of patch neighbors with a different "flavor"
+	from the patch is not greater or equal to a cut-off value (determined
+	by a slider). The range of diversity bias values should be 0 to 8.
+</li><br/>
+<li>
+The Nobel laureate economist Thomas Schelling's segregation model
+	<ol class="answer_list">
+	<li> Is applicable only to wealth inequities in global financial
+		markets.
+	<li> Shows how small individual differences in preference can lead to
+		large impacts that are globally observable over time.
+	<li> Demonstrates that personal bias plays little if any role in the
+		development of segregated neighborhoods.
+	<li> Illustrates how simple models can be used to better understand
+		real systems that do not lend themselves to active
+		experimentation (e.g., directly altering the real system and
+		observing the effects).
+	<li> None of the above
+</ol>
+</li><br/>
+
+<li> Write a NetLogo program that uses a 3-dimensional patch universe.
+	Extend the <a href="topics/topic_53.shtml">SRDP model</a> so
+	that it works in 3 dimensions rather than just 2 dimensions.
+</li><br/>
+<li> Write a NetLogo program that uses a default 2-dimensional patch universe.
+	Each patch should randomly be assigned the value of 0, 1, or 2 (each
+	value being equally likely). A single turtle starts in the middle of
+	the universe, heading north. During each time tick:
+	<ul class="bullet_list">
+	<li> Based on the patch value the turtle is in, it turns:
+		<ul class="bullet_list">
+		<li> left 90 degrees if the patch value is 0,
+		<li> 0 degrees and continues in its current direction if
+			the patch value is 1, and
+		<li> right 90 degrees if the patch value is 2.
+		</ul>
+	<li> Then the turtle moves forward one unit.
+	</ul>
+</li><br/>
+
+<li> Write a NetLogo program that uses a 3-dimensional patch universe.
+	Each patch should randomly be assigned the value of 0, 1, 2, 3, or 4
+	(each value being equally likely). A single turtle starts in the
+	middle of the universe, heading up. During each time tick:
+	<ul class="bullet_list">
+	<li> Based on the patch value the turtle is in, it turns:
+		<ul class="bullet_list">
+		<li> left 90 degrees if the patch value is 0,
+		<li> up 90 degrees if the patch value is 1,
+		<li> Continues in its current direction if
+			the patch value is 2,
+		<li> down 90 degrees if the patch value is 3, and
+		<li> right 90 degrees if the patch value is 4.
+		</ul>
+	<li> Then the turtle moves forward one unit.
+	</ul>
+</li><br/>
+<li> Write a NetLogo program that uses a default 2-dimensional patch universe.
+	Populate the universe so that 20% of the patches have a single turtle
+	(all other patches are empty). Each turtle should have a random
+	heading and a random speed between 0 and 5 inclusive. At each time
+	tick turtles move according to their speed and direction. After
+	<strong>all</strong> the turtles have moved in a time tick, each
+	turtle should examine another randomly chosen turtle that is also in
+	its same patch and set its speed and direction to match that
+	random turtle.
+</li><br/>
+
+<li> Write a NetLogo program that uses a default 2-dimensional patch universe.
+	At time zero have the bottom left-most patch create a single
+	turtle with an initial heading toward the east (i.e., right). On
+	odd time steps the turtle should move forward one step, while on
+	even time steps the turtle should not move, but simply change its
+	heading by turning left 90 degrees if the sum of its patch's
+	x and y coordinates is even, and turning right 90 degrees if the sum
+	of the patch's x and y coordinates is odd.
+</li><br/>
+<li> Write a NetLogo program that uses a 2-dimensional patch universe of
+	size 64 by 64. The patch at location (32, 32) should create four
+	turtles at time zero, with each turtle heading in a different
+	compass direction (i.e., north, south, east, west). At every time
+	step, all turtles should travel two steps in the direction they
+	are headed, create four turtles with each heading in one of the
+	four compass directions, and then the original turtle should
+	die.
+</li><br/>
+
+<li> Java was originally envisioned as a programming language for
+	<ol class="answer_list">
+	<li> Set-top boxes.
+	<li> Video game machines. 
+	<li> Internet browser (web client) applications.
+	<li> Transactional and enterprise computing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In 1990, work on Java began as a reimplementation of 
+	<ol class="answer_list">
+	<li> C
+	<li> Objective-C
+	<li> C++
+	<li> C#
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java (originally named Oak) changed focus, around 1994, from
+	<ol class="answer_list">
+	<li> Set-top boxes to transactional and enterprise computing.
+	<li> Video game machines to web client applications.
+	<li> Video game machines to transactional and enterprise computing.
+	<li> Web client applications to transactional and enterprise computing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java added support in late 1999, primarily via additional libraries and
+	system platforms, for
+	<ol class="answer_list">
+	<li> Set-top boxes.
+	<li> Video game machines. 
+	<li> Internet browser (web client) applications.
+	<li> Transactional and enterprise computing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> an element of the Java
+	programming system?
+	<ol class="answer_list">
+	<li> Programming language.
+	<li> Java Virtual Machine (JVM).
+	<li> Java Bytecode intermediate representation.
+	<li> Wide collection of code libraries.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Java's design goals included
+	<ol class="answer_list">
+	<li> Completeness
+	<li> Portability
+	<li> Reliability
+	<li> Safety
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java's design goals included
+	<ol class="answer_list">
+	<li> Consistency
+	<li> Efficiency
+	<li> Enhanceability
+	<li> Safety
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java's design goals included
+	<ol class="answer_list">
+	<li> Completeness
+	<li> Efficiency
+	<li> Maintainability
+	<li> Simplicity
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java's design goals included
+	<ol class="answer_list">
+	<li> Consistency
+	<li> Enhanceability
+	<li> Safety
+	<li> Simplicity
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java's design goals included
+	<ol class="answer_list">
+	<li> Maintainability
+	<li> Portability
+	<li> Reliability
+	<li> Simplicity
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following Java language design decisions enhances Portability?
+	<ol class="answer_list">
+	<li> Java Bytecode representation.
+	<li> Java VM interpretation.
+	<li> Large set of language libraries.
+	<li> Multi-threaded/Concurrency support.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following Java language design decisions enhances Safety?
+	<ol class="answer_list">
+	<li> Java VM interpretation.
+	<li> Multi-threaded/Concurrency support.
+	<li> Retention of some primitive types.
+	<li> Garbage collection.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following Java language design decisions enhances Simplicity?
+	<ol class="answer_list">
+	<li> Large set of language libraries.
+	<li> Having both primitive and reference types.
+	<li> All objects are heap allocated.
+	<li> Syntax similar to C/C++.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following Java language design decisions enhances Efficiency?
+	<ol class="answer_list">
+	<li> Retention of some primitive types.
+	<li> Java VM interpretation.
+	<li> Most values are heap allocated.
+	<li> Large set of language libraries.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following Java language design decisions enhances Reliability?
+	<ol class="answer_list">
+	<li> Type safety.
+	<li> Java VM interpretation.
+	<li> Retention of some primitive types.
+	<li> Garbage collection.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Unlike C++, Java supports
+	<ol class="answer_list">
+	<li> Only single inheritance.
+	<li> Primitive types.
+	<li> Objects (class instances) as <strong>both</strong> heap and
+		run-time stack allocations.
+	<li> Garbage collection.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Every class in Java has at least one of these kind of methods defined.
+	<ol class="answer_list">
+	<li> Destructor
+	<li> Finalize
+	<li> Constructor
+	<li> Iterator
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <strong>not</strong> a kind of visibility
+	in Java?
+	<ol class="answer_list">
+	<li> Namespace
+	<li> Package
+	<li> Protected
+	<li> Friend
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The only type of method, in Java, that can be called without a
+	receiving object (i.e., class instance) is
+	<ol class="answer_list">
+	<li> Abstract
+	<li> Public
+	<li> Static
+	<li> Virtual
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Static methods in Java can directly reference which of these kinds of
+	attributes within their class definition?
+	<ol class="answer_list">
+	<li> Abstract
+	<li> Public
+	<li> Static
+	<li> Virtual
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Initialization of static variables is performed
+	<ol class="answer_list">
+	<li> Every time an instance is created.
+	<li> When the class definition is loaded.
+	<li> When the first class instance is created.
+	<li> After the class' "finalize" method is called.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java methods are overloaded based on the
+	<ol class="answer_list">
+	<li> Exceptions it can propagate.
+	<li> Number of formal parameters.
+	<li> Type of the return value.
+	<li> Type of each formal parameter.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java, like C++, supports
+	<ol class="answer_list">
+	<li> Operator overloading.
+	<li> The compile-time resolution of overloading.
+	<li> The run-time resolution of overloading.
+	<li> Overloading based on "friend" visibility.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages doesn't automatically manage
+	heap storage deallocations? 
+	<ol class="answer_list">
+	<li> C++
+	<li> Java
+	<li> NetLogo
+	<li> Smalltalk
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following languages automatically manages
+	heap storage deallocations? 
+	<ol class="answer_list">
+	<li> C++
+	<li> Java
+	<li> NetLogo
+	<li> Smalltalk
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java's "finalize" method is similar to
+	<ol class="answer_list">
+	<li> The "cons" function in Lisp.
+	<li> Destructors in C++.
+	<li> The "ensure" message in Smalltalk.
+	<li> The "die" command in NetLogo.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "finalize" method for an object in Java will <strong>not</strong>
+	be called until 
+	<ol class="answer_list">
+	<li> The object has been marked for deallocation.
+	<li> After an object has been deallocated.
+	<li> The JVM has run out of available memory.
+	<li> The JVM classloader unloads (or reloads) the object's class.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java's "finalize" method is the preferred way to perform any object
+	cleanup
+	<ol class="answer_list">
+	<li> <strong>Must</strong> happen before the JVM exits.
+	<li> <strong>Must</strong> happen before the object is
+		deallocated, but otherwise has no urgency.
+	<li> <strong>Must</strong> happen within a strict time period after
+		the object is no longer being used.
+	<li> Should happen immediately after the object is no longer
+		being used.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "main" method in a Java program <strong>must</strong> be declared as
+	<ol class="answer_list">
+	<li> The only method in a class called "main", so that the JVM can
+		find it.
+	<li> A "private" method, so that other classes cannot call it.
+	<li> A "static" method since no objects will exist when it is called.
+	<li> An "abstract" method since no objects will exist when it is called.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, class members that aren't explicitly given "public", "protected",
+	or "private" visibility get what visibility designation by default?
+	<ol class="answer_list">
+	<li> Public
+	<li> Private
+	<li> Namespace
+	<li> Package
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, classes and class members with "package" visibility can
+	be accessed by
+	<ol class="answer_list">
+	<li> Methods within the same class.
+	<li> Classes within the same package.
+	<li> Public methods of any subclass.
+	<li> Any method of any subclass.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Every class in Java either directly or indirectly
+	<ol class="answer_list">
+	<li> Implements the "ToString", "Equals", and "Finalize" interfaces.
+	<li> Implements the "Clone" and "HashCode" interfaces.
+	<li> Extends the "Object" class.
+	<li> Extends the "Runnable" class.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, accessing an overridden method in the superclass from the
+	subclass is
+	<ol class="answer_list">
+	<li> Not possible.
+	<li> Done using "super()", letting Java determine the overridden
+		method and parameters automatically.
+	<li> Done using "super(parameters)", letting Java determine the
+		overridden method automatically but allowing the programming
+		to specify the intended "parameters".
+	<li> Done using "super.method(parameters)", where "method" and
+		"parameters" are provided by the programmer and are specific
+		to the overridden method to use.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, accessing an overridden field in the superclass from the
+	subclass is
+	<ol class="answer_list">
+	<li> Not possible.
+	<li> Done using "super.field".
+	<li> Done using "field.super".
+	<li> Done using "super(field)".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java guarantees that a constructor is called for every new object creation,
+	but any constructors in the superclass
+	<ol class="answer_list">
+	<li> Are called at least once.
+	<li> Are called at most once.
+	<li> Are called exactly once.
+	<li> <strong>Must</strong> be explicitly called by the programmer.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, to prevent a method from being overridden in a subclass,
+	declare the superclass method as
+	<ol class="answer_list">
+	<li> Abstract
+	<li> Const
+	<li> Final
+	<li> Virtual
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Abstract methods in Java
+	<ol class="answer_list">
+	<li> Are declared with an implementation "= 0".
+	<li> <strong>Must</strong> be overridden in non-abstract subclasses.
+	<li> May only appear in abstract classes.
+	<li> Can <strong>never</strong> be declared as final.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, you cannot create an instance of a class that is declared as 
+	<ol class="answer_list">
+	<li> Abstract
+	<li> Final
+	<li> Static
+	<li> Virtual
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, you cannot define a subclass of a class that is declared as 
+	<ol class="answer_list">
+	<li> Abstract
+	<li> Final
+	<li> Static
+	<li> Virtual
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java's ability to implement multiple interfaces, rather than allowing
+	multiple inheritance, to support multiple compatible polymorphic
+	types for a class, avoids the
+	<ol class="answer_list">
+	<li> Linearization problem.
+	<li> Diamond problem.
+	<li> Array Covariance problem.
+	<li> Substitutivity problem.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, interfaces rather than classes are often considered the
+	<strong>best</strong> way in which to describe the types of variables
+	and passed parameters because
+	<ol class="answer_list">
+	<li> Classes can implement only a single interface.
+	<li> Classes can extend only a single class.
+	<li> Interfaces can be implemented by many classes.
+	<li> Interfaces can extend only a single interface.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which of the following are <strong>not</strong> a Java primitive type?
+	<ol class="answer_list">
+	<li> boolean
+	<li> char
+	<li> int
+	<li> string
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Java reference types?
+	<ol class="answer_list">
+	<li> Array
+	<li> Class
+	<li> Interface
+	<li> Method
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, a subclass is <strong>always</strong> a subtype of the
+	superclass because
+	<ol class="answer_list">
+	<li> The subclass extends the superclass.
+	<li> The subclass <strong>must</strong> implement the same
+		interfaces as the superclass.
+	<li> The superclass cannot prevent access to its methods by the subclass.
+	<li> The subclass cannot restrict the visibility of inherited methods. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, a subclass is a subtype of 
+	<ol class="answer_list">
+	<li> The "Object" class.
+	<li> Its superclass.
+	<li> The interfaces the superclass implements.
+	<li> The interfaces the subclass implements.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> All Java type casts <strong>must</strong> be checked at
+	<ol class="answer_list">
+	<li> Compile-time.
+	<li> Class load-time.
+	<li> Run-time.
+	<li> The time an exception is raised.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a Java type cast fails, then
+	<ol class="answer_list">
+	<li> An exception is thrown.
+	<li> The superclass' destructor is called.
+	<li> The object's "finalize" method is called.
+	<li> Nothing happens since it was checked at compile-time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, arrays
+	<ol class="answer_list">
+	<li> Can be created for primitive types.
+	<li> Can be created for reference types.
+	<li> Implicitly implement the "Array" interface.
+	<li> Are subtypes of the "Object" class.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java array types are subclasses of "Object", but
+	<ol class="answer_list">
+	<li> Can implement many interfaces. 
+	<li> Cannot be assigned to one another.
+	<li> Cannot be subtyped themselves.
+	<li> Can <strong>always</strong> be bounds checked at compile-time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is an illustration of Java's Array Covariance
+	problem?
+	<ol class="answer_list">
+	<li> <pre><code>
+	class Parent { ... }
+	class Child extends Parent { ... }
+	Child[] child = new Parent[10];
+	child[0] = new Child();
+	</code></pre>
+	<li> <pre><code>
+	class Parent { ... }
+	class Child extends Parent { ... }
+	Parent[] parent = new Child[10];
+	parent[0] = new Parent();
+	</code></pre>
+	<li> <pre><code>
+	class Parent { ... }
+	class Child extends Parent { ... }
+	Parent[] parent = new Parent[10];
+	parent[0] = new Child();
+	</code></pre>
+	<li> <pre><code>
+	class Parent { ... }
+	class Child extends Parent { ... }
+	Parent[] parent = new Parent[10];
+	parent[0] = new Parent();
+	</code></pre>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java's Array Covariance problem requires more run-time type checking
+	be performed when
+	<ol class="answer_list">
+	<li> An array can hold <strong>both</strong> primitive and
+		reference types.
+	<li> Annonymous array values are used.
+	<li> Arrays of primitive types are used.
+	<li> Using subtyped arrays (i.e., arrays of subtypes).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java exceptions can be
+	<ol class="answer_list">
+	<li> Class instances.
+	<li> Primitive type values.
+	<li> Matched to handlers based on their inheritance hierarchy.
+	<li> Matched to their handler at compile-time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> "Error" and "RuntimeException" are generally thrown by the Java VM
+	and are referred to as
+	<ol class="answer_list">
+	<li> Checked exceptions.
+	<li> Unchecked exceptions.
+	<li> Private exceptions.
+	<li> Virtual Machine exceptions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Implementing a data structure (e.g., Stack) using subtype polymorphism
+	rather than parametric polymorphism (for its items), typically
+	<ol class="answer_list">
+	<li> Requires more run-time type checking.
+	<li> Requires less run-time type checking.
+	<li> Has no impact on the amount of run-time type checking needed.
+	<li> Requires the compiler to generate more code.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which of the following are one of the four primary
+	components of the Java Virtual Machine (JVM)?
+	<ol class="answer_list">
+	<li> Bytecode Interpreter
+	<li> Compiler
+	<li> Linker
+	<li> Run-time stack
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are one of the four primary
+	components of the Java Virtual Machine (JVM)?
+	<ol class="answer_list">
+	<li> Bytecode verifier
+	<li> Class loader
+	<li> Exception monitor
+	<li> Symbol table
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are one of the four primary
+	components of the Java Virtual Machine (JVM)?
+	<ol class="answer_list">
+	<li> Bytecode Interpreter
+	<li> Class loader
+	<li> Heap storage
+	<li> Linker
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Class files created by the Java compiler contain the
+	<ol class="answer_list">
+	<li> Bytecode instructions
+	<li> Java source code
+	<li> Javadoc references
+	<li> Symbol table (i.e., constant pool)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> a kind of class loader
+	used by the Java VM?
+	<ol class="answer_list">
+	<li> Bootstrap class loader
+	<li> Extensions class loader
+	<li> System class loader
+	<li> User class loader
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following kinds of JVM class loaders can a programmer create
+	a custom version of?
+	<ol class="answer_list">
+	<li> Bootstrap class loader
+	<li> Extensions class loader
+	<li> System class loader
+	<li> User class loader
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What exception(s) are most commonly thrown by the Java VM's class
+	loader(s)?
+	<ol class="answer_list">
+	<li> IndexOutOfBoundsException
+	<li> NullPointerException
+	<li> FileNotFoundException
+	<li> ClassNotFoundException
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What exception(s) are most commonly thrown by the Java VM's bytecode
+	verifier?
+	<ol class="answer_list">
+	<li> NullPointerException
+	<li> VerifyError
+	<li> FileNotFoundException
+	<li> ClassNotFoundException
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Java VM's bytecode verifier
+	<ol class="answer_list">
+	<li> Ensures each instruction is a valid bytecode operation.
+	<li> Verifies that <strong>all</strong> classes have been loaded.
+	<li> Checks that <strong>all</strong> branch instructions point to
+		the beginning of another instruction.
+	<li> Confirms that <strong>all</strong> methods have structurally
+		correct signatures.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Java VM's linker
+	<ol class="answer_list">
+	<li> Removes unused classes.
+	<li> Reserves space for constant class/interface fields.
+	<li> Replaces symbolic names with direct location references.
+	<li> Loads any missing classes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Java VM's bytecode interpreter
+	<ol class="answer_list">
+	<li> Uses a stack based machine for increased run-time efficiency.
+	<li> Executes the bytecode instructions.
+	<li> Performs run-time checks.
+	<li> Optimizes constant pool lookups.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> <strong>All</strong> execution threads in the Java VM share common
+	storage for the
+	<ol class="answer_list">
+	<li> Bytecode instructions
+	<li> Run-time stack
+	<li> Heap
+	<li> Program counter
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Concurrency occurs when multiple
+	<ol class="answer_list">
+	<li> Sequences of actions are accomplished (seemingly)
+		"simultaneously".
+	<li> Programs are trying to access the same file.
+	<li> People are using the same computer.
+	<li> Computers are being used by the same person.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Multiprogramming
+	<ol class="answer_list">
+	<li> Is the same as Multiprocessing.
+	<li> Occurs when different processes share the same processor by
+		interleaving their actions in an unpredictable order.
+	<li> Happens when multiple processes are trying to use the same file.
+	<li> Occurs when different processes execute on different processors
+		at the same time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Multiprocessing
+	<ol class="answer_list">
+	<li> Is the same as Multiprogramming.
+	<li> Occurs when different processes share the same processor by
+		interleaving their actions in an unpredictable order.
+	<li> Happens when multiple processes are trying to use the same file.
+	<li> Occurs when different processes execute on different processors
+		at the same time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When using multiprogramming/multiprocessing the ordering of actions
+	between different executions of the program
+	<ol class="answer_list">
+	<li> are <strong>always</strong> exactly the same.
+	<li> are <strong>never</strong> exactly the same.
+	<li> are sometimes the same.
+	<li> are predetermined by the compiler.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Debugging multiprogramming/multiprocessing systems is difficult because
+	<ol class="answer_list">
+	<li> It's much more difficult to know that a problem has occurred.
+	<li> The execution order that causes a bug may rarely happen.
+	<li> If real-time data is used, the circumstances that cause the
+		error may be nearly impossible to recreate.
+	<li> The "randomness" of the error makes it difficult to know whether
+		or not a bug was actually fixed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Inter-process communication can be accomplished by
+	<ol class="answer_list">
+	<li> Message passing.
+	<li> Atomic reads/writes of data.
+	<li> Spin locking.
+	<li> Shared memory.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Declaring a Java variable to be "volatile" ensures that
+	<ol class="answer_list">
+	<li> It will <strong>not</strong> be cached by threads.
+	<li> Only the single threaded portion of a process can access it.
+	<li> <strong>All</strong> reads and writes of the variable occur
+		from main/shared memory.
+	<li> The variable is allocated from heap storage.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If messages sent between communicating processes are unbuffered
+	<ol class="answer_list">
+	<li> The message ordering <strong>must</strong> be preserved.
+	<li> Then messages can be lost if the receiving process isn't ready
+		for them.
+	<li> The system is invulnerable to a buffer overflow attack.
+	<li> Then the communications should also be asynchronous.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Synchronous messaging between communicating processes
+	<ol class="answer_list">
+	<li> Is redundant since asynchronous messaging subsumes it.
+	<li> Can result in lost messages if the receiving process isn't ready
+		for them.
+	<li> Requires that <strong>both</strong> the message sender and
+		receiver are ready at the same time.
+	<li> Improves the efficiency of communication, making the processes
+		run much faster.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Preserving message order between communicating processes
+	<ol class="answer_list">
+	<li> Requires that messages also be unbuffered.
+	<li> Requires the communicating processes also be synchronized.
+	<li> Is necessary for <strong>all</strong>
+		multiprogramming/multiprocessing systems
+		to ensure proper operation.
+	<li> Is only important for some types of applications (e.g., video
+		streaming) but <strong>not</strong> others
+		(e.g., http requests).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Atomicity is the property that an action
+	<ol class="answer_list">
+	<li> Corresponds to a single statement in the source program.
+	<li> Corresponds to a single instruction in the object code
+		generated by the compiler.
+	<li> <strong>Must</strong> happen in its entirety without interruption.
+	<li> Is using a single "quanta" of information (e.g., a primitive
+		type value).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A <em>critical section</em> is that part of the program code in a
+	multiprogramming/multiprocessing system
+	<ol class="answer_list">
+	<li> Essential for the proper operation of the program.
+	<li> Uniquely capable of accessing multiple variables.
+	<li> Which accesses shared resources.
+	<li> That should only be accessed by one thread at a time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Processes that are prevented from being in the same <em>critical
+	section</em> at the same time are exhibiting
+	<ol class="answer_list">
+	<li> Synchronicity
+	<li> Shared Execution
+	<li> Iterative Interleavement
+	<li> Mutual Exclusion
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Processes sharing a <em>critical section</em> should exhibit "bounded
+	waiting" so that
+	<ol class="answer_list">
+	<li> Every process waits a fixed maximum amount
+		of time to enter the <em>critical section</em>.
+	<li> No process waits indefinitely to enter the <em>critical
+		section</em>.
+	<li> Waiting processes may enter the <em>critical
+		section</em> if no other process is using it.
+	<li> <strong>All</strong> processes take turns using the
+		<em>critical section</em>.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Processes sharing a <em>critical section</em> should exhibit "progress",
+	so that
+	<ol class="answer_list">
+	<li> Every process waits no longer than a fixed maximum amount
+		of time to enter the <em>critical section</em>.
+	<li> No process waits indefinitely to enter the <em>critical
+		section</em>.
+	<li> Waiting processes may enter the <em>critical
+		section</em> if no other process is using it.
+	<li> <strong>All</strong> processes take turns using the
+		<em>critical section</em>.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Deadlock occurs only when which of the following conditions are true?
+	<ol class="answer_list">
+	<li> At least one resource needed by the processes cannot be shared.
+	<li> Each process holds resources until it is finished.
+	<li> Resources cannot be taken away from processes currently holding
+		them.
+	<li> A cycle exists in the process resource dependency graph.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which of the following is <strong>not</strong> a way to implement
+	mutual exclusion?
+	<ol class="answer_list">
+	<li> Spin locks
+	<li> Message Passing Interface
+	<li> Semaphores
+	<li> Monitors
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When providing mutual exclusion using locks and busy waiting, the algorithm
+	<ol class="answer_list">
+	<li> Continually sends itself a message, entering the
+		<em>critical section</em> when the message is lost.
+	<li> Signals the next process to enter the <em>critical section</em>
+		just before the previous process exits.
+	<li> Keeps processes in the waiting group "busy" until it is their
+		turn.
+	<li> Must obtain the lock atomically.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When used to implement mutual exclusion, semaphores utilize
+	<ol class="answer_list">
+	<li> Specialized cache memories for storing waiting processes.
+	<li> A queue of waiting processes.
+	<li> Spin locks to implement the Signal (V) operation.
+	<li> Two operations called Wait (P) and Signal (V).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The use of monitors for implementing mutual exclusion
+	<ol class="answer_list">
+	<li> Was developed in the early 1970s.
+	<li> Watch the <em>critical section</em> and eject the most recent
+		process to enter if there are ever two or more.
+	<li> Is more difficult to get correct than using semaphores.
+	<li> Rely on a single entry point (e.g., subprogram) to limit access.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "synchronized" mechanism in Java is an example of
+	<ol class="answer_list">
+	<li> Spin locking
+	<li> The Message Passing Interface
+	<li> Semaphores
+	<li> Monitors
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Messaging Passing Interface (MPI)
+	<ol class="answer_list">
+	<li> Allows <strong>all</strong> processes to be continually active
+		(i.e., not waiting).
+	<li> Supports only a limited pre-defined set of data types to be
+		sent within messages.
+	<li> Was developed in the early 2000s.
+	<li> Can implement mutual exclusion by passing around a special "token"
+		that grants access to the <em>critical section</em>.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Java processing threads can be created by
+	<ol class="answer_list">
+	<li> Extending the "Thread" class and overriding the "run" method.
+	<li> Calling the "start" method defined by the "Object" class.
+	<li> Calling the "fork" method defined by the "Object" class.
+	<li> Implementing the "Runnable" interface and its "run" method.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Thread pools are beneficial in that they
+	<ol class="answer_list">
+	<li> Providing additional multiprocessing resources to the JVM.
+	<li> Reuse existing threads, reducing the overhead of thread
+		creation and cleanup.
+	<li> Enable a more consistent level of system performance by
+		limiting the number of active threads.
+	<li> Automatically provide support for mutual exclusion.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Communication between Java threads in the same JVM is typically
+	accomplished using
+	<ol class="answer_list">
+	<li> The Message Passing Interface (MPI)
+	<li> Semaphores
+	<li> Spin locks
+	<li> Shared objects (i.e., memory)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java's "synchronized" methods and code blocks implement mutual exclusion
+	via
+	<ol class="answer_list">
+	<li> Spin locks
+	<li> Semaphores
+	<li> Monitors
+	<li> Message Passing
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, garbage collection is performed as a(n)
+	<ol class="answer_list">
+	<li> Exception handler for the "OutOfMemoryError" exception.
+	<li> Programmer initiated action only.
+	<li> Time scheduled event, occurring exactly every 5 minutes.
+	<li> Separate concurrent processing thread.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the Java Memory Model
+	<ol class="answer_list">
+	<li> A single heap is shared by <strong>all</strong> threads.
+	<li> A single run-time stack is shared by <strong>all</strong> threads.
+	<li> Each thread has its own memory cache.
+	<li> Each thread has its own garbage collector.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Write a Java class definition/implementation (called "Shared") that
+	hides within it a single "Integer" attribute, prevents threads from
+	storing the attribute value in their local cache, and provides 
+	generally visible methods "getValue" and "setValue" that get and
+	set the value of the hidden "Integer" variable respectively - but
+	that only allow a single thread access (either read or write) to
+	the "Integer" variable at a time. You may use additional (hidden)
+	methods in your solution.
+</li><br/>
+
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

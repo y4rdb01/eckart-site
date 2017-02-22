@@ -1,0 +1,188 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Memory Virtualization
+</p>
+
+<ol>
+<li> Virtualization significantly complicates memory management.
+	<ol>
+	<li> For host OS virtual memory, from the operating system's point of
+		view, it is mapping virtual address space pages to physical
+		memory page frames.
+	<li> However, with a hypervisor, the guest OS on each VM is creating
+		its own page table maps. Each guest OS is oblivious to the
+		existence of the others. As a result, each guest OS will
+		eventually map different virtual address space pages to the
+		same physical page frame - which would be disastrous.
+	<li> Rather than the hypervisor allowing each guest OS to map virtual
+		pages to physical page frames, the hypervisor intervenes and
+		provides a virtual set of memory page frames that are in
+		turn mapped to the physical memory.
+	<li> To each guest OS, the virtual set of memory page frames is
+		indistinguishable from physical memory (it's the job of the
+		hypervisor to do this). However, this means that the hypervisor
+		must maintain a <em>shadow page table</em> which is the mapping
+		of the virtual page frames (holding <em>guest physical
+		addresses</em>) to the physical page frames (holding
+		<em>host physical addresses</em>) for each guest OS.
+	</ol>
+<li> Keeping the shadow page table up-to-date:
+	<ol>
+	<li> A guest OS can remap a virtual address space page (holding
+		<em>guest virtual address</em>) to a new (virtual) memory page
+		frame (holding <em>guest physical address</em>) simply by
+		writing to the page table (for that process within the
+		guest OS).
+	<li> But writing to memory is not a sensitive instruction, so no trap
+		will be created and thus the hypervisor won't be aware of the
+		change (in order to update the shadow page table) via the
+		mechanism used for CPU virtualization. 
+	<li> Clumsy Technique #1:
+		<ol>
+		<li> The instruction used by the guest OS to load the location
+			of the top-level page table into its special hardware
+			register is a sensitive instruction.
+		<li> When called, the instruction traps to the hypervisor,
+			which sets up the corresponding shadow page table.
+		<li> The hypervisor marks the top-level page table of the
+			guest OS, and the page tables it points to, as being
+			read only.
+		<li> When the guest OS writes to one of its page tables, this
+			will create a fault (since they are marked as read
+			only), alerting the hypervisor to the change so that
+			it can update the shadow page table.
+		</ol>
+	<li> Clumsy Technique #2:
+		<ol>
+		<li> The hypervisor allows the guest OS to add page mappings
+			at will (with the hypervisor remaining ignorant of
+			the changes).
+		<li> When the guest OS accesses one of the mapped pages, a
+			page fault will occur, at which point the hypervisor
+			takes control.
+		<li> The hypervisor examines the page table of the guest OS
+			for changes and updates the shadow page table
+			accordingly.
+		<li> When the guest OS removes a mapping, there's no page
+			fault that would turn control over to the hypervisor.
+			Instead, the hypervisor waits for instructions that
+			invalidate TLB entries (a sensitive instruction) which
+			do pass control over to the hypervisor and it can
+			use the invalidated entries to make updates to the
+			shadow page table.
+		</ol>
+	<li> Page faults caused by the guest OS (and the ones we saw
+		previuosly in the semester with regards to virtual memory)
+		are called <em>guest-induced page faults</em>.
+	<li> Page faults that happen to keep the physical memory page frames
+		and the shadow page table in sync are called
+		<em>hypervisor-induced page faults</em>.
+	<li> <em>VM exit</em> is the phrase used to describe situations
+		where the hypervisor takes control, which is really just a
+		full process context switch (which isn't cheap).
+	<li> Every guest OS page fault results in a VM exit (page faults
+		without a hypervisor could be dealt with by an interrupt
+		handler - and thus didn't require the effort of a full
+		context switch), so minimizing
+		page faults (of both kinds) is an important issue for
+		hypervisors, as each fault can easily generate MUCH more work
+		than we saw with non-hypervisor virtual memory.
+	</ol>
+<li> Second Level Address Translation (SLAT)
+	<ol>
+	<li> Extensions to the x86 architecture that handle much of the
+		(shadow) page table manipulation in hardware - without the
+		need for traps.
+		<ol>
+		<li> AMD's implementation is called Nested Page Tables (NPT).
+		<li> Intel's implementation is called Extended Page Tables (EPT).
+		</ol>
+	<li> Avoids the need for either of the two clumsy techniques described
+		above.
+	<li> Just as before with non-virtualized page tables, the CPU uses
+		the guest OS page tables to translate a <em>guest virtual
+		address</em> into a <em>guest physical address</em>.
+	<li> With these architectural extensions, the CPU also uses the shadow
+		page tables to translate the <em>guest physical address</em>
+		into a <em>host physical address</em> without any (hypervisor)
+		software intervention.
+	<li> This greatly reducing the number of VM exits (and the associated
+		overhead).
+	</ol>
+<li> Reclaiming Memory
+	<ol>
+	<li> Hypervisors can overcommit their memory, meaning that the sum of
+		of the (virtual) physical memory that each VM has been
+		assigned can be greater than the amount of host physical
+		memory.
+	<li> Overcommitting sounds like a bad idea, but it's quite useful
+		since most VMs won't need the maximum amount all of the time.
+		It's often the case that while one VM needs more of the
+		physical memory that it was promised, another will need less,
+		and overcommitting allows more VMs to run at the same time
+		(whereas their combined maximums might prevent this without
+		overcommittment).
+	<li> <em>Deduplication</em> reduces the impact of
+		<em>overcommittment</em> by only keeping one copy of data
+		that is being used by multiple VMs, but it's not a complete
+		solution.
+	<li> Unfortunately the hypervisor can't make good decisions about
+		what host physical pages are good to replace since this
+		depends upon information in the guest OS that the hypervisor
+		doesn't have access to.
+	<li> <em>Ballooning</em> is a technique that loads a small pseudo
+		device driver into each VM which communicates with the
+		hypervisor.
+		<ol>
+		<li> The hypervisor dynamically increases/decreases
+			the amount of space needed by the device driver
+			(the balloon).
+		<li> This forces the guest OS to compensate for the
+			reduced/expanded amount of available memory by
+			paging out/in data.
+		<li> Thus the hypervisor forces the guest OS to make the
+			decisions about what should come and go.
+		<li> In reality of course, the balloon isn't consuming any
+			host physical memory, but tricks the VMs into not
+			needing more than the amount of host physical memory
+			that actually exists.
+		</ol>	
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_71.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

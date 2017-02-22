@@ -1,0 +1,111 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Structured Programming
+</p>
+
+<ol>
+<li> As described by <a href="http://en.wikipedia.org/wiki/Edsger_W._Dijkstra">E. W. Dijkstra</a>'s
+	1969 paper (<a href="http://www.cs.utexas.edu/users/EWD/ewd02xx/EWD249.PDF">Structured Programming</a>)
+	it is a programming paradigm characterized by:
+	<ol>
+	<li> Decomposition of the actions (and data organization)
+		needed to solve a given problem into smaller (and
+		simpler) elements;
+	<li> Detailed refinement of the constiuent elements
+		(e.g., sub-programs and records/arrays) independently
+		of one another (except where the data structure must
+		be shared, e.g., as a passed parameter); and
+	<li> Continued application of steps 1 and 2 above until the
+		resulting elements no longer benefit from further
+		decomposition and refinement.
+	</ol>
+	The above methodology is also commonly referred to as
+	"top-down development with stepwise refinement".
+<li> The <a href="http://en.wikipedia.org/wiki/Structured_program_theorem">Structured Program Theorem</a>
+	(1966) of Corrado Bohm and Giuseppe Jacopini bolstered the case
+	for structured programming by showing that any computable
+	function can be calculated by algorithms that utilized only:
+	<ol>
+	<li> Sequential execution, with each statement (or sub-program)
+		executed one after the other;
+	<li> Selection, in which one of two possibile statements (or
+		sub-programs) is chosen for execution based on the
+		result of a boolean expression; and
+	<li> Iteration, executing a statement (or sub-program)
+		repeatedly until a particular boolean expression is
+		true.
+	</ol>
+<li> As a counter-part to the "top-down" methodology, a "bottom-up" approach:
+	<ol>
+	<li> Creates new relatively independent components from
+		which solutions can be created.
+	<li> These new independent components are characterized by:
+		<ol>
+		<li> An <em>Interface</em> which is a description of
+			the parts of a component that are visible
+			(and usable) by other program components;
+		<li> The <em>Specification</em> that describes the
+			behavior as provided by the <em>Interface</em>; and
+		<li> One or more <em>Implementation</em>s that
+			are the realization of the specified behavior
+			of the interface in programming language.
+		</ol>
+		The <em>Interface</em> is the only public (permitted)
+		means for access the behavior of the component, thus
+		hiding the details of its <em>Implementation</em>.
+		Thus allowing the implementation to change without
+		adversely impacting the functionality of the larger
+		solution so long as it realizes the same
+		<em>Specification</em>. For example, there may be
+		many alternate implementations for sorting, with
+		a particular one chosen based on non-functional
+		requirements (e.g., space and time constraints) for
+		the solution.
+	<li> The bottom-up design and development of these components
+		lifts the level of the overall system such that the
+		"top-down" solution of problems doesn't have to
+		descend as far into the details before the solution
+		is completely described. This is exactly what language
+		libraries do. In fact languages such as C and Java
+		are relatively small, with most of their capabilities
+		arising from their extensive libraries (e.g., I/O is
+		usually part of a standard library rather than being a
+		"built-in" part of the language).
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_43.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

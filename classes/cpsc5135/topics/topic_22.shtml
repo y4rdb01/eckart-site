@@ -1,0 +1,106 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Other C++ features
+</p>
+
+<ol>
+<li> Like Java, C++ has two styles of comments.  How is this useful?
+<li> "new" vs straight constructor created values differ in when
+	(or if) the destructor is called and how the values are
+	created.
+	<ol>
+	<li> Non "new" items correspond to the enclosing scope and their
+		destructor called once the declared object goes
+		out of scope.
+	<li> "new" objects are allocated on the heap and their destructor is
+		not called until the object is explicitly freed.
+	</ol>
+<li> Method implementations can be in separate files from the class
+	declaration as well as from each other, enabling more
+	fine grained incremental recompilation.
+<li> <a href="https://en.wikipedia.org/wiki/Variadic_template">Variadic templates</a>
+	allow an unspecified number of type/class
+	arguements to be given for a template when it is instantiated.
+<li> Multiple Inheritance can give rise to problems:
+	<ol>
+	<li> <em>Name Clashes</em> occur when two member names
+		inherited from different classes are the same.
+<pre><code>
+	class A { int x; void f() { ... x ... }; }
+	class B { int x; void f() { ... x ... }; void g() { ... f() ... }; }
+	class C : public A, public B { ... B::f() ... }
+</code></pre>
+		Of the 3 possible ways to resolve such clashes
+		(Disallow, Implicit Resolution, Explicit Resolution)
+		C++ uses explicit resolution. Implicit resolution
+		seems attractive but can cause problems if
+		<em>class A</em> is implicitly used (so the
+		<em>x</em> and <em>f</em> of <em>A</em> are used).
+		However, when <em>g</em> is called, the <em>f</em>
+		it would in turn use would come from <em>class A</em>
+		rather than the <em>class B</em> version which is
+		almost certainly <em>not</em> the desired definition!
+	<li> The <em>diamond problem</em> is a special kind of
+		name clash in which both names have the same
+		definition.  C++ uses virtual inheritance of the base class
+		to ensure that only one "copy" of the common base class is
+		created. See this <a href="http://www.programmerinterview.com/index.php/c-cplusplus/diamond-problem/">explanation</a>
+
+		<p>
+		Java solves this by allowing multiple interfaces to
+		be implemented, so there's no chance of a shared
+		implementation - though it does mean there's more
+		implementing to be done (although for that you can
+		use composition and expose the methods of the
+		composed objects via the implementation you create
+		for the interface).
+		</p>
+	</ol>
+<li> A <em>pure virtual function</em> in C++ is one that doesn't have
+	an implementation (e.g., "virtual int addOne() = 0;"),
+	similar to the "abstract" notion in Java.
+	As in Java, a C++ class with at least one <em>pure virtual
+	function</em> is also virtual (and thus no objects of that
+	class can be created, though instances of non-virtual
+	subclasses can be).
+<li> More information regarding <a href="https://en.wikipedia.org/wiki/Comparison_of_Java_and_C%2B%2B">C++ vs Java</a>.
+<li> <a href="http://www.infoworld.com/article/2608770/application-development/application-development-stroustrup-why-the-35-year-old-c-still-dominates-real-dev.html">Interview with
+	Stroustrup</a> on why C++ still dominates "real" software development
+	after more than 35 years.
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_22.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

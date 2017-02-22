@@ -1,0 +1,268 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Controlling Resource Access
+</p>
+
+<ol>
+<li> Protection Domains
+	<ol>
+	<li> Many objects must be protected: files, cpus, disks, terminals,
+		speakers, software, processes, ...
+	<li> Each object has a name and a set of associated operations
+		(OS equivalent of an ADT).
+	<li> A <em>domain</em> is a set of (object, rights) pairs, where a
+		right is the permission to perform a particular operation.
+		That is, domains are defined as the row entries in the
+		protection matrix (see below).
+	<li> In Unix/Linux/POSIX, domains are:
+		<ol>
+		<li> Defined by the user ID (UID) and group IDs (GIDs) to
+			which a user belongs.
+		<li> Files have a single UID owner as well as a GID affiliation.
+		<li> Rights on files consist of read (r), write (w), and
+			execute (x) permissions.
+		<li> The file's UID, GID, and then all other users/groups are
+			granted some subset of these permissions.
+		<li> If a file has the SETUID or SETGID bits set (= 1) then
+			an "exec" on that file sets the effective UID and
+			GID of the process to the UID and GID associated with
+			the file (regardless of what the UID and GID of
+			the process had been before the "exec" was performed).
+		<li> SETUID and SETGID are powerful mechanisms because they
+			change the protection domain under "exec". So if a
+			non-privileged user does an "exec" on a file that
+			has a SETUID of root, the process now has the same
+			privileges as the root (i.e., superuser) account.
+			[NOTE: What would be the implications if /usr/bin/sh
+			were owned by root with SETUID turned on?]
+		</ol>
+	<li> The <em>principal of least authority</em> (POLA) is central
+		to access control. Users (and processes) should only have
+		access to the resources (and operations on that resource)
+		necessary to complete a task.
+	<li> How should domains, resources, and rights be stored?
+		<ol>
+		<li> Conceptually, using a matrix with objects (e.g., files)
+			as columns and domains as rows, with rights as entries
+			in the matrix, works well. However, using an actual
+			full matrix for the implementation
+			is probably too large to be practical.
+		<li> To support domain switching, domains can also be treated
+			as objects (as columns - in addition to also being
+			used as rows). The matrix entry for a (domain1, domain2)
+			entry in the matrix would indicate whether or not the
+			switch from domain1 to domain2 was allowed. This makes
+			the matrix even larger.
+		<li> Domains/Users are often referred to as <em>subjects</em>
+			(or <em>principals</em>).  Subjects may represent
+			groups of users (in addition to individual users).
+		<li> Files (and other items which can be "owned") are
+			generally referred to as <em>objects</em>.
+		<li> Permissions granted to (subject, object) pairs.
+		<li> Example of a protection matrix:
+<table border="1">
+<tr>
+	<th colspan="2" rowspan="2"></th>
+	<th colspan="8">Objects</th>
+</tr>
+<tr>
+	<th>File 1</th>
+	<th>File 2</th>
+	<th>...</th>
+	<th>File N</th>
+	<th>Domain 1</th>
+	<th>Domain 2</th>
+	<th>...</th>
+	<th>Domain D</th>
+</tr>
+<tr>
+	<th rowspan="4" style="vertical-align: middle">Subjects</th>
+	<th>Domain 1</th>
+	<td>Read</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td>Enter</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<th>Domain 2</th>
+	<td></td>
+	<td>Write</td>
+	<td></td>
+	<td>Execute</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td>Enter</td>
+</tr>
+<tr>
+	<th>...</th>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<th>Domain D</th>
+	<td></td>
+	<td>Read/Write</td>
+	<td></td>
+	<td>Execute</td>
+	<td></td>
+	<td>Enter</td>
+	<td></td>
+	<td></td>
+</tr>
+</table>
+		</ol>
+	</ol>
+<li> Access Control Lists (ACLs)
+	<ol>
+	<li> Store the matrix as sparse columns (list of non-empty elements).
+		Thus, the list corresponding to each object (column) contains
+		the domains that have access to it (thus the name Access
+		Control List) and indicate what type of access is permitted.
+	<li> Keeping the list as a sorted array makes it fast to search
+		- O(log n). While insertion of a single new item takes O(n)
+		time, this doesn't typically happen nearly as often as looking
+		up the object permissions.
+	<li> POSIX compresses the ACL into 9 bits of access (read, write, and
+		execute) for 3 domain categories (owner, group, others).
+		While less general, it works well in most cases.
+	<li> Example of the <em>File 2</em> ACLs:
+<table border="1">
+<tr>
+<th>File 2</th>
+<td>Domain 2: Write</td>
+<td>Domain D: Read/Write</td>
+</tr>
+</table>
+	</ol>
+<li> Capabilities (C-lists)
+	<ol>
+	<li> Store the matrix as sparse rows, so each subject (domain) has an
+		associated list of objects that can be accessed along with
+		the operations the subject is allowed to perform on each
+		object.
+		<ol>
+		<li> Each element of the C-list (an object and allowed
+			operations) is a capability.
+		<li> Each subject is (cap)able of performing operations
+			on objects. Thus the name "capabilities list"
+			(or C-lists for short).
+		<li> Capability lists themselves are objects
+			and may be referenced by other C-lists.
+		</ol>
+	<li> Example of the <em>Domain 2</em> C-list:
+<table border="1">
+<tr>
+<th>Domain 2</th>
+<td>File 2: Write</td>
+<td>File N: Execute</td>
+<td>Domain D: Enter</td>
+</tr>
+</table>
+	<li> Since C-lists are associated with a subject, they must be
+		protected from tampering by that subject (otherwise users
+		could grant themselves new capabilities).
+		<ol>
+		<li> Hardware designs using tag bits (called tagged
+			architectures) can be used to identify words as
+			being capabilities.
+		<li> C-lists can be kept in the OS (with no direct access
+			by subjects). POSIX file descriptions are an
+			example of this (in which processes refer to file
+			capabilities via an unsigned int).
+		<li> If C-lists are kept in user space, they can be protected
+			for alteration by encryption (which works well for
+			distributed systems).
+			<ol>
+			<li> This is done by associating a secret random
+				number with each object and using it
+				to create a one-way hash of the (random number
+				+ object ID + rights on the object).
+			<li> The hash value is provided back to subjects (and
+				subjects can grant rights to other subjects
+				by simply passing them the object ID and
+				corresponding hash value).
+			<li> Revoking rights to ALL subjects can be done by
+				changing the (secret) random number associated
+				with the object.
+			</ol>
+		</ol>
+	<li> Besides specific object-dependent rights, capabilities have
+		generic rights such as:
+		<ol>
+		<li> Create a new capability for the same object,
+		<li> Create a duplicate object with a new capability,
+		<li> Delete an entry from the C-list without changing the
+			object, and
+		<li> Permanently remove an object and its capabilities.
+		</ol>
+	</ol>
+<li> ACL and C-List Differences
+	<ol>
+	<li> C-Lists are efficient in allowing a process to exercise a
+		specific right (e.g., read) on a specific object (e.g., file
+		descriptor 2). No checking is necessary.
+	<li> ACLs may need to search through a long list of subjects with
+		permissions to an object to see if the subject that "owns"
+		this process is in the list.
+	<li> If groups of subjects aren't supported, then ACLs would need to
+		list all subjects in the group separately (so giving read
+		access to everyone, creates a long ACL).
+	<li> ACLs enable rights to an object by a specific subject to be
+		easily added, deleted, or changed.
+	<li> C-Lists can revoke all rights to an object quickly and easily
+		(depending upon the implementation), but must do this for
+		ALL subjects simultaneously (unlike ACLs).
+	<li> Problems can arise with C-Lists if an object is removed, but the
+		capabilities for it are not, whereas for ACLs removing the
+		access rights for an object is equivalent to removal of it's
+		associated ACL.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_53.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

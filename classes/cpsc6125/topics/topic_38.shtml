@@ -1,0 +1,275 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Remote File Systems
+</p>
+
+<ol>
+<li> File Servers
+	<ol>
+	<li> Diskless (dataless or diskful) clients get their files from a
+		(set?) of central machine(s).  This allows distributed systems
+		at less expense as well as greater sharing of resources.
+	<li> Interface Level
+		<ol>
+		<li> remote disk - user is allocated a virtual disk on the
+			server which is used the same way as a local disk.
+		<li> files but no directories - the server returns numbers to
+			identify files, but it is up to the user to
+			maintain the mapping of numbers to file names.
+		<li> complete file system - is offered to the client by the
+			server (e.g., NFS).
+		</ol>
+	<li> Concurrency Control
+		<ol>
+		<li> Concurrency control algorithms achieve serializability,
+			even though operations may not be carried out in a
+			serial (contiguous) fashion.
+		<li> Locking is another way for providing concurrency control,
+			but this is a more restrictive form of serializability!
+		</ol>
+	<li> Atomic Update (Failure Atomicity)
+		<ol>
+		<li> What happens when something is only partially completed
+			and the system crashes?  We want to avoid partial
+			updates that cannot be continued from the point of
+			failure.  Think about what this means for a bank or
+			the New York Stock Exchange!
+		<li> Fault tolerance allows recovery of ALL the information if
+			something goes wrong.  This can only be provided by
+			having redundancy.  The amount of redundancy provided
+			depends on the speed of recovery desired from faults
+			and the number of faults you would like to be able to
+			recover from.
+		<li> Multi-version file systems never change existing files,
+			but rather provide updated versions in addition to the
+			older version.  This provide atomicity as well as some
+			measure of fault tolerance (at least to the next latest
+			version).  Typically only the latest version is
+			read unless otherwise specified.  Furthermore,
+			the number of versions to maintain is generally set
+			when the OS/FS was configured.
+		</ol>
+	<li> Transactions
+		<ol>
+		<li> Are atomic, protected actions.  The commit of a transaction
+			is a request to do the actual update.  If the commit
+			on a transaction fails, then NO changes are made!
+			Until a transaction commits, all reads from the
+			(original) file show no modification due to this
+			transaction.
+		<li> Transaction records, until committed, must be kept on some
+			form of stable storage lest a crash (or other failure)
+			occurs.  Care must also be taken to ensure that when
+			the master file(s) are updated, that if the system
+			crashes in the middle of the update, there is
+			sufficient information in stable store to complete
+			the update when the system comes back up (e.g.,
+			journaling).
+		</ol>
+	<li> Replicated Files
+		<ol>
+		<li> Provides some measure of fault tolerance by keeping copies 
+			of the i-node and data blocks of a file.  Updates to
+			the file can cause either the entire file to be
+			re-replicated, or only the changed blocks can be
+			re-copied (the later is faster).
+		<li> One way in which this can be used is to make the
+			duplicates reside on different file servers.  Thus if
+			the file server from which you normally get your files
+			is down, you should still be able to access the copies.
+		<li> When the down server is brought back up, it will need to
+			update its replicates to match those of the other
+			servers.
+		</ol>
+	</ol>
+<li> <a href="https://en.wikipedia.org/wiki/Network_File_System">Network File System</a> (NFS)
+<br/>
+<a href="http://www.ipsure.com/blog/2010/nfs-network-file-system-and-server-client-configuration-on-freebsd/"><img src="/eckart/classes/cpsc3125/topics/content/NFS.png" alt="Diagram of how the Network File System works" width="722" height="709" style="float: right" /></a>
+	<ol>
+	<li> Is highly scalable and runs on most platforms.
+	<li> Uses RPC (client-server), making the design simple and causing
+		clients to block for remote I/O requests.
+	<li> The file system was originally stateless (prior to NFSv4),
+		with the server retaining no information from previous
+		calls.
+	<li> The stateless design makes recovery from server failures
+		trivial (all network clients freeze up when a server crashes,
+		but succeed when retried by the client - which holds the state -
+		after the server file system is repaired and restarted),
+		allowing UNIX applications to ignore the problem.
+	<li> The core part of the NFSv2 protocol is (from the
+		<a href="http://pdos.csail.mit.edu/6.824-2005/papers/sandberg-nfs.pdf">1985 USENIX paper</a>):
+		<ol>
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+		<li> <em>null() returns ()</em><br/>
+			Do nothing procedure to ping the server and measure
+			round trip time.
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+		<li> <em>lookup(dirFileHandle, name) returns (fileHandle, attr)</em><br/>
+			Returns a new fileHandle and attributes for the named
+			file in a directory.
+		<li> <em>create(dirFileHandle, name, attr) returns (newFileHandle, attr)</em><br/>
+			Creates a new file and returns its fileHandle and
+			attributes.
+		<li> <em>remove(dirFileHandle, name) returns (status)</em><br/>
+			Removes a file from a directory.
+		<li> <em>getattr(fileHandle) returns (attr)</em><br/>
+			Returns file attributes. This procedure is like a
+			stat call.
+		<li> <em>setattr(fileHandle, attr) returns (attr)</em><br/>
+			Sets the mode, uid, gid, size, access time, and
+			modify time of a file. Setting the size to
+			zero truncates the file.
+		<li> <em>read(fileHandle, offset, count) returns (attr, data)</em><br/>
+			Returns up to count bytes of data from a file
+			starting offset bytes into the file. Read also
+			returns the attributes of the file.
+		<li> <em>write(fileHandle, offset, count, data) returns attr)</em><br/>
+			Writes count bytes of data to a file beginning offset
+			bytes from the beginning of the file.  Returns the
+			attributes of the file after the write takes place.
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+		<li> <em>rename(dirFileHandle, name, toFileHandle, toname) return (status)</em><br/>
+			Renames the file name in the directory dirFileHandle,
+			to toname in the directory toFileHandle.
+		<li> <em>link(dirFileHandle, name, toFileHandle, toName) return (status)</em><br/>
+			Creates the file toName in the directory toFileHandle,
+			which is a link to the file name, in the directory
+			dirFileHandle.
+		<li> <em>symlink(dirFileHandle, name, string) returns (status)</em><br/>
+			Creates a symbolic link nam, in the directory
+			dirFileHandle
+			with value string. The server does not interpret
+			the string argument in any way, just saves it and
+			makes an association to the new symbolic link file.
+		<li> <em>readlink(fileHandle) returns (string)</em><br/>
+			Returns the string which is associated with the
+			symbolic link file.
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+		<li> <em>mkdir(dirFileHandle, name, attr) returns (fileHandle, newattr)</em><br/>
+			Creates a new directory name in the directory					dirFileHandle and
+			returns the new fileHandle and attributes.
+		<li> <em>rmdir(dirFileHandle, name) returns (status)</em><br/>
+			Removes the empty directory name from the parent
+			directory dirFileHandle.
+		<li> <em>readdir(dirFileHandle, cookie, count) returns (entries)</em><br/>
+			Returns up to count bytes of directory entries from the
+			directory dirFileHandle. Each entry contains a file
+			name, file id, and an opaque pointer to the next
+			directory entry called a cookie. The cookie is used in
+			subsequent
+			readdir calls to start reading at a specific entry in
+			the directory. A readdir call with the cookie of zero
+			returns entries starting with the first entry in the
+			directory.
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+		<li> <em>statfs(fileHandle) returns (fileSystemStats)</em><br/>
+			Returns filesystem information such as block size,
+			number of free blocks, etc.
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+		</ol>
+	<li> Because the NFS server is stateless, it must commit any modified
+		data to storage before returning results (otherwise it won't
+		be able to since the information isn't kept).
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+	<li> The file handle is a combination of the i-node number, i-node
+		generation number, and the file system id (the last two
+		having to be added to the i-node and superblock respectively).
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+	<li> Hostname are indicated as part of the file system mounting
+		process, so that client programs don't have to be aware of
+		it. This information is used by VFS in making RPC calls.
+	<li> File locking is not supported, but should be accomplished using
+		user space programs.
+	</ol>
+<li> <a href="https://en.wikipedia.org/wiki/Lustre_(file_system)">Lustre File System</a>
+<a href="http://lustre.opensfs.org/about/"><img src="/eckart/classes/cpsc3125/topics/content/LustreArchitecture.png" alt="Diagram of the Lustre file system architecture" width="600" height="391" style="float: right" /></a>
+	<ol>
+	<li> A parallel distributed file system generally used for large-scale
+		cluster computering (including super computing).
+	<li> Is scalable and can be part of multiple computer clusters with
+		tens of thousands of client nodes, tens of petabytes of
+		storage on hundreds of servers, and more than a terabyte per
+		second of combined I/O throughput.
+	<li> Compose of 3 major pieces:
+		<ol>
+		<li> <em>Metadata servers</em> use one or more
+			<em>metadata targets</em> (which store
+			filenames, directories, access permissions, and
+			file layout). The metadata server is only used for
+			pathname and permission checks (not file I/O
+			operations), thus avoiding I/O scalability bottlenecks.
+			The metadata targets are
+			stored in a local disk file system.
+		<li> <em>Object storage servers</em> store file data on one or
+			more <em>object storage targets</em>.
+		<li> Clients that use the data, get a POSIX compliant unified
+			namespace that support concurrent and coherent read				and write access.
+		</ol>
+	<li> An <em>object storage target</em> is a dedicated filesystem that
+		exports an interface to byte ranges of objects for
+		read/write operations.
+	<li> An <em>metadata target</em> is a dedicated filesystem that
+		controls file access and tells clients the layout of the
+		object(s) that make up each file.
+	<li> Both <em>object storage target</em> and <em>metadata target</em>
+		use an enhanced version of ext4 for storage.
+	<li> Access and modification of files is completely cache coherent
+		for multiple clients.
+	</ol>
+<li> <a href="https://en.wikipedia.org/wiki/Apache_Hadoop#HDFS">Hadoop Distributed File System</a> (HDFS)
+	<ol>
+	<li> Is a distributed, scalable, and portable file-system written in
+		Java.
+	<li> HDFS stores large files (typically in the range of gigabytes to
+		terabytes) across multiple machines. It achieves reliability
+		by replicating the data across multiple hosts.
+	<li> Has one namenode plus a cluster of datanodes.
+	<li> Each datanode serves up blocks of data over the network using a
+		block protocol specific to HDFS. 
+	<li> HDFS is not fully POSIX-compliant, because the target goals for
+		Hadoop applications are different from those of a POSIX
+		file system (e.g., increased data throughput).
+	<li> The design is optimized for immutable files and may not work
+		well for systems that use concurrent writes.
+	<li> HDFS explained in <a href="/eckart/classes/cpsc3125/topics/content/HDFScomic.html">comic form</a>.
+	</ol>
+<a href="https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html"><img src="/eckart/classes/cpsc3125/topics/content/HDFS_architecture.gif" alt="Diagram of the Hadoop file system architecture" width="579" height="400" /></a>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_38.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

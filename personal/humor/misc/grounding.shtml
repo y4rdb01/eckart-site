@@ -1,0 +1,479 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+
+<table width="100%">
+<tr>
+<td valign="top" width="100">
+<table>
+
+<tr><td align="left">
+<strong>Seuss<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../../dr.seuss/bitsNbytes.shtml">Bits in Bytes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/grinch.coder.shtml">Grinch OO Coder</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/lunch.shtml">Lunch</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seusstrek.shtml">Star Trek</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seussbible.shtml">The Bible</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/inferno.shtml">Dante's Inferno</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/purity.shtml">Purity Test</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/trial.shtml">O.J. Trial</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/greeneggs.shtml">Green Eggs and Pork</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/compTech.shtml">Computer Manual</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/USville.shtml">USville</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/wedding.shtml">Wedding</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/404.shtml">404</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Beatles.shtml">Beatles</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/bobbit.shtml">Bobbit</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/clinton.shtml">Clinton</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/favorite_things.shtml">Favorite Things</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ham_xmas.shtml">Ham Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ICBM_pizza.shtml">ICBM Pizza</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/net_is_slow.shtml">Net Is Slow</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/pc_xmas.shtml">PC Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Poe.shtml">Poe</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/prayer.shtml">Prayer</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/queen.shtml">Queen</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/sermon.shtml">Sermon</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song.shtml">Song</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song_tests.shtml">Song Tests</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/thermo.shtml">Thermo</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/twas.shtml">Twas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unified.shtml">Unified</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unix_abc.shtml">Unix abc</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/warnings.shtml">Warnings</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/xmas.shtml">Santa's Unix Listing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/y2k_pie.shtml">Millenium Pie</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/microsoft.shtml">M$ TV Dinners</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Humor</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/1-liners.shtml">One Liners</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/admin.shtml">Administratium</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/bad_spec.shtml">Bad spec</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/daemon-OS.shtml">daemon OS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/days-off.shtml">Days off</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dead_horse.shtml">Dead horse</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dosfish.shtml">Dosfish</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/FAA.shtml">FAA report</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/GM-helpline.shtml">GM helpline</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grandpa.shtml">Family tree</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grounding.shtml">Strapping</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/H2O.shtml">H2O</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/haiku.shtml">Haiku</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/harvard.shtml">Harvard</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/job.shtml">Job</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/koans.shtml">Koans</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/loan.shtml">Loan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/memos.shtml">Memos</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/money.shtml">Money</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/moron.shtml">Moron</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/MS.shtml">MS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/wirth.shtml">Niklaus Wirth</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/accidents.shtml">Accidents</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/navy.shtml">Navy</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/phrases.shtml">Phrases</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/plan.shtml">Plan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/stench.shtml">The Project</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/study.shtml">Anything</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/SysAdmin.shtml">SysAdmin Woes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/thesis.shtml">Thesis</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/quantumPhysics.shtml">Quantum Physics</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/monk.shtml">Monk</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/proofByInduction.shtml">Proof by Induction</a>
+</td></tr>
+
+</table>
+</td>
+
+<td valign="top">
+
+<blockquote>
+
+
+[Original author unknown]
+
+<p>
+My girlfriend always seemed to enjoy seeing just how much she could get away 
+with doing some form of our bondage in public.  She does this partly because 
+she finds it fun, mostly because she knows it drives me out of my tree.  
+Usually, I'm able to fast-talk my way out of potentially embarrassing 
+situations with Mundanes, but yesterday she very nearly got me fired.
+</p>
+
+<p> 
+Yesterday afternoon we had lunch together.  Afterward, she accompanied me back 
+to my place of work.  I thought this slightly unusual, since she had never 
+before expressed an interest in my work (electronic engineering,) but it 
+didn't occur to me that she had something planned.
+</p>
+
+<p> 
+We arrived at my workbench, where I'm currently trying to figure out why the 
+$&%@*! board on which I'm working is not performing the way I designed it.
+</p>
+
+<p>
+"Is this where you work?" she asked.
+</p>
+
+<p>
+"At the moment," I replied.
+</p>
+
+<p> 
+I reached over to turn on the scope, thereby completely failing to notice the 
+huge studded black leather collar she produced from her purse.  Before I could 
+even blink (it's amazing the speed at which she can do this), she had locked 
+the collar snugly around my neck, and locked the end of the six-foot jack
+chain to the center of the bench (where there just happened to be a mounting 
+hole, dammit).  I turned to face her in utter disbe- lief, mouth agape.
+</p>
+
+<p>
+"I'll be back for you at five," she said.
+</p>
+
+<p>
+"HAVE YOU GONE COMPLETELY WACKO!!?!?" I yelled in a hushed voice.  "HOW THE 
+HELL AM I GOING TO EXPLAIN THIS???" 
+</p>
+
+<p>
+"You'll think of something," she said, dropping the keys into her cleavage.  
+"You always do."
+</p>
+
+<p>
+"But suppose I have to go to the bathroom," I countered.
+</p>
+
+<p>
+"Don't give me that," she said.  "I've seen you go for a whole day without 
+visiting the bathroom."
+</p>
+
+<p>
+"But..." I tried to say.
+</p>
+
+<p>
+"SHHH!  The subject is closed.  I'll be back at five.  Bye."
+</p>
+
+<p> 
+She turned and left, against my hushed protests.  I sat in panic and tried to 
+think out my situation.  I tried to think of all the people who might visit.  
+Most of my co-workers were friends who knew that my girlfriend and I were a 
+bit odd, so this shouldn't surprise them.  But I had *no* idea what I was 
+going to say if one of my bosses came in.  I checked my watch to see how long 
+I would have to endure this ignominy.  13:30 (I'm a military time weenie).  
+"Three and a half hours," I thought.  I heaved a sigh, and got to work, such 
+as I could.
+</p>
+
+<p> 
+As it happened, three of my co-workers visited for what-not.  All of them 
+immediately noticed the collar (it would be pretty hard not to), and asked if 
+it was my girlfriend's idea.  I said yes.  They asked what I would say if my 
+supervisor saw it.  I said I hadn't the faintest idea.
+</p>
+
+<p> 
+One of the aforementioned colleagues took the bench next to me, and after a 
+few remarks (and a question as to where he could get a collar like the one I 
+had), settled down to work in silence.
+</p>
+
+<p> 
+After some time, I checked my watch.  16:40.  "Gee, I just might make it 
+through this after all," I thought.  I was even beginning to get a handle on 
+the problem with the #%^*@! board on which I was working.  Murphy must have 
+been standing right behind me reading my thoughts, for not more than two
+minutes later one of my bosses entered the room.  And not just any boss.  
+Noooooooo.  This was Mr. Narrowminded himself.  This was the guy who took 
+Lifespring *and* became a born-again fundamentalist.  How he came to have the 
+power of hire-and-fire over us is one of the Great Mysteries of The Universe.  
+We avoided this guy at all costs.
+</p>
+
+<p> 
+His eyes fell upon me immediately.  A few picoseconds later, he saw the collar 
+around my neck in all its splendor.  "My life is over," I thought.  I still 
+hadn't thought of a plausible explanation for this.  Mr. Solderbrain (the name 
+we called him behind his back; a corruption of his real name) started to walk
+slowly and deliberately over to me, his eyes fixed on the collar.  Fifteen 
+agonizing seconds later, he was standing next to me.  I thought the guy sitting
+next to me was going to have a seizure stifling all his giggles.  I continued 
+to work, acting as though there were nothing the least bit unusual about my 
+predicament.
+</p>
+
+<p> 
+Finally, he spoke.
+</p>
+
+<p>
+"What.  The.  HELL!  Is.  That??!" he said.
+</p>
+
+<p> 
+I don't know how I thought of what I said.  In fact, I'm pretty sure I didn't 
+know what I was going to say until just as I was saying it.  I'm even more 
+amazed that Solderbrain actually bought it and didn't fire me on the spot.
+</p>
+
+<p> 
+I turned to face him calmly, with total nonchalance, exuding complete 
+confidence in what I was about to say, even though I didn't know what it was 
+yet.  I didn't even miss a beat.  "Grounding strap," I said, and returned to 
+work.
+</p>
+
+<p> 
+The guy next to me fell off his chair and nearly died laughing.
+</p>
+
+</blockquote>
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+

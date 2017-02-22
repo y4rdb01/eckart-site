@@ -1,0 +1,191 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Unix Commands
+</p>
+
+<ol>
+<li> Basic
+	<ol>
+	<li> <a href="http://www.unix.com/man-page/posix/1/man/">man</a>
+		- display system documentation
+	<li> <a href="http://www.unix.com/man-page/posix/1/date">date</a>
+		- write the date and time
+	<li> <a href="http://www.unix.com/man-page/posix/1/cal">cal</a>
+		- print a calendar
+	<li> <a href="http://www.unix.com/man-page/posix/1/bc">bc</a>
+		- An arbitrary precision calculator language
+	<li> <a href="http://www.unix.com/man-page/posix/1/who">who</a>
+		- display who is on the system
+	<li> <a href="http://www.unix.com/man-page/All/0/which">which</a>
+		- locate a command
+	<li> <a href="http://www.unix.com/man-page/all/0/script">script</a>
+		- make typescript of terminal session
+	<li> <a href="http://www.unix.com/man-page/posix/1/echo">echo</a>
+		- display a line of text
+	<li> <a href="http://www.unix.com/man-page/posix/1/sleep">sleep</a>
+		- suspend execution for an interval
+	<li> <a href="http://www.unix.com/man-page/posix/1/time">time</a>
+		- time a simple command
+	<li> Shells are command language interpreters:
+		<ol>
+		<li> <a href="http://www.unix.com/man-page/all/1posix/sh">sh<a/>
+			- the standard (Bourne) shell
+		<li> <a href="http://www.unix.com/man-page/All/1/csh">tcsh<a/>
+			- Enhanced version of the Berkeley C shell (csh) with
+				file name completion and command line editing
+		<li> <a href="http://www.unix.com/man-page/All/1/ksh">ksh<a/>
+			- Korn shell enables vi style command line search
+				and editing
+		<li> <a href="http://www.unix.com/man-page/All/1/bash">bash<a/>
+			- Bourne-Again Shell (GNU replacement for sh with
+				elements from csh and ksh)
+		<li> NOTE: File and directory name wildcards: *, ?
+		</ol>
+	</ol>
+<li> File editing commands
+	<ol>
+	<li> <a href="http://www.unix.com/man-page/posix/1/vi">vi</a>,
+		<a href="http://www.unix.com/man-page/all/0/vim">vim</a>
+		- screen-oriented (visual) display editor
+	<li> <a href="http://www.unix.com/man-page/posix/1/sed">sed</a>
+		- stream editor for filtering and transforming text
+	<li> <a href="http://www.unix.com/man-page/posix/1/tr">tr</a>
+		- translate characters
+	</ol>
+<li> File commands
+	<ol>
+	<li> <a href="http://www.unix.com/man-page/posix/1/file">file</a>
+		- determine file type
+	<li> <a href="http://www.unix.com/man-page/posix/1/cat">cat</a>
+		- concatenate and print files
+	<li> <a href="http://www.unix.com/man-page/posix/1/cp">cp</a>
+		- copy files
+	<li> <a href="http://www.unix.com/man-page/posix/1/mv">mv</a>
+		- move files
+	<li> <a href="http://www.unix.com/man-page/posix/1/more">more</a>
+		- display files on a page-by-page basis
+	<li> <a href="http://www.unix.com/man-page/posix/1/head">head</a>
+		- copy the first part of files
+	<li> <a href="http://www.unix.com/man-page/posix/1/tail">tail</a>
+		- copy the last part of a file
+	<li> <a href="http://www.unix.com/man-page/posix/1/sort">sort</a>
+		- sort, merge, or sequence check text files
+	<li> <a href="http://www.unix.com/man-page/posix/1/cut">cut</a>
+		- cut out selected fields of each line of a file
+	<li> <a href="http://www.unix.com/man-page/posix/1/diff">diff</a>
+		- compare two files
+	<li> <a href="http://www.unix.com/man-page/posix/1/wc">wc</a>
+		- word, line, and byte or character count
+	<li> NOTE: End of file is ctrl-d
+	</ol>
+<li> File System commands
+	<ol>
+	<li> <a href="http://www.unix.com/man-page/posix/1/ls">ls</a>
+		- list directory contents
+	<li> cd (part of shell)
+		<ol>
+		<li> absolute path names
+		<li> relative path names
+		</ol>
+	<li> <a href="http://www.unix.com/man-page/posix/1/pwd">pwd</a>
+		- return working directory name
+	<li> <a href="http://www.unix.com/man-page/all/0/grep">grep, fgrep, egrep</a>
+		- print lines matching a pattern
+	<li> <a href="http://www.unix.com/man-page/posix/1/find">find</a>
+		- find files
+		<blockquote>
+		If there is a single most powerful command (in terms of its
+		usefulness), this might very well be it. This command has
+		more options than you can shake a finger at. You should
+		spend lots of time reading and rereading this man page and
+		trying out the various options.
+		</blockquote>
+	<li> <a href="http://www.unix.com/man-page/posix/1/mkdir">mkdir</a>
+		- make directories
+	<li> <a href="http://www.unix.com/man-page/posix/1/rm">rm</a>
+		- remove directory entries
+		<blockquote>
+		Be careful using this command with wildcards, as you can
+		easily remove more than you intended, and there's no undelete
+		in Unix.
+		</blockquote>
+	<li> <a href="http://www.unix.com/man-page/posix/1/df">df</a>
+		- report free disk space
+	<li> <a href="http://www.unix.com/man-page/posix/1/du">du</a>
+		- estimate file space usage
+	</ol>
+<li> Process commands
+	<ol>
+	<li> <a href="http://www.unix.com/man-page/posix/1/ps">ps</a>
+		- report process status
+	<li> <a href="http://www.unix.com/man-page/all/0/top">top</a>
+		- display Linux tasks
+	<li> <a href="http://www.unix.com/man-page/posix/1/kill">kill</a>
+		- terminate or signal processes
+		<blockquote>
+		QUOTE: As in certain cults it is possible to kill a process if
+			you know its true name. 
+			(Ken Thompson and Dennis M. Ritchie)
+		</blockquote>
+	<li> history (part of shell)
+		<ol>
+		<li> !# (repeat command # as listed by history)
+		<li> !! (repeat last command)
+		<li> !pattern (repeat last command beginning with pattern)
+		<li> !?pattern (repeat last command containing pattern)
+		<li> arrow keys (up, down, left, right)
+		<li> esc?pattern (search for last command containing pattern)
+		<li> command/filename completion (using tab)
+		</ol>
+	</ol>
+<li> Remote commands
+	<ol>
+	<li> <a href="http://www.unix.com/man-page/all/0/ssh">ssh</a>
+		- OpenSSH SSH client (remote login program)
+	<li> <a href="http://www.unix.com/man-page/all/0/scp">scp</a>
+		- secure copy (remote file copy program)
+	<li> <a href="http://www.unix.com/man-page/all/0/rsync">rsync</a>
+		- a fast, versatile, remote (and local) file-copying tool
+	</ol>
+<li> <a href="http://shop.xkcd.com/products/linux-cheat-shirt">This t-shirt</a>
+	might be a helpful study aid. [The instructor's only affiliation with
+	<a href="http://xkcd.com">xkcd.com</a> is being both an admirer and
+	customer.]
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_23.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

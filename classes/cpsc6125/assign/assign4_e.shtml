@@ -1,0 +1,117 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>CPSC 6125: Assignment #4</strong>
+</p>
+
+<hr>
+
+<p>
+You are to write a C program that implements <em>guard</em> (a <em>sudo</em>
+like facility). The <em>guard</em> command takes 1-3 command line arguments,
+which are optional. The first command
+line argument is the name of a file, and the second is a "-e" followed by
+the command to execute.  When a command (with the "-e" flag) is given, the
+user is prompted for a password that must match
+the password stored in the password file before the command is run. If a
+non-matching password is given by the user, then an error message is printed
+(e.g., "ERROR: Incorrect password provided.")
+to stderr and the <em>guard</em> exits without running the given command.
+If a command is not given, then the user is prompted for a password
+(e.g., "Enter the new password:") to setup in the password file. Passwords
+are <strong>not</strong> stored in plain text, but must be hashed (using
+the SHA-512 algorithm - see "man -s 3 sha" in cygwin for details)
+with a randomly generated salt of
+10 characters. If the password file does not yet exist, then it is created
+with this hashed password, but if the password file already exists, then this
+new hashed password value is appended to the file. [When executing commands,
+if the entered password matches an earlier - and thus older - of the saved
+password, then a warning message (e.g., "WARNING: Old password being used.")
+is printed indicating that an older password
+was used, but the command is still executed.]
+If the file option is not given, then by default a file named ".password" 
+(in the current directory) is used. 
+</p>
+
+<p>
+When calling <em>guard</em> with a command to be executed, both the "-e"
+flag and the command itself must be given. If the command has flags then
+the command and its corresponding flags must be enclosed in quotes. For
+example:
+<code><pre>
+guard .mypasswd -e "man sha"
+</pre></code>
+To execute the command, you must use a member of the "exec" family of system
+calls (e.g., <em>execv</em>) - in particular the use of
+<a href="http://www.unix.com/man-page/posix/3/system/">system</a>
+will earn you a grade of 0 for this assignment.
+</p>
+
+<p>
+You are responsible for creating your own test data. It's a good idea to
+create your test cases first, building upon your test data, as this will
+help you with your development. Be sure to include a variety of "corner cases"
+to ensure that your program doesn't work for only "normal" data.
+Test driven development (TDD) is a good practice that you should cultivate.
+</p>
+
+</p>
+When testing, be sure to use lots of different examples.
+You can either supply test data at the keyboard (remembering
+to end the input with a ^D at the beginning of a line), or by feeding the
+contents of a file to it (e.g. a.out &lt; test_data) where the use of the
+U<font size=-2>NIX</font> redirection symbol &lt; causes
+the contents of the file test_data to be
+feed into the program as if they had been typed in from the keyboard.
+</p>
+
+<p>
+As always, be sure to use good indentation, descriptive constant, variable,
+type, function, procedure, and class names.  Use named constants when
+appropriate.  Also use good commenting style, remembering that the first
+thing in any program file should be a comment that gives a brief overview
+of what the file contains (and should do).  You might find these
+<a href="../../common/comment-guide.shtml">commenting guidelines</a> helpful.
+</p>
+
+<p>
+Finally, please only submit your source code file(s) for the assignment
+(e.g., guard.c). In particular, do <em>not</em> submit zip, jar, tar, or
+other collections/archives.
+</p>
+
+<p>
+<strong>Good luck!</strong>
+</p>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

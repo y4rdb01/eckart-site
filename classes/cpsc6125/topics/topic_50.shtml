@@ -1,0 +1,98 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Deadlock Prevention
+</p>
+
+<ol>
+<li> Deadlocks can be avoided if any one of the 4 preconditions is prevented
+	from occurring.
+<li> PREVENT: Mutual exclusive use of resources 
+	<ol>
+	<li> No resource is assigned exclusively.
+	<li> Use spooling and a spool daemon that uses no other resources.
+		Since the spool daemon only uses one resource, then
+		deadlock cannot occur.
+	<li> Memory access can be limited to reading (any # of processes can
+		share read access) but only allow a single (daemon) process
+		to write. This is a form of spooling, but not very
+		practical.
+	<li> Unfortunately, not all resources can be (practically) spooled.
+		In fact, the spooler could deadlock for (lack of) disk space.
+	</ol>
+<li> PREVENT: Processes currently holding resources granted
+	earlier can request new resources
+	<ol>
+	<li> Request all required resources up front (some batch systems
+		do this), but this is wasteful (the process probably won't
+		need all of the resources the entire time)
+		and the process may not know what it
+		really needs until it starts to run.
+	<li> Alternatively, the process could be required to
+		release all currently held resources and re-request
+		them (along with any additional resources) as a single
+		new request.
+	</ol>
+<li> PREVENT: Resources previously granted cannot be forcibly
+	   taken away (no preemption).
+	<ol>
+	<li> This is workable for some resources (e.g., the CPU via
+		preemptive scheduling).
+	<li> It also works for resources that can be virtualized
+		(e.g., spooling virtualizes a printer).
+	<li> Unfortunately, resources like database records must be locked
+		and used (bad things can happen when they are preempted).
+	</ol>
+<li> PREVENT: Circular wait condition.
+	<ol>
+	<li> Allow only one resource to be held at a time (though this
+		prevents some useful actions, like copying something from
+		one tape drive to another).
+	<li> Assign "priority" numbers to resources.  They can
+		be requested at any time, but only in strictly
+		ascending/descending order.  This prevents a
+		resource request cycle.
+	<li> The assignment rule can be relaxed so that no process may request
+		a lower/higher numbered resource than it current holds. This
+		is useful is a process releases all of its previous resources
+		- essentially allowing it to start over again.
+	</ol>
+<li> In practice, a combination of the above techniques are used, depending
+	upon the resource(s) and circumstance.
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_50.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,154 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Cloud Basics
+</p>
+
+<ol>
+<li> <a href="http://csrc.nist.gov/publications/nistpubs/800-145/SP800-145.pdf">NIST's 5 essential characteristics</a> of Cloud computing:
+	<ol>
+	<li> On-demand self-service
+		<blockquote>
+		Consumers can automatically provision computing resources as
+		needed without human interaction from each service provider. 
+		</blockquote>
+	<li> Broad network access
+		<blockquote>
+		Services are available over the network and accessed via
+		standard mechanisms and protocols.
+		</blockquote>
+	<li> Resource pooling
+		<blockquote>
+		Computing resources (e.g., CPU, memory, network) are pooled by
+		the provider to serve multiple tenants, with different
+		physical and virtual resources dynamically (re)assigned
+		according to consumer demand.
+		</blockquote>
+	<li> Rapid elasticity
+		<blockquote>
+		Capabilities can be automatically provisioned and released to
+		rapidly adapt to demand. These capabilities often appear
+		unlimited to the consumer.
+		</blockquote>
+	<li> Measured service
+		<blockquote>
+		Cloud systems resource usage is automatically monitored,
+		controlled, and reported, providing transparency to both the
+		provider and Cloud service consumer.
+		</blockquote>
+	</ol>
+<li> <a href="http://csrc.nist.gov/publications/nistpubs/800-145/SP800-145.pdf">NIST's 4 Cloud deployment models</a>:
+	<ol>
+	<li> Private cloud
+		<blockquote>
+		The cloud infrastructure is provisioned for exclusive use by
+		a single organization. It may be owned, managed, and
+		operated by the organization, a third party, or some
+		combination of them, and it may exist on or off premises.
+		</blockquote>
+	<li> Community cloud
+		<blockquote>
+		The cloud infrastructure is provisioned for exclusive use by a
+		specific community of consumers from organizations that have
+		shared concerns. It may be owned, managed, and operated by one
+		or more of the organizations in the community, a third party,
+		or some combination of them, and it may exist on or off
+		premises.
+		</blockquote>
+	<li> Public cloud
+		<blockquote>
+		The cloud infrastructure is provisioned for open use by the
+		general public. It may be owned, managed, and operated by one
+		or more organizations and exists on the premises of one or
+		more of these organizations.
+		</blockquote>
+	<li> Hybrid cloud
+		<blockquote>
+		The cloud infrastructure is a composition of two or more
+		distinct cloud infrastructures (private, community, or public)
+		that are bound together by standardized or proprietary
+		technology that enables data and application portability
+		(e.g., load balancing between clouds, or enabling unmet needs
+		on a private cloud to be satisfied by a public cloud through
+		prior arrangement).
+		</blockquote>
+	</ol>
+<li> Virtualization has enabled the modern commercialization of clouds by
+	allowing multiple tenats (via VMs and their guest OS) to share a
+	single computing system while preventing them from accessing each
+	others data or resources (or even knowing about the existence of
+	other VMs).
+	<ol>
+	<li> Remote server hosting was available prior to clouds, but required
+		the rental/ownership of an entire computer. Since the acquired
+		computing capacity needed to be sized for the (expected) worst
+		case, there was often plenty of headroom available.
+	<li> The acquistion of this extra headroom represented extra cost to
+		the customer. Furthermore, it represented lost opportunity
+		to the vendor, since the excess capacity (underutilized
+		headroom) could be sold to other customers.
+	<li> Virtualization enables lower pricing to customers, since they
+		pay only for the computing power and storage that they use.
+		Vendors can oversell their physical hardware capacity, knowing
+		that the full capacity will (almost) never be needed by all
+		of its customers simultaneously.
+	</ol>
+<li> VM migration
+	<ol>
+	<li> In traditional (non-virtualized) computing, migrating an OS and
+		its software from one computer to another took significant
+		time (halt the old system, copy/move disk, transfer network
+		connections, restart the new system).
+	<li> Relocating a VM is easier. The VM can be paused (rather than
+		shutdown) since it's really just a process, the files and
+		process information moved (which may be nearly trivial if
+		the storage is non-local, e.g., via NFS), and the VM process
+		resumed on the new hypervisor.
+	<li> <em>Live migration</em> of VMs can occur by copying the files and
+		memory pages of a VM while it is still running (known as
+		<em>pre-copy memory migration</em>). Some memory pages will
+		be written (dirty) in the mean time, but most won't be. At
+		some point only a small number of dirty pages will remain,
+		then the VM can be paused for a VERY short time while the
+		remaining memory pages are copied before the VM is resumed
+		on a new physical computing system.
+	<li> If the VM down-time is not noticable (to the customer) this is
+		called <em>seamless live migration</em>.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_73.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

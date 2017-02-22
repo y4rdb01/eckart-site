@@ -1,0 +1,107 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- C++ Example (CircularQueue)
+</p>
+
+<ol>
+<li> <a href="../cc/circularQueue.cc">Generic Circular Queue</a> example
+	<ol>
+	<li> "static" members are like those in Java.
+	<li> Templates (by class or typename)
+	<li> Exceptions (throwing): "throw" an instance of a class (or other
+		type, like "int").
+	<li> Exceptions (catch/handle): use try-catch block with different
+		catches for each type of exception that might be thrown.
+	<li> Unlike Java, exceptions do not necessarily have the same
+		base class.
+	<li> Recall that class templates can have anonymous instantiations.
+	<li> Note the overloading of "+=" to enqueue an item. Overloaded
+		operations only need a similar signature - they don't have
+		to represent similar semantics.
+	</ol>
+<li> <a href="../cc/heapQueue.cc">Generic Heap Queue</a> example
+	<ol>
+	<li> Classes may be nested (as in Java). This enables the
+		implementation details of non-trivial data structures to
+		be kept private (i.e., hidden).
+	<li> Recursive class/struct are created by using pointers. A pointer
+		is a memory address of where to find the actual value. The
+		use of pointers in declaring recursive structures enables the
+		structure to have a fixed (and finite) size.
+	<li> Pointer variables are declared with an asterisk (*). Following a
+		pointer (i.e., dereferencing) also uses an asterisk (*).
+	<li> The arrow notation (->) is shorthand for accessing the field of
+		a structure via a pointer to the structure (e.g.,
+		"tmp->next" is equivalent to "(*tmp).next"). 
+	<li> As in Java, "new" allocates heap storage sufficient to hold
+		values of the specified type. The memory address of the
+		storage is returned.
+	<li> Unlike Java, C++ does <em>not</em> support garbage collection.
+		The "delete" operator returns the indicated storage back to
+		the heap. While the operator's argument is set to NULL,
+		any other variables with that pointer value will NOT become
+		NULL, thus enabling the creation of dangling references.
+	<li> The use of "typename" is needed in this example to distinguish
+		that the qualified dependent type (Queue<TYPE>::node) is really
+		a type and that it is not the first part of a
+		statement/expression (i.e., to multiply the qualified name
+		"node" by "tmp").
+	<li> The use of "typename" instead of "class" is preferred by some
+		developers when declaring "template"s (particularlly when
+		primitive type instantiations are allowed).
+	</ol>
+<li> Speaking at the QCon London 2009 conference
+	(<a href="http://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare">video</a>),
+	<a href="https://en.wikipedia.org/wiki/Tony_Hoare">C.A.R. Hoare</a>
+	apologized for inventing the "null" reference:
+
+	<blockquote>
+	I call it my billion-dollar mistake. It was the invention of the
+	null reference in 1965. At that time, I was designing the first
+	comprehensive type system for references in an object oriented
+	language (ALGOL W). My goal was to ensure that all use of references
+	should be absolutely safe, with checking performed automatically by
+	the compiler. But I couldn't resist the temptation to put in a null
+	reference, simply because it was so easy to implement. This has led
+	to innumerable errors, vulnerabilities, and system crashes, which
+	have probably caused a billion dollars of pain and damage in the last
+	forty years.
+	</blockquote>
+
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_21.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

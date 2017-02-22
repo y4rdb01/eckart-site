@@ -1,0 +1,132 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- RAID
+</p>
+
+<ol>
+<li> Disk arrays
+	<ol>
+	<li> Redundant Array of Inexpensive Disks (RAID) - term was coined
+		by a team of researchers at Univ of Calf, Berkeley in
+		the late 1980s (David Patterson, Garth Gibson, and Randy Katz).
+	<li> Within 15-20 years, the "inexpensive" had morphed into
+		"independent".
+	<li> "Redundant" refers to special error-correction data stored in
+		a disk array which allows the array to recover from bad sectors,
+		or even complete crashes.
+	</ol>
+<li> <a href="https://en.wikipedia.org/wiki/RAID">RAID levels</a>
+	<blockquote>
+	<dl>
+	<dt>Level 0</dt>
+		<dd>
+		Block level disk stripping.  Data is divided into segments
+		(e.g. 1024 bytes) with the nth segment stored on the nth
+		disk (modulo the # of disks).  This allows faster access
+		(read and write) but offers no recovery from crashes.
+		</dd>
+	<dt>Level 1</dt>
+		<dd>
+		Disk mirroring. Every disk has a twin, thus there
+		is always a backup disk with the data.  This is the most
+		expensive level (requiring twice the number of disks for the
+		same amount of storage), but it does improve read performance
+		since either disk can be read. Array continues to operate so
+		long as at least one drive is operating.
+		</dd>
+	<dt>Level 2</dt>
+		<dd>
+		Stripes data as in level-0, but at the bit level.
+		Additional disks are kept to hold Hamming-code parity
+		error-correcting info.  Whenever data is written the
+		error-correcting drives must also be written.  Data is
+		also written to ALL drives in the group whenever a write
+		to any one drive (other than the error-correcting drives)
+		is done as well.  Less expensive than level-1. Not used by any
+		commercial systems.
+		</dd>
+	<dt>Level 3</dt>
+		<dd>
+		Like level-2, but byte (rather than bit) level striping
+		and only 1 error-correcting disk.  Drives
+		can tell when they have a read error, so a simple parity
+		check allows the correction of single drive errors.  Less
+		expensive than level-2. Not commonly used.
+		</dd>
+	<dt>Level 4</dt>
+		<dd>
+		Adds an extra parity drive containing error-correcting
+		information to the end of a level-0 array.  Reads only come from
+		one disk, writes go to 2 (the actual data disk and the error
+		disk).  Usually better than level-2 or level-3 for reading small
+		transaction processing style data.
+		</dd>
+	<dt>Level 5</dt>
+		<dd>
+		Improves level-4's performance by spreading the parity
+		data across all the group's drives in rotation, one segment
+		at a time.  Better than level-4 for both reads and writes since
+		there isn't just one disk to contend for on writes. Can survive
+		any single disk failing.
+		</dd>
+	<dt>Level 6</dt>
+		<dd>
+		Uses block-level striping (level-0) with double
+		distirbuted parity to allow data reconstruction if 1 or 2
+		drives fail simultaneously. RAID 6 is prefered over RAID 5
+		as the array size grows.
+		</dd>
+	</dl>
+	</blockquote>
+<li> Software vs Hardware RAID
+	<ol>
+	<li> Software RAID is provided by many OSes (e.g., Mac OS X, FreeBSD,
+		Linux, NetBSD, Windows 8, and Windows Server 2012),
+		however it is slower than a hardware based solution.
+	<li> Software RAID doesn't always support the OS boot process.
+	<li> Hardware RAID controllers are expensive, but support the OS boot
+		process.
+	<li> A hybrid solution that uses a standard (non-RAID) HDD controller
+		chip but with specialized/proprietary firmware and device
+		drivers. On bootup the RAID is implemented by firmware (that
+		is boot aware) and after the OS is running, the hardware
+		controller and device driver take over for full RAID support.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_42.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

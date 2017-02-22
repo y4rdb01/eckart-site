@@ -1,0 +1,92 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- NetLogo Example (Life)
+</p>
+
+<ol>
+<li> <a href="../netlogo/life.nlogo">Life</a>
+	(<a href="../netlogo/lifeData.txt">data</a>)
+	was developed by the British mathematician
+	<a href="http://en.wikipedia.org/wiki/John_Horton_Conway">John Conway</a>
+	in 1970.  The surprisingly simple rules yield complex
+	emergent behaviors that make it Turing Complete.
+<pre><code>
+	patches-own [living total]	; 1 = alive, 0 = dead
+
+	to setup
+		set-patch-size 5
+		resize-world 0 63 0 63
+		clear-all
+		ifelse useRandom 	; Initialize
+			[ ask patches [ set living (random 2) ]	]
+			[ getFileData ]
+		colorize
+		reset-ticks
+	end
+
+	to go
+		ask patches [
+			set total (sum [living] of neighbors)
+		]
+
+		ask patches [
+			ifelse (living = 1 and total = 2) or total = 3
+				[ set living 1 ]
+				[ set living 0 ]
+		]
+		colorize
+		tick	; Advance the global clock (+1) and update all patches
+	end
+
+	to getFileData
+		file-open inputFileNamePath
+		while [ not file-at-end? ]
+			[ ask patch file-read file-read [ set living 1 ] ]
+		file-close
+	end
+
+	to colorize
+		ask patches [
+			ifelse living = 1
+				[ set pcolor [255 255 255] ]
+				[ set pcolor [0 0 0] ]
+		]
+	end
+</code></pre>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_55.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

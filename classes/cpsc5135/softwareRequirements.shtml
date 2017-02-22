@@ -1,0 +1,105 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	<br/>Software Requirements
+</p>
+
+<p>
+To complete all lessons, assignments, labs, and tests, you will need to
+access a computer with the following installed:
+<ol>
+<li> Operating System (need at least one):
+	<ol>
+	<li> Linux (try <a href="https://help.ubuntu.com/community/Lubuntu/">Lubuntu</a>)
+	<li> Windows 7/8.x
+	<li> Mac OSX [NOTE: While this should work, not all of the language systems may have specific installations for this OS platform.]
+	</ol>
+<li> Web Browser (need at least one):
+	<ol>
+	<li> <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a>
+	<li> <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>
+	<li> <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Internet Explorer</a>
+	</ol>
+<li> Environment (recommended if using Windows):
+	<ol>
+	<li> <a href="https://www.cygwin.com/">Cygwin</a> provides a Unix-like
+		environment on Windows, including many programming languages
+		(e.g., C, C++, Lisp, Prolog). It's highly recommended that you
+		install this as it will include some of the items from the
+		next two sections below). NOTE: The full install will
+		take a long time (e.g., 24 hours).
+	</ol>
+<li> Various Programming Languages/Systems (need all of these - though some
+	come with Cygwin):
+	<ol>
+	<li> <a href="http://www.clisp.org/">Common Lisp</a>
+	<li> <a href="http://www.swi-prolog.org/">Prolog</a>
+	<li> <a href="http://www.exept.de/en/smalltalk-x.html">Smalltalk</a>
+	<li> <a href="http://gcc.gnu.org/">C++</a> [also includes C and Objective-C]
+	<li> <a href="http://ccl.northwestern.edu/netlogo/">netLogo</a>
+
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE
+	<li> <a href="http://golang.org/">Go</a> [optional]
+	<li> <a href="http://www.ps.uni-saarland.de/alice/">ML</a> [optional]
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+
+	</ol>
+<li> IDE or text editor (need at least one):
+	<ol>
+	<li> <a href="http://www.eclipse.org/">Eclipse</a> is your best bet if you really need an IDE
+	<li> <a href="http://www.vim.org/">Vim</a> for text editing is often my personal preference
+	<li> <a href="http://www.nano-editor.org/">nano</a> is a simpler editor than <a href="http://www.vim.org/">Vim</a>. 
+	<li> <a href="http://notepad-plus-plus.org/">Notepad++</a>, a free replacement for Microsoft's Notepad, may be more familiar to many.
+	</ol>
+<li> Code Source Versioning (recommended):
+	<ol>
+	<li> <a href="https://subversion.apache.org/">Subversion</a> server
+	<li> <a href="http://tortoisesvn.net/">TortoiseSVN</a> web client
+	</ol>
+</ol>
+</p>
+
+<p>
+If, for some reason, you are unable to install any (or most) of the above,
+there is a web based system that <em>may</em> of interest to you. The
+<a href="http://compileonline.com">compileonline</a> system supports most
+(though not all) of the languages that we'll be examining in class (and
+have assignments for).  I have <em>not</em> used this system for anything
+substantial so I can't attest to it's appropriateness regarding the programming
+assignments.  You're free to investigate it. I'd certainly be interested in
+anyone's feedback regarding use of the site (both the good and the bad).
+</p>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

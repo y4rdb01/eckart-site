@@ -1,0 +1,55 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- More Smalltalk Resources
+</p>
+
+<ol>
+<li> As you've probably already guessed, you can concatenate class and method
+	definitions into a single file.
+	This <a href="../smalltalk/combined.st">combined file</a> contains
+	the previous example files into a single Smalltalk/X file.
+<li> <a href="http://live.exept.de/doc/online/english/TOP.html">Smalltalk
+	Documentation</a> for the ST/X system
+<li> <a href="http://live.exept.de/doc/books/JoyOfST/IntroToST.html">Introduction to Smalltalk</a>
+<li> Be sure to look at the Smalltalk <a href="http://live.exept.de/doc/online/english/programming/language.html">Language Overview</a> and <a href="http://live.exept.de/doc/online/english/getstart/tut_2.html">Smalltalk Basics</a>. 
+<li> The <a href="http://live.exept.de/doc/online/english/programming/language.html#FILEFORMAT">file format</a> information may also be helpful.
+<li> <a href="http://www.angelfire.com/tx4/cus/notes/smalltalk.html">Quick reference</a> for various aspects of Smalltalk courtesy of <a href="mailto:ChrisRath@aol.com">Chris Rathman</a>.
+<li> Creating <a href="http://live.exept.de/doc/online/english/getstart/tut_1b.html">self-contained applications</a>
+<li> <a href="http://www.inf.ufsc.br/poo/smalltalk/stx/english/programming/classicBugs.html">Classic Smalltalk Bugs</a>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_38.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

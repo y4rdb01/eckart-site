@@ -1,0 +1,233 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Brief History of Operating Systems
+</p>
+
+<ol>
+<li> The First Generation (1945-1955): Vacuum Tubes and Plugboards
+	<ol>
+	<li> No OS's.
+	<li> In the beginning of this era, programming often involved some
+		changes to the hardware (e.g. Eniac was "programmed" by
+		rewiring the machine via switches).
+	<li> Later on, punch cards were used to read in programs (no
+		hardware changes).  This required rudementary OS support to
+		control the card reader, but even this might really be done
+		in hardware.
+	<li> Computers of this generation were single use, with the
+		users reserving time to use the machines.
+	</ol>
+
+<li> The Second Generation (1955-1965): Transistors and Batch Systems
+	<ol>
+	<li> With the advent of assembly and FORTRAN, and support for 
+		their I/O operations, minimal OS's came into being.
+	<li> They would allow you to execute a compiler, then run
+		the compiled code.
+	<li> Libraries of I/O routines supported
+		the use of mag tapes, disks and printers.
+	<li> Since machines in this era were so expensive (and
+		people were cheap), batching of jobs was done.
+	<li> Early batching was accomplished by having card decks
+		put together in a tray. Later sets of cards were
+		read and then written to tape (by less expensive machines)
+		so that the faster tape could be used read by the more
+		expensive machines. Output was also written to tape
+		for printing by less expensive hardware. This enabled
+		more efficient use of the main computing system's time.
+	</ol>
+
+<li> The Third Generation (1965-1980): ICs and Multiprogramming
+	<ol>
+	<li> IBM was first to come out with family of machines,
+		the 360's, which were also the first to use IC's.
+	<li> IBM's "one family" notion of program portability within
+		a machine/OS model group, although advantageous, also made 
+		the OS large, complex and hard to write (millions
+		of lines of assembly).  
+	<li> The 360 OS also popularized multiprogramming.  This was 
+		done by partitioning memory so that several programs 
+		were resident at once.  When one program had to wait for I/O, 
+		another could run for awhile (or several programs could 
+		take turns).  This also required special hardware to
+		keep programs from looking into or changing one another.
+		Programs could be swapped to make way for others.
+	<li> Paging, in support of virtual memory, allowed programs larger
+		than core/main memory to be run. Paging also supported
+		multiprogramming by allowing more programs to be "resident"
+		at a time.
+	<li> Another feature was spooling (simultaneous peripheral
+		operation on line), which allowed cards to be read immediately
+		and stored on disk so that they were more quickly available
+		when the machine was ready to run them. This task no longer
+		had be be done manually with another (cheaper) computer.
+	<li> The above ideas were first used in conjunction with batching,
+		but users still wanted the quick/immediate responses.
+		Time-sharing was the answer.  Since most commands are short,
+		several users can get these quick actions done with little
+		delay.  A max allowed time for each command could be used
+		to keep the delay short (this also requires hardware support,
+		in order to interrupt the processor).
+	<li> MULTICS (MULTiplexed Information and Computing Service)
+		delved further into these ideas, giving rise to UNICS
+		(UNiplexed Information and Computing Service), later
+		renamed U<font size=-2>NIX</font>, written by Brian Kernighan.
+	<li> U<font size=-2>NIX</font> was later rewritten in C by both
+		Kernighan and Dennis Ritchie (who designed C).  This made
+		U<font size=-2>NIX</font> portable and is ultimately
+		one of the factors which has made it so popular.
+	<li> While MULTICS was envisioned to run on very large mainframe
+		systems, U<font size=-2>NIX</font> was developed for a new
+		breed of smaller <em>mini</em>computers that became
+		increasingly popular during this time period.
+	</ol>
+
+<li> The Fourth Generation (1980-present): Personal Computers
+	<ol>
+	<li> LSI and VLSI allowed computers to be placed on a single
+		chip (i.e., <em>micro</em>computers), making them small
+		and cheap enough for home and small business purchase/use.
+	<li> Since every day sorts of folks were using them, software
+		became user-friendly to improve its salability.
+	<li> Major OS's of the period are MS-DOS/Windows, MAC OS and OS X,
+		and U<font size=-2>NIX</font>.
+	<li> Growth of networks in the 1980's has given rise to
+		network and distributed OS's.
+		<ol>
+		<li> A network OS is not really an OS, but merely supplies
+			support for remote logins and moving files from one
+			machine to another (telnet and ftp).
+		<li> A distributed OS has only a minimal portion of the OS
+			on each machine.  Together, all of the machines on
+			the net share all of the resources on the net.
+			Users logged in to a distributed OS do not see
+			several machines, but only a single "machine".
+			A user's programs (including login) may run on
+			different machines, as well as migrate from one
+			machine to another.  Communication delays are a
+			problem, but distributed OS's provide for fault
+			tolerance (with corresponding degradation of
+			performance).
+		</ol>
+	</ol>
+
+<li> The Fifth Generation (1990-present): Mobile Computing
+	<ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore's
+		Law</a> enabled more capable processors to fit into
+		smaller devices. This enabled PDAs to emerge in the
+		mid 1990s giving way to smartphones in the 2000s and tablets
+		in the 2010s.
+	<li> Communication is key for mobile computing, and both cell
+		phone tower coverage as well as the growing ubiquity of
+		WiFi have made it ever easier to keep these handheld
+		devices connected.
+	<li> While these devices can operate independently (i.e., disconnected
+		from the network), their value comes from being able to
+		access (and provide) information via the Internet.
+	</ol>
+
+<li> The Sixth Generation (2005-present): Cloud Computing?
+	<ol>
+	<li> Cloud Computing is an extension of the idea behind distributed
+		computing, with the ability of the computing resources
+		to grow and shrink dynamically as the computational demand
+		changes.
+	<li> Various precursors to cloud computing include:
+		<ol>
+		<li> Early services like hotmail (launched in 1996) and gmail
+			(launched in 2004) utlized the web to provide a computer
+			based service that wasn't resident on a user's personal
+			computer, and that expanded as the number of users and
+			emails grew.
+		<li> Grid Computing created distributed systems of
+			heterogeneous computers that shared information
+			and compute resources. While grids could grow
+			and shrink in size, this was a process that required
+			system administrator intervention.
+		<li> <a href="https://en.wikipedia.org/wiki/SETI@home">SETI@home</a>
+			and later the more general <a href="https://en.wikipedia.org/wiki/Boinc">BOINC</a>
+			design, provide a client-server architecture that allows
+			many computers to participate in the solution of a
+			single problem. Unlike grids, computers can join and
+			leave the collection easily, but the architecture is
+			best suited to situations that can be divided up
+			into small work items that require small amounts of
+			local data.
+		</ol>
+	<li> Some early examples of cloud computing are:
+		<ol>
+		<li> <a href="https://en.wikipedia.org/wiki/Amazon_Web_Services">
+			Amazon Web Services</a> launched in 2006.
+		<li> <a href="https://en.wikipedia.org/wiki/Google_App_Engine">
+			Google App Engine</a> launched in 2008.
+		<li> <a href="https://en.wikipedia.org/wiki/Microsoft_Azure">
+			Microsoft Azure</a> launched in 2010.
+		</ol>
+	<li> This generation of computing integrates particularly well with
+		mobile computing, clouds providing the primary computation and
+		data, while the handheld devices serve as the point of access
+		to those data and computer services. 
+	</ol>
+
+<li> The Seventh Generation (2015-???): Internet of Things?
+	<ol>
+	<li> The <a href="https://en.wikipedia.org/wiki/Internet_of_Things">
+		Internet of Things</a> (IoT) looks like an extension of
+		mobile computing.
+	<li> However, because the devices are small and provide value
+		through their integration with the environment (not necessarily
+		with humans via intefaces intended to be directly and
+		purposefully manipulated) <em>and</em> with each other via
+		a variety of communication networks and protocols.
+	<li> Home automation seems the probable first domain in which the
+		IoT is likely to flourish (e.g., door locks, thermostats,
+		lighting, audio). Even
+		<a href="http://amazon.com">Amazon.com</a> has jumped on the
+		bandwagon with their own
+		<a href="http://www.amazon.com/b/?node=6563140011&ref=ha_van">Home Automation Store</a>.
+	</ol>
+
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ???
+
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_03.html">self-assessment questions</a>.
+
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE-->
+
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

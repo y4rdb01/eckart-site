@@ -1,0 +1,267 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Files
+</p>
+
+<ol>
+<li> Files must have 3 essential qualities:
+	<ol>
+	<li> They can store potentially LARGE amounts of information;
+	<li> They are not part of the address space of any process, and their
+		lifetime is not tied to that of any process (i.e., files
+		are <em>persistent</em>); and
+	<li> Multiple processes can access the information "simultaneously".
+	</ol>
+<li> The <em>file system</em> of an OS provides an abstraction for reading,
+	writing, and managing files.
+	<ol>
+	<li> The abstraction hides the details of how files are handled and
+		manipulated.
+	<li> Hiding these details is particularly helpful since there are so
+		many devices on which files might be stored, and we don't
+		want our programs tied to a specific file storage mechanism.
+	</ol>
+<li> File Naming
+	<ol>
+	<li> A (readable) sequence of characters that makes it easy to refer
+		to the file.
+	<li> Some file systems support only short names (e.g., FAT16 which
+		uses up to 8 characters for the file name and 3 for the
+		extension), while others support very long names.
+	<li> A file system may support only single case (e.g., upper-case as
+		in FAT16) file names while others (most) use mixed case.
+	<li> Modern OSs can utilize a variety of file systems (even at the
+		same time). Most flash drives (e.g., USB drives, SD cards) and 
+		consumer electronics (e.g., cameras) use FAT32 (or ExFat)
+		to enable interoperability with a larger set of OSs.
+	<li> File systems typically support file name extensions that are
+		often used to indicate the kind of information the file
+		contains.
+		<ol>
+		<li> For example "notes.txt" would contain ASCII text while
+			"assignment.c" contains C source code.
+		<li> Some systems restrict files to having one (1) extension
+			at most (e.g., FAT32), while others enable multiple
+			extensions (e.g., ext4).
+		<li> Multiple extensions as in "directory.tar.zip" are allowed
+			by most modern file systems.
+		<li> File name extensions are part of the name of the file,
+			but it is up to the OS and other user programs about
+			how (or even if) these extensions will be used. So
+			it's possible that a file named "a.exe" could contain
+			an ASCII text file.
+		</ol>
+	</ol>
+<li> File Structure is the logical organization of the information in a file.
+	There are three (3) basic structures:
+	<ol>
+	<li> Unstructured sequence of bytes is how both Unix/Linux and Windows
+		organize their files. It's up to the program using the file
+		to determine the "meaning" of the bytes. This is the most
+		flexible, but it also means that programs have to do more of
+		the work (e.g., recreating the "structure" of the /etc/passwd
+		file).
+	<li> Files containing a sequence of records provide some structure
+		to the data. Records may be of either fixed or variable size.
+		Record based file systems originated and are
+		commonly used by mainframe operating systems.
+		<a href="https://en.wikipedia.org/wiki/ISAM">ISAM</a> is an
+		example of a record oriented file system.
+	<li> A tree structured file is composed of records of differing
+		sizes. Each file has an associated key that enables the
+		tree to be organized to make finding/retrieving a particular
+		record fast. <a href="https://en.wikipedia.org/wiki/Virtual_Storage_Access_Method#Indexed_VSAM_organization">Indexed VSAM files</a> (also
+		called <em>Key Sequenced Data Set</em>s) are examples of
+		tree structured files, and are most often associated with
+		mainframes.
+	</ol>
+<li> File Types
+	<ol>
+	<li> Regular files are those created, removed, and often edited by
+		users (or user programs). These include both ASCII and binary
+		files.
+		<ol>
+		<li> For example, word processor files, html files, compiled
+			programs, program source files, and compressed files.
+		<li> If the OS restricts a file usage based on its type
+			(strongly typed), then unusual program uses may not
+			be permitted (e.g., using the source code for a "word"
+			counting program as input to the same program's
+			executable).
+		</ol>
+	<li> Directories are a special kind of file that organize information
+		about files and other directories.
+	<li> Character special files model serial character at a time I/O
+		for some peripherial devices (e.g., printers, terminals).
+	<li> Block special files model I/O to peripherials that handle (usually
+		fixed) blocks of data (e.g., disks).
+	</ol>
+<li> File Access
+	<ol>
+	<li> Sequential access refers to reading the file in order, starting
+		with the first byte.
+	<li> Random access refers to the ability to jump to various parts
+		parts of the file without having to read the information
+		in a particular order (e.g., jumping to the middle of the
+		file without first examining the data in the first half).
+		<ol>
+		<li> Mainframe Indexed VSAM files support random access.
+		<li> Windows and Unix/Linux support random access by using
+			a "seek" system call that positions them at any
+			location within the file. Read operations then use
+			sequential access from that point on (until another
+			another "seek" is done to reset the position in the
+			file).
+		</ol>
+	</ol>
+<li> File Attributes
+	<ol>
+	<li> Indicate various information about the file. Some are common
+		to all file systems (e.g., the file name), while others
+		may occur only in some (e.g., record length).
+	<li> File attributes common to many systems include:
+		<ol>
+		<li> File name
+		<li> Size
+		<li> Creation time
+		<li> Last modified time
+		<li> Last access time
+		<li> File type
+		<li> File permissions (indicating who is allowed to read,
+			append, modify, remove, execute, or perform other
+			operations on/with the file).
+		</ol>
+	</ol>
+<li> File Operations & (POSIX) System Calls
+	<ol>
+	<li> <a href="http://www.unix.com/man-page/posix/3/creat/">creat</a>
+		- Creates a new file. [Redundant and kept for historical
+		reasons. Use <em>fopen</em> instead.]
+	<li> <a href="http://www.unix.com/man-page/posix/3/fopen/">fopen</a>
+		- Opens an existing file for reading/writing. It can also used
+		to create files.
+	<li> <a href="http://www.unix.com/man-page/posix/3/fclose/">fclose</a>
+		- Closes an open file, freeing up any OS table space associated
+		with keeping track of the file. This ensures that any buffers
+		are flushed (i.e., written back to the disk).
+	<li> <a href="http://www.unix.com/man-page/posix/3/remove/">remove</a>
+		- Deletes an existing file. Actually this utilizes either
+		<a href="http://www.unix.com/man-page/posix/3/unlink/">unlink</a>
+		(for regular and special files) or
+		<a href="http://www.unix.com/man-page/posix/3/rmdir/">rmdir</a>
+		(for directories).
+	<li> <a href="http://www.unix.com/man-page/posix/3/read/">read</a>
+		- Read a specified number of bytes from an open file.
+	<li> <a href="http://www.unix.com/man-page/posix/3/write/">write</a>
+		- Writes a specified number of bytes to an open file.
+	<li> <a href="http://www.unix.com/man-page/posix/3/lseek/">lseek</a>
+		- Seek sets the current position within an open file. Any
+		subsequent reads/writes operate starting at this new position. 
+		[<em>seek</em> used int for the offset, whereas <em>lseek</em>
+		is the long version (using a long int to specify the offset).]
+	<li> Append is accomplished by opening the file using the O_APPEND
+		flag, or by doing an
+		<a href="http://www.unix.com/man-page/posix/3/lseek/">lseek</a>
+		to the end of the file and then using
+		<a href="http://www.unix.com/man-page/posix/3/write/">write</a>s.
+	<li> <a href="http://www.unix.com/man-page/posix/3/stat/">stat</a>,
+		<a href="http://www.unix.com/man-page/posix/3/lstat/">lstat</a>,
+		and <a href="http://www.unix.com/man-page/posix/3/fstat/">fstat</a>
+		- Obtain information about a file. A "stat" struct is populated
+		with the files attributes. The "struct stat" is defined in
+		/usr/include/sys/stat.h
+		(or in Cygwin, /usr/include/cygwin/stat.h) as:
+<pre><code>
+struct stat {
+    dev_t       st_dev;      /* Identifies the device containing the file. Together, st_ino and st_dev,
+				uniquely identify the file.
+			     */
+    ino_t       st_ino;      /* The file serial number, which distinguishes this file from all other
+				files on the same device.
+			     */
+    mode_t      st_mode;     /* Specifies the mode of the file. This includes file type information
+				and the file permission bits.
+			     */
+    nlink_t     st_nlink;    /* The number of hard links to the file.  If the count is ever decremented
+				to zero, then the file itself is discarded as soon as no process
+				still holds it open. Symbolic links are not counted in the total.
+			     */
+    uid_t       st_uid;      /* The user ID of the file's owner. */
+    gid_t       st_gid;      /* The group ID of the file. */
+    dev_t       st_rdev;     /* Only character special files and block special files have this value,
+				which contains the device number for the actual device.
+			     */
+    off_t       st_size;     /* Specifies the size of a regular file in bytes. For files that are
+				really devices this field isn't usually meaningful. For symbolic links
+				this specifies the length of the file name the link refers to.
+			     */
+    timestruc_t st_atim;     /* This is the last access time for the file. */
+    timestruc_t st_mtim;     /* This is the time of the last modification to the contents of the file. */
+    timestruc_t st_ctim;     /* This is the time of the last modification to the attributes of the file. */
+    blksize_t   st_blksize;  /* The optimal block size for reading or writing this file, in bytes.
+			     */
+    blkcnt_t    st_blocks;   /* The amount of disk space that the file occupies, measured in
+				units of 512-byte blocks.
+			     */
+    timestruc_t st_birthtim; /* The file's creation (birth) time. */
+};
+
+</code></pre>
+	<li> Set (some) attributes of a file/directory:
+		<ol>
+		<li> <a href="http://www.unix.com/man-page/posix/3/chown/">chown</a>
+			- Change the owner and group of a file or directory.
+		<li> <a href="http://www.unix.com/man-page/posix/3/chmod/">chmod</a>
+			- Change the permissions on a file or directory.
+		</ol>
+	<li> <a href="http://www.unix.com/man-page/posix/3/rename/">rename</a>
+		- Renames the file (or directory) relative to the directory
+		file descriptor.
+	<li> Duplicating file descriptors for (re)mapping input and output:
+		<ol>
+		<li> <a href="http://www.unix.com/man-page/posix/3p/dup/">dup</a>
+			- duplicate (copy) an open file descriptor to an
+				available position.
+		<li> <a href="http://www.unix.com/man-page/posix/3p/dup2/">dup2</a>
+			- duplicate (copy) an open file descriptor to the
+				specified position.
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_33.html">self-assessment questions</a>.
+</ol>
+
+		
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

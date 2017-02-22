@@ -1,0 +1,109 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Deadlock Detection & Recovery
+</p>
+
+<ol>
+<li> The Ostrich Algorithm
+	<ol>
+	<li> Ignore the problem.
+	<li> This strategy is used by most systems (including Unix, Linux,
+		Mac OS X, and Windows).
+	<li> Generally system administrators (often the primary user on PCs,
+		laptops, and other "personal" computing devices) kill suspect
+		process, or restart the entire system, when the system
+		response becomes too slow.
+	</ol>
+<li> Detection
+	<ol>
+	<li> A resource graph can be maintained and updated for cycle detection:
+		<ol>
+		<li> For each node (circle/process or square/resource)
+			in the graph, do a traversal.
+		<li> Follow the directed links adding each node to the list
+			of visited nodes.  Use backtracking to back
+			up and try alternate paths, removing visited nodes when
+			they are removed from the traversal.
+		<li> If the traversal encounters a node already in the traversal
+			list, then there is a cycle.
+		<li> [A more detailed description of the algorithm is on
+			page 445 of the text.]
+		</ol>
+	<li> The above algorithm works for single resource instances.
+		If there there are multiple instances of the same resource,
+		then a matrix based algorithm (page 446-448) is needed.
+	<li> Detection algorithms can be costly to run. Unless it is important
+		to detect deadlock as soon as possible (i.e. run every
+		time a resource request is made), these checks might be done:
+		<ol>
+		<li> When several processes have been blocked for a "long time".
+		<li> Periodically (e.g., every 5 minutes). 
+		</ol>
+	<li> Alternatively, you needn't keep a resource graph, but
+		instead assume that processes that are blocked for long
+		periods of time (e.g. 1 hour) are probably deadlocked.
+	</ol>
+<li> Recovery
+	<ol>
+	<li> Recovery requires breaking the cycle in the resource graph. This
+		can be done by either:
+		<ol>
+		<li> Terminating a process (and releasing all of
+			its granted resources);
+		<li> Rolling back a process to a <em>checkpoint</em> before
+			the resource in the cycle was requested; or
+		<li> Preemption of a resource (i.e., taking it away from a
+			process), which may require killing or rolling back
+			a requesting/holding process.
+		</ol>
+	<li> When terminating a process
+		<ol>
+		<li> It might be best to kill the process with the least
+			amount of accumulated CPU time.
+		<li> If possible, avoid killing processes for which a
+			restart will cause other problems (e.g., payroll
+			deposits).
+		</ol>
+	<li> After killing a process that was part of a cycle (or held a
+		resource that was part of the cycle), don't forget
+		to repeat the detection process to determine if other cycles
+		still exist.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_48.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

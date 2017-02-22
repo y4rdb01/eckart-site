@@ -1,0 +1,78 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+
+<script type="text/javascript" src="quotes.js"></script>
+
+<style>
+	Body	{
+		margin-left:auto;
+		margin-right:auto;
+		width: 600px;
+		background-color: #ffffea;
+		color: #000000;
+		font-size: 18px;
+		font-style: normal;
+		font-family: serif;
+	}
+
+	Table {
+		text-align: center;
+	}
+
+	Td {
+		font-family: "Times New Roman", Times, serif;
+		font-size: 24px;
+		font-style: italic;
+		background-color: #ffffea;
+		color: #000000;
+		width: 600px;
+		height:400px;
+		text-align: left;
+		vertical-align: middle;
+	}
+</style>
+
+<table>
+    <tr><td id="quoteText">
+    </td></tr>
+</table>
+
+<script type="text/javascript">
+	var text = document.createElement('blockquote');
+	var whichquote=Math.floor(Math.random()*(quotes.length - 1));
+	document.getElementById("quoteText").appendChild(text);
+	waitForIt();
+
+	function waitForIt() {
+		var skip=Math.floor(Math.random()*5);
+		whichquote=(whichquote+skip)%quotes.length;
+		text.innerHTML=quotes[whichquote];
+		var delay=400+(text.innerHTML.length*60);
+		setTimeout(waitForIt, delay);
+	}
+</script>
+
+</body>
+</html>

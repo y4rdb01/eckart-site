@@ -1,0 +1,33 @@
+# Virtual ant(s)
+
+2 dimensions of 
+	# White = 0 and Black = 1
+	color of 0..1
+
+agent of
+	# Direction ant is facing/moving:
+	#
+	# North = 0
+	# East = 1
+	# South = 2
+	# West = 3
+	#
+	dir of 0..3
+end
+
+forall vant : agent
+	if cell.color then
+		dir := vant.dir - 1
+		dir := 3 when dir < 0
+	else
+		dir := vant.dir + 1
+		dir := 0 when dir > 3
+	end
+
+	agent(dir) -> [0, 1] when dir = 0
+		   -> [1, 0] when dir = 1
+		   -> [0, -1] when dir = 2
+		   -> [-1, 0] when dir = 3
+
+	cell.color := !cell.color
+end

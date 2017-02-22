@@ -1,0 +1,374 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Exploiting Software Bugs
+</p>
+
+<ol>
+<li> The following coding attacks can be used to gain unauthorized access to
+	an OS and its resources. How the code comes to reside on the system,
+	whether by a virus, trojan horse, phishing, or some other mechanism may
+	not (strictly speaking) be an OS security issue. Nonetheless, such
+	mechanisms provide the vector by which an OS can be compromised.
+<li> Buffer Overflow
+	<ol>
+	<li> Most OSs and systems software is written in C, C++, or objective-C.
+		Because these languages do not check the bounds of array
+		indices, it is easy to attempt to access memory that is not
+		part of the array declaration. This includes memory both after
+		as well as before the memory that is properly allocated to the
+		array.
+<pre><code>
+	#include &lt;stdio.h>
+
+	int main(int argc, char* argv[]) {
+		int x = -1;
+		int a = 1;
+		int b[2] = {2, 3};
+		int c = 4;
+		printf("b[-1] = %d\n", b[-1]);
+		printf("b[0] = %d\n", b[0]);
+		printf("b[1] = %d\n", b[1]);
+		printf("b[2] = %d\n", b[2]);
+		printf("b[3] = %d\n", b[3]);
+		printf("b[4] = %d\n", b[4]);
+	}
+</code></pre>
+	which can produce the following output:
+<pre><code>
+	b[-1] = 2673976
+	b[0] = 2
+	b[1] = 3
+	b[2] = 4
+	b[3] = 1
+	b[4] = -1
+</code></pre>
+	<li> Attack(s)
+		<ol>
+		<li> Buffer overflows can be used to overwrite memory locations
+			too.  This can happen if the programmer didn't check
+			that the input was longer than the array declared to
+			hold it. Some of the overflow input could specify new
+			code as well as alter the function's return address to
+			point to that new code!
+		<li> <a href="https://en.wikipedia.org/wiki/Heartbleed">Heartbleed</a>
+			[<a href="https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-0160">CVE 2014-0160</a>]
+			is a bug in the OpenSSL library
+			that enables buffer overread.
+			This <a href="https://xkcd.com/1354">xkcd cartoon</a>
+			does an excellent job of depicting the issue.
+		<li> <a href="http://www.securityweek.com/decade-old-venom-bug-exposes-virtualized-environments-attacks">Venom</a>,
+			discovered in 2015, causes a buffer overflow in a floppy disk
+			controller that can be used to take control of a hypervisor.
+		<li> <a href="http://www.theguardian.com/technology/2015/sep/16/android-lockscreen-password">The Guardian</a>
+			reported what appear to be a buffer overflow error for
+			the Android password that bypassed the lockscreen.
+		</ol>
+	<li> Defense(s)
+		<ol>
+		<li> A <em>stack canary</em> is a random (but known) value
+			that is written (by compiler generated code) next
+			to (and just below) the return address of a function
+			call.
+			<ol>
+			<li> The compiler also generates code to check the
+				canary value when the function returns.
+			<li> If the value has been changed, then an overwrite
+				has occurred.
+			<li> NOTE: Overwrites could still have occurred even
+				if the canary value remains the same.
+			</ol>
+		<li> Prevent execution of code stored in the heap or run-time
+			stack (<em>Data Execution Prevention</em>).
+			<ol>
+			<li> This works against code/command injection attacks
+				(see below) but wouldn't help with Heartbleed
+				(above).
+			<li> Modern CPUs have a bit (called NX for No-eXecute)
+				to tag data versus code.
+			</ol>
+		<li> <em>Address Space Layout Randomization</em> (ASLR)
+			randomizes the location of the stack, heap, libraries,
+			etc.
+			<ol>
+			<li> This makes it much harder for attackers since
+				return addresses could be different each time
+				the program is run.
+			<li> Thus, they won't know what address value
+				to use for the overwrite to create an
+				effective attack.
+			</ol>
+		<li> The BEST defence is still to use compilers that generate
+			code that check array bounds.
+			<ol>
+			<li> While there are some C programs for which this
+				would cause a problem (or for which it simply
+				wouldn't help - for example with pointer
+				arithmetic), it would be a step
+				in a better direction.
+			<li> Ultimately, using safer languages is the correct
+				way to fix this weakness.
+			</ol>
+		</ol>
+	</ol>
+<li> Format String
+	<ol>
+	<li> Lazy programming can lead to code like the following
+		that prints out a personalized hello message:
+<pre><code>
+	#include &lt;stdio.h>
+
+	int main(int argc, char* argv[]) {
+		char s[100], g[100] = "Hello, ";
+		gets(s);	/* Potential buffer overflow. */
+		strcat(g, s);
+		printf(g);
+		return 0;
+	}
+</code></pre>
+	<li> Attack(s)
+		<ol>
+		<li> The problem arises when the user enters in characters
+			that are valid formatters (e.g., "%d", "%n").
+			<ol>
+			<li> The "%n" formatter writes the number of characters
+				written thus far to the next argument to
+				<em>printf</em>.
+			<li> If an additional argument wasn't given to
+				<em>printf</em>,
+				then the place in memory where the next
+				argument would have been is taken to contain
+				the address of the memory location to write to.
+			<li> Choosing the correct formatters enables writing
+				any value most anywhere in the program.
+			</ol>
+		<li> The attack is possible because of two things:
+			<ol>
+			<li> The "%n" formatter enables <em>printf</em> to
+				change one
+				of its arguments (not something programmers
+				generally expect from a printing function); and
+			<li> The <em>printf</em> function uses the format
+				string to infer how many arguments it was
+				called with - so there's no way to check if
+				too few arguments were given (at least with
+				older language versions).
+			</ol>
+		</ol>
+	<li> Defense(s)
+		<ol>
+		<li> The <em>Data Execution Prevention</em> mechanism (see
+			above) is probably the best way to defend against
+			format string attacks (since they can jump around the
+			stack - a stack canary probably won't do much good).
+		</ol>
+	</ol>
+<li> Dangling References
+	<ol>
+	<li> Dangling references occur when a dynamically (heap) allocated
+		object is freed, but continues to be used (since the pointer
+		to the previously allocated memory isn't "wiped out").
+	<li> Often times a later allocation will reuse part (or all) of the
+		previously allocated memory. So the old reference can be used
+		to change it.
+	<li> Attack(s)
+		<ol>
+		<li> Consist of using the dangling reference to place specific
+			value(s) into a supposedly deallocated structure,
+			which impacts later execution of the program. While
+			harder to accomplish than the previous attacks, it
+			is at least an open window (if not an open door) for
+			attacks.
+		</ol>
+	<li> Defense(s)
+		<ol>
+		<li> There probably isn't much that can be done about such
+			attacks in languages without automatic garbage
+			collection.
+		<li> One possibility is to disable "free" so that memory
+			cannot be reused. While this may work in some cases,
+			it introduces a memory leak into the program which
+			can cause other types of problems.
+		</ol>
+	</ol>
+<li> Null Pointer Dereference
+	<ol>
+	<li> Linux maps the OS kernel address space to the top of the address
+		space of a user process (to make switching to the kernel faster,
+		say to do system calls).
+	<li> Referencing a null pointer is a bug, but such bugs still occur
+		in code - even in OS kernel code.
+	<li> Attack(s)
+		<ol>
+		<li> Referencing a null pointer (in the OS kernel) can be used
+			to crash the OS. The crash occurs because there is
+			no code at address 0 to run.
+		<li> Using the <em>mmap</em> (memory map) system call, a
+			programmer (in a user process) can map shellcode to
+			address 0. Now when the OS kernel has a null
+			reference it will run the shellcode instead of crashing.
+		<li> This technique can be used with addresses other than
+			the null pointer (e.g., dangling references, addresses
+			written using format string attacks).
+		</ol>
+	<li> Defense(s)
+		<ol>
+		<li> Disable the ability to use <em>mmap</em> to map a page
+			to address 0. This is done on all modern OS kernels.
+		</ol>
+	</ol>
+<li> Integer Overflow
+	<ol>
+	<li> C does not check for numeric overflow if the sum or product of
+		two numbers would not fit in the allocated space.
+	<li> Attack(s)
+		<ol>
+		<li> If the result of multiplying two unsigned integers is too
+			large to be held in an "int" variable, C won't check
+			to discover this but will store the lower bits of the
+			result as if it were the FULL result. If the result
+			is used to allocate space, then this could be used to
+			facilitate a buffer overflow attack.
+		</ol>
+	<li> Defense(s)
+		<ol>
+		<li> Use hardware that raises an un-ignorable hardware
+			error/fault for overflows (similar to division by 0).
+		</ol>
+	</ol>
+<li> Command Injection
+	<ol>
+	<li> Attach additional (unexpected) commands after expected commands
+		and have them executed. The unexpected commands then get run
+		along with the expected ones.
+	<li> Attack(s)
+		<ol>
+		<li> <a href="https://en.wikipedia.org/wiki/Shellshock_(software_bug)">Shellshock</a>
+			[<a href="https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-6271">CVE-2014-6271</a>]
+			appends additional code at the end of a bash shell
+			function declaration.
+			<ol>
+			<li> Functions (contained within single quotes)
+				can be encoded as environment variables
+				(x) and are passed to other instances of bash.
+			<li> It turns out that a bug in bash didn't stop
+				evaluation at the end of the function, but
+				would also execute any trailing code after					the function definition.
+			<li> Example:
+<pre><code>
+env x='() { :;}; echo vulnerable' bash -c "echo this is a test"
+</code></pre>
+			</ol>
+		<li> <a href="https://en.wikipedia.org/wiki/SQL_injection">SQL injection</a>
+			attacks generally occur when user input isn't quoted.
+			<ol>
+			<li> Suppose that the user was being queried for a
+				person's name (probably in a web form)
+				with the intent to use it as a lookup to
+				display information about the person:
+<pre><code>
+	SELECT BirthDate, Gender, BirthCity, BirthState
+		FROM PersonTable
+		WHERE Name = '$input_name';
+</code></pre>
+			<li> If the entered name is: <em>Joe'; TRUNCATE TABLE PersonTable; --</em>
+				<br/>then the result SQL code that gets executed
+				will be:
+<pre><code>
+	SELECT BirthDate, Gender, BirthCity, BirthState
+		FROM PersonTable
+		WHERE Name = 'Joe'; TRUNCATE TABLE PersonTable; --';
+</code></pre>
+			<li> This <a href="https://xkcd.com/327">xkcd cartoon</a>
+				does an excellent job of depicting the the
+				dangers of not sanitizing input.
+			</ol>
+		</ol>
+	<li> Defense(s)
+		<ol>
+		<li> Input should always be sanitized. Most web programming
+			languages provide mechanisms for this (e.g.,
+			<a href="http://php.net/manual/en/filter.filters.sanitize.php">PHP's sanitize filters</a>). 
+		</ol>
+	</ol>
+<li> Time of Check to Time of Use (TOCTOU)
+	<ol>
+	<li> These attacks utilize the race condition that can exist between
+		checking the "legality" of an action and the "performing" of
+		that action.
+	<li> Such attacks are enabled by poor API design and/or poor program
+		design/coding.
+	<li> Attack(s)
+		<ol>
+		<li> Checking the ability to access a file before opening the
+			file.  This sounds appropriate but the file can change
+			between access checks and reading/writing the file.
+<pre><code>
+	int fd;
+	if (access("./myFile", W_OK)) exit(1);
+	/* The race condition happens here, between the access check and open. */
+	fd = open("./myFile", O_WRONLY);
+	write(fd, user_input, sizeof(user_input));
+</code></pre>
+			If the nature of the file changes between the call to
+			"access" and "open" (e.g., becomes a soft link to a
+			confidential file) then the confidentiality or integrity
+			of the file may be compromized (particular if this code
+			is in a SETUID program owned by root).
+		<li> Here's an historical example of such an attack (provided
+			that "mkdir" is running setuid):
+<pre><code>
+mkdir foo & ; rm foo & ; ln /etc/passwd foo
+</code></pre>
+		</ol>
+	<li> Defense(s)
+		<ol>
+		<li> Checking permissions on the open file descriptor rather
+			than on the file name prevents this issue since
+			it checks what was actually opened:
+<pre><code>
+	int fd = open("./myFile", O_WRONLY);
+	struct stat fileStat;
+	fstat(fd, &fileStat);
+	if (fileStat.st_uid != getuid()) exit(1);
+	write(fd, user_input, sizeof(user_input));
+</code></pre>
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_57.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

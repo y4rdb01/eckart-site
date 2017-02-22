@@ -1,0 +1,74 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Reclaiming Unused Memory
+</p>
+
+<ol>
+<li> Garbage collection is the process of reclaiming memory after it is no
+	longer being used. Strictly speaking, reference counting is
+	<em>not</em> garbage collection since the memory is reclaimed as soon
+	as it is no longer being used (no delay in reclaimation - so it really
+	isn't "garbage" yet).
+<li> Reference counts
+	<ol>
+	<li> Each allocated "node" of memory keeps a count of the references to it (set to 1 when allocated).
+	<li> When a new reference to a node is made increase the count that node maintains. 
+	<li> When an existing reference to a node is dropped decrease the count that node maintains. If the count is now 0, then deallocate the node.
+	<li> NOTE: Cicrular structures are not collected!
+	</ol>
+<li> Mark & Sweep
+	<ol>
+	<li> Ever node has associated tag bit that is set to 0.
+	<li> When free memory is getting low, start "marking" nodes (set tag bit to 1) reachable from the global variables and the run-time stack(s).
+	<li> [If marking is incremental, then some unused nodes won't be deallocated this cycle - but will be on the next go around.]
+	<li> Once all data is marked, halt execution and traverse the heap, putting all unmarked nodes (tag bit is 0) in the "free list".
+	<li> Set all tag bits to 0 as you sweep to prepare for next mark phase.
+	<li> Continue the program execution.
+	<li> NOTE: Sweep requires temporary halt in execution for an "unknown" amount of time.
+	</ol>
+<li> Copying Collector
+	<ol>
+	<li> Divide the heap into "new" and "old" sections.
+	<li> New nodes are allocated in the "new" area.
+	<li> Incrementally copy nodes in the "old" section with references from "new" into the "new" section.
+	<li> When all reachable "old" data has been copied into "new" and space in "new" is unable to meet the next request, flip "old" with "new" (so that what was "old" is "new" again). 
+	<li> <a href="http://darcs.nomeata.de/talk-mrmcd12-haskell-bytes/GC.webm">Animation</a>
+	<li> NOTE: Effectively halves your heap space.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_07.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

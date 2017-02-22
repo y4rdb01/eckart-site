@@ -1,0 +1,154 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Java Inheritance
+</p>
+
+<ol>
+<li> The <em>Object</em> Super Class is extended either directly or
+	indirectly by every other class. If a class declaration doesn't
+	explicitly indicate its parent, then it extends <em>Object</em>
+	by default. <em>Object</em> is the only class without a super class,
+	and defines the following methods (which can be overridden):
+	<ol>
+	<li> <em>getClass</em> returns the runtime class of the
+		receiving object.
+	<li> <em>toString</em> returns String representation of the object.
+	<li> <em>hashCode</em>
+	<li> <em>equals</em> implements object (not pointer) equality.
+	<li> <em>clone</em> creates a copy of the object.
+	<li> <em>finalize</em>
+	<li> <em>wait</em>, <em>notify</em>, and <em>notifyAll</em>
+		for concurrent programming.
+	</ol>
+<li> Method Overrides occur when a method of the same signature is
+	defined in the subclass (overriding the one in the superclass).
+	Use "super.superClassMethodName(...)" to access the method that
+	was overridden. [In C++ member functions had to be explicitly
+	declared as "virtual" in order to be overridden in a subclass.]
+<li> Field Hiding
+	Likewise, subclass fields of the same name hide the corresponding field
+	in the super class. Use "super.fieldName" to access the hidden field.
+<li> Constructors are guaranteed to be called for all new objects.  The super
+	class constructor is also guaranteed to be called, but only once.
+<pre><code>
+	class Parent {
+		Parent() { ... }
+		Parent(Type t) { ... }
+	}
+
+	class Child {
+		Child() {
+			super();	// Compiler will insert if not given.
+			...
+		}
+		Child(Type t) {
+			super(t);	// Must be explicitly given as the
+					// compiler would insert "super()".
+			...
+		}
+		Child(Type t, TypeToo tt) {
+			this(t);	// Compiler does not insert "super()"
+			...
+		}
+	}
+</code></pre>
+<li> Final Methods (and Classes) prevent the method from being overridden
+	in any subclass (or the class from being subclassed at all).
+<li> Abstract Methods do not have an implementation in the parent, but must
+	be overridden in any non-abstract subclasses (in order to provide
+	for an implementation). [In C++ these were denoted by having
+	the member function body given as "=0".] If a class contains an
+	abstract method, then the class must be declared as an abstract class.
+<pre><code>
+	abstract class Parent {
+		final protected float balance() { ... }
+		abstract protected float calculateInterest(float rate);
+	}
+</code></pre>
+<li> Abstract Classes may not be used to create instances.  [Likewise in C++.]
+<pre><code>
+	final class Child extends Parent {
+		float calculateInterest(float rate) { ... }	// Must give implementation
+	}
+
+	class GrandChild extends Child {		// Illegal because Child is final.
+		protected float balance() { ... }	// Illegal because balance was declared final in Parent.
+		...
+	}
+
+	Class Example {
+		public static void main(String[] args) {
+			Parent = new Parent();	// Illegal because Parent is abstract.
+			Child = new Child();	// Okay
+			...
+		}
+	}
+</code></pre>
+<li> Interfaces are like abstract classes (i.e., no method
+	implementations, have inheritance hierarchy) except that  
+	they can't have non-final fields.  While a subclass in Java
+	can only extend a single super class, it can implement
+	many <em>interface</em>s. Because <em>interface</em>s don't
+	provide implementations for methods, there is no diamond
+	problem (or name clash issues) as in C++ multiple inheritance
+	since the same method implementation satisfies all identical
+	<em>interface</em> method declarations.
+<pre><code>
+	interface A {
+		void h(...);	// All methods implicitly delcared as "public".
+	}
+
+	interface B extends A {
+		void f(...);
+	}
+
+	interface C extends A {
+		void g(...);
+	}
+
+	class D implements B, C {
+		public void f(...) { ... }
+		public void g(...) { ... }
+		public void h(...) { ... }
+		public void h() { ... }	// No confusion since different number and type of parameters.
+	}
+</code></pre>
+<li> Interfaces are commonly used as parameter types in methods since
+	classes can implement many interfaces but can extend only one class.
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_63.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

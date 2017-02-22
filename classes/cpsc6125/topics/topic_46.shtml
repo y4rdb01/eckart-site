@@ -1,0 +1,140 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Dates and Time
+</p>
+
+<ol>
+<li> The popular way of designating dates (in the US) is ambiguous.
+	The date 10/11/12 can mean:
+	<ol>
+	<li> 11 October 2012 (and the year could be many different
+		centuries, e.g., 1912). 
+	<li> 10 November 2012
+	<li> 12 Novemeber 2010
+	<li> ...
+	</ol>
+<li> There is a wide variety of
+	<a href="https://en.wikipedia.org/wiki/Date_format_by_country">date formats around the world</a>,
+	making unambiguous dates difficult to achieve.
+	<a href="http://www.atlasobscura.com/articles/map-mondays-wtf-is-wrong-with-canada-s-time">This article</a>
+	shows a map of what many countries use, and some countries even
+	use multiple formats!
+<li> <a href="https://en.wikipedia.org/wiki/Date_and_time_notation_in_the_United_States#Time">The US is also one of the few countries that uses a
+	12 hour clock almost exclusively</a>. This leads to confusion
+	about what time 12:00 is. While "noon" and "midnight" help, in
+	common use there is still confusion about whether midnight
+	of 1 Jan 1980 is at the beginning of that day, or the
+	end. The use of a 24-hour clock removes the ambiguity.
+	<ol>
+	<li> 12:00am = midnight = 0:00
+	<li> 12:00pm = noon = 12:00
+	</ol>
+<li> The <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>
+	date (and time) format
+	<ol>
+	<li> Based on the Gregorian calendar.
+	<li> Given in significant order (with zero padded months and days).
+	<li> E.g., Albert Einstein's birthdate is: 1879-03-14
+	<li> The use of hyphens reduces ambiguity so that dates like
+		20101220 aren't miinterpreted as 20 Nov 1220 (thinking
+		the original was in little endian format, DDMMYYYY).
+	<li> Time uses zero padded hours, minutes, and seconds. E.g., 16:05:00
+		(for 4:05pm)
+	<li> Using ISO 8601 date/time formats:
+		<ol>
+		<li> As version indications on documents is preferrable to
+			ordinal numbering since the "effective" date is
+			immediately obvious.
+		<li> As part of file and/or directory names makes it easy to
+			see multiple file versions, and sorting provides easy
+			access to the earliest and latest versions. 
+		</ol>
+	</ol>
+<li> Julian Dates
+	<ol>
+	<li> Some draw backs of the
+		<a href="https://en.wikipedia.org/wiki/Gregorian_calendar">Gregorian calendar</a> are:
+		<ol>
+		<li> It is difficult to determine how many days
+			have elapsed between two dates.
+			<ol>
+			<li> It's not a simple subtraction since months have
+				different numbers of days.
+			<li> The month of February has an additional day in
+				leap years (a year is a leap year if it is
+				divisable by 4, unless it is divisable by 100,
+				unless it is divisable by 400).
+			<li> The switch to the Gregorian calendar (from
+				the preceeding Julian calendar).
+				<ol>
+				<li> In predominatly Catholic countries
+					Thursday, 4 October 1582 (Julian
+					calendar) was followed by
+					Friday, 15 October 1582
+					(Gregorian calendar).
+				<li> Some (predominatly Protestant)
+					countries didn't officially
+					adopt the Gregorian calendar
+					until the early-1750s.
+				</ol>
+			</ol>
+		<li> Unless care is taken to indicate the calendar
+			being used, dates between 1580 and 1755 can
+			be off by as much as 11 days.
+		</ol>
+	<li> The Julian calendar was introduced by Julius
+		Caesar in 46 BCE. Whereas Julian periods (used to
+		count years) were proposed by Joseph Scaliger in 1583,
+		and the counting of days since the first year of the
+		Julian period, proposed by John Herschel in 1849.
+	<li> Julian dates count the number of days since its epoch
+		(noon on 1 Jan 4713 BCE in the Julian calendar is the
+		start of day 0) and are counted relative to
+		Terrestrial Time (TT) at the meridian of Greenwich
+		[similar to UTC but not adjusted
+		for the Earth's varied rotation rate].
+	<li> Julian dates are used by astronomers, which is why the
+		date changes at noon (the beginning of the
+		astronomical day). Furthermore, the time of the
+		date is shown as a fractional day (e.g., 8:06am on
+		1 Jan 2013 CE would be denoted as 2,456,293.8375).
+	<li> <a href="http://aa.usno.navy.mil/data/docs/JulianDate.php">Julian date converter</a>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_46.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

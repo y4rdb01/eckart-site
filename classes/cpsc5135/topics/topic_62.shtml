@@ -1,0 +1,193 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Java Classes
+</p>
+
+<ol>
+<li> Has a syntax similar to C++, but with only single inheritance.
+<li> Terminology similarities:
+	<table>
+	<tr>
+		<th>Java</th>
+		<th>C++</th>
+		<th>Smalltalk</th>
+	</tr><tr style="text-align: center; margin: auto">
+		<td>Class</td>
+		<td>Class</td>
+		<td>Class</td>
+	</tr><tr style="text-align: center; margin: auto">
+		<td>Object</td>
+		<td>Object</td>
+		<td>Object</td>
+	</tr><tr style="text-align: center; margin: auto">
+		<td>this</td>
+		<td>this</td>
+		<td>self</td>
+	</tr><tr style="text-align: center; margin: auto">
+		<td>super</td>
+		<td>-</td>
+		<td>super</td>
+	</tr><tr style="text-align: center; margin: auto">
+		<td>Method</td>
+		<td>Member Function</td>
+		<td>Method</td>
+	</tr><tr style="text-align: center; margin: auto">
+		<td>Static Method</td>
+		<td>Static Member Function</td>
+		<td>Class Method</td>
+	</tr><tr style="text-align: center; margin: auto">
+		<td>Method call</td>
+		<td>Function call</td>
+		<td>Message</td>
+	</tr><tr style="text-align: center; margin: auto">
+		<td>Instance Variable</td>
+		<td>Field</td>
+		<td>Instance Variable</td>
+	</tr><tr style="text-align: center; margin: auto">
+		<td>Class Variable</td>
+		<td>Static Member</td>
+		<td>Class Variable</td>
+	</tr><tr style="text-align: center; margin: auto">
+		<td>Package</td>
+		<td>Namespace</td>
+		<td>Namespace</td>
+	</tr>
+	</table>
+<li> Has <em>public</em>, <em>private</em>, and <em>protected</em>
+	visibilities (similar to C++ but not identical) as well as
+	an additional <em>package</em> visibility (which is similar
+	to C++ namespaces).
+<li> A constructor is always called when new objects are created,
+	and every class has at least one constructor defined.
+<li> Static methods can be called (and static fields referenced)
+	before any objects are created - however static methods
+	may not reference non-static fields or methods (can't use
+	"this").
+<li> Static fields are initialized when the class is loaded, either
+	as part of the declaration or in a static initialization
+	block - which can use code to initialize values but must
+	not be capable of raising an exception.
+<li> Methods may be overloaded based on the number and type of the
+	parameters (but the return value is not used for
+	disambiguation). Unlike C++, the builtin operators may not
+	be overloaded (design choice to enhance simplicity).
+	Overloading is resolved at compile time.
+<li> Java objects are garbage collected (like Smalltalk) with no
+	opportunity for programmers to explicitly return storage
+	(unlike C++).
+<li> <em>Finalize</em> methods of objects are called only after the
+	object has been marked for deallocation, but before the garbage
+	collector actually reclaims the storage (or before the
+	JVM exists). They provide a way of ensuring object "clean-up"
+	in addition to just returning unneeded storage. They are
+	similar to the destructors of C++.
+<pre><code>
+	class Child extends Parent {
+		...
+		protected void finalize() {
+			super.finalize();
+			...
+		}
+	}
+</code></pre>
+<li> <em>Finalize</em> methods are only guaranteed to be called
+	before the garbage collector reclaims the storage (or the JVM
+	exits), which may not happen for a long time. As a result,
+	resources used by the object may be held longer than
+	anticipated/desired. So if resources need to be freed at
+	particular times, that code should be placed in another
+	method that users of the class know to call explicitly.
+<li> The "main" method has the signature
+	"public static void main(String[] args)". Note that it must
+	be static since no objects have been created yet. Any command
+	line arguments are passed as strings (as is true for both
+	C and C++).
+<li> The <em>toString</em> method is inherited from the <em>Object</em>
+	class, and can be overridden to provide a more appropriate
+	string (printable) representation of an object value.
+<li> While neither portable nor type safe, native methods (non-Java
+	implementations) are supported by allowing the JVM to access
+	them.
+<li> <em>Package</em> visibility is similar to C++ <em>namespaces</em>
+	and is used to group related classes together. It is the
+	default visibility (when <em>public</em>, <em>protected</em>,
+	or <em>private</em> is not specified).
+<li> Only methods (of any visibility) within the same package can
+	access methods and fields of <em>package</em> visibility.
+	This enables support classes for a package to be hidden, so
+	that they are unavailable outside of the package.
+<li> Here's an overview of the various visibility kinds provided by Java:
+	<table style="text-align: center">
+	<tr>
+		<th></th>
+		<th>Class</th>
+		<th>Package</th>
+		<th>Subclass</th>
+		<th>World</th>
+	</tr>
+	<tr>
+		<td><em>public</em></td>
+		<td>Y</td>
+		<td>Y</td>
+		<td>Y</td>
+		<td>Y</td>
+	</tr>
+	<tr>
+		<td><em>protected</em></td>
+		<td>Y</td>
+		<td>Y</td>
+		<td>Y</td>
+		<td>N</td>
+	</tr>
+	<tr>
+		<td><em>package</em></td>
+		<td>Y</td>
+		<td>Y</td>
+		<td>N</td>
+		<td>N</td>
+	</tr>
+	<tr>
+		<td><em>private</em></td>
+		<td>Y</td>
+		<td>N</td>
+		<td>N</td>
+		<td>N</td>
+	</tr>
+	</table>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_62.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

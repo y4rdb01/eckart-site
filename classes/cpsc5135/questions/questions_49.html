@@ -1,0 +1,38 @@
+<li> Discrete time simulations
+	<ol class="answer_list">
+	<li> use fixed time increments between actions. 
+	<li> can use varying time increments between actions that can be
+		any (fractional) value greater than 0.
+	<li> sometimes calculate when the next interaction between model
+		elements will occur (e.g., pool balls colliding) and advance
+		the time to that point in the simulation.
+	<li> are almost never used since the real-world is continuous.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Simulations that divide space up into discrete units
+	<ol class="answer_list">
+	<li> Are almost never used since the real-world is continuous.
+	<li> <strong>Must</strong> use a unit that is extremely small in size
+		to mimic the real-world as closely as possible.
+	<li> Use a single unit (of fixed size) arranged so that every point in
+		space resides in one of these units.
+	<li> <strong>Must</strong> also use discrete time as well.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A preferred technique to make discrete simulations more accurate,
+	while maintaining efficient execution, is to
+	<ol class="answer_list">
+	<li> <strong>Always</strong> use the absolute smallest discrete
+		unit size possible.
+	<li> Run the complete simulation at one size, and then run it again
+		at a smaller size (e.g., half). Stop when halving doesn't
+		yield a significant difference. 
+	<li> Adjust the discrete parameter (e.g., by halving - down to a
+		predetermined minimum size) during run-time
+		if doing so reduces the amount of error.
+	<li> Rewrite the simulation rules so that they are continuous.
+	<li> None of the above
+	</ol>
+</li><br/>

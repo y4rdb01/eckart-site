@@ -1,0 +1,192 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>CPSC 5135: Assignment #4</strong>
+</p>
+
+<hr>
+
+<p>
+Using the Smalltalk-X programming language system,
+you are to write a program that simulates the actions of a traveling
+salesman who uses an interesting algorithm for deciding which contact (e.g.
+potential customer) to visit next.  As calls come in on his cell phone,
+the salesman writes down the contact's information, including the contact's
+location and the estimated time it will take to meet with the contact, on
+a 3x5 index card (so our salesman is still a bit "old school" in some ways).
+Cards are placed at the front of a index card file as
+they are received.  After the salesperson has finished meeting with a contact,
+he needs to select the next contact to visit.  In making his selection, our
+intrepid salesman looks at the two (2) cards at the front of his index
+card file and selects the contact closest to his current location as the
+next one to meet with.  The other of the two (2) cards is replaced in the
+front of the index card file.  If both contacts are exactly the same
+distance away, then preference should be given to the oldest call.
+If there is only one (1) card in the file,
+then the salesmen goes there and if there are no cards, our traveler hangs
+out in the local bookstore until another call comes in.
+</p>
+
+<p>
+Calls to the salesmen will be represented as a data file.  Each line of the
+data file will represent a separate call.  Each line contains the time at
+which the call was received, a two coordinate (x, y) location for the
+contact [the salesman starts off at location (0, 0)], and the estimated time
+that it will take for the meeting.  Thus each call is represented by four
+numbers (integers actually).  Assume that times and time durations are given
+in minutes and that the loations are given as locations on a mile delineated
+grid.  Here is an <a href="salesman_data">example input file</a>.
+</p>
+
+<p>
+Your program should read in the data representing calls and simulate the
+actions of the saleman as he makes his rounds.  In doing so, you will need
+to keep various statistics and report these after all the calls in the data
+file have been dealt with.  It should be apparent at this point that you
+should use a stack to represent the index card file and that the each line
+of the data file should only be read when the time in the simulation matches
+that of the call (otherwise the salesman could end up taking calls before
+they are placed).  Your program should report the following statistics:
+<ul>
+<li> The final ending time of the simulation;
+<li> The amount of time the salesman spent in bookstores;
+<li> The amount of time the salesman spent in meetings with clients;
+<li> The amount of time the salesman spent on the road (assume that
+	our salesman travels at 60 mph (i.e. 1 mile per minute);
+<li> The average amount of time that a contact had to wait before meeting
+	with the salesman; and
+<li> The longest amount of time that a contact had to wait before meeting
+	with the salesman.
+</ul>
+For simplicity, assume that once the salesman has decided to meet with a
+particular contact, he will not divert to another contact based on new
+calls, even if they are closer.
+</p>
+
+<p>
+Although Smalltalk allows your code to
+be distributed among multiple files, <em>please</em> put all of your code
+into a single file (salesman.st) to make it easier to download (from
+<a href="https://colstate.view.usg.edu/">CougarView</a>) and test.
+Unlike assignment #3, this version of the program will not work interactively.
+You should ask the user to indicate both the input file containing the
+input data and an output file into which to write the results.
+Here is an <a href="salesman_result">example output file</a> that
+corresponds to the <a href="salesman_data">example input file</a> mentioned
+above.  However, as always, you should develop your own more extensive tests
+to ensure that your program is functioning properly.
+[I'll be using the expression "Salesman new init run" to test your programs,
+so the main class should be called "Salesman".]
+</p>
+
+<p>
+Your solution should also define a <em>MyStack</em> class (there's already
+a <em>Stack</em> class defined in Smalltalk - but I don't want you to use
+that one). It should be able to hold exactly 32 stack entries.
+Here are the methods it must make available:
+<table style="text-align: center; margin: auto;">
+<tr><th style="text-align:left">Method</th><th style="text-align:left">Description</th></tr>
+<tr><td style="text-align:left">pop</td><td style="text-align:left">Removes the top entry from the stack.</td></tr>
+<tr><td style="text-align:left">push: x</td><td style="text-align:left">Pushes a new entry onto the stack.</td></tr>
+<tr><td style="text-align:left">top</td><td style="text-align:left">Returns the current top of the stack.</td></tr>
+<tr><td style="text-align:left">printOn: stream</td><td style="text-align:left">Prints entire stack (one entry per line) starting with the top most entry.</td></tr>
+<tr><td style="text-align:left">empty</td><td style="text-align:left">True iff the stack is empty.</td></tr>
+<tr><td style="text-align:left">full</td><td style="text-align:left">True iff the stack is full.</td></tr>
+</table>
+</p>
+
+<p>
+You are responsible for creating your own test data. It's a good idea to
+create your test cases first, building upon your test data, as this will
+help you with your development. Be sure to include a variety of "corner cases"
+to ensure that your program doesn't work for only "normal" data.
+Test driven development (TDD) is a good practice that you should cultivate.
+</p>
+
+<p>
+Please make sure that your test data uses
+Unix (rather than MS-DOS) style line termination. Unix style line termination
+uses a single character whereas MS-DOS style uses two characters. This can
+have substantial impact on whether your program will work with the test data
+files that I use. The
+<a href="http://notepad-plus-plus.org/download/v6.5.5.html">notepad++</a>
+text editor provides and easy conversion between the two styles.
+</p>
+
+<p>
+The Smalltalk-X enviornmment will retain previously loaded class definitions
+during the same session (and even over multiple sessions if you save the
+environment). Since only the file you submit is graded, it is <em>strongly
+recommended</em> that you restart Smalltalk-X (so as to get a clean
+environment), load your program file, and test it one last time before
+submitting. If you find that you need to load your program file more than
+once in order to make it work, or that you must load files other than the
+single file you must submit, then there is something wrong with your program
+file which needs to be fixed.
+</p>
+
+<p>
+As always, be sure to use good indentation, descriptive constant, variable,
+type, function, procedure, and class names.  Use named constants when
+appropriate.  Also use good commenting style, remembering that the first
+thing in any program file should be a comment that gives a brief overview
+of what the file contains (and should do).  You might find these
+<a href="../../common/comment-guide.shtml">commenting guidelines</a> helpful.
+</p>
+
+<p>
+Finally, please only submit your source code file(s) for the assignment
+(e.g., salesman.st). In particular, do <em>not</em> submit zip, jar, tar, or
+other collections/archives.
+</p>
+
+<p>
+<strong>Good luck!</strong>
+</p>
+
+<h3 align=center>But Wait, There's More!</h3>
+
+<p>
+If you are enrolled in the <em>graduate section</em> of this class, then you
+must also implement appropriate exception handlers for the
+following conditions (all error messages - if any - should be printed to
+the current file output stream that was specified by the user, rather than
+to the <em>Transcript</em> as this will make grading your assignment easier):
+<table style="text-align: center; margin: auto;">
+<tr><th style="text-align:left">Exception</th><th style="text-align:left">Raised When...</th><th style="text-align:left">How to Handled</th></tr>
+<tr><td style="text-align:left">Stack Overflow</td><td style="text-align:left">Attempt to push more items onto the stack than it can hold</td><td style="text-align:left">Indicate problem to user (stack remains unchanged).</td></tr>
+<tr><td style="text-align:left">Stack Underflow</td><td style="text-align:left">Attempt to use item(s) from an empty stack</td><td style="text-align:left">Indicate problem to user (stack remains unchanged).</td></tr>
+</table>
+</p>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

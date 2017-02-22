@@ -1,0 +1,53 @@
+# This program implements a simple 2 dimensional diffusion algorithm.
+#
+# wall = 32200001
+# values < 32200001 represent concentrations of the diffusing agent
+#
+# This is a two cycle algorithm with dispersal determinations being done
+# during even time steps and transport of the agent happening during odd
+# time steps.  Thus the true amount of agent in a cell is in the amount
+# field at the end of odd time steps.
+
+2 dimensions of
+        amount of 0..32200001
+        out[] for 4 of 0..32200000
+end
+
+const wall := 32200001
+
+neighbors[] for 4 := [0, 1], [1, 0], [0, -1], [-1, 0]
+
+if cell.amount != wall then
+        amount := cell.amount
+        if time%2 then
+                #
+                # Transport dispersed agent from neighboring cells.
+                #
+                forall i
+                        amount := amount + neighbors[i].out[i+%2]
+                                        when neighbors[i].amount != wall
+                end
+        elsif cell.amount > 0 then
+                # How many walls are around me?
+                #
+                wall_count := 0
+                forall i
+                        wall_count := wall_count + 1
+                                                when neighbors[i].amount = wall
+                end
+
+                # Disperse the agent to all non-wall cells (including this one)
+                #
+                each := amount/(5-wall_count) when wall_count < 5
+                     := random%2 otherwise
+                forall i
+                        if amount >= each then
+                                cell.out[i] := each when neighbors[i].amount != wall
+                                amount := amount - each
+                        else
+                                cell.out[i] := 0
+                        end
+                end
+        end
+        cell.amount := amount
+end

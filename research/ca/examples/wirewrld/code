@@ -1,0 +1,21 @@
+# Implements the wire world as described by A. K. Dewdney in the January 1990
+# issue (Vol 262, No 1) of Scientific American.
+
+# Background (0), wire (1), electron-tail (2), electron-head (3)
+
+2 dimensions of 0..3
+
+#
+# Get the Moore neighborhood
+#
+neighbor[] for 8
+	:= [0, 1], [1, 1], [1, 0], [1, -1], [0, -1], [-1, -1], [-1, 0], [-1, 1]
+
+sum := 0
+forall i
+	sum := sum + 1 when neighbor[i] = 3
+end
+
+cell := 1 when cell = 2
+     := 2 when cell = 3
+     := 3 when cell = 1 & (sum > 0 & sum < 3) 

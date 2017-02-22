@@ -1,0 +1,404 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Example File Systems
+</p>
+
+<ol>
+<li> A refresher on <em>large</em> numbers/sizes:
+	<table border="1" style="text-align: center">
+	<tr><th>Value</th><th>Abbreviation</th><th><a href="https://en.wikipedia.org/wiki/JEDEC_memory_standards#Unit_prefixes_for_semiconductor_storage_capacity">JEDC Name</a></th></tr>
+	<tr><td>1024</td><td>KB</td><td>kilobyte</td></tr>
+	<tr><td>1024<sup>2</sup></td><td>MB</td><td>megabyte</td></tr>
+	<tr><td>1024<sup>3</sup></td><td>GB</td><td>gigabyte</td></tr>
+	<tr><td>1024<sup>4</sup></td><td>TB</td><td>terabyte</td></tr>
+	<tr><td>1024<sup>5</sup></td><td>PB</td><td>petabyte</td></tr>
+	<tr><td>1024<sup>6</sup></td><td>EB</td><td>exabyte</td></tr>
+	<tr><td>1024<sup>7</sup></td><td>ZB</td><td>zettabyte</td></tr>
+	<tr><td>1024<sup>8</sup></td><td>YB</td><td>yottabyte</td></tr>
+	</table>
+<li> Historical
+	<ol>
+	<li> <a href="https://en.wikipedia.org/wiki/File_Allocation_Table">MS-DOS</a> (aka FAT-12, FAT-16, FAT-32)
+		<ol>
+		<li> <strong>Introduced in:</strong> 1980 (FAT-12)
+		<li> <strong>Max filename length:</strong> 8.3
+		<li> <strong>Case-sensitive:</strong> No
+		<li> <strong>Max file size:</strong> 32 MB
+		<li> <strong>Max volume size:</strong> 32 MB
+		<li> <strong>Journaling:</strong> No
+		<li> <strong>Hard links:</strong> No
+		<li> <strong>Soft links:</strong> No
+		<li> <strong>OS support:</strong> DOS, Windows 9x, Windows NT,
+			Linux, Mac OS, Mac OS X, FreeBSD, BeOS, OS 2,
+			Windows CE, VxWorks, Plan 9
+
+		<li> Microsoft clusters are the same thing as blocks 
+		<li> Each successive version (12, 16, 32) provided larger
+			block sizes and thus larger files. 
+		<li> Do not directly support long filenames, but can
+			optionally hold VFAT long filenames.
+		</ol>
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+		<a href="http://www.c-jump.com/CIS24/Slides/FAT/lecture.html"><img src="/eckart/classes/cpsc3125/topics/content/FAT32_DirectoryEntry.png" alt="Diagram of a directory entry in the FAT file system" width="646" height="457" /></a>
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+	<li> <a href="https://en.wikipedia.org/wiki/Ext2">ext2</a>
+		<ol>
+		<li> <strong>Introduced in:</strong> 1993
+		<li> <strong>Max filename length:</strong> 255
+		<li> <strong>Case-sensitive:</strong> Yes
+		<li> <strong>Max file size:</strong> 2 TB
+		<li> <strong>Max volume size:</strong> 32 TB
+		<li> <strong>Journaling:</strong> No
+		<li> <strong>Hard links:</strong> Yes
+		<li> <strong>Soft links:</strong> Yes
+		<li> <strong>OS support:</strong> Linux, Mac OS X, FreeBSD,
+			BeOS (read only), Plan 9
+
+		<li> Uses i-nodes
+		<li> Ext2 is preferred over ext3 and ext4 for NAND flash
+			memories (because of the latter's use of journaling).
+		<li> Preallocates 8 additional (contiguous) disk blocks for
+			files to reduce future fragmentation if the file grows.
+		<li> Directory indexing is not available in ext2, so there are
+			performance issues for directories with a large number
+			of files (10,000+).
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+		<li> The ext2 directory entries have 15 pointers for indicating
+			where the file data blocks are. Pointers 1 to 12 point
+			to direct blocks, pointer 13 points to an indirect
+			block, pointer 14 points to a doubly indirect block,
+			and pointer 15 points to a trebly indirect block.
+		<li> The max number of sublevel-directories is 31998.
+<a href="http://www.cs.montana.edu/courses/spring2004/409/topics/4-disks/outline.html"><img src="/eckart/classes/cpsc3125/topics/content/Ext2DirectoryEntry.gif" alt="Diagram of a directory entry in the ext2 file system" width="415" height="109" style="float: right" /></a>
+		<li> Directories names are limited to 255 characters.
+		<li> The theoretical limit on the number of files in a
+			directory is 1.3 × 10^20.
+		<li> The dot and dotdot files are implemented by storing the
+			names "." and ".." in the directory, and the i-node
+			number of the current and parent directories in the
+			inode field (and are automatically created when the
+			directory is created).
+		<li> Support for both hard and symbolic links.
+		<li> Supports access control lists and mount points.
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+		</ol>
+	<li> <a href="https://en.wikipedia.org/wiki/ISO_9660">ISO 9660</a>
+		<ol>
+		<li> <strong>Introduced in:</strong> 1988
+		<li> <strong>Max filename length:</strong> 8.3
+		<li> <strong>Case-sensitive:</strong> No
+		<li> <strong>Max file size:</strong> 4 GB
+		<li> <strong>Max volume size:</strong> 8 TB
+		<li> <strong>Journaling:</strong> No
+		<li> <strong>Hard links:</strong> No
+		<li> <strong>Soft links:</strong> No
+		<li> <strong>OS support:</strong> Most
+
+		<li> Has a simplified format since it was originally designed
+			for media that couldn't be altered, though later
+			extended for write-only (adding appended files). 
+		<li> The function of the first 16 sectors isn't defined by
+			the standard and can be used by manufacturers for
+			any purpose (e.g., bootstrap programs to allow
+			computers to boot from the CD-ROM).
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+		<li> The (primary volume) descriptor contains general
+			information about the CD-ROM (limited to upper case
+			letter, digits, and some punctuation):
+<a href="http://www.rtems.org/wiki/index.php/ISO9660_Filesystem"><img src="/eckart/classes/cpsc3125/topics/content/ISO9660_VolumeStructure.png" alt="Diagram of the ISO 9660 file system layout" width="700" height="376" /></a>
+			<ol>
+			<li> System identifier (32 bytes)
+			<li> Volume identifier (32 bytes)
+			<li> Publisher identifier (128 bytes)
+			<li> Data preparer identifier (128 bytes)
+			<li> Names of three files (for abstract, copyright
+				notice, and bibliographic information).
+			<li> Logical block size
+			<li> Number of blocks on the CD-ROM
+			<li> Creation and expiration dates
+			<li> Directory entry for the root directory
+			</ol>
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+		<li> The directory records (entries) are variable and contain
+			10 to 12 ASCII and binary numeric fields.
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+<br/>
+<img src="/eckart/classes/cpsc3125/topics/content/ISO9660_DirectoryEntry.gif" alt="Diagram of the directory entry in the ISO 9660 file system" width="529" height="108" style="float: right" />
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+			<ol>
+			<li> The first 2 bytes indicate the entry an attribute
+				(if extended) lengths. 
+			<li> The starting block location for the file.
+			<li> The file size (in contiguous blocks).
+			<li> CD-ROM creation date and time.
+			<li> Various flag bits, to if this is a file or
+				directory, to indicate the last entry in a
+				directory, and one to hide the entry.
+			<li> An 8.3 file name (uppercase letters, digits, and
+				underscores only).
+			<li> Padding to ensure entry is even number of bytes.
+			<li> The first two entries in a directory correspond
+				to the directory itself and its parent (e.g.,
+				the equivalent of "." and "..").
+			<li> Has a limit of 8 levels of directory nesting.
+			</ol>
+		<li> <a href="https://en.wikipedia.org/wiki/Rock_Ridge">Rock Ridge Extensions</a> (named for the town in <a href="http://www.imdb.com/title/tt0071230/?ref_=nv_sr_1">Blazing Saddles</a>)
+			<ol>
+			<li> Developed by the Unix community to make the
+				standard more compatible with Unix file systems.
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+			<li> Uses the System use fields (an even number of
+				bytes) at the end of each directory entries.
+			<li> Supports Unix/Linux file permissions.
+			<li> Major and minor device numbers (for raw device
+				support).
+			<li> Symbolic links.
+			<li> An alternate name for the file (longer and with
+				a larger character set).
+			<li> More deeply nested directories.
+			<li> File creation, modification, and access times.
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+			</ol>
+		<li> <a href="https://en.wikipedia.org/wiki/Joliet_(file_system)">Joliet Extensions</a>
+			<ol>
+			<li> Developed by Microsoft to enable Windows file
+				systems to be copied to CD-ROM and then
+				restored (essentially the counterpart to
+				Rock Ridge).
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+			<li> Supports longer file names (up to 64 characters).
+			<li> File names can use the Unicode character set.
+			<li> More than 8 levels of directory nesting.
+			<li> Allows directory names to have extensions.
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+			</ol>
+		</ol>
+	</ol>
+<li> Current
+	<ol>
+	<li> New Technology File System (<a href="https://en.wikipedia.org/wiki/NTFS">NTFS</a>)
+		<ol>
+		<li> <strong>Introduced in:</strong> 1993
+		<li> <strong>Max filename length:</strong> 255
+		<li> <strong>Case-sensitive:</strong> yes
+		<li> <strong>Max file size:</strong> 16 EB (16 x 2^64)
+		<li> <strong>Max volume size:</strong> 16 EB
+		<li> <strong>Journaling:</strong> Yes
+		<li> <strong>Hard links:</strong> Yes
+		<li> <strong>Soft links:</strong> Yes (as of Vista)
+		<li> <strong>OS support:</strong> >= Windows NT, Linux
+
+		<li> Proprietary file system created by Microsoft.
+		<li> Like FAT, the file attributes are stored in the <em>Master
+			File Table</em> (MFT). If not all of a file's
+			attributes fit within the MFT file record, then some
+			attributes are stored in one or more allocated disk
+			blocks (but the file name and time stamp are always
+			in the MFT).
+		<li> Uses B+ trees to index file system data for faster file
+			name lookup.
+		<li> Uses a bitmap to keep track of allocated disk blocks.
+		<li> Uses extents (a range of contiguous physical blocks),
+			improving large file performance and reducing
+			fragmentation.
+		<li> Includes shadow copying (on write) that keeps the
+			previous version of the file for recorvery as well
+			as enable data backup while the file system is in use.
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+		<li> A journaling file system (like ext3) but usses checksums
+			for improved realiability.
+		<li> Supports access control lists and mount points.
+		<li> Disk quotas that are strongly enforced.
+		<li> Transactions that can group various file operations
+			together so that they either all succeed (and commit)
+			or none do.
+		<li> Allows partitions to be expanded or reduced.
+		<li> All file and directory meta-data are stored in the
+			<em>Master File Table</em>.
+		<li> Timestamps are all recorded at UTC (FAT-32 kept these
+			as local times).
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+		</ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Ext4">ext4</a>
+		<ol>
+		<li> <strong>Introduced in:</strong> 2006
+		<li> <strong>Max filename length:</strong> 255
+		<li> <strong>Case-sensitive:</strong> Yes
+		<li> <strong>Max file size:</strong> 16 TB
+		<li> <strong>Max volume size:</strong> 1 EB
+		<li> <strong>Journaling:</strong> Yes
+		<li> <strong>Hard links:</strong> Yes
+		<li> <strong>Soft links:</strong> Yes
+		<li> <strong>OS support:</strong> Linux
+
+		<li> An incremental improvement of ext3 (which enhanced ext2).
+		<li> Disk block allocation can return mutiple consecutive
+			blocks at once (extents) for a file (reducing the
+			chance for
+			fragmentation) and can delay the allocation until
+			the file buffer is written to disk (so that a more
+			appropriate number of blocks can be allocated), further
+			reducing fragmentation.
+		<li> According to Theordore Ts'o (ext4's primary developer),
+			ext4 is a stop gap measure. He believes that Btrfs
+			(see below) is a better direction because, "it offers
+			improvements in scalability, reliability, and ease of
+			management".
+		</ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Virtual_file_system">VFS</a>
+		<ol>
+		<li> An abstraction layer over (multiple) concrete file systems.
+		<li> Allows applications to use multiple file systems in a
+			consistent way (without being aware that this is
+			occurring).
+		<li> Since VFS is just an abstraction layer, there are
+			multiple implementations for different OSs
+		</ol>
+	</ol>
+<li> Imminent Future
+	<ol>
+	<li> <a href="https://en.wikipedia.org/wiki/ReFS">ReFS</a>
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+<a href="http://blogs.msdn.com/b/b8/archive/2012/01/16/building-the-next-generation-file-system-for-windows-refs.aspx"><img src="/eckart/classes/cpsc3125/topics/content/ReFS.png" alt="Diagram of the Resilient File System" width="924" height="400" style="float: right" /></a> (Resilient File System)
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+		<ol>
+		<li> <strong>Introduced in:</strong> 2013
+		<li> <strong>Max filename length:</strong> 32,767
+		<li> <strong>Case-sensitive:</strong> Yes
+		<li> <strong>Max file size:</strong> 16 EB
+		<li> <strong>Max volume size:</strong> 1 YB
+		<li> <strong>Journaling:</strong> Yes
+		<li> <strong>Hard links:</strong> Yes
+		<li> <strong>Soft links:</strong> Yes
+		<li> <strong>OS support:</strong> >= Windows NT
+
+		<li> Introduced by Microsoft as part of Windows Server 2012
+			with the intent of becoming the "next generation"				file system after NTFS.
+		<li> Uses B+ trees for all on-disk structures (to speed
+			access).
+		<li> Switch to copy/allocate on write for data and metadata
+			updates (so that shared copies are used until
+			changes are made).
+		<li> Since ReFS was designed not to fail, Microsoft does not
+			provide any tools to repair it if failure does occur.
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+		<li> Automatic integrity checking and data scrubbing.
+		<li> Built-in handling of hard drive failure and redundancy,
+			including RAID.
+		<li> Removes the need for chkdsk and protecting against
+			code rot (in the file system).
+		<li> Storage virtualization and pooling, including almost
+			arbitrary logical volume size.
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+		</ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Btrfs">Btrfs</a>
+		<ol>
+		<li> <strong>Introduced in:</strong> 2007
+		<li> <strong>Max filename length:</strong> 255
+		<li> <strong>Case-sensitive:</strong> Yes
+		<li> <strong>Max file size:</strong> 16 EB
+		<li> <strong>Max volume size:</strong> 16 EB
+		<li> <strong>Journaling:</strong> No
+		<li> <strong>Hard links:</strong> Yes
+		<li> <strong>Soft links:</strong> Yes
+		<li> <strong>OS support:</strong> Linux
+
+		<li> Intended to address the lack of pooling, snapshots,
+			checksums, and integral multi-device spanning in
+			ext4.
+		<li> Uses a modified form of B-tree, with no leaf linkage, but
+			has a refcount for each tree node that make it
+			copy-on-write compatible.  The result is suitable for
+			high-performance object stores that can perform
+			copy-on-write snapshots, while maintaining good
+			concurrency.
+		<li> Btrfs is structured as multiple layers of such B-trees,
+			all using the same implementation.
+		<li> Mostly self-healing based on copy on write
+		<li> In-place conversion (with rollback) from ext3/4 to Btrfs
+		<li> Online defragmentation
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+		<li> Online volume growth and shrinking
+		<li> Online block device addition and removal
+		<li> Online balancing (movement of objects between block
+			devices to balance load)
+		<li> Offline filesystem check
+		<li> Online data scrubbing for finding errors and automatically
+			fixing them for files with redundant copies RAID 0,
+			RAID 1, RAID 5, RAID 6 and RAID 10
+		<li> Subvolumes (one or more separately mountable filesystem
+			roots within each disk partition)
+		<li> Transparent compression (zlib and LZO), configurable per
+			file or volume
+		<li> Snapshots (read-only or copy-on-write clones of subvolumes)
+		<li> File cloning (copy-on-write on individual files, or byte
+			ranges)
+		<li> Checksums on data and metadata (CRC-32C)
+		<li> File system seeding (using an existing Btrfs as a read-only
+			"copy" with duplication on writes)
+		<li> Block discard (reclaims space on some virtualized setups
+			and improves wear leveling on SSDs
+		<li> Send/receive (saving diffs between snapshots to a binary
+			stream)
+		<li> Hierarchical per-subvolume quotas
+		<li> Out-of-band data deduplication
+		<li> Planned features:
+			<ol>
+			<li> In-band data deduplication
+			<li> Online filesystem check
+			<li> Very fast offline filesystem check
+			<li> RAID with up to six parity devices, surpassing
+				the reliability of RAID 5 and RAID 6
+			<li> Object-level RAID 0, RAID 1, and RAID 10
+			<li> Incremental backup
+			<li> Ability to handle swap files and swap partitions
+			<li> Encryption
+			</ol>
+		</ol>
+	<li> A 2012 analysis of ReFS vs Btrfs found that their features are
+		similar, with both supporting checksums, RAID-like use of
+		multiple disks, and error detection/correction. However,
+		ReFS lacks deduplication, copy-on-write snapshots, and
+		compression, all found in Btrfs. Btrfs lack journaling,
+		which is available in ReFS.
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+	</ol>
+<li> <a href="https://en.wikipedia.org/wiki/Comparison_of_file_systems">Comparison Charts</a>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_37.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,93 @@
+<li> Block structures
+	<ol class="answer_list">
+	<li> Organize related declarations and statements.
+	<li> Can be nested only a limited (though large) number of times.
+	<li> Contain only statements - declarations <strong>must</strong>
+		be at the class or method level.
+	<li> In some languages limit the kinds of declarations they may
+		contain (e.g., no function declarations/implementations).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Declarations in a block are
+	<ol class="answer_list">
+	<li> visible only within that block - and <strong>not</strong>
+		in nested blocks.
+	<li> only allocated on the run-time stack (for non-static variables).
+	<li> visible in nested blocks unless hidden by nested declarations.
+	<li> only allocated on from the heap (for non-static variables).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The scope and lifetime of a variable declaration
+	<ol class="answer_list">
+	<li> Are <strong>always</strong> the same.
+	<li> Are <strong>never</strong> the same.
+	<li> Can be different if the variable declaration is hidden in a
+		nested block.
+	<li> Can be different if the value is allocated in the heap.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The scope of a declaration is
+	<ol class="answer_list">
+	<li> The region of the program text the variable resides within the
+		symbol table.
+	<li> The time period in a running program that the variable/value
+		has allocated space.
+	<li> The region of the program text in which the declaration is visible.
+	<li> Is the same as the lifetime of the variable declaration.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The lifetime of a declaration is
+	<ol class="answer_list">
+	<li> The region of the program text the variable resides within the
+		symbol table.
+	<li> The time period in a running program that the variable/value
+		has allocated space.
+	<li> The region of the program text in which the declaration is visible.
+	<li> Is the same as the scope of the variable declaration.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of these are ways to make the scope and lifetime of a variable
+	declaration different?
+	<ol class="answer_list">
+	<li> Hide the variable name in the outer scope by declaring a variable
+		of the same name within a nested scope.
+	<li> For most compilers, declare a variable within an anonymous
+		block (so that it's storage allocation would occur within
+		the named "parent" block).
+	<li> Cannot be done, the scope and lifetime of variable declarations
+		are <strong>always</strong> the same.
+	<li> Declare the variable as static within a nested scope (e.g., a
+		function).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Unless specifically indicated otherwise, block structured languages
+	(e.g., Java, C++) nearly always allocate memory for variable
+	declarations within blocks
+	<ol class="answer_list">
+	<li> statically (to reduce the memory footprint).
+	<li> on the run-time stack.
+	<li> in the heap.
+	<li> either in the heap or run-time stack, whichever has the most
+		space remaining.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A characteristic of block structured languages is that of the declarations
+	supported by the language (e.g., variable, class, function)
+	<ol class="answer_list">
+	<li> variable declarations are <strong>always</strong>
+		allowed within a block.
+	<li> only function declarations (but <strong>not</strong> their
+		implementations) may appear within a block.
+	<li> type (and class) declarations may be given, but only if they are
+		anonymous.
+	<li> <strong>all</strong> may appear within a block.
+	<li> None of the above
+	</ol>
+</li><br/>

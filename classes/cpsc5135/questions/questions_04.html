@@ -1,0 +1,193 @@
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x)
+		(cond
+			((not x) 0)
+			(t (+ (fun (cdr (cdr x))) (car x)))
+		)
+	)
+
+	(fun (quote (1  2  3  4)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> 10
+	<li> 4
+	<li> 6
+	<li> 7
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((not y) y)
+			((eq x (car y)) x)
+			(t (fun x (cdr y)))
+		)
+	)
+
+	(fun 3 (quote (1  2  3  4)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> nil
+	<li> 3
+	<li> (1  2  3  4)
+	<li> (3  4)
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((not y) y)
+			((eq x (car (car y))) (cdr (car y)))
+			(t (fun x (cdr y)))
+		)
+	)
+
+	(fun 3 (quote ( (1 . a)  (2 . b)  (3 . c)  (4 . d))))
+	</code></pre>
+	<ol class="answer_list">
+	<li> c
+	<li> ((3 . c))
+	<li> ((3 . c)  (4 . d))
+	<li> nil
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x)
+		(cond
+			((not x) x)
+			(t (append (fun (cdr x)) (cons (car x) nil)))
+		)
+	)
+
+	(fun (quote (1  2  3  4)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> (1  2  3  4)
+	<li> ((1) (2) (3) (4))
+	<li> (4  3  2  1)
+	<li> ((4) (3) (2) (1))
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(or
+			(and (atom x) (cons x nil))
+			(cons (car y) (fun (cdr x) (cdr y)))
+		)
+	)
+
+	(fun (quote (a b c)) (quote (d e f)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> (d e f nil)
+	<li> (d e nil nil)
+	<li> (d e f . nil)
+	<li> (d e nil . nil)
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((or (not x) (not y)) nil)
+			(t (cons (cons (car x) (car y))
+				 (fun (cdr x) (cdr y)))
+			)
+		)
+	)
+
+	(fun (quote (1 2 3)) (quote (a b c)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> ( (1 . a) (2 . b) (3 . c) )
+	<li> ( (1 a) (2 b) (3 c) )
+	<li> ( (1) (a) (2) (b) (3) (c) )
+	<li> ( ( (1) (a) ) ( (2) (b) ) ( (3) (c) ) )
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((or (not x) (not y)) nil)
+			(t (cons (cons (car x)
+				       (cons (car y) nil))
+				 (fun (cdr x) (cdr y)))
+			)
+		)
+	)
+
+	(fun (quote (1 2 3)) (quote (a b c)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> ( (1 . a) (2 . b) (3 . c) )
+	<li> ( (1 a) (2 b) (3 c) )
+	<li> ( (1) (a) (2) (b) (3) (c) )
+	<li> ( ( (1) (a) ) ( (2) (b) ) ( (3) (c) ) )
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((or (not x) (not y)) nil)
+			(t (cons (cons (car x) nil)
+				 (cons (cons (car y) nil)
+				       (fun (cdr x) (cdr y))))
+			)
+		)
+	)
+
+	(fun (quote (1 2 3)) (quote (a b c)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> ( (1 . a) (2 . b) (3 . c) )
+	<li> ( (1 a) (2 b) (3 c) )
+	<li> ( (1) (a) (2) (b) (3) (c) )
+	<li> ( ( (1) (a) ) ( (2) (b) ) ( (3) (c) ) )
+	<li> None of the above.
+	</ol>
+</li><br/>
+<li> Which of the following results should be returned as a result of the
+	following function definition and corresponding function call?
+	<pre><code>
+	(defun fun (x y)
+		(cond
+			((or (not x) (not y)) nil)
+			(t (cons (car x)
+				 (cons (car y)
+				       (fun (cdr x) (cdr y))))
+			)
+		)
+	)
+
+	(fun (quote (1 2 3)) (quote (a b c)))
+	</code></pre>
+	<ol class="answer_list">
+	<li> ( (1 . a) (2 . b) (3 . c) )
+	<li> ( (1 a) (2 b) (3 c) )
+	<li> ( (1) (a) (2) (b) (3) (c) )
+	<li> ( ( (1) (a) ) ( (2) (b) ) ( (3) (c) ) )
+	<li> None of the above.
+	</ol>
+</li><br/>

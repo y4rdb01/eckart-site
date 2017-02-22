@@ -1,0 +1,59 @@
+/* Generate the input data used to set up hexagonal neighborhoods.  A single 
+   command line argument indicates the size of each of two dimensions of the 
+   cell universe.
+
+   The file "my_rand.h" is located in the examples/data directory of the
+   distribution.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "my_rand.h"
+
+int main(int argc, char *argv[]) {
+	int max_size = atoi(argv[1]);
+	int x, y;
+
+	printf("0\n");
+
+	for (x = 0; x < max_size; x++)
+		for (y = 0; y < max_size; y++) {
+
+			/* Write cell location. */
+			printf("[%d, %d] = ", x, y);
+
+			/* Write "which" field value. */
+			if (y%2 == 0)
+				printf("1");
+			else
+				printf("0");
+
+			if ((x-(max_size/2))*(x-(max_size/2)) +
+				(y-(max_size/2))*(y-(max_size/2)) > max_size) {
+				/* Particle(s)! */
+				int n=0, ne=0, se=0, s=0, sw=0, nw=0;
+
+				/* Chance that a particle is placed. */
+				int fill;
+
+				fill = my_random()%100;
+				if (fill < 65) n = 1;
+				fill = my_random()%100;
+				if (fill < 65) ne = 1;
+				fill = my_random()%100;
+				if (fill < 65) se = 1;
+				fill = my_random()%100;
+				if (fill < 65) s = 1;
+				fill = my_random()%100;
+				if (fill < 65) sw = 1;
+				fill = my_random()%100;
+				if (fill < 65) nw = 1;
+
+				printf(", %d, %d, %d, %d, %d, %d, %d",
+					n+ne+se+s+sw+nw, n, ne, se, s, sw, nw);
+		}
+		printf("\n");
+	}
+
+	return 0;
+}

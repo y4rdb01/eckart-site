@@ -1,0 +1,9 @@
+# This program implements a 2 dimensional game of life.
+
+2 dimensions of 0..1
+
+sum := [0, 1] + [1, 1] + [1, 0] + [-1, 1] + [-1, 0] + [-1, -1]
+	+ [0, -1] + [1, -1]
+
+cell := 1 when (sum = 2 & cell = 1) | sum = 3
+     := 0 otherwise

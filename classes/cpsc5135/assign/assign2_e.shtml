@@ -1,0 +1,200 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>CPSC 5135: Assignment #2</strong>
+</p>
+
+<hr>
+
+<p>
+Your task is to write a Prolog program that solves a version of the traveling
+salesman problem.
+This problem is about a salesman wanting to visit all of the cities where his
+clients are located. However, he wants to keep his travel time and costs to
+a minimum, so he needs to find the shortest route that allows him to visit
+each city at least once. 
+Your program must take a list of city names and
+locations and determine the order in which they should be visited in order to
+minimize the total distance traveled. The salesman will start and end his
+journey in different cities and should start (and end) in whichever city
+minimizes the total distance that he must travel.
+Your program should print out the final list of city names (one per line) in
+the order that the salesman should visit them to minimize the distance traveled.
+You will need to define two predicates (and any additional predicates you
+find useful/helpful):
+<ul>
+<li> travel - takes two arguments, the first of which is the list of cities
+	to be visited, and the second is the order in which the cities should
+	be visited in order to minimize the total travel distance. Both
+	arguments have the same format.
+<li> printcities - takes a single argument which is the list of cities in the
+	order that they should be visited (should be the same format as the
+	arguments for "travel") and prints each city (one per line) in the order
+	in which they appear in the list.
+	Only the city name should be printed (NOT the associated coordinates).
+</ul>
+The arguments for both "travel" and "printcities" are lists of
+city entries that are composed of a city name and
+corresponding location (which is given as a sub-list of x and y coordinates).
+Thus the arguments to your predicates should look like:
+<code><pre>
+	[
+		[ atlanta,   [50, 50] ],
+		[ orlando,   [100, -225] ],
+		[ knoxville, [60, 100] ],
+		[ dothan,    [10, -75] ]
+	]
+</pre></code>
+Since it's easier to read the printed list of city names, it is recommended
+that you write the "printcities" predicate first in order to make testing of
+the "travel" predicate a bit easier.
+</p>
+
+<p>
+NOTE: Do <em>not</em> use the Prolog if-then-else statement in your solution.
+</p>
+
+<p>
+I suggest that you put all of your rules in a file (e.g., "travel")
+and your test predicates in another file (e.g., "mytest")
+so that your Prolog sessions will look something like:
+<pre>
+        1 ?- pwd.
+	c:/users/my_user_name/documents/prolog
+	true.
+
+	2 ?- working_directory(_, "../../Desktop").
+	true.
+
+	3 ?- [travel].
+	% travel compiled ...
+	true.
+
+	4 ?- [mytest].
+	% mytest compiled ...
+	true.
+
+        5 ?- test2(X).
+	...
+</pre>
+where the "mytest" file contains something like the following predicates:
+<pre>
+        cityList1( [
+		[ atlanta,   [50, 50] ],
+		[ orlando,   [100, -225] ],
+		[ knoxville, [60, 100] ],
+		[ dothan,    [10, -75] ]
+	]).
+
+        cityList2( [
+		[ knoxville, [60, 100] ],
+		[ atlanta,   [50, 50] ],
+		[ orlando,   [100, -225] ],
+		[ dothan,    [10, -75] ]
+	]).
+
+        test1(Z) :- cityList1(X),
+		    travel(X, Y),
+		    printcities(Y).
+        test2(Z) :- cityList2(X),
+		    travel(X, Y),
+		    printcities(Y).
+</pre>
+This will save you a LOT of typing as you test and debug your rules.
+It also means that when you submit your assignment I won't see your
+test data and results and can use my own.
+Finally, since reading the results is easier with "printcities", I would
+<strong>strongly</strong> recommend that you get this predicate working
+first.
+</p>
+
+<p>
+Note that the above specifies that you should have (at least) two rule
+sets: "travel" and "printcities" (though you probably will need others).
+Please use these names as it will aid in evaluating your work.
+</p>
+
+<p>
+As indicated by the example, the list of cities are represented by:
+<code><pre>
+        city_list    -> '[' city { ',' city } ']'
+        city         -> '[' name ',' location ']'
+        location     -> '[' x_coordinate ',' y_coordinate ']'
+        name         -> atom
+        x_coordinate -> integer
+        y_coordinate -> integer
+</pre></code>
+</p>
+
+<p>
+You are responsible for creating your own test data. It's a good idea to
+create your test cases first, building upon your test data, as this will
+help you with your development. Be sure to include a variety of "corner cases"
+to ensure that your program doesn't work for only "normal" data.
+Test driven development (TDD) is a good practice that you should cultivate.
+</p>
+
+<p>
+As always, be sure to use good indentation, descriptive constant, variable,
+type, function, procedure, and class names.  Use named constants when
+appropriate.  Also use good commenting style, remembering that the first
+thing in any program file should be a comment that gives a brief overview
+of what the file contains (and should do).  You might find these
+<a href="../../common/comment-guide.shtml">commenting guidelines</a> helpful.
+</p>
+
+<p>
+Finally, please only submit your source code file(s) for the assignment
+(e.g., travel.pl). In particular, do <em>not</em> submit zip, jar, tar, or
+other collections/archives.
+</p>
+
+<p>
+<strong>Good luck!</strong>
+</p>
+
+<h3 align=center>But Wait, There's More!</h3>
+
+<p>
+If you are enrolled in the <em>graduate section</em> of this class, then you
+must also implement a predicate "starttravel" that takes two arguments. The
+first argument is the list of cities to visit and the second is the shortest
+path visiting order.
+This predicate should use the "travel" predicate you've already defined but
+requires the first city in the list of cities (given as the first argument)
+be the starting point (rather than allowing any city to be the starting point).
+Thus the same city should be first in both arguments when the predicate
+succeeds.
+</p>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

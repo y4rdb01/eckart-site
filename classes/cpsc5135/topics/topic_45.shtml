@@ -1,0 +1,121 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Generic Abstractions
+</p>
+
+<ol>
+<li> Genericity enables the same algorithm and/or (data) structure to be
+	reused in conjunction with a wide range of other functions and data.
+<li> This enhanced ability for reuse further promotes the development
+	and adoption of standard libraries (e.g., STL for C++,
+	java.util for Java) which in turn help practitioners more
+	quickly develop solutions using those languages (and
+	their associated libraries).
+<li> Examples:
+	<ol>
+	<li> C++ templates
+<pre><code>
+	template &lt;class TYPE, int SIZE>
+	class Queue {
+    		private:
+    		protected:
+			TYPE items[SIZE];
+			int first, last;
+    		public:
+			Queue() { first = 1; last = 0; };
+			~Queue() {};
+			...
+	}
+
+	
+	int main(int argc, char* argv[]) {
+		Queue&lt;int, 1024> intQ;
+		...
+	}
+</code></pre>
+	<li> Java generics
+<pre><code>
+        class Queue&lt;TYPE extends Object> {
+                protected TYPE[] items;
+                protected int first = 1;
+                protected int last = 0;
+                public Queue(int size) {
+			// The following is NOT type-safe. To be type-safe,
+			// use a subclass of List (e.g., ArrayList).
+                        items = (TYPE[]) new Object[size];
+                }
+		...
+        }
+
+        class Example {
+                public static void main(String[] args) {
+                        Queue&lt;Integer> integerQueue = new Queue<Integer>(1024);
+			...
+                }
+        }
+
+</code></pre>
+	<li> Ada generics
+<pre><code>
+	generic
+		type DATA_TYPE is private;
+		type PRIORITY_TYPE is private;
+		with function COMPARE(x, y : PRIORITY_TYPE) return BOOLEAN;
+		MAX_SIZE : in POSITIVE := 32;
+	package Generic_PriorityQueue_Package is
+		type PriorityQueue is private;
+		procedure insert(queue    : in out PriorityQueue;
+				 data     : in     DATA_TYPE;
+				 priority : in     PRIORITY_TYPE);
+		...
+	end Generic_PriorityQueue_Package;
+
+	with Generic_PriorityQueue_Package;
+	package Demonstration is
+		type Customer is private;
+		function compare(x, y : Integer) return BOOLEAN;
+		package is new Generic_PriorityQueue_Package(
+			Customer, Integer, compare, 1024
+		);
+	begin
+		...
+	end Demonstration;
+</code></pre>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_45.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

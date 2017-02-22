@@ -1,0 +1,134 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Exclusion Approaches
+</p>
+
+<ol>
+<li> Locks and Busy Waiting is one way to implement mutual exclusion.
+	<ol>
+	<li> A process indicates its intent to enter a critical section.
+	<li> If a process is already in the critical section, then the
+		new process is "locked out" and instead joins a group
+		of waiting processes.
+	<li> When the process currently in the critical section exits,
+		it signals the next process in the "group" that it can
+		proceed.
+	<li> Locks must be obtained atomically - otherwise a race
+		condition (i.e., in testing and setting the value of
+		a shared variable) could lead to more than one
+		process in the critical section at the same time.
+	<li> Processes that are in the "group" are "busy waiting" for
+		the signal to arrive indicating that they can proceed
+		into the critical section.
+	<li> <a href="https://en.wikipedia.org/wiki/Spinlock">Spinlocking</a>
+		is a common form of busy waiting.
+	</ol>
+<li> Semaphores were introduced by Edsger Dijkstra in 1968 as a way
+	to avoid busy waiting and to provide fairness in the waiting
+	process by use of a queue.
+	<ol>
+	<li> Use two operations, P and V. P corresponds to Wait
+		(passeren in Dutch) and V corresponds to Signal
+		(vrijgeven in Dutch).
+	<li> Semaphores keep track of resources in use. Thus if there's
+		only one resource, then semaphores implement mutual
+		exclusion.
+	<li> P is like requesting a book from the library. If there's
+		a copy in the stacks you can check it out now (and
+		the number of available resources is decremented), but
+		if not you go next on the waiting list. The V operation
+		is like returning a book. If there's a waiting list,
+		then the next person on the list is notified and they
+		check it out. If there is noone on the waiting list,
+		then it goes back into the stacks and the number of
+		currently available resources gets incremented.
+	<li> Both the P and V operations must be atomic, otherwise
+		you could end up with two processes, for example,
+		sharing an unshareable resource (checking out the
+		same book).
+	<li> Semaphores can be tricky to use correctly. Their
+		incorrect use can easily lead to lost resources and/or
+		deadlocks.
+	</ol>
+<li> Monitors provide a less error prone way to share a resource.
+	<ol>
+	<li> Developed in the early 1970s, they use a single entry
+		point (e.g., procedure) to limit access to the
+		critical section to only one process at a time.
+	<li> Because monitors can implement semaphores (and vice
+		versa), they are computationally equivalent, but
+		monitors are generally an easier capability to
+		provide safely within a programming language design.
+	<li> The <em>synchronized</em> methods and code blocks in Java
+		are an example of monitors within a language design.
+<a name="library"></a>
+<pre><code>
+	public class Library {
+		private List<Book> stack = new ArrayList<Book>();
+
+		public synchronized void bookReturn(Book bk) {
+			stack.add(bk);
+		}
+
+		public synchronized void bookCheckOut(Book bk) {
+			stack.remove(bk);
+		}
+	}
+</code></pre>
+	</ol>
+<li> <a href="https://en.wikipedia.org/wiki/Message_Passing_Interface">Message
+	Passing Interface</a> (MPI) was developed in the early 1990s,
+	and has gained wide acceptance.
+	<ol>
+	<li> Processes can be continuously active
+	<li> Processes may create other processes
+	<li> Messages are exchanged between processes
+	<li> Processes maintain state and can change their state in
+		response to messages (as well as their own actions).
+	<li> Messages may be sent between specific processes
+		(point-to-point) or between a process and a process
+		group, between different process groups, or between
+		a process and the other processes within its group.
+	<li> Data types can be derived and used to create more complex
+		types of messages.
+	<li> One-sided communications allow a process to get
+		information from another (e.g., from its local memory
+		store) without synchronizing the processes.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_67.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

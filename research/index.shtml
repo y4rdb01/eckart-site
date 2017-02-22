@@ -1,0 +1,132 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Research Interests
+</p>
+
+<p>
+<img width="64" height=64" src="ca/hp.gif" alt="gas diffusion snapshot" style="float: left; padding: 5px; border: 0px" />
+<strong>Cellular Automata</strong>:
+Time synchronous Cellular Automata (CA) are ideally suited for parallel
+processing, and have been characterized as "embarrassingly easy" to
+parallelize. The abstract CA execution model consists of: a possibly
+infinite n-dimensional lattice of cells; a finite alphabet from which the
+state of each cell is chosen; simultaneous update of the state of all cells
+in the lattice, independent of one another, in discrete time steps; and a
+fixed, uniform transition function that computes the next value of a cell
+using the values of the cells within a fixed distance, or neighborhood, of
+that cell. The <a href="http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_new">Game of Life</a>,
+
+<img width="64" height=64" src="ca/immis.gif" alt="two-phase fluid snapshot" style="float: right; padding: 5px; border: 0px" />
+
+is probably the most popular example of a CA and is also a good place to start
+in understanding this form of distributed computation. I developed
+the <em><a href="ca/cellular.shtml">Cellular</a></em> system to make programming
+a wide range of CA much easier.  The system is available on both Windows and
+numerous U<font size=-2>NIX</font> platforms. It provides a compiler for
+the <em>Cellang</em> CA programming language in addition to visualization
+software.
+</p>
+
+<blockquote>
+<strong>NOTE:</strong> I'm in need of a student to help in updating the
+software to ensure that it installs correctly on the various platforms, as
+it's been well over 10 years since I've confirmed this.
+</blockquote>
+
+<p>
+<strong>Parallel and Distributed Processing</strong>:
+After the initial implementation of the
+<em><a href="ca/cellular.shtml">Cellular</a></em> system (above) back in the
+early 1990s, I was very disappointed in the size and speed that the typical
+single-threaded hardware of the time was capable of. When
+<a href="https://en.wikipedia.org/wiki/Sun_microsystems">SUN Microsystems</a>
+came out with their early SMP architectures I quickly extended my CA work to
+make use of it. I also leveraged the work of
+<a href="http://www.eecs.utk.edu/people/faculty/mbeck">Micah Beck</a> to 
+perform many operations in parallel on the wider (e.g., 64-bit) data chunks.
+These techniques yielded some tremendous speed-ups for certain types of
+automata. The new cloud computing landscape provides tantilizing possibilities
+for extending such systems to lower cost, commodity, and scalable environments.
+</p>
+
+<p>
+<strong>Language Design</strong>: Prior to creating the <em>Cellang</em> CA
+programming language, I also designed and developed a compiler for
+<em>Zeno</em>, a general purpose programming language that examined the idea
+of creating "after the fact" abstract classes.  <em>Cellang</em> introduced
+the concept of a conditional assignment operation - along with a number of
+other ideas more specific to CA and support for compilation of parallel
+operations. My language studies have made me a proponent of simple grammars.
+In my opinion, if a language can't be expressed as an LL(1) grammar, then
+the language syntax is probably overly complex. 
+</p>
+
+<p>
+<strong>Evolutionary and Genetic Programming</strong>:
+In work for the US Army, I examined the co-evolution of friend and foe
+system capabilities, as expressed in high-level genomic constructs. Friend
+and foe were paired in CA simulated "capture the flag" games with fitness
+function scores based on on how close they came to the objective. Unfortunately
+this work was limited by a fixed genome (though gene alleles were highly
+flexible). The CA simulations were implement using the
+<em><a href="ca/cellular.shtml">Cellular</a></em> system, and were quite
+resource intensive, further limiting the number of individuals and generations
+that could be examined (given the hardware I had access to at the time - about
+2000). The
+<a href="https://en.wikipedia.org/wiki/Iterated_prisoners_dilemma#The_iterated_prisoner.27s_dilemma">Iterated Prisoners' Dilemma</a>,
+<a href="https://en.wikipedia.org/wiki/Moral_Foundations_Theory">Moral Foundations Theory</a>,
+and
+<a href="https://en.wikipedia.org/wiki/Sugarscape">Sugarscape</a>
+are additional areas that would be fun to investigate with interested students.
+</p>
+
+<p>
+<strong>Teaching Techniques</strong>:
+Like most faculty, I have wrestled with how to more effectively impart
+knowledge and understanding to my students. My experience has shown me
+that active engagement of students in the problem solving process, coupled
+with quick and accurate feedback, is the key. While books, traditional
+"chalk and talk" lectures, and web sites can provide access to detailed
+information and examples they often (nearly always?) fail to elicit deep
+and thoughtful student participation. Similarly, evaluations mechanisms
+that embody delayed feedback (e.g., tests) further hinder the learning
+process. Even the classic programming cycle of edit-compile-run-evaluate
+so delays feedback that many students are unable to be successful in a
+beginning programming class (interpreted languages are one way to reduce
+the length of this feedback cycle).  While I've utilized various
+teaching techniques and evaluation strategies in my own classes, I'd like
+to examine their effectiveness more closely using experimental controls
+and more rigorous assessment tools.
+</p>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,100 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Modeling and Simulation
+</p>
+
+<ol>
+<li> Models are simplified descriptions of some real-world process.
+<li> Describing models using a formalized system ensures that they are
+	self-consistent (unambiguous) and facilitates discovery of
+	gaps between the model and the real-world process it is
+	intended to represent.
+<li> Simplification makes the modeled process easier to understand
+	and allow smaller versions to be created (either as computer
+	programs or as physical implementations - often called
+	scaled models) that can "run" the model (simulation).
+<li> The results of simulations are used to predict what will
+	happen in the real-world process. Sometimes this is done
+	to avoid carrying out an actual (and often very expensive
+	or time consuming) experiment (as in a new automobile or
+	aircraft design) or to predict what will happen in a natural
+	phenomenon over which we have limited control (such as
+	weather forecasting).
+<li> When real-world data corresponding to a simulation are available
+	(as in weather forecasting), changes to the underlying model
+	may be made to reduce the gap between simulation results and
+	real-world observations. Note however, that there is often
+	a point of diminishing returns. More complex models become
+	less useful in helping to understand the real-world process
+	and the tweaks to make the results gap smaller in some
+	scenarios makes it larger in others.
+<li> The best models are the ones that explain the vast majority of
+	behavior across a wide variety of scenarios using the simplest
+	descriptions (e.g., fewest rules).
+<li> Examples:
+	<ol>
+	<li> <a href="http://www.wrf-model.org/index.php">Weather forecasting</a>
+		- In 2015 NOAA used 13 kilometer wide cells to cover the
+		Earth, with sizes of only 3 kilometers aroudn North America.
+		[<a href="http://www.sciencenewsdigital.org/sciencenews/20150502?pg=22#pg22">Science News, 2 May 2015</a>]
+	<li> <a href="http://www.nhc.noaa.gov/modelsummary.shtml">Huricane track forecasting</a>
+	<li> <a href="http://pubs.giss.nasa.gov/abs/ba09200l.html">Climate modeling</a>
+		- In 2015 NASA used a grid resolution over the Earth of
+		25 kilometers (simulating a period of 150 years).
+		[<a href="http://gizmodo.com/the-world-in-2100-according-to-nasas-new-big-dataset-1710798646">Gizmodo.com, 14 June 2015</a>]
+	<li> <a href="https://en.wikipedia.org/wiki/Andromeda%E2%80%93Milky_Way_collision">Galatic collisions</a>
+	<li> <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2729742/">Disease proliferation</a>
+	</ol>
+<li> Simple models of complex dynamical systems can often give rise to
+	<a href="http://en.wikipedia.org/wiki/Emergent_behavior">emergent behavior</a>.
+	<ol>
+	<li> Simple rules and local interactions
+	<li> Give rise to <a href="http://curiosity.discovery.com/question/emergent-behavior">complex behavior</a> over time
+	<li> One characteristic of emergent behavior is that the result after
+		some large amout of time isn't possible to predict (often
+		even at the qualitative level) without actually carrying
+		out all of the actions that would occur over that time period.
+	<li> Such systems are often extremely sensitive to their initial
+		(or starting) conditions.
+	<li> For example, life is an emergent property of physics (via
+		chemistry).
+	</ol>
+<li> Listen to this marvelous <a href="http://www.ted.com/talks/nicolas_perony_puppies_now_that_i_ve_got_your_attention_complexity_theory">TED talk</a>
+	on modeling animal behaviors.
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_48.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,66 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Smalltalk Background
+</p>
+
+<ol>
+<li> Created in the 1970s by the Learning Research Group (LRG) at
+	Xerox PARC. Many well known advancements were developed at
+	Xerox PARC, including the laser printer, Ethernet, the
+	modern personal computer, graphical user interfaces, and
+	many early advances in object-oriented programming.
+<li> Is one of only a very few "pure" object-oriented programming
+	languages. Java, C++, and Objective C are not "pure" since
+	they include primitive types (which aren't class instances).
+<li> Everything is an object (including classes) and all work
+	is performed by sending messages to objects (including the
+	definition of new classes). 
+<li> Smalltalk was designed as a completely new programming language
+	(though it borrows heavily from the ideas in Simula). It was
+	(and still is) to be the language for all user interactions
+	in the personal
+	<a href="http://en.wikipedia.org/wiki/Dynabook">Dynabook</a>
+	computer that
+	<a href="http://en.wikipedia.org/wiki/Alan_Kay">Alan Kay</a>
+	envisioned in 1972. The Dynabook is arguably being realized
+	in the XO tablets (X0-3 and X0-4) being created by the
+	<a href="http://en.wikipedia.org/wiki/One_Laptop_per_Child">One
+	Laptop per Child</a> efforts, with which Dr. Kay is actively
+	involved.
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_29.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

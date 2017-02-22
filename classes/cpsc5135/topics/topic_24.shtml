@@ -1,0 +1,58 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Symbol Table Implementation
+</p>
+
+<ol>
+<li> Symbol Tables are used during compile-time to keep track of
+	the various names that are declared (and what they refer to).
+<li> Bucket Hashing
+	<div>
+	<img src="BucketHashing.png" alt="Bucket hashing symbol table example" width="805" height="499" />
+	</div>
+<li> Declarations with the same name will be placed into the same bucket.
+<li> Because new entries (i.e., named declarations) are placed at
+	the beginning of buckets, they are encountered first.
+<li> Thus when a newer (more recently scoped) name hides a previous
+	name, it will appear earlier in the bucket - so its entry
+	will be encountered first when looking for the name.
+<li> When a scope is exited, all entries for the current nested
+	scoping level are deleted from the heads of the bucket hash
+	chains.
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_24.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

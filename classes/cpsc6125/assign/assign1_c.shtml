@@ -1,0 +1,128 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>CPSC 6125: Assignment #1</strong>
+</p>
+
+<hr>
+
+<p>
+You are to write a C program that simulates the
+<a href="https://en.wikipedia.org/wiki/Sleeping_barber_problem">sleeping
+barber problem</a>. The problem should take three (3) command line arguments
+representing the number of waiting room chairs (N), the number of customers
+that will come to the barber shop (C), and the integer probability (P) that a
+customer arrives at any particular time during the simulation (0 < P <= 100).
+The original process thread should be used to perform the barber's actions
+while a second thread should be used to generate customers at random arrival
+times. The original (barber) process thread should exit (and kill any remaining
+child processes) when the customer
+generation thread is complete, there is noone in the waiting room, and the
+barber isn't currently cutting anyone's hair. Your program should report:
+<ol>
+<li> the number of customers who got their hair cut (note that this could be
+	less than the number of customers generated);
+<li> the average wait time for customers (excludes customers that didn't get
+	hair cuts);
+<li> the maximum time that any customer had to wait (excludes customers that
+	didn't get hair cuts); and
+<li> the amount of time that the barber spent sleeping.
+</ol>
+</p>
+
+<p>
+Your program will need to use:
+<ol>
+<li> a variable that counts up from 0 which represents the current time;
+<li> a variable that indicates whether or not the barber is checking the
+	waiting room, sleeping, or
+	cutting someone's hair; and
+<li> a queue that represents the chairs in the waiting room.
+</ol>
+Each of these will be shared by the barber (original thread) and the customer
+generator (new thread), so each must appear in a different critical section
+with access controlled by semaphores. Note that it should take one (1) time
+unit in the simulation for:
+<ol>
+<li> the barber to check the waiting room;
+<li> a customer to check whether or not the barber is sleeping; or
+<li> a customer to check the waiting room for available seating.
+</ol>
+It always takes the barber eactly 10 time units to cut a customer's hair.
+If the barber isn't cutting hair, she checks the waiting room for a customer,
+and if there are none, she sleeps (otherwise the customer leaves the waiting
+room and she starts cutting the customer's hair). When a customer arrives, they
+first check the barber chair to see if the barber is sleeping, and if so wake
+her up to get their hair cut. If the customer sees that the barber is busy,
+then the customer checks the waiting room and waits if there's a chair
+available (otherwise they leave the barbershop never to return if there is no
+chair to sit on while they wait).
+</p>
+
+<p>
+You should use the "rand()" function (available from &lt;stdlib.h>) to
+calculate a uniformly random integer between 1 and 100 (inclusive) by using
+the expression "1 + rand() % 100". If
+this value is <= P (the probability of generating a new customer) then a new
+customer should be created.  Please
+do NOT assign a seed (i.e., using "srand"), but use the default seed instead.
+</p>
+
+<p>
+You are responsible for creating your own test data. It's a good idea to
+create your test cases first, building upon your test data, as this will
+help you with your development. Be sure to include a variety of "corner cases"
+to ensure that your program doesn't work for only "normal" data.
+Test driven development (TDD) is a good practice that you should cultivate.
+</p>
+
+<p>
+As always, be sure to use good indentation, descriptive constant, variable,
+type, function, procedure, and class names.  Use named constants when
+appropriate.  Also use good commenting style, remembering that the first
+thing in any program file should be a comment that gives a brief overview
+of what the file contains (and should do).  You might find these
+<a href="../../common/comment-guide.shtml">commenting guidelines</a> helpful.
+</p>
+
+<p>
+Finally, please only submit your source code file(s) for the assignment
+(e.g., barber.c). In particular, do <em>not</em> submit zip, jar, tar, or
+other collections/archives.
+</p>
+
+<p>
+<strong>Good luck!</strong>
+</p>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

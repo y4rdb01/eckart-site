@@ -1,0 +1,141 @@
+# I have just started experimenting with your cellular system and thought
+# you may be interested in my implementation of Langton's famous self-
+# replicating loops for potential inclusion on your WWW page of cellular
+# examples. The rules for this CA were kindly provided to me by David I.
+# Bell who wrote:
+
+# This automata was designed by Christopher G. Langton at the University
+# of Michigan, and is described in his article "Self-Reproduction in
+# Cellular Automata", published in the book "Cellular Automata" in 1984.
+#
+# As described in the above article, this automata is "realistic" and
+# "non-trivial", in the following ways:
+#
+# 	The reproduction is not simply due to the particular rules used in
+#	the automata.  Many automata can reproduce patterns, but such
+#	behavior is a simple mathematical property of the rules, and is
+#	not based on the starting pattern.  In this automata, the correct
+#	starting pattern is essential, otherwise nothing interesting
+#       happens.
+#	True, the rules are VERY convenient for this pattern, but the rules
+#	themselves do not make the reproduction occur.  It is the rules
+#	acting on this special pattern which enables reproduction (just
+#	like our own universe!)
+#
+#	Like real organisms, this pattern contains "DNA" which directs the
+#	reproduction.  The "DNA" is processed in two ways, by replicating
+#	it and by transcribing it.  This is necessary for "true" 
+#       reproduction.
+#
+#	Like bacteria, the reproduction doesn't simply create another copy
+#	of the starting pattern.  It creates two identical copies of
+#	itself, thus both the parent and the child can continue to make
+#	new copies of themselves.
+
+2 dimensions of 0..7
+
+test := [0,1] * 1000 + [1,0] * 100 + [0,-1] * 10 + [-1,0]
+a := [1,0] * 1000 + [0,-1] * 100 + [-1,0] * 10 + [0,1]
+b := [0,-1] * 1000 + [-1,0] * 100 + [0,1] * 10 + [1,0]
+c := [-1,0] * 1000 + [0,1] * 100 + [1,0] * 10 + [0,-1]
+if a > test then
+  test := a
+end
+if b > test then
+  test := b
+end
+if c > test then
+  test := c
+end
+
+cell := 1 when
+          ((cell = 0 &
+            (test = 7214 | test = 4421 | test = 7252 | test = 4321 |
+             test = 7721 | test = 4221 | test = 7521 | test = 7512 |
+             test = 6251 | test = 7212 | test = 7000 | test = 6212 |
+             test = 7221 | test = 7621 | test = 3212 | test = 4212)) |
+          (cell = 1 &
+            (test = 1000 | test = 5100 | test = 1010 | test = 6212 |
+             test = 1100 | test = 3221 | test = 6112 | test = 1110 |
+             test = 2221 | test = 2120 | test = 2111 | test = 2210 |
+             test = 3212 | test = 2100 | test = 5112 | test = 6000 |
+             test = 5122 | test = 2211 | test = 2121 | test = 2001)) |
+          (cell = 2 &
+            (test = 6112 | test = 3202 | test = 5520 | test = 7000)) |
+          (cell = 3 &
+            (test = 4000 | test = 5102 | test = 4200 | test = 2010)) |
+          (cell = 4 &
+            (test = 2220 | test = 3220)) |
+          (cell = 6 &
+            (test = 3121 | test = 2000 | test = 1000)) |
+          (cell = 7 &
+            (test = 2220 | test = 5022 | test = 3202)))
+     := 2 when
+          ((cell = 0 &
+            (test = 2100 | test = 7002 | test = 1100 | test = 2001 |
+             test = 6200 | test = 3202 | test = 7200 | test = 6002 |
+             test = 2010 | test = 3001 | test = 1000 | test = 5220)) |
+          (cell = 1 & test = 5211) |
+          (cell = 2 &
+            (test = 4002 | test = 4220 | test = 5120 | test = 2011 |
+             test = 2201 | test = 7200 | test = 2010 | test = 7420 |
+             test = 7222 | test = 6220 | test = 5200 | test = 4122 |
+             test = 7221 | test = 5210 | test = 7206 | test = 7122 |
+             test = 4203 | test = 2211 | test = 7220 | test = 7720 |
+             test = 4221 | test = 1000 | test = 4201 | test = 4000 |
+             test = 7201 | test = 2001 | test = 2020 | test = 2100 |
+             test = 3020 | test = 3002 | test = 5020 | test = 6002 |
+             test = 7120 | test = 4422 | test = 2120 | test = 2221 |
+             test = 5021 | test = 6122 | test = 2210 | test = 3120 |
+             test = 7722 | test = 2000 | test = 2220 | test = 5001 |
+             test = 7022 | test = 6224 | test = 6221 | test = 5221 |
+             test = 4202 | test = 7202 | test = 5024 | test = 2200 |
+             test = 5502 | test = 5220 | test = 7002 | test = 7622 |
+             test = 6202)) |
+          (cell = 3 & 
+            (test = 2000 | test = 6200)) |
+          (cell = 5 &
+            (test = 4212 | test = 2020 | test = 7212 | test = 2120 |
+             test = 2000 | test = 5021 | test = 7002 | test = 3002 |
+             test = 2121 | test = 7202)))
+     := 3 when
+          ((cell = 0 & test = 6000) |
+           (cell = 1 & test = 6022) |
+          (cell = 2 &
+            (test = 7020 | test = 4200)) |
+          (cell = 3 &
+            (test = 1000 | test = 2001)))
+     := 4 when
+          ((cell = 1 &
+            (test = 4112 | test = 4002 | test = 6402 | test = 4202 |
+             test = 4122 | test = 4222 | test = 4322 | test = 4022 |
+             test = 4212 | test = 4012 | test = 4232)) |
+          (cell = 5 & test = 4022))
+     := 5 when
+          ((cell = 0 &
+            (test = 2120 | test = 5200 | test = 5212 | test = 7251)) |
+          (cell = 1 &
+            (test = 7252 | test = 5242)) |
+          (cell = 2 &
+            (test = 7205 | test = 7005)) |
+          (cell = 5 &
+            (test = 2100 | test = 2200)) |
+          (cell = 6 &
+            (test = 2121 | test = 2221)) |
+          (cell = 7 & test = 5202))
+     := 6 when
+          ((cell = 1 &
+            (test = 2020 | test = 6202)) |
+          (cell = 2 &
+            (test = 3220 | test = 3200 | test = 3210)) |
+          (cell = 3 & test = 7000) |
+          (cell = 4 & test = 3202))
+     := 7 when
+          ((cell = 1 &
+            (test = 7212 | test = 3202 | test = 5422 | test = 7222 |
+             test = 7022 | test = 6242 | test = 7002 | test = 7122 |
+             test = 7012 | test = 5420 | test = 7232 | test = 7202 |
+             test = 7026 | test = 7000 | test = 7112)) |
+          (cell = 2 & test = 5100) |
+          (cell = 7 & test = 7000))
+     := 0 otherwise

@@ -1,0 +1,101 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Interprocess Communication (IPC)
+</p>
+
+<ol>
+<li> Key issues:
+	<ol>
+	<li> Sharing information between processes (this is trivial for
+		threads since they share the same address space);
+	<li> Preventing processes from interferring with one another; and
+	<li> Sequencing process interations based on their action dependencies.
+	</ol>
+<li> Race Conditions
+	<ol>
+	<li> Consider two processes, one which adds a deposit
+		to an account, and the other makes a withdraw.  Both require
+		the current balance to be read, then each does performs
+		some computation, and finally the new balance is written.
+		<ol>
+		<li> What if the deposit process reads the balance but
+			gets interrupted before it finishes calculating the
+			new balance? In the meantime, the withdraw process,
+			reads the balance, and writes the updated balance
+			back.
+		<li> What if it's the withdraw process that gets interrupted
+			and the deposit process begins and completes before the
+			withdraw process resumes?
+		<li> Will the balance always be "wrong" if either the deposit
+			or withdraw process is interrupted?
+		<li> What if the balance consisted of multiple pieces (e.g.,
+			dollars and cents are kept in separate "variables")?
+			What additional problems might occur?
+		</ol>
+	<li> A race condition is present when different execution orderings
+		of the instructions in two or more processes can produce
+		different results.
+	<li> Race conditions occur when there is shared data and either
+		simulatenous or concurrent/interruptible actions.
+	</ol>
+<li> Critical Sections
+	<ol>
+	<li> To avoid race conditions we want certain actions to be mutually
+		exclusive
+		(we can light matches and pour gasoline, but don't do both
+		at once!).  In the above example, the actions of deposits
+		and withdraws should be mutually exclusive.
+	<li> This region of exclusivity is called the critical section.
+	<li> Critical sections should be as small as possible/practical while
+		ensuring the desired semantics.
+	<li> Why should a critical section be as small as possible?
+	<li> Need 4 conditions to prevent difficulties with simultaneous
+		processes sharing data:
+		<ol>
+		<li> No 2 processes may be inside their critical
+			sections as the same time.
+		<li> No assumptions can be made about execution speed or CPU's
+		<li> No process running outside its critical section
+			should block other processes.
+		<li> No process should wait arbitrarily long to enter
+			its critical section.
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_12.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

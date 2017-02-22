@@ -1,0 +1,52 @@
+# Fireflies blinking in the night.
+
+2 dimensions of
+   # 1 if the firefly is flashing, 2 for a non-flashing firefly, 0 otherwise.
+   flash of 0..2
+
+   # The state value at which a flash is initiated (inverse of frequency).
+   const period of 0..250
+
+   state of 0..250
+
+   # The number of time steps to wait before generating an initiated flash. 
+   const delay of 0..100
+
+   # The number of time steps before the next flash will actually occur after
+   # it has been initiated.  A -1 value indicates that no flash was initiated.
+   time2flash of -1..100
+
+   # The direction the firefly is facing, north(0), east(1), south(2), west(3).
+   const direction of 0..3
+end
+
+if cell.flash != 0 then
+
+   light := -1 when cell.flash = 1
+         := 0 otherwise
+
+   forall i: -4..4
+      forall j: -4..4
+         light := light + 1 when [i,j].flash = 1 &
+                                     ((cell.direction = 0 & j >= 0) |
+                                      (cell.direction = 1 & i >= 0) |
+                                      (cell.direction = 2 & j <= 0) |
+                                      (cell.direction = 3 & i <= 0))
+      end
+   end
+
+   cell.flash := 1 when cell.time2flash = 0
+              := 2 when cell.flash = 1 | cell.flash = 2
+
+   cell.time2flash := cell.time2flash - 1 when cell.time2flash > 0
+                   := cell.delay          when cell.state = cell.period
+                   := -1                  when cell.time2flash = 0
+
+   # NOTE: Flashing insects in visual field all have equal weight
+
+   # The resetable pacemaker model
+   #
+   cell.state := 0 when cell.state = cell.period | light > 0
+              := cell.state + 1 otherwise
+
+end

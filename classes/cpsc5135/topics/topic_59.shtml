@@ -1,0 +1,75 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- NetLogo Example (Pandemic)
+</p>
+
+<ol>
+<li> Pandemic (as a class exercise)
+	<ol>
+	<li> Each patch has a different population density, and
+		thus contact rate between individuals, impacting
+		disease transmission.
+	<li> There is an incubation period before an infected
+		person is contagious. The incubation period has
+		a minimum value, but thereafter there's a fixed
+		chance of becoming contagious.
+	<li> There is a period of time before symptoms become
+		apparent. If this time is greater than the incubation
+		period, the difference is when the risk of disease
+		spread is the greatest.
+	<li> There is a fixed illness recovery chance for infected
+		patches.
+	<li> For each time step, there is a pre-set chance that a
+		patch will become infected by a neighbor. The chance
+		is 0 during the incubation period, greatest between
+		contagious and symptom outbreak, and half the greatest
+		value once symptoms emerge.
+	<li> For each time step during which a patch is infected and
+		exhibits symptoms, there is a small but fixed chance
+		of death in its population.
+	<li> Once a patch has been sick and recovered, it is considered
+		immune from further outbreaks.
+	</ol>
+<li> Additional NetLogo tutorials
+	<ol>
+	<li> <a href="http://ccl.northwestern.edu/netlogo/docs/tutorial1.html">Tutorial #1</a>
+	<li> <a href="http://ccl.northwestern.edu/netlogo/docs/tutorial2.html">Tutorial #2</a>
+	<li> <a href="http://ccl.northwestern.edu/netlogo/docs/tutorial3.html">Tutorial #3</a>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_59.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

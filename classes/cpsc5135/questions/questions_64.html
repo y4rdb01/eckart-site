@@ -1,0 +1,144 @@
+<li> Which of the following are <strong>not</strong> a Java primitive type?
+	<ol class="answer_list">
+	<li> boolean
+	<li> char
+	<li> int
+	<li> string
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are Java reference types?
+	<ol class="answer_list">
+	<li> Array
+	<li> Class
+	<li> Interface
+	<li> Method
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, a subclass is <strong>always</strong> a subtype of the
+	superclass because
+	<ol class="answer_list">
+	<li> The subclass extends the superclass.
+	<li> The subclass <strong>must</strong> implement the same
+		interfaces as the superclass.
+	<li> The superclass cannot prevent access to its methods by the subclass.
+	<li> The subclass cannot restrict the visibility of inherited methods. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, a subclass is a subtype of 
+	<ol class="answer_list">
+	<li> The "Object" class.
+	<li> Its superclass.
+	<li> The interfaces the superclass implements.
+	<li> The interfaces the subclass implements.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> All Java type casts <strong>must</strong> be checked at
+	<ol class="answer_list">
+	<li> Compile-time.
+	<li> Class load-time.
+	<li> Run-time.
+	<li> The time an exception is raised.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a Java type cast fails, then
+	<ol class="answer_list">
+	<li> An exception is thrown.
+	<li> The superclass' destructor is called.
+	<li> The object's "finalize" method is called.
+	<li> Nothing happens since it was checked at compile-time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Java, arrays
+	<ol class="answer_list">
+	<li> Can be created for primitive types.
+	<li> Can be created for reference types.
+	<li> Implicitly implement the "Array" interface.
+	<li> Are subtypes of the "Object" class.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java array types are subclasses of "Object", but
+	<ol class="answer_list">
+	<li> Can implement many interfaces. 
+	<li> Cannot be assigned to one another.
+	<li> Cannot be subtyped themselves.
+	<li> Can <strong>always</strong> be bounds checked at compile-time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is an illustration of Java's Array Covariance
+	problem?
+	<ol class="answer_list">
+	<li> <pre><code>
+	class Parent { ... }
+	class Child extends Parent { ... }
+	Child[] child = new Parent[10];
+	child[0] = new Child();
+	</code></pre>
+	<li> <pre><code>
+	class Parent { ... }
+	class Child extends Parent { ... }
+	Parent[] parent = new Child[10];
+	parent[0] = new Parent();
+	</code></pre>
+	<li> <pre><code>
+	class Parent { ... }
+	class Child extends Parent { ... }
+	Parent[] parent = new Parent[10];
+	parent[0] = new Child();
+	</code></pre>
+	<li> <pre><code>
+	class Parent { ... }
+	class Child extends Parent { ... }
+	Parent[] parent = new Parent[10];
+	parent[0] = new Parent();
+	</code></pre>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java's Array Covariance problem requires more run-time type checking
+	be performed when
+	<ol class="answer_list">
+	<li> An array can hold <strong>both</strong> primitive and
+		reference types.
+	<li> Annonymous array values are used.
+	<li> Arrays of primitive types are used.
+	<li> Using subtyped arrays (i.e., arrays of subtypes).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Java exceptions can be
+	<ol class="answer_list">
+	<li> Class instances.
+	<li> Primitive type values.
+	<li> Matched to handlers based on their inheritance hierarchy.
+	<li> Matched to their handler at compile-time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> "Error" and "RuntimeException" are generally thrown by the Java VM
+	and are referred to as
+	<ol class="answer_list">
+	<li> Checked exceptions.
+	<li> Unchecked exceptions.
+	<li> Private exceptions.
+	<li> Virtual Machine exceptions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Implementing a data structure (e.g., Stack) using subtype polymorphism
+	rather than parametric polymorphism (for its items), typically
+	<ol class="answer_list">
+	<li> Requires more run-time type checking.
+	<li> Requires less run-time type checking.
+	<li> Has no impact on the amount of run-time type checking needed.
+	<li> Requires the compiler to generate more code.
+	<li> None of the above
+	</ol>
+</li><br/>

@@ -1,0 +1,78 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Type Declarations and Type Equality
+</p>
+
+<ol>
+<li> Transparent type declarations essentially provided another
+	name for an existing type (or a subset of its values).
+	"type A is Integer;" and "type B is Integer;" means that
+	while "A" and "B" are different types (e.g., for disambiguation
+	of overloaded methods), they are both kinds of "Integer"s
+	and languages can easily support automatic casting between
+	"A" and "Integer" (as well as "B" and "Integer") though
+	generally <strong>not</strong> between "A" and "B".
+<li> Anonymous types are not declared with a name. In Java, an instance
+	of an anonymous class (i.e., type) is often used as part of the
+	event handling mechanism.
+<pre><code>
+	button.addActionListener(
+		new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				button.setText("Ha Ha!");
+			}
+		}
+	);
+</code></pre>
+<li> Opaque type declarations introduce new types to the program
+	that are not equal to any other type. Declarations involving
+	records/structs are almost always "new" in this sense. So
+	while two structures may be the same, if they were declared
+	with different names they are different (and may not be casted
+	or converted from one to the other).
+<pre><code>
+	// A and B are distinct classes (types) and not equal to one another.
+	class A { public int x; public int y; }
+	class B { public int x; public int y; }
+
+	// Likewise for these C typedefs
+	typedef struct { float x, y; } A;
+	typedef struct { float x, y; } B;
+</code></pre>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_18.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

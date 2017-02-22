@@ -1,0 +1,142 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- NetLogo Example (Termites)
+</p>
+
+<ol>
+<li> <a href="../netlogo/termites.nlogo">Termites</a> This is an adaptation of
+	the <a href="http://lcs.www.media.mit.edu/groups/el/Projects/starlogo/">StarLogo</a>
+	program, <a href="http://lcs.www.media.mit.edu/groups/el/Projects/starlogo/projects/termite.html">Termites</a>.
+	<a href="http://lcs.www.media.mit.edu/groups/el/Projects/starlogo/">StarLogo</a>
+	was developed by <a href="http://lcs.www.media.mit.edu/people/mres/">Mitchel Resnick</a>,
+	et al. of the <a href="http://www.media.mit.edu/">Media
+	Laboratory</a> at <a href="http://web.mit.edu/">MIT</a>.
+	Agents are used to simulate termites (red), each of which
+	performs a random walk on the surface.  If a termite is not
+	carrying anything, and encounters a wood chip (yellow), then
+	the termite picks up the wood chip.  When a wood chip carrying
+	termite encounters another wood chip, it puts the chip it is
+	carrying down in the next empty place it walks through.
+<pre><code>
+	patches-own [debris?]
+	turtles-own [holding? seenDebris?]
+
+	to setup
+		set-patch-size 7
+		resize-world 0 universeSize 0 universeSize
+		clear-all
+		initialize
+		colorize
+		reset-ticks
+	end
+
+	to go
+		ask turtles [
+			if holding? and [debris?] of patch xcor ycor
+				[ set seenDebris? true ]
+			ifelse not holding? and [debris?] of patch xcor ycor
+				[
+					; Pick up debris
+					set holding? true
+					set seenDebris? false
+					set color green
+					ask patch xcor ycor [
+						set debris? false
+						set pcolor blue
+					]
+				]
+			[ if holding? and seenDebris? and not [debris?] of patch xcor ycor
+				[
+					; Drop debris
+					set holding? false
+					set seenDebris? false
+					set color red
+					ask patch xcor ycor [
+						set debris? true
+						set pcolor yellow
+					]
+				]
+			]
+		]
+		randomWalk
+		tick
+	end
+
+	to randomWalk		; Used by turtles to randomly move around
+		ask turtles [
+			set heading heading + 45 - random 90
+			forward 1
+		]
+	end
+
+	to initialize		; Use sliders for debrisDensity & termiteCount
+		ask patches [
+			if random 100 < debrisDensity
+				[ set debris? true ]
+				[ set debris? false ]
+		]
+		ask patch (universeSize / 2) (universeSize / 2) [
+			sprout termiteCount [
+				set color red
+				set heading random 360
+				fd random universeSize / 4
+				set holding? false
+				set seenDebris? false
+			] 
+		]
+		ask turtles [
+			set shape "triangle"
+			set size 2
+		]
+	end
+
+	to colorize
+		ask patches [
+			ifelse debris?
+				[ set pcolor yellow ]
+				[ set pcolor blue ]
+		]
+		ask turtles [
+			ifelse holding?
+				[ set color green ]
+				[ set color red ]
+		]
+	end
+</code></pre>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_58.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

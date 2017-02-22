@@ -1,0 +1,51 @@
+/* Generate the input data used by ising (spins only).  A single command line 
+   argument indicates the size of each of two dimensions of the cell universe.
+
+   The file "my_rand.h" is located in the examples/data directory of the
+   distribution.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "my_rand.h"
+
+int main(int argc, char *argv[]) {
+        int max_size, x, y;
+
+        /* Check usage. */
+        if (argc == 1) {
+                fprintf(stderr, "%s: size of automaton must be given.\n",
+                        argv[0]);
+                return 1;
+        } else if (argc > 2)
+                fprintf(stderr, "%s: extra options ignored.\n", argv[0]);
+
+        max_size = atoi(argv[1]);
+
+        printf("0\n");
+
+        for (x = 0; x < max_size; x++)
+                for (y = 0; y < max_size; y++) {
+                        printf("[%d, %d] = ", x, y);
+
+                        if (x <= max_size/2)
+                                if (my_random()%100 > 90)
+                                        printf("1");
+                                else
+                                        printf("0");
+                        else
+                                if (my_random()%100 > 90)
+                                        printf("0");
+                                else
+                                        printf("1");
+
+                        /* Write "which" field value. */
+                        if ((x+y)%2 == 0)
+                                printf(", 1");
+                        else
+                                printf(", 0");
+
+                        printf("\n");
+                }
+        return 0;
+}

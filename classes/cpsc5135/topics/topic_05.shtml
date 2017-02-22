@@ -1,0 +1,225 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Lisp Example Programs (continued)
+</p>
+
+<ol>
+<li> Here's a bit more sophisticated example of recursive functions that
+	implement merge sort. It passes a function (the "lesser" parameter)
+	to be used for comparisons. Note that <em>and</em> with <em>or</em>
+	have been used instead of <em>cond</em>.
+<code><pre>
+	; Sort the list of items based on the comparison function lesser.
+	; The result is the list of items in ascending/increasing order.
+	;
+	(defun mysort (lesser list)
+		(or
+			(and
+				(eq (length list) 1)
+				list
+			)
+			(and
+				list
+				(mymerge
+					lesser
+					(mysort lesser (odd-elems list))
+					(mysort lesser (even-elems list))
+				)
+			)
+		)
+	)
+
+	; Merges two sorted lists together using the relational function lesser.
+	;
+	(defun mymerge (lesser list1 list2)
+		(or
+			(and (not list1) list2)
+			(and (not list2) list1)
+			(and
+				(eval 
+					(cons 
+						lesser 
+						(cons 
+							(car list1) 
+							(cons (car list2) nil)
+						)
+					)
+				)
+				(cons (car list1) (mymerge lesser (cdr list1) list2))
+			)
+			(cons (car list2) (mymerge lesser list1 (cdr list2)))
+		)
+	)
+
+	; Returns a list composed of the odd numbered elements of the list
+	; (counting starts at 1.
+	;
+	(defun odd-elems (list)
+		(and
+			list
+			(cons
+				(car list)
+				(odd-elems (cdr (cdr list)))
+			)
+		)
+	)
+
+	; Returns a list composed of the even numbered elements of the list
+	; (counting starts at 1.
+	;
+	(defun even-elems (list)
+		(odd-elems (cdr list))
+	)
+
+	; Example usage
+	;
+	(mysort (quote <) (quote (4 8 2 7 4 5 0 12 -6 9 -1)))
+</pre></code>
+
+<li> Exercise: Convert the merge sort code to use <em>cond</em> instead of
+	<em>and</em> with <em>or</em>.
+
+<li> Exercise: Develop a function that adds pairs of numbers given as sublists
+	and returns a list of the results. For example:
+<code><pre>
+	(addPairs (quote ( (1 2) (3 4) (5 6) ) ) )
+</pre></code>
+returns
+<code><pre>
+	( 3 7 11 )
+</pre></code>
+
+<li> Exercise: Expand the function to perform any function on the sublists
+	(not just addition).
+
+<li> Permuatations is another example of a non-trivial recursive function,
+	and one that can be helpful for a variety of problems that must
+	look at all possibilities in order to decide upon the correct one.
+	Once a list of all permutations is obtained, then you can use "mapcar"
+	or a similar function to operate on each permutation.
+<pre><code>
+	; Permute returns a list of lists, thus the 2nd part of the "cond"
+	; must make a new list containing the list it has.
+	;
+	(defun permute (x)
+		(cond
+			((not x) nil)
+			((not (cdr x)) (cons x nil))
+			(t (for_each x x))
+		)
+	)
+
+	; Uses each element of "member" as basis for a reduced permute problem
+	; on the other elements of "list". Returns a list of lists.
+	;
+	(defun for_each (member list)
+		(cond
+			((not member) nil)
+			(t
+				(append
+ 					(cons_each 
+						(car member)
+						(permute
+							(remove_first
+								(car member)
+							 	list
+						))
+					)
+					(for_each (cdr member) list)
+				)
+			)
+		)
+	)
+
+	; Removes only the first occurrence of "item" from the "list".
+	;
+	(defun remove_first (item list)
+		(cond
+			((not list) nil)
+			((equal item (car list)) (cdr list))
+			(t (cons (car list) (remove_first item (cdr list))))
+		)
+	)
+
+	; Cons the "item" onto each sublist in the "list".
+	;
+	(defun cons_each (item lists)
+		(cond
+			((not lists) nil)
+			(t (cons
+				(cons item (car lists))
+				(cons_each item (cdr lists)))
+			)
+		)
+	)
+
+	(permute (quote (a b c d)))
+</pre></code>
+	
+<li> <a href="http://www.ic.unicamp.br/~meidanis/courses/mc336/2006s2/funcional/L-99_Ninety-Nine_Lisp_Problems.html">99 Lisp Problems</a> you can use for
+	more practice.
+<li> Other interesting features of Lisp:
+	<ol>
+	<li> Unified model of data and code
+	<li> Math supports LARGE integers.
+	<li> Purely functional code is "embarassingly easy" to parallelize
+		(though this can lead to inefficient executions - consider
+		fibonacci).
+	<li> Boolean operators are short-circuit and return last calculated
+		value.
+	</ol>
+<li> What Lisp code/data look like in memory (list structures):
+	<ol>
+	<li> <em>Cons cells</em> are composed of two (2) items, held in the
+		<em>car</em> and the <em>cdr</em> of the cell respectively.
+	<li> The "tag" on each item indicates the type fo the value
+		(e.g., <strong>H</strong>eap, <strong>S</strong>tring,
+		<strong>N</strong>umber).
+	<li> Recall that "nil" is typically the first <em>cons</em> cell and
+		thus in the examples it's been given an address location of
+		zero (0) relative to the bottom (or start) of the heap.
+	<li> Examples:<br/>
+		<img src="../../cpsc6129/topics/LispMemory.png" alt="Example Lisp lists in memory" width="1280" height="720" />
+	<li> To test you understanding of how lists should be represented, try
+		your hand at drawing the detailed picture for:
+		<blockquote>
+		((a b) c (d (e (f . g)) h))
+		</blockquote>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_05.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

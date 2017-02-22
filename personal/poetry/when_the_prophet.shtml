@@ -1,0 +1,125 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+
+<table width="100%">
+<tr>
+<td valign="top" width="100">
+<table>
+
+<tr><td align="left">
+<strong>Poems</strong>
+</td></tr>
+
+<tr><td align="right">
+<a href="a_man_said_to_the_universe.shtml">A Man Said to the Universe</a>
+</td></tr>
+
+<tr><td align="right">
+<a href="i_met_a_seer.shtml">I Met a Seer</a>
+</td></tr>
+
+<tr><td align="right">
+<a href="i_was_in_the_darkness.shtml">I Was in the Darkness</a>
+</td></tr>
+
+<tr><td align="right">
+<a href="the_wayfarer.shtml">The Wayfarer</a>
+</td></tr>
+
+<tr><td align="right">
+<a href="two_or_three_angels.shtml">Two or Three Angels</a>
+</td></tr>
+
+<tr><td align="right">
+<a href="when_the_prophet.shtml">When the Prophet</a>
+</td></tr>
+
+<tr><td align="right">
+<a href="a_caution_to_everybody.shtml">A Caution To Everybody</a>
+</td></tr>
+
+<tr><td align="right">
+<a href="a_word_to_husbands.shtml">A Word to Husbands</a>
+</td></tr>
+
+<tr><td align="right">
+<a href="the_tale_of_custard_the_dragon.shtml">The Tale of Custard the Dragon</a>
+</td></tr>
+
+<tr><td align="right">
+<a href="one_ring.shtml">One Ring</a>
+</td></tr>
+
+<tr><td align="right">
+<a href="soon_our_friends_perish.shtml">Soon Our Friends Perish</a>
+</td></tr>
+
+<tr><td align="right">
+<a href="you_are_old_father_william.shtml">You Are Old, Father William</a>
+</td></tr>
+
+<tr><td align="right">
+<a href="the_walrus_and_the_carpenter.shtml">The Walrus and The Carpenter</a>
+</td></tr>
+
+<tr><td align="right">
+<a href="singularity.shtml">Singularity</a>
+</td></tr>
+
+</table>
+</td>
+
+<td valign="top">
+
+<blockquote>
+
+<p style="text-align:center">
+
+<strong>When the Prophet</strong><br/>
+<br/>
+When the prophet, a complacent fat man,<br/>
+Arrived at the mountain-top,<br/>
+He cried: "Woe to my knowledge!<br/>
+I intended to see good white lands<br/>
+And bad black lands,<br/>
+But the scene is grey."<br/>
+<br/>
+<em>Stephen Crane</em>
+
+</p>
+</blockquote>
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+

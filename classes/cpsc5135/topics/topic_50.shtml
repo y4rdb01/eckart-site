@@ -1,0 +1,113 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- <a href="http://en.wikipedia.wiki/Cellular_automata">Cellular Automata</a> (CA)
+</p>
+
+<ol>
+<li> Discrete time, discrete space, fixed interaction rules
+	<ol>
+	<li> Cells are represented as a regular N-dimensional
+		tesselation (grid) of "squares" with the edges
+		often wrapped around to the opposing side. Thus
+		a 2-dimensional CA would form a torus (doughnut).
+	<li> Time progresses in a sequence of unary time steps.
+	<li> Each cell has a (usually small) set of state variables
+		that represent a finite set of states that the
+		cell can possess.
+	<li> A (usually small) set of rules maps the current state
+		of each cell, along with the current state of a set
+		of neighboring cells within some fixed and finite
+		(again, usually small) distance, into the next state
+		for this cell.
+	<li> All cells carry out their rules (which can differ from
+		one another, but normally are the same) in order to
+		calculate what their values will be in the next time
+		step.
+	<li> Finally, once all cells have completed their calculations
+		they update their states simultaneously before
+		beginning the next time step.
+	</ol>
+<li> <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Game of Life</a>
+	<ol>
+	<li> Uses a rectanguilar 2-dimensional grid
+	<li> Each cell has two states: alive and dead
+	<li> A cell has 8 neighbors that "touch" the cell at each of
+		the corresponding compass directions: N, S, E, W,
+		NE, SE, SW, NW.
+	<li> Rules:
+		<ol>
+		<li> Live cells with less than 2 live neighbors die
+			(of loneliness).
+		<li> Live cells with more than 3 neighbros die (from
+			overcrowding).
+		<li> Live cells with 2 or 3 live nieghbors remain
+			alive (healthy).
+		<li> Dead cells with 3 live neighbors become alive
+			(birth).
+		<li> All other cells retain their previous state.
+		</ol>
+	<li> Example of emergent behavior: <a href="http://www.conwaylife.com/wiki/Gun">Gosper glider gun</a><br/>
+		<img src="http://www.conwaylife.com/w/images/b/b6/Gosperglidergun.gif" alt="Game of Life glider gun" width="305" height="193" />
+	<li> Classes of Cellular Automata (when nearly all initial patterns)
+		<ol>
+		<li> Class 1: Quickly settle into a stable homogeneous state.
+			Any randomness in the initial conditions disappears.
+			[Boring]
+		<li> Class 2: Quickly settle into stable or short-period
+			oscillating structures. Some initial randomness
+			remains but its impact on the final pattern tends
+			to be localized.  [Repetitous]
+		<li> Class 3: Give rise to pseudo-random or chaotic
+			behavior. Any stable structures that emerge
+			are local in both time and space and are
+			quickly destroyed by the surrounding noise
+			(pseudo-randomness). Local changes in the
+			initial pattern tend to propagate globally.
+			[Random]
+		<li> Class 4: Give rise to interesting and complex
+			behaviors that are neither random nor simple
+			short-period oscillators.
+			<a href="https://en.wikipedia.org/wiki/Stephen_Wolfram">Stephen Wolfram</a>
+			has postulated that many (and perhaps all)
+			class 4 CA are
+			<a href="https://en.wikipedia.org/wiki/Turing_complete">Turing Complete</a>.
+			[Self-Organizing]
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_50.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

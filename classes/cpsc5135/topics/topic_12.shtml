@@ -1,0 +1,165 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Prolog Examples
+</p>
+
+<ol>
+<li> Example: Calculate the factorial of a number.
+<pre><code>
+	factorial(0, 1).
+	factorial(N, Result) :-
+		% NOTE: These predicates should NOT be reordered. Why?
+		X is N - 1,
+		factorial(X, X_Result),
+		Result is N * X_Result.
+		
+	% Query: factorial(52, X).
+</code></pre>
+
+<li> Example: Calculate the nth fibonacci number.
+	Be sure to check out this short
+	<a href="http://www.ted.com/talks/arthur_benjamin_the_magic_of_fibonacci_numbers">TED Talk</a>
+	on the mathematical beauty of the patterns within the
+	fibonacci sequence.
+<pre><code>
+	fibonacci(0, 1).
+	fibonacci(1, 1).
+	fibonacci(N, Result) :-
+		X is N - 1,
+		fibonacci(X, X_Result),
+		Y is N - 2,
+		fibonacci(Y, Y_Result),
+		Result is X_Result + Y_Result.
+
+	% Query: fibonacci(12, X).
+</code></pre>
+
+<li> Example: Find the number of items in a list.
+<pre><code>
+	size(Item, 0) :- atom(Item).
+	size([], 0).
+	size([_ | Tail], Length) :-
+		size(Tail, TailLength),
+		Length is 1 + TailLength.
+
+	% Query: size([a, b, c, d, e], X).
+</code></pre>
+
+<li> Basic recursive Prolog template works for many (though certainly not all)
+	situations:
+<pre><code>
+	recurse([], []);
+	recurse([Head | Tail], Result) :-
+		doSomething(Head, NewHead),
+		recurse(Tail, TailResult),
+		combine(NewHead, TailResult, Result).
+</code></pre>
+
+<li> An association (or assoc) list contains a set of (key, value) pairs, and
+	the <em>assoc</em> predicate returns the first pair whose key matches
+	the given key.
+<pre><code>
+	myassoc(_, [], _) :- fail.
+	myassoc(Key, [ [Key, Value] | _ ], [Key, Value]).
+	myassoc(Key, [ [NotKey, _ ] | Tail], Result) :-
+		Key \= NotKey,
+		myassoc(Key, Tail, Result).
+
+	% Query: myassoc(2, [ [1, a], [2, b], [3, c] ], X).
+</code></pre>
+
+<li> You can run Prolog programs in a "batch" style via:
+<pre><code>
+	swipl -f myassoc.pl < TestQueries
+</code></pre>
+	Where "TestQueries" would contain prediate queries, e.g.,
+<pre><code>
+	myassoc(2, [ [1, a], [2, b], [3, c] ], X).
+</code></pre>
+
+<li> More often, it's useful to run Prolog programs interactively (which can
+	aid in debugging). Do this by loading the files and then running them.
+	The following also shows the use of the trace/untrace facility that
+	can help you see what your code is really doing. Note the use of single
+	quotes around the file name when loading/compiling a file. Finally,
+	any queries issued after "trace." (and before "notrace.") will
+	provide a step by step execution that can dramatically help in
+	debugging problems with your program. You can learn more about "trace"
+	and the other debugging capabilities of Prolog
+	<a href="http://www.swi-prolog.org/pldoc/man?section=debugoverview">here</a>.
+<pre><code>
+	% swipl
+        1 ?- pwd.
+	c:/users/my_user_name/documents/prolog
+	true.
+
+	2 ?- working_directory(_, "../../Desktop").
+	true.
+
+	3 ?- ['myassoc.pl'].
+	% myassoc.pl compiled ...
+	true.
+
+	4 ?- myassoc(2, [ [1, a], [2, b], [3, c] ], X).
+	X = [2, b] .
+
+	?- trace.
+	true.
+
+	[trace] ?- factorial(3, Result).
+	   Call: (7) factorial(3, _G202) ? creep
+	   Call: (8) _G321 is 3+ -1 ? creep
+	   Exit: (8) 2 is 3+ -1 ? creep
+	   Call: (8) factorial(2, _G322) ? creep
+	   ...
+	Result = 6 .
+
+	[trace] ?- notrace.
+	true.
+
+	[debug]  ?- nodebug.
+	true.
+
+	?-
+</code></pre>
+
+
+<li> Class/Self exercise: Use the above <em>fibonacci</em> predicates to show
+	all of the Fibonacci numbers from 0 to N.
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_12.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

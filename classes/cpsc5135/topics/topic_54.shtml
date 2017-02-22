@@ -1,0 +1,92 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- NetLogo Example (Forest Fire)
+</p>
+
+<ol>
+<li> <a href="../netlogo/forestFire.nlogo">Forest Fire</a> implements a
+	simulation of the propagation of a forest fire.  It
+	is taken from the book "Turtles, Termites, and Traffic
+	Jams: Explorations in Massively Parallel Microworlds"
+	written by Mitchel Resnick, pp 103-110.
+<pre><code>
+	patches-own [fire hot]
+
+	to setup			; Define new command procedure "setup"
+		set-patch-size 5	; Sets patch size to 5 pixels on a side
+		resize-world 0 63 0 63	; Set x and y min/max values
+		clear-all		; Makes a "clean" universe
+		ask patches [		; Initialize
+			if random 100 < forestDensity [ set fire 14 ]
+			if pxcor = 0 or pycor = 0 [ set fire 0 ]
+			if pxcor = 1 and pycor = 1 [ set fire 13 ]
+		]
+		colorize
+		reset-ticks		; Sets the global time counter to 0
+	end
+
+	to go
+		ask patches [
+			set hot 0
+			foreach [fire] of neighbors4 [
+				if 1 <= ? and ? <= 13
+					[ set hot (hot + 1) ]
+			]
+		]
+
+		ask patches [
+			if (1 <= fire and fire <= 13) or (fire = 14 and hot > 0)
+				[ set fire (fire - 1) ]
+		]
+		colorize
+		tick	; Advance the global clock (+1) and update all patches
+	end
+
+	to colorize
+		ask patches [
+			ifelse fire = 0
+				[ set pcolor [0 0 255] ]
+			[ifelse 1 <= fire and fire <= 13
+				[ set pcolor [255 0 0] ]
+				[ set pcolor [0 255 0] ]
+			]
+		]
+	end
+</code></pre>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_54.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

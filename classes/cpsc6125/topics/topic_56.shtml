@@ -1,0 +1,297 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- User Authentication
+</p>
+
+<ol>
+<li> Authentication is all about proving who you are (in order to protect
+	access to information and programs). This is often
+	accomplished by some combination of the following:
+	<ol>
+	<li> Something you know (e.g., password)
+	<li> Something you have (e.g., ATM card)
+	<li> Something you are (e.g., thumbprint)
+	</ol>
+<li> Something you know (knowledge factors)
+	<ol>
+	<li> Passwords
+		<ol>
+		<li> Easy to understand, easy to implement and generally easy
+			to defeat.
+		<li> With 95 printable ascii characters, 7 character
+			passwords should be enough.  But often English
+			words, names, etc are used which means for many
+			passwords a few guesses will get it.
+		<li> A file could be built and used to check all hashed
+			passwords.  <a href="https://crackstation.net/hashing-security.htm">Salted passwords</a>
+			(used by Unix) makes this harder by incorporating salt
+			(a bit/byte sequence, randomized for each
+			password, that is concatenated to the password before
+			hashing). Salt must be stored with the password (often
+			prepended), with longer salts being better.
+		<li> There exist heuristics to aid people in choosing better
+			passwords.  Use sentences, upper and lower case letters,
+			numbers and special characters. Many systems today will
+			also provide a password "strength" measure to the user
+			to aid them in creating stronger passwords.
+		<li> While requiring users to change their passwords regularly
+			seems advantageous (the extreme being a "one time
+			password", where a book of passwords shows you the
+			next one to use), it often prompts users to write down
+			their passwords, making them less secure.
+		<li> Systems should NEVER keep unhashed versions of passwords.
+			If tech support is able to email you your password
+			(rather than a new password), then you should be
+			cautious with the info you share/store with them!
+		</ol>
+	<li> One-time passwords are more secure from communication
+		surveillence.
+		<ol>
+		<li> One-way hash chains (developed by
+			<a href="https://en.wikipedia.org/wiki/Leslie_Lamport">Leslie Lamport</a>) are a good example of this principle.
+		<li> Utilizes a function, f(x), that is easy to compute but
+			difficult to invert, with both x and f(x) having the
+			same length (e.g., 256 bits). 
+		<li> The user picks a secret password, p, and a number, n
+			(which is the number of one-time passwords to use).
+		<li> The first password is calculated as:
+<pre><code>
+	password = p;
+	for (int i = 0; i < n; i++) password = f(password);
+</code></pre>
+		<li> Subsequent passwords are calculated by reducing the value
+			of n by 1 each time.
+		<li> Knowing the previous password doesn't help with
+			calculating the next password (so old passwords are
+			useless to an easedropper).
+		<li> How it works:
+			<ol>
+			<li> The server keeps track of which # password is
+				expected next (first, second, third, ...)
+				along with the previous password given.
+			<li> When logging in, the user (client machine) gets
+				the password # from the server.
+			<li> The client machine queries the user for the
+				secret password, p, and then calculates the
+				one-time password from it (applying the
+				function, f, the number of times specified
+				by the server).
+			<li> The client sends the calculated password to the
+				server. 
+			<li> The server applies the function, f, to the value
+				sent from the client. If this value matches
+				the stored value on the server, then the user
+				is authenticated, the hash chain from the
+				client is stored on the server, and the
+				password number is decremented.
+			</ol>
+		</ol>
+	<li> Challenge-response systems have the server query the user, and
+		await the correct response.
+		<ol>
+		<li> Security questions are (personal) questions (usually from
+			a predetermiend list of possibilities) and answers
+			from the user confirm the identification. Answers are
+			often free-form (and should NOT be stored in plaintext).
+			<ol>
+			<li> These are really no different than passwords.
+			<li> According to <a href="http://googleonlinesecurity.blogspot.com/2015/05/new-research-some-tough-questions-for.html">Google researchers</a>
+				security questions 
+				"... are neither secure nor reliable enough to be
+				used as a standalone account recovery mechanism."
+			</ol>
+		<li> Alternatively, the user picks a "formula" (rather than a
+			fixed password). The computer challenges the user with
+			input to which the user must give the correct response
+			for authentication (applying the function to the
+			computer's random challenge to get the response).
+		</ol>
+	<li> Systems should avoid giving away hints as to user identities
+		and passwords. For example:
+		<ol>
+		<li> If the user gives a user name not in the system, don't
+			immediately indicate that the user is unknown. Rather
+			go through the entire procedure, otherwise the system
+			has given away some knowledge (e.g., which usernames
+			are worth trying to guess passwords for).
+		<li> Avoid showing the characters in the password (or even
+			the number of characters in the password via *s) while
+			the password is being typed in. The length of the
+			password can be used to reduce the amount of guessing
+			to be done to break the security.
+		<li> If additional information is used (e.g., security
+			questions), wait until all of it has been entered
+			before indicating the success or failure of the
+			authentication.
+		</ol>
+	<li> Systems should restrict access to saved authentication information.
+		<ol>
+		<li> Originally, in Unix, the /etc/passwd file that contained
+			login related information also included the hashed
+			password.
+		<li> Unfortunately, /etc/passwd was readable by everyone and
+			this couldn't be easily changed as many programs
+			depended upon that fact. Readable password hashes makes
+			it easier to conduct pre-computed hash attacks.
+		<li> This was eventually changed so that the passwords in
+			/etc/passwd were moved to another file (/etc/shadow),
+			leaving the vast majority of existing programs
+			unaffected (the password field in /etc/passwd is
+			filled with an "x" to denote that the
+			actual password is stored elsewhere).
+		</ol>
+	<li> According to the article
+		<a href="http://dl.acm.org/citation.cfm?id=2699390">Passwords
+		and the Evolution of Imperfect Authentication</a> (CACM, July
+		2015):
+		<ol>
+		<li> 40% of sites stored passwords unhashed; and
+		<li> Many systems:
+			<ol>
+			<li> stored passwords as plaintext
+				(e.g., RockYou, Tianya);
+			<li> hashed but unsalted (e.g., LinkedIn);
+			<li> improperly hashed (e.g., Gawker); or
+			<li> reversibly encrypted (e.g., Adobe).
+			</ol>
+		</ol>
+	</ol>
+<li> Something you have (possession factors)
+	<ol>
+	<li> Examples include:
+		<ol>
+		<li> Metal lock keys
+		<li> ATM and credit/debit cards
+		<li> USB <a href="https://en.wikipedia.org/wiki/Software_protection_dongle">security dongle</a>s
+		</ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Magnetic_stripe_card#Financial_cards">Magnetic Stripe cards</a>
+		store only a few items (at up to 210 bits/inch on track 1):
+		<ol>
+		<li> Account number
+		<li> Name of the account holder
+		<li> Expiration date
+		</ol>
+	<li> Chipped tokens (often credit card sized) include a small
+		on-board IC.
+		<ol>
+		<li> Stored value tokens have memory but no CPU
+		<li> Smart cards include a CPU along with memory. Various
+			digital money systems
+			(e.g., <a href="https://en.wikipedia.org/wiki/DigiCash">DigiCash</a>)
+			used them to directly store (encrypted) money.
+		</ol>
+	<li> <a href="https://en.wikipedia.org/wiki/SecurID">SecurID</a> (RSA) dongles (provide one-time passwords at fixed intervals)
+	<li> A desirable trait of possession factors is that they cannot be
+		(easily) counterfeited or forged. An optical
+		<a href="https://en.wikipedia.org/wiki/Physical_unclonable_function">Physical Unclonable Function</a> (PUF)
+		can be used to make it <em>extremely</em> difficult (and at
+		least practically impossible) to duplicate credit/debit cards
+		(see
+		<a href="http://www.geek.com/science/unclonable-credit-card-will-use-nanoparticles-instead-of-a-magnetic-strip-1611757/">Unclonable credit card</a>).
+	</ol>
+<li> Something you are (inherence factors)
+	<ol>
+	<li> Measure physical characteristics that are hard
+		to forge:
+		<ol>
+		<li> Fingerprints
+		<li> Iris or retina scan
+		<li> Finger length analysis
+		<li> <a href="http://www.pcmag.com/article2/0,2817,2485465,00.asp">Brainprints</a>
+		<li> DNA coding?
+		</ol>
+	<li> Measure a difficult to forge behavior:
+		<ol>
+		<li> Voiceprint
+		<li> Signature analysis, either the final signature or better
+			still the signing process - including the pen motions
+			and pressures that were used.
+		<li> Likewise, keystroke patterns when typing a password
+			can serve as a secondary check for authentication.
+		</ol>
+	<li> Beware of physical characteristics that may be easily
+		copied (e.g., using the image of an eye to fool an iris scan).
+		Even voices authentication systems can be fooled according
+		to <a href="http://www.uab.edu/news/innovation/item/6532-uab-research-finds-automated-voice-imitation-can-fool-humans-and-machines">this
+		report</a>.
+	<li> Care should be taken regarding user acceptance
+		(e.g., drawing blood might not be popular). This doesn't just
+		refer to convenience, but also to ease of capture (and tracking).
+		<a href="http://www.iflscience.com/technology/iris-scanners-can-now-identify-us-40-feet-away">CMU researchers</a>
+		demonstrate an iris scan conducted on a reflected image from 40
+		feet away.
+	</ol>
+<li> Countermeasures
+	<ol>
+	<li> To further guard against potential compromises in authentication
+		(e.g., lifted fingerprint, faked credit card from stolen
+		account number, shoulder surfed password), countermeausres
+		may be necessary.
+	<li> Examples:
+		<ol>
+		<li> Only allow a user to login from a specific set of
+			locations on certain weekdays and times.
+		<li> Require that an actual chipped credit card be used (and
+			not just the account # given over the phone or on a
+			web page).
+		<li> Ensure for hand and fingerprint scans that the hand is
+			the correct temperature (to protect against simple
+			"casting" attacks).
+		<li> For voiceprints, pick a random phrase from a set that
+			the user must repeat (a form of challenge-response).
+		</ol>
+	</ol>
+<li> Authentication confidence can be increased by using combinations of the
+	above (commonly called
+	<a href="https://en.wikipedia.org/wiki/Multi-factor_authentication">multi-factor authentication</a>):
+	<ol>
+	<li> Use a security dongle passcode and append this to a traditional
+		password.
+	<li> Detect the pattern of password entry to see if it matches previous
+		logins.
+	<li> Have the user speak their password (though probably not a good
+		idea if logins don't occur in private).
+	<li> Use a pin number (password) in additional to a thumbprint or hand
+		scan.
+	<li> Dartmouth's <a href="http://now.dartmouth.edu/2014/11/dartmouths-brace-a-brace-let-to-improve-computer-security">BRACE</a>
+		combines a token (braclet) that matches behavior (movements)
+		with the on-line activities to make sure they match.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_56.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

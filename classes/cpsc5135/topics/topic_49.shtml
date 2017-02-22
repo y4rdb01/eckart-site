@@ -1,0 +1,74 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Discrete vs Continuous
+</p>
+
+<ol>
+<li> Time: Discrete time models/simulations look at either events
+	(typically interactions between model elements) or fixed
+	time intervals. Discrete event simulations determine when
+	the next interaction will occur and then update everything
+	to represent the model's state at that time. Fixed time
+	intervals are exactly that, the simulation progresses from
+	one time to the next using a fixed increment (e.g., seconds,
+	minutes, hours, days, years).
+<li> Space: Divides the physical aspects of the model into areas (or
+	volumes) of fixed size. The spatial units may be quite large
+	with repsect to the entities they might contain, however all
+	that is known is that an entity resides in a spatial unit at
+	a certain time (but not exactly where within the spatial unit).
+<li> False Dichotomy: Ultimately (von Neumann) computers are discrete
+	machines with finite resources, so all simulations are
+	ultiamtely discrete in nature. As the time (and spatial)
+	units get smaller, we more closely approximate a continuous
+	perspective.
+<li> Adaptive Techniques: Adjusting the time and spatial sizes
+	to reduce the error on an as needed basis is a great way
+	to bridge the gap as well as clearly see discrete vs
+	continuous as a difference in degree rather than as a binary
+	choice. A common technique is to calculate the model values
+	based on the current choice (e.g., time interval) and then
+	to divide it into half and calculate over each half interval.
+	If the result over the two half intervals differs from 
+	that over the interval taken as a whole by a certain amount
+	(either fixed or on a percentage basis), then the interval
+	is halved (and the technique is applied recursively). Whether
+	or not such adaptive techniques are reasonable/possible
+	often depends upon the nature of the model.
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_49.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

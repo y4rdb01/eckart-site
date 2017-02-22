@@ -1,0 +1,331 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Code Blocks
+</p>
+
+<ol>
+<li> In-line (or Anonymous) Blocks
+	<ol>
+	<li> Are <em>not</em> the body of a function, procedure, or method.
+	<li> Like all blocks, require storage allocation on the run-time stack.
+		This could be via:
+		<ol>
+		<li> a new activation record (created for <em>each</em> new
+			block (whether named or anonymous); or
+		<li> the space could have already been allocated in the
+			activation record for the enclosing
+			function/procedure/method.
+		</ol>
+	</ol>
+<li> Function/Procedure/Method Blocks
+	<ol>
+	<li> Collectively referred to as sub-programs.
+	<li> "Named" blocks in most languages have parameters, local variables,
+		and associated expressions and/or statements.
+	<li> Procedures do not have a return value, but can change program
+		state and often alter the value of their parameters to reflect
+		those changes. Thus requiring pass-by-reference or the use
+		of pointers to objects and pass-by-value, in order to allow
+		such changes to survive beyond the procedure call.
+	<li> Functions have return values. Best practice is for functions to
+		have NO side-effects (e.g., change parameter or static variable
+		values). Ideally, calling the same function with the same
+		arguments should always return the same result (idempotent).
+		However, most
+		languages do not enforce this ideal - so it is generally
+		possible for function to return values AND change the state
+		of the program (possibly by changing the value of their
+		parameters).
+	<li> (Non-static) Methods are functions and procedures that are
+		declared as part of a class. These methods need an instance
+		of the class in order to be called.
+<pre><code>
+	Class Object {
+		...
+		public void method(int x) { ... }
+	}
+	...
+	Object obj = new Object(...);
+	obj.method(3);
+</code></pre>
+		The object ("obj") is sent a message (".method(3)"), thus
+		"obj" is an implicit parameter of the call to "method".
+	<li> Parameters
+		<ol>
+		<li> <em>Formal</em> parameters are those in the declaration
+			of the function, procedure, or method.
+		<li> <em>Actual</em> parameters (also called "arguments") are
+			the values (either variables or expressions) passed
+			to a function, procedure, or method at the point of
+			call.
+		<li> Example:
+<pre><code>
+	void fun_1(int n, float x) { ... }
+
+	void int main (int argc, char* argv[]) {
+		float y = 3.14;
+		...
+		for (int i = 0; i &lt; 7; i++) fun_1(i + 3, y);
+	}
+</code></pre>
+		</ol>
+	<li> Parameter Passing - primary distinctions are determined by
+		(1) when the arguments are evaluated, and
+		(2) location used to store the argument value.
+		<ol>
+		<li> <em>Pass-by-Reference</em> passes the L-value (address)
+			of the actual parameter (argument).
+		<li> <em>Pass-by-Value</em> passes the R-value (contents of
+			the address) of the actual parameter (argument).
+		<li> <em>Pass-by-Value-Result</em> (also called copy in copy
+			out semantics) passes the R-value and the result is
+			copied back to the L-value upon return. However,
+			in the sub-program body, it's working with the copy
+			rather than the original (as would be the case with
+			a pass-by-reference implementation).
+		<li> C only offers pass-by-value, whereas C++ offers
+			pass-by-value along with pass-by-reference:
+<pre><code>
+	#include &lt;iostream>
+
+	void example(int a, int* b, int* c, int& d) {
+		a++;
+		(*b)++;
+		(*c)++;
+		d++;
+		std::cout << "DURING: a = " << a << ", *b = " << *b << ", *c = " << *c << ", d = " << d << "\n";
+	}
+
+	int main(int argc, char* argv[]) {
+		int j = 1, k_store = 2, m = 4;
+		int *k = &k_store, *l = new int;
+		std::cout << "BEFORE: j = " << j << ", *k = " << *k << ", *l = " << *l << ", m = " << m << "\n";
+		example(j, k, l, m);
+		std::cout << "AFTER: j = " << j << ", *k = " << *k << ", *l = " << *l << ", m = " << m << "\n";
+	}
+
+	/* Output should be:
+
+	BEFORE: j = 1, *k = 2, *l = 0, m = 4
+	DURING: a = 2, *b = 3, *c = 1, d = 5
+	AFTER: j = 1, *k = 3, *l = 1, m = 5
+
+	*/
+</code></pre>
+		<li> Ada83 used "in", "out", and "in out" to document the
+			flow of data to/from sub-programs, but didn't specify
+			the mechanism. Later versions of the language (Ada2012)
+			introduced "aliased" for parameter passing to indicate
+			that the parameter is an L-Value (reference).
+<pre><code>
+	type Vector is array (Integer  range &lt;>) of Integer;
+	...
+	procedure Sub_Prog (arg_1 : in      Boolean;
+			    arg_2 :    out  Float;
+			    arg_3 : in out  Vector;
+			    arg_4 : aliased Integer)
+	is
+		-- Local declarations (e.g., variable, type, sub-programs) go here.
+	begin
+		-- Statements go here.
+	end Sub_Prog;
+</code></pre>
+		</ol>
+	<li> Implications of Parameter Passing choice:
+		<ol>
+		<li> Side Effects - Assigning to pass-by-value parameters
+			usually limits the state change to within the
+			sub-program. Assignment to pass-by-reference
+			parameters have an immediate impact beyond the
+			sub-program. Pass-by-value-result can be implemented
+			either by pass-by-reference or via copy-in
+			(pass-by-value) copy-out mechanisms. <em>Ada</em>'s
+			use of "in out" parameters leaves the mechanism
+			unstated (and up to the compiler) - and thus considers
+			programs that depend on the exact mechanism as
+			erroneous (though the compiler can't warn you about
+			such situations).
+		<li> Aliasing - Occurs when the same value-location can be
+			referenced by multiple names. This can happen when
+			a global variable is passed by reference to a
+			sub-program (inside the sub-program both the global
+			variable name AND the formal parameter name refer
+			to the same variable value-location).
+		<li> Efficiency - Pass-by-reference is more efficient when
+			passing large structures (e.g., a pointer 
+			vs a large array)
+		</ol>
+	<li> Parameter Passing Semantics:
+		<ol>
+		<li> L-Value (value location - used by left-hand-side of an
+			assignment) vs R-Value (value - used by right-hand-side
+			of an assignment).
+		<li> Pass-by-Value
+			<ol>
+			<li> Argument (actual parameter) is evaluated (R-value).
+			<li> The R-value is stored in the activation record for
+				the sub-program call (in the location, L-value,
+				set aside for the corresponding formal
+				parameter). This binds the R-value to the
+				formal parameter (name).
+			<li> Because the L-value of the argument (actual
+				parameter) was not used, the value of the
+				argument after the sub-program call remains
+				unaltered.
+			</ol>
+		<li> Pass-by-Reference
+			<ol>
+			<li> The L-value of the argument (actual parameter) is
+				determined. Thus the argument must be a
+				"variable" and cannot be an arbitrary
+				expression.
+			<li> The L-value of the argument is stored in the
+				activation record for the sub-program call.
+				The argument's L-value is stored in the 
+				formal parameter's L-value set aside in the
+				activation record for the corresponding
+				formal parameter). This binds the argument
+				L-value to the formal parameter (name).
+			</ol>
+		<li> Pass-by-Value-Result
+			<ol>
+			<li> Argument (actual parameter) is evaluated (R-value).
+			<li> The R-value is stored in the activation record for
+				the sub-program call (in the location, L-value,
+				set aside for the corresponding formal
+				parameter). This binds the R-value to the
+				formal parameter (name).
+			<li> Upon completion of the actions in the sub-program
+				body, the R-values stored in the activation
+				record are copied back out to the L-values
+				of the corresponding arguments (actual
+				parameters).
+			</ol>
+		</ol>
+	<li> "Global" (non-local) Identifiers
+		<ol>
+		<li> <em>Static Scope</em> - an identifier that is defined in
+			the closest enclosing block (scope) of the program
+			text. Since the program text doesn't change when the
+			program runs, it is <em>static</em> (unchanging).
+		<li> <em>Dynamic Scope</em> - an identifier defined by the
+			most recent activation record on the run-time stack.
+			Since activation records are only generated during the
+			exeuction of a program, the scope is determined
+			<em>dynamical</em>ly.
+		<li> Example:
+<pre><code>
+	int x = 1;		// Ref_A
+
+	void foo(int y) {
+		cout << x + y;	// Use_2
+	}
+
+	void main(int argc, char* argv[]) {
+		int x = 1;	// Ref_B
+		foo(x);		// Use_1
+	}
+</code></pre>
+			<ol>
+			<li> In the above "Use_1" refers to "Ref_B" for
+				both <em>static</em> and <em>dynamic</em>
+				scoping rules.
+			<li> "Use_2" refers to "Ref_A" under <em>static</em>
+				scoping, but to "Ref_B" if <em>dynamic</em>
+				scoping is being used.
+			</ol>
+		<li> If the language supports nested sub-program implementations
+			(i.e., declaring a function within a function as in
+			Ada83) then the activation record must be expanded to
+			include an "access link" that points to the most
+			recent activation record of the closest enclosing
+			scope (recall that the dynamic/control link points
+			to the previous activation record).
+			<ol>
+			<li> Neither C nor C++ (ANSI versions) permit nested
+				function implementations (though you can nest
+				the declarations).
+			<li> The closest thing that Java7 supports are
+				anonymous inner classes, which limit the use
+				of any variables in the enclosing scope to
+				be "final" - thus avoiding the need for
+				locating the corresponding activation record
+				at run-time.
+			</ol>
+		</ol>
+	<li> Tail Recursion
+		<ol>
+		<li> A special form of recursion in which the function is
+			self-recursive and all recursive calls are the
+			last operation of the sub-program invocation (i.e.,
+			tail calls).
+		<li> Example:
+<pre><code>
+	int loop(int x, key k) {
+		if (x < 0) return -1;
+		else if (array[x] == k) return x;
+		else return loop(x-1, k);
+			//  ^^^^ Tail call because the subtraction is performed before the call.
+	}
+</code></pre>
+		<li> Counter-Example:
+<pre><code>
+	int fact(int x) {
+		if (x <= 1) return 1;
+		else return x * fact(x-1);
+			 // ^^^ The multiplication occurs AFTER the recursive call.
+	}
+</code></pre>
+		<li> Tail recursive sub-programs can reuse the orginal
+			activation record for the sub-program call for each
+			recursive call (i.e., "iteration"), <em>turning
+			the recursive call into a loop</em>. Reuse of the
+			activation record is possible because:
+			<ol>
+			<li> There are no operations occurring after the tail
+				call, so any values stored in the activation
+				record aren't needed; and
+			<li> The return result, if any, is passed unaltered
+				back through the layers of recursion (again
+				because it's a tail call with no adjustments
+				to the return result being made).
+			</ol>
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_26.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

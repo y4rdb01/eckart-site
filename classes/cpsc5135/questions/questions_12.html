@@ -1,0 +1,75 @@
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+	pred(X, 0) :- atom(X).
+	pred([ ], 0).
+	pred([ _ | X ], Y) :- pred(X, Z), Y is 1 + Z.
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred(a, 1).
+	<li> pred([a], 0).
+	<li> pred([a], 1).
+	<li> pred([a, b], 2).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+   	pred([ ], X, X).
+	pred([ H | T ], X, Y) :- pred(T, [ H | X ], Y). 
+	pred(X, Y) :- pred(X, [ ], Z).
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred([b, c], [c, b, a]).
+	<li> pred([a, b, c], [a, b, c]).
+	<li> pred([a, b, c], [c, b, a]).
+	<li> pred([a, b, c], [b, a]).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+	pred(X):- pred(X, X).
+	pred([ ], [ ]).
+	pred([ X | Y ], Z):- pred(Y,Tmp), append(Tmp, [ X ], Z).
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred([a]).
+	<li> pred([a, b]).
+	<li> pred([a, b, c]).
+	<li> pred([a, b, b, a]).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+	pred(X, [X | _]).
+	pred(X, [_ | Y]) :- pred(X, Y).
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred(a, [b, c, d]).
+	<li> pred([a], [ [b], [c], [d] ]).
+	<li> pred([a], [a, b, c, d]).
+	<li> pred([a], [ [a], [b], [c], [d] ]).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following queries would succeed based on the
+	following predicates?
+	<pre><code>
+	pred( _, []).
+	pred(X, [ Y | Z ]) :-
+       		X \= Y,
+        	pred(X, Z).
+	</code></pre>
+	<ol class="answer_list">
+	<li> pred(a, [b, c, d]).
+	<li> pred([a], [ [b], [c], [d] ]).
+	<li> pred([a], [a, b, c, d]).
+	<li> pred([a], [ [a], [b], [c], [d] ]).
+	<li> None of the above
+	</ol>
+</li><br/>

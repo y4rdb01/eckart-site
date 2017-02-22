@@ -1,0 +1,462 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+
+<table width="100%">
+<tr>
+<td valign="top" width="100">
+<table>
+
+<tr><td align="left">
+<strong>Seuss<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../../dr.seuss/bitsNbytes.shtml">Bits in Bytes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/grinch.coder.shtml">Grinch OO Coder</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/lunch.shtml">Lunch</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seusstrek.shtml">Star Trek</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seussbible.shtml">The Bible</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/inferno.shtml">Dante's Inferno</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/purity.shtml">Purity Test</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/trial.shtml">O.J. Trial</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/greeneggs.shtml">Green Eggs and Pork</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/compTech.shtml">Computer Manual</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/USville.shtml">USville</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/wedding.shtml">Wedding</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/404.shtml">404</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Beatles.shtml">Beatles</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/bobbit.shtml">Bobbit</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/clinton.shtml">Clinton</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/favorite_things.shtml">Favorite Things</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ham_xmas.shtml">Ham Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ICBM_pizza.shtml">ICBM Pizza</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/net_is_slow.shtml">Net Is Slow</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/pc_xmas.shtml">PC Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Poe.shtml">Poe</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/prayer.shtml">Prayer</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/queen.shtml">Queen</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/sermon.shtml">Sermon</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song.shtml">Song</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song_tests.shtml">Song Tests</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/thermo.shtml">Thermo</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/twas.shtml">Twas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unified.shtml">Unified</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unix_abc.shtml">Unix abc</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/warnings.shtml">Warnings</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/xmas.shtml">Santa's Unix Listing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/y2k_pie.shtml">Millenium Pie</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/microsoft.shtml">M$ TV Dinners</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Humor</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/1-liners.shtml">One Liners</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/admin.shtml">Administratium</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/bad_spec.shtml">Bad spec</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/daemon-OS.shtml">daemon OS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/days-off.shtml">Days off</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dead_horse.shtml">Dead horse</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dosfish.shtml">Dosfish</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/FAA.shtml">FAA report</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/GM-helpline.shtml">GM helpline</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grandpa.shtml">Family tree</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grounding.shtml">Strapping</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/H2O.shtml">H2O</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/haiku.shtml">Haiku</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/harvard.shtml">Harvard</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/job.shtml">Job</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/koans.shtml">Koans</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/loan.shtml">Loan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/memos.shtml">Memos</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/money.shtml">Money</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/moron.shtml">Moron</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/MS.shtml">MS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/wirth.shtml">Niklaus Wirth</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/accidents.shtml">Accidents</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/navy.shtml">Navy</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/phrases.shtml">Phrases</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/plan.shtml">Plan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/stench.shtml">The Project</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/study.shtml">Anything</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/SysAdmin.shtml">SysAdmin Woes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/thesis.shtml">Thesis</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/quantumPhysics.shtml">Quantum Physics</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/monk.shtml">Monk</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/proofByInduction.shtml">Proof by Induction</a>
+</td></tr>
+
+</table>
+</td>
+
+<td valign="top">
+
+<blockquote>
+
+
+<strong>Millennium Pie</strong><br/>
+[with apologies to Don McLean]<br/>
+[author unknown]<br/>
+<blockquote>
+A long, long time ago,<br/>
+I can still remember how<br/>
+Computers used to make me smile.  And I knew if I had my chance, That I<br/>
+could make electrons dance, And maybe I'd be happy for a while.<br/>
+But January made me shiver.<br/>
+It chilled me deep down in my liver.<br/>
+Bad news I'd collected,<br/>
+I couldn't get connected.<br/>
+<br/>
+I can't remember back that day<br/>
+When I first knew the Y2K<br/>
+But something touched me anyway, The day computers died.<br/>
+So, Bye, bye to the next digit of Pi<br/>
+Ran my PC on some DC<br/>
+But the voltage was dry<br/>
+And good ol' boys were sending email replies<br/>
+Saying this will be the day I retire<br/>
+This will be the day I retire<br/>
+<br/>
+Can you write in C plus plus?<br/>
+And do you have faith in your local bus If the driver tells you so?<br/>
+Do you believe in Compaq's goals?<br/>
+Can software save your mortal soul?<br/>
+And can you teach me how to type real slow?<br/>
+Well I thought that you were prepared<br/>
+'Cause your memo said you weren't impaired<br/>
+Your stationery's swell<br/>
+But you can go to hell<br/>
+<br/>
+I was a lonely teenage Unix hack With an incantation and a modem jack But I<br/>
+knew the cat had left the sack The day computers died I started singin' . .<br/>
+..<br/>
+Bye, bye to the next digit of Pi<br/>
+Ran my PC on some DC<br/>
+But the voltage was dry<br/>
+And good ol' boys were sending email replies<br/>
+Saying this will be the day I retire<br/>
+This will be the day I retire<br/>
+<br/>
+<br/>
+Now for 10 years we've ignored the threat And we haven't solved the problem<br/>
+yet But that's not how it used to be.<br/>
+When the Luddites read for the king and queen<br/>
+With a light they filled with kerosene<br/>
+And some manuals they stole from you and me<br/>
+And while Bill Gates was looking pleased<br/>
+Time stole his monopolies<br/>
+The courtroom was adjourned<br/>
+No verdict was returned<br/>
+<br/>
+While Apple tried a color scheme The engineers returned to steam And we had<br/>
+purges of their dreams The day computers died We were singin' . . .<br/>
+Bye, bye to the next digit of Pi<br/>
+Ran my PC on some DC<br/>
+But the voltage was dry<br/>
+And good ol' boys were sending email replies<br/>
+Saying this will be the day I retire<br/>
+This will be the day I retire<br/>
+<br/>
+Intel inside in an iron smelter<br/>
+The food leftover from my fallout shelter<br/>
+Twinkies old and aging fast<br/>
+I'd rather eat the grass<br/>
+<br/>
+Q and A tried for a system crash<br/>
+With the tester on the sidelines in a cast<br/>
+Now the timeshare net was running Doom<br/>
+While mainframes played a marching tune<br/>
+We all tried to log in<br/>
+Oh, but we never could begin<br/>
+'Cause Cobol tried to take the field, And Holerith refused to yield.<br/>
+Do you recall what was revealed?<br/>
+The day computers died?<br/>
+We started singing . . .<br/>
+Bye, bye to the next digit of Pi<br/>
+Ran my PC on some DC<br/>
+But the voltage was dry<br/>
+And good ol' boys were sending email replies<br/>
+Saying this will be the day I retire<br/>
+This will be the day I retire<br/>
+<br/>
+<br/>
+<br/>
+There we were all in a state<br/>
+A generation really late<br/>
+With no time left to start again<br/>
+<br/>
+So come on mouse be nimble, mouse be quick Don't let my spreadsheet data<br/>
+stick 'Cause data is the devil's only friend.<br/>
+As I watched him on my screen<br/>
+My hands and face were drenched in steam<br/>
+No angel born in hell<br/>
+Could run that stupid shell<br/>
+<br/>
+And as the ball climbed high into the night To call the sacrificial night I<br/>
+saw Dick Clark laughing with delight The day computers died.<br/>
+I met a girl with a cell phone<br/>
+And I asked her for a dial tone<br/>
+But she just smiled and turned away<br/>
+<br/>
+I went down to the software store<br/>
+Where I'd seen computers years before<br/>
+But the man there said the games there wouldn't play<br/>
+And in the streets the children screamed<br/>
+The lovers cried and the poets dreamed<br/>
+Their interface was spoken<br/>
+The Internet was broken<br/>
+<br/>
+And the three things I connect to most<br/>
+The Website, LAN and the Network host<br/>
+Every single one was toast<br/>
+The day computers died<br/>
+They were singin' . . .<br/>
+<br/>
+Bye, bye to the next digit of Pi<br/>
+Ran my PC on some DC<br/>
+But the voltage was dry<br/>
+And good ol' boys were sending email replies<br/>
+Saying this will be the day I retire<br/>
+This will be the day I retire<br/>
+</blockquote>
+
+</blockquote>
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+

@@ -1,0 +1,163 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- I/O Software Layers
+</p>
+
+<ol>
+<li> The goals of I/O Software can be met by structuring the software into
+	4 layers (from lowest to highest levels of abstraction):
+	<ol>
+	<li> Interrupt handlers
+	<li> Device drivers
+	<li> Device-independent I/O software
+	<li> User level I/O software
+	</ol>
+<li> Interrupt Handlers
+	<ol>
+	<li> An easy way to handle this is to have the device driver
+		block when an interrupt is expected.
+	<li> Then an interrupt handler merely unblocks the device driver
+		process.
+	<li> Having the device driver be part of the kernel makes this
+		sequence of actions easier to manage (and doesn't require
+		the full context switch that a user based device driver
+		would require).
+	</ol>
+<li> Device Drivers
+	<ol>
+	<li> All device dependent code goes here.
+	<li> At best it handles a single device TYPE/CATEGORY (e.g., 
+		mouse, SCSI HDD), but can be specific to a single device from
+		a specific manufacturer (e.g., Wacom tablet).
+	<li> Device manufacturers usually write (and distribute free of charge)
+		device drivers for their products. Generally, only versions for
+		popular OSs are written and released by manufacturers (though
+		independent groups will sometimes write their own device
+		drivers for a particular operating system using the
+		manufacturer's published device specifications).
+	<li> It must deal with all the low level details of figuring
+		out where the data to be read (written) is on the device,
+		and to prepare the device to read (write) it, and actually
+		read (write) and transfer the data.
+	<li> Not all device drivers block, a driver for a "terminal" window
+		may simply do the operation since it is so fast (no mechanical
+		action).
+	<li> Device drivers are often run in kernel space, for efficiency
+		reasons, but doing so also leaves the OS vulnerable to
+		system crashes due to buggy drivers (and unanticipated
+		interactions between different device driver combinations).
+	<li> Device drivers need a common interface so the rest of the OS
+		can interact with them in a standard manner (otherwise the
+		OS might need changing when new device drivers were released).
+		Block and character devices are the 2 standard device
+		interfaces commonly used.
+	<li> With the proliferation of devices, particularly in the consumer
+		market, OSes moved from compiled in device drivers to
+		dynamically loaded drivers in the early 1980s.
+	<li> Device drivers should be <em>reentrant</em>, allowing them
+		to process a second (or third, ...) call before the driver has
+		finished dealing with the first call. 
+	</ol>
+<li> Device-Independent I/O Software
+	<ol>
+	<li> Device files names (e.g. /dev/fd0) indicate an i-node
+		that contains a major and minor device number, which indicate
+		the controller and device on that controller respectively.
+		These are passed to the device driver to indicate where
+		to get/put info.
+	<li> File (device) ownership and the file permissions (e.g., "rwx"
+		on Unix/Linux systems) are
+		used to control access to devices.  This means that some
+		programs might change the permissions/ownership of devices
+		temporarily to prevent others from using them.
+	<li> Device independent capabilities differ by system and device
+		but generally include:
+		<ol>
+		<li> Uniform interface for device drivers - includes naming for
+			device access (e.g., file name) and access control
+			(e.g., via file permissions). A uniform API enables
+			dynamic loading of device drivers (a table of function
+			pointers provides the OS with access to the driver's
+			functionality).
+		<li> Buffering - improves the efficiency of I/O. Rather than
+			dealing with each character individual (e.g., for
+			printing), device independent software can buffer
+			input before it is written (sent to the device driver).
+			<ol>
+			<li> Single buffering is straightforward but can be
+				problematic if the buffer is needed for the
+				next I/O operation before the previous one is
+				complete.
+			<li> Double buffering fixes the problem with single
+				buffering by using a 2nd buffer that the
+				next I/O operation can use while the first
+				one finishes.
+			<li> Circular buffering (i.e., circular queue) provides
+				a more flexible mechanism that generalizes
+				to N-buffers.
+			</ol>
+		<li> Error reporting - determines whether (automatic) retry
+			of failed operations is appropriate, and ultimately
+			how to "report" failures back to the calling process
+			(e.g., string describing the error, special return
+			value).
+		<li> Device acquisition and release - can be accomplished via
+			system calls on the file associated with the device
+			(e.g., open("/dev/printer") ). The software layer might
+			temporarily change permissions on the file to prevent
+			others from using it simultaneously.
+		<li> Device independent block size - hides differences between
+			the block sizes of different devices so that they
+			appear uniform to other software (i.e., all block
+			devices look like they use 16KB blocks when in fact
+			devices are using 4, 8, and 16 KB blocks).
+		</ol>
+	</ol>
+<li> User Level I/O Software
+	<ol>
+	<li> I/O system calls such as read/write
+	<li> Library routines such as fprintf, fscanf
+	<li> Spooling (simultaneous peripheral operations on-line) of mail,
+		printers, and USENET news. Complete files are
+		created by a process, and then the files placed in the
+		spooling directory from which the spooler (usually a
+		daemon process) carries out the operation (e.g., printing).
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_41.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

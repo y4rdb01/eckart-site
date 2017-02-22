@@ -1,0 +1,179 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Multiprocessors (Hardware)
+</p>
+
+<ol>
+<li> Shared Memory Multiprocessor
+	<ol>
+	<li> Two or more CPUs share a single common memory (RAM).
+	<li> Uniform Memory Access (UMA) means that every memory word can be
+		read as fast as any other memory word. They are all treated
+		the same.
+	<li> NON-Uniform Memory Access (NUMA) enable some memory words to be
+		read faster than others.
+	</ol>
+<li> Hardware
+	<ol>
+	<li> Bus-based UMA
+		<ol>
+		<li> Multiple CPUs and a single shared memory sit on the
+			same system bus.
+		<li> Can work well for small numbers of CPUs (< 4), but the
+			contention for memory access by the CPUs becomes
+			untenable as the number grows (> 8).
+		<li> Adding a cache to each CPU reduces the number of reads
+			to the shared memory, reducing contention, and allowing
+			more CPUs to share the bus (e.g., 32).
+			Data is loaded into cache a 32 or 64 byte block at a
+			time (called a <em>cache line</em>).
+		<li> If a cache is modified, then its contents must be written
+			back out to memory AND any other caches with a copy of
+			this data must be updated. The rules for keeping caches
+			synchronized is called the <em>cache-coherence
+			protocol</em>. Having other caches listen on the bus for
+			these write-thrus to memory is called <em>snooping</em>.
+			Write-thru in combination with snooping is a common way
+			to maintain cache-coherence.
+		<li> Here's an example architecture of a bus-based UMA:
+			<br/>
+			<a href="https://commons.wikimedia.org/wiki/File:SMP_-_Symmetric_Multiprocessor_System.svg"><img src="/eckart/classes/cpsc3125/topics/content/SMP.png" width="494" height="315" alt="SMP" /></a>
+		<li> The cores on a multicore chip typically use a bus, thus
+			forming a SMP when connected to a single main memory. 
+			As the number of cores on a chip grows beyond 8 (some
+			chips already have more than 100 cores) the cost of
+			cache-coherence hardware that must also be on the chip
+			increases substantially. The <em>coherency wall</em>
+			refers to the point at which these additional hardware
+			costs negate the advantage of the additional cores.
+		</ol>
+	<li> Switch-based UMA
+		<ol>
+		<li> The shared memory is divided into smaller, but equal sized
+			chunks (usually the same number as the number of CPUs).
+		<li> Crossbar Switching
+			<ol>
+			<li> Each CPU can access (read or write) to one of the
+				shared memory chunks via a
+				<em>crossbar switch</em>.
+			<li> While a memory chunk can only be accessed by one
+				CPU at a time (and vice versa), it is possible
+				for each CPU to access one of the memory chunks
+				simultaneously.
+			<li> It's still possible that a CPU may have to wait to
+				access memory if more than one CPU needs access
+				to the same memory chunk.
+			<li> A major drawback of using the crossbar switch is
+				that the number of switch crosspoints is O(n^2),
+				where n is the number of CPUs (and memory
+				chunks).
+			</ol>
+		<li> Multistate Switching
+			<ol>
+			<li> Based on a 2x2 switch (2-inputs, 2-outputs).
+			<li> Use layers of switches to connect CPUs to
+				Memory chunks.
+			<li> An omega network enables each CPU to connect to
+				each memory by a single path through the
+				switches.
+				<br/>
+				<a href="http://staff.um.edu.mt/csta1/courses/lectures/csm202/os17.html"><img src="/eckart/classes/cpsc3125/topics/content/OmegaNetwork.gif" width="213" height="149" alt="Omega Network" /></a>
+			<li> Messages (packets) sent through the network
+				indicate which output the packet should exit
+				each successive switch by indicating the
+				destination in binary with each successive bit
+				indicating the output to take for subsequent
+				switches. Thus in a 2 stage
+				omega network, the destination 01 means that
+				the 0-output is taken on the first switch, and
+				the 1-output is taken on the second switch.
+			<li> Unlike crossbar switching, an omega network is an
+				example of a <em>blocking network</em> since
+				some paths in network block other possible
+				paths between CPUs and memories (so not all
+				CPUs can communicate with a different memory
+				chunk at the same time).
+			<li> Spreading memory references more evenly among
+				the memory chunks can be done by using some of
+				the lower-order bits in the memory addresses
+				as the memory module numbers.
+				<em>Interleaved</em> memory has consecutive
+				memory words appearing in consecutive memory
+				modules. Since memory references are often to
+				consecutive memory locations (e.g., reading the
+				next instruction or array element) this improves
+				parallelism.
+			</ol>
+		</ol>
+	<li> NUMA Multiprocessors
+		<ol>
+		<li> Still provide a single conceptual address space shared
+			by all CPUs.
+		<li> The access time to local memory is much faster than the
+			time to access remote memory (e.g., associated with
+			other CPUs).
+		<li> If remote memory values are cached locally, the system is
+			called <em>CC-NUMA</em> (Cache-Coherent NUMA).
+		<li> If remote memory values are NOT cached locally, the system
+			is called <em>NC-NUMA</em> (Non Cache-Coherent NUMA).
+		<li> Directory-based multiprocessors are a popular
+			implementation of CC-NUMA. A database at each node/CPU
+			keeps track of which lines/blocks of that node's memory
+			are cached at another node. All remote memory requests
+			go to the node that owns that memory, so that it's
+			database can be queried - enabling other cache's to
+			be updated on writes.
+		</ol>
+	<li> Designing software to effectively used LARGE numbers of CPUs is
+		difficult. Synchronization and related issues can eat away
+		at the performance gains from using more CPUs.
+		<ol>
+		<li> <a href="https://en.wikipedia.org/wiki/Amdahl%27s_law">Amdahl's law</a>
+			formalizes the maximum degree of speedup a program can
+			attain on a fixed sized problem.
+		<li> <a href="https://en.wikipedia.org/wiki/Gustafson%27s_law">Gustafson's law</a>
+			describes the amount of attainable speedup as the
+			problem size grows (reflective of "big data" trends).
+			Thus as the problem size grows, more processors can be
+			used to solve the problem in the same amount of time as
+			a smaller version of the same problem.
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_62.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,360 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Smalltalk Basics
+</p>
+
+<ol>
+<li> Comments: are contained within a set of double quotes
+	("here's an example"). Alternately, Smalltalk-X also
+	supports comments that begin with "/ and terminated
+	by the end-of-line.
+<li> All values are instances of a class. This includes
+	class definitions themselves (except for Object, of course)!
+<li> Smalltalk classes:
+	<ol>
+	<li> utilize single inheritance.
+	<li> subclasses inherit all methods and instance
+		variables from their superclass.
+	<li> Smalltalk class variables
+		are specific to the class and are normally
+		used for retaining constants. They correspond
+		to static class members in Java.
+	<li> classes can override inherited methods.
+	<li> all selectors (e.g., method declarations) are public.
+	<li> all instance (and class) variables are protected
+		(visible to the methods of the recieving instance
+		and all direct and indirect subclasses). Thus
+		accessors are required for the method (corresponding
+		to a given selector) to reference the instance (or
+		class) variables of another instance of the same
+		class. This is different from both Java and C++
+		in which instance (and class) variables are visible
+		(and available) without the need for additional
+		accessors. The complex number example from C++ was
+		an example of where we took advantage of this
+		capability.
+	<li> "self" refers to the receiving instance (like
+		"this" in Java and C++).
+	<li> "super" refers to the parent class of the receiving
+		instance (as it does in Java).
+	<li> there is no indication or enforcement of an
+		abstract class (ala Java), but you can prevent
+		the creation of instance of a class by
+		overriding its "new" operator ("^" indicates
+		the expression to return from the method):
+<pre><code>
+	new ^self shouldNotImplement
+</code></pre>
+		NOTE: Doing this in a subclass for a selector that
+		would otherwise be inherited from the superclass
+		means that the subclass is <em>NOT</em> a subtype
+		of the type defined by the superclass (where type
+		is defined by the interface - or collection of
+		selectors it understands - of the class).
+	<li> it is possible to create abstract methods by
+		indicating in the superclass that the
+		implementation is the responsibility of the
+		subclass. For example, the rotate method
+		of a Shape class would be ("^" indicates
+		the expression to return from the method):
+<pre><code>
+	rotate: degrees ^self subclassResponsibility
+</code></pre>
+	<li> Objects (class instances) are usually created via a
+		class message. However, some well-known object
+		literals are created by the system:
+		<ol>
+		<li> 42	"integer"
+		<li> 3.14 "floating point number"
+		<li> 'this is a string'
+		<li> #'this is a symbol'
+		<li> #alsoASymbol
+		<li> $z "character literal for 'z'"
+		<li> true "instance of class True"
+		<li> false "instance of class False"
+		<li> nil "instance of class UndefinedObject"
+		</ol>
+	</ol>
+<li> Computations occur by sending objects messages
+	<ol>
+	<li> There are 3 message types:
+		<ol>
+		<li> Unary - occur immediately after the object.
+			For example, "5 squared" requests that the
+			"5" object square itself, returning the
+			new object "25".
+		<li> Binary - are infix messages occurring between
+			two objects. The special symbols used for
+			binary messages include: "=", "==", "+", "-",
+			"/", "\", "@", ",", "&", and "|". A familiar
+			example would be "3 + 5", which sends the
+			object "3" the message "+" with the object
+			"5" as its argument (yielding the object
+			"8" as its result).
+		<li> Keyword - start with a receiving object, but
+			allow multiple name argument pairs after
+			that to form the message. For example,
+			sending the "boat" object the message
+			"direction: 10 speed: 15" indicating the
+			direction as degrees from north and the
+			speed in kph. Note the appearance of colons
+			(:) after the keywords. Think of the keywords
+			as the formal parameter names and the
+			objects that appear immediately after each
+			keyword as the argument (actual parameter).
+		<li> Both unary and keyword messages are case sensitive
+			(made from letters and digits) and must start
+			with a lowercase letter.
+		</ol>
+	<li> Every message returns an object, so you can functionally
+		combine messages. E.g., "3 raisedTo: 5 squared" and
+		"5 factorial between: 3 squared and: 3 * 5 + 9" (which
+		can be rewritten as "(5 factorial) between: (3 squared)
+		and: ((3 * 5) + 9)" for clarity).
+	<li> Message precedence (highest/first to lowest/last)
+		<ol>
+		<li> ( )
+		<li> unary messages
+		<li> binary messages
+		<li> keyword messages
+		<li> execution is left to right otherwise
+		</ol>
+	<li> Class messages and instance messages can have the same
+		names. The message type is determined by the type of
+		the receiver.  If the receiver is a class, then the
+		message is a class message (similarly for instances).
+		Class names are capitalized though not all capitalized
+		names are classes (e.g., "Transcript" is not a class
+		but is capitalized). Being capitalized indicates that
+		the entity is shared (which class are).
+	<li> Multiple messages to the same receiving object can be
+		"cascaded". The receiving object only appears once,
+		but the different messages are separated by
+		semi-colons (;). Thus, similar to what we saw
+		in C++ with the chaining of ostream output:
+<pre><code>
+	Transcript clear.
+	Transcript show: 'Hello everyone,'.
+	Transcript cr.
+	Transcript show: 'I''m new here'.
+	Transcript cr
+</code></pre>
+		becomes
+<pre><code>
+	Transcript
+		clear;
+		show: 'Hello everyone,';
+		cr;
+		show: 'I''m new here';
+		cr
+</code></pre>
+	</ol>
+<li> Code blocks, variables, and statements:
+	<ol>
+	<li> Variables must be declared before used, though there
+		is no type limitation on their values. The declarations
+		appear between pipes (|) and are separated from one
+		another by spaces, e.g., "| these are variable names |".
+		By convention, variables should begin with a lowercase
+		letter.
+	<li> Assignment is ":=" (though the original Smalltalk-80
+		used "_" which displayed as "<-").
+	<li> A sequence of expressions (statements) is called a
+		script (code fragment). The expressions are
+		must be separated by periods (.), but you can also
+		have a period (.) after the last expression which
+		makes it less likely to forget and makes your
+		expressions look more like natural language sentences.
+	<li> Code blocks appear within square brackets ([ ]) and
+		can be passed as arguments to messages. They are
+		only executed when needed/necessary and are similar
+		to the (anonymous) lambda forms from Lisp, and can
+		include local (and special looping) variable
+		declarations.
+<pre><code>
+	2 timesRepeat: [ Transcript showCR: 'Play it again Sam!'. ].
+	3 timesRepeat: [ | i | i := 0. Transcript show: i; cr. ].
+	1 to: 10 do: [ :n | Transcript show: n squared; cr. ].
+</code></pre>
+		Code blocks are first-class objects and may be
+		assigned to variables and later be sent messages.
+		Block parameters are preceeded by a colon (:) while
+		local block variables are not.
+<pre><code>
+	| isPrime |
+	isPrime := [ :candidate | | prime |
+		prime := true.
+		2 to: (candidate - 1) do: [ :divisor |
+			(candidate \\ divisor = 0)
+				ifTrue: [ prime := false. ]
+		].
+		prime.
+	].
+	Transcript showCR: (isPrime value: 11).
+</code></pre>
+
+		NOTE: The "^" normally used before returned values is missing
+		here. While "^ prime" would be appropriate within the context
+		of a method, it does not function when returning values from
+		code blocks, wherein the value of the last expression evaluated
+		is returned.
+	<li> There are two different kinds of equality:
+		<ol>
+		<li> = means that two objects describe the same value 
+		<li> == means that two objects are the same value
+		<li> Strings and Symbols are closely related but
+			two Strings with the same characters will
+			be stored as two different Strings (unlike
+			Java), whereas Symbols work like Java Strings
+			in that a single unique instance is created.
+			Thus:
+<pre><code>
+	'are these the same string?' = 'are these the same string?' 	"/ true
+	'are these the same string?' == 'are these the same string?' 	"/ false
+	#SameSymbol = #SameSymbol	"/ true
+	#SameSymbol == #SameSymbol	"/ true
+</code></pre>
+		</ol>
+	</ol>
+<li> Expressions
+	<ol>
+	<li> Conditional execution, unlike many languages, is not
+		a statement (similar to Lisp), but rather alternate
+		actions (i.e., messages) that can be performed:
+<pre><code>
+	Transcript
+		clear;
+		show: ( (9 < 3 squared)
+				ifTrue: [ '9 is less than 3^2'. ]
+				ifFalse: [ '3^2 is greater than 9'. ]
+			);
+		cr.
+</code></pre>
+	<li> Boolean expressions can be represented in two ways. The
+		first uses eager evaluation (performing all expression
+		computations):
+<pre><code>
+		(((3 < a) & (a < 12)) | ((-3 < b) & (b < -1))) not.
+</code></pre>
+		While the second way supports short-circuit evaluation
+		(lazy evaluation) because the evaluation of blocks (and
+		only blocks) is performed only when needed:
+<pre><code>
+		(3 < a) and: [ (a < 12) or: [ (-3 < b) and: [ (b < -1) ] ] not.
+</code></pre>
+		</ol>
+<li> Defining a new class is actually itself a message to the
+	superclass of the class you are creating! This creates two
+	kinds of objects: a new meta-class (e.g., StreetAddress class),
+	and a new class (e.g., StreetAddress) that is an instance of
+	the meta-class. The meta-classes are described as being on
+	the "class" side of Smalltalk, and the "normal" classes are
+	described as being on the "instance" side.
+<pre><code>
+	Object subclass: #StreetAddress
+		instanceVariableNames: 'firstLine secondLine city state zipCode'
+		classInstanceVariableNames: ''
+		poolDictionaries: ''
+</code></pre>
+<li> Defining the methods for the new class (by convention,
+	formal parameter names include the name of the class
+	the arguments are expected to be objects of) to create
+	a new instance:
+<pre><code>
+	new
+		^ super new.
+
+	city: cityString state: stateString zipCode: zipString
+		city := cityString.
+		state := stateString.
+		zipCode := zipString.
+</code></pre>
+	Or to set some of the instance variables:
+<pre><code>
+	setZipCode: zipString
+		zipCode := zipString.
+</code></pre>
+	Or to access some of the instance variables (be aware that
+	UNlike Java and C++, Smalltalk does not allow members of
+	the same class to access each others elements, so such
+	access methods are often needed):
+<pre><code>
+	getZipCode
+		^ zipCode.
+</code></pre>
+	The method definitions use periods (.) to separate the
+	different expression sentences.
+	Also note that in the absence of a return (^), that
+	the receiving object is returned by default.
+<li> Arrays (and other Collections) are implemented as classes
+	(like everything else). They are fixed in size and
+	indexing starts at 1. Literal arrays are denoted by
+	the #(...) syntax:
+<pre><code>
+	| squaredList |
+	squaredList := Array new: 100.
+	1 to: (squaredList capacity) do: [ :i | squaredList at: i put: i squared. ].
+	70 to: (squaredList size) do: [ :j | Transcript showCR: (squaredList at: j). ].
+	#(1 2 3 4 5) do: [ :n | Transcript showCR: n. ].
+</code></pre>
+<li> Other interesting bits:
+	<ol>
+	<li> The Dialog class is useful for prompting and
+		obtaining input from the user.
+	<li> To browse classes, use the ST/X Launcher
+		(Menu) Classes > System Browser</em>, and
+		then Browser (Menu) Find to locate a class
+		and examine its implementation and
+		documentation.
+	<li> The "perform:" message defined by the Object class
+		takes a symbol as its argument which names a
+		message to send (e.g., "5 perform: #squared"
+		is equivalent to "5 squared"). This is useful
+		for creating GUIs by associating a Symbol with
+		the graphical element (e.g., button) enabling
+		Smalltalk to send the appropriate message.
+		Here's a non-graphical UI example:
+<pre><code>
+	| opString opSymbol |
+	opString := Dialog request: 'Enter arithmetic operation: '.
+	opSymbol := opString asSymbol.
+	2 perform: opSymbol with: 3.
+</code></pre>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_30.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

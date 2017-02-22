@@ -1,0 +1,90 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Type Safety and Type Checking
+</p>
+
+<ol>
+<li> Type Casts - enables the currently associated type of an object to be
+	"overridden" (e.g., treat an integer as a memory address). Type
+	casting does <strong>not</strong> alter the bits of the value (that
+	is type conversion).
+<li> Pointer Arithmetic - more specifically the ability to follow a value as
+	if it were a pointer (memory address) is what makes this unsafe.
+<li> Dangling References - typically caused when explicit deallocation of
+	memory is allowed. Dangling references can also be created in
+	languages like C that have an address operator (&) and you pass the
+	address of a local variable back from a function call.
+<li> Run-time Checking
+	<ol>
+	<li> Interpreter checks (or compiler generates code to check)
+		for data and operation mismatches while the program
+		is running.
+	<li> The time to check means that the program runs slower (though not
+		necessarily much slower) and are a bit larger in code size.
+	<li> Type errors are only discovered if the program is run with test
+		data that demonstrates that problem. Therefore testing becomes
+		much more important for programs written with run-time checking.
+	<li> Programs are generally easier to get "running" but require much
+		more debugging effort.
+	</ol>
+<li> Compile-time Checking
+	<ol>
+	<li> Compiler checks the compatibility of data and operations before
+		generating code. Type problems are identified before the
+		program is run.
+	<li> The resulting programs run a bit faster (and are a bit smaller)
+		as the type checks confirmed at compile time don't have to be
+		checked at run-time.
+	<li> Most (nearly all) type errors can be found before the program is
+		run, reducing the need for many kinds of testing.
+	<li> Programs are generally harder to get "running" but the more
+		strongly typed the language the less effort spent on debugging.
+	</ol>
+<li> Finding all errors vs Finding only errors
+	<ol>
+	<li> Sound - when compile-time type checking doesn't pass a program
+		that would cause a run-time error.
+	<li> Conservative - when compile-time type checking may flag something
+		as an error that wouldn't cause a problem at run-time.
+	<li> Most type checkers are sound and conservative.
+	<li> Languages almost always have to do some (perhaps small) amount
+		of run-time checking (e.g., to check that array indices don't
+		go out of bounds).
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_15.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

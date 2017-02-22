@@ -1,0 +1,148 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Lisp Example Programs
+</p>
+
+<ol>
+<li> Example: Calculate the factorial of a number.
+<pre><code>
+	(defun factorial (x)
+		(cond
+			((<= x 1) 1)
+			(t (* x (factorial (- x 1))))
+		)
+	)
+
+	(factorial 52)
+</pre></code>
+
+<li> Example: Calculate the nth fibonacci number.
+	Be sure to check out this short
+	<a href="http://www.ted.com/talks/arthur_benjamin_the_magic_of_fibonacci_numbers">TED Talk</a>
+	on the mathematical beauty of the patterns within the
+	fibonacci sequence.
+<pre><code>
+	(defun fibonacci (x)
+		(cond
+			((<= x 1) 1)
+			(t (+ (fibonacci (- x 1)) (fibonacci (- x 2))))
+		)
+	)
+
+	(fibonacci 12)
+</pre></code>
+
+<li> Example: Find the number of items in a list.
+<pre><code>
+	(defun size (x)
+		(cond
+			((not x) 0)
+			(t (+ 1 (size (cdr x))))
+		)
+	)
+
+	(size (quote (a b c d e)))
+</pre></code>
+
+<li> Basic recursive Lisp template works for many (though certainly not all)
+	situations:
+<pre><code>
+	(defun recurse (x)
+		(cond
+			(test-for-base-case value-for-base-case)
+			(t combine-current-result-with-recursive-results)
+		)
+	)
+</pre></code>
+
+<li> An association (or assoc) list contains a set of (key, value) pairs, and
+	the <em>assoc</em> function returns the first pair whose key matches
+	the given key. Since this is a pre-defined function, a different
+	name is used here.
+<pre><code>
+	(defun myassoc (key list)
+		(cond
+			((not list) nil)
+			((equal key (car (car list))) (car list))
+			(t (myassoc key (cdr list)))
+		)
+	)
+
+	(myassoc (quote 2) (quote ((1 a) (2 b) (3 c))))
+</pre></code>
+
+	Note that <em>cond</em> doesn't have to be used. Here's an alternate
+	definition using <em>and</em> with <em>or</em> instead.
+
+<pre><code>
+	(defun myassoc (key list)
+		(and
+			list
+			(or
+				(and
+					(equal key (car (car list)))
+					(car list)
+				)
+				(myassoc key (cdr list))
+			)
+		)
+	)
+</pre></code>
+
+<li> You can run Lisp programs in a "batch" style via:
+<pre><code>
+	cat myassoc.lisp testData.txt | clisp
+</pre></code>
+
+<li> More often, it's useful to run Lisp programs interactively (which can
+	aid in debugging). Do this by loading the files and then running them.
+	The following also shows the use of the <em>trace</em>/<em>untrace</em>
+	facility that can help you see what your code is really doing.
+<pre><code>
+	(load "cpsc5135/myassoc.lisp")
+	(load "cpsc5135/testData.txt")
+	(trace myassoc)
+	(myassoc (quote 2) (quote ((1 a) (2 b) (3 c))))
+	(untrace myassoc)
+</pre></code>
+
+<li> Class/Self exercise: Use the above <em>fibonacci</em> function to show
+	all of the Fibonacci numbers from 0 to N.
+
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_04.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

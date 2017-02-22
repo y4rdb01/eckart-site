@@ -1,0 +1,118 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Support for Abstraction
+</p>
+
+<ol>
+<li> Abstractions separate the client (use) of a capability or service
+	from the implementation of the capability or service (which is
+	often hidden - and sometimes referred to as a "black box").
+	<ol>
+	<li> <em>Procedural Abstraction</em>s provide reusable
+		behavior, hiding both the computation and any
+		intermediate results necessary in producing the
+		result. Changes to "global" variables can hinder
+		the resuse of <em>procedural abstraction</em>s
+		as the behavior "leaks" past the published
+		interface.
+	<li> <em>Data Abstration</em>s hide the way data is organized
+		and stored and are commonly implemented as
+		<em>Abstract Data Types</em> (ADTs). Additions,
+		deletions, or other alterations to the data are
+		exposed via <em>Interface</em>s and their corresponding
+		<em>Specification</em>s. This enables ADTs to be used
+		in many different situations, and for their
+		<em>Implementation</em>s to change without requiring
+		corresponding changes in the clients that use them.
+	</ol>
+<li> Abstract Data Types (ADTs) typically consist of a single type
+	along with a set of operations for manipulating values of
+	that type. [There are rare circumstances in which multiple
+	types are exposed as a single set because of their tight
+	inter-relationship.] Ideally, language support for ADTs should
+	<em>only</em> allow access to the data type(s) via its
+	associated operations.
+	<ol>
+	<li> Module/Package - is a grouping mechanism that
+		enables types and operations to be grouped as a single
+		unit (for inclusion/use by other programs - so you
+		were assured of getting all of the associated pieces).
+		Modules/Packages are not limited to supporting ADTs,
+		but can group any set of related items (e.g.,
+		mathematical operations with no associated data types).
+		Modula-2 and Ada popularized this style (and both
+		allow type definition details to be kept private).
+	<li> Object Based - <a href="http://www.pmg.lcs.mit.edu/CLU.html">Clu</a>'s
+		clusters are a good example of such language
+		mechanisms.  Like modules/packages, they provide a
+		grouping mechanism, and generally support information
+		hiding so that helper functions and data structure
+		details are not visible outside of the object. [Some
+		module/package mechanisms support the object based
+		style, but also allow non-ADT uses.] However, unlike
+		Modules/Packages, object based languages name a single
+		type per object (in the same way that classes do in
+		object-oriented languages such as Java, Smalltalk, and C++).
+	<li> Object Oriented - Similar to object based, but with
+		support for inheritance. Inheritance provides both
+		implementation sharing (via inherited method
+		implementations) as well as polymorphism (through
+		the use of superclasses as variable/parameter types).
+	</ol>
+<li> ADT operation partitions:
+	<ol>
+	<li> Constructors (build elements of the type)
+		<ol>
+		<li> constructors, destructors
+		<li> assignment, copying, cloning
+		<li> mutators, setters, add/delete
+		</ol>
+	<li> Operators (map type elements to one another)
+		<ol>
+		<li> arithmetic
+		<li> instance combination/consolidation
+		</ol>
+	<li> Observers (return a result of some other type)
+		<ol>
+		<li> accessors, getters, find/search, iterators
+		<li> comparison
+		<li> status/state reporting
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_44.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

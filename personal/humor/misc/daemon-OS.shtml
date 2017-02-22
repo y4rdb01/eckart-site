@@ -1,0 +1,512 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+
+<table width="100%">
+<tr>
+<td valign="top" width="100">
+<table>
+
+<tr><td align="left">
+<strong>Seuss<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../../dr.seuss/bitsNbytes.shtml">Bits in Bytes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/grinch.coder.shtml">Grinch OO Coder</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/lunch.shtml">Lunch</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seusstrek.shtml">Star Trek</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/seussbible.shtml">The Bible</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/inferno.shtml">Dante's Inferno</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/purity.shtml">Purity Test</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/trial.shtml">O.J. Trial</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/greeneggs.shtml">Green Eggs and Pork</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/compTech.shtml">Computer Manual</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/USville.shtml">USville</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../dr.seuss/wedding.shtml">Wedding</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Parodies</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/404.shtml">404</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Beatles.shtml">Beatles</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/bobbit.shtml">Bobbit</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/clinton.shtml">Clinton</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/favorite_things.shtml">Favorite Things</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ham_xmas.shtml">Ham Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/ICBM_pizza.shtml">ICBM Pizza</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/net_is_slow.shtml">Net Is Slow</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/pc_xmas.shtml">PC Xmas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/Poe.shtml">Poe</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/prayer.shtml">Prayer</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/queen.shtml">Queen</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/sermon.shtml">Sermon</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song.shtml">Song</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/song_tests.shtml">Song Tests</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/thermo.shtml">Thermo</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/twas.shtml">Twas</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unified.shtml">Unified</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/unix_abc.shtml">Unix abc</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/warnings.shtml">Warnings</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/xmas.shtml">Santa's Unix Listing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/y2k_pie.shtml">Millenium Pie</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../parody/microsoft.shtml">M$ TV Dinners</a>
+</td></tr>
+
+<tr><td align="left">
+<strong>Other<br/>Humor</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/1-liners.shtml">One Liners</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/admin.shtml">Administratium</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/bad_spec.shtml">Bad spec</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/daemon-OS.shtml">daemon OS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/days-off.shtml">Days off</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dead_horse.shtml">Dead horse</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/dosfish.shtml">Dosfish</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/FAA.shtml">FAA report</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/GM-helpline.shtml">GM helpline</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grandpa.shtml">Family tree</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/grounding.shtml">Strapping</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/H2O.shtml">H2O</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/haiku.shtml">Haiku</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/harvard.shtml">Harvard</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/job.shtml">Job</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/koans.shtml">Koans</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/loan.shtml">Loan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/memos.shtml">Memos</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/money.shtml">Money</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/moron.shtml">Moron</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/MS.shtml">MS</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/wirth.shtml">Niklaus Wirth</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/accidents.shtml">Accidents</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/navy.shtml">Navy</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/phrases.shtml">Phrases</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/plan.shtml">Plan</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/stench.shtml">The Project</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/study.shtml">Anything</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/SysAdmin.shtml">SysAdmin Woes</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/thesis.shtml">Thesis</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/quantumPhysics.shtml">Quantum Physics</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/monk.shtml">Monk</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="../misc/proofByInduction.shtml">Proof by Induction</a>
+</td></tr>
+
+</table>
+</td>
+
+<td valign="top">
+
+<blockquote>
+
+
+<p>
+[If you don't understand the T-shirt image, look at your copy of "The Design
+ and Implementation of the 4.3BSD UNIX Operating System" by Leffler, et. al.]
+</p>
+
+<p>
+This was sent by Linda Branagan -- Convex doc. writer and Connie Dobbs
+look-alike.  I think its an excellent illustration of why "Bob" began his
+mission in Dallas.
+</p>
+
+<hr width="80%"/>
+
+<p>
+The following is a true story.  
+</p>
+
+<p>
+Last week I walked into a local "home style cookin' restaurant/watering hole"
+to pick up a take out order.   I spoke briefly to the waitress behind the
+counter, who told me my order would be done in a few minutes.  
+</p>
+
+<p>
+So, while I was busy gazing at the farm implements hanging on the walls, I was
+approached by two, uh, um... well, let's call them "natives".  These guys
+might just be the *original* Texas rednecks -- complete with ten-gallon hats,
+snakeskin boots and the pervasive odor of cheap beer and whiskey.
+</p>
+
+<p>
+"Pardon us, ma'am.  Mind of we ask you a question?"
+</p>
+
+<p>
+Well, people keep telling me that Texans are real friendly, so I
+nodded.
+</p>
+
+<p>
+"Are you a Satanist?"
+</p>
+
+<p>
+Well, at least they didn't ask me if I liked to party.
+</p>
+
+<p>
+"Uh, no, I can't say that I am."
+</p>
+
+<p>
+"Gee ma'am.  Are you *sure* about that?" they asked.
+</p>
+
+<p>
+I put on my biggest, brightest Dallas Cowboys cheerleader smile and said, "No,
+I'm positive.  The closest I've ever come to Satanism is watching Geraldo."
+</p>
+
+<p>
+"Hmm.  Interesting. See, we was just wondering why it is you have the lord of
+darkness on your chest there."
+</p>
+
+<p>
+I was *this close* to slapping one of them and causing a scene -- then I
+stopped and noticed the T-shirt I happened to be wearing that day.  Sure
+enough, it had a picture of a small, devilish looking creature that has for
+quite some time now been associated with a certain operating system.  In this
+particular representation, the creature was wearing sneakers.
+</p>
+
+<p>
+They continued: "See, ma'am, we don't exactly *appreciate* it when people show
+off pictures of the devil. Especially when he's lookin' so friendly."
+</p>
+
+<p>
+These idiots sounded terrifyingly serious.
+</p>
+
+<p>
+Me: "Oh, well, see, this isn't really the devil, it's just, well, it's sort of
+a mascot."
+</p>
+
+<p>
+Native: "And what kind of football team has the devil as a mascot?"
+</p>
+
+<p>
+Me: "Oh, it's not a team.  It's an operating-- uh, a kind of computer."
+</p>
+
+<p>
+I figured that an ATM machine was about as much technology as these guys could
+handle, and I knew that if I so much as uttered the word "unix" I would only
+make things worse.
+</p>
+
+<p>
+Native: "Where does this satanical computer come from?"
+</p>
+
+<p>
+Me: "California.  And there's nothing satanical about it really."
+</p>
+
+<p>
+Somewhere along the line here, the waitress has noticed my predicament -- but
+these guys probably outweighed her by 600 pounds, so all she did was look at
+me sympathetically and run off into the kitchen.
+</p>
+
+<p>
+Native: "Ma'am, I think you're lying.  And we'd appreciate it if you'd leave
+the premises now."
+</p>
+
+<p>
+Fortunately, the waitress returned that very instant with my order, and they
+agreed that it would be okay for me to actually pay for my food before I left.
+While I was at the cash register, they amused themselves by talking to each
+other.
+</p>
+
+<p>
+Native #1: "Do you think the police know about these devil computers?"
+</p>
+
+<p>
+Native #2: "If they come from California, then the FBI oughta know about
+'em."
+</p>
+
+<p>
+They escorted me to the door.  I tried one last time: "You're really blowing
+this all out of proportion.  A lot of people use this "kind of computers".
+Universities, researchers, businesses.  They're actually very useful."
+</p>
+
+<p>
+Big, big, BIG mistake.  I should have guessed at what came next.
+</p>
+
+<p>
+Native: "Does the government use these devil computers?"
+</p>
+
+<p>
+Me: "Yes."
+</p>
+
+<p>
+Another BIG boo-boo.
+</p>
+
+<p>
+Native: "And  does the government *pay* for 'em? With *our* tax dollars?"
+</p>
+
+<p>
+I decided that it was time to jump ship.
+</p>
+
+<p>
+Me: "No.  Nope.  Not at all.  You're tax dollars never entered the picture at
+all.  I promise.  No sir, not a penny. Our good Christian congressmen would
+never let something like that happen.  Nope.  Never. Bye."
+</p>
+
+<p>
+Texas.  What a country.
+</p>
+
+</blockquote>
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+

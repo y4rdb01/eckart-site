@@ -1,0 +1,199 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Java Types & Subtyping
+</p>
+
+<ol>
+<li> Primitive types
+	<ol>
+	<li> boolean
+	<li> char
+	<li> byte, short, int, long
+	<li> float, double
+	</ol>
+<li> "Reference" types (because all objects in Java are accessed via pointers)
+	<ol>
+	<li> Class
+	<li> Interface
+	<li> Array
+	</ol>
+<li> Class (or Interface) subtyping via inheritance means that Child
+	is a subtype of Parent.
+<pre><code>
+	class Parent { ... }
+	class Child extends Parent { ... }
+</code></pre>
+<li> In addition, a class is a subtype of each of the
+	<em>interface</em>s that it implements. So Sibling is a
+	subtype of Parent, A, B, and C.
+<pre><code>
+	class Sibling extends Parent implements A, B, C { ... }
+</code></pre>
+<li> Java requires all type casts to be checked, thus when an
+	object referenced by a super type is cast to one of its
+	subtypes, then code to perform a run-time check must be
+	generated. An exception is thrown at run-time if the object 
+	turns out not to be of the cast subtype.
+<li> Array Types
+	<ol>
+	<li> Array types are subtypes of Object and can be created for
+		any type (primitive or reference).  However, they are
+		treated as <em>final</em> and cannot be extended
+		(subtyped) themselves.
+	<li> Unlike C and C++, Java array objects keep their size (it's
+		<strong>not</strong> part of the static type), so
+		indexed references can be bounds checked. Space for
+		arrays can either be created explicitly or implicitly,
+		and array values can also be anonymous. 
+<pre><code>
+	Person[] class = new Person[ClassSize];			// explicit
+	int[] somePrimes = new int[] { 2, 3, 5, 7, 11, 13 };	// implicit
+	System.out.println(new float[] { 1.2, -2.3, 3.4});	// anonymous
+</code></pre>
+	<li> Array Covariance Problem
+		<ol>
+		<li> If Child is a subtype of Parent
+<pre><code>
+	class Parent { ... }
+	class Child extends Parent { ... }
+</code></pre>
+		<li> Then Java treats Child[] as a subtype of Parent[]
+<pre><code>
+	Child[] child = new Child[SIZE];
+	Parent[] parent = child;
+</code></pre>
+		<li> However while static type checking by the compiler
+			will allow the following, run-time type
+			checking will throw an ArrayStorageException
+			because "parent[0]" is of type "Child".
+<pre><code>
+	parent[0] = new Parent();
+</code></pre>
+		<li> As a result, much more run-time type checking is
+			necessary when using subtyped arrays.
+		</ol>
+	</ol>
+<li> Exception Types
+	<ol>
+	<li> Because Java exceptions are class instances (objects)
+		they can pass information back to their handlers, and
+		supertype matching is used to determine which handler
+		to use.
+	<li> Java's try-catch-finally block is used to indicate
+		handlers as well as provide for cleanup (via finally)
+		regardless of whether or not an exception is thrown.
+	<li> <strong>NOTE:</strong> On page 399 of the course
+               	<a href="http://www.amazon.com/dp/0521780985#_">textbook</a>
+		the author implies that the <em>finally</em> block is
+		only executed if an exception is thrown (and handled).
+		This is incorrect, as the <em>finally</em> block will
+		execute unless the JVM or the current thread of control
+		terminates.  [See <a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.20.2">section 14.20.2</a>
+		of <a href="http://docs.oracle.com/javase/specs/jls/se7/html/">The
+		Java Language Specification (Java SE 7 Edition)</a>
+		for precise details.] 
+	<li> Java has a number of predefined exceptions, arranged in an
+		inheritance hierarchy:<br/>
+		<div style="text-align: center; margin: auto">
+		<figure sytle="vertical-align: top">
+			<img src="../../cpsc1302/topics/exceptions.gif" alt="map of exception type hierarchy" width="502" height="628" />
+			<figcaption>
+			Original from:  
+			<a href="http://rosemary.umw.edu/~finlayson/class/spring13/cpsc401/notes/images/exceptions.gif">http://rosemary.umw.edu/~finlayson/class/spring13/cpsc401/notes/images/exceptions.gif</a>
+			</figcaption>
+		</figure>
+		</div>
+	<li> All exceptions must be subclasses (directly of indirectly)
+		of <em>Throwable</em>.
+	<li> <em>Error</em> (not shown above) and
+		<em>RuntimeException</em> are generally thrown by the
+		JVM and are referred to as unchecked exceptions.
+	<li> Checked exceptions are the subclasses of <em>Exception</em>
+		that are not subclasses of <em>RuntimeException</em>,
+		which enables programmers to provide handler(s) for
+		all checked exceptions by doing:
+<pre><code>
+	try {
+		...
+	} catch (Exception ex) {
+		...
+	}
+</code></pre>
+	</ol>
+<li> Subtype vs Parametric Polymorphism
+	<ol>
+	<li> <strong>NOTE:</strong> Generics were added to Java in 2004
+		with J2SE 5.0. The course
+		<a href="http://www.amazon.com/dp/0521780985#_">textbook</a>
+		was published in 2002 (reprinted in 2007) and so
+		assumes that subtyping would be necessary to implement
+		a general purpose stack abstract data type.
+	<li> Stack class specification using subtyping:
+<pre><code>
+	class SubtypeStack {
+		public boolean empty() { ... }
+		public boolean full() { ... }
+		public void push(Object obj) { ... }
+		public Object pop() { ... }
+		public Object top() { ... }
+	}
+</code></pre>
+	<li> Stack class specification using generics:
+<pre><code>
+	class ParametricStack&lt;Type> {
+		public boolean empty() { ... }
+		public boolean full() { ... }
+		public void push(Type t) { ... }
+		public Type pop() { ... }
+		public Type top() { ... }
+	}
+</code></pre>
+	<li> Comparative usage of subtyping vs paramaetric polymorphism:
+<pre><code>
+	SubtypeStack ss = new SubtypeStack();
+	ParametricStack&lt;String> ps = new ParametricStack&lt;String>();
+
+	ss.push("hello");
+	ps.push("hello");
+
+	System.out.println((String) ss.top());	// Run-time checked
+	System.out.println(ps.top());		// Compile-time checked
+</code></pre>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_64.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

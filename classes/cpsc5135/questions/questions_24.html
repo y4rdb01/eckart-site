@@ -1,0 +1,54 @@
+<li> Symbol tables are used by the compiler
+	<ol class="answer_list">
+	<li> Only as a convenience to make compilation faster.
+	<li> To keep track of declarations and their scope.
+	<li> To determine when declared variables should be deallocated.
+	<li> To ensure that the scope and lifetimes of declarations are the
+		same (part of semantic analysis).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Symbol tables are often implemented as
+	<ol class="answer_list">
+	<li> Stacks
+	<li> Priority queues
+	<li> Bucket hash tables
+	<li> Association lists
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In a symbol table implemented via bucket hashing, declarations of the
+	same name are
+	<ol class="answer_list">
+	<li> <strong>Always</strong> placed in the same bucket.
+	<li> <strong>Always</strong> placed in different buckets.
+	<li> Sometimes placed in the same bucket.
+	<li> <strong>Never</strong> allowed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In a bucket hashing symbol table
+	<ol class="answer_list">
+	<li> New entries are <strong>always</strong> placed at the end
+		of the bucket/list.
+	<li> New entries are <strong>always</strong> placed at the
+		beginning of the bucket/list.
+	<li> The first entry in every bucket/list is deleted when a scope is
+		exited.
+	<li> The last entry in every bucket/list is deleted when a scope is
+		exited.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Bucket hashing is well suited for symbol table implementations because
+	<ol class="answer_list">
+	<li> Inserting new declarations takes constant, O(1), time.
+	<li> When exiting a scope, declaration removal takes O(n^2) time
+		where n is the number of declarations to be removed.
+	<li> Name lookup is fast since it <strong>must</strong> be the first
+		item in the bucket/list.
+	<li> Nested declarations automatically hide previous declarations
+		of the same name (which will appear later in the bucket/list).
+	<li> None of the above
+	</ol>
+</li><br/>

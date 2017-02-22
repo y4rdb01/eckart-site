@@ -1,0 +1,105 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Process Memory Model (revisted)
+</p>
+
+<ol>
+<li> Process Memory Model
+	<div>
+	<img src="ProcessMemoryLayout.png" alt="Layout of process in memory with activation record details" width="722" height="382" />
+	</div>
+	<ol>
+	<li> Activation records contain:
+		<ol>
+		<li> Dynamic link (to previous activation record)
+			<blockquote>
+			Dynamic links (aka control links) are pointers to the
+			activation record of the calling scope (caller).
+			The value in new activation record
+			comes from the "environment pointer" (which points to
+			the top-most activation record on the run-time stack).
+			</blockquote>
+		<li> Access link (for static scoping of nested functions)
+			<blockquote>
+			Access links are pointers to the activation record of
+			the containing scope (e.g., enclosing block).
+			</blockquote>
+		<li> Program counter return address
+			<blockquote>
+			When the named block (i.e., function, procedure,
+			method) is complete, holds the address of the next
+			instruction (in the translation of the source code
+			program) that should be executed. Note that this
+			is often not the same for the same function, procedure,
+			or method.
+			</blockquote>
+		<li> Space for returned result (if needed)
+		<li> Space for parameters
+			<blockquote>
+			Ignorning call-by-name semantics, this is space to
+			store both incoming and outgoing values (or references
+			to value) into.
+			</blockquote>
+		<li> Space for local variables
+			<blockquote>
+			This includes variables within the named scope of the
+			function/procedure/method as well as any nested scopes
+			if their storage is being allocated all at once as
+			part of the named block's activation record.
+			</blockquote>
+		<li> Space for intermediate results (if needed)
+		</ol>
+	<li> NOTE: While parameter and variable names are often written
+		in the rendition of the activation record, be aware that their
+		names are not actually stored here. The compiler keeps track
+		of the translation between parameter and variable names and
+		their relative locations in the activation records (and static
+		variable area), so for most languages, these names never appear
+		in the compiler generated code.
+	<li> By having a special area in the process memory layout for static
+		(i.e., global) variables, accessing them is much faster than
+		traversing the <em>dynamic links</em> in the activation records
+		on the run-time stack (as described in your book). The base
+		address of the static variable section can be stored and
+		this base + the offset of the desired variable used to get
+		its location (and value) quickly. [The book instead describes
+		globally scoped variables as having their storage on the
+		run-time stack within the first activation record.]
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_25.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

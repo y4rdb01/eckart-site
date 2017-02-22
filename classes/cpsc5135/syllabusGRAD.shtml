@@ -1,0 +1,1131 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<h1>COURSE SYLLABUS: CPSC 5135G - Programming Languages - Spring 2016</h1>
+
+<h2>INSTRUCTOR INFORMATION</h2>
+INSTRUCTOR: Dr. Dana Eckart<br/>
+HOMEPAGE <a href="http://csc.columbusstate.edu/eckart">http://csc.ColumbusState.edu/eckart</a><br/>
+EMAIL <a href="mailto:eckart_dana@columbusstate.edu">eckart_dana@columbusstate.edu</a><br/>
+PHONE: 706.507.8190 (email preferred)<br/>
+OFFICE HOURS: TR 11am - 4:30pm (or by appointment)<br/>
+OFFICE LOCATION: CCT 434<br/>
+
+COURSE LOCATION: CCT 407<br/>
+COURSE MEETING TIME: TR 9:30 - 10:45am (or online)<br/>
+COURSE URL: <a href="http://csc.ColumbusState.edu/eckart/classes/cpsc5135/index.shtml">http://csc.ColumbusState.edu/eckart/classes/cpsc5135/index.shtml</a><br/>
+
+<h2>COURSE INFORMATION</h2>
+
+COURSE CRN: 20329 (on-campus) 20499 (on-line)<br/>
+COURSE NUMBER: CPSC 5135G<br/>
+COURSE TITLE: Programming Languages<br/>
+CREDIT HOURS: 3-0-3<br/>
+PREREQUISITES: CPSC 2108 with a grade of C or better<br/>
+DESCRIPTION:
+<blockquote>
+Emphasizes the run-time behavior of programs. Languages are studied from
+two points of view: (1) the fundamental elements of languages and their
+inclusion in commercially available systems; and, (2) the difference between
+implementations of common elements in languages.
+</blockquote>
+
+COURSE TEXTBOOKS(s): <a href="http://www.amazon.com/dp/0521780985#_">Concepts in Programming Languages</a> by <a href="http://theory.stanford.edu/people/jcm/">John C. Mitchell</a><br/>
+OTHER COURSE MATERIALS: <a href="http://csc.ColumbusState.edu/eckart/classes/cpsc5135/index.shtml">http://csc.ColumbusState.edu/eckart/classes/cpsc5135/index.shtml</a><br/>
+
+<h2>LEARNING OUTCOMES</h2>
+<h3>DESCRIPTION</h3>
+<p>
+This course is designed to introduce students to the fundamental
+concepts that are the basis for a variety of programming paradigms (e.g.,
+functional, logical, object-oriented, and agent-centric). The
+course focuses on the principles upon which these different paradigms are
+based and to help students understand the types of problems each is best
+suited for. Non-trivial assignments using programming languages representing
+these paradigms will provide students with a first hand understanding and
+appreciation for the strengths and weaknesses of the different approaches. 
+In addition, students will be introduced to some of the concepts underlying
+the implementation of a language (e.g., memory layout, symbol tables,
+interpretation vs compilation) through an implementation assignment.
+The course is also intended to give CS students: (1) A broad general education
+assuring an adequate foundation in science and mathematics relevant to
+computing; (2) A solid understanding of concepts fundamental to the discipline
+of computer science; (3) Good analytic, design, and implementation skills
+required to formulate and solve computing problems; and (4) The ability to
+function and communicate effectively as ethically and social responsible
+computer science professionals.
+</p>
+
+<h3>MAJOR TOPICS</h3>
+<p>
+Topics for this course include, but are not limited to:
+Type Systems; Symbol Tables; Process Memory Layout;
+Early vs Late Binding; Functions and Code as First Class Objects;
+Control Structures; Parameter Passing Mechanisms; Lazy vs Eager Evaluation;
+Garbage Collection; Single vs Multiple Inheritance; (Operator) Overloading;
+and Support for Concurrent/Parallel Execution.
+</p>
+
+<h3>ACADEMIC OBJECTIVES</h3>
+<ol>
+<li> Students will demonstrate their ability to write non-trivial programs in several languages, including at a minimum: Lisp, Prolog, C++, and netLogo.
+<li> Students will be able to define and discuss terms and concepts that are crucial to understanding the semantics of programming languages.
+<li> Students will be able to analyze a new language, determine the programming paradigm(s) it supports, and discern the types of problems it is best equipped to address.
+<li> Strategies and Actions used to produce the outcomes:
+	<ol>
+	<li> Lectures and classroom discussions 
+	<li> Individual programming assignments
+	<li> ABET criteria covered: A, B, C, I, J, K 
+	<li> Program objectives covered: 1, 2, 3 
+	<li> Assessment methods: Written exams and programming assignments 
+	</ol>
+</ol>
+
+Where the ABET criteria are defined as:
+
+<ol style="list-style-type:upper-alpha">
+<li> An ability to apply knowledge of computing and mathematics appropriate to the discipline.
+<li> An ability to analyze a problem, and identify and define the computing requirements appropriate to its solution.
+<li> An ability to design, implement and evaluate a computer-based system, process, component, or program to meet desired needs.
+<li> An ability to function effectively on teams to accomplish a common goal.
+<li> An understanding of professional, ethical, legal, security, and social issues and responsibilities.
+<li> An ability to communicate effectively with a range of audiences.
+<li> An ability to analyze the local and global impact of computing on individuals, organizations, and society.
+<li> Recognition of the need for, and an ability to engage in, continuing professional development.
+<li> An ability to use current techniques, skills, and tools necessary for computing practice.
+<li> An ability to apply mathematical foundations, algorithmic principles, and computer science theory in the modeling and design of computer-based systems in a way that demonstrates comprehension of the tradeoffs involved in design choices.
+<li> An ability to apply design and development principles in the construction of software systems of varying complexity.
+</ol>
+
+
+<h2>COURSE ASSESSMENT</h2>
+<p>
+There are three (3) exams scheduled during the semester: two (2) in-class
+exams and a final exam.  Each exam is cumulative, so any previously covered
+material is fair game. All exams are closed book, closed notes, closed
+neighbor, with no use of laptops, tablets, calculators, phones, or
+other electronic devices.  Furthermore, you should not discuss your exam
+with anyone until the instructor has handed the graded exams back to you
+(usually within 1 or 2 class meetings) as some people may not have completed
+the exam yet.
+</p>
+
+<p>
+In addition to the exams, there will be weekly on-line quizzes (except for the
+first and last weeks of class, as well as Spring break week) to be completed by
+the time and day indicated in the class schedule. Each quiz is composed of the
+study questions corresponding to the topics on the schedule for that week. You
+will have up to 4 hours to complete these quizzes (though you shouldn't need
+this much time). You may use your book, the published notes for this class,
+internet resources, and course related software (e.g., the C compiler).
+However, you may <strong>not</strong> consult any other materials (or persons)
+while completing the quizzes.
+</p>
+
+<p>
+The final course average is a composite of the exams, the weekly quizzes,
+and the programming assignments.  The relative weighting of these items is:
+
+<table style="text-align: center; margin: auto">
+	<tr>
+		<th>Assessment Tool</th> <th>Weighting</th>
+	</tr>
+	<tr>
+		<td>5 Programming Assignments</td> <td>9% each</td>
+	</tr>
+	<tr>
+		<td>Weekly Quizzes (averaged together)</td> <td>10% total</td>
+	</tr>
+	<tr>
+		<td>2 In-Class Tests</td> <td>15% each</td>
+	</tr>
+	<tr>
+		<td>Final Exam</td> <td>15%</td>
+	</tr>
+</table>
+</p>
+
+<p>
+Since the final exam is cumulative over the entire course, your score on the
+final exam will be used to replace any of your grades for the in-class exams
+that are lower than your final exam score. In other words, your average for
+all of the exams will be no less than your final exam score.
+</p>
+
+<p>
+Course letter grades are determined by the final course average according
+to the following chart: 
+
+<table style="text-align: center; margin: auto">
+<tr><th>Letter<br/>Grade</th><th style="vertical-align: bottom">Average</th></tr>
+<tr><td>A</td><td>average >= 87</td></tr>
+<tr><td>B</td><td>73 <= average < 87</td></tr>
+<tr><td>C</td><td>59 <= average < 73</td></tr>
+<tr><td>D</td><td>45 <= average < 59</td></tr>
+<tr><td>F</td><td>average < 45</td></tr>
+</table>
+</p>
+
+<h2>ADMINISTRATIVE POLICIES AND ACADEMIC RESOURCES</h2>
+
+<h3>CSU DISABILITY POLICY</h3>
+<p>
+If you have a documented disability as described by the Americans with
+Disabilities Act (ADA) and the Rehabilitation Act of 1973, Section 504,
+you may be eligible to receive accommodations to assist in programmatic
+and/or physical accessibility. We recommend that you contact the Office of
+Disability Services located in Schuster Student Success Center, Room 221,
+706-507-8755 as soon as possible. Students taking online courses can contact
+the Office of Disability services at <a href="http://disability.columbusstate.edu/">http://disability.columbusstate.edu/</a>.
+The Office of Disability Services can assist you in formulating a reasonable
+accommodation plan and in providing support. Course requirements will not be
+waived but accommodations may be able to assist you to meet the requirements.
+Technical support may also be available to meet your specific need.
+
+If you have a documented disability as described by the Americans with
+Disabilities Act (ADA) and the Rehabilitation Act of 1973, Section 504, you
+may be eligible to receive accommodations to assist in programmatic and/or
+physical accessibility. We recommend that you contact the Office of Disability
+Services located in Schuster Student Success Center, Room 221, 706-507-8755 as
+soon as possible. Students taking online courses can contact the Office of
+Disability services at <a href="http://disability.columbusstate.edu/">http://disability.columbusstate.edu/</a>.
+The Office of Disability Services can assist you in formulating a reasonable
+accommodation plan and in providing support. Course requirements will not be
+waived but accommodations may be able to assist you to meet the requirements.
+Technical support may also be available to meet your specific need.
+</p>
+
+<h3>ACADEMIC INTEGRITY</h3>
+<p>
+All students are expected to recognize and uphold standards of intellectual and
+academic integrity. As a basic and minimum standard of conduct in academic
+matters that students be honest and that they submit for credit only the
+products of their own efforts. Both the ideals of scholarship and the need for
+fairness require that all dishonest work be rejected as a basis for academic
+credit. They also require that students refrain from any and all forms of
+dishonorable or unethical conduct related to their academic work.
+</p>
+
+<p>
+Students are expected to comply with the provisions of Section III, "Student
+Responsibilities," of the Columbus State University Student Handbook.  This
+specifically includes the sections on "Academic Irregularity," and "Conduct
+Irregularity."  In particular, the Columbus State University Student Handbook
+states:
+	<blockquote>
+	"No student shall give or receive assistance in the preparation of any
+	assignment, essay, laboratory report, or examination to be submitted as
+	a requirement for any academic course in such a way that the submitted
+	work can no longer be considered the personal effort of the student
+	submitting the work."
+	</blockquote>
+</p>
+
+<p>
+Examples of Academic Dishonesty include but are not limited to: Plagiarism (see
+definition below), giving or receiving unauthorized assistance on exams,
+quizzes, class assignments or projects, unauthorized collaboration, multiple
+submissions (in whole or part) of work that has been previously submitted for
+credit.
+</p>
+
+<p>
+Plagiarism is any attempt to represent the work or ideas of someone else as
+your own.  This includes purchasing or obtaining papers from any person and
+turning them in as your own.  It also includes the use of paraphrases or quotes
+from a published source without properly citing the source.  All written
+assignments may be submitted for textual similarity review to
+<a href="http://turnitin.com/">Turnitin.com</a> for the detection of plagiarism.
+</p>
+
+<p>
+For assignments, access to notes, textbook, books and other publications is
+allowed. Stealing, giving or receiving any code, diagrams, drawings, text, or
+designs from another person (CSU or non-CSU) is <strong>not allowed</strong>.
+Having access to another person's work on the system or giving access to your
+work to another person is <strong>not allowed</strong>.
+It is your responsibility to keep your work confidential.
+</p>
+
+<p>
+<strong>No cheating in any form will be tolerated.</strong> Please be aware
+that anyone caught cheating or plagiarizing in this class will receive a “0”
+for the assignment/exam and may receive a “0” for the course. A second instance
+of Academic Dishonesty may result in immediate dismissal from the Computer
+Science programs and expulsion from Columbus State University. See
+<a href="https://cs.columbusstate.edu/resources/academic-dishonesty-policy.php">https://cs.columbusstate.edu/resources/academic-dishonesty-policy.php</a>
+for more details.
+</p>
+
+<h3>STUDENT COMPLAINT PROCESS</h3>
+<p>
+Information and resources concerning student complaints and academic appeals
+can be found on the Columbus State Univeristy website:
+<a href="http://aa.columbusstate.edu/appeals">http://aa.columbusstate.edu/appeals</a>
+</p>
+
+<h3>ATTENDANCE POLICY</h3>
+<p>
+Although attendance is not required, it is <em>strongly</em> urged (provided
+the course is not an on-line course) and may
+be taken so as to determine your involvement in the course in order to
+satisfy certain Columbus State University reporting requirements.
+Be aware that I am less likely to help those who have not
+availed themselves of the class time (or in the case of on-line classes, the
+discussion group).  Remember, you are still responsible
+for all the covered material, regardless of your attendance.
+Refer to the <a href="http://academics.columbusstate.edu/catalogs/current/acaregs_undergrad.php#attendance">Attendance Policy</a>
+in the CSU Catalog for more information on class attendance and withdrawal.
+</p>
+
+<p>
+<strong>Warning:</strong> Failure to submit the signed non-repudiability
+portion of this syllabus <em>or</em> to join the Yahoo discussion group for
+this class (as indicated in the class notes) by <em>noon of the first Friday
+after classes have started</em>, will be understood by the instructor as an
+indication that the student is not interested in continuing in the class
+and may result in the student being <strong>dropped from the class</strong>. 
+</p>
+
+<p>
+<strong>Caution:</strong> In addition to the applicable portions of any
+textbook(s) for this class, lectures will likely include material not
+presented in the book.  Unless otherwise noted, you are responsible to
+know and understand all materials covered in class (and in the discussion
+group), assigned from the text, or indicated on the course web site
+regardless of your own attendance. 
+</p>
+
+<h3>ELECTRONIC DEVICES AND ACADEMIC INTEGRITY</h3>
+<p>
+All cell phones and pagers must be turned off prior to entering the classroom
+or lab. The use of any electronic device during a test or quiz is prohibited
+unless otherwise indicated by the instructor. This includes handheld
+calculators, cell phones and smart phones, personal digital assistants, tablets,
+laptops, and similar devices. Any unauthorized use of such a device during a
+test or quiz will be considered a breach of academic integrity.
+</p>
+
+<h3>LEARNING ASSISTANCE RESOURCES</h3>
+<p>
+Free academic tutoring is available from the following CSU programs:
+</p>
+
+<h4>Computer Science Tutoring</h4>
+<p>
+Tutoring for lower-division computer science courses is available in CCT450
+(MTWRF 9am-10pm). See
+<a href="https://cs.columbusstate.edu/students/lab_schedule.php">https://cs.columbusstate.edu/students/lab_schedule.php</a>
+for details. 
+</p>
+
+<h4>Academic Center for Tutoring (ACT)</h4>
+<p>
+ACT offers tutoring services to help enrolled CSU students succeed in math,
+science, writing, and the humanities. Visit
+<a href="https://act.columbusstate.edu/">https://act.columbusstate.edu/</a>
+for more information or to make an appointment.
+</p>
+
+<h4>University Writing Center (UWC)</h4>
+<p>
+Students can receive academic support from the University Writing Center
+(UWC). UWC offers peer consultations on writing across the curriculum. For
+more information, call 706-568-2483, visit
+<a href="http://writingcenter.columbusstate.edu/index.php">http://writingcenter.columbusstate.edu/index.php</a>,
+or visit
+<a href="https://ace.columbusstate.edu/tutorialservices.php">https://ace.columbusstate.edu/tutorialservices.php</a>.
+</p>
+
+<h3>GRADING POLICY</h3>
+
+<h4>GENERAL</h4>
+<p>
+For your own protection, all graded material returned to you should be
+kept until after you have received your letter grade from the
+University.  If you have any question about your final letter grade,
+you <em>must</em> present the graded material in question to the professor
+before any adjustment will be made.  So keep these items in a safe place!
+</p>
+
+<p>
+Most students find that this course
+requires a great deal of work.  For some students, studying the recommended
+three (3) hours out of class for every one (1) hour in class may be sufficient,
+while other students may need to spend significantly more time to master
+the material.  In either case please remember that grades are
+based on your ability to demonstrate your mastery of the material.  In
+short, results, <strong>NOT</strong> effort, determine the grade you earn.
+</p>
+
+<h4>EXAMS</h4>
+<p>
+If you <strong>must</strong> miss a scheduled exam, then you will be allowed
+to take a makeup exam at an alternate time (provided you have sufficient
+reason for the request as determined by the Instructor).  To do this you
+must notify and make prior arrangements with the Instructor as soon as you
+anticipate the need.  Note, however, that the makeup exam
+may differ in both scope and difficulty from the exam it replaces.
+Be aware that non-emergency personal travel is insufficient reason to makeup
+a missed scheduled exam.
+</p>
+
+<h4>ASSIGNMENTS</h4>
+<p>
+Programming assignments
+will be graded not only for the extent to which the programs produce
+the required results, but also for programming "style".  In particular,
+the programs should be well designed and self-documented with meaningful
+and informative comments and identifier names.  In additional they should
+also make proper use of the ideas discussed in class.  The grading criteria
+for assignments will vary somewhat between assignments, however the
+following are basic guidelines which will always apply to programming
+assignments:
+<ol>
+	<li>
+	Late programs (or any other assignments) will receive a grade of 0.
+	<li>
+	Programs with "compilation" errors will receive a grade of 0.
+	<li>
+	Programs with run-time errors will receive a grade no greater than 75.
+	<li>
+	Programs which run "to completion" but give incorrect results will 
+	receive a grade no greater than 90.
+</ol>
+</p>
+
+<p>
+A special word of caution about the deadlines for programming assignments:
+The assignments will generally require more time for completion than you
+might assume at first glance.  In fact, some assignments may seem down
+right easy, but you will find it even easier to underestimate the time
+required to complete them.  Since the penalty for being late is rather
+severe, you should begin working on each assignment as soon as it is
+distributed.  Remember to allow time for unexpected problems and
+difficulties; such as minor computer (or network) downtime.
+</p>
+
+<p>
+A final note regarding assignments: <strong>PLEASE</strong> compile and
+run your programs immediately before submitting them.  Never make a change
+to the code file(s) and turn it in without compiling and running first.
+It is <em>very</em> easy to make last minute mistakes that introduce syntax
+or other errors, so checking before submitting can save you an unnecessary
+grade of 0.
+</p>
+
+<h2>TECHNICAL RESOURCES</h2>
+
+<h3>HARDWARE REQUIREMENTS</h3>
+<h4>GENERAL</h4>
+<p>
+To ensure that your hardware (and software) can support access to
+<a href="">CougarView</a>, check out the following link to test your
+system:
+<a href="https://d2lhelp.view.usg.edu/knowledge.do?sysparm_document_key=kb_knowledge,80d6f09a94e3a000e6eb9ad8fcab2105">https://d2lhelp.view.usg.edu/knowledge.do?sysparm_document_key=kb_knowledge,80d6f09a94e3a000e6eb9ad8fcab2105</a>
+</p>
+
+<h4>COURSE SPECIFIC</h4>
+<p>
+If you plan on using your own hardware to support yourself in using the
+course specific software (<a href="#SoftwareCourseSpecific">see below</a>),
+then it is recommended that you have a hardware system with the following
+<em>minimum</em> configuration:
+<ol>
+<li> CPU: core i3 or equivalent
+<li> RAM: 4GB (6GB preferred)
+<li> HDD/SSD: 32GB free disk space
+<li> OS: Linux (Recent release of Ubuntu, Red Hat, or similar);
+		Windows 7/8/8.1; OS X (>= 10.8)
+</ol>
+</p>
+
+<h3>SOFTWARE REQUIREMENTS</h3>
+<h4>GENERAL</h4>
+<p>
+In order to access materials generally available to CSU students regardless
+of the specific course in which you might be enrolled, it is expected that
+you have access to:
+<ol>
+<li> An office suite such as Microsoft Office or Open Office
+<li> Acrobat Reader
+<li> A web browser, such as one of the following:
+	<ol>
+	<li> <a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a>
+	<li> <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>
+	<li> Safari
+	<li> Internet Explorer (Caution: IE is often problematic for D2L-CougarVIEW)
+	</ol>
+<li> Browser plugins appropriate for the display of pdf files,
+	QuickTime movie files, mp4 movie files, and others as needed.
+	Plugins can be usually be obtained via your browser's manufacturer's
+	website.
+</ol>
+</p>
+
+<p>
+If you need technical support or assistance configuring your computer, you
+can refer to the link located in the "Support Resources" widget located on
+your "My Home" and your "Course Home" pages. If you cannot solve your 
+problem after reviewing the knowledge base help pages, you can call Help Center
+24x7 and talk to a Help Center agent.  The number is 1-855-772-0423.
+</p>
+
+<a name="SoftwareCourseSpecific"></a>
+<h4>COURSE SPECIFIC</h4>
+<p>
+If you will be using a computer other than those in the Computer Lab (located
+in room 450 of the CCT building on the CSU main campus), the following
+describes the software you should ensure that you are able to install and
+operate on the computing resources that you'll be using. Don't wait until the
+last minute (e.g., several days before an assignment is due) before checking
+on these. 
+</p>
+
+<p>
+To complete all lessons, assignments, labs, and tests, you will need to
+access a computer with the following installed:
+<ol>
+<li> Operating System (need at least one):
+	<ol>
+	<li> Linux (try <a href="https://help.ubuntu.com/community/Lubuntu/">Lubuntu</a>)
+	<li> Windows 7/8.x
+	<li> Mac OSX [NOTE: While this should work, not all of the language systems may have specific installations for this OS platform.]
+	</ol>
+<li> Web Browser (need at least one):
+	<ol>
+	<li> <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a>
+	<li> <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>
+	<li> <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Internet Explorer</a>
+	</ol>
+<li> Environment (recommended if using Windows):
+	<ol>
+	<li> <a href="https://www.cygwin.com/">Cygwin</a> provides a Unix-like
+		environment on Windows, including many programming languages
+		(e.g., C, C++, Lisp, Prolog). It's highly recommended that you
+		install this as it will include some of the items from the
+		next two sections below). NOTE: The full install will
+		take a long time (e.g., 24 hours).
+	</ol>
+<li> Various Programming Languages/Systems (need all of these - though some
+	come with Cygwin):
+	<ol>
+	<li> <a href="http://www.clisp.org/">Common Lisp</a>
+	<li> <a href="http://www.swi-prolog.org/">Prolog</a>
+	<li> <a href="http://www.exept.de/en/smalltalk-x.html">Smalltalk</a>
+	<li> <a href="http://gcc.gnu.org/">C++</a> [also includes C and Objective-C]
+	<li> <a href="http://ccl.northwestern.edu/netlogo/">netLogo</a>
+
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE
+	<li> <a href="http://golang.org/">Go</a> [optional]
+	<li> <a href="http://www.ps.uni-saarland.de/alice/">ML</a> [optional]
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+
+	</ol>
+<li> IDE or text editor (need at least one):
+	<ol>
+	<li> <a href="http://www.eclipse.org/">Eclipse</a> is your best bet if you really need an IDE
+	<li> <a href="http://www.vim.org/">Vim</a> for text editing is often my personal preference
+	<li> <a href="http://www.nano-editor.org/">nano</a> is a simpler editor than <a href="http://www.vim.org/">Vim</a>. 
+	<li> <a href="http://notepad-plus-plus.org/">Notepad++</a>, a free replacement for Microsoft's Notepad, may be more familiar to many.
+	</ol>
+<li> Code Source Versioning (recommended):
+	<ol>
+	<li> <a href="https://subversion.apache.org/">Subversion</a> server
+	<li> <a href="http://tortoisesvn.net/">TortoiseSVN</a> web client
+	</ol>
+</ol>
+</p>
+
+<p>
+If, for some reason, you are unable to install any (or most) of the above,
+there is a web based system that <em>may</em> of interest to you. The
+<a href="http://compileonline.com">compileonline</a> system supports most
+(though not all) of the languages that we'll be examining in class (and
+have assignments for).  I have <em>not</em> used this system for anything
+substantial so I can't attest to it's appropriateness regarding the programming
+assignments.  You're free to investigate it. I'd certainly be interested in
+anyone's feedback regarding use of the site (both the good and the bad).
+</p>
+
+<h2>EXPECTATIONS</h2>
+
+<h3>CLASS CONDUCT</h3>
+<p>
+CSU is committed to open, frank, and insightful dialogue in all of its
+courses. Diversity has many manifestations, including diversity of thought,
+opinion, and values. Students are encouraged to be respectful of that
+diversity and to refrain from inappropriate commentary. Should such
+inappropriate comments occur, I will intervene as I monitor the dialogue
+in the discussions. I will request that inappropriate content be removed
+from the discussion and will recommend university disciplinary action
+if deemed appropriate. Students as well as faculty should be guided by
+common sense and basic etiquette. The following are good guidelines to
+follow:
+<ol>
+	<li> Never post, transmit, promote, or distribute content that is known to be illegal.
+	<li> Never post harassing, threatening, or embarrassing comments.
+	<li> If you disagree with someone, respond to the subject, not the person.
+	<li> Never post content that is harmful, abusive; racially, ethnically, or religiously offensive; vulgar; sexually explicit; or otherwise potentially offensive.
+</ol>
+</p>
+
+<h3>INSTRUCTOR RESPONSIBILITIES</h3>
+<ol>
+<li>
+I will arrive on time and be prepared to give a thoughtful and well organized
+lecture.
+<li>
+If I must miss a class, I will arrange for a substitute to cover the scheduled
+material.
+<li>
+Graded work will be evaluated and returned to you
+in a timely fashion, usually within 3 working days.
+<li>
+Graded work will be evaluated in a uniform and consistent manner.
+<li>
+On work days, I will check my electronic mail frequently throughout
+the day.
+<li>
+If you come to me with a question, I will ask you questions to determine
+any misunderstandings you might have of the material as well as to guide you
+in discovering the answer for yourself.
+Do not expect me to <em>just give you</em> the answer to questions.  If I
+do, you should feel cheated!
+<li>
+Do not expect this to be an easy course.  <em>It isn't!</em>
+</ol>
+
+
+<h3>STUDENT RESPONSIBILITIES</h3>
+<ol>
+<li>
+You will attend virtually every scheduled class meeting.
+<li>
+You will arrive on time and prepared to listen attentively, taking notes
+as necessary.
+<li>
+I expect you to have read over the appropriate materials and to have
+considered questions put to you before coming to class.
+<li>
+Graded work should be neat and turned in on time.
+<li>
+All graded work should be your own, with any questions concerning such
+work directed to the Professor only.
+<li>
+At least once every weekday, you should check your electronic mail and the
+WWW pages associated with this course.
+<li>
+When you come to me with a question, you should have made an attempt
+to find the answer on your own first.
+<li>
+If you have questions about the
+material or are having difficulty understanding it, please come by and
+ask me about it as soon as practical.  Since the material builds on itself,
+later material will not make sense until you understand the previous material.
+<li>
+I expect you to work hard, keep up, and master the material covered during
+the semester.
+</ol>
+
+
+<h2>Course Schedule</h2>
+<table border="1" style="text-align: center; vertical-align: center; margin: auto">
+	<tr>
+		<th style="text-align: right">Week</th>
+		<th><a href="http://www.amazon.com/dp/0521780985#_">Book</a></th>
+		<th>Additional Information</th>
+		<th>Assignments</th>
+		<th>Tests</th>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			17 - 21 Aug
+		</td>
+		<td>
+			1.1 & 1.4<br/>
+			3.1 - 3.3<br/>
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> 5135-U: <a href="syllabusUNDERGRAD.shtml">Syllabus</a>
+			<li> 5135-G: <a href="syllabusGRAD.shtml">Syllabus</a>
+			<li> <a href="topics/topic_01.shtml">Introduction</a>
+				[<a href="videos/video_01.shtml">videos</a>]
+			<li> <a href="topics/obfuscation.shtml">Obfuscation</a>
+				[Fun topic - not on exam]
+			<li> <a href="topics/topic_02.shtml">Programming Languages</a>
+				[<a href="videos/video_02.shtml">videos</a>]
+			<li> <a href="topics/topic_03.shtml">Lisp Basics</a>
+				[<a href="videos/video_03.shtml">videos</a>]
+			<li> <a href="topics/topic_04.shtml">Lisp Examples</a>
+				[<a href="videos/video_04.shtml">videos</a>]
+			</ol>
+		</td>
+		<td rowspan="4">
+			<a href="assign/assign1_e.shtml">Assignment #1</a>
+			<br/>Due 13 Sep<br/>(Sunday)
+		</td>
+		<td rowspan="7" style="vertical-align: bottom">
+			<strong>Test #1</strong>
+			<br/>30 Sep<br/>(Wednesday)
+			<br/>
+			<a href="studyQuestions_1.shtml">Self-Assessment</a>
+			<br/>
+			<br/>For <a href="http://onlinelearning.columbusstate.edu/proctoringinfostudents.php">Offsite Proctoring<a/>,<br/>an easy option is<br/><a href="http://proctoru.com/">ProctorU</a> at $19.75<br/>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			24 - 28 Aug
+		</td>
+		<td>
+			3.4.2 - 3.4.3<br/>
+			3.5<br/>
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> Complete weekly on-line quiz by Tuesday @ 10am.
+			<li> <a href="topics/topic_05.shtml">Lisp Examples (continued)</a>
+				[<a href="videos/video_05.shtml">videos</a>]
+			<li> Play the <a href="https://kahoot.it/">Kahoot</a> of the week.
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			31 Aug - 4 Sep
+		</td>
+		<td>
+			4.1 - 4.2.1<br/>
+			4.3 - 4.3.3<br/>
+			4.4<br/>
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> Complete weekly on-line quiz by Tuesday @ 10am.
+			<li> <a href="topics/topic_06.shtml">Process Memory Layout</a>
+				[<a href="videos/video_06.shtml">videos</a>]
+			<li> <a href="topics/topic_07.shtml">Reclaiming Unused Memory</a>
+				[<a href="videos/video_07.shtml">videos</a>]
+			<li> <a href="topics/topic_08.shtml">Compilers & Interpreters</a>
+				[<a href="videos/video_08.shtml">videos</a>]
+			<li> <a href="topics/topic_09.shtml">Grammars & Parsing</a>
+				[<a href="videos/video_09.shtml">videos</a>]
+			<li> <a href="topics/topic_10.shtml">Imperative vs Declarative</a>
+				[<a href="videos/video_10.shtml">videos</a>]
+			<li> Play the <a href="https://kahoot.it/">Kahoot</a> of the week.
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			7 - 11 Sep
+		</td>
+		<td>
+			15.1 - 15.4<br/>
+			15.5 - 15.8<br/>
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> Complete weekly on-line quiz by Tuesday @ 10am.
+			<li> <strong>No Class</strong> (Monday)
+			<li> <a href="topics/topic_11.shtml">Prolog Basics</a>
+				[<a href="videos/video_11.shtml">videos</a>]
+			<li> <a href="topics/topic_12.shtml">Prolog Examples</a>
+				[<a href="videos/video_12.shtml">videos</a>]
+			<li> <a href="topics/topic_13.shtml">Prolog Examples (continued)</a>
+				[<a href="videos/video_13.shtml">videos</a>]
+			<li> <strong>Withdraw Deadline</strong> (Thursday)
+			<li> Play the <a href="https://kahoot.it/">Kahoot</a> of the week.
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			14 - 18 Sep
+		</td>
+		<td>
+			6.1 - 6.6
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> Complete weekly on-line quiz by Tuesday @ 10am.
+			<li> <a href="topics/topic_14.shtml">Types</a>
+				[<a href="videos/video_14.shtml">videos</a>]
+			<li> <a href="topics/topic_15.shtml">Type Safety and Type Checking</a>
+				[<a href="videos/video_15.shtml">videos</a>]
+			<li> <a href="topics/topic_16.shtml">Type Inference</a>
+				[<a href="videos/video_16.shtml">videos</a>]
+			<li> <a href="topics/topic_17.shtml">Polymorphism & Overloading</a>
+				[<a href="videos/video_17.shtml">videos</a>]
+			<li> <a href="topics/topic_18.shtml">Type Declarations and Type Equality</a>
+				[<a href="videos/video_18.shtml">videos</a>]
+			<li> Play the <a href="https://kahoot.it/">Kahoot</a> of the week.
+			</ol>
+		</td>
+		<td rowspan="3">
+			<a href="assign/assign2_e.shtml">Assignment #2</a>
+			<br/>Due 4 Oct<br/>(Sunday)
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			21 - 25 Sep
+		</td>
+		<td>
+			12.1 - 12.6
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> Complete weekly on-line quiz by Tuesday @ 10am.
+			<li> <a href="topics/topic_19.shtml">C++ is a Proper Super Set of C</a>
+				[<a href="videos/video_19.shtml">videos</a>]
+			<li> <a href="topics/topic_20.shtml">C++ Example (ComplexNumber)</a>
+				[<a href="videos/video_20.shtml">videos</a>]
+			<li> <a href="topics/topic_21.shtml">C++ Example (Generic Queues)</a>
+				[<a href="videos/video_21.shtml">videos</a>]
+			<li> <a href="topics/topic_22.shtml">Other C++ features</a>
+				[<a href="videos/video_22.shtml">videos</a>]
+			<li> Play the <a href="https://kahoot.it/">Kahoot</a> of the week.
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			28 Sep - 2 Oct
+		</td>
+		<td>
+			7.1 - 7.2
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> Complete weekly on-line quiz by Tuesday @ 10am.
+			<li> <strong>Test #1</strong> (Wednesday)
+			<li> <a href="topics/topic_23.shtml">Block Structures</a>
+				[<a href="videos/video_23.shtml">videos</a>]
+			<li> <a href="topics/topic_24.shtml">Symbol Table Implementation</a>
+				[<a href="videos/video_24.shtml">videos</a>]
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			5 - 9 Oct
+		</td>
+		<td>
+			7.3
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> Complete weekly on-line quiz by Tuesday @ 10am.
+			<li> <a href="topics/topic_25.shtml">Process Memory Model (revisted)</a>
+				[<a href="videos/video_25.shtml">videos</a>]
+			<li> <a href="topics/topic_26.shtml">Code Blocks</a>
+				[<a href="videos/video_26.shtml">videos</a>]
+			<li> <a href="topics/topic_27.shtml">Sub-programs as First-Class Objects</a>
+				[<a href="videos/video_27.shtml">videos</a>]
+			<li> <a href="topics/topic_28.shtml">Activation Records (example)</a>
+				[<a href="videos/video_28.shtml">videos</a>]
+			<li> Play the <a href="https://kahoot.it/">Kahoot</a> of the week.
+			</ol>
+		</td>
+		<td rowspan="3">
+			<a href="assign/assign3_b.shtml">Assignment #3</a>
+			<br/>Due 25 Oct<br/>(Sunday)
+		</td>
+		<td rowspan="4" style="vertical-align: bottom">
+			<strong>Test #2</strong>
+			<br/>28 Oct<br/>(Wednesday)
+			<br/>
+			<a href="studyQuestions_2.shtml">Self-Assessment</a>
+			<br/>
+			<br/>For <a href="http://onlinelearning.columbusstate.edu/proctoringinfostudents.php">Offsite Proctoring<a/>,<br/>an easy option is<br/><a href="http://proctoru.com/">ProctorU</a> at $19.75<br/>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			12 - 16 Oct
+		</td>
+		<td>
+			11.4 - 11.5
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> Complete weekly on-line quiz by Tuesday @ 10am.
+			<li> <a href="topics/topic_29.shtml">Smalltalk Background</a>
+				[<a href="videos/video_29.shtml">videos</a>]
+			<li> <a href="topics/topic_30.shtml">Smalltalk Basics</a>
+				[<a href="videos/video_30.shtml">videos</a>]
+			<li> <a href="topics/topic_31.shtml">Smalltalk Exceptions</a>
+				[<a href="videos/video_31.shtml">videos</a>]
+			<li> <a href="topics/topic_32.shtml">Using Smalltalk-X</a>
+				[<a href="videos/video_32.shtml">videos</a>]
+			<li> <a href="topics/topic_33.shtml">Smalltalk Example (Factorial)</a>
+				[<a href="videos/video_33.shtml">videos</a>]
+			<li> Play the <a href="https://kahoot.it/">Kahoot</a> of the week.
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			19 - 23 Oct
+		</td>
+		<td>
+			11.6 - 11.7<br/>
+			8.1
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> Complete weekly on-line quiz by Tuesday @ 10am.
+			<li> <a href="topics/topic_34.shtml">Smalltalk Example (Division)</a>
+				[<a href="videos/video_34.shtml">videos</a>]
+			<li> <a href="topics/topic_35.shtml">Smalltalk Example (BinarySearch)</a>
+				[<a href="videos/video_35.shtml">videos</a>]
+			<li> <a href="topics/topic_36.shtml">Smalltalk Example (I/O)</a>
+				[<a href="videos/video_36.shtml">videos</a>]
+			<li> <a href="topics/topic_37.shtml">Smalltalk Example (MyInteger)</a>
+				[<a href="videos/video_37.shtml">videos</a>]
+			<li> <a href="topics/topic_38.shtml">More Smalltalk Resources</a>
+				[<a href="videos/video_38.shtml">videos</a>]
+			<li> <a href="topics/topic_39.shtml">Goto Statements vs Structured Programming</a>
+				[<a href="videos/video_39.shtml">videos</a>]
+			<li> <a href="topics/topic_40.shtml">Structured Control (Choices)</a>
+				[<a href="videos/video_40.shtml">videos</a>]
+			<li> <a href="topics/topic_41.shtml">Structured Control (Loops)</a>
+				[<a href="videos/video_41.shtml">videos</a>]
+			<li> Play the <a href="https://kahoot.it/">Kahoot</a> of the week.
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			26 - 30 Oct
+		</td>
+		<td>
+			8.2<br/>
+			9.1 - 9.5<br/>
+			10.1 - 10.3
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> Complete weekly on-line quiz by Tuesday @ 10am.
+			<li> <a href="topics/topic_42.shtml">Exceptions</a>
+				[<a href="videos/video_42.shtml">videos</a>]
+			<li> <a href="topics/topic_43.shtml">Structured Programming</a>
+				[<a href="videos/video_43.shtml">videos</a>]
+			<li> <a href="topics/topic_44.shtml">Support for Abstraction</a>
+				[<a href="videos/video_44.shtml">videos</a>]
+			<li> <a href="topics/topic_45.shtml">Generic Abstractions</a>
+				[<a href="videos/video_45.shtml">videos</a>]
+			<li> <a href="topics/topic_46.shtml">Object-Oriented Languages</a>
+				[<a href="videos/video_46.shtml">videos</a>]
+			<li> <a href="topics/topic_47.shtml">Object-Oriented Design</a>
+				[<a href="videos/video_47.shtml">videos</a>]
+			<li> <strong>Test #2</strong> (Wednesday)
+			</ol>
+		</td>
+		<td rowspan="3">
+			<a href="assign/assign4_b.shtml">Assignment #4</a>
+			<br/>Due 15 Nov<br/>(Sunday)
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			2 - 6 Nov
+		</td>
+		<td>
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> Complete weekly on-line quiz by Tuesday @ 10am.
+			<li> <a href="topics/topic_48.shtml">Modeling and Simulation</a>
+				[<a href="videos/video_48.shtml">videos</a>]
+			<li> <a href="topics/topic_49.shtml">Discrete vs Continuous</a>
+				[<a href="videos/video_49.shtml">videos</a>]
+			<li> <a href="topics/topic_50.shtml">Cellular Automata (CA)</a>
+				[<a href="videos/video_50.shtml">videos</a>]
+			<li> <a href="topics/topic_51.shtml">Agent-based Modeling (ABM)</a>
+				[<a href="videos/video_51.shtml">videos</a>]
+			<li> <a href="topics/topic_52.shtml">NetLogo Basics</a>
+				[<a href="videos/video_52.shtml">videos</a>]
+			<li> <a href="topics/topic_53.shtml">NetLogo Example (SRDP)</a>
+				[<a href="videos/video_53.shtml">videos</a>]
+			<li> Play the <a href="https://kahoot.it/">Kahoot</a> of the week.
+			</ol>
+		</td>
+		<td rowspan="6" style="vertical-align: bottom">
+			<strong><a href="https://academics.columbusstate.edu/exams/fall15.php">Final Exam</a></strong>
+			<br/>11 Dec<br/>(Friday)
+			<br/>3:30 - 5:30pm
+			<br/>
+			<a href="studyQuestions_3.shtml">Self-Assessment</a>
+			<br/>
+			<br/>For <a href="http://onlinelearning.columbusstate.edu/proctoringinfostudents.php">Offsite Proctoring<a/>,<br/>an easy option is<br/><a href="http://proctoru.com/">ProctorU</a> at $19.75<br/>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			9 - 13 Nov
+		</td>
+		<td>
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> Complete weekly on-line quiz by Tuesday @ 10am.
+			<li> <a href="topics/topic_54.shtml">NetLogo Example (Forest Fire)</a>
+				[<a href="videos/video_54.shtml">videos</a>]
+			<li> <a href="topics/topic_55.shtml">NetLogo Example (Life)</a>
+				[<a href="videos/video_55.shtml">videos</a>]
+			<li> <a href="topics/topic_56.shtml">NetLogo Example (Schelling's Segregation)</a>
+				[<a href="videos/video_56.shtml">videos</a>]
+			<li> <a href="topics/topic_57.shtml">NetLogo Example (Brownian Motion)</a>
+				[<a href="videos/video_57.shtml">videos</a>]
+			<li> <a href="topics/topic_58.shtml">NetLogo Example (Termites)</a>
+				[<a href="videos/video_58.shtml">videos</a>]
+			<li> <a href="topics/topic_59.shtml">NetLogo Example (Pandemic)</a>
+				[<a href="videos/video_59.shtml">videos</a>]
+			<li> Play the <a href="https://kahoot.it/">Kahoot</a> of the week.
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			16 - 20 Nov
+		</td>
+		<td>
+			13.1 - 13.3
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> Complete weekly on-line quiz by Tuesday @ 10am.
+			<li> <a href="topics/topic_60.shtml">Java History</a>
+				[<a href="videos/video_60.shtml">videos</a>]
+			<li> <a href="topics/topic_61.shtml">Java Goals & Design Decisions</a>
+				[<a href="videos/video_61.shtml">videos</a>]
+			<li> <a href="topics/topic_62.shtml">Java Classes</a>
+				[<a href="videos/video_62.shtml">videos</a>]
+			<li> <a href="topics/topic_63.shtml">Java Inheritance</a>
+				[<a href="videos/video_63.shtml">videos</a>]
+			<li> <a href="topics/topic_64.shtml">Java Types & Subtyping</a>
+				[<a href="videos/video_64.shtml">videos</a>]
+			<li> Play the <a href="https://kahoot.it/">Kahoot</a> of the week.
+			</ol>
+		</td>
+		<td rowspan="4">
+			<a href="assign/assign5_a.shtml">Assignment #5</a>
+			<br/>Due 6 Dec<br/>(Sunday)
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			23 - 27 Nov
+		</td>
+		<td colspan="2"><strong>Thanksgiving Break</strong> (No Classes)</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			30 Nov - 4 Dec
+		</td>
+		<td>
+			13.4<br/>
+			14.1<br/>
+			14.4
+		</td>
+		<td>
+			<ol style="text-align: left">
+			<li> Complete weekly on-line quiz by Tuesday @ 10am.
+			<li> <a href="topics/topic_65.shtml">Java Virtual Machine</a>
+				[<a href="videos/video_65.shtml">videos</a>]
+			<li> <a href="topics/topic_66.shtml">Concurrency</a>
+				[<a href="videos/video_66.shtml">videos</a>]
+			<li> <a href="topics/topic_67.shtml">Exclusion Approaches</a>
+				[<a href="videos/video_67.shtml">videos</a>]
+			<li> <a href="topics/topic_68.shtml">Concurrency in Java</a>
+				[<a href="videos/video_68.shtml">videos</a>]
+			<li> Play the <a href="https://kahoot.it/">Kahoot</a> of the week.
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			7 - 11 Dec
+		</td>
+		<td colspan="2">
+			Q &amp; A before Final Exam<br/>
+			<strong>Study Day</strong> (Tuesday)
+		</td>
+	</tr>
+</table>
+
+<h2>Non-Repudiability</h2>
+<p>
+Please print this syllabus, fill out the below information, and return it
+to me (either in hardcopy or email a scanned copy to me at
+<a href="mailto:eckart_dana@columbusstate.edu">eckart_dana@columbusstate.edu</a>) by noon on Friday of the first week of classes:
+</p>
+
+<br/>
+<br/>
+<br/>
+Student's name: _____________________________________________________________<br/>
+(please print)<br/>
+<br/>
+[Optional] Where can I reach you in case it becomes necessary?<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Email address that you use regularly: _____________________________________________<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Phone number(s): ___________________________________________________________<br/>
+<br/>
+<br/>
+<br/>
+<strong>Declaration:</strong> I have read, understood and agree to abide by
+the policies mentioned in the syllabus pertaining to the course. In particular,
+I agree to abide by the assignment policy/late work policy, attendance policy,
+academic dishonesty policy, website policy, and exam policy.
+<br/>
+<br/>
+<br/>
+Signature: _____________________________________________ Date: _______________<br/>
+<br/>
+<br/>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

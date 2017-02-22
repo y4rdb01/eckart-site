@@ -1,0 +1,253 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Concurrency
+</p>
+
+<ol>
+<li> Concurrency occurs when two or more sequences of actions (process,
+	thread, or task) are to be accomplished (seemingly) simultaneously.
+	This supports different "speeds" of execution for different
+	processes (e.g., I/O vs compute intensive tasks).
+	NOTE: Process is often used to mean an OS process (with it's own
+	address space), whereas threads share an address space (sometimes
+	called a lightweight process). Unless otherwise indicated from
+	context, the terms will be used interchangeably).
+<li> Multiprogramming vs Multiprocessing
+	<ol>
+	<li> Multiprogramming occurs when the different processes
+		share the same processor, and the actions are
+		interleaved in an unknown (and probably variable)
+		fashion.
+	<li> Multiprocessing happens when the different processes
+		are executed on different processors. Shared memory
+		or the passing of messages is used to allow the
+		threads to communicate with one another.
+	<li> Commonly a mix of the above approaches (Multipro*?) is
+		used, with multiple processors performing
+		multiprogramming.
+	<li> While all modern OSs support multipro*, the use of
+		system calls is generally heavyweight and slower.
+		Supporting multipro* at the language level can
+		often simplify the programming and provide more
+		resource efficient execution.
+	</ol>
+<li> Execution Order and Non-determinism
+	<ol>
+	<li> Programs seldom are entirely composed of actions that
+		should be performed simultaneously. There's usually
+		a mix with some actions, some simultaneous and others 
+		done singly. For example, a single person may make
+		a shopping list (single thread) but multiple people
+		may go to different stores to buy the items (multiple
+		threads), before coming back together to use the items
+		to cook a mean (single thread).
+	<li> Language constructs can be used to identify actions
+		that must be single (vs multi) threaded:
+<img src="POSET.png" alt="Partially Ordered Set example" style="float: right" width="553" height="693" />
+<pre style="display: inline-block"><code>
+	statement_1;	//
+	statement_2;	// Single threaded
+	statement_3;	//
+	MULTIPRO
+		{	// Possible concurrent thread 1
+			statement_4;
+			statement_5;
+			statement_6;
+		}
+		{	// Possible concurrent thread 2
+			statement_7;
+			statement_8;
+			statement_9;
+		}
+	ORPITLUM
+	statement_10;	//
+	statement_11;	// Single threaded
+	statement_12;	//
+</code></pre>
+		<ol>
+		<li> Statements 1-3 must happen in numerical order and
+			complete before either thread 1 or 2 begins.
+		<li> The statements in threads 1 and 2 may be
+			interleaved (multiprogramming) or actually
+			executed simultaneously (multiprocessing).
+		<li> All statements in threads 1 and 2 (statements 4-9)
+			must complete before statement 10 begins.
+		<li> Statements 10-12 must happen in numerical order,
+			with the previously numbered statement
+			completeing its execution before the next
+			statement begin execution.
+		<li> The <a href="https://en.wikipedia.org/wiki/Partially_ordered_set">Partially Ordered Set</a>
+			(POSET) pictured to the right
+			gives a graphical depiction of the possible orderings.
+			The arrows indicate which blocks can be compared
+			(i.e., ordered) with respect to one another. Note that
+			there are no relationships between some of the blocks
+			(e.g., 5 and 7) representing that either one could
+			occur before the other.
+		</ol>
+	<li> Statements 1-3 and 10-12 are <em>deterministic</em>, 
+		meaning that the order of their execution will
+		always be the same, and the result of that
+		execution should always be the same (assuming
+		that each individual statement is deterministic).
+	<li> Since the statements in threads 1 and 2 can happen
+		in any order (including at exactly the same time),
+		they are said to be <em>non-deterministic</em>.
+		Depending upon the statements, non-deterministic
+		execution can result in different final program
+		states (including different output).
+	<li> Non-deterministic processes are difficult to debug:
+		<ol>
+		<li> An execution order that causes a bug may only
+			happen rarely.
+		<li> Only specific data may cause the bug, and if
+			that data is collected in real-time, it
+			may be difficult or impossible to recreate
+			(unless all input sequences are saved -
+			including the <em>exact</em> timing of the input).
+		<li> If a bug was found and corrected, how do you
+			"prove" that it's really fixed? This is one
+			reason that formal proofs of program
+			correctness are used in critical systems
+			particularly if multipro* is possible.
+		</ol>
+	<li> The "ask patches [...]" and "ask turtles [...]" actions
+		in NetLogo are examples of non-determinism, while
+		the "observer" actions are deterministic since there's
+		only one observer.
+	</ol>
+<li> Communication, Coordination, and Atomicity
+	<ol>
+	<li> Communication enables processes to share information
+		with one another. This is commonly accomplished via
+		either shared memory locations (i.e., variables) or
+		by explicitly passing messages between the processes.
+		<ol>
+		<li> Shared memory can create problems if
+			reads/writes aren't atomic. That is, it might
+			be possible to end up with an "impossible"
+			variable value. In Java, declaring a variable
+			to be <a href="http://tutorials.jenkov.com/java-concurrency/volatile.html"><em>volatile</em></a> ensures that
+			reads/writes must happen from the shared
+			memory (threads are not allowed to cache
+			the variable/attribute).
+		<li> Message Passing:
+			<ol>
+			<li> Messages between processes can be
+				buffered (data is kept until "read")
+				or unbuffered (data is probably lost
+				if recipient isn't ready for it).
+			<li> Synchronous messages require that both the
+				sender and reciever are both ready at
+				the same time (e.g., phone
+				conversation), whereas asynchronous
+				messages can be sent before the
+				receiver is ready and the sender doesn't
+				have to wait for the reciever to get the
+				message (e.g., email, SMS texts).
+			<li> Preserving message order (i.e., messages
+				are recieved in the same order that
+				they were sent) is important for some
+				applications (e.g., VOIP) and less so
+				for others (e.g., http image requests).
+			</ol>
+		</ol>
+	<li> Coordination enables multipro* threads to synchronize,
+		or reach a common point in the computation. Some
+		degree of coordination is often necessary even for
+		applications that are composed almost entirely of
+		separate actions (e.g., time steps in a weather or
+		climate simulation).
+	<li> Atomicity means that an action (e.g., statement) is
+		"all or nothing". For example, if a variable consists
+		of multiple parts that can be assigned individually,
+		then multiple threads could assign different parts of
+		the variable incompatible values, possibly yielding
+		an overall value/state of the entire variable that
+		isn't permissible:
+<pre><code>
+	class Rational {
+		private static int num = 0;
+		private static int denom = 1;
+		public Rational(int top, int bottom) { ... }
+	}
+
+	Rational first = Rational(2, 4);
+		// first.num = 2
+		// first.denom = 4
+	Rational second = Rational(3, 5);
+		// second.num = 3
+		// second.denom = 5
+
+	// Should NOT end up with num = 2 and denom = 5.
+</code></pre>
+	</ol>
+<li> Mutual Exclusion means that only one process has access to
+	a particular section of the code (the <em>critical
+	section</em>) at any one time.  <em>Critical sections</em>
+	of code contain access to one or more shared resources
+	(e.g., memory/variables, files). Also desirable are:
+	<ol>
+	<li> Progress, so that if no process is currently in the
+		critical section, then a waiting process may enter
+		that section of code.
+	<li> Bounded waiting, so that a process waiting to enter
+		the critical section doesn't wait indefinitely.
+	</ol>
+<li> Deadlock occurs when 2 or more processes cannot proceed because
+	each is waiting for the other to complete a particular action.
+	Deadlocks can only occur if all 4 of the following
+	(<a href="https://en.wikipedia.org/wiki/Deadlock#Necessary_condition">Coffman Conditions</a>)
+	are true:
+	<ol>
+	<li> Mutual Exclusion - at least one resource needed by the
+		processes cannot be shared (used "simultaneously").
+	<li> Resource Hold & Wait - each process obtains needed
+		resources (e.g., memory, files) and doesn't relenquish
+		them until it's finished. Furthermore, it needs
+		additional (non-sharable) resource(s) currently being
+		used by another process.
+	<li> No Preemption - Resources can't be taken away from a
+		process that is currently holding them.
+	<li> Circular Wait - Occurs when a directed graph of processes
+		(nodes) that are waiting for resources held by another
+		process (directed links) contains a cycle.
+		<img src="DirectedCyclicGraph.png" alt="Directed Graph with a cycle" width="450" height="280" />
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_66.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

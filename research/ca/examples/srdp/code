@@ -1,0 +1,23 @@
+# scissors (0), rock (1), dynamite (2), paper (3)
+
+2 dimensions of 0..3
+
+# Get the Moore neighborhood
+#
+neighbor[] for 8
+	:= [0, 1], [1, 1], [1, 0], [1, -1], [0, -1], [-1, -1], [-1, 0], [-1, 1]
+
+const threshold := 3
+
+sum[] for 4 := 0, 0, 0, 0
+
+forall i
+	forall j
+		sum[j] := sum[j] + 1 when neighbor[i] = j
+	end
+end
+
+# Find out who lives and who dies.
+forall j
+	cell := j when sum[j] >= threshold & cell = j-%1
+end

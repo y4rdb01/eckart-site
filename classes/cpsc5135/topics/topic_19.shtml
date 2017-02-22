@@ -1,0 +1,92 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- C++ is a Proper Super Set of C
+</p>
+
+<ol>
+<li> Keeps the /* ... */ comment (which can be ambiguous in code).
+<pre><code>
+	int *p;	// Pointer to an int.
+	float x = 3;
+	p = malloc(sizeof(int));
+	*p = 8;
+	x = 4.0/*p /* is a pointer, but is this a comment? */;
+</code></pre>
+<li> Has all statements from C, including the ambiguous if-then-else.
+<li> Retains all declarations (e.g., typedef, struct) from C.
+<li> Array names are pointers to the first item.
+<li> Retains address operator (&) and dangling reference possibility
+	for items on the run-time stack.
+<li> Ability to pass functions as paramters:
+<pre><code>
+int add(int x, int y) { return x + y; }
+int doIt(int (*funPtr) (int, int), int x, int y) { return funPtr(x, y); }
+int main(int argc, char* argv[]) {
+	int (*fp) (int, int);
+	fp = add;
+	printf("fp(%d, %d)=%d\n", x, y, doIt(fp, x, y));
+}
+</code></pre>
+<li> Functions with a variable number of parameters (e.g., printf):
+<pre><code>
+typename function(type_1 param_1, type_2 param_2, ...) {
+	type_N param_N;
+	int numArgs = some_process_based_on(param_1, param_2);
+	va_list varList;
+
+	va_start(varList, numArgs);
+	for (int i = 0; i < numArgs; i++) {
+		// Get the desired (next) argument.
+		param_N = va_arg(varList, i);
+	}
+	va_end(varList);
+	...
+}
+</code></pre>
+<li> C libraries can still be used, but aren't necessarily compatible
+	with C++ libraries (e.g., using "stdio" and "iostream" on
+	same input source).
+<li> The C++ istreams handle end-of-file recognition a bit different than
+	does C. In C, functions like "getc" return a -1 value (EOF) when the
+	end-of-file is encountered. The istreams in C++ use the "eof" member
+	function to check of the end-of-file condition.
+	<a href="../cc/copy.cc">Here</a> is a simple example that copies the
+	standard input to the standard output. Note the use of the type cast.
+	Why is it necessary?
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_19.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

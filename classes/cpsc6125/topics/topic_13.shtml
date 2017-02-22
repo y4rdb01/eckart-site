@@ -1,0 +1,117 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- IPC: Mutual Exclusion with Busy Waiting
+</p>
+
+<ol>
+<li> Disabling interrupts - prevents the running process from
+	being interrupted while in its critical section.
+	Not a good solution since a user program could starve
+	others from the CPU, or if there are multiple CPUs this
+	doesn't work (as interrupts would only be disabled for
+	one of the CPUs).  Yet this technique is sometimes
+	useful for the kernel (e.g., when updating a scheduler table).
+<li> Strict Alternation - N processes can agree to take turns
+	using a shared variable to indicate whose turn
+	it is. Do this by reading/testing the variable until a
+	certain value is seen then enter the critical section.
+	However, this means that
+	the other (sharing) processes must continually
+	check the value of the variable to determine whose
+	turn it is.  Such busy waiting (called spin locking)
+	wastes CPU resources and should only be used if the wait is
+	expected to be VERY short. This solution assumes strict
+	alternation and so wouldn't work well for the print spooler
+	(and print daemon) example from the book since many files
+	may (be ready to) print before another file is spooled.
+	Also, if one process is slower than another, it will
+	wait a LONG time for the other to take its turn.
+<li> <a href="https://en.wikipedia.org/wiki/Peterson's_algorithm">Peterson's Solution</a>
+	- using lock variables and turn taking
+	Dekker came up with a solution.  It is quite complex,
+	but Peterson simplified it.
+<pre><code>
+	int turn;
+	int interested[2];	// Solution for 2 processes, both are 0.
+
+	void enterRegion(int process) {
+		int other = 1 - process;	// other process.
+		interested[process] = 1;	// process IS interested.
+		turn = process;
+
+		/* If both processes are interested then the last one to
+		   set "turn" (before getting to the while loop) waits.
+		*/
+		while (turn == process && interested[other]);
+	}
+
+	void leaveRegion(int process) {
+		interested[process] = 0;	// process NOT interested.
+	}
+</code></pre>
+<li> Lock Variables - use a variable value to indicate if a
+	critical section has been entered.  First read
+	the value and then set it.  This still has a
+	race condition if the test and set are 2 different
+	instructions.  Thus the birth of single test and
+	set instructions.
+<li> The TSL Instruciton - test and set lock, reads an address
+	in memory, assigns it to a register, and (simultaneously
+	and without interruption) writes a non-zero value to that
+	memory address.  The
+	CPU doing the TSL also locks the memory bus to keep
+	other CPUs from doing a simultaneous TSL.
+<pre><code>
+	enterRegion:
+		TSL regN, lock	; copy "lock" into register N, set "lock" to 1
+		CMP regN, #0
+		JNE enterRegion ; if register N isn't 0 then loop ("lock" was set)
+		RET		; if register N is 0 then enter critical section
+
+	leaveRegion:
+		MOV lock, #0	; set "lock" to 0
+		RET
+</code></pre>
+<li> Although Peterson's solution and TSL work, they both
+	require a busy wait.  This can cause BIG problems if
+	the process that is busy waiting has higher priority.
+	In fact this can starve other processes. This is called
+	the <em>priority inversion problem</em>.
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_13.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

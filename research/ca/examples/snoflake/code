@@ -1,0 +1,33 @@
+# An fractal snow flake based on the method Mitchel Resnick presents 
+# in his book "Turtles, Termites, and Traffic Jams: Explorations in 
+# Massively Parallel Microworlds".
+#
+2 dimensions of 
+        snoflake of 0..1
+agent of
+	dir of 0..3
+	dist of 0..255
+	len of 0..255
+end
+
+forall a:agent
+	cell.snoflake := 1
+
+	if a.dist = 0 & a.len | time = 0 then
+		# Create four turtles to replace this one.
+
+		dist := a.len      when time = 0
+		     := a.len*46/100 otherwise
+
+		agent(a.dir, dist, dist) -> cell
+		agent((a.dir+1)%4, dist, dist) -> cell
+		agent((a.dir+2)%4, dist, dist) -> cell
+		agent((a.dir+3)%4, dist, dist) -> cell
+	elsif a.dist > 0 then
+		agent(a.dir, a.dist-1, a.len)
+			-> [0, 1] when a.dir = 0
+			-> [1, 0] when a.dir = 1
+			-> [0, -1] when a.dir = 2
+			-> [-1, 0] when a.dir = 3
+	end
+end

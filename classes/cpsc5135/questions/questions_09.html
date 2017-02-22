@@ -1,0 +1,143 @@
+<li> The complete set of non-terminals in the following grammar is:
+	<pre><code>
+	[1] &lt;item> ::= "(" &lt;list> ")"
+	[2]	      | ATOM
+	[3]	      | NUMBER
+	[4] &lt;list> ::= &lt;item> &lt;list>
+	[5]           | &lt;item> "." &lt;item>
+	[6]	      | epsilon
+	</code></pre>	
+	<ol class="answer_list">
+	<li> ATOM, NUMBER
+	<li> "(", ")", "."
+	<li> "(", ")", ATOM, NUMBER, "."
+	<li> &lt;item>, &lt;list>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The complete set of terminals in the following grammar is:
+	<pre><code>
+	[1] &lt;item> ::= "(" &lt;list> ")"
+	[2]	      | ATOM
+	[3]	      | NUMBER
+	[4] &lt;list> ::= &lt;item> &lt;list>
+	[5]           | &lt;item> "." &lt;item>
+	[6]	      | epsilon
+	</code></pre>	
+	<ol class="answer_list">
+	<li> ATOM, NUMBER
+	<li> "(", ")", "."
+	<li> "(", ")", ATOM, NUMBER, "."
+	<li> &lt;item>, &lt;list>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given the grammar:
+	<pre><code>
+	[1] &lt;statement> ::= "if" &lt;boolean> "then" &lt;statement>
+	[2]	      | "if" &lt;boolean> "then" &lt;statement> "else" &lt;statement>
+	[3]	      | VARIABLE "=" &lt;expression>
+	</code></pre>	
+	which of following is the left-most derivation (with &lt;statement> as
+	the starting non-terminal) corresponding to this interpretation
+	(as indicated by indentation)?
+	<pre><code>
+	if &lt;boolean_1> then
+		if &lt;boolean_2> then
+			a = &lt;expression>
+		else
+			b = &lt;expression>
+	</code></pre>	
+	<ol class="answer_list">
+	<li> 1 -> 2 -> 3 -> 3
+	<li> 2 -> 1 -> 3 -> 3
+	<li> 2 -> 3 -> 1 -> 3
+	<li> 1 -> 3 -> 2 -> 3
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given the grammar:
+	<pre><code>
+	[1] &lt;statement> ::= "if" &lt;boolean> "then" &lt;statement>
+	[2]	      | "if" &lt;boolean> "then" &lt;statement> "else" &lt;statement>
+	[3]	      | VARIABLE "=" &lt;expression>
+	</code></pre>	
+	which of following is the left-most derivation (with &lt;statement> as
+	the starting non-terminal) corresponding to this interpretation
+	(as indicated by indentation)?
+	<pre><code>
+	if &lt;boolean_1> then
+		if &lt;boolean_2> then
+			a = &lt;expression>
+	else
+		b = &lt;expression>
+	</code></pre>	
+	<ol class="answer_list">
+	<li> 1 -> 2 -> 3 -> 3
+	<li> 2 -> 1 -> 3 -> 3
+	<li> 2 -> 3 -> 1 -> 3
+	<li> 1 -> 3 -> 2 -> 3
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given the grammar:
+	<pre><code>
+	[1] &lt;item> ::= "(" &lt;list> ")"
+	[2]	      | ATOM
+	[3] &lt;list> ::= &lt;item> &lt;list>
+	[4]           | &lt;item> "." &lt;item>
+	[5]	      | epsilon
+	</code></pre>	
+	which of following is the left-most derivation (with &lt;item> as
+	the starting non-terminal) of?
+	<pre><code>
+	( a ( b . c ) d )
+	</code></pre>	
+	<ol class="answer_list">
+	<li> 1 -> 3 -> 3 -> 2 -> 1 -> 4 -> 3 -> 2 -> 2 -> 2 -> 5
+	<li> 1 -> 3 -> 2 -> 1 -> 3 -> 2 -> 4 -> 3 -> 2 -> 2 -> 5
+	<li> 1 -> 3 -> 3 -> 3 -> 1 -> 4 -> 2 -> 2 -> 2 -> 2 -> 5
+	<li> 1 -> 3 -> 2 -> 3 -> 1 -> 4 -> 2 -> 2 -> 3 -> 2 -> 5
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given the grammar:
+	<pre><code>
+	[1] &lt;item> ::= "(" &lt;list> ")"
+	[2]	      | ATOM
+	[3] &lt;list> ::= &lt;item> &lt;list>
+	[4]           | &lt;item> "." &lt;item>
+	[5]	      | epsilon
+	</code></pre>	
+	which of following is the left-most derivation (with &lt;item> as
+	the starting non-terminal) of?
+	<pre><code>
+	( a ( b ) )
+	</code></pre>	
+	<ol class="answer_list">
+	<li> 1 -> 1 -> 2 -> 1 -> 1 -> 3 -> 2 -> 5
+	<li> 1 -> 4 -> 2 -> 1 -> 2 -> 3 -> 2 -> 5
+	<li> 1 -> 3 -> 3 -> 2 -> 1 -> 2 -> 3 -> 5 -> 5
+	<li> 1 -> 3 -> 2 -> 3 -> 1 -> 3 -> 2 -> 5 -> 5
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are parts of a BNF grammar:
+	<ol class="answer_list">
+	<li> Start symbol (a non-terminal)
+	<li> Set of terminal symbols
+	<li> Set of production rules
+	<li> Set of regular expressions
+	<li> Set of non-terminal symbols
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are allowed in an Extended BNF grammar?
+	<ol class="answer_list">
+	<li> "*" to indicate 0 or more times
+	<li> "[ ]" to indicate 0 or 1 times
+	<li> "{ }" to indicate 0 or more times
+	<li> "&lt; >" to indicate 1 or more times
+	<li> None of the above
+	</ol>
+</li><br/>

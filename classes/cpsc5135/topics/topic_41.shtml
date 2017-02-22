@@ -1,0 +1,140 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Structured Control (Loops)
+</p>
+
+<ol>
+<li> Structured Loops (using a more Ada-esque style syntax)
+	<ol>
+	<li> <em>while-loop-end</em> (and <em>loop-until</em>)
+		executes the statements in the loop body
+		as long as a particular condition is true (false).
+		Note that although the statements may never be
+		executed for the <em>while-loop-end</em>, they
+		will always be executed at least once in the
+		<em>loop-until</em>.  In EBNF they look like:
+<pre><code>
+	&lt;statement> ::= while &lt;boolean-expr> loop
+				{ &lt;statement> }
+			end
+	&lt;statement> ::= loop
+				{ &lt;statement> }
+			until &lt;boolean-expr>
+</code></pre>
+	<li> <em>for-loop-end</em> executes the statements in the
+		body while one (or more) indices take on successive
+		values. A <em>continue</em> (or <em>next</em>)
+		statement is sometimes provided to enable the
+		remainder of the body to be skipped (jumping to the
+		bottom of the block) and execution to resume again
+		at the top of the loop using the next set of indexed
+		value(s), if any (and if not, then the loop is
+		complete).  There are many variants of such loops in
+		various languages, but their general design is
+		similar to the following EBNF:
+<pre><code>
+	&lt;statement> ::= for &lt;index> &lt;index_val> { ; &lt;index> &lt;index_val> } loop
+				{ &lt;statement> }
+			end
+	&lt;statement> ::= next [ &lt;index> { , &lt;index> } ]
+	&lt;index_val> ::= from &lt;expr> to &lt;expr> by &lt;expr>
+		    ::= in &lt;collection-iterator>
+</code></pre>
+		The use of multiple indices and the <em>next</em>
+		statement provide a more direct means for describing
+		some types of logic (e.g., merging multiple
+		sorted lists into a single list). For more, see
+		<a href="http://dl.acm.org/citation.cfm?doid=24714.24727">Iteration and Abstract Data Types</a>.
+	<li> <em>loop-end</em> (with <em>exit</em>/<em>break</em>)
+		provides a very generic looping construct that can
+		be terminated with an <em>exit</em> or <em>break</em>
+		statement. [The <em>exit</em> or <em>break</em>
+		could also be used with the above loop types.]
+		Ada supports a named <em>loop-end</em> which enables
+		escape from a multiply nested loop, which obviates
+		the need for "loop escape flags" that tend to
+		obfuscate the desired behavior. The optional "when"
+		clause on the <em>exit</em> improves readability
+		over embedding it within an <em>if-then-end</em>
+		statement. The EBNF looks like:
+<pre><code>
+	&lt;statement> ::= [ &lt;name> ] loop 
+				{ &lt;statement> }
+			end [ &lt;name> ]
+	&lt;statement> ::= exit [ &lt;name> ] [ when &lt;boolean-expr> ]
+</code></pre>
+		The <em>exit-when</em> provides an excellent means
+		for implementing near duplicates of both the
+		<em>while-loop-end</em> and <em>loop-until</em>
+		loops. Moreover it provides a good solution for the
+		<a href="http://www.cs.duke.edu/~ola/patterns/plopd/loops.html#loop-and-a-half">loop and a half problem</a>
+		(in which some portion of the
+		loop code gets replicated before or after the loop
+		to handle repeated beginning/end logic).
+<pre><code>
+	Outer loop exit when end_of_file
+		// Similar to a while-loop
+		...
+		Inner loop
+			...
+			exit Outer when exit_nested_loops
+			...
+			// Similar to a loop-until
+			
+			exit when done
+		end Inner
+		...
+		exit when found_what_I_wanted
+		...
+	end Outer
+</code></pre>
+		</ol>
+<li> Early exits from a block (sub-program, loop, case) via a
+	<em>return</em>, <em>break</em> or <em>exit</em> statement
+	are still considered poor practice by some. However, in my
+	experience, the code that results from forcing exeuction
+	to "complete" only at the end of a block can be just as poor
+	(often requiring much of the code to be
+	needlessly enclosed in a conditional and/or introducing
+	additional variables to control the flow of execution).
+	The goal is for code to be simple to under and easy to
+	debug - follow the style that meets these goals as the
+	situation dictates. Commenting early "exits" is nearly
+	always a best practice.
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_41.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

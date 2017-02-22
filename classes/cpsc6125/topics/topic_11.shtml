@@ -1,0 +1,190 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Threads and Systems Calls
+</p>
+
+<ol>
+<li> Like processes, threads enable multiple actions to occur seemingly
+	simultaneously (usually reducing the average response time),
+	and enable more efficient use of the CPU's capabilities
+	(i.e., less time spent waiting/idle).
+<li> Threads are "lightweight processes" that:
+	<ol>
+	<li> can be created (10-100 times faster) and destroyed much more
+		quickly than processes;
+	<li> switch from one to another faster than processes; and
+	<li> share the same address space.
+	</ol>
+<li> Classical threads
+	<ol>
+	<li> Processes group together various resources (e.g., program
+		code, data, files, other resources) making them easier to
+		manage.
+	<li> A thread is an execution within the process. Threads must
+		maintain their own program counter and run-time stack.
+		Every process contains at least one thread.  Threads are
+		scheduled for execution on the CPU.
+	<li> Because the address space for threads is shared, one thread
+		can alter values set (and/or used by) another thread. Thus
+		care must be taken for global/static variables and heap
+		allocated objects. Values on the run-time stack (e.g.,
+		local variables, actual parameters) belong solely to the
+		thread associated with that stack, so other threads are
+		unable to use or alter those values.
+	<li> Process vs Thread
+		<table>
+		<tr>
+			<th>Process</th>
+			<th>Thread</th>
+		</tr>
+		<tr>
+			<td>
+				<ol>
+				<li> Address Space
+				<li> Static variables
+				<li> Heap
+				<li> (open) File descriptors
+				<li> Child processes
+				<li> Pending alarms
+				<li> Signals and signal handlers
+				<li> Accounting information
+				</ol>
+			</td>
+			<td>
+				<ol>
+				<li> Program counter
+				<li> Registers
+				<li> Run-time stack
+				<li> State (blocked, ready, running)
+				</ol>
+			</td>
+		</tr>
+		</table>
+	</ol>
+<li> POSIX threads
+	<ol>
+	<li> <a href="http://www.unix.com/man-page/all/0/pthread_attr/">pthread_attr_init</a>
+		- Initializes the specified attribute structure with the
+		default thread's attributes.
+	<li> <a href="http://www.unix.com/man-page/posix/3p/pthread_create/">pthread_create</a>
+		- Creates a new thread using the specified attribute structure.
+		Returns 0 on success and a non-zero error code if the new
+		thread cannot be created.
+	<li> <a href="http://www.unix.com/man-page/posix/3/pthread_self/">pthread_self</a>
+		- Returns the ID of the calling thread (analogue of the PID).
+	<li> <a href="http://www.unix.com/man-page/posix/3/pthread_join/">pthread_join</a>
+		- Waits (blocks) until the indicated thread has completed.
+		Returns 0 on success and a non-zero error code upon failure.
+	<li> <a href="http://www.unix.com/man-page/All/3/pthread_yield/">pthread_yield</a>
+		- The calling thread gives up the CPU and is put on the end
+		of the ready queue (corresponding to it's static priority).
+		Returns 0 on success and a non-zero error code upon failure.
+	<li> <a href="http://www.unix.com/man-page/posix/3/pthread_exit/">pthread_exit</a>
+		- Terminates the calling thread. If this is the last thread
+		for a process, then the process also terminates.
+	<li> If you need more guidance in using these system calls
+		than is available from the manual pages,
+		one (or more) of the following tutorials might be helpful:
+		<ol>
+		<li> <a href="http://randu.org/tutorials/threads/">http://randu.org/tutorials/threads/</a>
+		<li> <a href="http://www.csc.villanova.edu/~mdamian/threads/posixthreads.html">http://www.csc.villanova.edu/~mdamian/threads/posixthreads.html</a>
+		<li> <a href="http://www.cs.kent.edu/~ruttan/sysprog/lectures/multi-thread/multi-thread.html">http://www.cs.kent.edu/~ruttan/sysprog/lectures/multi-thread/multi-thread.html</a>
+		<li> <a href="http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html">http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html</a>
+		</ol>
+	</ol>
+<li> Thread management
+	<ol>
+	<li> User (Process) space
+		<ol>
+		<li> Doesn't require the OS to be thread aware.
+		<li> The process keeps track of the threads using a thread
+			table (the process table still resides in the OS
+			kernel).
+		<li> About 10x faster thread switching than for kernel space
+			threads.  This is in part because no trap to the kernel
+			is needed, nor does any process specific state need to
+			be saved.
+		<li> When a thread blocks for a system resource (e.g.
+			disk I/O) this causes the entire process (and thus
+			ALL its threads) to block.
+		<li> When a thread is about to block (for non-system resource),
+			it chooses the next thread of that process to run.
+		<li> Allows each process to use its own custom thread scheduling
+			algorithm.
+		<li> Blocking system calls can cause the process (and thus ALL
+			the process' threads) to block, negating much of the
+			benefit of multithreading. POSIX based systems can use
+			<a href="http://www.unix.com/man-page/All/3/select/">select</a>
+			to relenquish the CPU instead of blocking on I/O.
+		<li> Page faults block the entire process since the OS doesn't
+			know about the threads.
+		</ol>
+	<li> Kernel space
+		<ol>
+		<li> The OS must be thread aware.
+		<li> The OS kernel keeps track of the threads using a thread
+			table (in addition to keeping track of processes via
+			the process table).
+		<li> About 10x slower thread switching than for user space
+			threads.
+		<li> When a thread blocks for a system resource (e.g.
+			disk I/O) ONLY that thread (or the process) is blocked.
+		<li> When a thread blocks, the OS chooses the next thread (of
+			all those on the system that are ready) to run.
+		</ol>
+	<li> Hybrid User-Kernel space management can allocate one or more
+		kernel threads to a process, and a process may start one or
+		more threads for each of the kernel based threads it is
+		allocated. To get the full benefits of each, however, requires
+		careful grouping of process threads corresponding to each
+		kernel thread.
+	<li> Scheduler activations use process based threads, but enables
+		the kernel to recognize when a process/user thread is blocked
+		for a reason that would enable other threads of the process
+		to possibly run. In such cases, the kernel calls the scheduler
+		of the process (upcall) to schedule another of its threads to
+		run.
+	<li> Thread pools (a collection of pre-existing threads that can be
+		allocated on an as requested basis) alleviate the extra costs
+		(and latency) in the creation and destruction of threads.
+		As a result, thread pools are a good way to deal with random
+		service requests (e.g., http requests).
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_11.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

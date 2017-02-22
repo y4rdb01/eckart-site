@@ -1,0 +1,56 @@
+/* Generate the input data used by firefly.  A single command line argument
+   indicates the size of each of two dimensions of the cell universe.
+
+   The file "my_rand.h" is located in the examples/data directory of the
+   distribution.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "my_rand.h"
+
+/* The percentage of cell sites that should hold a firefly. */
+#define DENSITY        30
+
+/* The mean flash period/threshold and +- variance. */
+#define PERIOD        56
+#define P_VAR        2
+
+/* The mean flash delay and +- variance. */
+#define DELAY        18
+#define D_VAR        1
+
+int main(int argc, char *argv[]) {
+        int max_size, x, y;
+
+        /* Check usage. */
+        if (argc == 1) {
+                fprintf(stderr, "%s: size of automaton must be given.\n",
+                        argv[0]);
+                return 1;
+        } else if (argc > 2)
+                fprintf(stderr, "%s: extra options ignored.\n", argv[0]);
+
+        max_size = atoi(argv[1]);
+
+        printf("0\n");
+
+        for (x = 0; x < max_size; x++)
+                for (y = 0; y < max_size; y++) {
+                        int firefly = my_random()%100;
+
+                        if (firefly < DENSITY) {
+                                int direction = my_random()%4;
+                                int period = PERIOD - P_VAR
+                                                + 2*(my_random()%(1+P_VAR));
+                                int delay = DELAY - D_VAR
+                                                + 2*(my_random()%(1+D_VAR));
+                                int state = my_random()%period;
+
+                                printf("[%d, %d] = %d, %d, %d, %d, %d, %d\n",
+                                        x, y, 2 /* flash */, period, state, 
+                                        delay, -1 /* time2flash */, direction);
+                        }
+                }
+        return 0;
+}

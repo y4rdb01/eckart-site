@@ -1,0 +1,279 @@
+<li> Objects (class instances) in C++ are
+	<ol class="answer_list">
+	<li> Only allocated on the run-time stack.
+	<li> Only allocated on the heap.
+	<li> Allocated on either the run-time stack or the heap.
+	<li> <strong>Must</strong> be allocated on <strong>both</strong>
+		the run-time stack and the heap.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ has the following visibility classifications:
+	<ol class="answer_list">
+	<li> public
+	<li> private
+	<li> protected
+	<li> friend
+	<li> namespace
+	</ol>
+</li><br/>
+<li> C++ allows overloading
+	<ol class="answer_list">
+	<li> Only for arithmetic operations
+	<li> Only for bitwise operations
+	<li> Only for I/O operations
+	<li> For nearly all operations
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following in C++ is using a non-copy constructor?
+	<ol class="answer_list">
+	<li> Person p;
+	<li> Person p(bob);
+	<li> Person p = george;
+	<li> Person bob, george; bob = george;
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following in C++ is using a copying constructor?
+	<ol class="answer_list">
+	<li> Person p;
+	<li> Person p(bob);
+	<li> Person p = george;
+	<li> Person bob, george; bob = george;
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ assignments differ from copying constructors
+	<ol class="answer_list">
+	<li> Because they should check for previous (already assigned) values.
+	<li> By their syntax of usage.
+	<li> There are no differences.
+	<li> Because they should return a reference to their left-hand side
+		(l-value).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C++ provides
+	<ol class="answer_list">
+	<li> A default constructor for each class.
+	<li> A default assignment operation for each class.
+	<li> A default input operations for each class.
+	<li> A default output operations for each class.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C++, to allow a subclass to override a method in the superclass
+	<ol class="answer_list">
+	<li> The superclass method <strong>must</strong>
+		be declared as "abstract".
+	<li> The superclass method <strong>must</strong>
+		be declared as "virtual".
+	<li> The subclass <strong>must</strong> extend the
+		superclass as "virtual".
+	<li> The subclass <strong>must</strong> extend the
+		superclass as "abstract".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Method overrides in C++
+	<ol class="answer_list">
+	<li> Work exactly the same as in Java.
+	<li> <strong>Must</strong> be declared as "virtual" in the superclass.
+	<li> <strong>Must</strong> be declared as "virtual" in the subclass.
+	<li> <strong>Must</strong> be declared as "virtual" in
+		<strong>both</strong> the superclass and the subclass.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C++, "friends" of a class have access to <strong>all</strong> of the
+	<ol class="answer_list">
+	<li> class' public members.
+	<li> class' private members.
+	<li> class' protected members.
+	<li> class' other friends.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Inline expansion of functions in C++
+	<ol class="answer_list">
+	<li> Are automatically done by the compiler when possible.
+	<li> Are automatically considered when the method implementation
+		is given inside the class definition.
+	<li> Is guaranteed whenever the "inline" directive is used in
+		the function declaration.
+	<li> Is only possible for overridden member functions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "const" declaration in C++ is similar to Java's
+	<ol class="answer_list">
+	<li> virtual
+	<li> final
+	<li> static
+	<li> abstract
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "const" declaration in this C++ member function declaration
+	<pre><code>
+	type function() const { ... }
+	</code></pre>
+	indicates that "function"
+	<ol class="answer_list">
+	<li> can only access "const" members of its class.
+	<li> cannot change any members of the class instance (unless they
+		are declared a mutable).
+	<li> returns a value that cannot be changed.
+	<li> cannot be expanded in-line.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Give the implementation for a C++ class called "Power" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"exp"</dt>
+		<dd>
+		takes two integer values as its parameters. The first
+		parameter is the "base" and the second is the "expoent". The
+		returned result is the base multipled by itself exponent times.
+		</dd>
+	</dl>
+	</blockquote>
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Prime" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"isPrime"</dt>
+		<dd>
+		takes a single integer value as its parameter. The function
+		returns the integer if it is a prime number and returns 0
+		otherwise.
+		</dd>
+	</dl>
+	</blockquote>
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Largest" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"newNumber"</dt>
+		<dd>
+		takes a single integer value as its parameter. If this is the
+		first time the method is called, then the parameter is set as
+		the largest number seen thus far. If a number has already been
+		seen, then the larger of the current largest number and the
+		provided parameter is retained.
+		</dd>
+	<dt>"largest"</dt>
+		<dd>
+		takes no parameters but returns the largest number recorded
+		(via calls to "newNumber") thus far.
+		</dd>
+	</dl>
+	</blockquote>
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Palindrome" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"addChar"</dt>
+		<dd>
+		takes a single character value as its parameter
+		and adds it to the list of characters. No value is returned.
+		</dd>
+	<dt>"isPal"</dt>
+		<dd>
+		takes no parameters but returns 1 if the set of characters
+		added thus far is a palindrome (given the order in which they
+		were added) and returns 0 otherwise.
+		</dd>
+	<dt>"clear"</dt>
+		<dd>
+		takes no parameters and removes <strong>all</strong>
+		previously added characters. No value is returned.
+		</dd>
+	</dl>
+	</blockquote>
+	Remember that a string of characters is a palindrome if it reads the
+	same both forwards and backwards (e.g., racecar).
+	You may assume that no more than 100 characters will ever be added
+	(before "clear" is called).
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Frequent" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"addCharacter"</dt>
+		<dd>
+		takes a single character parameter. The character is added to
+		the end of the list of characters that have been added thus far.
+		</dd>
+		<dd>
+	<dt>"clear"</dt>
+		<dd>
+		erases the memory of any characters that have been seen thus
+		far, enabling a new set of characters to be examined via the
+		"addCharacter" function.
+		</dd>
+		<dd>
+	<dt>"mostOften"</dt>
+		<dd>
+		returns the character that has been added (via "addCharacter")
+		the most number of times since "clear" was last called. If no
+		characters have been added, then return the space (' ')
+		character.
+		</dd>
+	</dl>
+	</blockquote>
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>
+<li> Give the implementation for a C++ class called "Stats" that has the
+	following public member functions:
+	<blockquote>
+	<dl>
+	<dt>"addNumber"</dt>
+		<dd>
+		takes a single integer value as its parameter
+		and adds it to the list of numbers about which statistics
+		can be reported. No value is returned.
+		</dd>
+	<dt>"largest"</dt>
+		<dd>
+		takes no parameters but returns the value of the
+		largest number added thus far.
+		</dd>
+	<dt>"mean"</dt>
+		<dd>
+		takes no parameters but returns the average of
+		<strong>all</strong> of the numbers added thus far.
+		</dd>
+	<dt>"clear"</dt>
+		<dd>
+		takes no parameters and removes <strong>all</strong>
+		previously added numbers. No value is returned.
+		</dd>
+	</dl>
+	</blockquote>
+	You may assume that no more than 100 numbers will ever be added
+	(before "clear" is called).
+	Be sure to hide as much of the details of the implementation as
+	possible and define appropriate constructor(s) or other supporting
+	functions as necessary.
+</li><br/>

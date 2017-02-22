@@ -1,0 +1,166 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Directories
+</p>
+
+<ol>
+<li> Flat file systems (i.e., single-level directory systems) were used by
+	some of the first OSs.
+	<ol>
+	<li> Floppy disks and Apple's first file system for the original
+		Macintosh used flat file systems in the mid-1980s.
+	<li> Embedded systems may use flat file systems as a way to simplify
+		and reduce the size of the code base.
+	<li> Today, Amazon's S3 storage service gives the illusion of a
+		hierarchical file system by allowing nearly any character
+		(including '/') in filenames, and selecting sets of files
+		based on identical prefixes.
+	</ol>
+<li> Hierarchical directory systems are nearly universal in their use by general
+	purpose OSs. Even tablets and smartphones use a hierarchical directory
+	structrue.
+	<ol>
+	<li> Organize information in a graph. While often shown as a tree
+		structure, the use of soft (symbolic) links allow
+		circular structures to be "created".
+	<li> Hard links to directories are NOT allowed in order to prevent
+		a circular structure that would be unfreeable/uncollectable
+		using reference counts.  File systems only
+		support <em>Directed Acyclic Graphs</em>
+		(DAGs) from a physcial disk block reference standpoint.
+	<li> Provide an excellent way to organize information. Furthermore,
+		it makes moving, saving, deleting, and sharing related
+		information much easier.
+	<li> Path names describe the location of a file (or directory) within
+		the DAG:
+		<ol>
+		<li> Absolute path names given the complete location of a
+			file (or directory) by starting from the root (denoted
+			by "/" on Unix/Linux systems) and specifying all of the
+			intervening directory names (separated by "/"s) until
+			the target file (or directory) is named.
+		<li> Relative path names indicate the location of a file
+			(or directory) starting from a particular point
+			(directory) in the graph. The current directory is
+			indicated by "." (dot), and the parent directory is
+			indicated by ".." (dot dot) - except for the root
+			directory (which is its own parent).
+			<ol>
+			<li> Thus, "../../../notes/class/cpsc/3125/directories.txt",
+				would go up 3 directories from the current
+				directory, then go down into the "notes",
+				"class", "cpsc", and "3125" directories (in
+				order), and identify the file "directories.txt"
+				within the "3125" directory.
+			<li> Relative directories are often seen in web sites,
+				enabling an entire set of directories to be
+				moved (or copied) such that the relative URLs
+				will continue to work.
+			</ol>
+		<li> Different OSs may use different directory separators
+			(e.g., Windows uses "\" rather than the "/" used by
+			Unix/Linux).
+		</ol>
+	</ol>
+<li> Directory Operations & (POSIX) System Calls
+	<ol>
+	<li> <a href="http://www.unix.com/man-page/posix/3/mkdir/">mkdir</a>
+		- Creates a new directory in the specified location.
+	<li> <a href="http://www.unix.com/man-page/posix/3/rmdir/">rmdir</a>
+		- Deletes the indicated directory.
+	<li> <a href="http://www.unix.com/man-page/posix/3/opendir/">opendir</a>
+		and
+		<a href="http://www.unix.com/man-page/posix/3/fdopendir/">fdopendir</a>
+		- Opens the directory associated with specified location (or
+		file descriptor).
+	<li> <a href="http://www.unix.com/man-page/posix/3/closedir/">closedir</a>
+		- Closes a directory, ensuring that any changes are written
+		to disk. 
+	<li> <a href="http://www.unix.com/man-page/posix/3/readdir/">readdir</a>
+		- Returns a pointer to a structure representing the directory
+		entry at the current position in the directory stream.
+	<li> <a href="http://www.unix.com/man-page/posix/3/rename/">rename</a>
+		- Renames the file (or directory) relative to the directory
+		file descriptor.
+	<li> <a href="http://www.unix.com/man-page/posix/3/link/">link</a>
+		- Creates a new link (directory entry) for the existing file.
+	<li> <a href="http://www.unix.com/man-page/posix/3/unlink/">unlink</a>
+		- Removes a directory's link to a file.
+	<li> <a href="http://www.unix.com/man-page/posix/3/chdir/">chdir</a>
+		- Change the current working directory.
+	<li> Set (some) attributes of a file/directory:
+		<ol>
+		<li> <a href="http://www.unix.com/man-page/posix/3/chown/">chown</a>
+			- Change the owner and group of a file or directory.
+		<li> <a href="http://www.unix.com/man-page/posix/3/chmod/">chmod</a>
+			- Change the permissions on a file or directory.
+		</ol>
+	</ol>
+<li> Hard vs Soft (Symbolic) Links
+	<ol>
+	<li> Directory links that point to the actual "physical" file location
+		are called <em>hard</em> links.
+	<li> When files (and directories) are created, a link to their actual
+		"physical" location is put into their parent directory.
+	<li> It is possible (using <a href="http://www.unix.com/man-page/posix/3/link/">link</a>) 
+		to have multiple directories pointing to the same actual
+		"physical" file. The file won't really be removed until after
+		the last <em>hard</em> link is removed.
+	<li> <em>Soft</em> links give the location of where a file is located.
+		The location can be either absolute or relative.
+	<li> <em>Soft</em> links are called symbolic links, because the
+		directory entry holds a symbolic (file system path) of
+		the desired file. the File system does the translation, so
+		that it behaves as if it was pointing to the actual "physical"
+		file. [While similar, Windows "shortcuts" are actually
+		files whose contents are the (absolute) location of the
+		desired file.
+		The Windows UI knows to take those contents and find the file
+		they point to. The translation process is not performed by the
+		file system as it is under Unix/Linux.] 
+	<li> A major advantage of <em>soft</em> links is that they can
+		point across file systems (unlike <em>hard</em> links). They
+		can also be archived, restored, and copied. [NOTE: Copying a
+		<em>soft</em> linked file creates a new file that is
+		<em>hard</em> linked.]
+	<li> Deleting a <em>soft</em> link does NOT delete the file that it
+		links to.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_34.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

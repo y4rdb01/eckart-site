@@ -1,0 +1,14 @@
+# This CA implements a simulation of an epidemic with green (1) representing
+# healthy cells/creatures, red (2) sick ones, and blue (0) a blank cell.
+#
+2 dimensions of 0..2
+
+# Sick cells get better with a probability of 80%
+cell := 1 when cell = 2 & random%100 < 80
+
+# Healthy cells get sick when next to a sick cell with a probability of 60%
+     := 2 when cell = 1 & random%100 < 60 &
+		([0, 1] = 2 | [1, 0] = 2 | [-1, 0] = 2 | [0, -1] = 2)
+
+# Sick cells die with a probability of 4%
+     := 0 when cell = 2 & random%100 < 4

@@ -1,0 +1,4547 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Study Questions for Test #1
+</p>
+
+<style type="text/css">
+	ol.question_list {list-style-type: none;}
+	ol.question_list li:before {content: counter(question, decimal) ") ";}
+	ol.question_list li { counter-increment: question;}
+
+	ol.answer_list {list-style-type: none;}
+	ol.answer_list li:before {content: counter(answer, lower-latin) ") ";}
+	ol.answer_list li { counter-increment: answer;}
+
+	ol.match_list {list-style-type: none;}
+	ol.match_list li:before {content: counter(match, upper-latin) ") ";}
+	ol.match_list li { counter-increment: match;}
+
+	ul.bullet_list {list-style-type: disc;}
+	ul.bullet_list li:before {content: "";}
+	ul.bullet_list li { counter-increment: bogus;}
+</style>
+
+<p>
+The following list of exam study questions are provided as a means to help you
+assess your understanding of the topics presented in class. While every
+reasonable attempt has been made to create a comprehensive list of questions,
+they should <strong>not</strong> be the only means by which you assess your
+own understanding of the course materials. While many of these questions
+may appear on your exam, be aware that the exam may include questions
+that do not appear below. However, it is unlikely you will perform well on
+the exam if you have difficulty answering these questions correctly.
+</p>
+
+
+<ol class="question_list">
+<li> Many of the statements in "C" are similar to those in "Java" since
+	<ol class="answer_list">
+	<li> C is based on the design of Java.
+	<li> C is a design ancestor of C++ and Java.
+	<li> All programming languages use the same style of statements.
+	<li> Both C and Java share Eiffel as a common design ancestor.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C has primitive types that are built into the language, but which of the
+	following are <strong>not</strong> primitive types in C?
+	<ol class="answer_list">
+	<li> bool
+	<li> string
+	<li> int
+	<li> char
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> C has primitive types that are built into the language, but which of the
+	following are <strong>not</strong> primitive types in C?
+	<ol class="answer_list">
+	<li> bool
+	<li> int
+	<li> float
+	<li> string
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Whenever a boolean type result is required in C (e.g., in an "if"
+	statement),
+	<ol class="answer_list">
+	<li> Any non-zero value represents false.
+	<li> Only the zero value represents false.
+	<li> Only one value represents true.
+	<li> Any non-zero value represents true.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, "&&" and "||" are short-circuit boolean operators just like in
+	Java, while the "&" and "|" operators in C
+	<ol class="answer_list">
+	<li> Perform full boolean evaluation.
+	<li> Are undefined.
+	<li> Are synonyms for "&&" and "||".
+	<li> Perform the bitwise-and and bitwise-or functions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "!" operator in C is used to perform
+	<ol class="answer_list">
+	<li> Logical negation (e.g., turn "true" into "false").
+	<li> Numeric negation (e.g., turn "-3" into "3").
+	<li> Numeric inversion (e.g., turn "5" into "1/5").
+	<li> Array reversal (reversing the items within an array).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The assignment operator (=) in C
+	<ol class="answer_list">
+	<li> works exactly like assignment in Java.
+	<li> cannot be used in boolean expressions.
+	<li> cannot be used in arithmetic expressions.
+	<li> returns the value assigned as its value.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The assignment operator (=) in C
+	<ol class="answer_list">
+	<li> is also the equality operator.
+	<li> tests for equality, but only when used in boolean expressions.
+	<li> cannot be used in arithmetic expressions.
+	<li> returns the value assigned as its value.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which pairs of operators can be easy to confuse but difficult to notice
+	and debug because they can often (though not always) yield the same
+	results?
+	<ol class="answer_list">
+	<li> + and ++
+	<li> = and ==
+	<li> & and &&
+	<li> | and ||
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> This example of a pre-increment operator, "x = 12; array[++x] = 3;",
+	assigns
+	<ol class="answer_list">
+	<li> "array[12]" the value of 3 
+	<li> "array[13]" the value of 3
+	<li> "array[12]" the value of 4
+	<li> "array[13]" the value of 4
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> This example of a compound assignment, "x = 12; array[x += 2] = 5;",
+	<ol class="answer_list">
+	<li> is <strong>not</strong> allowed.
+	<li> assigns "array[12]" the value of 5
+	<li> assigns "array[14]" the value of 5
+	<li> assigns "x" the value of 7
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <strong>not</strong> used for either
+	input or output in C?
+	<ol class="answer_list">
+	<li> scanf
+	<li> getc
+	<li> printf
+	<li> fprintf
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are used for input in C?
+	<ol class="answer_list">
+	<li> scanf
+	<li> getc
+	<li> printf
+	<li> fprintf
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are used for output in C?
+	<ol class="answer_list">
+	<li> scanf
+	<li> getc
+	<li> printf
+	<li> fprintf
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> All C programs should contain a "main" function with a signature matching
+        <ol class="answer_list">
+        <li> void main(char* argv[])
+        <li> int main(string argv[])
+        <li> void main(int argc, string argv[])
+        <li> int main(int argc, char* argv[])
+        <li> None of the above
+        </ol>
+</li><br/>
+<li> The int value returned by the "main" function is used to indicate
+	<ol class="answer_list">
+	<li> whether or not the program terminated normally.
+	<li> nothing, this is a holdover from early Unix that is no longer used.
+	<li> how long (in milliseconds) the program took to complete.
+	<li> the error a program experienced if there was a problem.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Function declarations in C <strong>must always</strong> have
+	<ol class="answer_list">
+	<li> an implementation given as part of the declaration.
+	<li> only primitive types given as formal parameters.
+	<li> a non-empty set of formal parameters.
+	<li> a non-void return type.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Function declarations (though not necessarily their implementations) in C
+	<ol class="answer_list">
+	<li> <strong>must</strong> be given inside of a class definition.
+	<li> <strong>must</strong> appear within the source code file in
+		which they are used.
+	<li> can be nested within another function's implementation/body.
+	<li> <strong>must</strong> be given in a separate file (a ".h" file)
+		from their implementation.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Function implementations in C
+	<ol class="answer_list">
+	<li> cannot be given within another function's implementation/body.
+	<li> begin with the "function" reserved keyword, if given separate
+		from the function declaration.
+	<li> <strong>must always</strong> be given at the same time the
+		function is declared.
+	<li> appear within curly braces (i.e., { }) directly after the
+		function signature.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A "static" variable declaration within a function
+	<ol class="answer_list">
+	<li> reserves space for the variable apart from the run-time stack.
+	<li> allows the variable to be accessed outside of the function
+		implementation.
+	<li> ensures that only one version of the variable exists, so that
+		recursive calls to the function share the exact same variable
+		storage.
+	<li> is optional as <strong>all</strong> variables within function
+		implementations are treated as "static" by default.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Variables declared as "static"
+	<ol class="answer_list">
+	<li> may only appear within a function implementation.
+	<li> can be accessed outside the scope of the function in which
+		it is declared.
+	<li> cannot change their values (i.e., they're constants).
+	<li> have space for their values reserved outside of the run-time stack.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Large C programs are often broken up into files ending with ".c" and ".h", 
+	but
+	<ol class="answer_list">
+	<li> ".c" files <strong>must</strong> contain only function
+		implementations.
+	<li> ".h" files should contain declarations used by multiple ".c" files.
+	<li> the "#include" directives allow ".c" files to use the declarations
+		in the named ".h" file.
+	<li> variables should <strong>never</strong> be delcared in a ".h" file.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "extern" declaration in C is
+	<ol class="answer_list">
+	<li> used to declare variables <strong>without</strong> setting
+		aside storage space.
+	<li> implicit for <strong>all</strong> function declarations.
+	<li> used for variables declared within a function so that they can be
+		accessed outside of the function.
+	<li> have space for their values reserved outside of the run-time stack.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Arrays in C are indexed starting with
+	<ol class="answer_list">
+	<li> -1
+	<li> 0
+	<li> 1
+	<li> the value indicated when they are declared. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The index given for an array reference in C
+	<ol class="answer_list">
+	<li> only needs to be checked at <em>compile time</em> to ensure that
+		it's within range. 
+	<li> is <strong>always</strong> checked at <em>run time</em> to ensure
+		that it's within range.
+	<li> <strong>never</strong> needs to be checked as it is
+		<strong>always</strong> within range.
+	<li> is <strong>not</strong> checked since it doesn't have to be
+		within its range.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A "string" value in C is really an array of type "char". So the
+	<ol class="answer_list">
+	<li> string value needs to be null terminated.
+	<li> array <strong>must</strong> be exactly as long as the desired
+		string.
+	<li> array should be at least one char longer than the desired string.
+	<li> programer <strong>must</strong> use another variable to keep
+		track of the length of the string.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If an array index in C is outside the bounds of the array, then
+	<ol class="answer_list">
+	<li> an error may or may not occur as a result of accessing the array
+		element.
+	<li> an error <strong>always</strong> occurs and the program stops
+		execution.
+	<li> there may or may not be accessible storage associated with
+		that array location.
+	<li> there is <strong>always</strong> accessible storage associated
+		with that array location.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The declaration of an array (e.g., variables, function formal parameters)
+	<strong>must always</strong> include the
+	<ol class="answer_list">
+	<li> starting index of the array.
+	<li> size of the array.
+	<li> corresponding "#define" declaration for the array size.
+	<li> type of the array elements.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Arrays in C
+	<ol class="answer_list">
+	<li> grow dynamically as more items are added (similar to
+		<em>ArrayList</em>s in Java).
+	<li> <strong>always</strong> have an associated length that can be
+		queried to determine the number of items in the array.
+	<li> are polymorphic, meaning that any mix of items can be stored in
+		the same array.
+	<li> are really just pointers to their item type (e.g., "int x[]" and
+		"int *x" are the same).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A pointer is another name for the
+	<ol class="answer_list">
+	<li> type of values that can be assigned to a variable.
+	<li> forward declaration of a function.
+	<li> declaration of a "struct"ure.
+	<li> address of the memory location holding a desired value.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, pointers are declared
+	<ol class="answer_list">
+	<li> only for declarations of arrays.
+	<li> by giving an asterisk (*) before the variable name declaration.
+	<li> by giving an ampersand (&) before the variable name declaration.
+	<li> for <strong>all</strong> formal parameters of functions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, if "x" and "y" are declared by "int x, *y;", then "y = &x;"
+	<ol class="answer_list">
+	<li> is undefined.
+	<li> assigns "y" the value of "x".
+	<li> makes "y" an alias for "x" so that any value assigned to one
+		is automatically assigned to the other.
+	<li> assigns "y" the memory address where the value for "x" is located.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> This array declaration in C, "char name[10];",
+	<ol class="answer_list">
+	<li> reserves 10 contiguous bytes (characters) of storage for "name".
+	<li> is equivalent to the declaration "string name;".
+	<li> declares "name" as a pointer to the reserved storage.
+	<li> declares each element of the array "name" as a pointer to a "char".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following declarations in C is equivalent to "char *var;"?
+	<ol class="answer_list">
+	<li> char &var;
+	<li> char var[10];
+	<li> char var[];
+	<li> char &var[];
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Strings in C are represented as an array of "char"acters
+	<ol class="answer_list">
+	<li> with the length kept separately so that the size of the string
+		is known (e.g., when printing).
+	<li> that are terminated by a null value to denote their end.
+	<li> and can be referenced via a "char"acter pointer (e.g., "char *").
+	<li> which are immutable, so that the value cannot be changed
+		(only copied).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The address operator in C, ampersand (&),
+	<ol class="answer_list">
+	<li> converts a variable into a pointer, so that "&y" makes "y" a
+		pointer to an "int" when "y" was declared via "int y;".
+	<li> is only used when passing parameters.
+	<li> returns the memory address of any expression it is applied to
+		(e.g., "&(2*x + 3)").
+	<li> returns the memory address of the variable it is applied to
+		(e.g., "&x").
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, if the following declaration/initialization is made,
+	"int *x = &y;", then "x++"
+	<ol class="answer_list">
+	<li> makes "x" point to the next address in memory (following "y")
+		that can hold an "int" value.
+	<li> is undefined and causes a compilation error.
+	<li> is defined but causes a run-time error.
+	<li> increases the value of "y" by 1.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Write a C program that takes a single command line argument and prints
+	"YES" if the argument is a palindrome, and "NO" otherwise. The
+	program should <strong>not</strong> declare any additional arrays
+	other than the one that is a parameter to "main".
+</li><br/>
+<li> Write a C program that reverses the input given to it. So that the last
+	character on the last line of input will be the first one printed.
+	You may assume that the input is no more than 2047 characters long.
+</li><br/>
+<li> Write a C program that reads floats from the input, calculates and prints
+	out their average, and indicates how many of the original values were
+	above and how many were below the average.
+	You may assume that there are no more than 2047 numbers in the input.
+</li><br/>
+
+<li> A "struct" declaration in C can group together
+	<ol class="answer_list">
+	<li> multiple data items.
+	<li> data of the same type.
+	<li> data of different types.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A "struct" declaration in C <strong>always</strong> creates
+	<ol class="answer_list">
+	<li> a new type name that can be used in declaring variables (e.g.,
+		"person bob;").
+	<li> a named structure form that can be referred to by "struct"
+		followed by the structure name (e.g., "struct person").
+	<li> a recursive structure so that linked structures (e.g., lists,
+		graphs) can be coded.
+	<li> a non-recursive structure since recursive structures
+		<strong>must</strong> be declared as types instead of "struct"s.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A self-recursive "struct" requires that at least one of its elements be
+	declared as
+	<ol class="answer_list">
+	<li> "struct NAME", where "NAME" is the name given the "struct" and the
+		pointer type is inferred.
+	<li> "struct NAME *", where "NAME" is the name given the "struct".
+	<li> "struct" where the current structure and pointer type are inferred.
+	<li> "struct *" where the current structure name is inferred.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "typedef" declaration in C declares the new type NAME corresponding
+	to a specified TYPE_DESCRIPTION (either an existing type name or other
+	type specification - such as a "struct") via
+	<ol class="answer_list">
+	<li> "typedef NAME = TYPE_DESCRIPTION;"
+	<li> "typedef TYPE_DESCRIPTION NAME;"
+	<li> "typedef NAME TYPE_DESCRIPTION;"
+	<li> "NAME = typedef TYPE_DESCRIPTION;"
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Assuming the legal C variable declaration "person bob;" then the following
+	declaration <strong>must</strong> also have been previously given
+	("..." represents other appropriate declarations):
+	<ol class="answer_list">
+	<li> "struct bob { ... };"
+	<li> "typedef struct person { ... } bob;"
+	<li> "typedef struct bob bob;"
+	<li> "typedef person bob;"
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Assuming the legal C variable declaration "person bob;" then the following
+	declaration <strong>must</strong> also have been previously given
+	("..." represents other appropriate declarations):
+	<ol class="answer_list">
+	<li> "struct person { ... };"
+	<li> "typedef struct { ... } person;"
+	<li> "typedef struct person bob;"
+	<li> "typedef person bob;"
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given the following legal C declarations
+<pre><code>
+	typedef struct node {
+		int x;
+		struct node *next;
+	} *nodeType;
+</code></pre>
+	<ol class="answer_list">
+	<li> "nodeType" is a type equivalent to "struct node".
+	<li> "nodeType" is a type equivalent to the type of the "next" field.
+	<li> "nodeType" is <strong>not</strong> a type, but really a variable
+		of type "struct node".
+	<li> "nodeType" is <strong>not</strong> a type, but really a variable
+		of type pointer to a "struct node".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, the standard way to request heap storage space while a program is
+	running is to use the function
+	<ol class="answer_list">
+	<li> <em>getmem</em>
+	<li> <em>new</em>
+	<li> <em>allocate</em>
+	<li> <em>heap_request</em>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, the standard way to request heap storage space while a program is
+	running is to use the function
+	<ol class="answer_list">
+	<li> <em>malloc</em>
+	<li> <em>new</em>
+	<li> <em>getmem</em>
+	<li> <em>getheap</em>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The standard way in C to return heap storage that was previously allocated
+	is to use the function
+	<ol class="answer_list">
+	<li> <em>delete</em>
+	<li> <em>return</em>
+	<li> <em>free</em>
+	<li> <em>putmem</em>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, it is possible to determine the size of a type (in bytes) by using
+	the function
+	<ol class="answer_list">
+	<li> <em>getsize</em>
+	<li> <em>sizeof</em>
+	<li> <em>sizeOfType</em>
+	<li> <em>typeSize</em>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following C statements is a typical way that dynamic storage
+	might be allocated?
+	<ol class="answer_list">
+	<li> int x = new int();
+	<li> int *x = (int) getmem(int);
+	<li> int x = malloc(typeSize(int));
+	<li> int *x = (int*) malloc(sizeof(int));
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Write a C program that reads in text of unknown length and prints out
+	"YES" if the text forms a palindrome and "NO" if it does not. The
+	program <strong>must not</strong> assume a maximal length of the text
+	that is read in, and <em>must avoid</em> using arraylist and realloc.
+</li><br/>
+<li> Write a C program that reads in a list of words (given one per line) and
+	prints them out (one word per line) in sorted order. You
+	<strong>must</strong> write your own sorting routine (insertion sort
+	is recommended). The solution may use arrays and malloc, but
+	<strong>must avoid</strong> using arraylist and realloc.
+</li><br/>
+<li> Write a C program that reads floats from the input, calculates and prints
+	out their average, and indicates how many of the original values were
+	above and how many were below the average. The program <strong>must
+	not</strong> assume a maximal numbers of input, and
+	<strong>must avoid</strong> using arraylist and realloc.
+</li><br/>
+
+<li> An operating system (OS) provides
+	<ol class="answer_list">
+	<li> a clean and simple model of the computer.
+	<li> manages the computer's resources.
+	<li> support for the creation and use of user programs.
+	<li> an abstract view of the computer, independent of the specific
+		hardware.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are program <em>types</em> in an operating system
+	(OS)?
+	<ol class="answer_list">
+	<li> System programs
+	<li> Adventure games.
+	<li> Application programs
+	<li> CAPTCHAs (Completely Automated Public Turing test to tell
+		Computers and Humans Apart).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are layers <strong>within</strong> an
+	operating system (OS)?
+	<ol class="answer_list">
+	<li> Machine language
+	<li> Command interpreter (shell)
+	<li> Physical devices
+	<li> Microcode
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The operating system (OS) is that part of the system which
+	<ol class="answer_list">
+	<li> implements the editors, compilers, and interpreters used to
+		create other programs.
+	<li> provides the command line interpreter (e.g., shell) for users.
+	<li> comes pre-loaded on purchased computer hardware.
+	<li> runs in supervisor (or kernel) mode.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When viewed as an abstract machine, the operating system (OS)
+	<ol class="answer_list">
+	<li> enables Windows and Unix to run at the same time.
+	<li> hides the details of lower level facilities (e.g., writing data
+		to disk).
+	<li> operates exactly the way a Turing machine does.
+	<li> provides the implementations for data abstractions (e.g., stack,
+		queue) leveraged by user programs.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When viewed as a resource manager, the operating system (OS)
+	<ol class="answer_list">
+	<li> coordinates the sharing of parts of the computer by different
+		programs.
+	<li> enables different programs to share the computer hardware.
+	<li> determines when more memory or disk should be purchased.
+	<li> ensures that the computer hardware is utilized with optimal
+		efficiency regarding every user's needs.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> The most common small computer architecture is the
+	<ol class="answer_list">
+	<li> packet switched.
+	<li> bus.
+	<li> circuit switched.
+	<li> fully connected backplane.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Match the components in the below diagram (indicated by the letters A-G)
+	of a typical small computer system to their names.
+	<br/>
+	<img src="/eckart/classes/cpsc3125/questions/SystemArch.png" width="532" height="394" alt="Simple computer architecture" />
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> Control bus
+		<li> Instruction decoder
+		<li> Memory
+		<li> System bus
+		<li> Input and Output
+		<li> Peripheral bus
+		<li> CPU
+		<li> Address bus
+		<li> Memory interface
+		<li> Data bus
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> The system bus on a small computer system is typically composed of the
+	<ol class="answer_list">
+	<li> control bus.
+	<li> address bus
+	<li> data bus.
+	<li> memory bus.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A bus architecture typically allows
+	<ol class="answer_list">
+	<li> only a single pair of components to communicate at a time.
+	<li> one or two different pairs of components to communicate
+		simultaneously.
+	<li> up to three different components (<strong>not</strong> pairs)
+		to communicate simultaneously.
+	<li> <strong>all</strong> components to communicate simultaneously.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The internet is an example of a
+	<ol class="answer_list">
+	<li> packet switched architecture.
+	<li> bus architecture.
+	<li> circuit switched architecture.
+	<li> fully connected architecture.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A computer processor is commonly composed of
+	<ol class="answer_list">
+	<li> an instruction fetch unit.
+	<li> an instruction decoder.
+	<li> an arithmetic logic unit.
+	<li> a memory interface.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Match the components in the below diagram (indicated by the letters A-E)
+	of a typical computer processor to their names. [Note: No choice is
+	used more than once, and some may not be used.]
+	<br/>
+	<img src="/eckart/classes/cpsc3125/questions/CPUarch.png" alt="CPU" width="663" height="525" />
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> Registers
+		<li> Control bus
+		<li> Translation Lookaside Buffer (TLB)
+		<li> Instruction decoder
+		<li> Direct Memory Access (DMA)
+		<li> Arithmetic Logic Unit (ALU)
+		<li> Instruction fetcher
+		<li> Address bus
+		<li> Memory interface
+		<li> Data bus
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> Registers in those processors which utilize them
+	<ol class="answer_list">
+	<li> are <strong>always</strong> grouped into sets of "register windows".
+	<li> are <strong>sometimes</strong> dedicated to specific purposes
+		(e.g., program counter, stack pointer).
+	<li> are <strong>always</strong> general purpose, meaning they can be
+		used for any activity needing to use a register.
+	<li> usually have the same number of bits as the address bus.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Processor designs that can speed up computation include:
+	<ol class="answer_list">
+	<li> pipelining
+	<li> multi-register
+	<li> hyperthreaded
+	<li> multi-core
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The memory hierarchy in computer design primarily reflects the
+	<ol class="answer_list">
+	<li> desire to reduce single points of failure.
+	<li> tradeoff between speed and cost for a given amount of memory.
+	<li> difference between volatile and non-volatile memory technologies.
+	<li> large amounts of certain types of memories.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A hard disk drive (HDD) can have access times that are
+	<ol class="answer_list">
+	<li> up to 10 million times slower than a register.
+	<li> 10-100 times slower than a solid state disk (SSD).
+	<li> only 100 times slower than main memory (e.g., RAM).
+	<li> 1 million times slower than main memory (e.g., RAM).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Physical devices are accessed via their
+	<ol class="answer_list">
+	<li> corresponding user level resource managers.
+	<li> associated (physical) controllers.
+	<li> device drivers by the operating system (OS).
+	<li> associated command interpreter (e.g., shell) programs.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are device communications styles used by
+	operating systems?
+	<ol class="answer_list">
+	<li> Notify and Sleep
+	<li> Busy waiting
+	<li> Interrup driven
+	<li> Direct Memory Access
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Approaches currently in common use for "installing" a new device driver
+	include
+	<ol class="answer_list">
+	<li> relinking the device driver object code with the OS kernel.
+	<li> adding the device driver file to an OS config and rebooting.
+	<li> adding the ".h" file to the OS config, recompiling the kernel,
+		and then rebooting the system.
+	<li> dynamically loading the device driver code (no reboot).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Device drivers that start an I/O then sit in a tight loop, checking to
+	see when the operation is complete are using the
+	<ol class="answer_list">
+	<li> Notify and Sleep communication style.
+	<li> Busy waiting communication style.
+	<li> Interrup driven communication style.
+	<li> Direct Memory Access communication style.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Device drivers that start an I/O but then block, returning control so
+	that other work can be done until the driver is awakened by an
+	interrupt are using the
+	<ol class="answer_list">
+	<li> Notify and Sleep communication style.
+	<li> Busy waiting communication style.
+	<li> Interrup driven communication style.
+	<li> Direct Memory Access communication style.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Device drivers that utilize special hardware to initiate and complete
+	an entire data transfer are using the
+	<ol class="answer_list">
+	<li> Notify and Sleep communication style.
+	<li> Busy waiting communication style.
+	<li> Interrup driven communication style.
+	<li> Direct Memory Access communication style.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> While the operating system (OS) is handling an interrupt
+	<ol class="answer_list">
+	<li> <strong>all</strong> other interrupts are disabled to ensure it
+		completes.
+	<li> only higher-priority interrupts are enabled.
+	<li> <strong>all</strong> interrupts continue to be enabled,
+		since none should be missed.
+	<li> only interrupts of the same kind are enabled.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The boot process for most small computer systems begins with the
+	execution of the
+	<ol class="answer_list">
+	<li> hard disk drive device driver to allow loading of the OS
+		executable file.
+	<li> Basic Input/Output System (BIOS).
+	<li> OS executable file directly from the boot device (e.g., HDD, SSD).
+	<li> GRand Unified Bootloader (GRUB).
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> The system calls that an OS makes available
+	<ol class="answer_list">
+	<li> can only be used by the OS.
+	<li> <strong>must never</strong> be used by the OS
+	<li> are the OS interface for user programs.
+	<li> are provided as a convenience, but aren't really necessary.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The difference(s) between a program and a process are
+	<ol class="answer_list">
+	<li> programs are static (non-executing).
+	<li> programs are <strong>never</strong> part of the operating system.
+	<li> processes also contain a run-time stack and program counter.
+	<li> processes make use of system calls, but programs don't.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A process
+	<ol class="answer_list">
+	<li> <strong>must</strong> use system calls to accomplish anything
+		useful.
+	<li> usually only directly communicates with its parent (or child)
+		process(es).
+	<li> may create a child process.
+	<li> cannot use system calls unless it is being run by the
+		administrator/root user.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a problem or unusual condition is encountered, a process can send
+	signals to other processes. Processes receiving a signal
+	<ol class="answer_list">
+	<li> are required to provide a signal handler.
+	<li> can specify specific functions to be called when a particular
+		type of signal is received.
+	<li> run the function named "sighand" to handle the signal.
+	<li> run the specified signal handler function, which takes over
+		execution when the signal is received. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Every process is limited by the restrictions placed upon it by the
+	OS as determined by the process' associated
+	<ol class="answer_list">
+	<li> programming language in which the code was written.
+	<li> program source code file.
+	<li> working directory in the file system.
+	<li> user identification (uid).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The address space of a process
+	<ol class="answer_list">
+	<li> is the size of the program file for the process.
+	<li> is the range of addressable bytes starting at 0 up to a maximum, 
+		usually 2^N - 1 (where N is the number of address bits).
+	<li> is the amount of main memory <em>initially</em>
+		requested/needed by the process.
+	<li> can be broken into smaller chunks so that programs larger than
+		the amount of main memory can be executed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> System calls <strong>must</strong> be used to create new
+	<ol class="answer_list">
+	<li> processes.
+	<li> user accounts.
+	<li> programs.
+	<li> files or directories.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Every process has an associated
+	<ol class="answer_list">
+	<li> system call for accessing it.
+	<li> working directory in the file system.
+	<li> user identification (uid).
+	<li> address space.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A file descriptor is a unsigned number that processes use to reference
+	(e.g., read, write)
+	<ol class="answer_list">
+	<li> files that the process currently has open.
+	<li> any file in the file system that the process is permitted to
+		access/open.
+	<li> entries in the process' table of active/open files.
+	<li> <strong>all</strong> directories with the same user
+		identification (uid) as the process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In addition to normal user files (e.g., text files) there are
+	also special files that enable
+	<ol class="answer_list">
+	<li> users to create new file systems.
+	<li> hard disk drives (HDDs) to look like files.
+	<li> keyboards and mice to look like files.
+	<li> processes to directly communicate with one another.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Every OS has an I/O subsystem that
+	<ol class="answer_list">
+	<li> implements the details of <strong>all</strong>
+		read/write operations.
+	<li> performs <strong>all</strong> of the cryptographic functions.
+	<li> manages the devices attached to the computer.
+	<li> enforces <strong>all</strong> of the OS security measures.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The command interpreter which provides the non-GUI interface to the OS is
+	<ol class="answer_list">
+	<li> an ordinary program that uses system calls to access the
+		capabilities of the OS.
+	<li> a special program that directly implements <strong>all</strong>
+		of the available commands.
+	<li> often called the "shell".
+	<li> unique, with each system having only one such program available.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which system organization is <strong>best</strong> described as having:
+	a set of service procedures that perform system calls; utility
+	procedures to assist in service procedure implementation; and a
+	main program that calls requested service procedures?
+	<ol class="answer_list">
+	<li> Monolithic System
+	<li> Layered System
+	<li> Micorkernel
+	<li> Client-Server
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which system organization is <strong>best</strong> described
+	as a sequence of abstractions built one on top of the other?
+	<ol class="answer_list">
+	<li> Layered System
+	<li> Micorkernel
+	<li> Exokernel
+	<li> Client-Server
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which system organization is <strong>best</strong> described as having
+	the absolute minimal portion of the OS facilities running in
+	kernel/supervisor mode, with the remaining portions running in user
+	mode?
+	<ol class="answer_list">
+	<li> Layered System
+	<li> Micorkernel
+	<li> Exokernel
+	<li> Client-Server
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which system organization <strong>best</strong> enables the clean
+	separation of policy and mechanism?
+	<ol class="answer_list">
+	<li> Layered System
+	<li> Micorkernel
+	<li> Exokernel
+	<li> Client-Server
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which system organization is <strong>best</strong> suited for
+	distributed systems?
+	<ol class="answer_list">
+	<li> Monolithic System
+	<li> Layered System
+	<li> Micorkernel
+	<li> Client-Server
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are examples of a layered OS?
+	<ol class="answer_list">
+	<li> Minix v1
+	<li> THE
+	<li> Windows NT
+	<li> MULTICS
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are examples of a microkernel OS?
+	<ol class="answer_list">
+	<li> Minix v1
+	<li> THE
+	<li> Windows NT
+	<li> MULTICS
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A virtual machine is designed to
+	<ol class="answer_list">
+	<li> mimic any type of hardware so that older software can be run.
+	<li> provide "copies" of the existing hardware so that multiple
+		operating systems can be run at the same time.
+	<li> allow the remote (aka "virtual") execution of programs on
+		non-local hardware.
+	<li> enable the use of virtual memory to run processes that require
+		a larger address space than is otherwise supported by the
+		hardware.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An OS that runs directly on the hardware and provides virtual machines in
+	which other OSes can run, is called a(n)
+	<ol class="answer_list">
+	<li> type 1 hypervisor.
+	<li> type 2 hypervisor.
+	<li> exokernel.
+	<li> microkernel.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An OS that runs on top of a host OS (that in turn is running on top of
+	the physical hardware), and which can host other OSes running on top
+	of it, is called a(n)
+	<ol class="answer_list">
+	<li> type 1 hypervisor.
+	<li> type 2 hypervisor.
+	<li> exokernel.
+	<li> microkernel.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Software that divides up the underlying physical hardware so that each
+	running OS has sole access to its assigned hardware is called a(n)
+	<ol class="answer_list">
+	<li> type 1 hypervisor.
+	<li> type 2 hypervisor.
+	<li> exokernel.
+	<li> microkernel.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A type 1 hypervisor
+	<ol class="answer_list">
+	<li> runs directly on the hardware and the operating systems run in
+		the hypervisor.
+	<li> runs on top of the host OS (which is running directly on the
+		hardware).  Additional operating systems run in the hypervisor.
+	<li> divides the hardware up into slices, with each OS running
+		directly on the hardware. It ensures that each OS
+		only uses the parts of the hardware is was assigned.
+	<li> provides a microkernel used by each of the operating systems
+		running in the hypervisor. Each OS uses the microkernel
+		system calls to interact with the hardware.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A type 2 hypervisor
+	<ol class="answer_list">
+	<li> runs directly on the hardware and the operating systems run in
+		the hypervisor.
+	<li> runs on top of the host OS (which is running directly on the
+		hardware).  Additional operating systems run in the hypervisor.
+	<li> divides the hardware up into slices, with each OS running
+		directly on the hardware. It ensures that each OS
+		only uses the parts of the hardware is was assigned.
+	<li> provides a microkernel used by each of the operating systems
+		running in the hypervisor. Each OS uses the microkernel
+		system calls to interact with the hardware.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An exokernel is different from a virtual machine in that it
+	<ol class="answer_list">
+	<li> runs directly on the hardware and the operating systems run in
+		the hypervisor.
+	<li> runs on top of the host OS (which is running directly on the
+		hardware).  Additional operating systems run in the hypervisor.
+	<li> divides the hardware up into slices, with each OS running
+		directly on the hardware. It ensures that each OS
+		only uses the parts of the hardware is was assigned.
+	<li> provides a microkernel used by each of the operating systems
+		running in the hypervisor. Each OS uses the microkernel
+		system calls to interact with the hardware.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following mechanisms for running multiple operating systems
+	on shared hardware has the least amount of additional overhead?
+	<ol class="answer_list">
+	<li> type 1 hypervisor
+	<li> type 2 hypervisor
+	<li> microkernel
+	<li> exokernel
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> The illusion that multiple processes are running at the same time is
+	known as
+	<ol class="answer_list">
+	<li> parallelism.
+	<li> pseudoparallelism.
+	<li> hyperthreading.
+	<li> multiprocessing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Pseudoparallelism is commonly achieved on a single processor system by
+	<ol class="answer_list">
+	<li> letting each process run to completion.
+	<li> executing each process until it blocks before running the next
+		process.
+	<li> running <em>exactly</em> one instruction from each process in
+		round-robin fashion.
+	<li> rapidly switching of the CPU between processes (multiprogramming).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A process is
+	<ol class="answer_list">
+	<li> another name for a program.
+	<li> the compiled (executable) version of a program.
+	<li> a program in execution.
+	<li> a program that is either running (in the CPU) or ready, but
+		<strong>not</strong> blocked.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Existing processes in a Unix/Linix/POSIX system can be viewed using
+	which command/facility?
+	<ol class="answer_list">
+	<li> task manager
+	<li> pwd
+	<li> ps
+	<li> listAll
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Existing processes in a (Microsoft) Windows system can be viewed using
+	which command/facility?
+	<ol class="answer_list">
+	<li> task manager
+	<li> pwd
+	<li> ps
+	<li> listAll
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <em>voluntary</em> reasons for a process to
+	terminate/exit?
+	<ol class="answer_list">
+	<li> Normal
+	<li> Error
+	<li> Fatal
+	<li> Killed
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <em>INvoluntary</em> reasons for a process to
+	terminate/exit?
+	<ol class="answer_list">
+	<li> Normal
+	<li> Error
+	<li> Fatal
+	<li> Killed
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Processes in a POSIX system exist as a hierarchy because
+	<ol class="answer_list">
+	<li> each process corresponds to a program file (and files are
+		hierarchical).
+	<li> except for the first process, <strong>all</strong> other
+		processes are created by an existing process.
+	<li> each process corresponds to a user identification, and uids are
+		arranged hierarchically.
+	<li> of the time frames in which they were created.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> a state in which an
+	executing process can exist?
+	<ol class="answer_list">
+	<li> Running
+	<li> Blocked
+	<li> Ready
+	<li> Waiting
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> a transition between
+	process states?
+	<ol class="answer_list">
+	<li> running to blocked
+	<li> running to ready
+	<li> ready to running
+	<li> ready to blocked
+	<li> blocked to running
+	<li> blocked to ready
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following transition(s) are accomplished by the scheduler?
+	<ol class="answer_list">
+	<li> running to blocked
+	<li> running to ready
+	<li> ready to running
+	<li> ready to blocked
+	<li> blocked to running
+	<li> blocked to ready
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following transition(s) occur as the result of receiving
+	a signal?
+	<ol class="answer_list">
+	<li> running to blocked
+	<li> running to ready
+	<li> ready to running
+	<li> ready to blocked
+	<li> blocked to running
+	<li> blocked to ready
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following transition(s) are accomplished when an I/O
+	operation is completed?
+	<ol class="answer_list">
+	<li> running to blocked
+	<li> running to ready
+	<li> ready to running
+	<li> ready to blocked
+	<li> blocked to running
+	<li> blocked to ready
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which state is a process in when it terminates normally?
+	<ol class="answer_list">
+	<li> Running
+	<li> Blocked
+	<li> Ready
+	<li> Waiting
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which state does a process first start in when it is created?
+	<ol class="answer_list">
+	<li> Running
+	<li> Blocked
+	<li> Ready
+	<li> Waiting
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Match the ovals (process states) and arcs (state transitions) in the below
+	diagram (indicated by the letters A-I) with their names/descriptions.
+	[Note: No choice is used more than once, and some may not be used.]
+	<br/>
+	<img src="/eckart/classes/cpsc3125/questions/ProcessState.png" alt="Process state diagram" width="637" height="417" />
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> I/O Wait
+		<li> Process Termination
+		<li> Reload
+		<li> Blocked
+		<li> Dispatch (scheduling)
+		<li> Parked
+		<li> Process Entry
+		<li> I/O Completion
+		<li> Running
+		<li> Swapping
+		<li> Timeout
+		<li> Ready
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> The process table is an array with each entry containing
+	<ol class="answer_list">
+	<li> the file of the corresponding program.
+	<li> only the current program counter for that process.
+	<li> only the process id number for that process.
+	<li> <strong>all</strong> of the associated information for a single
+		process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A process that has been started but has <strong>not</strong> yet
+	terminated, is represented by an entry in the process table when
+	the process is in which of the following states?
+	<ol class="answer_list">
+	<li> Running
+	<li> Blocked
+	<li> Ready
+	<li> Waiting
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX system call that creates a new process is called
+	<ol class="answer_list">
+	<li> new
+	<li> create
+	<li> dup
+	<li> fork
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The family of POSIX system calls that replace the current process with a
+	new one is called
+	<ol class="answer_list">
+	<li> replace
+	<li> exec
+	<li> dup2
+	<li> getpid
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX system call that causes a parent process to wait for a specific
+	child process to finish is called
+	<ol class="answer_list">
+	<li> wait
+	<li> waitpid
+	<li> fini
+	<li> done
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX system call, <em>signal</em> is used to
+	<ol class="answer_list">
+	<li> send a signal to another process.
+	<li> declare what signals may be sent to a process.
+	<li> respond back to a signal sent from another process.
+	<li> indicate which function should be called when a particular
+		signal is received by the process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX system call that moves a running process to the blocked state
+	is called
+	<ol class="answer_list">
+	<li> wait
+	<li> break
+	<li> pause
+	<li> block
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Write a C program that takes a single command line argument indicating the
+	number of child processes to create. Each child process prints out its
+	PID to the stdout and then exits. The parent process prints the message
+	"All done." after <strong>all</strong> of the children have completed,
+	and then exits as well.
+</li><br/>
+
+<li> Threads are also commonly referred to as
+	<ol class="answer_list">
+	<li> hyperthreads
+	<li> lightweight processes
+	<li> execution traces
+	<li> shared libraries
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When compared to processes, threads
+	<ol class="answer_list">
+	<li> are more limited in the size of their address space.
+	<li> cannot be used for multiprogramming.
+	<li> take the same amount of time for a context switch.
+	<li> can be created and destroyed 10-100 times faster.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Each thread <strong>must</strong> maintain its own
+	<ol class="answer_list">
+	<li> address space.
+	<li> program counter.
+	<li> run-time stack.
+	<li> heap storage area.
+	<li> signal handlers.
+	<li> state (blocked, ready, running).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Every process contains at least
+	<ol class="answer_list">
+	<li> one thread.
+	<li> two threads, one each for execution and garbage collection.
+	<li> three threads, for execution, signal management, and garbage
+		collection.
+	<li> one child process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following items belong to the process (rather than to
+	each of its threads)?
+	<ol class="answer_list">
+	<li> Program counter
+	<li> Address space
+	<li> Static variables
+	<li> Run-time stack
+	<li> Heap storage
+	<li> Registers
+	<li> File descriptors
+	<li> Signal handlers
+	<li> State (blocked, ready, running)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following items belong to each thread (rather than to
+	the process)?
+	<ol class="answer_list">
+	<li> Program counter
+	<li> Address space
+	<li> Static variables
+	<li> Run-time stack
+	<li> Heap storage
+	<li> Registers
+	<li> File descriptors
+	<li> Signal handlers
+	<li> State (blocked, ready, running)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Because the address space is shared by the process' threads, care must
+	be taken (to avoid race conditions) when
+	<ol class="answer_list">
+	<li> calling the same function from multiple threads.
+	<li> reading/setting values for the same static variables and heap
+		allocated objects from multiple threads.
+	<li> creating new threads.
+	<li> a thread terminates.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX pthread library call that creates a new thread is called
+	<ol class="answer_list">
+	<li> pthread_new
+	<li> pthread_fork
+	<li> pthread_create
+	<li> pthread_dup
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX pthread library call that returns the thread's identification is
+	called
+	<ol class="answer_list">
+	<li> pthread_getid
+	<li> pthread_self
+	<li> pthread_pid
+	<li> pthread_thread_id
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX pthread library call that terminates the calling thread is called
+	<ol class="answer_list">
+	<li> pthread_exit
+	<li> pthread_terminate
+	<li> pthread_yield
+	<li> pthread_return
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX pthread library call that blocks the calling thread, resuming
+	when the indicated thread completes, is called
+	<ol class="answer_list">
+	<li> pthread_wait
+	<li> pthread_block
+	<li> pthread_pause
+	<li> pthread_join
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX pthread library call that moves a running thread to the blocked
+	state is called
+	<ol class="answer_list">
+	<li> pthread_block
+	<li> pthread_yield
+	<li> pthread_stop
+	<li> pthread_pause
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Threads that are managed in user/process space
+	<ol class="answer_list">
+	<li> require the OS to be thread aware.
+	<li> require the process to keep track of the threads via a thread
+		table (in addition to the process table that the OS maintains).
+	<li> enable context switching that is about 10x faster than
+		kernel space threads.
+	<li> cause the entire process to block if any one of its threads blocks
+		for a system resource.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Threads that are managed in kernel space
+	<ol class="answer_list">
+	<li> requires the OS to be thread aware.
+	<li> requires the process to keep track of the threads via a thread
+		table (in addition to the process table that the OS maintains).
+	<li> enables context switching that is about 10x faster than
+		user/process space threads.
+	<li> cause the entire process to block if any one of its threads blocks
+		for a system resource.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Thread pools are collections of already allocated/created threads that
+	<ol class="answer_list">
+	<li> are assigned as requested to reduce the costs of thread creation
+		and destruction.
+	<li> are only beneficial for user/process space managed threads.
+	<li> are only beneficial for kernel space managed threads.
+	<li> prevent an over abundance of threads, if the pool is the only
+		means for acquiring a thread.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Hybrid User-Kernel space thread management allocates
+	<ol class="answer_list">
+	<li> one or more kernel threads to a process, with the process able
+		to start multiple user threads within each kernel thread.
+	<li> exactly one user space and one kernel space thread to each
+		process.
+	<li> any number of user space and kernel space threads to each process
+		as long as they are requested from the corresponding user and
+		kernel thread pools.
+	<li> only user space threads, but enables the kernel to recognize when
+		a user thread is blocked.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Scheduler activations use
+	<ol class="answer_list">
+	<li> kernel space threads, but only the process schedules them.
+	<li> kernel space threads, but the process recommends to the OS
+		which thread to schedule/run next.
+	<li> user space threads, but the kernel recognizes when a blocked
+		thread doesn't prevent other threads from running.
+	<li> both user and kernel space threads for a process, with each
+		thread type being scheduled as it normally would be.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> The key issues for interprocess communication are
+	<ol class="answer_list">
+	<li> message passing.
+	<li> sharing information.
+	<li> semaphores.
+	<li> sequencing process interactions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A race condition exists when
+	<ol class="answer_list">
+	<li> two or more processes share the same variable.
+	<li> only user space threads are used for multiprogramming.
+	<li> only kernel space threads are used for multiprogramming.
+	<li> different execution orderings of instructions in multiple
+		threads/processes can produce different results.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Race conditions can occur when
+	<ol class="answer_list">
+	<li> two or more threads/processes can read (but <strong>not</strong>
+		change) the same variable(s).
+	<li> two or more threads/processes can read and write the same
+		variable(s) via UNinterruptible actions.
+	<li> two or more threads/processes can read and write the same
+		variable(s) via interruptible actions.
+	<li> when there is a mix of user space and kernel space threads
+		within the same process, but no shared variable(s).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A critical section is a portion of executable code
+	<ol class="answer_list">
+	<li> that makes system calls.
+	<li> in which only one thread (or process) should be active at a time.
+	<li> that is protected by one or more semaphores.
+	<li> which is shared by multiple threads.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Critical sections should be as small as possible because
+	<ol class="answer_list">
+	<li> larger critical sections run more slowly.
+	<li> this reduces the amount of process blocking.
+	<li> there is a maximum code size for which semaphores will work.
+	<li> they <strong>must</strong> run completely through
+		<strong>without</strong> blocking.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following help to prevent difficulties when simultaneous
+	threads/processes share data?
+	<ol class="answer_list">
+	<li> No 2 threads/processes are in their critical sections at the
+		same time.
+	<li> No assumptions are made about process execution speeds.
+	<li> No thread/process should wait arbitrarily long to enter its
+		critical section.
+	<li> No thread/process outside its critical section should block other
+		threads/processes.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Allowing processes to disable interrupts to prevent their being interrupted
+	while in their critical section(s) is <strong>not</strong> a desirable
+	solution since
+	<ol class="answer_list">
+	<li> it requires process threads to run in kernel space.
+	<li> it requires process threads to run in user space.
+	<li> a user program could use this to hog the CPU.
+	<li> it fails to work if there are multiple CPUs.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Strict alternation of processes can be accomplished by setting and
+	repeatedly checking a shared variable (i.e., spin locking), but this
+	<ol class="answer_list">
+	<li> is only suitable if the expected wait time is very short.
+	<li> solution only works for two processes (or threads).
+	<li> solution only works if there is only a single CPU involved.
+	<li> is wasteful of the CPU resource.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Peterson's solution uses what mechanism(s) to implement mutual exclusion
+	for a critical section?
+	<ol class="answer_list">
+	<li> disabling interrupts.
+	<li> kernel space threads.
+	<li> lock variable(s).
+	<li> busy waiting.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A test and set instruction is special because it
+	<ol class="answer_list">
+	<li> runs with interrupts disabled.
+	<li> does the value copy and set as a single indivisible action.
+	<li> works by performing the busy wait within a single instruction.
+	<li> locks the memory bus (for multiple CPU systems).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The priority inversion problem occurs when a busy waiting solution
+	for critical section access is used and
+	<ol class="answer_list">
+	<li> the busy waiting process/thread has a higher priority.
+	<li> the busy waiting process/thread has a lower priority.
+	<li> the busy waiting process/thread is a user space thread.
+	<li> the busy waiting process/thread is a kernel space thread.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Fill in the rest of the code that implements Peterson's solution:
+<pre><code>
+	int turn;
+	int interested[2];	// Solution for 2 processes.
+
+	void enterRegion(int process) {
+		int other = 1 - process;	// Other process.
+
+		// Missing Code
+
+	}
+
+	void leaveRegion(int process) {
+		interested[process] = 0;	// process NOT interested.
+	}
+</code></pre>
+</li><br/>
+<li> The key feature(s) of the TSL instruction which allows it to implement
+	critical section access is
+	<ol class="answer_list">
+	<li> only being callable by the OS (and <strong>not</strong> by user
+		programs).
+	<li> saving the current value of a register while the register's
+		value is set to a new value.
+	<li> blocks if the value being assigned is different from the current
+		value of the register.
+	<li> that it is atomic (i.e., cannot be interrupted once begun).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Fill in the rest of the code that implements a busy-waiting solution using
+	the TSL (test and set lock) instruction:
+<pre><code>
+	enterRegion:
+
+		// Missing Code
+
+		JNE enterRegion ; if register N isn't 0 then loop ("lock" was set)
+		RET		; if register N is 0 then enter critical section
+
+	leaveRegion:
+
+		// Missing Code
+
+		RET
+</code></pre>
+</li><br/>
+
+<li> Assuming that <em>sleep</em> (causing the calling process to block) and
+	<em>wakeup</em> (which unblocks the indicated process) are system
+	calls, then they can be used to implement critical sections if the
+	following condition(s) are kept:
+	<ol class="answer_list">
+	<li> <em>wakeup</em> signals are <strong>not</strong> buffered.
+	<li> <em>sleep</em> cannot be called by an already blocked process.
+	<li> only strict alternation of critical sections is implemented.
+	<li> <em>wakeup</em> is <strong>never</strong> called first.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The <em>sleep</em> (causing the calling process to block) and
+        <em>wakeup</em> (which unblocks the indicated process) calls enable
+	<ol class="answer_list">
+	<li> strictly alternating critical sections to be protected
+		<strong>without</strong> busy waiting.
+	<li> strictly alternating critical sections to be protected but only
+		when a test and set instruction is available.
+	<li> the protection of any critical section so long as
+		<em>wakeup</em> is <strong>never</strong> called first.
+	<li> the protection of any critical section so long as
+		<em>sleep</em> is <strong>never</strong> called twice in a row.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The <em>sleep</em> (causing the calling process to block) and
+        <em>wakeup</em> (which unblocks the indicated process) calls, can
+	only support strictly alternating critical sections because
+	<ol class="answer_list">
+	<li> <em>sleep</em> only blocks a process for a maximum period of
+		time.
+	<li> <em>sleep</em> cannot be called by an already blocked process.
+	<li> <em>wakeup</em> cannot unblock a process that called <em>sleep</em>
+		twice in a row.
+	<li> <em>wakeup</em> calls are <strong>not</strong> buffered.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Indicate where the <em>sleep()</em> and <em>wakeup(...)</em> calls should
+	go (with the correct argument for <em>wakeup</em>) in the following
+	code to allow alternation of producer and consumer actions. [Note: Some
+	options may be used more than once, or not at all.]
+<pre><code>
+	void producer() {
+		while (1) {
+			ITEM item = produceItem();
+			insertItem(item);
+
+			// Insert statement(s) for section "A" here.
+
+		}
+	}
+
+	void consumer() {
+		while (1) {
+
+			// Insert statement(s) for section "B" here.
+
+			ITEM item = removeItem();
+			consumeItem(item);
+
+			// Insert statement(s) for section "C" here.
+
+		}
+	}
+</code></pre>
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> /* No Operation */
+		<li> sleep();
+		<li> wakeup(producer);
+		<li> sleep(); wakeup(producer);
+		<li> wakeup(producer); sleep();
+		<li> wakeup(consumer);
+		<li> sleep(); wakeup(consumer);
+		<li> wakeup(consumer); sleep();
+		</ol>
+	</td></tr></table>
+</li><br/>
+
+<li> Semaphores were introduced in 1965 by 
+	<ol class="answer_list">
+	<li> Gary Peterson
+	<li> Andrew Tannenbaum
+	<li> Edgar Dijkstra
+	<li> Alan Turing
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The P (DOWN) semaphore operation is <strong>best</strong> described by
+	<ol class="answer_list">
+	<li> count--; if (count <= 0) { sleep(); }
+	<li> sleep(); if (count <= 0) { count--; }
+	<li> if (count <= 0) { count--; } sleep();
+	<li> if (count <= 0) { sleep(); } count--;
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The V (UP) semaphore operation is <strong>best</strong> described by
+	<ol class="answer_list">
+	<li> if (count == 1) { wakeup(sleeping_process); } count++;
+	<li> if (count == 1) { count++; } wakeup(sleeping_process);
+	<li> wakeup(sleeping_process); if (count == 1) { count++; }
+	<li> count++; if (count == 1) { wakeup(sleeping_process); }
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The starting value (count) of a semaphore indicates the number of
+	<ol class="answer_list">
+	<li> total times that the semaphore can be used (e.g., P/DOWN
+		operations).
+	<li> available items of that resource.
+	<li> different types of resources.
+	<li> concurrent processes (but <strong>not</strong> threads) that can
+		share the resource(s).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If semaphores are compared to having copies of a book in the library, then
+	<ol class="answer_list">
+	<li> P/DOWN is the equivalent of checking out a book.
+	<li> P/DOWN is the equivalent of returning a book.
+	<li> V/UP is the equivalent of checking out a book.
+	<li> V/UP is the equivalent of returning a book.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The semaphore operations of P/DOWN and V/UP <strong>must</strong>
+	<ol class="answer_list">
+	<li> be system calls.
+	<li> behave atomically (i.e., uninterruptible).
+	<li> be implemented in the OS kernel.
+	<li> be implemented by the computer hardware.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A mutex is a binary semaphore that
+	<ol class="answer_list">
+	<li> is implemented using lock variables.
+	<li> uses <em>sleep</em> and <em>wakeup</em> calls for its
+		implementation.
+	<li> is implemented using monitors.
+	<li> is optimized for having only two values/states.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Indicate where the <em>down(&mutex)</em> and <em>up(&mutex)</em> calls
+	should go in the following code to allow interleaving of producer
+	and consumer actions, where "insertItem" and "removeItem" are
+	operations on a shared buffer.
+	[Note: Some options may be used more than once, or not at all.]
+<pre><code>
+	int mutex = 1;
+
+	void producer() {
+		while (1) {
+			ITEM item = produceItem();
+
+			// Insert statement(s) for section "A" here.
+
+			insertItem(item);
+
+			// Insert statement(s) for section "B" here.
+
+		}
+	}
+
+	void consumer() {
+		while (1) {
+
+			// Insert statement(s) for section "C" here.
+
+			ITEM item = removeItem();
+
+			// Insert statement(s) for section "D" here.
+
+			consumeItem(item);
+		}
+	}
+</code></pre>
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> /* No Operation */
+		<li> down(&mutex);
+		<li> up(&mutex);
+		<li> down(&mutex); up(&mutex);
+		<li> up(&mutex); down(&mutex);
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> Write a C program that takes a single command line argument which
+	indicates the initial value of a shared counter (called "counter").
+	The program should use 5 threads to eventually reduce the value of
+	"counter" down to 0. Each thread will reduce "counter" by 1, then
+	sleep for 1 second before continuing to decrease "counter".  The
+	"counter" value should NOT go below 0 and the program should exit
+	once "counter" reaches 0. You may use the following library calls to
+	help write your program: <em>pthread_create</em>, <em>pthread_exit</em>,
+	<em>pthread_mutex_lock</em>, <em>pthread_mutex_unlock</em>,
+	<em>ptrhead_mutex_init</em>.  You can write your code without the usual
+	"include"s or the use of <em>pthread_attr_init</em> and
+	<em>pthread_attr_setscope</em>.
+</li><br/>
+
+<li> Monitors, unlike semaphores, <strong>must</strong> be implemented as
+	<ol class="answer_list">
+	<li> a (system) library so that different languages can share the
+		same implementation.
+	<li> part of the programming language design.
+	<li> part of the OS design.
+	<li> a feature within the computer hardware.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Monitors are most easily adapted to programming languages that support
+	<ol class="answer_list">
+	<li> classes (e.g., Java).
+	<li> records/structures (e.g., C).
+	<li> functions (e.g., C, Cobol, Fortran).
+	<li> conditional looping constructs, like "while" (e.g., C, Java).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What feature in Java can be used to implement a monitor?
+	<ol class="answer_list">
+	<li> virtualized
+	<li> try-catch
+	<li> finalized
+	<li> synchronized
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A different semaphore associated with each object instance can be used
+	to implement a monitor by having each
+	<ol class="answer_list">
+	<li> object do P/DOWN when it is created and a V/UP
+		when it is destroyed.
+	<li> object do V/UP when it is created and a P/DOWN
+		when it is destroyed.
+	<li> object method do P/DOWN when begun, and V/UP just before returning.
+	<li> object method do V/UP when begun, and P/DOWN just before returning.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which of the following interprocess communication mechanisms is well
+	suited for distributed sharing (i.e., across multiple computer systems)?
+	<ol class="answer_list">
+	<li> lock variables
+	<li> semaphores
+	<li> monitors
+	<li> message passing
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Message passing, like semaphores (and unlike monitors),
+	<ol class="answer_list">
+	<li> can easily be implemented as a (system) library so that different
+		languages can share the same implementation.
+	<li> <strong>must</strong> be part of the programming language design.
+	<li> <strong>must</strong> be part of the OS design.
+	<li> <strong>must</strong> be a feature within the computer hardware.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "send" and "receive" system calls for message passing generally
+	<ol class="answer_list">
+	<li> <strong>must</strong> be used in conjunction with semaphores to
+		perform the coordination (e.g., to ensure the "receive"r
+		is ready and waiting when the "send" is done).
+	<li> can only be used when the communicating processes are on
+		different systems.
+	<li> are considered impractically for efficiency reasons, and thus
+		are seldom used.
+	<li> <strong>must</strong> indicate the message contents and
+		destination (for "send") and a place to store the message
+		and the source (for "received").
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are typical design issues associated with messages?
+	<ol class="answer_list">
+	<li> Handling lost (or missing) messages.
+	<li> Minimum message size.
+	<li> Maximum time between messages (not counting acknowledgements).
+	<li> Messages are received in the order they were sent.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Indicate where the <em>send</em> and <em>receive</em> calls should go (with
+	the appropriate arguments) in the following code to allow alternation of
+	producer and consumer actions.
+	[Note: Some options may be used more than once, or not at all.]
+<pre><code>
+	void producer() {
+		MESSAGE msg;
+		while (1) {
+			ITEM item = produceItem();
+			addItem(&msg, item);
+
+			// Insert statement(s) for section "A" here.
+
+		}
+	}
+
+	void consumer() {
+		MESSAGE msg;
+		while (1) {
+
+			// Insert statement(s) for section "B" here.
+
+			ITEM item = removeItem(msg);
+
+			// Insert statement(s) for section "C" here.
+
+			consumeItem(item);
+		}
+	}
+</code></pre>
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> /* No Operation */
+		<li> send(consumer, &msg);
+		<li> send(producer, &msg);
+		<li> receive(consumer, &msg);
+		<li> receive(producer, &msg);
+		<li> send(consumer, &msg); receive(producer, &msg);
+		<li> send(producer, &msg); receive(consumer, &msg);
+		<li> receive(consumer, &msg); send(producer, &msg);
+		<li> receive(producer, &msg); send(consumer, &msg);
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> A popular system that implements message passing, developed in the
+	early 1990s, and available for a variety of different languages
+	(e.g., Java, Python, C) is called
+	<ol class="answer_list">
+	<li> The Messaging Library (TML)
+	<li> Message Passing Interface (MPI)
+	<li> Distributed Messaging Library (DML)
+	<li> Distributed Process Communication (DPC)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a message passing system causes the sender to block until the
+	receiver is ready (and vice versa), these semantics are called a
+	<ol class="answer_list">
+	<li> rendezvous.
+	<li> date.
+	<li> coupling.
+	<li> synch-up.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The mechanism in POSIX systems that provides a maximum size "mailbox"
+	that causes the writing/sending process to block once the "mailbox"
+	becomes full (allowing the writer/sender to proceed only when there
+	is room in the "mailbox" - perhaps due to the receiver reading/removing
+	items), is called
+	<ol class="answer_list">
+	<li> mail.
+	<li> spooling.
+	<li> pipes.
+	<li> conduits.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Write a C program that creates a single child process. The parent process
+	reads in numbers (separated by white-space) from stdin and sends them
+	to the child process using a pipe. The child process then writes the
+	numbers to stdout (one number per line).
+</li><br/>
+
+<li> Barriers are useful when a number of different threads/processes need to
+	<ol class="answer_list">
+	<li> take turns working on a common task.
+	<li> <strong>must all</strong> meet at a common place before
+		proceeding to the next phase of a computation.
+	<li> share a set of common variables/objects.
+	<li> none of the threads/processes are allowed to go past a
+		certain point in the computation.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If <strong>all</strong> the threads/processes take very close to the same
+	amount of time to reach the barrier, then a good way of implementing
+	the barrier is
+	<ol class="answer_list">
+	<li> spin locks.
+	<li> semaphores.
+	<li> monitors.
+	<li> message passing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "thread" function below is run multiple times simultaneously (each
+	instance is passed a different value of "i" from 0 to N-1). The
+	"barrier" function ensures that <strong>all</strong>
+	the threads wait until <strong>all</strong> have
+	reached this point before proceeding. Use "count", and the "down"
+	and "up" operations on both the N "mutex_thread" (declared
+	as an array) and "mutex_count" semaphores to implement the
+	"barrier" function semantics.
+<pre><code>
+        pthread_mutex_t mutex_thread[N];
+        pthread_mutex_t mutex_count;
+        int count = 0;
+
+        int main(...) {
+                ...
+                int thread_num;
+                pthread_mutex_init(&mutex_count);
+                for (thread_num = 0; thread_num < N; thread_num++) {
+                        pthread_t thread_id;
+                        pthread_mutex_init(&mutex_thread[thread_num]);
+                        pthread_mutex_lock(&mutex_thread[thread_num]);
+                        pthread_create(&thread_id, thread, thread_num)
+                }
+                ...
+        }
+
+        void thread(int i) {
+                while (1) {
+                        do_something(i);
+                        barrier(i);
+                        do_something_else(i);
+                        barrier(i);
+                }
+        }
+        void barrier(int i) {
+
+                // MISSING CODE
+
+        }
+</code></pre>
+</li><br/>
+
+<li> The Dining Philosophers Problem is a synchronization problem developed
+	by Edgar Dijkstra to
+	<ol class="answer_list">
+	<li> show how monitors can handle situations that semaphores cannot.
+	<li> show how semaphores can handle situations that message
+		passing cannot.
+	<li> demonstrate the use of semaphores.
+	<li> demonstrate the use of message passing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Dining Philosophers Problem is comprised of
+	<ol class="answer_list">
+	<li> 5 philosophers each with a plate of slippery pasta.
+	<li> philosophers needing to take turns eating, going around the
+		table in a clockwise fashion.
+	<li> 5 forks, one between each philosopher.
+	<li> philosophers needing 2 forks to eat.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If no process within a group of processes is able to run because they
+	are <strong>all</strong> in the blocked state, and each is waiting
+	for the other to do something before it can continue, this situation
+	is called
+	<ol class="answer_list">
+	<li> starvation.
+	<li> deadlock.
+	<li> livelock.
+	<li> mutual stall.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If <strong>all</strong> the processes within a group of processes is able
+	to run (i.e., none are in the blocked state), but none is able to
+	accomplish any useful work for lack of a resource, this situation is
+	called
+	<ol class="answer_list">
+	<li> starvation.
+	<li> deadlock.
+	<li> livelock.
+	<li> resource hogging.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the Dining Philosophers Problem, if each philosopher grabs a fork and
+	holds it until they are able to grab a second fork, this
+	<ol class="answer_list">
+	<li> leads to starvation.
+	<li> leads to deadlock.
+	<li> leads to livelock.
+	<li> provides a correct solution.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the Dining Philosophers Problem, if each philosopher grabs the fork
+	to their right, then seeing that the left fork is unavailable (having
+	been grabbed by the philosopher to their left) puts down the fork they
+	are holding, counts to 10, then tries again. This algorithm
+	<ol class="answer_list">
+	<li> leads to livelock.
+	<li> leads to deadlock.
+	<li> leads to resource hogging.
+	<li> provides a correct solution.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The key to one working solution of the Dining Philosophers Problem is to
+	have philosophers exist in one of three states (THINING, HUNGRY, EATING)
+	and that when a philosopher is
+	<ol class="answer_list">
+	<li> finished EATING, she ensures that any HUNGRY philosopher sitting
+		next to her gets an opportunity to eat.
+	<li> HUNGRY, she waits until each of her neighbors is THINKING before
+		trying to pick up forks.
+	<li> THINKING, she waits until a neighbor is also THINKING before
+		becoming HUNGRY.
+	<li> finished THINKING, she waits until one of her neighbors is EATING
+		before becoming HUNGRY.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> The Readers and Writers Problem involves multiple processes trying to
+	read or write to the same shared variable, in which 
+	<ol class="answer_list">
+	<li> only one reader or writer can access the variable at a time.
+	<li> only one reader or multiple writers can access the variable
+		at a time.
+	<li> multiple readers or a single writer can access the variable
+		at a time.
+	<li> multiple readers or multiple writers can access the variable
+		at a time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The primary types of solutions to the Readers and Writers Problem are
+	when
+	<ol class="answer_list">
+	<li> writers are given preference over readers.
+	<li> readers are given preference over writers.
+	<li> readers and writers have simultaneous access so that no
+		preference is given to either one.
+	<li> readers and writers strictly alternate, with every read followed
+		by a write and every write followed by a read.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Indicate where the <em>down(...)</em> and <em>up(...)</em> calls
+	should go in the following code to allow a single reader or a single
+	writer to access the shared database <strong>without</strong> giving
+	either readers or writers any preference.
+	[Note: Some options may be used more than once, or not at all.]
+<pre><code>
+	int mutex = 1;
+
+	void reader() {
+		while (1) {
+
+			// Insert statement(s) for section "A" here.
+
+			readDatabase();
+
+			// Insert statement(s) for section "B" here.
+
+		}
+	}
+
+	void writer() {
+		while (1) {
+			acquireData();
+
+			// Insert statement(s) for section "C" here.
+
+			writeDatabase();
+
+			// Insert statement(s) for section "D" here
+}}
+	}
+</code></pre>
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> /* No Operation */
+		<li> down(&mutex);
+		<li> up(&mutex);
+		<li> up(&mutex); down(&mutex);
+		<li> down(&mutex); up(&mutex);
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> Indicate where the <em>down(...)</em> and <em>up(...)</em> calls
+	should go in the following code to give readers preference over
+	writers for access to the shared database.
+	[Note: Some options may be used more than once, or not at all.]
+<pre><code>
+	int db_mutex = 1;
+	int counter_mutex = 1;
+	int counter = 0;
+
+	void reader() {
+		while (1) {
+
+			// Insert statement(s) for section "A" here.
+
+			if (1 == ++counter) {
+
+				// Insert statement(s) for section "B" here.
+
+			}
+
+
+			// Insert statement(s) for section "C" here.
+
+			readDatabase();
+
+
+			// Insert statement(s) for section "D" here.
+
+			if (0 == --counter) {
+
+				// Insert statement(s) for section "E" here.
+
+			}
+
+			// Insert statement(s) for section "F" here.
+
+		}
+	}
+
+	void writer() {
+		while (1) {
+			acquireData();
+
+			// Insert statement(s) for section "G" here.
+
+			writeDatabase();
+
+			// Insert statement(s) for section "H" here.
+
+		}
+	}
+</code></pre>
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> /* No Operation */
+		<li> up(&db_mutex);
+		<li> up(&counter_mutex);
+		<li> down(&db_mutex);
+		<li> down(&counter_mutex);
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> Indicate where the <em>down(...)</em> and <em>up(...)</em> calls
+	should go in the following code to give writers preference over
+	readers for access to the shared database.
+	[Note: Some options may be used more than once, or not at all.]
+<pre><code>
+	int read_mutex = 1;
+	int write_mutex = 1;
+	int counter_mutex = 1;
+	int counter = 0;
+
+	void reader() {
+		while (1) {
+
+			// Insert statement(s) for section "A" here.
+
+			readDatabase();
+
+			// Insert statement(s) for section "B" here.
+
+		}
+	}
+
+	void writer() {
+		while (1) {
+			acquireData();
+
+
+			// Insert statement(s) for section "C" here.
+
+			if (1 == ++counter) {
+
+
+				// Insert statement(s) for section "D" here.
+
+
+			}
+
+			// Insert statement(s) for section "E" here.
+
+
+			writeDatabase();
+
+
+			// Insert statement(s) for section "F" here.
+
+			if (0 == --counter) {
+
+
+				// Insert statement(s) for section "G" here.
+
+
+			}
+
+			// Insert statement(s) for section "H" here.
+
+		}
+	}
+</code></pre>
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> /* No Operation */
+		<li> up(&counter_mutex);
+		<li> up(&read_mutex);
+		<li> up(&write_mutex);
+		<li> down(&counter_mutex);
+		<li> down(&read_mutex);
+		<li> down(&write_mutex);
+		<li> up(&counter_mutex); down(&read_mutex);
+		<li> up(&read_mutex); down(&counter_mutex);
+		<li> up(&counter_mutex); down(&write_mutex);
+		<li> up(&write_mutex); down(&counter_mutex);
+		</ol>
+	</td></tr></table>
+</li><br/>
+
+<li> The scheduler is that part of the OS that
+	<ol class="answer_list">
+	<li> starts a new process.
+	<li> manages the CPU.
+	<li> determines when a blocked process becomes ready.
+	<li> determines when a running process blocks.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A process scheduling algorithm should try to address the following
+	concerns:
+	<ol class="answer_list">
+	<li> memory availability for the process to use.
+	<li> fairness, so that every process gets their fair share.
+	<li> the efficient use of the CPU.
+	<li> ensure availability of peripheral resources.
+	<li> maximize the number of processes completed per hour.
+	<li> minimize response time for interactive users.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The ability of the OS to switch from running one process to another
+	process VERY quickly is important because it
+	<ol class="answer_list">
+	<li> reduces the chance of an OS bug causing a problem.
+	<li> increases the efficient use of the CPU.
+	<li> helps reduce the response time for interactive users.
+	<li> ensures peripheral resource availability.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Regarding the set of concerns that a process scheduling algorithm
+	should address,
+	<ol class="answer_list">
+	<li> <strong>all</strong> of them can be effectively address by a
+		single algorithm.
+	<li> an OS should use two or more scheduling algorithms alternately
+		so as to address <strong>all</strong> of the concerns.
+	<li> only a couple of the concerns are truly important, and the
+		remainder can be safely ignored.
+	<li> some of the concerns are contradictory, so invariably
+		<strong>not all</strong> concerns can be addressed by the OS.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> With respect to process scheduling, it is helpful to view a process as
+	<ol class="answer_list">
+	<li> being primarily CPU bound.
+	<li> being primarily I/O bound.
+	<li> an intense period of CPU usage. 
+	<li> alternating sequences of CPU usage and waiting for I/O.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A CPU bound process is one in which
+	<ol class="answer_list">
+	<li> it spends most of its time in the ready or running state.
+	<li> it spends most of its time in the blocked state.
+	<li> once it obtains the CPU, it runs to completion.
+	<li> most of the time it's waiting for the memory to be available.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An I/O bound process is one in which
+	<ol class="answer_list">
+	<li> it spends most of its time in the ready or running state.
+	<li> it spends most of its time in the blocked state.
+	<li> once it obtains the CPU, it runs to completion.
+	<li> most of the time it's waiting for the memory to be available.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Preemptive scheduling is when a process
+	<ol class="answer_list">
+	<li> spends most of its time in the ready or running state.
+	<li> spends most of its time in the blocked state.
+	<li> can be booted out of the CPU by the scheduler, before the
+		process is finished.
+	<li> can be booted out of the CPU by another user process, before the
+		process is finished.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Non-preemptive scheduling is when a process
+	<ol class="answer_list">
+	<li> spends most of its time in the ready or running state.
+	<li> spends most of its time in the blocked state.
+	<li> <strong>never</strong> becomes blocked.
+	<li> <strong>always</strong> runs to termination once it's in the CPU.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which type of process scheduling is <strong>best</strong> suited
+	for interactive processing?
+	<ol class="answer_list">
+	<li> non-preemptive.
+	<li> dedicated.
+	<li> busy wait.
+	<li> preemptive.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are batch process scheduling algorithms?
+	<ol class="answer_list">
+	<li> Priority Scheduling.
+	<li> First Come, First Serverd.
+	<li> Guaranteed Scheduling.
+	<li> Shortest Remaining Time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following steps describe which process scheduling algorithm?
+	<blockquote>
+	<ul class="bullet_list">
+	<li> Processes are added to a single queue in the order they are
+		started.
+	<li> The process at the front of the queue is run until it either
+		completes, or blocks.
+	<li> Once a process becomes ready again (after being blocked), it joins
+		 the end of the queue.
+	</ul>
+	</blockquote>
+	<ol class="answer_list">
+	<li> Round Robin Scheduling.
+	<li> First Come, First Served.
+	<li> Guaranteed Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following process scheduling algorithms needs to know the
+	typical amount of time that a process often takes to complete?
+	<ol class="answer_list">
+	<li> Guaranteed Scheduling.
+	<li> Shortest Job First.
+	<li> Priority Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> Shortest Remaining Time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following process scheduling algorithms favors CPU bound
+	over I/O bound processes?
+	<ol class="answer_list">
+	<li> First Come, First Served
+	<li> Shortest Job First
+	<li> Shortest Remaining Time
+	<li> Guaranteed Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following process scheduling algorithms improves the average
+	turnaround time on a batch system?
+	<ol class="answer_list">
+	<li> First Come, First Served
+	<li> Shortest Job First
+	<li> Shortest Remaining Time
+	<li> Guaranteed Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following process scheduling algorithms improves the average
+	throughput on a batch system?
+	<ol class="answer_list">
+	<li> First Come, First Served
+	<li> Shortest Job First
+	<li> Shortest Remaining Time
+	<li> Guaranteed Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following steps describe which process scheduling algorithm?
+	<blockquote>
+	<ul class="bullet_list">
+	<li> Processes are chosen to run from the front of a single ready queue.
+	<li> Each process can run a max time called a quantum.
+	<li> Processes may block before <strong>all</strong> of their
+		time quantum is used.
+	<li> As processes become ready, they go to the end of the ready queue.
+	</ul>
+	</blockquote>
+	<ol class="answer_list">
+	<li> First Come, First Served.
+	<li> Round Robin Scheduling.
+	<li> Priority Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following steps describe which process scheduling algorithm?
+	<blockquote>
+	<ul class="bullet_list">
+	<li> Each process has a priority.
+	<li> The ready process with the highest priority runs next.
+	<li> Priorities can be set statically and/or dynamically.
+	</ul>
+	</blockquote>
+	<ol class="answer_list">
+	<li> Round Robin Scheduling.
+	<li> Guaranteed Scheduling.
+	<li> Priority Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following steps describe which process scheduling algorithm?
+	<blockquote>
+	<ul class="bullet_list">
+	<li> Each queue corresponds to a different max time quantum to run.
+	<li> If a process uses <strong>all</strong> of its time quantum,
+		it's added to the end of the next highest quantum queue when
+		it's moved to the ready state.
+	<li> If a process blocks before exhausting its time quantum, it's added
+		to the end of the next lowest quantum queue when it's moved to
+		the ready state.
+	<li> The processes in queues with larger quantum are run less
+		frequently.
+	</ul>
+	</blockquote>
+	<ol class="answer_list">
+	<li> Round Robin Scheduling.
+	<li> Multiple Queues.
+	<li> Priority Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which process scheduling algorithm(s) are particularly well suited to
+	<em>very</em> slow context switching?
+	<ol class="answer_list">
+	<li> Guaranteed Scheduling.
+	<li> Multiple Queues.
+	<li> Lottery Scheduling.
+	<li> First Come, First Served.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which process scheduling algorithm(s) are particularly well suited to
+	enforcing an advertised policy?
+	<ol class="answer_list">
+	<li> Multiple Queues.
+	<li> Guaranteed Scheduling.
+	<li> Lottery Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following steps describe which process scheduling algorithm?
+	<blockquote>
+	<ul class="bullet_list">
+	<li> Each process (in the ready queue) is given a (probably different)
+		number of tickets.
+	<li> When picking the next process to run, a ticket is chosen at random
+		and the ready process with that ticket is run.
+	</ul>
+	</blockquote>
+	<ol class="answer_list">
+	<li> Multiple Queues.
+	<li> Guaranteed Scheduling.
+	<li> Lottery Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The <em>most</em> space efficient way of implementing Lottery Scheduling
+	is to have
+	<ol class="answer_list">
+	<li> each ready process use a hash table to keep track of its randomly
+		assigned tickets.
+	<li> each ready process use a unsorted linked list of its randomly
+		assigned tickets, performing a linear search to determine if
+		it holds the "winning" ticket.
+	<li> each ready process stores the range of tickets that it holds,
+		so finding the process to run requires searching the queue of
+		ready processes for the correct range that holds the "winning"
+		ticket.
+	<li> a common array used by <strong>all</strong> processes. Each array
+		entry corresponds to a ticket, and records the process holding
+		that ticket.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The way of implementing Lottery Scheduling so that finding the process
+	with the "winning" ticket is the <em>fastest</em> is to have
+	<ol class="answer_list">
+	<li> each ready process use a hash table to keep track of its randomly
+		assigned tickets.
+	<li> each ready process use a unsorted linked list of its randomly
+		assigned tickets, performing a linear search to determine if
+		it holds the "winning" ticket.
+	<li> each ready process stores the range of tickets that it holds,
+		so finding the process to run requires searching the queue of
+		ready processes for the correct range that holds the "winning"
+		ticket.
+	<li> a common array used by <strong>all</strong> processes. Each array
+		entry corresponds to a ticket, and records the process holding
+		that ticket.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which process scheduling algorithm ensures that each user (rather than
+	each process) gets an equal share of the CPU resource?
+	<ol class="answer_list">
+	<li> Multiple Queues.
+	<li> Guaranteed Scheduling.
+	<li> Lottery Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Real-time process scheduling is used
+	<ol class="answer_list">
+	<li> when processes <strong>must never</strong> block.
+	<li> to ensure "quick" response to real world events.
+	<li> to ensure the <strong>most</strong> efficient use of the
+		CPU resource. 
+	<li> when there is <strong>never</strong> more than one ready process
+		at a time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> <em>Hard</em> real-time systems
+	<ol class="answer_list">
+	<li> try to meet most deadlines, but terminate processes when its
+		deadline is missed.
+	<li> should meet <strong>all</strong> deadlines, but sometimes they
+		are missed.
+	<li> <strong>must</strong> meet <strong>all</strong> deadlines,
+		otherwise something dire happens.
+	<li> guarantees that <strong>all</strong> deadlines are met,
+		no deadline is ever missed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> <em>Soft</em> real-time systems
+	<ol class="answer_list">
+	<li> try to meet most deadlines, but terminate processes when its
+		deadline is missed.
+	<li> should meet <strong>all</strong> deadlines, but sometimes they
+		are missed.
+	<li> <strong>must</strong> meet <strong>all</strong> deadlines,
+		otherwise something dire happens.
+	<li> guarantees that <strong>all</strong> deadlines are met,
+		no deadline is ever missed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The process scheduling policy and the scheduling mechanism are
+	<ol class="answer_list">
+	<li> different, with the policy choosing what to run next and the
+		mechanism performing the context switch.
+	<li> different, with mechanism used for batch systems and policy  
+		used for real-time systems.
+	<li> similar, with policy doing everything that mechanism does but
+		adding to it support for non-preemptive scheduling.
+	<li> actually different names for the same thing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Thread scheduling is
+	<ol class="answer_list">
+	<li> <strong>always</strong> done by the OS kernel.
+	<li> <strong>always</strong> done by the process, when the process
+		is running.
+	<li> performed by both the kernel <em>and</em> by the process (if
+		it is running).
+	<li> accomplished by another aspect of the OS kernel using algorithms
+		very different from those for process scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following describes which type of thread scheduling?
+	<blockquote>
+	<ul class="bullet_list">
+	<li> The kernel picks/schedules a process.
+	<li> The scheduled process then schedules its own threads.
+	<li> If a thread blocks for a system resource,
+		then the entire process blocks and no other
+		threads from the process can be run until the block is
+		"cleared".
+	</ul>
+	</blockquote>
+	<ol class="answer_list">
+	<li> Process scheduling
+	<li> Kernel scheduling
+	<li> Hybrid scheduling
+	<li> Combined scheduling
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following describes which type of thread scheduling?
+	<blockquote>
+	<ul class="bullet_list">
+	<li> The kernel picks/schedules a thread (from any process).
+	<li> If the thread blocks for a system resource,
+		then the kernel picks/schedules another
+		thread that can be from the same or another process.
+	</ul>
+	</blockquote>
+	<ol class="answer_list">
+	<li> Process scheduling
+	<li> Kernel scheduling
+	<li> Hybrid scheduling
+	<li> Combined scheduling
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following thread scheduling mechanisms provides the fastest
+	switching between threads from the same process?
+	<ol class="answer_list">
+	<li> Process scheduling
+	<li> Kernel scheduling
+	<li> Hybrid scheduling
+	<li> Combined scheduling
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following thread scheduling mechanisms avoids a single
+	blocked thread from preventing <strong>all</strong> of that
+	process' threads from running?
+	<ol class="answer_list">
+	<li> Preemptive scheduling
+	<li> Process scheduling
+	<li> Kernel scheduling
+	<li> Non-preemptive scheduling
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> Which Unix command is used to display system documentation?
+	<ol class="answer_list">
+	<li> man
+	<li> help
+	<li> doc
+	<li> system
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command prints out the current date and time?
+	<ol class="answer_list">
+	<li> time
+	<li> date
+	<li> today
+	<li> now
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command prints out the calendar for the current month?
+	<ol class="answer_list">
+	<li> dates
+	<li> year
+	<li> cal
+	<li> calendar
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command provides an arbitrary precision calculator?
+	<ol class="answer_list">
+	<li> cal
+	<li> apc
+	<li> rpn
+	<li> bc
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command prints where a specified command is located?
+	<ol class="answer_list">
+	<li> find
+	<li> where
+	<li> which
+	<li> locate
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command captures a transcript of the terminal session?
+	<ol class="answer_list">
+	<li> script
+	<li> term
+	<li> session
+	<li> capture
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command lists the "real", user, and system time taken by
+	another command?
+	<ol class="answer_list">
+	<li> date
+	<li> time
+	<li> timer
+	<li> sw
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> a common Unix command shell?
+	<ol class="answer_list">
+	<li> shell
+	<li> sh
+	<li> cmd
+	<li> bash
+	<li> term
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command is a commonly used full screen editor?
+	<ol class="answer_list">
+	<li> edit
+	<li> fse
+	<li> vi
+	<li> ed
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command allows the filtering and transformation of text?
+	<ol class="answer_list">
+	<li> edit
+	<li> fse
+	<li> tr
+	<li> sed
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command prints out the type of a specified file?
+	<ol class="answer_list">
+	<li> file
+	<li> type
+	<li> ft
+	<li> kind
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command prints the contents of one or more files to the screen?
+	<ol class="answer_list">
+	<li> print
+	<li> cat
+	<li> type
+	<li> list
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command makes a copy of a file?
+	<ol class="answer_list">
+	<li> mv
+	<li> dup
+	<li> cp
+	<li> copy
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command is used to rename a file or directory?
+	<ol class="answer_list">
+	<li> cp
+	<li> rename
+	<li> dup
+	<li> mv
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command displays a file, a page at a time, on the screen?
+	<ol class="answer_list">
+	<li> more
+	<li> page
+	<li> type
+	<li> list
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command prints the first few lines of a file?
+	<ol class="answer_list">
+	<li> start
+	<li> head
+	<li> begin
+	<li> first
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command prints the last few lines of a file?
+	<ol class="answer_list">
+	<li> end
+	<li> fini
+	<li> tail
+	<li> rest
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command can sort the lines of a file?
+	<ol class="answer_list">
+	<li> order
+	<li> list
+	<li> file
+	<li> sort
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command shows the differences between two files?
+	<ol class="answer_list">
+	<li> diff
+	<li> filecmp
+	<li> compare
+	<li> shdiff
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command returns the number of characters, words, and lines in
+	a file?
+	<ol class="answer_list">
+	<li> count
+	<li> wc
+	<li> words
+	<li> list
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command lists the contents of a directory?
+	<ol class="answer_list">
+	<li> list
+	<li> files
+	<li> ls
+	<li> show
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix shell command changes the current working directory?
+	<ol class="answer_list">
+	<li> dir
+	<li> pwd
+	<li> cwd
+	<li> cd
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command prints the location of the current working directory?
+	<ol class="answer_list">
+	<li> pwd
+	<li> show
+	<li> whereami
+	<li> location
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command prints the lines of a file that match a specified
+	pattern?
+	<ol class="answer_list">
+	<li> pat
+	<li> grep
+	<li> match
+	<li> files
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command recursively visits a directory structure looking for
+	files that match a set of criteria?
+	<ol class="answer_list">
+	<li> list
+	<li> files
+	<li> find
+	<li> match
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command creates a new directory?
+	<ol class="answer_list">
+	<li> new
+	<li> create
+	<li> touch
+	<li> mkdir
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command removes files (or directories)?
+	<ol class="answer_list">
+	<li> rm
+	<li> del
+	<li> purge
+	<li> mv
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command reports the amount of free disk space remaining?
+	<ol class="answer_list">
+	<li> free
+	<li> df
+	<li> disksp
+	<li> dstat
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command estimates the amount of disk currently being used?
+	<ol class="answer_list">
+	<li> usage
+	<li> disk
+	<li> du
+	<li> dstat
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command prints the status of existing processes?
+	<ol class="answer_list">
+	<li> pstat
+	<li> procs
+	<li> ready
+	<li> ps
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix command is used to send signals to processes?
+	<ol class="answer_list">
+	<li> kill
+	<li> signal
+	<li> send
+	<li> ping
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> The input redirection provided by the Unix "bash" shell enables
+	<ol class="answer_list">
+	<li> output from one command to be used as input to another command.
+	<li> the contents of a file to be fed as input to a command (as if
+		coming from the keyboard).
+	<li> keyboard input to be captured within a file.
+	<li> keyboard input to be fed directly to a running command.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are example(s) of input redirection using the Unix
+	"bash" shell, where "data_file" is the name of a file containing
+	input data and "command" is the name of a Unix executable?
+	<ol class="answer_list">
+	<li> data_file > command
+	<li> data_file | command
+	<li> command | data_file
+	<li> command < data_file
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The output redirection provided by the Unix "bash" shell enables
+	<ol class="answer_list">
+	<li> output from one command to be used as input to another command.
+	<li> the output of a command to be captured within a file.
+	<li> the output of a command to be displayed on the screen.
+	<li> keyboard "output" to be fed directly as input to a running command.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are example(s) of output redirection using the Unix
+	"bash" shell, where "data_file" is the name of an output file
+        and "command" is the name of a Unix executable?
+	<ol class="answer_list">
+	<li> data_file > command
+	<li> data_file | command
+	<li> command | data_file
+	<li> command < data_file
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Unix "bash" shell concept of pipe enables
+	<ol class="answer_list">
+	<li> the output of a command to be captured within a file.
+	<li> output from one command to be used as input to another command.
+	<li> the contents of a file to be fed as input to a command (as if
+		coming from the keyboard).
+	<li> both the input and output for a command to be associated with the
+		same file.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are example(s) of pipe(s) using the Unix
+	"bash" shell, where "data_file" is the name of a file containing
+        data and "command" is the name of a Unix executable?
+	<ol class="answer_list">
+	<li> data_file > command
+	<li> data_file | command
+	<li> command | data_file
+	<li> command < data_file
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following Unix "bash" shell expression uses which of these
+	capabilities, where "data_file" is the name of a file containing
+        data?
+<pre><code>
+	cmd_1 < data_file | cmd_2 | cmd_3
+</code></pre>
+	<ol class="answer_list">
+	<li> Input redirection
+	<li> Output redirection
+	<li> Pipe(s)
+	<li> The expression is illegal
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following Unix "bash" shell expression uses which of these
+	capabilities, where "data_file" is the name of a file that can
+        hold data?
+<pre><code>
+	cmd_1 | cmd_2 > data_file
+</code></pre>
+	<ol class="answer_list">
+	<li> Input redirection
+	<li> Output redirection
+	<li> Pipe(s)
+	<li> The expression is illegal
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following Unix "bash" shell expression uses which of these
+	capabilities, where "data_file_1" and "data_file_2" are the names
+        of files that can hold data?
+<pre><code>
+	cmd_1 < data_file_1 | cmd_2 | cmd_3 > data_file_2
+</code></pre>
+	<ol class="answer_list">
+	<li> Input redirection
+	<li> Output redirection
+	<li> Pipe(s)
+	<li> The expression is illegal
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following Unix "bash" shell expression uses which of these
+	capabilities, where "data_file" is the name of a file containing
+        data?
+<pre><code>
+	data_file > cmd_1 | cmd_2
+</code></pre>
+	<ol class="answer_list">
+	<li> Input redirection
+	<li> Output redirection
+	<li> Pipe(s)
+	<li> The expression is illegal
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the Unix "bash" shell, to run a command in the background when it
+	is first started
+	<ol class="answer_list">
+	<li> put a "|" at the end of the command line.
+	<li> place a "&" at the end of the command line.
+	<li> put the parts of the command line to run in the background
+		between "<" and ">".
+	<li> put the parts of the command line to run in the background
+		between two "&".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the Unix "bash" shell, the job control action accomplished by
+	^c (ctl-c) is to
+	<ol class="answer_list">
+	<li> terminate the foreground process.
+	<li> terminate <strong>all</strong> background processes.
+	<li> suspend the foreground process.
+	<li> suspend <strong>all</strong> background processes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the Unix "bash" shell, the job control action accomplished by
+	^z (ctl-z) is to
+	<ol class="answer_list">
+	<li> terminate the foreground process.
+	<li> terminate <strong>all</strong> background processes.
+	<li> suspend the foreground process.
+	<li> suspend <strong>all</strong> background processes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix "bash" shell command lists <strong>all</strong> (and only)
+	the child processes of the current shell execution?
+	<ol class="answer_list">
+	<li> ps
+	<li> list
+	<li> procs
+	<li> jobs
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix "bash" shell command causes a suspended/background process
+	to run in the foreground?
+	<ol class="answer_list">
+	<li> fore
+	<li> fg
+	<li> &
+	<li> job
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix "bash" shell command causes a suspended process to run in the
+	background?
+	<ol class="answer_list">
+	<li> back
+	<li> bg
+	<li> &
+	<li> job
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> To get a listing of the signals which can be sent to a process in Unix,
+	use this command
+	<ol class="answer_list">
+	<li> signal -list
+	<li> kill -l
+	<li> proc -sig
+	<li> ps -l
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are true about Unix signals?
+	<ol class="answer_list">
+	<li> There is no mechanism to handle multiple signals of the same kind.
+	<li> If a process doesn't specify a handler for a signal, then the OS
+		will handle the signal using the default handler.
+	<li> All signals have the same priority.
+	<li> A process does <strong>not</strong> necessarily run immediately
+		in the CPU when a signal is sent to it.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> The technique that allows data that flows from one "program piece" to
+	the next "program piece" to remain in memory is known as
+	<ol class="answer_list">
+	<li> overflows.
+	<li> overlays.
+	<li> piecewise communication.
+	<li> memory mapping.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When the OS automatically breaks a process into multiple pieces of the
+	same size, thus enabling processes otherwise too large to run within
+	a smaller amount of memory, this is called
+	<ol class="answer_list">
+	<li> overlays.
+	<li> memory mapping.
+	<li> break out.
+	<li> virtual memory.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What is the most common virtual memory technique?
+	<ol class="answer_list">
+	<li> Overlays
+	<li> Paging
+	<li> Memory Mapping.
+	<li> Swapping.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The virtual address space of a process is
+	<ol class="answer_list">
+	<li> composed of those parts of main memory (e.g., RAM) holding
+		parts of the process (e.g., code, run-time stack).
+	<li> exactly the same size as the main memory (e.g., RAM) of the
+		computer system.
+	<li> larger than the maximum number of addressable bytes (e.g.,
+		more than 2^32 bytes on a 32 bit architecture).
+	<li> the address space the process would exist in if main memory
+		(e.g., RAM) were big enough to hold the process, and the
+		process was loaded into memory starting at address 0.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Page frames are the
+	<ol class="answer_list">
+	<li> blocks in physical memory that hold virtual address space pages.
+	<li> uniformly sized chunks that the virtual address space is divided
+		into.
+	<li> disk blocks that hold the virtual address space pages.
+	<li> entries in the Memory Management Unit (MMU) that indicate which
+		virtual address space page holds a desired address.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What part of the computer system is responsible for converting a virtual
+	address into a physical memory address?
+	<ol class="answer_list">
+	<li> Virtual Address Translation (VAT)
+	<li> Memory Management Unit (MMU)
+	<li> Arithmetic Logic Unit (ALU)
+	<li> System Bus
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The standard implementation for a page (map) table of a process has an
+	entry for each
+	<ol class="answer_list">
+	<li> page in the process' virtual address space.
+	<li> page frame in physical (main) memory.
+	<li> and only those virtual address space pages currently residing in
+		a page frame.
+	<li> and only those virtual address space pages currently
+		<strong>not</strong> residing in a page frame.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> part of the page (map)
+	table entries?
+	<ol class="answer_list">
+	<li> Referenced bit
+	<li> Modified bit
+	<li> Present/Absent bit
+	<li> Page Frame number
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The higher order bits of a big-endian virtual address normally
+	<ol class="answer_list">
+	<li> are used as the index into the page table when translating
+		a virtual address into a physical address.
+	<li> represent the page in the virtual address space.
+	<li> indicates which page frame the virtual address resides in.
+	<li> provide the offset into the page frame for the virtual address.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The lower order bits of a big-endian virtual address normally
+	<ol class="answer_list">
+	<li> are used as the index into the page table when translating
+		a virtual address into a physical address.
+	<li> represent the page in the virtual address space.
+	<li> indicates which page frame the virtual address resides in.
+	<li> provide the offset into the page frame for the virtual address.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The page size for paged virtual memory is <strong>always</strong> a
+	power of 2 because
+	<ol class="answer_list">
+	<li> it allows a fixed number of bits of the virtual address to be used
+		as the page offset.
+	<li> that's the convention often used when using binary computers.
+	<li> adding the page offset to the page frame base can be done more
+		quickly using "bit-wise or" rather than addition. 
+	<li> the arrays (used to implement page tables) <strong>must</strong>
+		have a power of 2 size.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If, during virtual address translation, the entry in the page table for
+	the virtual address has a 0 for the "present" bit, then 
+	<ol class="answer_list">
+	<li> the 0 page frame is used in calculating the physical address.
+	<li> a page fault is generated.
+	<li> the "present" bit is set to 1.
+	<li> the "modified" bit is set to 1.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The page table associated with a process is used when
+	<ol class="answer_list">
+	<li> the process transitions from the blocked to the ready state.
+	<li> the next instruction in the process <strong>must</strong> be
+		loaded.
+	<li> a global page replacement algorithm is determining which page
+		frame to reuse.
+	<li> a value is stored into a variable (in memory).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <strong>not</strong> normally part of the
+	page table entry?
+	<ol class="answer_list">
+	<li> Caching disabled flag
+	<li> Referenced bit
+	<li> Modified bit
+	<li> Present/Absent bit
+	<li> Protection bit(s)
+	<li> Page frame number
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Virtual address translation <strong>must</strong> be <em>very</em> fast
+	since it
+	<ol class="answer_list">
+	<li> can happen many times for every instruction, depending upon the
+		machine instructions provided by that computer system.
+	<li> prevents the CPU from doing any other work while it is happening.
+	<li> happens at least once for every instruction (to retrieve it).
+	<li> ties up the system bus while it is happening.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Assuming that page sizes remain the same, as virtual memories get bigger,
+	so does the size of the
+	<ol class="answer_list">
+	<li> process table.
+	<li> page frames.
+	<li> page table.
+	<li> Memory Management Unit (MMU).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Translation Lookaside Buffer (TLB) is part of the
+	<ol class="answer_list">
+	<li> System Bus.
+	<li> Memory Management Unit (MMU).
+	<li> Page Table.
+	<li> Arithmetic Logic Unit (ALU).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Translation Lookaside Buffer (TLB) holds
+	<ol class="answer_list">
+	<li> the entire page table for a process.
+	<li> many of the most recent virtual address translation results
+		(since they're likely to be seen again - e.g., loops).
+	<li> the process table entries for processes in the ready state.
+	<li> a small number of (recently used) page table entries.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Entries in the Translation Lookaside Buffer (TLB) <strong>must</strong>
+	add this item as a field since it cannot be used as an index.
+	<ol class="answer_list">
+	<li> Page frame number.
+	<li> Virtual address page number.
+	<li> Present/absent bit.
+	<li> Page offset.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Finding the desired entry in a Translation Lookaside Buffer (TLB)
+	<strong>must</strong> be very fast, so this is done by using a(n)
+	<ol class="answer_list">
+	<li> linear search.
+	<li> binary search.
+	<li> hash table.
+	<li> associative memory.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a virtual address doesn't correspond to one of the rows in the
+	Translation Lookaside Buffer (TLB), then
+	<ol class="answer_list">
+	<li> a page fault is generated.
+	<li> the MMU updates the TLB immediately.
+	<li> the TLB is purged and reloaded.
+	<li> a lookup is performed using the full page table.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a Translation Lookaside Buffer (TLB) is larger, it can be effectively
+	managed by software instead of by the Memory Management Unit (MMU).
+	If a page entry is <strong>not</strong> in the TLB, but is in memory,
+	this is called a
+	<ol class="answer_list">
+	<li> cache miss.
+	<li> soft miss.
+	<li> hard miss.
+	<li> page entry fault.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a Translation Lookaside Buffer (TLB) is larger, it can be effectively
+	managed by software instead of by the Memory Management Unit (MMU).
+	If a page entry is <strong>not</strong> in the TLB, and is also
+	<strong>not</strong> in memory, this is called a
+	<ol class="answer_list">
+	<li> cache miss.
+	<li> soft miss.
+	<li> hard miss.
+	<li> page entry fault.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> As the size of the virtual address space increases, so to does the
+	size of the page table (provided page size remains the same). 
+	Techniques for dealing with very large page tables include
+	<ol class="answer_list">
+	<li> Multi-level Page Tables.
+	<li> Hashed Page Tables.
+	<li> Memory Mapped Page Tables.
+	<li> Inverted Page Tables.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Multi-level Page Tables divide the page table up into segments based on
+	<ol class="answer_list">
+	<li> which pages of the page table are referenced most frequently,
+		reducing the number of page entries which need to be kept in
+		memory.
+	<li> how many processes are in the process table.
+	<li> the higher order bits that index the page table (e.g., the top
+		10 bits of the 32 bit virtual address indicates which group
+		of 1024 pages to use - for 4K sized pages).
+	<li> the size of a software managed Translation Lookaside Buffer (TLB),
+		with each segment reflecting the TLB size.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Instead of keeping a page table for each process, Inverted Page Tables
+	have an entry for each
+	<ol class="answer_list">
+	<li> process, keeping track of which page frames are being used by
+		that process.
+	<li> virtual page, keeping track of which process the virtual page
+		belongs to.
+	<li> page frame, keeping track of which virtual page from which
+		process is loaded in the corresponding page frame.
+	<li> virtual page and process pairing, keeping track of which page
+		frame corresponds to the pairing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In order to speed access to an Inverted Page Table, while still
+	conserving space, they are often implemented using
+	<ol class="answer_list">
+	<li> content addressable memories.
+	<li> hash tables.
+	<li> 2 dimensional arrays.
+	<li> balance B-trees.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> After <strong>all</strong> page frames in a system are occupied,
+	page replacement in a virtual memory system is the process
+	<ol class="answer_list">
+	<li> of choosing a virtual page to load into a given page frame.
+	<li> of choosing both a virtual page and a page frame in which to
+		load the chosen virtual page.
+	<li> of choosing a page frame and loading a given virtual page into that
+		page frame.
+	<li> that's performed in response to a page fault.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The essentially unobtainable aspect of optimal page replacement which sets
+	it apart from <strong>all</strong> other page replacement algorithms is
+	<ol class="answer_list">
+	<li> only loading virtual pages that will be used immediately (or in
+		the very near future).
+	<li> ensuring that no process ever thrashes.
+	<li> ensuring that no page frame is replaced before
+		<strong>all</strong> other frames have already been replaced.
+	<li> only replacing page frames whose resident virtual page wont be
+		used for the longest period of time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Nearly <strong>all</strong> page replacement algorithms make use of the
+	following flag(s) which are associated with each page frame:
+	<ol class="answer_list">
+	<li> reference bit
+	<li> cached bit
+	<li> present bit
+	<li> modified bit
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The reference bit associated with a page frame is set to
+	<ol class="answer_list">
+	<li> 0 whenever a virtual page is loaded into the frame. 
+	<li> 0 only the first time a virtual page is loaded from the
+		virtual address space.
+	<li> 1 whenever a virtual page is loaded into a new page frame.
+	<li> 1 whenever the page frame contents are changed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The modified bit associated with a page frame is set to
+	<ol class="answer_list">
+	<li> 0 whenever a virtual page is loaded into the frame. 
+	<li> 0 only the first time a virtual page is loaded from the
+		virtual address space.
+	<li> 1 whenever a virtual page is loaded into a new page frame.
+	<li> 1 whenever the page frame contents are changed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Not-Recently-Used (NRU) page replacement algorithm replaces pages
+	based on the values of their reference and modified bits. What is
+	the preference ordering (most prefered replacement listed first) given
+	the following combinations?
+<pre>
+	1 -> referenced, <strong>not</strong> modified
+	2 -> <strong>not</strong> referenced, <strong>not</strong> modified
+	3 -> referenced, modified
+	4 -> <strong>not</strong> referenced, modified
+</pre>
+	<ol class="answer_list">
+	<li> 1, 2, 3, 4
+	<li> 2, 4, 1, 3
+	<li> 3, 1, 2, 4
+	<li> 4, 3, 2, 1
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm <strong>always</strong> replaces the
+	oldest page, regardless of the value of the referenced and modified
+	bits, is
+	<ol class="answer_list">
+	<li> First-in First-out Page Replacement
+	<li> Second-Chance Page Replacement
+	<li> Clock Page Replacement
+	<li> Least Recently Used (LRU) Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm is the easiest to implement and often
+	performs adequately?
+	<ol class="answer_list">
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Not Frequently Used (NFU) Page Replacement
+	<li> Clock Page Replacement
+	<li> Least Recently Used (LRU) Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm is a variation of First-in First-out
+	page replacement that uses the reference (R) bit. If the page frame
+	being considered has R = 0, the page is replaced. Otherwise, if R = 1,
+	then R is set to 0 and the page frame is put at the end of the queue
+	to be considered again later.
+	<ol class="answer_list">
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Second-Chance Page Replacement
+	<li> Clock Page Replacement
+	<li> Least Recently Used (LRU) Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm cycles through the set of page frames
+	in order (starting after where it left off last time) looking for one
+	with R = 0, which it replaces when found. If R = 1, then R is set to
+	0 and the next page frame is considered (until a suitable one is found).
+	<ol class="answer_list">
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Second-Chance Page Replacement
+	<li> Clock Page Replacement
+	<li> Least Recently Used (LRU) Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A disadvantage of both Second-Chance and Clock page replacement algorithms
+	is that
+	<ol class="answer_list">
+	<li> they can immediately (re)load the exact same virtual page already
+		in the page frame.
+	<li> modified pages are given preference for replacement.
+	<li> if <strong>all</strong> reference bits = 1, then the entire
+		"queue" <strong>must</strong> be iterated
+		through before a replacement page will be found.
+	<li> if <strong>all</strong> modified bits = 1, then the entire "queue"
+		<strong>must</strong> be iterated
+		through before a replacement page will be found.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm replaces the page that has gone unused
+	for the longest period of time?
+	<ol class="answer_list">
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Clock Page Replacement
+	<li> Least Recently Used (LRU) Page Replacement
+	<li> Aging Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm can make effective use of a counter
+	associated with each page frame, with the counter value set to the
+	global clock tick counter each time the page is referenced?
+	<ol class="answer_list">
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Clock Page Replacement
+	<li> Least Recently Used (LRU) Page Replacement
+	<li> Aging Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm adds the value of the page frame's R bit
+	to a counter for that page frame, each time <strong>all</strong>
+	of the R bits are reset? The counter is reset to 0 whenever a new page
+	is loaded into the frame.
+	<ol class="answer_list">
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Least Recently Used (LRU) Page Replacement
+	<li> Not Frequently Used (NFU) Page Replacement
+	<li> Aging Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm can end up replacing useful pages (e.g.,
+	very recently used) instead of pages that haven't been used for a long
+	time?
+	<ol class="answer_list">
+	<li> Second-Chance Page Replacement
+	<li> Clock Page Replacement
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Not Frequently Used (NFU) Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm improves upon the primary deficiency of
+	the Not Frequently Used (NFU) page replacement algorithm?
+	<ol class="answer_list">
+	<li> Clock Page Replacement
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Least Recently Used (NRU) Page Replacement
+	<li> Aging Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which algorithm is similar to the Not Frequently Used (NFU) page
+        replacement algorithm, but instead of simply adding the R bit to the
+        page frame counter, it shifts the counter 1 bit to the right before
+        the leftmost bit is set to the R value?
+	<ol class="answer_list">
+	<li> Clock Page Replacement
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Least Recently Used (NRU) Page Replacement
+	<li> Aging Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Paging algorithms that only load virtual pages that are the cause of a
+	page fault are categorized as
+	<ol class="answer_list">
+	<li> lazy paging.
+	<li> eager paging.
+	<li> laissez faire paging.
+	<li> demand paging.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Locality of reference is a property exhibited by most programs in which
+	<ol class="answer_list">
+	<li> nearly <strong>all</strong> the variables are declared within
+		functions rather than as global/static variables.
+	<li> the vast majority of program statements are some type of loop.
+	<li> the parts of the virtual address space needed are usually close
+		to those most recently used. 
+	<li> only a small part of the virtual address space of a process is
+		ever loaded into a page frame.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The set of virtual pages that a process is currently using are known
+	as the
+	<ol class="answer_list">
+	<li> loaded pages.
+	<li> process set.
+	<li> working set.
+	<li> recency list.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which category of page replacement algorithms tries to reduce the page
+	fault rate by <em>prepaging</em>?
+	<ol class="answer_list">
+	<li> Working set model
+	<li> Global allocation
+	<li> Local allocation
+	<li> Process model
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Thrashing occurs in a multi-tasking system when by the next time a process
+	is chosen to run in the CPU
+	<ol class="answer_list">
+	<li> it's already been blocked by another process.
+	<li> it's been terminated by the OS kernel.
+	<li> most of its needed virtual pages are <strong>not</strong>
+		in page frames.
+	<li> most of its needed virtual pages are already loaded in page frames.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Thrashing is almost certain to occur when
+	<ol class="answer_list">
+	<li> the size of working sets for <strong>all</strong> processes
+		varies greatly from one another.
+	<li> the combined working sets of <strong>all</strong> runnable
+		processes excedes the size of physical memory.
+	<li> the Translation Lookaside Buffer is smaller than largest process
+		working set.
+	<li> there are more processes than will fit in the process table.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The amount of time that a process has spent running in the CPU since
+	the process started is known as its
+	<ol class="answer_list">
+	<li> CPU time.
+	<li> process time.
+	<li> processor virtual time.
+	<li> current virtual time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The working set of a process is the list of virtual pages the process
+	has used
+	<ol class="answer_list">
+	<li> within the last T seconds of its current virtual time.
+	<li> since the process started.
+	<li> since the process started or since the last time process was
+		blocked (whichever is most recent).
+	<li> since it last generated a page fault.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithms introduce an additional field for page
+	table entries that holds the last (virtual) time of use for that
+	virtual page?
+	<ol class="answer_list">
+	<li> Clock Page Replacement
+	<li> Aging Page Replacement
+	<li> Working Set Model Page Replacement
+	<li> Working Set Clock Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For Working Set Model Page Replacement, the virtual page in a page
+	frame is evicted if the reference (R) bit
+	<ol class="answer_list">
+	<li> = 1 and the current virtual time minus the time of last use is
+		greater than a predetermined cutoff.
+	<li> = 0 (regardless of the time of last use).
+	<li> = 0 and the modified bit = 0 (regardless of the time of last use).
+	<li> = 0 and the current virtual time minus the time of last use is
+		greater than a predetermined cutoff.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For Working Set Model Page Replacement, the virtual page in a page
+	frame is evicted if the reference (R) bit
+	<ol class="answer_list">
+	<li> = 0, <strong>all</strong> virtual pages in page frames have been
+		referenced within the predetermined cutoff, but this page
+		has been referenced least recently.
+	<li> = 0, <strong>all</strong> virtual pages in page frames have been
+		referenced within the predetermined cutoff, but this page has
+		been modified.
+	<li> = 0 (regardless of the time of last use).
+	<li> = 0 and the modified bit = 0 (regardless of the time of last use).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The major disadvantage of Working Set Model Page Replacement is that it
+	requires
+	<ol class="answer_list">
+	<li> an additional field for the page table entries (to
+		hold the time of last use).
+	<li> maintaining the current virtual time of each process.
+	<li> each page table entry to be examined (to determine if the page
+		is in a page frame and if so what its time of last use is).
+	<li> the page entry be updated for <em>every</em> access to the page.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Working Set Clock Page Replacement addresses the short-coming(s) of
+	Working Set Model Page Replacement by
+	<ol class="answer_list">
+	<li> associating the time of last use with the page frame, rather than
+		the page table entries.
+	<li> only setting the time of use when that page frame is being
+		considered for reuse, rather than every time a page fault
+		occurs.
+	<li> considering each page frame in a "round robin" fashion, rather 
+		than looking for virtual pages that have been in a page
+		frame for a sufficiently long period of time.
+	<li> using the modified (M) bit in deciding whether to immediately
+		reuse the page frame or not, rather than ignoring the M bit
+		value.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following page replacement algorithms is widely used in
+	practice due to its relatively simple implementation and good
+	performance?
+	<ol class="answer_list">
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Clock Page Replacement
+	<li> Working Set Clock Page Replacement.
+	<li> Aging Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following page replacement algorithms schedules a modified
+	page frame to be written back to disk <em>in advance</em> of evicting
+	the virtual page from the page frame?
+	<ol class="answer_list">
+	<li> Clock Page Replacement
+	<li> Aging Page Replacement
+	<li> Working Set Model Page Replacement.
+	<li> Working Set Clock Page Replacement.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> A global allocation policy, with respect to page replacement, is one in
+	which the page frames considered for eviction are associated with
+	<ol class="answer_list">
+	<li> the process that generated the page fault.
+	<li> most (generally all) processes.
+	<li> only those processes in the ready state.
+	<li> the process that generated the page fault along with
+		<strong>all</strong> of its child processes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An advantage that a global allocation policy (GAP) generally has over
+	a local allocation policy (LAP) is that
+	<ol class="answer_list">
+	<li> GAP increases the likelihood of thrashing.
+	<li> LAP increases the likelihood of thrashing.
+	<li> LAP can easily increase/decrease the number of virtual pages in
+		physical memory for a process.
+	<li> GAP can easily increase/decrease the number of virtual pages in
+		physical memory for a process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A global allocation policy can cause thrashing if
+	<ol class="answer_list">
+	<li> the combined virtual address space of <strong>all</strong>
+		processes is 10x larger than physical memory.
+	<li> the pages for a process are nearly always modified.
+	<li> a process' pages are evicted by the time it acquires the CPU.
+	<li> demand paging is also used.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A local allocation policy can cause thrashing if
+	<ol class="answer_list">
+	<li> the combined virtual address space of <strong>all</strong>
+		processes is 10x larger than physical memory.
+	<li> the pages for a process are nearly always modified.
+	<li> demand paging is also used.
+	<li> a process' working set is too small.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> a way to effectively
+	deal with thrashing while the computer is running?
+	<ol class="answer_list">
+	<li> Swapping a process out to disk and giving its page frames
+		to one or more of the processes left.
+	<li> Add additional physical memory to the computer system.
+	<li> Temporarily "block" the creation of any new processes if the
+		combined working sets of existing processes is close to
+		or exceeds the size of physical memory.
+	<li> Increase the working set of <strong>all</strong> processes to
+		ensure the virtual pages they need will be in page frames
+		when the process gets the CPU.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> On average, the last page of a "segment" containing code or data will
+	be half full. This is a reason to choose
+	<ol class="answer_list">
+	<li> smaller page sizes.
+	<li> larger page sizes.
+	<li> page sizes that are <strong>always</strong> a power of 2.
+	<li> half sized pages (so the last one will be closer to full).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Because the page table grows as the number of pages grows, this is a
+	reason to use
+	<ol class="answer_list">
+	<li> smaller page sizes.
+	<li> larger page sizes.
+	<li> any page size since the page table size doesn't matter.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Although the 4KB page size remains the most commonly used page size,
+	IEEE published results suggest that a more appropriate page size
+	would be
+	<ol class="answer_list">
+	<li> 2KB
+	<li> 8KB
+	<li> 16KB
+	<li> 32KB
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> While large 32 and 64 bit virtual address spaces make this less
+	necessary, having separate address spaces for code and data can
+	still be useful
+	<ol class="answer_list">
+	<li> for page replacement, so that only virtual pages containing data
+		could be loaded into a page frame already holding data (and
+		similarly for code/instructions).
+	<li> to reduce the working set size of processes.
+	<li> to prevent thrashing.
+	<li> for parts of the memory hierarch (e.g., caches) which are small
+		in size.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Apart from interprocess communication, it's possible for different
+	processes to share the same memory page (i.e., page frame) if
+	<ol class="answer_list">
+	<li> the page is read only.
+	<li> any attempted modification to the page causes a copy to be made
+		(and modified) for the writing process.
+	<li> the pages are part of a shared library.
+	<li> when one of the sharing processes is swapped out (or finishes)
+		that the shared pages aren't also evicted.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a change to a shared page causes a copy of the page to
+	first be made, and then the change made to the copy, this is called
+	<ol class="answer_list">
+	<li> write through.
+	<li> copy on write.
+	<li> writable copying.
+	<li> page duping.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Compared to statically linked executables, shared libraries
+	<ol class="answer_list">
+	<li> decreases the demands on physical memory, allowing more
+		processes to execute.
+	<li> enable programs to use updated libraries <strong>without</strong>
+		being recompiled.
+	<li> often reduce the size of executable programs.
+	<li> reduce the chance of thrashing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Shared libraries and shared memory pages are
+	<ol class="answer_list">
+	<li> related because the code corresponding to a shared library is
+		often held in a shared memory page.
+	<li> interdependent since shared memory pages only exist for
+		implementing shared libraries.
+	<li> completely different since the code for shared libraries is
+		statically linked to each program separately at compile time
+		while shared memory pages are assigned at run-time.
+	<li> there is no relationship except that both can be shared by
+		multiple processes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> <em>Position independent-code</em> is used to solve the problem of using
+	absolute addressing for shared libraries since
+	<ol class="answer_list">
+	<li> different processes could load the shared library at different
+		locations in their virtual address spaces.
+	<li> base offset addressing cannot be used because the offsets will
+		be different for each process.
+	<li> the page table entries of the sharing processes may each point to
+		different page frames.
+	<li> the combined size of the libraries and program code could be
+		larger than physical memory.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> <em>Mapped files</em> enable processes to work with files as if they
+	were large character arrays by 
+	<ol class="answer_list">
+	<li> copying the file contents to shared memory page frames.
+	<li> redirecting the file contents as input to the process.
+	<li> mapping the file to the virtual address space for the process.
+	<li> using pipes to stream the data from the file to the process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Having multiple processes share the same mapped file, enables
+	<ol class="answer_list">
+	<li> the file to be larger than it would if only mapped by a single
+		process.
+	<li> a larger number of processes to be executing at once.
+	<li> mutual exclusion on the critical sections of each process.
+	<li> fast interprocess communication.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Because page replacement algorithms <strong>must</strong> write modified
+	page frames back to disk before loading in another virtual page, thus
+	slowing down the resolution of a page fault,
+	<ol class="answer_list">
+	<li> many page replacement algorithms give preference to UNmodified
+		pages over modified pages.
+	<li> page modifications are often implemented as <em>write-through</em>
+		so that the dirty page is immediately written out to disk after
+		each change.
+	<li> a <em>paging daemon</em> can be used as a background process to
+		write dirty pages back to disk, reducing the number of dirty
+		page frames.
+	<li> the frequency of page modifications is reduced by translating
+		writes to the page directly into writes out to the disk.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+<li> When the OS creates a new process, and its corresponding entry in the
+	process table, it <strong>must</strong> also
+	<ol class="answer_list">
+	<li> add it to the set of blocked processes.
+	<li> create a page table for the process.
+	<li> allocate a swap area (on disk) for the process.
+	<li> pre-load its working set into page frames.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a context switch occurs to run a process,
+	<ol class="answer_list">
+	<li> reset <strong>all</strong> of the "present" bits in the process'
+		page table to 0 (showing that they are <strong>not</strong>
+		loaded into page frames).
+	<li> the Memory Management Unit (MMU) <strong>must</strong> be reset.
+	<li> restore the CPU registers to the values they had when the process
+		was last running.
+	<li> the Translation Lookaside Buffer (TLB) <strong>must</strong>
+		be flushed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What is often one of the easiest (and often cheapest) ways to increase
+	the speed of a computer system?
+	<ol class="answer_list">
+	<li> Upgrade to a faster processor.
+	<li> Add more memory.
+	<li> Add more hard disk space.
+	<li> Add more processors.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a process terminates, the OS should
+	<ol class="answer_list">
+	<li> release the page frames it was using (unless they were shared
+		and other processes are still using them).
+	<li> release/deallocate the process' page table.
+	<li> free the disk space assigned as the process' swap area.
+	<li> remove its entry from the process table.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following steps are typically done to handle a page fault:
+	<ol class="answer_list">
+	<li> the hardware traps to the OS kernel
+	<li> the program counter (and instruction information) is saved
+	<li> general registers values are saved before calling the OS
+	<li> the faulting process is swapped out to disk
+	<li> the OS determines which virtual page is needed
+	<li> ensure the virtual address is valid
+	<li> Use the Translation Lookaside Buffer (TLB) to find a page frame
+		to use
+	<li> <strong>always</strong> schedule the chosen page frame to be
+		written back to disk
+	<li> update the page table after the page is loaded into the page frame
+	<li> load the swapped out faulting process back into memory
+	<li> set the program counter back to the instruction that caused the
+		page fault
+	<li> schedule the faulting process to run
+	</ol>
+</li><br/>
+<li> Instruction backup is necessary because
+	<ol class="answer_list">
+	<li> while the first part of the instruction was in physical memory
+		the last portion may not be - causing a page fault.
+	<li> a context switch requires that the last instruction attempted
+		by the process being evicted from the CPU <strong>must</strong>
+		be reexecuted when the process runs again.
+	<li> if the instruction causes a page fault, some or all of it will
+		need to be reexecuted.
+	<li> just like for files, you need to ensure that the instruction
+		doesn't get removed accidentally.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Locking a page in memory (i.e., pinning), so that the page replacement
+	algorithm cannot select it for eviction, is necessary because
+	<ol class="answer_list">
+	<li> it reduces the likelihood of thrashing.
+	<li> some operations load file data directly into a page frame, and
+		reassigning the page could expose protected information to
+		another process.
+	<li> most page replacement algorithms would preferentially choose
+		the most recently loaded page again for replacement.
+	<li> if modified, it needs to be written back to disk by the
+		paging daemon before it's reused.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The swap area on disk associated with a process is
+	<ol class="answer_list">
+	<li> only needed if the virtual address space is larger than physical
+		memory.
+	<li> <strong>not</strong> necessary, but can help improve performance.
+	<li> created when a process gets its first page fault.
+	<li> used to store process information <strong>not</strong> currently
+		in memory (e.g., a page frame).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Basic approaches for allocating swap space include allocating space
+	<ol class="answer_list">
+	<li> for the entire process when the process is initially created.
+	<li> for the entire process only after the process
+		generates its first page fault.
+	<li> only for pages <strong>not</strong> currently in physical memory,
+		adding to the allocation as needed (e.g., when the run-time
+		stack grows).
+	<li> only when the run-time stack or heap grow beyond a certain
+		pre-defined limit.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A drawback of initially allocating <strong>all</strong> the swap space
+	for a process is
+	<ol class="answer_list">
+	<li> that a larger than necessary page table <strong>must</strong>
+		also be created.
+	<li> the corresponding process table entry is larger.
+	<li> as the process needs more space (e.g., for the run-time stack)
+		it may need to copy the swap area to a larger chunk of disk
+		space.
+	<li> it can increase the chance of thrashing since there are more
+		virtual pages that might need to be loaded into page frames.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Allocating space in the swap area only for a process' pages
+	<strong>not</strong> currently in physical memory
+	<ol class="answer_list">
+	<li> decreases the size of the page table.
+	<li> often reduces the total amount of swap space needed.
+	<li> reduces the chance of thrashing since there are fewer
+		virtual pages that might need to be loaded into page frames.
+	<li> easily handles the case when a process' address space
+		<strong>must</strong> increase (e.g., for the run-time stack).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The separation of policy and mechanism with respect to virtual memory
+	and page replacement algorithms is
+	<ol class="answer_list">
+	<li> <strong>not</strong> attainable since page replacement algorithms
+		need access to the page tables which are protected data within
+		the OS kernel.
+	<li> can be done by having the MMU and page fault handlers run within
+		the OS kernel while a user space  page loader copies the
+		virtual page to memory (the page fault handler remaps the page
+		frame to the process afterwards). 
+	<li> while theoretically possible, there are no operating systems that
+		currently implement this capability.
+	<li> is possible, though somewhat complicated, and is implemented
+		by the Mach kernel.
+	<li> None of the above
+	</ol>
+</li><br/>
+
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

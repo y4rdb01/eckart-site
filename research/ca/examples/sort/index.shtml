@@ -1,0 +1,208 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+
+<table>
+<tr>
+<td valign="top" width="100">
+<table>
+
+<tr><td>
+<a href="../diffuse/index.shtml">
+<img width="64" height="64" src="../diffuse/diffuse.gif" alt="Diffusion">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../loops/index.shtml">
+<img width="64" height="64" src="../loops/loops.gif" alt="Loops">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../flock/index.shtml">
+<img width="64" height="64" src="../flock/flock.gif" alt="Flocking">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../termites/index.shtml">
+<img width="64" height="64" src="../termites/termites.gif" alt="Termites">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../ffire/index.shtml">
+<img width="64" height="64" src="../ffire/ffire.gif" alt="Forest Fire">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../epidemic/index.shtml">
+<img width="64" height="64" src="../epidemic/epidemic.gif" alt="Epidemic">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../rabbits/index.shtml">
+<img width="64" height="64" src="../rabbits/rabbits.gif" alt="Rabbits">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../life/index.shtml">
+<img width="64" height="64" src="../life/life.gif" alt="Life">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../vants/index.shtml">
+<img width="64" height="64" src="../vants/vants.gif" alt="Vants">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../srdp/index.shtml">
+<img width="64" height="64" src="../srdp/srdp.gif" alt="Srdp">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../sort/index.shtml">
+<img width="64" height="64" src="../sort/sort.gif" alt="Sort">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../wirewrld/index.shtml">
+<img width="64" height="64" src="../wirewrld/wirewrld.gif" alt="Wireworld">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../firefly/index.shtml">
+<img width="64" height="64" src="../firefly/firefly.gif" alt="Firefly">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../snoflake/index.shtml">
+<img width="64" height="64" src="../snoflake/snoflake.gif" alt="Snoflake">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../pinball/index.shtml">
+<img width="64" height="64" src="../pinball/pinball.gif" alt="Pinball">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../hp/index.shtml">
+<img width="64" height="64" src="../hp/hp.gif" alt="Hodgepodge">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../mgas/index.shtml">
+<img width="64" height="64" src="../mgas/mgas.gif" alt="Margolus Gas">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../hpp/index.shtml">
+<img width="64" height="64" src="../hpp/hpp.gif" alt="HPP LGA">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../fhp/index.shtml">
+<img width="64" height="64" src="../fhp/fhp.gif" alt="FHP LGA">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../immis/index.shtml">
+<img width="64" height="64" src="../immis/immis.gif" alt="2-Phase LGA">
+</a>
+</td></tr>
+
+<tr><td>
+<a href="../ising/index.shtml">
+<img width="64" height="64" src="../ising/ising.gif" alt="Ising">
+</a>
+</td></tr>
+
+</table>
+</td>
+
+<td valign="top">
+
+
+<br/>
+<img align=left width="64" height="64" hspace="10" vspace="0" src="sort.gif" alt="bubble sort snapshot">
+<h1>Parallel Bubble Sort</h1>
+
+<hr/>
+
+<p>
+By using time and the <em>which</em> field, this sorting CA groups together
+non-overlapping pairs of neighboring cells.  On alternate time steps, cells
+are grouped with a different pair.  During a time step, the <em>value</em>s in a 
+cell pair may be swapped.  Since a cell participates in different cell pairs on
+alternate time steps, values eventually are bubbled down (or up) to their
+appropriate place in the sorted result.
+</p>
+
+<hr/>
+
+<ul style="font-size: 120%" >
+
+<li><a href="code"><em>Cellang</em> code</a>
+
+<li><a href="data">C Program to Produce Example Data File</a>
+
+<li><a href="map">Color Map</a>
+
+<li>128 x 128 MPEG Movie (<a href="large.mpg">download</a>)
+	<br/>
+	<iframe width="128" src="large.mpg" frameborder="0" allowfullscreen></iframe>
+
+<li><a href="../wirewrld/index.shtml">Next Example</a>
+
+</ul>
+
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+

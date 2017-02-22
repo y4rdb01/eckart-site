@@ -1,0 +1,185 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Animated GIFs
+</p>
+
+<p>
+This is a collection of
+<a href="http://en.wikipedia.org/wiki/GIF89a">animated gifs</a>
+that I've come across over the years
+that for whatever reason I thought were interesting, useful, funny, 
+whimsical, or just plain odd. Whatever the reason, perhaps you'll find them
+an interesting diversion as well (and if you're really lucky, perhaps one
+of them might even prove useful to you). Enjoy!
+</p>
+<figure style="float: left">
+	<img src="runrabit.gif" alt="running rabbit" width="135" height="129" />
+	<figcaption>
+	"Rabbit" courtesy of:<br/>
+	<a href="http://www.innerspace.be/" target="_new">Belgian InnerSpace Studios</a>
+	</figcaption>
+</figure>
+
+<img src="@.gif" alt="@ sign" width="60" height="60" />
+<img src="AniDog.gif" alt="running dog" width="32" height="32" />
+<img src="AniDog2.gif" alt="running dog" width="200" height="35" />
+<img src="Atom2.gif" alt="atom" width="160" height="120" />
+<img src="E-Mail-scroll.gif" alt="email scroll" width="96" height="64" />
+<img src="PhoneB.gif" alt="phone symbol" width="33" height="33" />
+<img src="V_twin.gif" alt="engine pistons" width="108" height="108" />
+<img src="a-bomb.gif" alt="exploding fission bomb" width="78" height="121" />
+<img src="a-felix2.gif" alt="Felix the Cat" width="80" height="100" />
+<img src="a-mail.gif" alt="mail" width="45" height="52" />
+<img src="airmail.gif" alt="bird carrying letter" width="62" height="68" />
+<img src="ajuggler.gif" alt="toss juggler" width="29" height="33" />
+<img src="allnite.gif" alt="neon sign - open all nite" width="76" height="142" />
+<img src="ani-at.gif" alt="@ sign" width="37" height="40" />
+<img src="ani-awards.gif" alt="awards button" width="66" height="65" />
+<img src="aninow.gif" alt="Netscape now" width="65" height="50" />
+<img src="anipooh.gif" alt="Winnie the Pooh" width="60" height="77" />
+<img src="at-work.gif" alt="yellow road sign - construction" width="48" height="48" />
+<img src="atom_ani.gif" alt="atom" width="86" height="86" />
+<img src="ball1.gif" alt="bouncing ball" width="25" height="32" />
+<img src="ball_jar.gif" alt="balls in jar" width="87" height="135" />
+<img src="balls.gif" alt="Newton's cradle" width="105" height="45" />
+<img src="bird2.gif" alt="flapping bird" width="85" height="78" />
+<img src="bluehelo.gif" alt="helicopter" width="283" height="180" />
+<img src="book.gif" alt="book" width="37" height="30" />
+<img src="bottle.gif" alt="message in a floating bottle" width="128" height="117" />
+<img src="boy.gif" alt="small boy" width="100" height="100" />
+<img src="branism.gif" alt="flapping bird" width="110" height="110" />
+<img src="burn.gif" alt="small fire" width="24" height="24" />
+<img src="butterfly.gif" alt="butterfly" width="110" height="84" />
+<img src="buzzanimate2.gif" alt="Georgia Tech mascot - buzz" width="72" height="70" />
+<img src="cakep5.gif" alt="scared mouse" width="121" height="78" />
+<img src="caman.gif" alt="camera" width="80" height="60" />
+<img src="clown.gif" alt="clown" width="139" height="135" />
+<img src="colorbar.gif" alt="horizontal bar of changing colors" width="600" height="1" />
+<img src="compass.gif" alt="compass" width="60" height="60" />
+<img src="const.gif" alt="yellow road sign - construction" width="76" height="76" />
+<img src="const_lf.gif" alt="yellow road sign - construction" width="56" height="49" />
+<img src="construc.gif" alt="yellow road sign - construction" width="45" height="37" />
+<img src="construction.gif" alt="yellow road sign - construction" width="38" height="38" />
+<img src="construction2.gif" alt="yellow road sign - construction" width="90" height="85" />
+<img src="count_sheep.gif" alt="counting sheep in a dream" width="120" height="120" />
+<img src="cowboy.gif" alt="cowboy" width="112" height="84" />
+<img src="crazy_counter.gif" alt="super fast counter" width="90" height="20" />
+<img src="dancing_penguin.gif" alt="dancing penguin" width="90" height="76" />
+<img src="digger.gif" alt="pirate digging for treasure" width="127" height="99" />
+<img src="dino-mail.gif" alt="dinosaur mailing letters" width="176" height="103" />
+<img src="dino.gif" alt="dinosaur" width="190" height="110" />
+<img src="diskman2.gif" alt="3.5 inch diskette" width="55" height="69" />
+<img src="diskwaving.gif" alt="3.5 inch diskette" width="76" height="62" />
+<img src="dna.gif" alt="DNA strand" width="44" height="111" />
+<img src="downdsk2.gif" alt="spinning 3.5 diskette" width="50" height="40" />
+<img src="dragon.gif" alt="flying dragon" width="600" height="130" />
+<img src="drummer.gif" alt="marching drummer" width="130" height="130" />
+<img src="dynamit.gif" alt="exploding dynamite" width="32" height="32" />
+<img src="earth.gif" alt="spinning Earth" width="64" height="64" />
+<img src="eartha.gif" alt="spinning Earth" width="32" height="32" />
+<img src="egg_break.gif" alt="dropped egg breaks" width="95" height="300" />
+<img src="email.gif" alt="email" width="50" height="66" />
+<img src="email2.gif" alt="email" width="99" height="36" />
+<img src="emailr.gif" alt="email" width="105" height="40" />
+<img src="excavate.gif" alt="track excavator" width="145" height="124" />
+<img src="film_baddog.gif" alt="walking dog" width="132" height="87" />
+<img src="fire01.gif" alt="small fire" width="38" height="62" />
+<img src="firewks.gif" alt="fireworks" width="100" height="100" />
+<img src="fish.gif" alt="fish in a bowl" width="65" height="71" />
+<img src="frdoors.gif" alt="french doors" width="100" height="125" />
+<img src="fw2.gif" alt="fireworks" width="72" height="54" />
+<img src="fworkanm1.gif" alt="fireworks" width="100" height="100" />
+<img src="games.gif" alt="rubics cube" width="90" height="129" />
+<img src="gearsmotion.gif" alt="spinning gears" width="83" height="75" />
+<img src="genie1.gif" alt="genie" width="128" height="128" />
+<img src="grapher.gif" alt="bar chart" width="32" height="34" />
+<img src="hackydog.gif" alt="dog playing hackysack" width="130" height="130" />
+<img src="home3d.gif" alt="spinning 'Home'" width="100" height="29" />
+<img src="homer.gif" alt="Homer Simpson" width="59" height="53" />
+<img src="ie_an.gif" alt="Internet Explorer" width="88" height="31" />
+<img src="kangaroo.gif" alt="jumping kangaroo" width="106" height="73" />
+<img src="lavalamp.gif" alt="lava lamp" width="66" height="144" />
+<img src="links.gif" alt="hand writing word 'links'" width="50" height="50" />
+<img src="little-eyes.gif" alt="eyes" width="32" height="16" />
+<img src="littleman.gif" alt="man with jackhammer" width="53" height="59" />
+<img src="mail2.gif" alt="letter" width="65" height="35" />
+<img src="mails.gif" alt="flashing 'email me'" width="144" height="29" />
+<img src="mball.gif" alt="spinning soccer ball" width="36" height="36" />
+<img src="mcspin3.gif" alt="spinning Apple Macintosh logo" width="64" height="80" />
+<img src="mmail2.gif" alt="send email" width="90" height="80" />
+<img src="moose.gif" alt="charging moose" width="64" height="88" />
+<img src="mouse.gif" alt="dancing mouse" width="120" height="120" />
+<img src="mouse2.gif" alt="scared mouse" width="121" height="78" />
+<img src="musicnote.gif" alt="musical notes" width="32" height="32" />
+<img src="nailit.gif" alt="hammer and nail" width="108" height="100" />
+<img src="net30ani.gif" alt="Netscape Now" width="88" height="31" />
+<img src="new-anim.gif" alt="new" width="60" height="25" />
+<img src="new3.gif" alt="new" width="72" height="36" />
+<img src="newpen.gif" alt="new" width="100" height="50" />
+<img src="nsanm2.gif" alt="spinning Netscape logo" width="50" height="50" />
+<img src="odie.gif" alt="Odie from Garfield" width="72" height="100" />
+<img src="oopsbug.gif" alt="lightning bug" width="200" height="220" />
+<img src="paint.gif" alt="under construction" width="350" height="50" />
+<img src="pencil.gif" alt="dancing pencil" width="150" height="150" />
+<img src="pig.gif" alt="pig" width="313" height="241" />
+<img src="poweredSGI.gif" alt="powered by Silicon Graphics" width="200" height="43" />
+<img src="project.gif" alt="movie projector" width="32" height="32" />
+<img src="ptp.gif" alt="square wave" width="77" height="28" />
+<img src="push-chase.gif" alt="rolling boulder uphill" width="64" height="54" />
+<img src="ques.gif" alt="spinning question mark" width="38" height="40" />
+<img src="rabbit_stocking.gif" alt="rabbit emerges from Christmas stocking" width="100" height="100" />
+<img src="recycler.gif" alt="recycle symbol" width="32" height="32" />
+<img src="reelanm.gif" alt="movie reel" width="52" height="52" />
+<img src="retro-fan.gif" alt="oscillating fan" width="61" height="72" />
+<img src="revglo4x.gif" alt="spinning Earth" width="40" height="40" />
+<img src="rr-cross.gif" alt="railroad crossing gate" width="125" height="155" />
+<img src="santalaf.gif" alt="Santa Claus laughing" width="100" height="100" />
+<img src="search.gif" alt="magnifying glass" width="82" height="59" />
+<img src="self-destruct.gif" alt="dynamite with plunger" width="32" height="32" />
+<img src="shark.gif" alt="sharking circling sailor in water" width="220" height="108" />
+<img src="sledboy.gif" alt="boy pulling sled with Christmas tree" width="100" height="100" />
+<img src="sledboy2.gif" alt="boy pulling sled with Christmas tree" width="100" height="100" />
+<img src="smiling2.gif" alt="smiley face" width="48" height="48" />
+<img src="snowf.gif" alt="falling snowflake" width="40" height="174" />
+<img src="time.gif" alt="pocket watch" width="158" height="162" />
+<img src="typloop.gif" alt="computer typing on itself" width="150" height="150" />
+<img src="walk.gif" alt="man walking" width="30" height="30" />
+<img src="walkani.gif" alt="man walking" width="120" height="125" />
+<img src="walkman.gif" alt="walking stick figure person" width="108" height="54" />
+<img src="warbunny.gif" alt="rabbit warrior" width="67" height="55" />
+<img src="warn.gif" alt="warning sign" width="24" height="24" />
+<img src="wavplay.gif" alt="sound speaker" width="52" height="61" />
+<img src="winksmile.gif" alt="winking smiley face" width="51" height="45" />
+<img src="yinyangbw.gif" alt="spinning yin yang" width="128" height="128" />
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

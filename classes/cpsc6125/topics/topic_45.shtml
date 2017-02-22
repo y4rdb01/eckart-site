@@ -1,0 +1,157 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Operating Systems (CPSC 6125)
+	- Distributed Clocks
+</p>
+
+<ol>
+<li> <a href="https://en.wikipedia.org/wiki/Clock_drift">Clock drift</a>
+	<ol>
+	<li> No clock keeps perfect time (not even the best atomic clocks).
+	<li> Imperfections in electronics, materials (e.g., crystals), the
+		mechanism, and even the environment can introduce inaccuracies
+		in time keeping that cause clock ticks/vibrations to vary. 
+	<li> Most computers use crystal based clocks, the best of which are
+		accurate to only about 2 ppm (about 1 minute per year). More
+		expensive (and climate controlled) quartz oscillators can
+		be 1000+ times more accurate - up to 1 ppb).
+	<li> So even if two separate clocks start off perfectly synchronized,
+		over time, they will differ by an increasing amount (called
+		<em>clock skew</em>).
+	<li> To reduce the effects of clock skew, clocks are regularly
+		synchronized.
+	</ol>
+<li> <a href="https://en.wikipedia.org/wiki/General_relativity">General Relativity</a>
+	<ol>
+	<li> Describes clocks in different inertial frames that are subject to
+		acceleration (Special Relativity applies only to inertial
+		frames with NO acceleration).
+	<li> Clocks experiencing greater acceleration (or that reside in larger
+		gravitational fields) will appear to run more slowly to
+		observers in inertial frames with less acceleration (or
+		weaker gravity fields).
+	<li> Such effects turn out to be significant for GPS navigation, as
+		the atomic clocks residing on the GPS satellites in orbit run
+		faster when compared to clocks on the Earth's surface.
+	<li> If General Relativity were ignored, GPS locations would be off
+		by about 10 kilometers after only one day.
+	<li> Thus having <a href="http://www.npr.org/2014/11/03/361069820/new-clock-may-end-time-as-we-know-it?utm_source=facebook.com&utm_medium=social&utm_campaign=npr&utm_term=nprnews&utm_content=202503">ever more accurate clocks</a>
+		doesn't really solve the problem.
+	</ol>
+<li> Time as a <a href="https://en.wikipedia.org/wiki/Partially_ordered_set">POSET</a>
+	<ol>
+	<li> There is no such thing as absolute time, all times are relative
+		to one another in their different inertial frames.
+	<li> Only when there are interactions between different time "domains"
+		can the order of events be compared.
+	<li> <a href="https://en.wikipedia.org/wiki/Polytree">Polytrees</a>
+		 are types of POSETs.
+<br/><a href="https://en.wikipedia.org/wiki/Polytree"><img src="/eckart/classes/cpsc3125/topics/content/polytree.png" alt="Example of a polytree" width="308" height="330" /></a>
+	</ol>
+<li> Distributed clocks
+	<ol>
+	<li> Don't provide a <em>physical clock</em> (which
+		corresponds to "real" time), but instead provide
+		a <em>logical clock</em> that can be used to order events.
+	<li> <a href="https://en.wikipedia.org/wiki/Lamport_timestamps">Lamport timestamps</a>
+		<ol>
+		<li> Provides a logical clock that enables a partial ordering
+			of events (based on interactions).
+		<li> Algorithm:
+			<ol>
+			<li> Each process (computer) maintains a counter/clock
+				that starts at zero.
+			<li> The counter/clock is incremented before each
+				"event".
+			<li> When a process (computer) sends a message, the
+				value of the counter/clock is included as
+				part of the message.
+			<li> The receiving process (computer) sets its
+				counter/clock to one more (+1) than the
+				greater of its counter/clock and the
+				counter/clock value in the message.
+			</ol>
+		<li> If event <em>a</em> happened-before event <em>b</em>
+			then the counter/clock associated with event
+			<em>a</em> will be less than that for event <em>b</em>.
+		<li> However, the reverse is <strong>not</strong> true,
+			that is if <em>a</em>'s counter/clock is less than
+			<em>b</em>'s, does NOT imply that <em>a</em>
+			happened-before <em>b</em>.
+		</ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Vector_clock">Vector clock</a>
+		<ol>
+		<li> Maintains a logical clock for a system of N processes.
+		<li> The Vector clock (for N processes) is an array of N
+			logical clocks (one for each process).
+		<li> Algorithm:
+			<ol>
+			<li> All logical clocks in the vector start at zero.
+			<li> When a process has an internal event, it
+				increments (+1) its own logical clock
+				in the vector.
+			<li> When a message is sent, the entire vector of
+				logical clocks is sent with the message.
+			<li> When a process receives a message, it increments
+				(+1) its own logical clock in its vector,
+				and replaces any elements in its vector with
+				the corresponding values from the received
+				vector if they are larger.
+			</ol>
+		<li> Given two vector clock values <em>X</em> and <em>Y</em>
+			<ol>
+			<li> <em>X</em> happend-before (and is NOT
+				concurrent with) <em>Y</em> if each
+				element in the vector for <em>X</em>
+				is less than or equal to the
+				corresponding element in <em>Y</em>.
+			<li> If some of the corresponding elements of <em>X</em>
+				are less than those in <em>Y</em>, and others
+				are greater, then the two events are
+				concurrent.
+			</ol>
+		<li> Unlike Lamport timestamps, Vector clocks can infer if
+			one event happened-before another event based on
+			their clock (vector) values.
+		</ol>
+	<li> Here's <a href="https://www.cs.rutgers.edu/~pxk/417/notes/clocks">another description</a>
+		of these two clocks that includes some descriptive pictures
+		and code.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_45.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc6125" style="float: right">CPSC 6125</a>
+</em>
+
+</body>
+</html>
+

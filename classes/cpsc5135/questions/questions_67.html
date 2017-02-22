@@ -1,0 +1,62 @@
+<li> Which of the following is <strong>not</strong> a way to implement
+	mutual exclusion?
+	<ol class="answer_list">
+	<li> Spin locks
+	<li> Message Passing Interface
+	<li> Semaphores
+	<li> Monitors
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When providing mutual exclusion using locks and busy waiting, the algorithm
+	<ol class="answer_list">
+	<li> Continually sends itself a message, entering the
+		<em>critical section</em> when the message is lost.
+	<li> Signals the next process to enter the <em>critical section</em>
+		just before the previous process exits.
+	<li> Keeps processes in the waiting group "busy" until it is their
+		turn.
+	<li> Must obtain the lock atomically.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When used to implement mutual exclusion, semaphores utilize
+	<ol class="answer_list">
+	<li> Specialized cache memories for storing waiting processes.
+	<li> A queue of waiting processes.
+	<li> Spin locks to implement the Signal (V) operation.
+	<li> Two operations called Wait (P) and Signal (V).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The use of monitors for implementing mutual exclusion
+	<ol class="answer_list">
+	<li> Was developed in the early 1970s.
+	<li> Watch the <em>critical section</em> and eject the most recent
+		process to enter if there are ever two or more.
+	<li> Is more difficult to get correct than using semaphores.
+	<li> Rely on a single entry point (e.g., subprogram) to limit access.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "synchronized" mechanism in Java is an example of
+	<ol class="answer_list">
+	<li> Spin locking
+	<li> The Message Passing Interface
+	<li> Semaphores
+	<li> Monitors
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Messaging Passing Interface (MPI)
+	<ol class="answer_list">
+	<li> Allows <strong>all</strong> processes to be continually active
+		(i.e., not waiting).
+	<li> Supports only a limited pre-defined set of data types to be
+		sent within messages.
+	<li> Was developed in the early 2000s.
+	<li> Can implement mutual exclusion by passing around a special "token"
+		that grants access to the <em>critical section</em>.
+	<li> None of the above
+	</ol>
+</li><br/>

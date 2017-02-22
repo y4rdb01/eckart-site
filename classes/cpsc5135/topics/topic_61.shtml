@@ -1,0 +1,136 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Java Goals & Design Decisions
+</p>
+
+<ol>
+<li> Goals vs Choices
+	<figure>
+		<table>
+		<tr>	
+			<th></th>
+			<th>Portability</th>
+			<th>Safety</th>
+			<th>Simplicity</th>
+			<th>Efficiency</th>
+		</tr><tr style="text-align: center; margin: auto">
+			<th style="text-align:right">Interpreted</th>
+			<td>+</td>
+			<td>+</td>
+			<td></td>
+			<td>-</td>
+		</tr><tr style="text-align: center; margin: auto">
+			<th style="text-align:right">Type Safe</th>
+			<td>+</td>
+			<td>+</td>
+			<td>+/-</td>
+			<td>+/-</td>
+		</tr><tr style="text-align: center; margin: auto">
+			<th style="text-align:right">Most values are Objects</th>
+			<td>+/-</td>
+			<td>+/-</td>
+			<td>+</td>
+			<td>-</td>
+		</tr><tr style="text-align: center; margin: auto">
+			<th style="text-align:right">Objects by means of pointers</th>
+			<td>+</td>
+			<td></td>
+			<td>+</td>
+			<td>-</td>
+		</tr><tr style="text-align: center; margin: auto">
+			<th style="text-align:right">Garbage Collection</th>
+			<td>+</td>
+			<td>+</td>
+			<td>+</td>
+			<td>-</td>
+		</tr><tr style="text-align: center; margin: auto">
+			<th style="text-align:right">Concurrency Support</th>
+			<td>+</td>
+			<td>+</td>
+			<td></td>
+			<td></td>
+		</tr>	
+		</table>
+                <figcaption>Table from page 387 of the course <a href="http://www.amazon.com/dp/0521780985#_">textbook</a>.</figcaption>
+	</figure></div>
+<li> Portability is enhanced through the use of Java bytecodes that
+	are interpreted by the JVM. The
+	<em><a href="https://en.wikipedia.org/wiki/Write_once,_run_anywhere">Write Once, Run Anywhere</a></em> slogan created by Sun MicroSystems  
+	demonstrated how key portability was to the Java design.
+	<a href="https://en.wikipedia.org/wiki/James_Gosling">James Gosling</a>
+	has indicated that both the UCSD <a href="https://en.wikipedia.org/wiki/P-code_machine">p-code machine</a>
+	and the Smalltalk virtual machine were key influences on this
+	aspect of the design.
+<li> Reliability is promoted primarily by type safety, the use of
+	interpretation, and the decision to free programmers from
+	explicit heap memory management (i.e., uses garbage collection).
+<li> Safety is promoted by the use of JVM interpretation. It is easier
+	to ensure that the JVM enforces type and execution safety
+	(e.g., no out of bound array indices, no dangling references -
+	as guaranteed by the use of garbage collection)
+	rather than attempt this for each Java program that is written.
+	While the Java compiler performs type-checking, Java Bytecode
+	is also type checked by the JVM.  The JVM is the final
+	guardian of safety.
+<li> Dynamic Linking enables the incremental loading of class
+	information/implementation as they are needed. This was
+	a particularly desirable feature for a set-top box or
+	web client programming language, but is less critical for
+	many thick-client and server-side applications, though it
+	can still be useful to support dynamic plug-ins!
+<li> Multithreaded Execution enables better portability (since
+	different operating systems provide alternate mechanisms)
+	but also provides a means to support GUI development as
+	users don't typically appreciate a single threaded GUI.
+<li> Simplicity and Familiarity is attained by keeping the syntax
+	close to C/C++ with which many programmers are familiar.
+	Having all non-primitive values allocated in the heap and
+	referenced by pointers eliminates the special cases that can
+	arise for reference, assignment, and equality. [Recall that
+	C++ allows both heap and stack based allocation of objects
+	with the programmer having to keep track of the choice.]
+	Java also lacks many of the additional features seen in other
+	general purpose languages (e.g., C++).
+<li> Efficiency generally got the short end of the stick with respect
+	to language design decisions. Interpretation, referencing
+	most values by pointers, and garbage collection all detract
+	from efficiency. Keeping some primitive types did retain
+	some modicum of efficiency (though at the expense of some
+	simplicity).
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_61.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

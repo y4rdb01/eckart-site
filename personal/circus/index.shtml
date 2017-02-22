@@ -1,0 +1,105 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Circus Skills
+</p>
+
+<!--
+
+INCORPORATE THIS VIDEO SOMEHOW?
+
+http://digg.com/video/these-kids-are-entirely-too-good-at-juggling
+
+http://vimeo.com/85896096
+
+-->
+
+<table style="font-size:130%"><tr><td>
+<video poster="ballJuggle3_2_2014.png" controls style="text-align:right; padding-left:10px; vertical-align:top">
+	<source src="ballJuggle3_2_2014.webmvp8.webm" type="video/webm"/>
+	<source src="ballJuggle3_2_2014.mpg" type="video/mp4"/>
+	<source src="ballJuggle3_2_2014.theora.ogv" type="video/ogg"/>
+	<source src="ballJuggle3_2_2014.ipad.mp4" type="video/mp4"/>
+	<source src="ballJuggle3_2_2014.wmv" type="video/x-ms-wmv"/>
+	<embed src="OSplayer.swf?movie=ballJuggle3_2_2014.flv&volume=50&autoload=on" type="application/x-shockwave-flash" style="text-align:right; padding-left:10px"/>
+</video>
+</td><td style="vertical-align:middle">
+During my first quarter as an undergraduate at
+<a href="http://www.gatech.edu/">Georgia Tech</a> I taught myself to
+toss juggle (balls first then clubs a bit later) and joined the newly
+formed juggling club the next (winter) quarter. The juggling club was a lot
+of fun and I learned a lot of different tricks. My two favorite activites
+though were "stealing" and "club passing", but alas you can't do either of
+these by yourself. If there's anyone local that would be interested in
+doing a bit of this once in a while, let me know. During my first year as
+an undergrad at Georgia Tech, I also learned how to
+ride a unicycle and bought one for getting around on campus. It was great
+to be able to bring my "transportation" into the classroom with me and
+just lean it up against my desk.
+</td></tr></table>
+
+<table style="font-size:130%"><tr><td style="vertical-align:middle">
+Many years later (about 1998) I built myself an ultimate wheel (essentially
+a unicycle without a seat) and was eventually able to go about 100 feet on it.
+About 10 years later, I bought a much better ultimate wheel than I had
+cobbled together and eventually got to where I could ride several hundred feet
+at a time (though most down a slight incline).
+</td><td>
+<video poster="clubJuggle_1_2014.png" controls style="text-align:left; padding-right:10px">
+	<source src="clubJuggle_1_2014.webmvp8.webm" type="video/webm"/>
+	<source src="clubJuggle_1_2014.mpg" type="video/mp4"/>
+	<source src="clubJuggle_1_2014.theora.ogv" type="video/ogg"/>
+	<source src="clubJuggle_1_2014.ipad.mp4" type="video/mp4"/>
+	<source src="clubJuggle_1_2014.wmv" type="video/x-ms-wmv"/>
+	<embed src="OSplayer.swf?movie=clubJuggle_1_2014.flv&volume=50&autoload=on" type="application/x-shockwave-flash" style="text-align:left; padding-right:10px"/>
+</video>
+</td></tr></table>
+
+<table style="font-size:130%"><tr><td>
+<video poster="UW_2011.png" controls style="float:right; padding-left:10px">
+	<source src="UW_2011.webmvp8.webm" type="video/webm"/>
+	<source src="UW_2011.mpg" type="video/mp4"/>
+	<source src="UW_2011.theora.ogv" type="video/ogg"/>
+	<source src="UW_2011.ipad.mp4" type="video/mp4"/>
+	<source src="UW_2011.wmv" type="video/x-ms-wmv"/>
+	<embed src="OSplayer.swf?movie=UW_2011.flv&volume=50&autoload=on" type="application/x-shockwave-flash" style="text-align:right; padding-left:10px"/>
+</video>
+</td><td style="vertical-align:middle">
+Occassionally I'll get out my toss juggling items and practice a bit, but
+really haven't done anything substantial in quite a few years. I have been
+trying to learn how to contact juggle, but alas I'm still quite the beginner.
+Guess it would help if I practiced more. At one time I used to joke that
+if the Computer Science career didn't pan out I could always run away and
+join the circus - but in retrospect it's a good thing it didn't come to that.
+</td></tr></table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

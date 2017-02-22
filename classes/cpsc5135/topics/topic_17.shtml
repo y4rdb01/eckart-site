@@ -1,0 +1,215 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Polymorphism & Overloading
+</p>
+
+<!-- DANA CONSIDER ADDING MATERIAL FROM:
+	https://en.wikipedia.org/wiki/Liskov_substitution_principle
+	http://www.javacodegeeks.com/2011/11/solid-liskov-substitution-principle.html
+	http://www.javacodegeeks.com/2011/11/solid-open-closed-principle.html
+-->
+
+<ol>
+<li> Subtype Polymorphism - enabled by inheritance and interfaces,
+	allows "base" (super) types to hold a variety of "derived"
+	(sub) type values. Interfaces (as in Java) provide a common
+	(shared) set of methods signatures, while inheritance provides
+	both the common set of method signatures as well as shared
+	implementations. Here's an example from Java:
+<pre>
+	interface AccountingInfo {
+		float balance();
+		Date startDate();
+		ArrayList<float> transactionsSince(Date);
+	}
+
+	abstract class BankAccount {
+		// Base (super) class provides the polymorphic type.
+		// Being "abstract" means no instances of this class can be created.
+	}
+
+	class SavingsAccount extends BankAccount implements AccountingInfo {
+		// Derived (sub) class that is also concrete.
+	}
+
+	class CheckingAccount extends BankAccount implements AccountingInfo {
+		// Derived (sub) class that is also concrete.
+	}
+
+	class Bank implements AccountingInfo {
+		ArrayList<BankAccount> listOfAccounts = new ArrayList<BankAccount>;
+	}
+</pre>
+<li> Parametric Polymorphism
+	<ol>
+	<li> Implicit parametric polymorphism occurs when functions
+		(methods) can operate on a variety of types
+		so long as they meet certain (sub) type and method
+		conditions. If we think of similar (but different)
+		structures as representing related types, then both
+		Lisp and Prolog support the creation of such operations
+		(the lists may represent queues, trees, stacks, or
+		generalized networks).
+	<li> Explicit parametric polymorphism is exhibited by the
+		generics of Ada and the templates of C++, in which
+		the class (or type and functions/procedures) to be
+		used are indicated by their explicity association
+		with the formal parameters used in the implementation.
+		<ol>
+		<li> Ada
+<pre><code>
+	-- Declaration
+	generic
+		type Stack_Type is private;
+	package Generic_Stack is
+		...
+		procedure Push(Stack_Type : in Item);
+	end Generic_Stack;
+
+	-- Instantiation
+	with Generic_Stack;
+	package Integer_Stack is new Generic_Stack(Integer);
+
+	-- Use
+	Integer_Stack.Push(12);
+</code></pre>
+		<li> C++
+<pre><code>
+	// Declaration
+	template&lt;class T> class Stack {
+		...
+		public void Push(T item);
+	}
+
+	// Instantiation
+	Stack&lt;int> IntStack;
+
+	// Use
+	IntStack.Push(12);
+</code></pre>
+		<li> Java
+<pre><code>
+	// Declaration
+	class Stack&lt;T> {
+		...
+		public void push(T item) ...
+	}
+
+	// Instantiation
+	Stack&lt;Integer> IntegerStack;
+
+	// Use
+	IntegerStack.push(new Integer(12));
+</code></pre>
+		<li> NOTE: Ada specifically creates a new named
+			instantiation of the generic (Integer_Stack)
+			whereas both C++ and Java do not, creating
+			variables from the instantiation directly.
+		<li> NOTE: In Java generics, the type is replaced
+			with <em>Object</em> and the compiler generates
+			a single actual class (this is why you can't
+			instantiate Java generics with primitive types).
+			C++ templates, on the other hand, create a
+			new class for each instantiation - a true
+			"template" (like a macro) - thus they can be
+			instantiated with primitive types (creating a
+			new version for each instantiation means that
+			the space for each "type" can be allocated as
+			appropriate - whereas Java's restriction to
+			classes means that a pointer can always be
+			allocated.
+		<li> Though it depends upon the language, explicit parametric
+			polymorphism often must (at least partially) be
+			resolved at run-time (e.g., in the case of Java a
+			great deal of type casting is generated).
+		</ol>
+	<li> ML uses implicit parametric polymorphism since it infers
+		the types and functions needed from the actual
+		parameters provided.
+	</ol>
+<li> Ad Hoc Polymorphism (overloading)
+	<ol>
+	<li> Disambiguation occurs at compile time.
+	<li> Methods/functions/procedures of the same name
+		are distinguished by the number (and in some cases
+		the type) of the formal parameters.
+	<li> Prolog distinguishes based on the number of parameters
+		as the "types" (really values in this case) are part
+		of the matching process and don't determine whether
+		or not to attempt the match.
+	<li> Java and C++ overloading uses the number, types (and
+		sequence)  of parameters to
+		determine which method/function applies. Note that
+		the return type is <strong>not</strong> used to
+		distinguish between methods/functions.
+	<li> Ada uses the return type (in addition to number, type,
+		and parameter sequence) to perform disambiguation.
+		But some situations may still be unresolvable:
+<pre><code>
+	-- From Ada
+	function Result return MyType;
+	procedure Print (M : MyType);
+	function Result return YourType;
+	procedure Print (Y : YourType);
+	...
+	Print (Result);  -- Unable to determine with pair of operations to use.
+</code></pre>
+	<li> When using both the number and types of parameters to
+		determine which method/function/procedure to use,
+		ambiguous situations can still arise if automatic
+		type conversions (or casting) are applied. What
+		happens in this case?
+<pre><code>
+	// From Java
+	public class Example {
+		static void sample(int i) { ... }
+		static void sample(float f) { ... }
+
+		public static void main (String args[]) {
+			sample(1);
+		}
+	}
+</code></pre>
+		The function "sample(int i)" is used if both
+		declarations are present, while "sample(float f)" is
+		used if it alone appears. The principle of
+		parsimony explains the apparent difference in
+		behavior.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_17.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

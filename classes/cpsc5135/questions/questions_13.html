@@ -1,0 +1,85 @@
+<li> Write the definitions for the Prolog predicate "isEven" which takes a list
+	as its only parameter. The predicate should succeed if the number of
+	items in the list is even, and should fail if the list contains an odd
+	number of items. Thus "isEven([ z ])" and "isEven([ 1, a, 2 ])" should
+	fail, but "isEven([ ])" and "isEven([ 1, 2, c, d ])" should succeed.
+	Do <strong>not</strong> use the Prolog built-in "length" predicate.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "isOdd" which takes a list
+	as its only parameter. The predicate should succeed if the number of
+	items in the list is odd, and should fail if the list contains an even
+	number of items. Thus "isOdd([ z ])" and "isOdd([ 1, a, 2 ])" should
+	succeed, but "isOdd([ ])" and "isOdd([ 1, 2, c, d ])" should fail.
+	Do <strong>not</strong> use the Prolog built-in "length" predicate.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "sum" which takes two
+	numeric parameters. The predicate confirms that the sum of every
+	number starting with zero up to and including the value of the first
+	parameter is equal to the value of the second parameter. Thus
+	"sum(6, 21)", "sum(2, 3)", and "sum(5, 15)" should
+	succeed, but "sum(3, 2)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "sum" which takes three
+	numeric parameters. The predicate confirms that the sum of every
+	number starting with the first parameter, up to and including the
+	second parameter is equal to the value of the third parameter. Thus
+	"sum(3, 6, 18)", "sum(-2, 2, 0)", and "sum(5, 5, 5)" should
+	succeed, but "sum(2, 3, 3)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "oddAdd" which takes two
+	parameters: a list of numbers; and a number. The predicate confirms
+	that the sum of every other number in the list (starting with the
+	first number) is given as the second parameter.  Thus
+	"oddAdd([ ], 0)" and "oddAdd([2, 3, 5, 7], 7)" should succeed,
+	but "oddAdd([ 2, 3 ], 3)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "evenAdd" which takes two
+	parameters: a list of numbers; and a number. The predicate confirms
+	that the sum of every other number in the list (starting with the
+	second number) is given as the second parameter.  Thus
+	"evenAdd([ ], 0)" and "evenAdd([2, 3, 5, 7], 10)" should succeed,
+	but "evenAdd([ 2, 3 ], 2)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "last" which takes two
+	parameters: a list; and an item. The predicate confirms
+	that the item is the last element in the list.  Thus
+	"last([ ], [ ])" and "last([2, 3, 5, 7], 7)" should succeed,
+	but "last([ 2, 3 ], 2)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "nth" which takes three
+	parameters: a list; a number index; and an item. The predicate confirms
+	that the item is the nth element in the list (with the first element
+	being the 1th item).  You can assume that the number index is at least
+	1 and less than or equal to the size of the list (with the exception
+	of the empty list). Thus "nth([ ], 1, [ ])" and
+	"nth([2, 3, 5, 7], 3, 5)" should succeed,
+	but "nth([ 2, 3 ], 2, 2)" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "makeList" which takes two
+	parameters: a non-negative integer; and a list. The predicate creates
+	a list of the integer values counting down to 1. Thus "makeList(0, [ ])"
+	and "makeList(4, [4, 3, 2, 1])" should succeed, but "makeList(2, [ 2 ])"
+	and "makeList(3, [ 1, 2, 3])" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "makeList" which takes two
+	parameters: a non-negative integer; and a list. The predicate creates
+	a list of the integer values counting up starting from 1. Thus
+	"makeList(0, [ ])" and "makeList(4, [1, 2, 3, 4])" should succeed,
+	but "makeList(2, [ 2 ])" and "makeList(3, [ 3, 2, 1])" should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "pair" which takes three
+	parameters. The first and second parameters are lists of items while
+	the third is a list of item pairings from the elements of the first
+	two parameters. Thus "pair([], [], [])." and
+	"pair([1, 2, 3], [1, 4, 9], [ [1, 1], [2, 4], [3, 9] ])." should
+	succeed, but "pair([1, 2, 3], [1, 4], [ [1, 1], [2, 4] ])." and
+	"pair([1, 2, 3], [a, b, c], [ [1, a], [2, b] ])." should fail.
+</li><br/>
+<li> Write the definitions for the Prolog predicate "where" that takes three
+	parameters, an item to find, a list to find the item in, and the
+	first position in the list in which the item is located. Positions
+	start at 0, and if the item is not in the list the third parameter
+	should be -1.  Thus "where(b, [a, b, c], 1)." and
+	"where(d, [1, 2], -1)." should both succeed while
+	"where(c, [a 1 b 4 c 7 u], 2)." should fail.
+</li><br/>

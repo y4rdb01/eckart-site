@@ -1,0 +1,128 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Introduction
+</p>
+
+<ol>
+<li> Be sure to get the completed last page of the syllabus back to me by
+	the end of the first week of class. If you can't get a physcial copy
+	to me, you can capture, complete, "sign", and email it to me instead.
+<li> Join the Yahoo discussion group for this class to get important class
+	notifications or to ask questions and start discussions:
+	<ol>
+	<li> To subscribe, send request from your CSU email account to:
+		<a href="mailto:csu_cpsc5135_eckart-subscribe@yahoogroups.com">csu_cpsc5135_eckart-subscribe@yahoogroups.com</a>
+		<blockquote>
+		Do <strong>NOT</strong> include a subject line on your
+		subscription request as this appears to void the request.
+		</blockquote>
+	<li> To post, send message from your CSU email account to: 
+		<a href="mailto:csu_cpsc5135_eckart@yahoogroups.com">csu_cpsc5135_eckart@yahoogroups.com</a>
+	</ol>
+<li> Don't let <a href="../../../personal/poetry/the_wayfarer.shtml">this</a> happen to you!
+<li> ... or <a href="../../common/I_Dont_Always.jpg">this</a>!
+<li> <a href="https://colstate.view.usg.edu/">CourgarView</a>, the Learning
+	Management System (LMS) used by the University System of Gerogia, will
+	be used for:
+	<ol>
+	<li> submitting assignments (dropbox);
+	<li> taking the weekly quizzes;
+	<li> administering the tests and final exam; and
+	<li> posting of the "raw" scores for graded materials
+		(e.g., assignments, projects, and tests).
+	</ol>
+<li> Please remember that plagiarism (including copied program code) is a
+	violation of the academic dishonesty policy. Links explaining what
+	plagiarism is and how to avoid it can be found at the end of
+	<a href="https://cs.columbusstate.edu/resources/academic-dishonesty-policy.php">
+	this page</a>.
+<li> Code Versioning with <a href="http://www.mind.ilstu.edu/research/complete_inactive/iris4/iris40/developers/svntutorial/">Subversion</a>
+<li> <a href="http://csc.columbusstate.edu/summers/NOTES/1301/Lab-Guidelines.htm">Computer Lab Guidelines</a>
+<li> Computer Lab <a href="http://cs.columbusstate.edu/students/lab_schedule.php">Hours</a> and <a href="http://cs.columbusstate.edu/students/lab_skills.php">Skills</a>
+<li> <a href="../softwareRequirements.shtml">Software Requirements</a>
+<li> <a href="../../common/assignments.shtml">Concerning Assignments</a>
+<li> Do <strong>NOT</strong> collaborate on assignments. While this seems
+	unnecessarily restrictive at first, the following are my reasons
+	(which my experiences have repeatedly confirmed):
+	<ol>
+	<li> I won't know anyone is having difficulty with the assignment
+		if everyone in class is talking to each other and no one
+		bothers to come to me with questions.
+	<li> The other people you ask may know less about the assignment than
+		you do. Even something as simple as what the assignment is
+		asking for can be understood differently by different people.
+		If you have questions, then the instructor (who, after all,
+		created the assignment) will best understand the intent of
+		the assignment and will be better prepared to help you along.
+	<li> Collaboration can be a slippery slope, and discussing solution
+		approaches can lead to extremely similar code (depending on
+		how extensive the discussions were) that gives the appearance
+		of copying - a violation of the Academic Integrity policy.
+	<li> The graded assignments are part of how your understanding of the
+		material is evaluated, and must therefore be your own work.
+		When you collaborate too closely with others, the evaluation
+		becomes that of many people's understanding of the material
+		and not just your own understanding.
+	</ol>
+<li> In order to get the most benefit from the class notes and recorded
+	lectures, I suggest printing out the class notes and then watch the
+	videos, hand writting notes on the printed class notes. Based on
+	<a href="http://www.theatlantic.com/technology/archive/2014/05/to-remember-a-lecture-better-take-notes-by-hand/361478/">research</a>
+	(<a href="http://pss.sagepub.com/content/early/2014/04/22/0956797614524581.abstract">abstract</a>),
+	this should better help you remember the material.
+<li> Regarding the weekly quizzes, I <strong>strongly</strong> encourage you
+	to use them as a study aid. In particular, read through the associated
+	sections of the textbook first, then take the quiz while reading through
+	the lecture notes for that week (and listening to the videos). After
+	doing this, you will be very familiar with the material and should be
+	able to ask specific questions in class concerning those elements you
+	found difficult to understand. Also, please note that many of the
+	quiz questions are multiple response - <em>so you need to select all
+	of the correct answers to get full credit</em>.
+<li> Based on the experience of past students, you should expect to devote
+	at least 12 hours (including class time, working on the self
+	assessment questions, assignments, studying for tests, etc) of time
+	each week to this class in order to be successful. This is a minimum
+	time investment - some students may find that they must spend more
+	time per week in order to master the material.
+<li> Finally, please note that the detailed lecture notes in combination with
+	the self assessment questions constitute the "study guide" for this
+	course and the tests. If you need something in a different
+	style, format, or with different levels of detail, please feel free
+	to cut and paste from these materials to fashion the study guide
+	that fits your particular needs.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+

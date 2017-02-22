@@ -1,0 +1,13 @@
+# This CA implements a simulation of the propagation of a forest fire.  It
+# is taken from the book "Turtles, Termites, and Traffic Jams: Explorations
+# in Massively Parallel Microworlds" written by Mitchel Resnick, pp 103-110.
+#
+# The border is represented by blue (0), red (1-13) represents the fire, and
+# green (14) represents no fire.
+#
+2 dimensions of 0..14
+
+cell := cell - 1 when (1 <= cell & cell <= 13) |
+		      (cell = 14 &
+			([0, 1] = 13 | [1, 0] = 13 |
+			 [-1, 0] = 13 | [0, -1] = 13))

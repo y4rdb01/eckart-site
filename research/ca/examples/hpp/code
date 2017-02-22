@@ -1,0 +1,32 @@
+# An hpp latice gas automata.
+#
+# 0 indicates no particles and the values 1..15 indicate the presence of
+# a particle traveling in the north (= 1), east (= 2), south (= 4), and
+# west (= 8).  Add the values to get all particle directions.
+#
+2 dimensions of 0..15
+
+# Identification of the neighboring cells.
+#
+north := [0, 1]
+east := [1, 0]
+south := [0, -1]
+west := [-1, 0]
+
+north := 4 when north > 11 | (north > 3 & north < 8)
+      := 0 otherwise
+
+south := 1 when south = 1 | south = 3 | south = 5 | south = 7 |
+		south = 9 | south = 11 | south = 13 | south = 15
+      := 0 otherwise
+
+east := 8 when east >= 8
+     := 0 otherwise
+
+west := 2 when west = 2 | west = 3 | west = 6 | west = 7 |
+		west = 10 | west = 11 | west = 14 | west = 15
+     := 0 otherwise
+
+cell := 10 when north = 4 & south = 1 & east = 0 & west = 0
+     := 5 when east = 8 & west = 2 & north = 0 & south = 0
+     := north + south + east + west otherwise

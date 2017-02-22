@@ -1,0 +1,75 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Programming Languages (CPSC 5135)
+	- Types
+</p>
+
+<ol>
+<li> Types organize a collection of objects that share common properties and operations:
+	<ol>
+	<li> Name and organize concepts
+	<li> Consistent interpretation of memory bit sequences
+	<li> Provide the compiler/interpreter information about how to manipulate data
+	</ol>
+<li> All high-level programming languages are typed (even Lisp and Prolog). Low-level languages such as Assemblers can forego types as the programmer explicitly keeps track of how they want to interpret what's in memory.
+<li> Languages provide type checking as a means to ensure that operations and data are used consistently and correctly. The more strongly typed a language, the more checking it can perform.
+<li> Type errors
+	<ol>
+	<li> Hardware errors/faults/interrupts - at the machine instruction
+		level, attempting
+		instruction executions that (could) lead to error. E.g.,
+		calling a function at an address that isn't a function,
+		Using an integer value as if it were a floating point number.
+		NOTE: While division by 0 could cause a hardware error,
+		it's not strictly speaking a type error.
+	<li> Unintended semantics - languages can examine the types of values
+		and prevent undefined operations on them before it is
+		becomes a hardware error. Such checks can happen at compile
+		time or at run-time. E.g., the Lisp interpreter dynamically
+		checks the arguments of <em>car</em> and <em>cdr</em> to
+		ensure they are lists - before carrying out the operation.
+	</ol>
+<li> Types enable compilers to generate code that more quickly locates and
+	makes available data to be used. The more informaion given by the
+	program to the compiler the better able it is to determine how best
+	to access data (e.g., within an class, module, record, or array)
+	rather than having to figure that out when the program is executing
+	(during run-time). It also enables more efficient checking of the
+	use of the data (e.g., array bound checks can be done at compile time
+	if the index is an expression of all constants).
+<li> Test your understanding of the above by answering these
+	<a href="../questions/questions_14.html">self-assessment questions</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc5135" style="float: right">CPSC 5135</a>
+</em>
+
+</body>
+</html>
+
