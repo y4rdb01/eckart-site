@@ -1,0 +1,232 @@
+<li> The Readers and Writers Problem involves multiple processes trying to
+	read or write to the same shared variable, in which 
+	<ol class="answer_list">
+	<li> only one reader or writer can access the variable at a time.
+	<li> only one reader or multiple writers can access the variable
+		at a time.
+	<li> multiple readers or a single writer can access the variable
+		at a time.
+	<li> multiple readers or multiple writers can access the variable
+		at a time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The primary types of solutions to the Readers and Writers Problem are
+	when
+	<ol class="answer_list">
+	<li> writers are given preference over readers.
+	<li> readers are given preference over writers.
+	<li> readers and writers have simultaneous access so that no
+		preference is given to either one.
+	<li> readers and writers strictly alternate, with every read followed
+		by a write and every write followed by a read.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Indicate where the <em>down(...)</em> and <em>up(...)</em> calls
+	should go in the following code to allow a single reader or a single
+	writer to access the shared database <strong>without</strong> giving
+	either readers or writers any preference.
+	[Note: Some options may be used more than once, or not at all.]
+<pre><code>
+	int mutex = 1;
+
+	void reader() {
+		while (1) {
+
+			// Insert statement(s) for section "A" here.
+
+			readDatabase();
+
+			// Insert statement(s) for section "B" here.
+
+		}
+	}
+
+	void writer() {
+		while (1) {
+			acquireData();
+
+			// Insert statement(s) for section "C" here.
+
+			writeDatabase();
+
+			// Insert statement(s) for section "D" here
+}}
+	}
+</code></pre>
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> /* No Operation */
+		<li> down(&mutex);
+		<li> up(&mutex);
+		<li> up(&mutex); down(&mutex);
+		<li> down(&mutex); up(&mutex);
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> Indicate where the <em>down(...)</em> and <em>up(...)</em> calls
+	should go in the following code to give readers preference over
+	writers for access to the shared database.
+	[Note: Some options may be used more than once, or not at all.]
+<pre><code>
+	int db_mutex = 1;
+	int counter_mutex = 1;
+	int counter = 0;
+
+	void reader() {
+		while (1) {
+
+			// Insert statement(s) for section "A" here.
+
+			if (1 == ++counter) {
+
+				// Insert statement(s) for section "B" here.
+
+			}
+
+
+			// Insert statement(s) for section "C" here.
+
+			readDatabase();
+
+
+			// Insert statement(s) for section "D" here.
+
+			if (0 == --counter) {
+
+				// Insert statement(s) for section "E" here.
+
+			}
+
+			// Insert statement(s) for section "F" here.
+
+		}
+	}
+
+	void writer() {
+		while (1) {
+			acquireData();
+
+			// Insert statement(s) for section "G" here.
+
+			writeDatabase();
+
+			// Insert statement(s) for section "H" here.
+
+		}
+	}
+</code></pre>
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> /* No Operation */
+		<li> up(&db_mutex);
+		<li> up(&counter_mutex);
+		<li> down(&db_mutex);
+		<li> down(&counter_mutex);
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> Indicate where the <em>down(...)</em> and <em>up(...)</em> calls
+	should go in the following code to give writers preference over
+	readers for access to the shared database.
+	[Note: Some options may be used more than once, or not at all.]
+<pre><code>
+	int read_mutex = 1;
+	int write_mutex = 1;
+	int counter_mutex = 1;
+	int counter = 0;
+
+	void reader() {
+		while (1) {
+
+			// Insert statement(s) for section "A" here.
+
+			readDatabase();
+
+			// Insert statement(s) for section "B" here.
+
+		}
+	}
+
+	void writer() {
+		while (1) {
+			acquireData();
+
+
+			// Insert statement(s) for section "C" here.
+
+			if (1 == ++counter) {
+
+
+				// Insert statement(s) for section "D" here.
+
+
+			}
+
+			// Insert statement(s) for section "E" here.
+
+
+			writeDatabase();
+
+
+			// Insert statement(s) for section "F" here.
+
+			if (0 == --counter) {
+
+
+				// Insert statement(s) for section "G" here.
+
+
+			}
+
+			// Insert statement(s) for section "H" here.
+
+		}
+	}
+</code></pre>
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> /* No Operation */
+		<li> up(&counter_mutex);
+		<li> up(&read_mutex);
+		<li> up(&write_mutex);
+		<li> down(&counter_mutex);
+		<li> down(&read_mutex);
+		<li> down(&write_mutex);
+		<li> up(&counter_mutex); down(&read_mutex);
+		<li> up(&read_mutex); down(&counter_mutex);
+		<li> up(&counter_mutex); down(&write_mutex);
+		<li> up(&write_mutex); down(&counter_mutex);
+		</ol>
+	</td></tr></table>
+</li><br/>

@@ -1,0 +1,143 @@
+<li> Multicomputers differ from multiprocessors in that they
+	<ol class="answer_list">
+	<li> use loosely coupled CPUs.
+	<li> do <strong>not</strong> use a shared memory - each node has
+		its own private memory.
+	<li> have secondary storage (i.e., local disk) associated with each
+		node.
+	<li> each node has its own network interface.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The critical component in a multicomputer is
+	<ol class="answer_list">
+	<li> the shared memory used by the collection of nodes.
+	<li> a hierarchy of cache memories with each higher level of cache
+		being (indirectly) shared by a larger set of nodes.
+	<li> each node's very fast CPU (much faster than the CPUs of a
+		multiprocessor).
+	<li> its interconnection network.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are common network topologies? 
+	<ol class="answer_list">
+	<li> Star
+	<li> Ring
+	<li> Mesh
+	<li> Tree
+	<li> Torus
+	<li> Hybercube
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For a multicomputer of <em>N</em> nodes, the number of switches in these
+	network topologies grows as <em>O(N)</em>:
+	<ol class="answer_list">
+	<li> Bus
+	<li> Star
+	<li> Ring
+	<li> Mesh
+	<li> Tree
+	<li> Torus
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For a multicomputer of <em>N</em> nodes, which network topologies have a
+	switch count that grows at a less than linear rate?
+	<ol class="answer_list">
+	<li> Ring
+	<li> Mesh
+	<li> Tree
+	<li> Torus
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For a binary <em>tree</em> network topology, what is the maximum number of
+	switches/nodes/hops that a message will need to pass through on its
+	way from sender to receiver in a network of <em>N</em> nodes?
+	<ol class="answer_list">
+	<li> 1
+	<li> 2 * log<sub>2</sub>(N)
+	<li> sqrt(N)
+	<li> N/2
+	<li> N
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For a simple <em>mesh</em> network topology (not a torus), what is the
+	maximum number of switches/nodes/hops that a message will need to
+	pass through on its way from sender to receiver in a network of
+	<em>N</em> nodes?
+	<ol class="answer_list">
+	<li> 1
+	<li> 2 * log<sub>2</sub>(N)
+	<li> sqrt(N)
+	<li> N/2
+	<li> N
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For a <em>ring</em> network topology, what is the maximum number of
+	switches/nodes/hops that a message will need to pass through on its
+	way from sender to receiver in a network of <em>N</em> nodes?
+	<ol class="answer_list">
+	<li> 1
+	<li> 2 * log<sub>2</sub>(N)
+	<li> sqrt(N)
+	<li> N/2
+	<li> N
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For a <em>star</em> network topology, what is the maximum number of
+	switches/nodes/hops that a message will need to pass through on its
+	way from sender to receiver in a network of <em>N</em> nodes?
+	<ol class="answer_list">
+	<li> 1
+	<li> 2 * log<sub>2</sub>(N)
+	<li> sqrt(N)
+	<li> N/2
+	<li> N
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Most network interfaces have their own RAM (rather than relying on the
+	node's RAM) to better support store-and-forward packet switching
+	<ol class="answer_list">
+	<li> by providing independent operation of the network interface
+		in case the node suffers a catastrophic failure.
+	<li> so when packets arrive out of order the local RAM is used
+		to resort the messages back into the order they were sent.
+	<li> to avoid delays caused by contention on the node's local system
+		bus.
+	<li> by enabling acknowledgement messages to be sent.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> As network interfaces become more capable (with the inclusion of CPUs),
+	they can often handle tasks like
+	<ol class="answer_list">
+	<li> encryption/decryption.
+	<li> data compression.
+	<li> broadcast/multicast.
+	<li> message receipt acknowledgement.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Internode communication in a multicomputer can be relatively slow
+	(compared to the local node's system bus) due to
+	<ol class="answer_list">
+	<li> having to copy data from applications to the kernel buffer, then
+		to the network interface to send a message (reversing the
+		process when messages are received).
+	<li> the propigation delay of electricity in metal wires (or light
+		in fiber optic cables) - even when the nodes are only
+		a few feet apart.
+	<li> needing to receive an acknowledgement back from the receiver
+		before sending the next packet (piece) of a long message.
+	<li> the potential for packets to arrive out of order at their
+		destination.
+	<li> None of the above
+	</ol>
+</li><br/>

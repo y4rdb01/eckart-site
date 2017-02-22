@@ -1,0 +1,231 @@
+<li> The guest OS on each VM creates its own page tables, but without further
+	management by the hypervisor this would likely result in the disastrous
+	case of
+	<ol class="answer_list">
+	<li> each guest OS eventually mapping different physical page frames
+		to the same virtual address space page.
+	<li> each guest OS eventually mapping different virtual address space
+		pages to the same physical page frame.
+	<li> the guest operating systems being deadlocked waiting for the same
+		physical page frame.
+	<li> all of the VMs being deadlocked waiting for the same
+		virtual address space page to load.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The hypervisor maintains a shadow page table which is the mapping of
+	the virtual page frames (holding guest physical addresses) to
+	the physical page frames (holding host physical addresses) for
+	each guest OS, so that
+	<ol class="answer_list">
+	<li> the physical page frames can be used as shared memory segments
+		between different VMs.
+	<li> the virtual address spaces on all VMs can be directly accessed
+		and shared across VMs.
+	<li> for each guest OS, the virtual set of memory page frames is
+		indistinguishable from physical memory. 
+	<li> the hypervisor can provide improved process scheduling for the
+		guest OS running on each VM.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Instead of allowing each guest OS to map virtual pages to physical page
+	frames, a type 1 hypervisor
+	<ol class="answer_list">
+	<li> allocates a fixed set of physical page frames to each VM that
+		its guest OS is allowed to use.
+	<li> directly handles address translation and all page faults on
+		behalf of the guest OS.
+	<li> provides and manages the virtual address space for the processes
+		running on each VM, avoiding the need for virtual pages.
+	<li> provides a virtual set of memory page frames that are in
+		turn mapped to the physical memory.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Page faults caused by the guest OS (or processes running within the
+	guest OS) are called
+	<ol class="answer_list">
+	<li> hypervisor-induced page faults.
+	<li> VM-induced page faults.
+	<li> guest-induced page faults.
+	<li> user-induced page faults.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Page faults that happen to keep the physical memory page frames and
+	the shadow page table in sync are called
+	<ol class="answer_list">
+	<li> hypervisor-induced page faults.
+	<li> VM-induced page faults.
+	<li> guest-induced page faults.
+	<li> user-induced page faults.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Situations where the hypervisor takes control, really just a full
+	process context switch, are called a
+	<ol class="answer_list">
+	<li> guest OS swap.
+	<li> VM exit.
+	<li> hypervisor-induced page fault.
+	<li> hypervisor swap.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Minimizing page faults is an important issue for hypervisors since
+	every guest OS page fault results in a
+	<ol class="answer_list">
+	<li> VM exit.
+	<li> hypervisor-induced page fault.
+	<li> guest OS swap.
+	<li> purge of the entire memory cache. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Since writing to memory is <strong>not</strong> a
+	sensitive instruction, changes to a page table by the guest OS will
+	<strong>not</strong> create a trap and thus
+	<ol class="answer_list">
+	<li> the hypervisor will <strong>not</strong> be aware of
+		the change via the mechanism used for CPU virtualization
+		(enabling it to update the shadow page table).
+	<li> the VM <strong>must</strong> perform all virtual
+		address translations in software so that it can determine
+		whether or not a write is to a page table.
+	<li> the hypervisor <strong>must</strong> use binary
+		translation to replace <strong>all</strong>
+		memory writing instructions with a call to the hypervisor
+		(so that it can check for writes to page tables).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are the basis for techniques that enable a
+	hypervisor to be aware of page table changes made by a guest OS?
+	<ol class="answer_list">
+	<li> The hypervisor uses binary translation to replace
+		<strong>all</strong> memory writing instructions with a
+		call to the hypervisor (so that it can check for writes
+		to page tables).
+	<li> The hypervisor marks each page table of the guest OS as
+		being read-only so that writing to the table causes a fault
+		(alerting the hypervisor).
+	<li> When page faults occur for guest OS mapped pages, the hypervisor
+		takes control and examines the page table on the guest OS.
+	<li> Every time a <em>VM exit</em> occurs, the hypervisor
+		examines the page tables on each guest OS for changes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Loading the location of the top-level page table by the guest OS
+	into its special hardware register is a sensitive instruction,
+	trapping to the hypervisor. This enables
+	<ol class="answer_list">
+	<li> the hypervisor to directly perform all virtual address	
+		translations in software.
+	<li> a clumsy, though workable, mechanism for updating the
+		hypervisor's shadow page table.
+	<li> each guest OS to signal the hypervisor when it is about to
+		modify one of its page tables.
+	<li> the hypervisor to mark each guest OS page table as read only,
+		causing faults when the page table is changed, allowing 
+		the hypervisor to update its shadow page table.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Relying on page faults and TLB entry invalidations (a sensitive
+	instruction) as opportunities for the hypervisor to learn about
+	guest OS page table changes, enables
+	<ol class="answer_list">
+	<li> individual changes to guest OS page tables to occur without
+		having to immediately update the hypervisor's shadow page
+		table.
+	<li> consistently faster virtual address translation to physical
+		addresses.
+	<li> fewer page faults to be generated by the VM.
+	<li> a clumsy, though workable, mechanism for updating the
+		hypervisor's shadow page table.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Second Level Address Translation (SLAT) on the x86 architecture that
+	handles much of the (shadow) page table manipulation in hardware,
+	without the need for traps,
+	<ol class="answer_list">
+	<li> uses the shadow page table to translate the
+		<em>guest physical address</em> into a
+		<em>host physical address</em> without
+		any hypervisor software intervention.
+	<li> allows the CPU to translate a <em>guest virtual address</em>
+		into a <em>guest physical address</em>
+		using the guest OS page tables, in the same way as is
+		done for the non-virtualized case.
+	<li> avoids the need for techniques that rely on read only access of
+		page tables or TLB entry invalidations to update the shadow
+		page table.
+	<li> greatly reduces the number of full process context switches
+		that the hypervisor must perform.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The sum of the virtual physical memories allocated to each VM
+	<ol class="answer_list">
+	<li> may exceed the amount of actual physical memory, but only
+		if the sum of the used page frames is less than the amount
+		of physical memory.
+	<li> can exceed the amount of actual physical memory.
+	<li> <strong>must never</strong> exceed the amount of
+		actual physical memory.
+	<li> must be <strong>strictly</strong> less than the amount of
+		actual physical memory, so as to leave space for the
+		hypervisor's shadow page table.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> While a hypervisor is allowed to overcommit its physical memory, doing so
+	<ol class="answer_list">
+	<li> is almost never a good idea and often leads to excessive
+		page faults and system thrashing.
+	<li> should be limited to situations in which all of the VMs are
+		running the same guest OS (to take advantage of page sharing).
+	<li> requires that each guest OS limit the size of its user process
+		virtual address spaces to be less than the size of
+		physical memory.
+	<li> is quite useful since most VMs won't need the maximum amount
+		all of the time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> <em>Ballooning</em> is a technique used by hypervisors to
+	<ol class="answer_list">
+	<li> control the amount of virtual physical memory that a VM has.
+	<li> expand the size of a process' virtual address space beyond
+		that normally supported by the CPU architecture.
+	<li> indirectly force the guest OS to decide which data to
+		page in/out of virtual physical memory.
+	<li> increase the maximum number of user processes that a guest OS is
+		able to simultaneously support.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> <em>Ballooning</em> is a technique used by hypervisors that
+	<ol class="answer_list">
+	<li> expands the size of a process' virtual address space beyond
+		that normally supported by the CPU architecture.
+	<li> loads a small pseudo device driver into each VM.
+	<li> increases the maximum number of user processes that a guest OS is
+		able to simultaneously support.
+	<li> changes the (apparent) amount of the virtual physical memory
+		currently being used by a VM.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The impact of hypervisor memory overcommitment can be reduced by
+	<ol class="answer_list">
+	<li> second level address translation (SLAT).
+	<li> ballooning.
+	<li> deduplication.
+	<li> shadow page tables.
+	<li> None of the above
+	</ol>
+</li><br/>

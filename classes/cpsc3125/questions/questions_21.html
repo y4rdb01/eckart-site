@@ -1,0 +1,428 @@
+<li> The scheduler is that part of the OS that
+	<ol class="answer_list">
+	<li> starts a new process.
+	<li> manages the CPU.
+	<li> determines when a blocked process becomes ready.
+	<li> determines when a running process blocks.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A process scheduling algorithm should try to address the following
+	concerns:
+	<ol class="answer_list">
+	<li> memory availability for the process to use.
+	<li> fairness, so that every process gets their fair share.
+	<li> the efficient use of the CPU.
+	<li> ensure availability of peripheral resources.
+	<li> maximize the number of processes completed per hour.
+	<li> minimize response time for interactive users.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The ability of the OS to switch from running one process to another
+	process VERY quickly is important because it
+	<ol class="answer_list">
+	<li> reduces the chance of an OS bug causing a problem.
+	<li> increases the efficient use of the CPU.
+	<li> helps reduce the response time for interactive users.
+	<li> ensures peripheral resource availability.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Regarding the set of concerns that a process scheduling algorithm
+	should address,
+	<ol class="answer_list">
+	<li> <strong>all</strong> of them can be effectively address by a
+		single algorithm.
+	<li> an OS should use two or more scheduling algorithms alternately
+		so as to address <strong>all</strong> of the concerns.
+	<li> only a couple of the concerns are truly important, and the
+		remainder can be safely ignored.
+	<li> some of the concerns are contradictory, so invariably
+		<strong>not all</strong> concerns can be addressed by the OS.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> With respect to process scheduling, it is helpful to view a process as
+	<ol class="answer_list">
+	<li> being primarily CPU bound.
+	<li> being primarily I/O bound.
+	<li> an intense period of CPU usage. 
+	<li> alternating sequences of CPU usage and waiting for I/O.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A CPU bound process is one in which
+	<ol class="answer_list">
+	<li> it spends most of its time in the ready or running state.
+	<li> it spends most of its time in the blocked state.
+	<li> once it obtains the CPU, it runs to completion.
+	<li> most of the time it's waiting for the memory to be available.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An I/O bound process is one in which
+	<ol class="answer_list">
+	<li> it spends most of its time in the ready or running state.
+	<li> it spends most of its time in the blocked state.
+	<li> once it obtains the CPU, it runs to completion.
+	<li> most of the time it's waiting for the memory to be available.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Preemptive scheduling is when a process
+	<ol class="answer_list">
+	<li> spends most of its time in the ready or running state.
+	<li> spends most of its time in the blocked state.
+	<li> can be booted out of the CPU by the scheduler, before the
+		process is finished.
+	<li> can be booted out of the CPU by another user process, before the
+		process is finished.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Non-preemptive scheduling is when a process
+	<ol class="answer_list">
+	<li> spends most of its time in the ready or running state.
+	<li> spends most of its time in the blocked state.
+	<li> <strong>never</strong> becomes blocked.
+	<li> <strong>always</strong> runs to termination once it's in the CPU.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which type of process scheduling is <strong>best</strong> suited
+	for interactive processing?
+	<ol class="answer_list">
+	<li> non-preemptive.
+	<li> dedicated.
+	<li> busy wait.
+	<li> preemptive.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are batch process scheduling algorithms?
+	<ol class="answer_list">
+	<li> Priority Scheduling.
+	<li> First Come, First Serverd.
+	<li> Guaranteed Scheduling.
+	<li> Shortest Remaining Time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following steps describe which process scheduling algorithm?
+	<blockquote>
+	<ul class="bullet_list">
+	<li> Processes are added to a single queue in the order they are
+		started.
+	<li> The process at the front of the queue is run until it either
+		completes, or blocks.
+	<li> Once a process becomes ready again (after being blocked), it joins
+		 the end of the queue.
+	</ul>
+	</blockquote>
+	<ol class="answer_list">
+	<li> Round Robin Scheduling.
+	<li> First Come, First Served.
+	<li> Guaranteed Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following process scheduling algorithms needs to know the
+	typical amount of time that a process often takes to complete?
+	<ol class="answer_list">
+	<li> Guaranteed Scheduling.
+	<li> Shortest Job First.
+	<li> Priority Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> Shortest Remaining Time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following process scheduling algorithms favors CPU bound
+	over I/O bound processes?
+	<ol class="answer_list">
+	<li> First Come, First Served
+	<li> Shortest Job First
+	<li> Shortest Remaining Time
+	<li> Guaranteed Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following process scheduling algorithms improves the average
+	turnaround time on a batch system?
+	<ol class="answer_list">
+	<li> First Come, First Served
+	<li> Shortest Job First
+	<li> Shortest Remaining Time
+	<li> Guaranteed Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following process scheduling algorithms improves the average
+	throughput on a batch system?
+	<ol class="answer_list">
+	<li> First Come, First Served
+	<li> Shortest Job First
+	<li> Shortest Remaining Time
+	<li> Guaranteed Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following steps describe which process scheduling algorithm?
+	<blockquote>
+	<ul class="bullet_list">
+	<li> Processes are chosen to run from the front of a single ready queue.
+	<li> Each process can run a max time called a quantum.
+	<li> Processes may block before <strong>all</strong> of their
+		time quantum is used.
+	<li> As processes become ready, they go to the end of the ready queue.
+	</ul>
+	</blockquote>
+	<ol class="answer_list">
+	<li> First Come, First Served.
+	<li> Round Robin Scheduling.
+	<li> Priority Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following steps describe which process scheduling algorithm?
+	<blockquote>
+	<ul class="bullet_list">
+	<li> Each process has a priority.
+	<li> The ready process with the highest priority runs next.
+	<li> Priorities can be set statically and/or dynamically.
+	</ul>
+	</blockquote>
+	<ol class="answer_list">
+	<li> Round Robin Scheduling.
+	<li> Guaranteed Scheduling.
+	<li> Priority Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following steps describe which process scheduling algorithm?
+	<blockquote>
+	<ul class="bullet_list">
+	<li> Each queue corresponds to a different max time quantum to run.
+	<li> If a process uses <strong>all</strong> of its time quantum,
+		it's added to the end of the next highest quantum queue when
+		it's moved to the ready state.
+	<li> If a process blocks before exhausting its time quantum, it's added
+		to the end of the next lowest quantum queue when it's moved to
+		the ready state.
+	<li> The processes in queues with larger quantum are run less
+		frequently.
+	</ul>
+	</blockquote>
+	<ol class="answer_list">
+	<li> Round Robin Scheduling.
+	<li> Multiple Queues.
+	<li> Priority Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which process scheduling algorithm(s) are particularly well suited to
+	<em>very</em> slow context switching?
+	<ol class="answer_list">
+	<li> Guaranteed Scheduling.
+	<li> Multiple Queues.
+	<li> Lottery Scheduling.
+	<li> First Come, First Served.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which process scheduling algorithm(s) are particularly well suited to
+	enforcing an advertised policy?
+	<ol class="answer_list">
+	<li> Multiple Queues.
+	<li> Guaranteed Scheduling.
+	<li> Lottery Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following steps describe which process scheduling algorithm?
+	<blockquote>
+	<ul class="bullet_list">
+	<li> Each process (in the ready queue) is given a (probably different)
+		number of tickets.
+	<li> When picking the next process to run, a ticket is chosen at random
+		and the ready process with that ticket is run.
+	</ul>
+	</blockquote>
+	<ol class="answer_list">
+	<li> Multiple Queues.
+	<li> Guaranteed Scheduling.
+	<li> Lottery Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The <em>most</em> space efficient way of implementing Lottery Scheduling
+	is to have
+	<ol class="answer_list">
+	<li> each ready process use a hash table to keep track of its randomly
+		assigned tickets.
+	<li> each ready process use a unsorted linked list of its randomly
+		assigned tickets, performing a linear search to determine if
+		it holds the "winning" ticket.
+	<li> each ready process stores the range of tickets that it holds,
+		so finding the process to run requires searching the queue of
+		ready processes for the correct range that holds the "winning"
+		ticket.
+	<li> a common array used by <strong>all</strong> processes. Each array
+		entry corresponds to a ticket, and records the process holding
+		that ticket.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The way of implementing Lottery Scheduling so that finding the process
+	with the "winning" ticket is the <em>fastest</em> is to have
+	<ol class="answer_list">
+	<li> each ready process use a hash table to keep track of its randomly
+		assigned tickets.
+	<li> each ready process use a unsorted linked list of its randomly
+		assigned tickets, performing a linear search to determine if
+		it holds the "winning" ticket.
+	<li> each ready process stores the range of tickets that it holds,
+		so finding the process to run requires searching the queue of
+		ready processes for the correct range that holds the "winning"
+		ticket.
+	<li> a common array used by <strong>all</strong> processes. Each array
+		entry corresponds to a ticket, and records the process holding
+		that ticket.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which process scheduling algorithm ensures that each user (rather than
+	each process) gets an equal share of the CPU resource?
+	<ol class="answer_list">
+	<li> Multiple Queues.
+	<li> Guaranteed Scheduling.
+	<li> Lottery Scheduling.
+	<li> Fair-Share Scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Real-time process scheduling is used
+	<ol class="answer_list">
+	<li> when processes <strong>must never</strong> block.
+	<li> to ensure "quick" response to real world events.
+	<li> to ensure the <strong>most</strong> efficient use of the
+		CPU resource. 
+	<li> when there is <strong>never</strong> more than one ready process
+		at a time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> <em>Hard</em> real-time systems
+	<ol class="answer_list">
+	<li> try to meet most deadlines, but terminate processes when its
+		deadline is missed.
+	<li> should meet <strong>all</strong> deadlines, but sometimes they
+		are missed.
+	<li> <strong>must</strong> meet <strong>all</strong> deadlines,
+		otherwise something dire happens.
+	<li> guarantees that <strong>all</strong> deadlines are met,
+		no deadline is ever missed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> <em>Soft</em> real-time systems
+	<ol class="answer_list">
+	<li> try to meet most deadlines, but terminate processes when its
+		deadline is missed.
+	<li> should meet <strong>all</strong> deadlines, but sometimes they
+		are missed.
+	<li> <strong>must</strong> meet <strong>all</strong> deadlines,
+		otherwise something dire happens.
+	<li> guarantees that <strong>all</strong> deadlines are met,
+		no deadline is ever missed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The process scheduling policy and the scheduling mechanism are
+	<ol class="answer_list">
+	<li> different, with the policy choosing what to run next and the
+		mechanism performing the context switch.
+	<li> different, with mechanism used for batch systems and policy  
+		used for real-time systems.
+	<li> similar, with policy doing everything that mechanism does but
+		adding to it support for non-preemptive scheduling.
+	<li> actually different names for the same thing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Thread scheduling is
+	<ol class="answer_list">
+	<li> <strong>always</strong> done by the OS kernel.
+	<li> <strong>always</strong> done by the process, when the process
+		is running.
+	<li> performed by both the kernel <em>and</em> by the process (if
+		it is running).
+	<li> accomplished by another aspect of the OS kernel using algorithms
+		very different from those for process scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following describes which type of thread scheduling?
+	<blockquote>
+	<ul class="bullet_list">
+	<li> The kernel picks/schedules a process.
+	<li> The scheduled process then schedules its own threads.
+	<li> If a thread blocks for a system resource,
+		then the entire process blocks and no other
+		threads from the process can be run until the block is
+		"cleared".
+	</ul>
+	</blockquote>
+	<ol class="answer_list">
+	<li> Process scheduling
+	<li> Kernel scheduling
+	<li> Hybrid scheduling
+	<li> Combined scheduling
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following describes which type of thread scheduling?
+	<blockquote>
+	<ul class="bullet_list">
+	<li> The kernel picks/schedules a thread (from any process).
+	<li> If the thread blocks for a system resource,
+		then the kernel picks/schedules another
+		thread that can be from the same or another process.
+	</ul>
+	</blockquote>
+	<ol class="answer_list">
+	<li> Process scheduling
+	<li> Kernel scheduling
+	<li> Hybrid scheduling
+	<li> Combined scheduling
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following thread scheduling mechanisms provides the fastest
+	switching between threads from the same process?
+	<ol class="answer_list">
+	<li> Process scheduling
+	<li> Kernel scheduling
+	<li> Hybrid scheduling
+	<li> Combined scheduling
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following thread scheduling mechanisms avoids a single
+	blocked thread from preventing <strong>all</strong> of that
+	process' threads from running?
+	<ol class="answer_list">
+	<li> Preemptive scheduling
+	<li> Process scheduling
+	<li> Kernel scheduling
+	<li> Non-preemptive scheduling
+	<li> None of the above
+	</ol>
+</li><br/>

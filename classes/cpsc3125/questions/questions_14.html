@@ -1,0 +1,86 @@
+<li> Assuming that <em>sleep</em> (causing the calling process to block) and
+	<em>wakeup</em> (which unblocks the indicated process) are system
+	calls, then they can be used to implement critical sections if the
+	following condition(s) are kept:
+	<ol class="answer_list">
+	<li> <em>wakeup</em> signals are <strong>not</strong> buffered.
+	<li> <em>sleep</em> cannot be called by an already blocked process.
+	<li> only strict alternation of critical sections is implemented.
+	<li> <em>wakeup</em> is <strong>never</strong> called first.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The <em>sleep</em> (causing the calling process to block) and
+        <em>wakeup</em> (which unblocks the indicated process) calls enable
+	<ol class="answer_list">
+	<li> strictly alternating critical sections to be protected
+		<strong>without</strong> busy waiting.
+	<li> strictly alternating critical sections to be protected but only
+		when a test and set instruction is available.
+	<li> the protection of any critical section so long as
+		<em>wakeup</em> is <strong>never</strong> called first.
+	<li> the protection of any critical section so long as
+		<em>sleep</em> is <strong>never</strong> called twice in a row.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The <em>sleep</em> (causing the calling process to block) and
+        <em>wakeup</em> (which unblocks the indicated process) calls, can
+	only support strictly alternating critical sections because
+	<ol class="answer_list">
+	<li> <em>sleep</em> only blocks a process for a maximum period of
+		time.
+	<li> <em>sleep</em> cannot be called by an already blocked process.
+	<li> <em>wakeup</em> cannot unblock a process that called <em>sleep</em>
+		twice in a row.
+	<li> <em>wakeup</em> calls are <strong>not</strong> buffered.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Indicate where the <em>sleep()</em> and <em>wakeup(...)</em> calls should
+	go (with the correct argument for <em>wakeup</em>) in the following
+	code to allow alternation of producer and consumer actions. [Note: Some
+	options may be used more than once, or not at all.]
+<pre><code>
+	void producer() {
+		while (1) {
+			ITEM item = produceItem();
+			insertItem(item);
+
+			// Insert statement(s) for section "A" here.
+
+		}
+	}
+
+	void consumer() {
+		while (1) {
+
+			// Insert statement(s) for section "B" here.
+
+			ITEM item = removeItem();
+			consumeItem(item);
+
+			// Insert statement(s) for section "C" here.
+
+		}
+	}
+</code></pre>
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> /* No Operation */
+		<li> sleep();
+		<li> wakeup(producer);
+		<li> sleep(); wakeup(producer);
+		<li> wakeup(producer); sleep();
+		<li> wakeup(consumer);
+		<li> sleep(); wakeup(consumer);
+		<li> wakeup(consumer); sleep();
+		</ol>
+	</td></tr></table>
+</li><br/>

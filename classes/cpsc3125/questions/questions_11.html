@@ -1,0 +1,189 @@
+<li> Threads are also commonly referred to as
+	<ol class="answer_list">
+	<li> hyperthreads
+	<li> lightweight processes
+	<li> execution traces
+	<li> shared libraries
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When compared to processes, threads
+	<ol class="answer_list">
+	<li> are more limited in the size of their address space.
+	<li> cannot be used for multiprogramming.
+	<li> take the same amount of time for a context switch.
+	<li> can be created and destroyed 10-100 times faster.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Each thread <strong>must</strong> maintain its own
+	<ol class="answer_list">
+	<li> address space.
+	<li> program counter.
+	<li> run-time stack.
+	<li> heap storage area.
+	<li> signal handlers.
+	<li> state (blocked, ready, running).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Every process contains at least
+	<ol class="answer_list">
+	<li> one thread.
+	<li> two threads, one each for execution and garbage collection.
+	<li> three threads, for execution, signal management, and garbage
+		collection.
+	<li> one child process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following items belong to the process (rather than to
+	each of its threads)?
+	<ol class="answer_list">
+	<li> Program counter
+	<li> Address space
+	<li> Static variables
+	<li> Run-time stack
+	<li> Heap storage
+	<li> Registers
+	<li> File descriptors
+	<li> Signal handlers
+	<li> State (blocked, ready, running)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following items belong to each thread (rather than to
+	the process)?
+	<ol class="answer_list">
+	<li> Program counter
+	<li> Address space
+	<li> Static variables
+	<li> Run-time stack
+	<li> Heap storage
+	<li> Registers
+	<li> File descriptors
+	<li> Signal handlers
+	<li> State (blocked, ready, running)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Because the address space is shared by the process' threads, care must
+	be taken (to avoid race conditions) when
+	<ol class="answer_list">
+	<li> calling the same function from multiple threads.
+	<li> reading/setting values for the same static variables and heap
+		allocated objects from multiple threads.
+	<li> creating new threads.
+	<li> a thread terminates.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX pthread library call that creates a new thread is called
+	<ol class="answer_list">
+	<li> pthread_new
+	<li> pthread_fork
+	<li> pthread_create
+	<li> pthread_dup
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX pthread library call that returns the thread's identification is
+	called
+	<ol class="answer_list">
+	<li> pthread_getid
+	<li> pthread_self
+	<li> pthread_pid
+	<li> pthread_thread_id
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX pthread library call that terminates the calling thread is called
+	<ol class="answer_list">
+	<li> pthread_exit
+	<li> pthread_terminate
+	<li> pthread_yield
+	<li> pthread_return
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX pthread library call that blocks the calling thread, resuming
+	when the indicated thread completes, is called
+	<ol class="answer_list">
+	<li> pthread_wait
+	<li> pthread_block
+	<li> pthread_pause
+	<li> pthread_join
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX pthread library call that moves a running thread to the blocked
+	state is called
+	<ol class="answer_list">
+	<li> pthread_block
+	<li> pthread_yield
+	<li> pthread_stop
+	<li> pthread_pause
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Threads that are managed in user/process space
+	<ol class="answer_list">
+	<li> require the OS to be thread aware.
+	<li> require the process to keep track of the threads via a thread
+		table (in addition to the process table that the OS maintains).
+	<li> enable context switching that is about 10x faster than
+		kernel space threads.
+	<li> cause the entire process to block if any one of its threads blocks
+		for a system resource.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Threads that are managed in kernel space
+	<ol class="answer_list">
+	<li> requires the OS to be thread aware.
+	<li> requires the process to keep track of the threads via a thread
+		table (in addition to the process table that the OS maintains).
+	<li> enables context switching that is about 10x faster than
+		user/process space threads.
+	<li> cause the entire process to block if any one of its threads blocks
+		for a system resource.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Thread pools are collections of already allocated/created threads that
+	<ol class="answer_list">
+	<li> are assigned as requested to reduce the costs of thread creation
+		and destruction.
+	<li> are only beneficial for user/process space managed threads.
+	<li> are only beneficial for kernel space managed threads.
+	<li> prevent an over abundance of threads, if the pool is the only
+		means for acquiring a thread.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Hybrid User-Kernel space thread management allocates
+	<ol class="answer_list">
+	<li> one or more kernel threads to a process, with the process able
+		to start multiple user threads within each kernel thread.
+	<li> exactly one user space and one kernel space thread to each
+		process.
+	<li> any number of user space and kernel space threads to each process
+		as long as they are requested from the corresponding user and
+		kernel thread pools.
+	<li> only user space threads, but enables the kernel to recognize when
+		a user thread is blocked.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Scheduler activations use
+	<ol class="answer_list">
+	<li> kernel space threads, but only the process schedules them.
+	<li> kernel space threads, but the process recommends to the OS
+		which thread to schedule/run next.
+	<li> user space threads, but the kernel recognizes when a blocked
+		thread doesn't prevent other threads from running.
+	<li> both user and kernel space threads for a process, with each
+		thread type being scheduled as it normally would be.
+	<li> None of the above
+	</ol>
+</li><br/>

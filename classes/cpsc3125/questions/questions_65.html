@@ -1,0 +1,333 @@
+<li> Even if no store-and-forward switching is done (e.g., direct communication
+	links), the number of copies that must be created to send data from
+	a source (hosting the original version of the data) to a target is
+	<ol class="answer_list">
+	<li> 2, if the network interface is mapped to the user process' address
+		space.
+	<li> 3, if the network interface is mapped to the user process' address
+		space.
+	<li> 4, regardless of whether or not the network interface is mapped
+		to the user process' address space.
+	<li> 5, if <strong>no</strong> mapping of the network interface
+		to the user process' address space is done.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Multicomputers commonly have 2 network interfaces, one each for the
+	OS and one for all of the user processes to share, so that
+	<ol class="answer_list">
+	<li> user processes sharing one of the interfaces, which is mapped
+		to all of their address spaces, cannot prevent the OS from
+		using the network interface (e.g., to access remote files).
+	<li> the OS can use the network interface to contact other nodes in
+		the multicomputer that user processes are <strong>not</strong>
+		allowed to access.
+	<li> user processes can use the network interface to contact other
+		nodes in the multicomputer that the OS is <strong>not</strong>
+		allowed to access.
+	<li> the bandwidth to other nodes in the multicomputer is kept high
+		enough.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Using DMA to copy data from memory to the network interface (of the
+	message sender) requires that the
+	<ol class="answer_list">
+	<li> CPU poll the network interface to determine when the copy
+		is completed.
+	<li> message be sent before the DMA notifies the CPU that the
+		copy is completed. 
+	<li> message be sent <strong>and</strong> acknowledged before
+		the DMA notifies the CPU that the copy is completed. 
+	<li> page in the page frame be pinned until the copy is completed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Using DMA to copy data from the network interface (of the message
+	receiver) to memory requires that
+	<ol class="answer_list">
+	<li> CPU poll the network interface to determine when the copy
+		is completed.
+	<li> reciept of the message must be acknowledged (to the sender)
+		before the DMA notifies the CPU that the copy is completed. 
+	<li> page in the page frame be pinned until the copy is completed.
+	<li> page frame into which the data is copied <strong>must</strong>
+		be mapped to the OS kernel (even when the data is for a
+		user process).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Remote DMA, which allows one computer to write to memory on another
+	computer, requires that
+	<ol class="answer_list">
+	<li> the pages be pinned to their page frames on each of the computers
+		until the data copy is completed.
+	<li> the page frame on the sending computer be mapped to the OS
+		kernel (even when the data is for a user process).
+	<li> the page frame on the receiving computer be mapped to the OS
+		kernel (even when the data is for a user process).
+	<li> a special value be written to a particular location, indicating
+		the the data copy is complete.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The destination address for a message is usually composed of
+	<ol class="answer_list">
+	<li> the CPU location (i.e., network address).
+	<li> the process ID of the receiver.
+	<li> the thread ID of the receiver.
+	<li> the memory address of the variable in which to store the message.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The usual case for messaging systems is for the send and receive
+	operations to have
+	<ol class="answer_list">
+	<li> non-blocking semantics for send.
+	<li> non-blocking semantics for receive.
+	<li> blocking semantics for send.
+	<li> blocking semantics for receive.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Blocking semantics for both send and receive enables
+	<ol class="answer_list">
+	<li> only synchronous communication.
+	<li> only asynchronous communication.
+	<li> both synchronous and asynchronous communication.
+	<li> neither synchronous and asynchronous communication.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A receive operation that returns a value indicating whether or not a
+	message was available/read is an example of a
+	<ol class="answer_list">
+	<li> blocking operation.
+	<li> non-blocking operation.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Advantage(s) of a non-blocking send operation include
+	<ol class="answer_list">
+	<li> reducing the number of times the message must be copied (e.g.,
+		into various buffers).
+	<li> enabling the message to be sent (and thus received) faster.
+	<li> not forcing the sending process to wait if many other processes
+		are also sending messages at nearly the same time.
+	<li> simplifying the implementation of the send operation.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Disadvantage(s) of a non-blocking send operation include
+	<ol class="answer_list">
+	<li> requiring the corresponding receive operation to also be
+		non-blocking.
+	<li> increasing the time it takes for the message to be sent (and
+		thus received).
+	<li> forcing the sending process to wait if many other processes are
+		also sending messages at nearly the same time.
+	<li> the implementation of the send operation becomes more complex
+		since the send must be completed before its message buffer			can (safely) be reused.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> With respect to the receive operation for messaging, from the perspective
+	of the user process, a
+	<ol class="answer_list">
+	<li> blocking receive can be used to implement a non-blocking receive.
+	<li> non-blocking receive can be used to implement a blocking receive.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> With respect to the send operation for messaging, from the perspective
+	of the user process, a
+	<ol class="answer_list">
+	<li> blocking send can be used to implement a non-blocking send.
+	<li> non-blocking send can be used to implement a blocking send.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A remote procedure call (RPC) implements
+	<ol class="answer_list">
+	<li> synchronous communication.
+	<li> asynchronous communication.
+	<li> provides semantics equivalent to blocking send/receive messaging.
+	<li> provides semantics equivalent to non-blocking send/receive messaging.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Match the actions of each numbered arrow with its corresponding
+	description for a remote procedure call (RPC).
+	<br/>
+	<img src="/eckart/classes/cpsc3125/topics/content/RPCcall.png" width="400" height="300" alt="Remote Procedure Call" />
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> Client procedure calls the procedure stub, which
+			marshals the arguments.
+		<li> The stub uses OS system calls to send the message.
+		<li> The kernel sends the message to the remote system.
+		<li> A server stub on the remote machine unmarshals the
+			procedure call arguments.
+		<li> The server stub executes a local procedure call.
+		<li> The (server) procedure completes, returning execution
+			to the server stub.
+		<li> The server stub marshals the return values into a
+			return message.
+		<li> The remote OS sends the return message to the
+			originating system.
+		<li> The client stub reads the data from the return message.
+		<li> The message data is unmarshalled and the return
+			values are placed on the stack for the local process.
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> Passing pointers as parameters to a remote procedure call (RPC)
+	<ol class="answer_list">
+	<li> is problematic since the remote implementation won't have direct
+		access to the referenced memory.
+	<li> can be used without difficulty so long as it is not a dangling
+		reference.
+	<li> can be used without difficulty, except that the remote procedure
+		cannot free the storage it points to.
+	<li> works exactly like a local procedure call with no additional
+		limitations or concerns.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, passing arrays as parameters to a remote procedure call (RPC)
+	<ol class="answer_list">
+	<li> works exactly like a local procedure call with no additional
+		limitations or concerns.
+	<li> works as expected so long as a primitive type is used for the
+		elements of the array.
+	<li> is problematic because arrays are really pointers in C, and
+		the remote procedure implementation won't be able to access
+		the referenced memory.
+	<li> is problematic since arrays in C don't have an associated size,
+		thus the array size would have to be passed as a separate
+		argument and the client stub would have to know to use that
+		value for (un)marshalling the array.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, the types of parameters to a remote procedure call (RPC)
+	<ol class="answer_list">
+	<li> can <strong>always</strong> be determined by the compiler, thus
+		the means for (un)marshalling them is always known.
+	<li> are limited to only primitive types.
+	<li> are sometimes determined by other parameters (e.g., the format
+		string for "printf"), making it difficult to properly
+		(un)marshal them without implementing some of the semantics
+		of the remote procedure within the client stub.
+	<li> must <strong>always</strong> be cast (even if simply to the
+		same type they already are) so that the client stub will know
+		how to (un)marshal them.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Using global variables in the implementation of a procedure
+	<ol class="answer_list">
+	<li> greatly increases its run-time efficiency, especially when
+		exposed as a remote procedure call (RPC).
+	<li> makes it difficult to expose the procedure via RPC because
+		this makes them stateful.
+	<li> makes it easier to expose the procedure via RPC since it
+		reduces the number of arguments that must be (un)marshalled.
+	<li> often causes unexcepted behavior if more than one
+		process/thread calls the procedure at a time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The basic concept behind distributed shared memory is to
+	<ol class="answer_list">
+	<li> use a multiport disc (either HDD or SSD) so that more than
+		one computer can access the virtual address space of a
+		given process.
+	<li> allow virtual address space pages to be loaded into page frames
+		of remote computers.
+	<li> use remote procedure calls (RPC) to read the memory contents
+		of a process running on a remote CPU.
+	<li> broadcast the contents of a virtual address page to all computers
+		on the network whenever a request for access is made, enabling
+		all the associated caches to be updated. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> False sharing can happen when two processes running on different
+	computers, using distributed shared memory, are writing to
+	different variables
+	<ol class="answer_list">
+	<li> that happen to have the same address in their virtual address
+		space. While not actually shared, this creates a collision
+		in the TLB, causing the problem.
+	<li> that share the exact same name in their respective source code,
+		even though the variables are actually in different processes.
+	<li> which are in the same virtual address space page, causing the
+		page to bounce back and forth between the two computers as
+		the writes occur. 
+	<li> which are in the same cache block on a third computer, preventing
+		their being accessed by either of the two processes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When using shared distributed memory, the replication of pages
+	<ol class="answer_list">
+	<li> is prohibited since this <strong>always</strong> creates a race
+		condition for variable access.
+	<li> can improve performance if the pages are read-only.
+	<li> requires that <strong>all</strong> replicates be invalidated if
+		a write to any of the page copies ever occurs.
+	<li> can occur without restriction so long as all modifications to
+		pages use write-thru semantics.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Process scheduling on a multicomputer consists of a
+	<ol class="answer_list">
+	<li> single scheduler that exists on the master, with all other
+		computers requesting the next process to run from the master.
+	<li> low-level scheduler that performs dispatch of its assigned
+		processes.
+	<li> high-level scheduler that assigns processes to each computer.
+	<li> single scheduler that migrates across each of the individual
+		computers. This reduces contention on the shared data within
+		the OS kernel and prevents one computer from being a single
+		point of scheduling failure. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When the overloaded computer, of a multicomputer, probes other computers
+	to find one that is less loaded to which a newly created process can
+	migrate, this is called the
+	<ol class="answer_list">
+	<li> peer-initiated distributed heuristic.
+	<li> sender-initiated distributed heuristic.
+	<li> receiver-initiated distributed heuristic.
+	<li> slave-initiated distributed heuristic.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a lightly loaded computer, of a multicomputer, probes other computers
+	to find one that is more loaded from which a newly created process can
+	migrate, this is called the
+	<ol class="answer_list">
+	<li> peer-initiated distributed heuristic.
+	<li> sender-initiated distributed heuristic.
+	<li> receiver-initiated distributed heuristic.
+	<li> slave-initiated distributed heuristic.
+	<li> None of the above
+	</ol>
+</li><br/>

@@ -1,0 +1,268 @@
+<li> The illusion that multiple processes are running at the same time is
+	known as
+	<ol class="answer_list">
+	<li> parallelism.
+	<li> pseudoparallelism.
+	<li> hyperthreading.
+	<li> multiprocessing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Pseudoparallelism is commonly achieved on a single processor system by
+	<ol class="answer_list">
+	<li> letting each process run to completion.
+	<li> executing each process until it blocks before running the next
+		process.
+	<li> running <em>exactly</em> one instruction from each process in
+		round-robin fashion.
+	<li> rapidly switching of the CPU between processes (multiprogramming).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A process is
+	<ol class="answer_list">
+	<li> another name for a program.
+	<li> the compiled (executable) version of a program.
+	<li> a program in execution.
+	<li> a program that is either running (in the CPU) or ready, but
+		<strong>not</strong> blocked.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Existing processes in a Unix/Linix/POSIX system can be viewed using
+	which command/facility?
+	<ol class="answer_list">
+	<li> task manager
+	<li> pwd
+	<li> ps
+	<li> listAll
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Existing processes in a (Microsoft) Windows system can be viewed using
+	which command/facility?
+	<ol class="answer_list">
+	<li> task manager
+	<li> pwd
+	<li> ps
+	<li> listAll
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <em>voluntary</em> reasons for a process to
+	terminate/exit?
+	<ol class="answer_list">
+	<li> Normal
+	<li> Error
+	<li> Fatal
+	<li> Killed
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <em>INvoluntary</em> reasons for a process to
+	terminate/exit?
+	<ol class="answer_list">
+	<li> Normal
+	<li> Error
+	<li> Fatal
+	<li> Killed
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Processes in a POSIX system exist as a hierarchy because
+	<ol class="answer_list">
+	<li> each process corresponds to a program file (and files are
+		hierarchical).
+	<li> except for the first process, <strong>all</strong> other
+		processes are created by an existing process.
+	<li> each process corresponds to a user identification, and uids are
+		arranged hierarchically.
+	<li> of the time frames in which they were created.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> a state in which an
+	executing process can exist?
+	<ol class="answer_list">
+	<li> Running
+	<li> Blocked
+	<li> Ready
+	<li> Waiting
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> a transition between
+	process states?
+	<ol class="answer_list">
+	<li> running to blocked
+	<li> running to ready
+	<li> ready to running
+	<li> ready to blocked
+	<li> blocked to running
+	<li> blocked to ready
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following transition(s) are accomplished by the scheduler?
+	<ol class="answer_list">
+	<li> running to blocked
+	<li> running to ready
+	<li> ready to running
+	<li> ready to blocked
+	<li> blocked to running
+	<li> blocked to ready
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following transition(s) occur as the result of receiving
+	a signal?
+	<ol class="answer_list">
+	<li> running to blocked
+	<li> running to ready
+	<li> ready to running
+	<li> ready to blocked
+	<li> blocked to running
+	<li> blocked to ready
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following transition(s) are accomplished when an I/O
+	operation is completed?
+	<ol class="answer_list">
+	<li> running to blocked
+	<li> running to ready
+	<li> ready to running
+	<li> ready to blocked
+	<li> blocked to running
+	<li> blocked to ready
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which state is a process in when it terminates normally?
+	<ol class="answer_list">
+	<li> Running
+	<li> Blocked
+	<li> Ready
+	<li> Waiting
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which state does a process first start in when it is created?
+	<ol class="answer_list">
+	<li> Running
+	<li> Blocked
+	<li> Ready
+	<li> Waiting
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Match the ovals (process states) and arcs (state transitions) in the below
+	diagram (indicated by the letters A-I) with their names/descriptions.
+	[Note: No choice is used more than once, and some may not be used.]
+	<br/>
+	<img src="/eckart/classes/cpsc3125/questions/ProcessState.png" alt="Process state diagram" width="637" height="417" />
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> I/O Wait
+		<li> Process Termination
+		<li> Reload
+		<li> Blocked
+		<li> Dispatch (scheduling)
+		<li> Parked
+		<li> Process Entry
+		<li> I/O Completion
+		<li> Running
+		<li> Swapping
+		<li> Timeout
+		<li> Ready
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> The process table is an array with each entry containing
+	<ol class="answer_list">
+	<li> the file of the corresponding program.
+	<li> only the current program counter for that process.
+	<li> only the process id number for that process.
+	<li> <strong>all</strong> of the associated information for a single
+		process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A process that has been started but has <strong>not</strong> yet
+	terminated, is represented by an entry in the process table when
+	the process is in which of the following states?
+	<ol class="answer_list">
+	<li> Running
+	<li> Blocked
+	<li> Ready
+	<li> Waiting
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX system call that creates a new process is called
+	<ol class="answer_list">
+	<li> new
+	<li> create
+	<li> dup
+	<li> fork
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The family of POSIX system calls that replace the current process with a
+	new one is called
+	<ol class="answer_list">
+	<li> replace
+	<li> exec
+	<li> dup2
+	<li> getpid
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX system call that causes a parent process to wait for a specific
+	child process to finish is called
+	<ol class="answer_list">
+	<li> wait
+	<li> waitpid
+	<li> fini
+	<li> done
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX system call, <em>signal</em> is used to
+	<ol class="answer_list">
+	<li> send a signal to another process.
+	<li> declare what signals may be sent to a process.
+	<li> respond back to a signal sent from another process.
+	<li> indicate which function should be called when a particular
+		signal is received by the process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The POSIX system call that moves a running process to the blocked state
+	is called
+	<ol class="answer_list">
+	<li> wait
+	<li> break
+	<li> pause
+	<li> block
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Write a C program that takes a single command line argument indicating the
+	number of child processes to create. Each child process prints out its
+	PID to the stdout and then exits. The parent process prints the message
+	"All done." after <strong>all</strong> of the children have completed,
+	and then exits as well.
+</li><br/>

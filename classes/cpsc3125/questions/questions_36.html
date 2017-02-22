@@ -1,0 +1,277 @@
+<li> Most file systems do <strong>not</strong> store files in contiguous disk
+	blocks because
+	<ol class="answer_list">
+	<li> this makes the file system design and implementation simpler.
+	<li> of the delay that the rotational latency of a HDD requires when
+		the disk blocks are next to one another.
+	<li> it reduces the amount of internal fragmentation.
+	<li> files tend to grow in size, requiring the disk blocks for the 
+		file to be copied.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For the same size disk, larger disk block sizes tend to
+	<ol class="answer_list">
+	<li> improve the data transfer rate to and from disk.
+	<li> reduce internal fragmentation.
+	<li> reduce the number of blocks needed to store a file.
+	<li> decrease the amount of storage need to keep track of bad disk
+		blocks.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> It's not uncommon, particularly for hard disk drives (HDDs), for disk
+	blocks to become bad. To avoid using them, bad blocks are
+	<ol class="answer_list">
+	<li> tracked by the controller in a list stored in a pre-specified
+		disk location.
+	<li> filled with a special value to identify them.
+	<li> moved to another location on the disk.
+	<li> removed from the list of free blocks.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The free (unused) blocks on a disk are often tracked by
+	<ol class="answer_list">
+	<li> moving the used blocks to the lower disk block numbers (i.e.,
+		compacting) and keeping a single number which is the lowest
+		disk number of the set of contiguous free blocks.
+	<li> exchanging (copying) free blocks and used blocks (as a
+		background process) to combine the free blocks into a small
+		number of contiguous areas.
+	<li> keeping a linked list of blocks, with each block in the list
+		pointing to a large number of free blocks.
+	<li> using a bit map contained in 1 or more blocks, with bits
+		having either a value of 1 (used) or 0 (free).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Disk quotas are a mechanism to prevent
+	<ol class="answer_list">
+	<li> account holders from using more than their "fair share"
+		of the file system space.
+	<li> disk failure due to overuse.
+	<li> the inadvertent loss of files due to user error.
+	<li> a disk from filling up.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A disk quota can be used to limit the total
+	<ol class="answer_list">
+	<li> amount of space on the disk.
+	<li> amount of disk space a user's files take up.
+	<li> number of swap areas (and thus processes) that can exist. 
+	<li> number of files a user has.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A disk quota soft limit
+	<ol class="answer_list">
+	<li> warns the user when they are getting close to their hard limit.
+	<li> prevents the creation of new files when exceeded, but allows
+		existing files to be appended to.
+	<li> restricts the number of executable files (software) that the
+		user has.
+	<li> indicates the maximum number of soft links that the user can
+		have.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A disk quota hard limit
+	<ol class="answer_list">
+	<li> is the maximum amount of space (or number of files) a user is
+		permitted to have.
+	<li> applies only to hard disk drives (HDDs).
+	<li> can prevent a user from saving their work, if reached.
+	<li> indicates the maximum number of hard links that the user can
+		have.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The primary types of file system backups are
+	<ol class="answer_list">
+	<li> physical dump.
+	<li> traditional dump.
+	<li> logical dump.
+	<li> virtual dump.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which type of file system dump is fast and simple to implement, but
+	can't do incremental backups or restore select files?
+	<ol class="answer_list">
+	<li> physical dump.
+	<li> traditional dump.
+	<li> logical dump.
+	<li> virtual dump.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which type of file system dump can restore select files and dump only
+	changed files and directories, but is slower and more complex to
+	implement?
+	<ol class="answer_list">
+	<li> physical dump.
+	<li> traditional dump.
+	<li> logical dump.
+	<li> virtual dump.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A <em>full backup</em> is
+	<ol class="answer_list">
+	<li> taken when a file system is full, so it can be stored off-site.
+	<li> a complete copy of the current state of the file system.
+	<li> done when each user has reached their disk quota soft limit.
+	<li> done when each user has reached their disk quota hard limit.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An <em>incremental backup</em> is
+	<ol class="answer_list">
+	<li> frequently used because it takes less space and finishes more
+		quickly than a full backup.
+	<li> created whenever a user reaches their disk quota soft limit.
+	<li> used to make copies of only those files (and directories) that
+		have changed since the last backup.
+	<li> performed automatically by the file system on a periodic basis.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Keeping file system backups on-site is
+	<ol class="answer_list">
+	<li> preferred as this makes it easier and faster to restore user files.
+	<li> <strong>never</strong> a good idea since a single problem
+		(e.g., tornado) can cause a loss of both the file system
+		(on disks) and its backup.
+	<li> no better or worse than keeping them off-site.
+	<li> necessary only if the backup is made to other disks in near
+		real-time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For an i-node based file system, which type of check recursively
+	traverses a directory keeping a count for each i-node of the number
+	of references to that i-node?
+	<ol class="answer_list">
+	<li> OS consistency check
+	<li> File consistency check
+	<li> Block consistency check
+	<li> I-node check
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which type of check uses two counters per disk block to count the number
+	of times they are pointed to by either an i-node (1st counter) or
+	from the free list (2nd counter)?
+	<ol class="answer_list">
+	<li> OS consistency check
+	<li> File consistency check
+	<li> Block consistency check
+	<li> I-node check
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The i-node counts created by a file consistency check should
+	<ol class="answer_list">
+	<li> equal the i-node reference counts.
+	<li> sum to the total number of disk blocks.
+	<li> equal the count of the number of free blocks.
+	<li> <strong>never</strong> be greater than 1.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> After a block consistency check has created its counts corresponding to
+	the number of times the block is used or appears in the free list
+	respectively, a problem exists if
+	<ol class="answer_list">
+	<li> both counts are 0.
+	<li> if the sum of the two counts = 1.
+	<li> both counts are >= 1.
+	<li> either count is > 1.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> To improve the performance of a file system, particularly those stored on
+	HDDs,
+	<ol class="answer_list">
+	<li> the disk block size should be kept small (e.g., 1 KB) to reduce
+		internal fragmentation.
+	<li> a block cache should keep a number of disk blocks in memory to
+		reduce read times.
+	<li> changes to a file's disk block that's been loaded into memory,
+		should <strong>not</strong> be written back to disk after
+		every change.
+	<li> Perform a regular incremental backup. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Pre-fetching the next few disk blocks for a file, can improve the
+	performance for which type of file access (particularly on HDDs)?
+	<ol class="answer_list">
+	<li> Random access.
+	<li> Spiral access.
+	<li> Sequential access.
+	<li> Tree access.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Part of the advantage of caching disk blocks in memory is to reduce
+	the total number of writes to disk (i.e., make several changes to the
+	cache before writing the cached block back to disk), what if any
+	advantage is there to having a cache that writes through
+	to the disk every time the cache is changed?
+	<ol class="answer_list">
+	<li> In the event of a system failure, write-through-caches can reduce
+		the amount of lost data.
+	<li> All writes to disk <strong>must</strong> come from memory/cache
+		anyway, so there is no difference in write performance.
+	<li> The write-through-cache also provides the faster read access.
+	<li> Using a write-through-cache lowers contention on the system bus
+		since the disk block is written as soon as it's changed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When possible, in order to improve file read/write performance, the free
+	blocks allocated to store the contents of a file should be
+	<ol class="answer_list">
+	<li> randomly distributed on the disk to avoid access contention.
+	<li> in the same disk partition.
+	<li> one after another (on HDDs) to reduce seek time.
+	<li> of the same size.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Unix <em>sync</em> and Windows <em>FlushFileBuffers</em> processes
+	<ol class="answer_list">
+	<li> ensure that the contents of cached disk blocks are written to
+		disk periodically when they've been modified. 
+	<li> update the contents of any file disk blocks cached in memory
+		that might have been altered on disk.
+	<li> are unnecessary if write-through caches are
+		<strong>always</strong> used.
+	<li> only need to be used in combination with a virtual file system.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Defragmenting a disk
+	<ol class="answer_list">
+	<li> compacts the file system, placing <strong>all</strong> of the
+		free disk blocks at one end of the partition.
+	<li> reduces the amount of internal fragmentation.
+	<li> can place a file's disk blocks consecutively so as to increase
+		read/write access speeds.
+	<li> increases the number of free disk blocks available to the file
+		system.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Defragmenting a disk is <em>most</em> useful for which type of file system?
+	<ol class="answer_list">
+	<li> Contiguous Allocation
+	<li> Linked List Allocation
+	<li> Index Node
+	<li> Virtual File System
+	<li> None of the above
+	</ol>
+</li><br/>

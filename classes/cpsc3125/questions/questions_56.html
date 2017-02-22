@@ -1,0 +1,216 @@
+<li> The process and policies for enabling users to prove who they are is
+	called
+	<ol class="answer_list">
+	<li> authorization.
+	<li> attestation.
+	<li> authentication.
+	<li> dispensation.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The types of factors typically used to identify users are
+	<ol class="answer_list">
+	<li> human factors.
+	<li> knowledge factors.
+	<li> possession factors.
+	<li> inherence factors.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Passwords and challenge-response mechanisms are examples of which type(s)
+	of factor(s) used for user identification?
+	<ol class="answer_list">
+	<li> human factors.
+	<li> knowledge factors.
+	<li> possession factors.
+	<li> inherence factors.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Credit cards and USB security dongles are examples of which type(s) of
+	factor(s) used for user identification?
+	<ol class="answer_list">
+	<li> human factors.
+	<li> knowledge factors.
+	<li> possession factors.
+	<li> inherence factors.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Fingerprints and retina scans are examples of which type(s) of factor(s)
+	used for user identification?
+	<ol class="answer_list">
+	<li> human factors.
+	<li> knowledge factors.
+	<li> possession factors.
+	<li> inherence factors.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> To preserve the confidentiality of user passwords,
+	<ol class="answer_list">
+	<li> only their one-way hash values should be stored.
+	<li> they should be stored as encrypted values.
+	<li> they should be stored as two separate parts, each part
+		encrypted using a different key.
+	<li> storing them as cleartext is okay, provided the password
+		file is readable only by the superuser.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Many users pick passwords that are (or are similar to) real words. A
+	common mechanism to reduce the chances of a successful dictionary
+	attack on passwords,
+	<ol class="answer_list">
+	<li> encrypts each password using a common symmetric key.
+	<li> stores passwords in two or more pieces, making it harder for
+		attackers to get the full password.
+	<li> encrypts the password using itself as the symmetric key.
+	<li> adds random "salt" characters to the password before it is hashed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> While password schemes are easy to understand and implement, they
+	are made less secure due to people's
+	<ol class="answer_list">
+	<li> using their password too often by repeatedly logging out and
+		back in again.
+	<li> writing down their passwords or storing them as plaintext
+		in a computer file.
+	<li> using passwords that are very similar to natural language words,
+		making them vulnerable to dictionary attacks.
+	<li> using shorter passwords that are easier to remember.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> One-time passwords are more secure
+	<ol class="answer_list">
+	<li> because <strong>all</strong> of the unused passwords
+		<strong>must</strong> be stored so that both the system
+		and the user know which password should be used next.
+	<li> since easedropping on communications for passwords won't
+		enable the easedropper to login using them.
+	<li> because the entire set of passwords <strong>must</strong> be
+		agreed upon (and shared) in advance.
+	<li> since they are created only as/when they are needed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> One-way hash chains which create one-time passwords for transmission over
+	communication networks are based on:
+	<ol class="answer_list">
+	<li> the repeated application of a non-invertible function.
+	<li> having a maximum number of one-time passwords needed.
+	<li> a secret seed/password value known only to the user.
+	<li> the number of times to chain is specified by the server.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> One-way hash chains create
+	<ol class="answer_list">
+	<li> a fixed (but potentially large) number of one-time passwords that
+		both the server and user <strong>must</strong> store/remember.
+	<li> an unlimited number of one-time passwords used by the server,
+		but the user only has to remember a single "base" password.
+	<li> a new one-time password each time they are used. The user's
+		public key is used by the server to transmit the new password
+		for each login attempt.
+	<li> a fixed (but potentially large) number of one-time passwords
+		used by the server, but the user only has to remember a
+		single "base" password.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In order to ensure effectiveness, one-way hash chains for passwords require the
+	<ol class="answer_list">
+	<li> server to calculate the last value in the hash chain before
+		the user can login the first time.
+	<li> user to know the one-way hash function so that they can
+		apply it to the server's challenge to calculate their response.
+	<li> user to enter their password directly into the server.
+	<li> user to enter their password into a trusted client that
+		can apply the hash function to the user's password.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When users setup a mathematical equation (e.g., f(x) = x + 4 ) as the
+	basis for the computer to identify them by giving the user an
+	(probably random) input (e.g., 5) and checking the user's answer
+	against what the computer calculated for the same input (e.g., 9),
+	this is called
+	<ol class="answer_list">
+	<li> Computed Authentication.
+	<li> Challenge-Response.
+	<li> Formula Identification.
+	<li> One-way Hash Chain.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <strong>not</strong> general rules for
+	securing login/password information?
+	<ol class="answer_list">
+	<li> Restrict read access to saved (and hashed) passwords.
+	<li> Deny access as soon as an incorrect character in a password is
+		typed.
+	<li> Wait until <strong>all</strong> passwords and security questions
+		are answered before granting/denying access.
+	<li> Immediately deny access if an incorrect user name is given.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are general rules for securing login/password
+	information?
+	<ol class="answer_list">
+	<li> Restrict read access to saved (and hashed) passwords.
+	<li> Deny access as soon as an incorrect character in a password is
+		typed.
+	<li> Wait until <strong>all</strong> passwords and security questions
+		are answered before granting/denying access.
+	<li> Immediately deny access if an incorrect user name is given.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following factors for identifying users is a poor choice
+	if only one factor is used due to its susceptibility to theft?
+	<ol class="answer_list">
+	<li> human factors.
+	<li> knowledge factors.
+	<li> possession factors.
+	<li> inherence factors.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following factors for identifying users has the worst
+	reliability due to variability of accurately acquiring the
+	factor data? 
+	<ol class="answer_list">
+	<li> human factors.
+	<li> knowledge factors.
+	<li> possession factors.
+	<li> inherence factors.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following would <strong>not</strong> be useful countermeasures
+	to guard against compromises in user identification?
+	<ol class="answer_list">
+	<li> Only allow users to login from specific locations.
+	<li> Ensure handprint being scanned is the correct body temperature.
+	<li> Use random phrases for voiceprint verification (perhaps picked
+		from a large set of saved phrases).
+	<li> Require the physical use of a credit card rather than entering
+		the number on a web form.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Using multiple factors when identifying users
+	<ol class="answer_list">
+	<li> increases the confidence of a correct identification.
+	<li> <strong>never</strong> works in practice since users reject
+		it as taking too long.
+	<li> provides lower confidence of a correct identification than if
+		only one factor were used.
+	<li> <strong>always</strong> prevents unauthorized access.
+	<li> None of the above
+	</ol>
+</li><br/>

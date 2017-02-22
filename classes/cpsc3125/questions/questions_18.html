@@ -1,0 +1,63 @@
+<li> Barriers are useful when a number of different threads/processes need to
+	<ol class="answer_list">
+	<li> take turns working on a common task.
+	<li> <strong>must all</strong> meet at a common place before
+		proceeding to the next phase of a computation.
+	<li> share a set of common variables/objects.
+	<li> none of the threads/processes are allowed to go past a
+		certain point in the computation.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If <strong>all</strong> the threads/processes take very close to the same
+	amount of time to reach the barrier, then a good way of implementing
+	the barrier is
+	<ol class="answer_list">
+	<li> spin locks.
+	<li> semaphores.
+	<li> monitors.
+	<li> message passing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "thread" function below is run multiple times simultaneously (each
+	instance is passed a different value of "i" from 0 to N-1). The
+	"barrier" function ensures that <strong>all</strong>
+	the threads wait until <strong>all</strong> have
+	reached this point before proceeding. Use "count", and the "down"
+	and "up" operations on both the N "mutex_thread" (declared
+	as an array) and "mutex_count" semaphores to implement the
+	"barrier" function semantics.
+<pre><code>
+        pthread_mutex_t mutex_thread[N];
+        pthread_mutex_t mutex_count;
+        int count = 0;
+
+        int main(...) {
+                ...
+                int thread_num;
+                pthread_mutex_init(&mutex_count);
+                for (thread_num = 0; thread_num < N; thread_num++) {
+                        pthread_t thread_id;
+                        pthread_mutex_init(&mutex_thread[thread_num]);
+                        pthread_mutex_lock(&mutex_thread[thread_num]);
+                        pthread_create(&thread_id, thread, thread_num)
+                }
+                ...
+        }
+
+        void thread(int i) {
+                while (1) {
+                        do_something(i);
+                        barrier(i);
+                        do_something_else(i);
+                        barrier(i);
+                }
+        }
+        void barrier(int i) {
+
+                // MISSING CODE
+
+        }
+</code></pre>
+</li><br/>

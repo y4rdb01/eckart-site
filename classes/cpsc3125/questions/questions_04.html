@@ -1,0 +1,225 @@
+<li> The most common small computer architecture is the
+	<ol class="answer_list">
+	<li> packet switched.
+	<li> bus.
+	<li> circuit switched.
+	<li> fully connected backplane.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Match the components in the below diagram (indicated by the letters A-G)
+	of a typical small computer system to their names.
+	<br/>
+	<img src="/eckart/classes/cpsc3125/questions/SystemArch.png" width="532" height="394" alt="Simple computer architecture" />
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> Control bus
+		<li> Instruction decoder
+		<li> Memory
+		<li> System bus
+		<li> Input and Output
+		<li> Peripheral bus
+		<li> CPU
+		<li> Address bus
+		<li> Memory interface
+		<li> Data bus
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> The system bus on a small computer system is typically composed of the
+	<ol class="answer_list">
+	<li> control bus.
+	<li> address bus
+	<li> data bus.
+	<li> memory bus.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A bus architecture typically allows
+	<ol class="answer_list">
+	<li> only a single pair of components to communicate at a time.
+	<li> one or two different pairs of components to communicate
+		simultaneously.
+	<li> up to three different components (<strong>not</strong> pairs)
+		to communicate simultaneously.
+	<li> <strong>all</strong> components to communicate simultaneously.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The internet is an example of a
+	<ol class="answer_list">
+	<li> packet switched architecture.
+	<li> bus architecture.
+	<li> circuit switched architecture.
+	<li> fully connected architecture.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A computer processor is commonly composed of
+	<ol class="answer_list">
+	<li> an instruction fetch unit.
+	<li> an instruction decoder.
+	<li> an arithmetic logic unit.
+	<li> a memory interface.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Match the components in the below diagram (indicated by the letters A-E)
+	of a typical computer processor to their names. [Note: No choice is
+	used more than once, and some may not be used.]
+	<br/>
+	<img src="/eckart/classes/cpsc3125/questions/CPUarch.png" alt="CPU" width="663" height="525" />
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> Registers
+		<li> Control bus
+		<li> Translation Lookaside Buffer (TLB)
+		<li> Instruction decoder
+		<li> Direct Memory Access (DMA)
+		<li> Arithmetic Logic Unit (ALU)
+		<li> Instruction fetcher
+		<li> Address bus
+		<li> Memory interface
+		<li> Data bus
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> Registers in those processors which utilize them
+	<ol class="answer_list">
+	<li> are <strong>always</strong> grouped into sets of "register windows".
+	<li> are <strong>sometimes</strong> dedicated to specific purposes
+		(e.g., program counter, stack pointer).
+	<li> are <strong>always</strong> general purpose, meaning they can be
+		used for any activity needing to use a register.
+	<li> usually have the same number of bits as the address bus.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Processor designs that can speed up computation include:
+	<ol class="answer_list">
+	<li> pipelining
+	<li> multi-register
+	<li> hyperthreaded
+	<li> multi-core
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The memory hierarchy in computer design primarily reflects the
+	<ol class="answer_list">
+	<li> desire to reduce single points of failure.
+	<li> tradeoff between speed and cost for a given amount of memory.
+	<li> difference between volatile and non-volatile memory technologies.
+	<li> large amounts of certain types of memories.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A hard disk drive (HDD) can have access times that are
+	<ol class="answer_list">
+	<li> up to 10 million times slower than a register.
+	<li> 10-100 times slower than a solid state disk (SSD).
+	<li> only 100 times slower than main memory (e.g., RAM).
+	<li> 1 million times slower than main memory (e.g., RAM).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Physical devices are accessed via their
+	<ol class="answer_list">
+	<li> corresponding user level resource managers.
+	<li> associated (physical) controllers.
+	<li> device drivers by the operating system (OS).
+	<li> associated command interpreter (e.g., shell) programs.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are device communications styles used by
+	operating systems?
+	<ol class="answer_list">
+	<li> Notify and Sleep
+	<li> Busy waiting
+	<li> Interrup driven
+	<li> Direct Memory Access
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Approaches currently in common use for "installing" a new device driver
+	include
+	<ol class="answer_list">
+	<li> relinking the device driver object code with the OS kernel.
+	<li> adding the device driver file to an OS config and rebooting.
+	<li> adding the ".h" file to the OS config, recompiling the kernel,
+		and then rebooting the system.
+	<li> dynamically loading the device driver code (no reboot).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Device drivers that start an I/O then sit in a tight loop, checking to
+	see when the operation is complete are using the
+	<ol class="answer_list">
+	<li> Notify and Sleep communication style.
+	<li> Busy waiting communication style.
+	<li> Interrup driven communication style.
+	<li> Direct Memory Access communication style.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Device drivers that start an I/O but then block, returning control so
+	that other work can be done until the driver is awakened by an
+	interrupt are using the
+	<ol class="answer_list">
+	<li> Notify and Sleep communication style.
+	<li> Busy waiting communication style.
+	<li> Interrup driven communication style.
+	<li> Direct Memory Access communication style.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Device drivers that utilize special hardware to initiate and complete
+	an entire data transfer are using the
+	<ol class="answer_list">
+	<li> Notify and Sleep communication style.
+	<li> Busy waiting communication style.
+	<li> Interrup driven communication style.
+	<li> Direct Memory Access communication style.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> While the operating system (OS) is handling an interrupt
+	<ol class="answer_list">
+	<li> <strong>all</strong> other interrupts are disabled to ensure it
+		completes.
+	<li> only higher-priority interrupts are enabled.
+	<li> <strong>all</strong> interrupts continue to be enabled,
+		since none should be missed.
+	<li> only interrupts of the same kind are enabled.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The boot process for most small computer systems begins with the
+	execution of the
+	<ol class="answer_list">
+	<li> hard disk drive device driver to allow loading of the OS
+		executable file.
+	<li> Basic Input/Output System (BIOS).
+	<li> OS executable file directly from the boot device (e.g., HDD, SSD).
+	<li> GRand Unified Bootloader (GRUB).
+	<li> None of the above
+	</ol>
+</li><br/>

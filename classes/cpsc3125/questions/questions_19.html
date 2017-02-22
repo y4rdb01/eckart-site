@@ -1,0 +1,82 @@
+<li> The Dining Philosophers Problem is a synchronization problem developed
+	by Edgar Dijkstra to
+	<ol class="answer_list">
+	<li> show how monitors can handle situations that semaphores cannot.
+	<li> show how semaphores can handle situations that message
+		passing cannot.
+	<li> demonstrate the use of semaphores.
+	<li> demonstrate the use of message passing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Dining Philosophers Problem is comprised of
+	<ol class="answer_list">
+	<li> 5 philosophers each with a plate of slippery pasta.
+	<li> philosophers needing to take turns eating, going around the
+		table in a clockwise fashion.
+	<li> 5 forks, one between each philosopher.
+	<li> philosophers needing 2 forks to eat.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If no process within a group of processes is able to run because they
+	are <strong>all</strong> in the blocked state, and each is waiting
+	for the other to do something before it can continue, this situation
+	is called
+	<ol class="answer_list">
+	<li> starvation.
+	<li> deadlock.
+	<li> livelock.
+	<li> mutual stall.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If <strong>all</strong> the processes within a group of processes is able
+	to run (i.e., none are in the blocked state), but none is able to
+	accomplish any useful work for lack of a resource, this situation is
+	called
+	<ol class="answer_list">
+	<li> starvation.
+	<li> deadlock.
+	<li> livelock.
+	<li> resource hogging.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the Dining Philosophers Problem, if each philosopher grabs a fork and
+	holds it until they are able to grab a second fork, this
+	<ol class="answer_list">
+	<li> leads to starvation.
+	<li> leads to deadlock.
+	<li> leads to livelock.
+	<li> provides a correct solution.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the Dining Philosophers Problem, if each philosopher grabs the fork
+	to their right, then seeing that the left fork is unavailable (having
+	been grabbed by the philosopher to their left) puts down the fork they
+	are holding, counts to 10, then tries again. This algorithm
+	<ol class="answer_list">
+	<li> leads to livelock.
+	<li> leads to deadlock.
+	<li> leads to resource hogging.
+	<li> provides a correct solution.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The key to one working solution of the Dining Philosophers Problem is to
+	have philosophers exist in one of three states (THINING, HUNGRY, EATING)
+	and that when a philosopher is
+	<ol class="answer_list">
+	<li> finished EATING, she ensures that any HUNGRY philosopher sitting
+		next to her gets an opportunity to eat.
+	<li> HUNGRY, she waits until each of her neighbors is THINKING before
+		trying to pick up forks.
+	<li> THINKING, she waits until a neighbor is also THINKING before
+		becoming HUNGRY.
+	<li> finished THINKING, she waits until one of her neighbors is EATING
+		before becoming HUNGRY.
+	<li> None of the above
+	</ol>
+</li><br/>

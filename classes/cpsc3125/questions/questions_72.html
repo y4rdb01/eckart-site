@@ -1,0 +1,86 @@
+<li> Using the hypervisor to mediate between guest physical devices and
+	host physical devices enables
+	<ol class="answer_list">
+	<li> <strong>all</strong> input devices (e.g., keyboards, mice)
+		to be effectively shared between VMs.
+	<li> secondary storage devices (e.g., HDDs, SSDs)
+		to be effectively shared between VMs.
+	<li> the devices to be different (e.g., use an SSD as if it were
+		an HDD).
+	<li> hardware upgrades without the need to upgrade software
+		(e.g., device drivers).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> I/O MMUs use page tables to map guest physical addresses to host
+	physical addresses for memory-mapped I/O, which
+	<ol class="answer_list">
+	<li> prevents the DMA use by one VM from using memory that is
+		assigned to another VM.
+	<li> prevents the direct sharing of I/O devices by multiple VMs.
+	<li> allows devices to directly access their assigned VMs without
+		compromising a guest OS on another VM.
+	<li> enables multiple guest OSs to share block devices.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> I/O MMUs use interrupt remapping tables to convert interrupts
+	(and their interrupt vectors) from the physical system bus to
+	<ol class="answer_list">
+	<li> an interrupt  that the hypervisor directly handles on behalf
+		of any VM.
+	<li> a memory-mapped I/O address that the hyervisor directly handles
+		on behalf of any VM.
+	<li> a memory-mapped I/O address for the current VM.
+	<li> an interrupt that the current VM expects.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A <em>device domain</em> for a type 1 hypervisor is
+	<ol class="answer_list">
+	<li> a VM (and guest OS) that is assigned to control a specific
+		device (essentially serving like a type 2 hypervisor for
+		these devices).
+	<li> required for each type of device type, with different device
+		domains for HDDs, SSD, printers, etc.
+	<li> created by the hypervisor in order to buffer I/O transfers
+		between devices and the target guest OS.
+	<li> useful when a device driver isn't available for the hypervisor,
+		but is available for one of the guest OSs.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Single Root I/O Virtualization (SR-IOV) is provided by the
+	<ol class="answer_list">
+	<li> hypervisor.
+	<li> VM.
+	<li> guest OS.
+	<li> device and its controller.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Use of Single Root I/O Virtualization (SR-IOV)
+	<ol class="answer_list">
+	<li> provides <em>virtual functions</em> to the guest OS,
+		but they do <strong>not</strong> enable any
+		device configuration.
+	<li> is required in order for the hypervisor to be able to create
+		a single <em>device domain</em> to control
+		<strong>all</strong> devices.
+	<li> simplifies the hypervisor and improves its operational efficiency.
+	<li> enables remote devices to be mapped, as a remote special file, 
+		so that they can be shared between multiple hypervisors.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What functions enable Single Root I/O Virtualization (SR-IOV) devices
+	to constrain what VMs are able to do while providing access to most
+	of its functionality?
+	<ol class="answer_list">
+	<li> physical functions.
+	<li> i/o functions.
+	<li> mapped functions.
+	<li> virtual functions.
+	<li> None of the above
+	</ol>
+</li><br/>

@@ -1,0 +1,130 @@
+<li> Semaphores were introduced in 1965 by 
+	<ol class="answer_list">
+	<li> Gary Peterson
+	<li> Andrew Tannenbaum
+	<li> Edgar Dijkstra
+	<li> Alan Turing
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The P (DOWN) semaphore operation is <strong>best</strong> described by
+	<ol class="answer_list">
+	<li> count--; if (count <= 0) { sleep(); }
+	<li> sleep(); if (count <= 0) { count--; }
+	<li> if (count <= 0) { count--; } sleep();
+	<li> if (count <= 0) { sleep(); } count--;
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The V (UP) semaphore operation is <strong>best</strong> described by
+	<ol class="answer_list">
+	<li> if (count == 1) { wakeup(sleeping_process); } count++;
+	<li> if (count == 1) { count++; } wakeup(sleeping_process);
+	<li> wakeup(sleeping_process); if (count == 1) { count++; }
+	<li> count++; if (count == 1) { wakeup(sleeping_process); }
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The starting value (count) of a semaphore indicates the number of
+	<ol class="answer_list">
+	<li> total times that the semaphore can be used (e.g., P/DOWN
+		operations).
+	<li> available items of that resource.
+	<li> different types of resources.
+	<li> concurrent processes (but <strong>not</strong> threads) that can
+		share the resource(s).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If semaphores are compared to having copies of a book in the library, then
+	<ol class="answer_list">
+	<li> P/DOWN is the equivalent of checking out a book.
+	<li> P/DOWN is the equivalent of returning a book.
+	<li> V/UP is the equivalent of checking out a book.
+	<li> V/UP is the equivalent of returning a book.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The semaphore operations of P/DOWN and V/UP <strong>must</strong>
+	<ol class="answer_list">
+	<li> be system calls.
+	<li> behave atomically (i.e., uninterruptible).
+	<li> be implemented in the OS kernel.
+	<li> be implemented by the computer hardware.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A mutex is a binary semaphore that
+	<ol class="answer_list">
+	<li> is implemented using lock variables.
+	<li> uses <em>sleep</em> and <em>wakeup</em> calls for its
+		implementation.
+	<li> is implemented using monitors.
+	<li> is optimized for having only two values/states.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Indicate where the <em>down(&mutex)</em> and <em>up(&mutex)</em> calls
+	should go in the following code to allow interleaving of producer
+	and consumer actions, where "insertItem" and "removeItem" are
+	operations on a shared buffer.
+	[Note: Some options may be used more than once, or not at all.]
+<pre><code>
+	int mutex = 1;
+
+	void producer() {
+		while (1) {
+			ITEM item = produceItem();
+
+			// Insert statement(s) for section "A" here.
+
+			insertItem(item);
+
+			// Insert statement(s) for section "B" here.
+
+		}
+	}
+
+	void consumer() {
+		while (1) {
+
+			// Insert statement(s) for section "C" here.
+
+			ITEM item = removeItem();
+
+			// Insert statement(s) for section "D" here.
+
+			consumeItem(item);
+		}
+	}
+</code></pre>
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> /* No Operation */
+		<li> down(&mutex);
+		<li> up(&mutex);
+		<li> down(&mutex); up(&mutex);
+		<li> up(&mutex); down(&mutex);
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> Write a C program that takes a single command line argument which
+	indicates the initial value of a shared counter (called "counter").
+	The program should use 5 threads to eventually reduce the value of
+	"counter" down to 0. Each thread will reduce "counter" by 1, then
+	sleep for 1 second before continuing to decrease "counter".  The
+	"counter" value should NOT go below 0 and the program should exit
+	once "counter" reaches 0. You may use the following library calls to
+	help write your program: <em>pthread_create</em>, <em>pthread_exit</em>,
+	<em>pthread_mutex_lock</em>, <em>pthread_mutex_unlock</em>,
+	<em>ptrhead_mutex_init</em>.  You can write your code without the usual
+	"include"s or the use of <em>pthread_attr_init</em> and
+	<em>pthread_attr_setscope</em>.
+</li><br/>

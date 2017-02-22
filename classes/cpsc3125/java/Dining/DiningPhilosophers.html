@@ -1,0 +1,81 @@
+<HTML>
+<BODY>
+<h1>
+<center>
+The Dining Philosophers . . .
+</center>
+</h1>
+The Dining Philosophers problem is a classic multi-process
+synchronization problem.  The problem consists of five philosophers
+sitting at a table who do nothing but think and eat.  Between each
+philosopher, there is a single stick.  In order to eat, a philosopher
+must have both sticks.  A problem can arise if each philosopher grabs
+the stick on the right, then waits for the stick on the left.  In this
+case a deadlock has occurred, and all philosophers will starve.  Also,
+the philosophers should be fair.  Each philosopher should be able to
+eat as much as the rest.
+<p>
+<b>
+Note: A Hotjava compatible browser is necessary to view the Applet.
+</b>
+<hr>
+<center>
+<applet codebase="http://www.cs.runet.edu/~dana/classes/cpsc371/java/Dining" code="DiningPhil.class" width=440 height=550>
+</applet>
+<APP CLASS="DiningPhilosophers">
+</center>
+<hr>
+      . . .  click on the blue bullets to change program parameters.
+The first four control the sound track(the last one makes them shut
+up).  The three slide bars control the speed, thinking time, and
+eating time.
+<p>
+<h2>
+The algorithm . . .
+</h2>
+Initially, all philosophers are thinking.  As they think, their eyes
+randomly(direction probability determined by the slider) move around.
+If a philosopher's eyes do a complete counter-clock wise circle, it
+will become hungry and its eyebrows will bow in.  The philosopher will
+then wait for one stick, then the other.  To prevent deadlocks, one of
+the sticks is marked.  If a philosopher picks up the marked stick, it
+must put it back down and try the other stick.  When this happens, the
+philosopher will raise its right eyebrow.  Once the philosopher has
+both sticks, it will begin eating.  After each bite, there is a chance
+(controlled by the slider) that the philosopher will start thinking
+again.  The philosopher will then swap the sticks in its hands and
+return them.  This is done so that the marked stick will not remain in
+the same place.
+<h2>
+<p>
+The secrets of the  implementation . . .
+</h2>
+Each philosopher is its own thread.  There is an additional thread that
+is used to control the repainting.  Each stick is represented by an
+instance of a class.  When a philosopher wishes to pick up or drop a
+stick, it will make a call to the appropriate stick.  To ensure that
+two philosophers do not simultaneously grab the same stick, a
+synchronized method is used.  The images were ray-traced using
+<A HREF="http://www.povray.org"> povray2.3</A>.
+.  The new state of each philosopher is re-painted on top of the old one. 
+<h2>
+ The source of it all . . .
+</h2>
+<ul>
+<li><A HREF="classes/DiningPhilosophers.java"> Alpha3 source </A>
+<li><A HREF="newDP/DiningPhil.java"> JDK source </A>
+</ul>
+
+<h2>
+ Other places to be . . .
+</h2>
+
+<ul>
+<li><A HREF="http://www.eng.uci.edu/~bgloyer/index.cgi">
+ brian's moderately entertaining homepage </a>
+<li><A HREF="http://java.sun.com/">
+ Sun's java page</a>
+</ul>
+
+</BODY>
+

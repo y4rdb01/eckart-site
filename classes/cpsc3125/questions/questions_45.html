@@ -1,0 +1,181 @@
+<li> The tendency for two or more computer clocks in the same location to report
+	different times after a long period is
+	<ol class="answer_list">
+	<li> the clock synchronization dilemma.
+	<li> due primarily to the effects of general relativity.
+	<li> a result of clock drift.
+	<li> mostly caused by small variations in the frequency of AC power
+		used.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Computer based clocks are typically accurate to between
+	<ol class="answer_list">
+	<li> 1 - 10 ppm (about 0.5 - 5.25 minutes / year)
+	<li> 10 ppb - 5 ppm (about 0.315 - 155 seconds / year)
+	<li> 1 ppb - 2 ppm (about 0.0315 -  60 seconds / year)
+	<li> 1 - 5 ppb (about 0.0315 - 0.1575 seconds / year)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Due to General Relativity clocks will have different speeds based on differences
+	in their their
+	<ol class="answer_list">
+	<li> velocity.
+	<li> acceleration.
+	<li> mass. 
+	<li> gravitational field.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Solving the clock synchronization problem (so the clocks read the exact
+	same time) for computers in different locations is
+	<ol class="answer_list">
+	<li> <strong>not</strong> possible.
+	<li> simply a matter of having more accurate clocks.
+	<li> possible by using a single shared clock.
+	<li> doable by using multiple highly accurate clocks
+		(e.g., GPS satellites) with computers periodically
+		averaging the set of times they get.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given two events that occurred on different computer systems, it is
+	<ol class="answer_list">
+	<li> <strong>always</strong> possible to determine which event
+		occurred before the other.
+	<li> possible to determine which event occurred before the other,
+		but only if the computer systems have recently (e.g., within
+		the past minute) synchronized their clocks.
+	<li> sometimes possible, but only when there is another event on a third
+		computer system to which each of these events can be compared.
+	<li> <strong>never</strong> possible to determine which event occurred
+		before the other.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> All events occurring on different computer systems, which regularly
+	exchanged messages, can
+	<ol class="answer_list">
+	<li> <strong>always</strong> be fully ordered.
+	<li> <strong>always</strong> be partially ordered, and sometimes fully
+		ordered (but only if no more than 5 events occur on a system
+		between the exchange of messages).
+	<li> <strong>always</strong> be partially ordered, but
+		<strong>never</strong> fully ordered.
+	<li> <strong>never</strong> be ordered.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A polytree can be used to represent events occurring on different communicating
+	computer systems, where
+	<ol class="answer_list">
+	<li> nodes correspond to events.
+	<li> nodes correspond to computer systems.
+	<li> directed edges correspond to messages (pointing from the sender to
+		the receiver).
+	<li> undirected edges correspond to the network connections between the
+		different computer systems.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Lamport timestamps
+	<ol class="answer_list">
+	<li> enable the physical clocks of different computers to be
+		synchronized sufficiently well so that the physical clock
+		times can be used to fully order <strong>all</strong> events. 
+	<li> provide a logical clock, which yields a time that can be used just
+		like time from a physical clock, but that also enables all
+		events to be fully ordered.
+	<li> provide a logical clock, which yields a time that can be used to
+		fully order <strong>all</strong> events, but which has no real
+		correspondence to any of the physical clocks.
+	<li> provide a logical clock, which yields a time that can be used to
+		partially order events, but which has no real correspondence
+		to any of the physical clocks.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The algorithm for Lamport timestamps requires that each computer
+	<ol class="answer_list">
+	<li> maintain a clock-like counter which is incremented every time the
+		computer's clock increments.
+	<li> maintain a clock-like counter which is incremented before each
+		event.
+	<li> send its clock-like counter as part of every message sent to
+		another computer.
+	<li> periodically ask other computers for their clock-like counter
+		values, setting its value to the lower of the value received
+		and its current value.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Lamport timestamps establishes a "happened-before" relationship on events,
+	such that
+	<ol class="answer_list">
+	<li> if "a" happened-before "b", then the count value associated with
+		event "a" is less than the count value associated
+		with event "b".
+	<li> if "a" happened-before "b", then the count value associated with
+		event "a" is less than or equal to the count value associated
+		with event "b".
+	<li> if the count value associated with event "a" is less
+		than the count value associated with event "b", then "a"
+		happened-before "b".
+	<li> if the count value associated with event "a" is less than or
+		equal to the count value associated with event "b", then "a"
+		happened-before "b".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The vector clock algorithm is similar to the algorithnm for Lamport
+	timestamps except that
+	<ol class="answer_list">
+	<li> each process (or computer) keeps a list of logical clocks
+		(counters) corresponding to each process (computer),
+		<strong>not</strong> just one clock for itself.
+	<li> messages do <strong>not</strong> include any logical clock
+		(counter) values when sent.
+	<li> <strong>all</strong> logical clock (counter) values in a process'
+		(computer's) list of counter values are increased to the
+		maximum logical clock value in a received message.
+	<li> <strong>all</strong> logical clock (counter) values in a process'
+		(computer's) list of counter values are increased by one
+		when a message is received.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The vector clock algorithm establishes a relationship on events, such that
+	<ol class="answer_list">
+	<li> if "a" happened-before "b", then [HTML]<strong>all</strong>[/HTML]
+		of the count values in the vector for event "a" are less than
+		or equal to the corresponding count values in the vector
+		associated with event "b".
+	<li> if "a" happened-before "b", then most (but not necessarily all)
+		of the count values in the vector for event "a" are less than
+		the corresponding count values in the vector associated with
+		event "b".
+	<li> if [HTML]<strong>all</strong>[/HTML] of the count values in the
+		vector associated with event "a" are less than or equal to the
+		corresponding count values in the vector associated with event
+		"b", then "a" happened-before "b".
+	<li> if some of the count values in the vector associated with event
+		"a" are less (and some are greater) than the corresponding
+		count values in the vector associated with event "b", then
+		"a" and "b" are concurrent.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The vector clock algorithm, when compared to Lamport timestamps
+	<ol class="answer_list">
+	<li> provides exactly the same "happened-before" relationship.
+	<li> provides a more powerful "happened-before" relationship that
+		works in both directions (i.e., it is an "if and only if"
+		relationship).
+	<li> provides an additional "concurrent" relationship for when some of
+		the corresponding clock vector entries for events "a" and "b"
+		are less and some are greater than one another.
+	<li> provides a complete ordering on all events.
+	<li> None of the above
+	</ol>
+</li><br/>

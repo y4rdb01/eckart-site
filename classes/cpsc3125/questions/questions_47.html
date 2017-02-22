@@ -1,0 +1,138 @@
+<li> In the context of a computer system, the following are considered
+	resources:
+	<ol class="answer_list">
+	<li> I/O devices
+	<li> CPU
+	<li> Memory
+	<li> Software
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A preemptable resource is one that when temporarily taken away from a
+	process
+	<ol class="answer_list">
+	<li> will <strong>not</strong> cause a problem for the preempted
+		process.
+	<li> may sometimes cause a problem for the preempted process,
+		including possible process failure.
+	<li> <strong>always</strong> results in failure of the preempted
+		process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A non-preemptable resource is one that when taken away (even if only
+	temporarily) from a process
+	<ol class="answer_list">
+	<li> will <strong>not</strong> cause a problem for the preempted
+		process.
+	<li> may sometimes cause a problem for the preempted process,
+		including possible process failure.
+	<li> <strong>always</strong> results in failure of the preempted
+		process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The typical interaction pattern between a process and a resource is
+	<ol class="answer_list">
+	<li> detected, requested, used, released.
+	<li> requested, used, released.
+	<li> requested, granted, used, released.
+	<li> granted, used, released.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Software (e.g., blocks of code) can be viewed as a non-premeptable resource
+	<ol class="answer_list">
+	<li> because they in turn use resources (e.g., CPU, memory).
+	<li> when mutex semaphores are used to controlled access.
+	<li> since it can access the system bus.
+	<li> if it is part of a user process that the OS schedules to run
+		in the CPU.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following conditions <strong>must</strong> hold in order for
+	deadlock to exist?
+	<ol class="answer_list">
+	<li> Only one instance of each type of resource exists.
+	<li> Mutually exclusive use of resources.
+	<li> Resources are controlled and allocated only by the OS.
+	<li> Processes can hold resources while requesting additional resources.
+	<li> Process scheduling <strong>must</strong> be non-preemptive.
+	<li> Granted resources cannot be preempted.
+	<li> All resources within the system have been allocated.
+	<li> Circular wait condition.
+	<li> All processes within the system are in the blocked state.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A set of processes is deadlocked when
+	<ol class="answer_list">
+	<li> <strong>all</strong> of the processes in the set are in the
+		blocked state.
+	<li> every resource in the system has been granted to a process in
+		the set.
+	<li> each process in the set is waiting for an event that only another
+		process in the set can cause.
+	<li> no process in the set has been granted a preemptable resource. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> a strategy for dealing
+	with deadlocks?
+	<ol class="answer_list">
+	<li> Prevention
+	<li> Dynamic avoidance
+	<li> Detection and recovery
+	<li> Ignore the problem
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Deadlock modeling represents resources (squares) and processes (circles)
+	as a graph with
+	<ol class="answer_list">
+	<li> arrows pointing from a process to a resource represent an
+		(ungranted) resource request.
+	<li> arrows pointing from a resource to a process represent a
+		granted resource.
+	<li> arrows pointing in both directions between a process and a
+		resource represent a granted dedicated non-preemptable
+		resource.
+	<li> undirected lines (no arrows) between a process and a resource
+		represent a granted preemptable resource.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In a deadlock model graph, a deadlock exists when
+	<ol class="answer_list">
+	<li> at least one process has more than two (2) arrows pointing to it.
+	<li> at least one resource has more than two (2) arrows pointing to it.
+	<li> there is a directed cycle in the graph.
+	<li> the graph forms a tree.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following resource graph indicates that:<br/>
+	<img src="/eckart/classes/cpsc3125/questions/ResourceGraph_1.png" width="406" height="384" alt="Resource Graph" />
+	<ol class="answer_list">
+	<li> No deadlock exists.
+	<li> No deadlock exists, but there is a livelock on "T".
+	<li> A deadlock exists involving the processes and resources
+		denoted by: B, T, C, S.
+	<li> A deadlock exists involving the processes and resources
+		denoted by: D, R, B, T.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following resource graph indicates that:<br/>
+	<img src="/eckart/classes/cpsc3125/questions/ResourceGraph_2.png" width="383" height="365" alt="Resource Graph" />
+	<ol class="answer_list">
+	<li> No deadlock exists.
+	<li> No deadlock exists, but there is a livelock on "T".
+	<li> A deadlock exists involving the processes and resources
+		denoted by: A, T, D, U.
+	<li> A deadlock exists involving the processes and resources
+		denoted by: A, R, B, S, C, T.
+	<li> None of the above
+	</ol>
+</li><br/>

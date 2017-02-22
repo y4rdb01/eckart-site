@@ -1,0 +1,296 @@
+<li> The technique that allows data that flows from one "program piece" to
+	the next "program piece" to remain in memory is known as
+	<ol class="answer_list">
+	<li> overflows.
+	<li> overlays.
+	<li> piecewise communication.
+	<li> memory mapping.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When the OS automatically breaks a process into multiple pieces of the
+	same size, thus enabling processes otherwise too large to run within
+	a smaller amount of memory, this is called
+	<ol class="answer_list">
+	<li> overlays.
+	<li> memory mapping.
+	<li> break out.
+	<li> virtual memory.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What is the most common virtual memory technique?
+	<ol class="answer_list">
+	<li> Overlays
+	<li> Paging
+	<li> Memory Mapping.
+	<li> Swapping.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The virtual address space of a process is
+	<ol class="answer_list">
+	<li> composed of those parts of main memory (e.g., RAM) holding
+		parts of the process (e.g., code, run-time stack).
+	<li> exactly the same size as the main memory (e.g., RAM) of the
+		computer system.
+	<li> larger than the maximum number of addressable bytes (e.g.,
+		more than 2^32 bytes on a 32 bit architecture).
+	<li> the address space the process would exist in if main memory
+		(e.g., RAM) were big enough to hold the process, and the
+		process was loaded into memory starting at address 0.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Page frames are the
+	<ol class="answer_list">
+	<li> blocks in physical memory that hold virtual address space pages.
+	<li> uniformly sized chunks that the virtual address space is divided
+		into.
+	<li> disk blocks that hold the virtual address space pages.
+	<li> entries in the Memory Management Unit (MMU) that indicate which
+		virtual address space page holds a desired address.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What part of the computer system is responsible for converting a virtual
+	address into a physical memory address?
+	<ol class="answer_list">
+	<li> Virtual Address Translation (VAT)
+	<li> Memory Management Unit (MMU)
+	<li> Arithmetic Logic Unit (ALU)
+	<li> System Bus
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The standard implementation for a page (map) table of a process has an
+	entry for each
+	<ol class="answer_list">
+	<li> page in the process' virtual address space.
+	<li> page frame in physical (main) memory.
+	<li> and only those virtual address space pages currently residing in
+		a page frame.
+	<li> and only those virtual address space pages currently
+		<strong>not</strong> residing in a page frame.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> part of the page (map)
+	table entries?
+	<ol class="answer_list">
+	<li> Referenced bit
+	<li> Modified bit
+	<li> Present/Absent bit
+	<li> Page Frame number
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The higher order bits of a big-endian virtual address normally
+	<ol class="answer_list">
+	<li> are used as the index into the page table when translating
+		a virtual address into a physical address.
+	<li> represent the page in the virtual address space.
+	<li> indicates which page frame the virtual address resides in.
+	<li> provide the offset into the page frame for the virtual address.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The lower order bits of a big-endian virtual address normally
+	<ol class="answer_list">
+	<li> are used as the index into the page table when translating
+		a virtual address into a physical address.
+	<li> represent the page in the virtual address space.
+	<li> indicates which page frame the virtual address resides in.
+	<li> provide the offset into the page frame for the virtual address.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The page size for paged virtual memory is <strong>always</strong> a
+	power of 2 because
+	<ol class="answer_list">
+	<li> it allows a fixed number of bits of the virtual address to be used
+		as the page offset.
+	<li> that's the convention often used when using binary computers.
+	<li> adding the page offset to the page frame base can be done more
+		quickly using "bit-wise or" rather than addition. 
+	<li> the arrays (used to implement page tables) <strong>must</strong>
+		have a power of 2 size.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If, during virtual address translation, the entry in the page table for
+	the virtual address has a 0 for the "present" bit, then 
+	<ol class="answer_list">
+	<li> the 0 page frame is used in calculating the physical address.
+	<li> a page fault is generated.
+	<li> the "present" bit is set to 1.
+	<li> the "modified" bit is set to 1.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The page table associated with a process is used when
+	<ol class="answer_list">
+	<li> the process transitions from the blocked to the ready state.
+	<li> the next instruction in the process <strong>must</strong> be
+		loaded.
+	<li> a global page replacement algorithm is determining which page
+		frame to reuse.
+	<li> a value is stored into a variable (in memory).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <strong>not</strong> normally part of the
+	page table entry?
+	<ol class="answer_list">
+	<li> Caching disabled flag
+	<li> Referenced bit
+	<li> Modified bit
+	<li> Present/Absent bit
+	<li> Protection bit(s)
+	<li> Page frame number
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Virtual address translation <strong>must</strong> be <em>very</em> fast
+	since it
+	<ol class="answer_list">
+	<li> can happen many times for every instruction, depending upon the
+		machine instructions provided by that computer system.
+	<li> prevents the CPU from doing any other work while it is happening.
+	<li> happens at least once for every instruction (to retrieve it).
+	<li> ties up the system bus while it is happening.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Assuming that page sizes remain the same, as virtual memories get bigger,
+	so does the size of the
+	<ol class="answer_list">
+	<li> process table.
+	<li> page frames.
+	<li> page table.
+	<li> Memory Management Unit (MMU).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Translation Lookaside Buffer (TLB) is part of the
+	<ol class="answer_list">
+	<li> System Bus.
+	<li> Memory Management Unit (MMU).
+	<li> Page Table.
+	<li> Arithmetic Logic Unit (ALU).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Translation Lookaside Buffer (TLB) holds
+	<ol class="answer_list">
+	<li> the entire page table for a process.
+	<li> many of the most recent virtual address translation results
+		(since they're likely to be seen again - e.g., loops).
+	<li> the process table entries for processes in the ready state.
+	<li> a small number of (recently used) page table entries.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Entries in the Translation Lookaside Buffer (TLB) <strong>must</strong>
+	add this item as a field since it cannot be used as an index.
+	<ol class="answer_list">
+	<li> Page frame number.
+	<li> Virtual address page number.
+	<li> Present/absent bit.
+	<li> Page offset.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Finding the desired entry in a Translation Lookaside Buffer (TLB)
+	<strong>must</strong> be very fast, so this is done by using a(n)
+	<ol class="answer_list">
+	<li> linear search.
+	<li> binary search.
+	<li> hash table.
+	<li> associative memory.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a virtual address doesn't correspond to one of the rows in the
+	Translation Lookaside Buffer (TLB), then
+	<ol class="answer_list">
+	<li> a page fault is generated.
+	<li> the MMU updates the TLB immediately.
+	<li> the TLB is purged and reloaded.
+	<li> a lookup is performed using the full page table.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a Translation Lookaside Buffer (TLB) is larger, it can be effectively
+	managed by software instead of by the Memory Management Unit (MMU).
+	If a page entry is <strong>not</strong> in the TLB, but is in memory,
+	this is called a
+	<ol class="answer_list">
+	<li> cache miss.
+	<li> soft miss.
+	<li> hard miss.
+	<li> page entry fault.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a Translation Lookaside Buffer (TLB) is larger, it can be effectively
+	managed by software instead of by the Memory Management Unit (MMU).
+	If a page entry is <strong>not</strong> in the TLB, and is also
+	<strong>not</strong> in memory, this is called a
+	<ol class="answer_list">
+	<li> cache miss.
+	<li> soft miss.
+	<li> hard miss.
+	<li> page entry fault.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> As the size of the virtual address space increases, so to does the
+	size of the page table (provided page size remains the same). 
+	Techniques for dealing with very large page tables include
+	<ol class="answer_list">
+	<li> Multi-level Page Tables.
+	<li> Hashed Page Tables.
+	<li> Memory Mapped Page Tables.
+	<li> Inverted Page Tables.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Multi-level Page Tables divide the page table up into segments based on
+	<ol class="answer_list">
+	<li> which pages of the page table are referenced most frequently,
+		reducing the number of page entries which need to be kept in
+		memory.
+	<li> how many processes are in the process table.
+	<li> the higher order bits that index the page table (e.g., the top
+		10 bits of the 32 bit virtual address indicates which group
+		of 1024 pages to use - for 4K sized pages).
+	<li> the size of a software managed Translation Lookaside Buffer (TLB),
+		with each segment reflecting the TLB size.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Instead of keeping a page table for each process, Inverted Page Tables
+	have an entry for each
+	<ol class="answer_list">
+	<li> process, keeping track of which page frames are being used by
+		that process.
+	<li> virtual page, keeping track of which process the virtual page
+		belongs to.
+	<li> page frame, keeping track of which virtual page from which
+		process is loaded in the corresponding page frame.
+	<li> virtual page and process pairing, keeping track of which page
+		frame corresponds to the pairing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In order to speed access to an Inverted Page Table, while still
+	conserving space, they are often implemented using
+	<ol class="answer_list">
+	<li> content addressable memories.
+	<li> hash tables.
+	<li> 2 dimensional arrays.
+	<li> balance B-trees.
+	<li> None of the above
+	</ol>
+</li><br/>

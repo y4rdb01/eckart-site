@@ -1,0 +1,133 @@
+<li> Which of the following interprocess communication mechanisms is well
+	suited for distributed sharing (i.e., across multiple computer systems)?
+	<ol class="answer_list">
+	<li> lock variables
+	<li> semaphores
+	<li> monitors
+	<li> message passing
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Message passing, like semaphores (and unlike monitors),
+	<ol class="answer_list">
+	<li> can easily be implemented as a (system) library so that different
+		languages can share the same implementation.
+	<li> <strong>must</strong> be part of the programming language design.
+	<li> <strong>must</strong> be part of the OS design.
+	<li> <strong>must</strong> be a feature within the computer hardware.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "send" and "receive" system calls for message passing generally
+	<ol class="answer_list">
+	<li> <strong>must</strong> be used in conjunction with semaphores to
+		perform the coordination (e.g., to ensure the "receive"r
+		is ready and waiting when the "send" is done).
+	<li> can only be used when the communicating processes are on
+		different systems.
+	<li> are considered impractically for efficiency reasons, and thus
+		are seldom used.
+	<li> <strong>must</strong> indicate the message contents and
+		destination (for "send") and a place to store the message
+		and the source (for "received").
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are typical design issues associated with messages?
+	<ol class="answer_list">
+	<li> Handling lost (or missing) messages.
+	<li> Minimum message size.
+	<li> Maximum time between messages (not counting acknowledgements).
+	<li> Messages are received in the order they were sent.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Indicate where the <em>send</em> and <em>receive</em> calls should go (with
+	the appropriate arguments) in the following code to allow alternation of
+	producer and consumer actions.
+	[Note: Some options may be used more than once, or not at all.]
+<pre><code>
+	void producer() {
+		MESSAGE msg;
+		while (1) {
+			ITEM item = produceItem();
+			addItem(&msg, item);
+
+			// Insert statement(s) for section "A" here.
+
+		}
+	}
+
+	void consumer() {
+		MESSAGE msg;
+		while (1) {
+
+			// Insert statement(s) for section "B" here.
+
+			ITEM item = removeItem(msg);
+
+			// Insert statement(s) for section "C" here.
+
+			consumeItem(item);
+		}
+	}
+</code></pre>
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> /* No Operation */
+		<li> send(consumer, &msg);
+		<li> send(producer, &msg);
+		<li> receive(consumer, &msg);
+		<li> receive(producer, &msg);
+		<li> send(consumer, &msg); receive(producer, &msg);
+		<li> send(producer, &msg); receive(consumer, &msg);
+		<li> receive(consumer, &msg); send(producer, &msg);
+		<li> receive(producer, &msg); send(consumer, &msg);
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> A popular system that implements message passing, developed in the
+	early 1990s, and available for a variety of different languages
+	(e.g., Java, Python, C) is called
+	<ol class="answer_list">
+	<li> The Messaging Library (TML)
+	<li> Message Passing Interface (MPI)
+	<li> Distributed Messaging Library (DML)
+	<li> Distributed Process Communication (DPC)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a message passing system causes the sender to block until the
+	receiver is ready (and vice versa), these semantics are called a
+	<ol class="answer_list">
+	<li> rendezvous.
+	<li> date.
+	<li> coupling.
+	<li> synch-up.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The mechanism in POSIX systems that provides a maximum size "mailbox"
+	that causes the writing/sending process to block once the "mailbox"
+	becomes full (allowing the writer/sender to proceed only when there
+	is room in the "mailbox" - perhaps due to the receiver reading/removing
+	items), is called
+	<ol class="answer_list">
+	<li> mail.
+	<li> spooling.
+	<li> pipes.
+	<li> conduits.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Write a C program that creates a single child process. The parent process
+	reads in numbers (separated by white-space) from stdin and sends them
+	to the child process using a pipe. The child process then writes the
+	numbers to stdout (one number per line).
+</li><br/>

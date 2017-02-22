@@ -1,0 +1,466 @@
+<li> With respect to cryptography, the idea that encryption algorithms should
+	be public, so that the key is the sole means for ensuring secrecy,
+	is called
+	<ol class="answer_list">
+	<li> security by obscurity.
+	<li> saltiness.
+	<li> Kerckhoffs' principle.
+	<li> algorithmic strength.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> With respect to cryptography, the computational effort needed to convert
+	encrypted text back into its original form <strong>without</strong>
+	knowing the encryption key(s) is known as
+	<ol class="answer_list">
+	<li> security by obscurity.
+	<li> the an algorithm's saltiness.
+	<li> Kerckhoffs' principle.
+	<li> the encryption algorithm's strength.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> With respect to cryptography, the encrypted version of the text (or data)
+	is called
+	<ol class="answer_list">
+	<li> the encryption key.
+	<li> plaintext.
+	<li> ciphertext.
+	<li> salt.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> With respect to cryptography, the original text (or data) that was intended
+	for direct consumption by a human (or computer program) is called
+	<ol class="answer_list">
+	<li> the encryption key.
+	<li> plaintext.
+	<li> ciphertext.
+	<li> salt.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When the key to encrypt text/data is <em>different</em> from the key
+	to decrypt the encrypted text/data, this is called
+	<ol class="answer_list">
+	<li> symmetric key cryptography.
+	<li> asymmetric key cryptography.
+	<li> secret key cryptography.
+	<li> one-way hash function cryptography. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When the key to encrypt text/data is the <em>same</em> as the key
+	to decrypt the encrypted text/data, this is called
+	<ol class="answer_list">
+	<li> symmetric key cryptography.
+	<li> asymmetric key cryptography.
+	<li> secret key cryptography.
+	<li> one-way hash function cryptography. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Advantage(s) of secret key over public key cryptography are
+	<ol class="answer_list">
+	<li> the algorithms are generally quite fast, handling large amounts
+		of text/data efficiently.
+	<li> it can be used as the basis for digital signatures.
+	<li> it requires the secure exchange of keys.
+	<li> that it's harder to break since the algorithms are kept secret.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Disadvantage(s) of secret key over public key cryptography are
+	<ol class="answer_list">
+	<li> the algorithms are generally quite slow.
+	<li> it can be used as the basis for digital signatures.
+	<li> it requires the secure exchange of keys.
+	<li> that it's easier to break since the algorithms are kept secret.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are secret key cryptography algorithms currently
+	recommended for use by the National Institute for Standards
+	and Technology (NIST)?
+	<ol class="answer_list">
+	<li> Twofish
+	<li> RSA
+	<li> Triple DES
+	<li> Advanced Encryption Standard (AES)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are secret key cryptography algorithms currently
+	recommended for use by the National Institute for Standards
+	and Technology (NIST) for protecting US government TOP SECRECT
+	documents?
+	<ol class="answer_list">
+	<li> Twofish
+	<li> RSA
+	<li> Triple DES
+	<li> Advanced Encryption Standard (AES)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For public key cryptography, the 2 keys required are
+	<ol class="answer_list">
+	<li> are randomly chosen by the person send and the person receiving
+		the message.
+	<li> the same key.
+	<li> bit-wise palindromes of one another.
+	<li> related to one another by a mathematical property.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For Alice and Bob to have a two-way communication with one another using
+	public key cryptography, how many separate keys <strong>must</strong>
+	be created and used?
+	<ol class="answer_list">
+	<li> 2 keys created, and both keys are used.
+	<li> 2 keys created, but only one key is used.
+	<li> 4 keys created, but only two keys are used.
+	<li> 4 keys created, and <strong>all</strong> keys are used.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Advantage(s) of public key over secret key cryptography are
+	<ol class="answer_list">
+	<li> the algorithms are generally quite fast, handling large amounts
+		of text/data efficiently.
+	<li> it can be used as the basis for digital signatures.
+	<li> it requires the secure exchange of keys.
+	<li> that it's harder to break since the algorithms are kept secret.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Disadvantage(s) of public key over secret key cryptography are
+	<ol class="answer_list">
+	<li> the algorithms are generally quite slow.
+	<li> it can be used as the basis for digital signatures.
+	<li> it requires the confidential exchange of keys.
+	<li> that it's harder to break since the algorithms are kept secret.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For Bob to send confidential messages to Alice, match the correct
+	choice of person, action, and information in the following sequence
+	of steps. You should restrict your choice to one of the two options
+	following each blank.
+	[Note: Some options may be used more than once, or not at all.]
+	<ul class="bullet_list">
+	<li> ___A___ [ Alice | Bob ] creates a public-private key pair.
+	<li> ___B___ [ Alice | Bob ] publishes the ___C___ [ public | private ]
+		key to the world.
+	<li> ___D___ [ Alice | Bob ] uses ___E___'s [ Alice | Bob ]
+		___F___ [ public | private ] key to
+		___G___ [ encrypt | decrypt ] a message.
+	<li> ___H___ [ Alice | Bob ] sends the ___I___ed [ encrypt | decrypt ]
+		message to ___J___ [ Alice | Bob ].
+	<li> ___K___ [ Alice | Bob ] receives the
+		___L___ed [ encrypt | decrypt ] message from
+		___M___ [ Alice | Bob ].
+	<li> ___N___ [ Alice | Bob ] ___O___s [ encrypt | decrypt ]
+		the message using the ___P___ [ public | private ] key.
+	<li> Alice reads the message.
+	</ul>
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> Alice
+		<li> Bob
+		<li> public
+		<li> private
+		<li> encrypt
+		<li> decrypt
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> Many available cryptographically secured communication systems (e.g.,
+	PGP, GPG) use both secret key and public-private key algorithms because 
+	<ol class="answer_list">
+	<li> the public-private keys are used to exchange the secret keys since
+		secret key algorithms are used to provide secrecy for the
+		actual text/data (due to their greater speed and efficiency).
+	<li> the secret keys are used to exchange the public-private keys since
+		public-private key algorithms are used to provide secrecy for
+		the actual text/data (due to their greater speed and
+		efficiency).
+	<li> the public-private keys are used to encrypt data for sending
+		while the secret keys are used to decrypt data for reading.
+	<li> the secret keys are used to encrypt data for sending while the
+		public-private keys are used to decrypt data for reading.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> One-Way hash functions
+	<ol class="answer_list">
+	<li> encrypt their input, using only a secret key algorithm.
+	<li> encrypt their input, using only a public key algorithm.
+	<li> encrypt their input, using either a secret or public key algorithm.
+	<li> create a digest of their input which is often shorter than
+		the original text.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The primary difference(s) between encryption algorithms and one-way
+	hash functions are
+	<ol class="answer_list">
+	<li> encryption algorithms are faster and more efficient.
+	<li> encryption algorithms are reversible.
+	<li> one-way hash functions <strong>must</strong> use a non-secret salt.
+	<li> different inputs to one-way hash functions <strong>always</strong>
+		provide different results.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are one-way hash functions are that currently
+	recommended for use by the National Institute for Standards
+	and Technology (NIST)?
+	<ol class="answer_list">
+	<li> RSA
+	<li> SHA512
+	<li> MD5
+	<li> Twofish
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which technologies (in combination) are used to provide non-repudiation
+	for public communications (i.e., digital signatures)?
+	<ol class="answer_list">
+	<li> Symmetric key cryptography
+	<li> Asymmetric key cryptography
+	<li> One-way hash functions
+	<li> Salt values.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For Alice to digitally sign a document, and for Bob to subsequently
+        confirm that signature for the given document, match the correct
+	choice of person, action, and information in the following sequence
+	of steps.  You should restrict your choice to one of the two options
+	following each blank.
+	[Note: Some options may be used more than once, or not at all.]
+	<ul class="bullet_list">
+	<li> ___A___ [ Alice | Bob ] creates a public-private key pair,
+		publishing the public key to the world.
+	<li> ___B___ [ Alice | Bob ] uses a one-way hash to create a
+		message digest of the document.
+	<li> ___C___ [ Alice | Bob ] uses their ___D___ [ public | private ]
+		key to ___E___ [ encrypt | decrypt ] the
+		___F___ [ message digest | document ], creating the
+		signature block.
+	<li> The signature block is then appended to the
+		___G___ [ message digest | document ].
+	<li> ___H___ [ Alice | Bob ] obtains ___I___'s [ Alice | Bob ]
+		___J___ [ public | private ] key.
+	<li> ___K___ [ Alice | Bob ] strips the signature block from the
+		signed document.
+	<li> ___L___ [ Alice | Bob ] ___M___s [ encrypt | decrypt ] the
+		signature block to obtain a message digest (MDsigned) using
+		___N___'s [ Alice | Bob ] ___O___ [ public | private ] key.
+	<li> ___P___ [ Alice | Bob ] creates a second message digest (MDdoc).
+	<li> ___Q___ [ Alice | Bob ] compares MDsigned with MDdoc,
+		and if they are then this document was signed by Alice.
+	</ul>
+	<table><tr><td>
+		<ol class="match_list">
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		<li> __________________
+		</ol>
+	</td><td>
+		<ol class="answer_list">
+		<li> Alice
+		<li> Bob
+		<li> public
+		<li> private
+		<li> encrypt
+		<li> decrypt
+		<li> message digest
+		<li> document
+		</ol>
+	</td></tr></table>
+</li><br/>
+<li> For the purpose of non-repudiation, keeping a document and signature
+	block together is
+	<ol class="answer_list">
+	<li> unnecessary since the document can <strong>always</strong> be
+		regenerated from the signature block.
+	<li> helpful, but <strong>not</strong> necessary since the signature
+		block can be recreated from the document.
+	<li> necessary since the document <strong>must</strong> be used to
+		create the message digest needed for confirmation.
+	<li> necessary since the message digest for the document
+		<strong>must</strong> be created using the salt from
+		the signature block.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An important aspect of public key cryptography that allows Alice to use
+	the same public-private key pair to create digital signatures
+	<em>and</em> to allow anyone else (e.g., Bob) to send her secure
+	communications that no one else can read is due to which of the
+	following characteristics of asymmetric algorithms like RSA?
+	<ol class="answer_list">
+	<li> the private key can be used to decrypt information encrypted using
+		the private key.
+	<li> the public key can be used to decrypt information encrypted using
+		the public key.
+	<li> the private key can be used to decrypt information encrypted using
+		the public key.
+	<li> the public key can be used to decrypt information encrypted using
+		the private key.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> While retaining their non-repudiability characteristic, digital
+	signatures can
+	<ol class="answer_list">
+	<li> be used to sign a document, but only by one person.
+	<li> be used to sign multiple documents, but only by one person.
+	<li> be used to have multiple people sign a document, by having
+		each sign the previous combined document and signature
+		block in succession (so long as the signing order is
+		communicated).
+	<li> be used to have muiltiple people sign a document, by having
+		the primary signer use the private keys of the other signers
+		to encrypt the message digest once with each key to create
+		the signature block.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Why is Alice's publishing of her public key on an unsecured web site
+	insufficient to ensure confidentiality?
+	<ol class="answer_list">
+	<li> Because anyone could use her public key to read encrypted messages
+		that others are sending to Alice.
+	<li> Because anyone could digitally sign documents using Alice's
+		public key, and thus could pretend to be Alice
+		<strong>without</strong> anyone finding out.
+	<li> Because a third party, Mallory, could make a random change to her
+		published key making sure that Alice was unable to read
+		any messages sent to her (encrypted with the altered public
+		key).
+	<li> Because a third party, Mallory, could change her published key
+		to be that of his own public key, thus enabling a
+		man-in-the-middle attack for encrypted communications sent
+		to Alice.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> How does using a trusted third party certificate authority (CA) when
+	publishing a public key help to ensure the secrecy of communications?
+	<ol class="answer_list">
+	<li> The digital signature of the CA provides assurance that the
+		public key is unaltered.
+	<li> The CA hosts a well secured and trusted web site to which the
+		public key is published - thus avoiding the problems of using
+		an unsecured web site.
+	<li> The CA serves as an intermediary for <strong>all</strong>
+		encrypted messages sent to Alice, and the CA decrypts the
+		message on Alice's behalf to ensure that her public key
+		was used to encrypt it.
+	<li> The CA vouches for the authenticity of the public key (i.e., it
+		belongs to the claimed owner).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Key storage is an important consideration for secret keys when using
+	symmetric cryptography because
+	<ol class="answer_list">
+	<li> if the one copy of the secret key is altered or lost, then any
+		information encrypted using that key will be lost.
+	<li> knowing one secret key from the key store compromises
+		<strong>all</strong> other secret keys in the key store.
+	<li> if a third party discovers the secret key, than anything encrypted
+		using it can be compromised.
+	<li> if a third party discovers the public key (of the key pair),
+		they could "fake" perfect digital signatures on documents.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Key storage is an important consideration for private keys when using
+	asymmetric cryptography because
+	<ol class="answer_list">
+	<li> if the one copy of the private key is altered or lost, then any
+		information encrypted using the corresponding public key will
+		be lost.
+	<li> knowing one private key from the key store compromises
+		<strong>all</strong> other private keys in the key store.
+	<li> if a third party discovers the private key, than anything
+		encrypted using the corresponding public key can be compromised.
+	<li> if a third party discovers the private key,
+		they could "fake" legitimate digital signatures on documents.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The purpose of a Hardware Security Module (HSM) with respect to
+	cryptography is to
+	<ol class="answer_list">
+	<li> render the stored keys unusable upon detection of tampering.
+	<li> prevent unauthorized users from accessing the stored keys.
+	<li> verify the digital signatures of the stored keys.
+	<li> create public-private key pairs for asymmetric algorithms.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The advantage of using a Trusted Platform Module (TPM) over using only
+	a Hardware Security Module (HSM) is that
+	<ol class="answer_list">
+	<li> because the TPM verifies the Certificate Authority's digital
+		signatures, <strong>all</strong> stored keys can be trusted.
+	<li> the TPM only allows authorized users to read stored keys back
+		to their programs.
+	<li> the TPM renders the stored keys unusable upon detection of
+		tampering.
+	<li> the TPM performs the encrypt/decrypt operations so that keys
+		<strong>never</strong> leave the module.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The advantage(s) of using a Trusted Platform Module (TPM) that is fully
+	integrated into the hardware and OS include
+	<ol class="answer_list">
+	<li> the ability to securely encrypt <strong>all</strong> data stored
+		on installed HDDs and SSDs.
+	<li> the inability to install unauthorized (e.g., unsigned) software.
+	<li> a guarantee that any encrypted data on the system can
+		<strong>always</strong> be accessed.
+	<li> attestation to verify that the computer is currently
+		authorized to run a particular software (or access specific
+		data).
+	<li> None of the above
+	</ol>
+</li><br/>

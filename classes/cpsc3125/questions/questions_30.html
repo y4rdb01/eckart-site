@@ -1,0 +1,374 @@
+<li> After <strong>all</strong> page frames in a system are occupied,
+	page replacement in a virtual memory system is the process
+	<ol class="answer_list">
+	<li> of choosing a virtual page to load into a given page frame.
+	<li> of choosing both a virtual page and a page frame in which to
+		load the chosen virtual page.
+	<li> of choosing a page frame and loading a given virtual page into that
+		page frame.
+	<li> that's performed in response to a page fault.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The essentially unobtainable aspect of optimal page replacement which sets
+	it apart from <strong>all</strong> other page replacement algorithms is
+	<ol class="answer_list">
+	<li> only loading virtual pages that will be used immediately (or in
+		the very near future).
+	<li> ensuring that no process ever thrashes.
+	<li> ensuring that no page frame is replaced before
+		<strong>all</strong> other frames have already been replaced.
+	<li> only replacing page frames whose resident virtual page wont be
+		used for the longest period of time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Nearly <strong>all</strong> page replacement algorithms make use of the
+	following flag(s) which are associated with each page frame:
+	<ol class="answer_list">
+	<li> reference bit
+	<li> cached bit
+	<li> present bit
+	<li> modified bit
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The reference bit associated with a page frame is set to
+	<ol class="answer_list">
+	<li> 0 whenever a virtual page is loaded into the frame. 
+	<li> 0 only the first time a virtual page is loaded from the
+		virtual address space.
+	<li> 1 whenever a virtual page is loaded into a new page frame.
+	<li> 1 whenever the page frame contents are changed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The modified bit associated with a page frame is set to
+	<ol class="answer_list">
+	<li> 0 whenever a virtual page is loaded into the frame. 
+	<li> 0 only the first time a virtual page is loaded from the
+		virtual address space.
+	<li> 1 whenever a virtual page is loaded into a new page frame.
+	<li> 1 whenever the page frame contents are changed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Not-Recently-Used (NRU) page replacement algorithm replaces pages
+	based on the values of their reference and modified bits. What is
+	the preference ordering (most prefered replacement listed first) given
+	the following combinations?
+<pre>
+	1 -> referenced, <strong>not</strong> modified
+	2 -> <strong>not</strong> referenced, <strong>not</strong> modified
+	3 -> referenced, modified
+	4 -> <strong>not</strong> referenced, modified
+</pre>
+	<ol class="answer_list">
+	<li> 1, 2, 3, 4
+	<li> 2, 4, 1, 3
+	<li> 3, 1, 2, 4
+	<li> 4, 3, 2, 1
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm <strong>always</strong> replaces the
+	oldest page, regardless of the value of the referenced and modified
+	bits, is
+	<ol class="answer_list">
+	<li> First-in First-out Page Replacement
+	<li> Second-Chance Page Replacement
+	<li> Clock Page Replacement
+	<li> Least Recently Used (LRU) Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm is the easiest to implement and often
+	performs adequately?
+	<ol class="answer_list">
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Not Frequently Used (NFU) Page Replacement
+	<li> Clock Page Replacement
+	<li> Least Recently Used (LRU) Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm is a variation of First-in First-out
+	page replacement that uses the reference (R) bit. If the page frame
+	being considered has R = 0, the page is replaced. Otherwise, if R = 1,
+	then R is set to 0 and the page frame is put at the end of the queue
+	to be considered again later.
+	<ol class="answer_list">
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Second-Chance Page Replacement
+	<li> Clock Page Replacement
+	<li> Least Recently Used (LRU) Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm cycles through the set of page frames
+	in order (starting after where it left off last time) looking for one
+	with R = 0, which it replaces when found. If R = 1, then R is set to
+	0 and the next page frame is considered (until a suitable one is found).
+	<ol class="answer_list">
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Second-Chance Page Replacement
+	<li> Clock Page Replacement
+	<li> Least Recently Used (LRU) Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A disadvantage of both Second-Chance and Clock page replacement algorithms
+	is that
+	<ol class="answer_list">
+	<li> they can immediately (re)load the exact same virtual page already
+		in the page frame.
+	<li> modified pages are given preference for replacement.
+	<li> if <strong>all</strong> reference bits = 1, then the entire
+		"queue" <strong>must</strong> be iterated
+		through before a replacement page will be found.
+	<li> if <strong>all</strong> modified bits = 1, then the entire "queue"
+		<strong>must</strong> be iterated
+		through before a replacement page will be found.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm replaces the page that has gone unused
+	for the longest period of time?
+	<ol class="answer_list">
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Clock Page Replacement
+	<li> Least Recently Used (LRU) Page Replacement
+	<li> Aging Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm can make effective use of a counter
+	associated with each page frame, with the counter value set to the
+	global clock tick counter each time the page is referenced?
+	<ol class="answer_list">
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Clock Page Replacement
+	<li> Least Recently Used (LRU) Page Replacement
+	<li> Aging Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm adds the value of the page frame's R bit
+	to a counter for that page frame, each time <strong>all</strong>
+	of the R bits are reset? The counter is reset to 0 whenever a new page
+	is loaded into the frame.
+	<ol class="answer_list">
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Least Recently Used (LRU) Page Replacement
+	<li> Not Frequently Used (NFU) Page Replacement
+	<li> Aging Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm can end up replacing useful pages (e.g.,
+	very recently used) instead of pages that haven't been used for a long
+	time?
+	<ol class="answer_list">
+	<li> Second-Chance Page Replacement
+	<li> Clock Page Replacement
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Not Frequently Used (NFU) Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithm improves upon the primary deficiency of
+	the Not Frequently Used (NFU) page replacement algorithm?
+	<ol class="answer_list">
+	<li> Clock Page Replacement
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Least Recently Used (NRU) Page Replacement
+	<li> Aging Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which algorithm is similar to the Not Frequently Used (NFU) page
+        replacement algorithm, but instead of simply adding the R bit to the
+        page frame counter, it shifts the counter 1 bit to the right before
+        the leftmost bit is set to the R value?
+	<ol class="answer_list">
+	<li> Clock Page Replacement
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Least Recently Used (NRU) Page Replacement
+	<li> Aging Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Paging algorithms that only load virtual pages that are the cause of a
+	page fault are categorized as
+	<ol class="answer_list">
+	<li> lazy paging.
+	<li> eager paging.
+	<li> laissez faire paging.
+	<li> demand paging.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Locality of reference is a property exhibited by most programs in which
+	<ol class="answer_list">
+	<li> nearly <strong>all</strong> the variables are declared within
+		functions rather than as global/static variables.
+	<li> the vast majority of program statements are some type of loop.
+	<li> the parts of the virtual address space needed are usually close
+		to those most recently used. 
+	<li> only a small part of the virtual address space of a process is
+		ever loaded into a page frame.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The set of virtual pages that a process is currently using are known
+	as the
+	<ol class="answer_list">
+	<li> loaded pages.
+	<li> process set.
+	<li> working set.
+	<li> recency list.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which category of page replacement algorithms tries to reduce the page
+	fault rate by <em>prepaging</em>?
+	<ol class="answer_list">
+	<li> Working set model
+	<li> Global allocation
+	<li> Local allocation
+	<li> Process model
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Thrashing occurs in a multi-tasking system when by the next time a process
+	is chosen to run in the CPU
+	<ol class="answer_list">
+	<li> it's already been blocked by another process.
+	<li> it's been terminated by the OS kernel.
+	<li> most of its needed virtual pages are <strong>not</strong>
+		in page frames.
+	<li> most of its needed virtual pages are already loaded in page frames.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Thrashing is almost certain to occur when
+	<ol class="answer_list">
+	<li> the size of working sets for <strong>all</strong> processes
+		varies greatly from one another.
+	<li> the combined working sets of <strong>all</strong> runnable
+		processes excedes the size of physical memory.
+	<li> the Translation Lookaside Buffer is smaller than largest process
+		working set.
+	<li> there are more processes than will fit in the process table.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The amount of time that a process has spent running in the CPU since
+	the process started is known as its
+	<ol class="answer_list">
+	<li> CPU time.
+	<li> process time.
+	<li> processor virtual time.
+	<li> current virtual time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The working set of a process is the list of virtual pages the process
+	has used
+	<ol class="answer_list">
+	<li> within the last T seconds of its current virtual time.
+	<li> since the process started.
+	<li> since the process started or since the last time process was
+		blocked (whichever is most recent).
+	<li> since it last generated a page fault.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which page replacement algorithms introduce an additional field for page
+	table entries that holds the last (virtual) time of use for that
+	virtual page?
+	<ol class="answer_list">
+	<li> Clock Page Replacement
+	<li> Aging Page Replacement
+	<li> Working Set Model Page Replacement
+	<li> Working Set Clock Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For Working Set Model Page Replacement, the virtual page in a page
+	frame is evicted if the reference (R) bit
+	<ol class="answer_list">
+	<li> = 1 and the current virtual time minus the time of last use is
+		greater than a predetermined cutoff.
+	<li> = 0 (regardless of the time of last use).
+	<li> = 0 and the modified bit = 0 (regardless of the time of last use).
+	<li> = 0 and the current virtual time minus the time of last use is
+		greater than a predetermined cutoff.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For Working Set Model Page Replacement, the virtual page in a page
+	frame is evicted if the reference (R) bit
+	<ol class="answer_list">
+	<li> = 0, <strong>all</strong> virtual pages in page frames have been
+		referenced within the predetermined cutoff, but this page
+		has been referenced least recently.
+	<li> = 0, <strong>all</strong> virtual pages in page frames have been
+		referenced within the predetermined cutoff, but this page has
+		been modified.
+	<li> = 0 (regardless of the time of last use).
+	<li> = 0 and the modified bit = 0 (regardless of the time of last use).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The major disadvantage of Working Set Model Page Replacement is that it
+	requires
+	<ol class="answer_list">
+	<li> an additional field for the page table entries (to
+		hold the time of last use).
+	<li> maintaining the current virtual time of each process.
+	<li> each page table entry to be examined (to determine if the page
+		is in a page frame and if so what its time of last use is).
+	<li> the page entry be updated for <em>every</em> access to the page.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Working Set Clock Page Replacement addresses the short-coming(s) of
+	Working Set Model Page Replacement by
+	<ol class="answer_list">
+	<li> associating the time of last use with the page frame, rather than
+		the page table entries.
+	<li> only setting the time of use when that page frame is being
+		considered for reuse, rather than every time a page fault
+		occurs.
+	<li> considering each page frame in a "round robin" fashion, rather 
+		than looking for virtual pages that have been in a page
+		frame for a sufficiently long period of time.
+	<li> using the modified (M) bit in deciding whether to immediately
+		reuse the page frame or not, rather than ignoring the M bit
+		value.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following page replacement algorithms is widely used in
+	practice due to its relatively simple implementation and good
+	performance?
+	<ol class="answer_list">
+	<li> Not Recently Used (NRU) Page Replacement
+	<li> Clock Page Replacement
+	<li> Working Set Clock Page Replacement.
+	<li> Aging Page Replacement
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following page replacement algorithms schedules a modified
+	page frame to be written back to disk <em>in advance</em> of evicting
+	the virtual page from the page frame?
+	<ol class="answer_list">
+	<li> Clock Page Replacement
+	<li> Aging Page Replacement
+	<li> Working Set Model Page Replacement.
+	<li> Working Set Clock Page Replacement.
+	<li> None of the above
+	</ol>
+</li><br/>

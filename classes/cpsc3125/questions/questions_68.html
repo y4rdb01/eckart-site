@@ -1,0 +1,160 @@
+<li> Which of the following are reasons why an organization might use many
+	computers rather than a single large computer system (running a single
+	OS)?
+	<ol class="answer_list">
+	<li> Different operating systems need to be used.
+	<li> Prevent problems with applications from impacting other
+		(otherwise unrelated) applications.
+	<li> Using different computer systems for software development and
+		testing.
+	<li> Using a separate computer system for testing newly acquired
+		(untrusted) software.
+	<li> With multiple systems, having one compromised by an attacker
+		does <strong>not</strong> impact applications running on
+		the other (UNcompromised) systems.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Some of the problems associated with an organization having and
+	maintaining a large number of separate smaller computers, as opposed
+	to a single large computer, are that they are
+	<ol class="answer_list">
+	<li> upgraded incrementally, so that not all of the computers may
+		be the same.
+	<li> time consuming to administer.
+	<li> more likely to deadlock.
+	<li> wasteful of compute resources when machines are sitting idle
+		(while others could be overloaded).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A hypervisor enables a single physical computer to
+	<ol class="answer_list">
+	<li> do more computations per second than is possible without it.
+	<li> appear as if it is many computers.
+	<li> run serveral different operating systems at the same time.
+	<li> use less electricity.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Advantages of running multiple virtual machines on a hypervisor over
+	separate physical computers include 
+	<ol class="answer_list">
+	<li> using less electricity.
+	<li> generating less heat.
+	<li> taking up less space.
+	<li> requiring less effort to administer.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Advantages of running multiple virtual machines on a hypervisor over
+	separate physical computers include 
+	<ol class="answer_list">
+	<li> reducing the overall system cost since some elements of the
+		separate computer systems will not be fully replicated.
+	<li> easy migration of an application from one hypervisor to another.
+	<li> reducing the wasted CPU cycles of unbalanced utilization
+	<li> the ability to run legacy software that requires older versions
+		of the OS not available on the newer hardware.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The disadvantages of running virtual machines (within a hypervisor)
+	on a single physical machine (over using separate physical
+	machines) include
+	<ol class="answer_list">
+	<li> having to run the same OS on each virtual machine (VM).
+	<li> a reduced ability to survive failures (e.g., a single power
+		supply failure now impacts many operating systems and their
+		applications).
+	<li> requiring all the VMs to use the same file system.
+	<li> a larger degree of wasted CPU resources when all of the VMs
+		are idle.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The first hypervisors were developed around
+	<ol class="answer_list">
+	<li> 1965 to 1968.
+	<li> 1974.
+	<li> 1999.
+	<li> 2005.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a hypervisor is able to provide virtual machines that are
+	indistinguishable from the underlying hardware, this is called
+	<ol class="answer_list">
+	<li> pseudo virtualization.
+	<li> quasi virtualization.
+	<li> paravirtualization.
+	<li> full virtualization.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a hypervisor requires that the OS running on a virtual machine
+	use hypercalls to access certain capabilities, this is called 
+	<ol class="answer_list">
+	<li> pseudo virtualization.
+	<li> quasi virtualization.
+	<li> paravirtualization.
+	<li> full virtualization.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The computer architecture hardware requirements for virtualization
+	include
+	<ol class="answer_list">
+	<li> safety.
+	<li> reliability.
+	<li> orthoganality.
+	<li> fidelity.
+	<li> efficiency.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> To ensure that all virtualized resources are fully controlled by the
+	hypervisor, it is
+	<ol class="answer_list">
+	<li> necessary that <strong>all</strong> instructions issued
+		to the VM be interpreted.
+	<li> possible that some (but likely not all) machine instructions
+		can be executed directly (without interpretation).
+	<li> <strong>never</strong> necessary to use interpretation -
+		<strong>all</strong> instructions can be directly executed
+		on the hardware.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Instructions that behave differently depending upon whether or not
+	they are executed in kernel mode or user mode, are called
+	<ol class="answer_list">
+	<li> sensitive instructions.
+	<li> virtual instructions.
+	<li> permissive instructions.
+	<li> priviledged instructions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Instructions that cause a trap if executed in user mode, are called
+	<ol class="answer_list">
+	<li> sensitive instructions.
+	<li> virtual instructions.
+	<li> permissive instructions.
+	<li> priviledged instructions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A computer architecture is virtualizable only if the set of
+	<ol class="answer_list">
+	<li> priviledged instructions is identical to the set of
+		sensitive instructions.
+	<li> priviledged instructions is a subset of the sensitive
+		instructions.
+	<li> sensitive instructions is a subset of the priviledged
+		instructions.
+	<li> priviledged instructions and the set of sensitive instructions
+		do not overlap (i.e., no common members).
+	<li> None of the above
+	</ol>
+</li><br/>

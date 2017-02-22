@@ -1,0 +1,330 @@
+<li> File systems are
+	<ol class="answer_list">
+	<li> <strong>all</strong> very similar with the few differences
+		between them of little importance.
+	<li> nearly always stored on disk (either HDD or SSD).
+	<li> dedicated to the OS, with each OS supporting only a single
+		file system.
+	<li> generally contained within a single disk partition (if stored on
+		a disk).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A disk (either HDD or SSD) has
+	<ol class="answer_list">
+	<li> a single Master Boot Record (MBR).
+	<li> one or more partitions.
+	<li> a boot block for each partition.
+	<li> a partition table (stored at the end of the MBR).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <strong>not</strong> steps in the boot process?
+	<ol class="answer_list">
+	<li> the BIOS identifies the boot device and ensures it's attached.
+	<li> the program in the Master Boot Record (MBR) is loaded and run.
+	<li> the MBR program loads and runs the code in the first block of the
+		active partition.
+	<li> the boot block program loads the OS from the active partition.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <strong>not</strong> part of every disk
+	partition?
+	<ol class="answer_list">
+	<li> Root directory
+	<li> Boot block
+	<li> Superblock
+	<li> Master Boot Record (MBR)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <strong>not</strong> a basic technique for
+	implementing files?
+	<ol class="answer_list">
+	<li> Contiguous Allocation
+	<li> Superblock Allocation
+	<li> Linked List Allocation
+	<li> Spiral Allocation
+	<li> Index-nodes
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which file implementation technique stores the file in consecutive disk
+	blocks, so that only the last block has any wasted space?
+	<ol class="answer_list">
+	<li> Contiguous Allocation
+	<li> Superblock Allocation
+	<li> Linked List Allocation
+	<li> Spiral Allocation
+	<li> Index-nodes
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which file implementation technique uses the first word of each block
+	(or alternately a separate table representing those words) to indicate
+	the disk block holding the next portion of the file?
+	<ol class="answer_list">
+	<li> Contiguous Allocation
+	<li> Superblock Allocation
+	<li> Linked List Allocation
+	<li> Spiral Allocation
+	<li> Index-nodes
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which file implementation technique only requires the location of the
+	first disk block and the number of disk blocks allocated for the file
+	in order to access it?
+	<ol class="answer_list">
+	<li> Contiguous Allocation
+	<li> Superblock Allocation
+	<li> Linked List Allocation
+	<li> Spiral Allocation
+	<li> Index-nodes
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which file implementation technique uses a single data structure that
+	stores standard metadata along with direct and indirect pointers to
+	the file blocks containing the file data?
+	<ol class="answer_list">
+	<li> Contiguous Allocation
+	<li> Superblock Allocation
+	<li> Linked List Allocation
+	<li> Spiral Allocation
+	<li> Index-nodes
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following file implementation techniques suffers from
+	external fragmentation if files can be removed or modified?
+	<ol class="answer_list">
+	<li> Contiguous Allocation
+	<li> Superblock Allocation
+	<li> Linked List Allocation
+	<li> Spiral Allocation
+	<li> Index-nodes
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following file implementation techniques completely
+	avoid any internal fragmentation?
+	<ol class="answer_list">
+	<li> Contiguous Allocation
+	<li> Superblock Allocation
+	<li> Linked List Allocation
+	<li> Spiral Allocation
+	<li> Index-nodes
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> File Allocation Tables are an aspect of which of the following file
+	implementation techniques?
+	<ol class="answer_list">
+	<li> Contiguous Allocation
+	<li> Superblock Allocation
+	<li> Linked List Allocation
+	<li> Spiral Allocation
+	<li> Index-nodes
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following file implementation techniques has the
+	<strong>best</strong> support for random access?
+	<ol class="answer_list">
+	<li> Contiguous Allocation
+	<li> Superblock Allocation
+	<li> Linked List Allocation
+	<li> Spiral Allocation
+	<li> Index-nodes
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which file system implementation is suitable for smaller disks
+	but is less suitable as the size of the disk grows larger?
+	<ol class="answer_list">
+	<li> Contiguous Allocation
+	<li> Superblock Allocation
+	<li> File Allocation Table (FAT)
+	<li> Spiral Allocation
+	<li> Index-nodes
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An advantage that i-nodes have over FAT file systems is that
+	<ol class="answer_list">
+	<li> they have better performance for randomly accessing files.
+	<li> they have less external fragmentation.
+	<li> they have less internal fragmentation.
+	<li> only direct and indirect links to the disk blocks for the desired
+		file (and no other files) are needed in memory.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> ISO 9660 was developed for use by compact disks (for music) and later
+	DVDs (for movies). Which file system implementation approach is
+	ISO 9660 an example of?
+	<ol class="answer_list">
+	<li> Contiguous Allocation
+	<li> Superblock Allocation
+	<li> File Allocation Table (FAT)
+	<li> Spiral Allocation
+	<li> Index-nodes
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <strong>not</strong> a commonly used technique
+	for storing file/directory names in directory entries?
+	<ol class="answer_list">
+	<li> Use a fixed amount of space for the name (e.g., 8.3 names).
+	<li> Allocate the string for the name from heap storage and put the
+		pointer in the directory entry.
+	<li> Allow directory entries to be variable in length with the file
+		name appearing at the end of the entry.
+	<li> Each directory entire has a pointer into a shared string space
+		for storing <strong>all</strong> the names in that directory.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are true about the root directory of a file
+	system?
+	<ol class="answer_list">
+	<li> It's the only file/directory <strong>without</strong> a name.
+	<li> Both hard and soft links to the root directory are
+		<strong>not</strong> allowed.
+	<li> The root is stored in the boot block of the file system partition.
+	<li> A pointer to it <strong>must</strong> be kept in a known/standard
+		location.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The attributes associated with a file (or directory) are
+	<ol class="answer_list">
+	<li> <strong>always</strong> stored in its directory entry.
+	<li> are stored in the directory entry for contiguous and linked list
+		file allocations.
+	<li> are stored in the file's (or directory's) i-node if index-nodes
+		are used for file allocation.
+	<li> <strong>never</strong> stored in its directory entry.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> As the number of directory entries increases (e.g., >= 100),
+	<ol class="answer_list">
+	<li> searching for a file (or directory) name may get slower if a
+		hash table isn't used.
+	<li> the i-nodes used (for an index-node implementation) increases
+		faster than the number of files in the directory.
+	<li> space within the directory (itself a special file) is likely
+		to become exhausted.
+	<li> the file system as a whole becomes slower to access.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Soft links are slower to access a file than hard links because
+	<ol class="answer_list">
+	<li> every file system on the disk (in different partitions)
+		<strong>must</strong> be checked for the file.
+	<li> hard links point directly to the file (e.g., via its
+		i-node number). 
+	<li> the linked file is <strong>always</strong> specified as an
+		absolute path.
+	<li> they require visiting (multiple) other directories along the
+		indicated file path to find the linked file.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Copying soft links can be problematic because
+	<ol class="answer_list">
+	<li> there are two ways to copy them, making a copy of the link or
+		making a copy of the file the link points to.
+	<li> the link may point to another file system, and copies across
+		file systems cannot be done.
+	<li> the resulting copy will <strong>always</strong> be a soft link.
+	<li> they can sometimes be mistaken for a hard link by the OS.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Log structure files buffer writes, to a hard disk disk (HDD), in memory
+	<ol class="answer_list">
+	<li> improving the write efficiency to the disk while reducing wait
+		time for processes writing to disk.
+	<li> thus preventing file system problems if a system failure occurs.
+	<li> but this increases the risk that information will be lost if a
+		system failure occurs.
+	<li> because file system operations generally require many small writes
+		to the HDD, so bundling them together improves efficiency.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Log structure files
+	<ol class="answer_list">
+	<li> keep a complete record of <strong>all</strong> writes that have
+		ever been made to a disk drive.
+	<li> are becoming increasingly important to have as solid state disks
+		(SSDs) become more common.
+	<li> are becoming less necessary as hard disk drives (HDDs) are replaced
+		with solid state disks (SSDs).
+	<li> have a special process that regularly "cleans" and compacts them
+		(as some items in the log are no longer needed as time passes).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Journaling file systems are used to
+	<ol class="answer_list">
+	<li> improve the write efficiency to the disk.
+	<li> prevent file system problems if a system failure occurs.
+	<li> enable access to remote file systems.
+	<li> create an up-to-date backup of a file system, so that it can be
+		restored in the case of a disk failure/crash.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A journaling file system keeps a log of actions to be performed
+	<ol class="answer_list">
+	<li> to improve the write efficiency to the disk.
+	<li> removing them only after their completion has been confirmed.
+	<li> but each action <strong>must</strong> be <em>idempotent</em> in
+		case there are multiple system crashes.
+	<li> to create an up-to-date backup of a file system, so that it can be
+		restored in the case of a disk failure/crash.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An <em>idempotent</em> operation is one that
+	<ol class="answer_list">
+	<li> makes an atomic change to disk (i.e., either the entire operation
+		completes or none of it does).
+	<li> <strong>always</strong> runs from within a critical section.
+	<li> is <strong>not</strong> critical, so that if it
+		<strong>never</strong> gets performed it's okay.
+	<li> <strong>must</strong> be executed <em>exactly</em> once
+		(e.g., making a deposit to a bank account). 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A virtual file system
+	<ol class="answer_list">
+	<li> implements both journaling and log file structures, improving
+		both efficiency and safety.
+	<li> enables multiple file systems to be seamless integrated so that
+		they appear as a single file system.
+	<li> provides access to file systems on remote computers.
+	<li> ensures that both soft and hard links can be used across file
+		systems.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A virtual file system
+	<ol class="answer_list">
+	<li> does <strong>not</strong> actually store files itself, but
+		interfaces with multiple other file systems.
+	<li> stores files on disks that are shared among multiple computer
+		systems.
+	<li> provides access to file systems on remote computers.
+	<li> ensures that both soft and hard links can be used across file
+		systems.
+	<li> None of the above
+	</ol>
+</li><br/>

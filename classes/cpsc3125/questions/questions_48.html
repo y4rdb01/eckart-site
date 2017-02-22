@@ -1,0 +1,63 @@
+<li> Which strategy for dealing with deadlock is used by most systems (e.g.,
+	Linux, Mac OS X, Windows)?
+	<ol class="answer_list">
+	<li> Prevention
+	<li> Dynamic avoidance
+	<li> Detection and recovery
+	<li> Ignore the problem
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Determining whether or not a deadlock <em>actually</em> exists in the
+	system requires
+	<ol class="answer_list">
+	<li> building the deadlock model graph and checking for cycles.
+	<li> checking whether or not <strong>all</strong> processes are in
+		the blocked state.
+	<li> periodically checking how long blocked processes have been blocked.
+	<li> periodically checking whether there are any processes in the ready
+		state.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Deadlock detection is
+	<ol class="answer_list">
+	<li> fast and easy to run, so it should be done every time a resource is
+		allocated.
+	<li> fast and easy to run, so it should be done every time a new process
+		is created.
+	<li> rather slow and costly to run, so it should be run only when a
+		process has been blocked for a long time (assuming there's no
+		urgent need to detect a possible deadlock).
+	<li> rather slow and costly to run, so it should be run only when
+		there is no user process in the ready state. That is, it
+		should be run as the idle process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a deadlock has been detected, recovery can be accomplished by
+	<ol class="answer_list">
+	<li> waiting until a process in the deadlock releases
+		<strong>all</strong> its resources.
+	<li> rolling back a process in the deadlock to a checkpoint before it
+		requested a resource participating in the deadlock.
+	<li> terminating a process in the deadlock (thus releasing
+		<strong>all</strong> of its granted resources).
+	<li> change <strong>all</strong> of the processes in the deadlock
+		to the ready state.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When recovering from a deadlock by terminating a process that was
+	participating in a deadlock
+	<ol class="answer_list">
+	<li> give preference to processes with the least amount of
+		accumulated CPU time is often <strong>best</strong>.
+	<li> change <strong>all</strong> remaining blocked processes to the
+		ready state after terminating the offending process.
+	<li> recheck to determine if any additional deadlocks still exist.
+	<li> do <strong>not</strong> allow any other processes in the deadlock
+		to acquire the resources released by the terminating process.
+	<li> None of the above
+	</ol>
+</li><br/>

@@ -1,0 +1,60 @@
+<li> Starvation occurs when a process is <strong>not</strong> deadlocked,
+	<ol class="answer_list">
+	<li> but is consistently unable to obtain a needed resource, often
+		because the resource keeps being assigned to other processes.
+	<li> and is assigned the needed resource, but the resource is
+		continually preempted.
+	<li> but continually acquires and returns the same resource over and
+		over.
+	<li> but waits for a signal from another process which
+		<strong>never</strong> comes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Livelock occurs when a set of two or more processes
+	<ol class="answer_list">
+	<li> experience a combination of both deadlock and starvation.
+	<li> are unable to get <strong>all</strong> their needed resources,
+		and continually give back those resources that were granted
+		and retry getting <strong>all</strong> of them
+		<strong>without</strong> success.
+	<li> are waiting for signals from each other before continuing
+		their remaining computations.
+	<li> is only missing one of the 4 conditions necessary for deadlock.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A communication deadlock can occur when
+	<ol class="answer_list">
+	<li> messages are lost in transit.
+	<li> a process is starved for a communication channel. 
+	<li> <strong>all</strong> the processes that are trying to
+		communicate are in livelock.
+	<li> two-phase locking is used to allocate communicate channels.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Communication deadlocks can often (though <strong>not always</strong>)
+	be avoid by using
+	<ol class="answer_list">
+	<li> multiple communication channels.
+	<li> a single message packet that is passed between the processes.
+	<li> two-phase locking.
+	<li> message acknowledgements in combination with timeouts (when
+		acknowledgements are <strong>not</strong> promptly received).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Two-phase locking is characterized by
+	<ol class="answer_list">
+	<li> assigning resources priorities and requiring processes to request
+		resources in increasing priority order.
+	<li> requiring that <strong>all</strong> resources be preemptable.
+	<li> repeatedly trying to get <strong>all</strong> needed resources,
+		returning those granted if some requests went unsatisfied,
+		until <strong>all</strong> the resources are finally acquired.
+	<li> having processes make two requests (in quick succession)
+		to acquire a resource.
+	<li> None of the above
+	</ol>
+</li><br/>

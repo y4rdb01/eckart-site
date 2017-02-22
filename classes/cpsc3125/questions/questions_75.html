@@ -1,0 +1,277 @@
+<li> The only practical way to detect message loss between message
+	senders and their receivers is via
+	<ol class="answer_list">
+	<li> enumerated messages.
+	<li> timeouts.
+	<li> challege response.
+	<li> sticky sessions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a request for a large piece of work is issued, it is important
+	that any failures on sub-parts of that work cause
+	<ol class="answer_list">
+	<li> the original request to be reissued to a different deployment
+		of the called service.
+	<li> a retry of the entire piece of work.
+	<li> a retry of only the failed sub-parts of the work.
+	<li> the request to report a failure for the entire piece of work.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the context of cloud computing the observed request failure rate is
+	<ol class="answer_list">
+	<li> determined solely by the communication channel error rate.
+	<li> determined solely by the failure rate of the involved servers.
+	<li> the combined error rate of the communication channel and the
+		failure rate of the servers involved in the computation.
+	<li> the difference in the error rate of the communication channel and
+		the failure rate of the servers involved in the computation.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> One cause for transient faults is the
+	<ol class="answer_list">
+	<li> use of sticky sessions, even in the absence of any computer
+		failures. 
+	<li> loss of (service) requests as they are rerouted from a failed
+		computer to one that is still functioning.
+	<li> failure of an idempotent operation to return the same result
+		when called multiple times with the same data.
+	<li> use of multi-tier architectures which often lose data
+		when sending messages between the different tiers.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A best practice is for systems to expose interfaces that
+	<ol class="answer_list">
+	<li> pass all the data for a complex transaction back and forth as
+		a single large structure parameter, updating the structure
+		as work is completed.
+	<li> are stateful, remembering what was communicated previously
+		so that all of the data need not be passed back and forth.
+	<li> are idempotent, so simple retry logic can be used to mask most
+		transient failures.
+	<li> are sticky, meaning that calls from the same original request
+		will be handled by the same component running on the same
+		computer.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A common architectural pattern used to deal with transient failures is to
+	<ol class="answer_list">
+	<li> divide the system into pure computational and storage layers,
+		frequently saving system computations, making restarts
+		simple and easy.
+	<li> combine all of the components of an software system into a
+		single application, enabling tighter integration of the
+		components for better maintainability.
+	<li> <strong>always</strong> use journaling file systems so that
+		no data is ever lost.
+	<li> run the software on enough computers to handle twice the
+		maximum load, so that if half fail, the expected max work
+		load can still be handled.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Dividing a software system into multiple tiers (e.g., presentation,
+	business logic, and data storage) provides
+	<ol class="answer_list">
+	<li> simplicity.
+	<li> reliability.
+	<li> maintainability.
+	<li> scalability.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A common technique for dealing with frequent server-level failures in a
+	cloud data center is to
+	<ol class="answer_list">
+	<li> implement the key software services in two very different ways
+		and run them on different systems. All the data is run through
+		both implementations, but if one fails it's very unlikely that
+		the other would too.
+	<li> decompose the system into one or more tiers of (software) servers
+		that process requests on a best-effort basis, storing critical
+		application state in a dedicated storage tier. 
+	<li> ignore the possibility of failures since they occur infrequently.
+	<li> run the software on enough computers to handle twice the
+		maximum load, so that if half fail, the expected max work
+		load can still be handled.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The large number of components that typically comprise a cloud computer
+	require that
+	<ol class="answer_list">
+	<li> each computer in the cloud be doubly redundant to
+		keep the probability of failure low enough to prevent
+		constant system failures.
+	<li> the realiability (e.g., up-time) be 99.999% in order to prevent
+		cascading failures from rendering the system unusable.
+	<li> the software be run on enough computers to handle twice the
+		maximum load, so that if half fail, the expected max work
+		load can still be handled.
+	<li> the software give careful consideration for handling failures
+		of those components.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Linux application containers rely on name spaces to help
+	<ol class="answer_list">
+	<li> isolate process groups from one another.
+	<li> prevent collisions between applications with the same name.
+	<li> restrict access to parts of the file system by a container's
+		processes.
+	<li> applications within different containers dynamically discover
+		one another so that they can interact (e.g., exchange
+		messages).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Linux application containers rely on control groups (cgroups) in order to
+	<ol class="answer_list">
+	<li> the maximum amount of memory the container can use.
+	<li> limit the amount of CPU utilization by the container.
+	<li> restrict the network throughput used by the container.
+	<li> cap the amount of disk space the container can use.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> While application containers have a number of benefits over virtual
+	machines, their biggest disadvantage is that
+	<strong>all</strong> of the
+	<ol class="answer_list">
+	<li> containers (and their applications)
+		<strong>must</strong> run on the same version
+		of the same OS kernel.
+	<li> containers (and their applications)
+		<strong>must</strong> must share the same
+		set of permissions (i.e., running under
+		a single user account/login).
+	<li> applications <strong>must</strong> share
+		the same exact set of libraries.
+	<li> applications <strong>must</strong> be implemented
+		using the same programming language and run-time system.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Application containers are a relatively recent development, having been
+	first created and used
+	<ol class="answer_list">
+	<li> in late 2009 with the release of Windows 7 (and Server 2008 R2)
+		from Microsoft. 
+	<li> in the early 1990s shortly after Linux first emerged.
+	<li> around 2000 with the development of FreeBSD's Jails.
+	<li> in March 2013 with the release of Docker.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Application containers (e.g., Rocket, Docker) running within a stripped
+	down OS (e.g., CoreOS) is analagous to having the same guest OS
+	running on multiple VMs within a type 1 hypervisor, where the
+	<ol class="answer_list">
+	<li> application container corresponds to the VM (and its guest OS).
+	<li> application container corresponds to the hypervisor.
+	<li> stripped down OS corresponds to the guest OS (and its VM).
+	<li> stripped down OS corresponds to the hypervisor.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> As a general rule of best practice <strong>all</strong> of the
+	<ol class="answer_list">
+	<li> application containers used to house different
+		components/tiers of an application should be configured
+		to run on the same OS version.
+	<li> components of a multi-tier application should reside
+		in the same application container.
+	<li> application containers housing componentes/tiers of the same
+		application should be run on the same VM.
+	<li> application containers housing componentes/tiers of the same
+		application should be run on the same hypervisor.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Application containers provide a lightweight virtual environment that
+	<ol class="answer_list">
+	<li> unlike a the guest OS on a VM, shares the same OS kernel as
+		the host system.
+	<li> can be run on <strong>any</strong> OS.
+	<li> enables the application it contains to be easily and seamless
+		migrated to another platform without any interruption in
+		service.
+	<li> guarantees that any processes inside the container cannot see
+		any processes or resources outside the container.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Application containers provide a lightweight virtual environment that
+	<ol class="answer_list">
+	<li> is the equivalent of a guest OS running on a VM, but easier
+		to manage.
+	<li> groups and isolates processes and their resources,
+		such as memory, CPU, and disk.
+	<li> can be run on <strong>any</strong> OS.
+	<li> enables the application it contains to be easily and seamless
+		migrated to another platform without any interruption in
+		service.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> As a general rule of best practice
+	<ol class="answer_list">
+	<li> application containers should contain only a single application.
+	<li> application containers may contain many applications, so long as
+		they use the same set of libraries.
+	<li> VMs should contain only a single application.
+	<li> VMs may contain several applications.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Application containers provide a "locked box" of capability which
+	<ol class="answer_list">
+	<li> ensures the same run-time environment for the application(s)
+		within the container.
+	<li> prevents any application compromise by an attacker from ever
+		extending beyond the confines of the container.
+	<li> uses encryption to ensure that the application code they
+		contain cannot be reverse engineered.
+	<li> can limit the application(s) it contains, preventing them from
+		using a newer version of a resource (e.g., library) unless
+		the container is update and redeployed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Compared to VMs (and a commerical guest OS running on it), application
+	containers are
+	<ol class="answer_list">
+	<li> easier to secure.
+	<li> harder to secure.
+	<li> are more likely to contain a Trojan Horse since containers are
+		new and not all providers are reputable.
+	<li> more resource intensive.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Application containers can provide a portable and consistent
+	operating environment for
+	<ol class="answer_list">
+	<li> development.
+	<li> testing.
+	<li> deployment.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When comparing application containers to VMs on the same computer,
+	<ol class="answer_list">
+	<li> VMs and their guest OS consume more resources than do
+		application containers.
+	<li> VMs provide <strong>less</strong> security than do application
+		containers.
+	<li> containers allow applications to migrate seamless, without any
+		interruption in the services their applications provide.
+	<li> containers can support 2-6 times the number of applications
+		as VMs.
+	<li> None of the above
+	</ol>
+</li><br/>

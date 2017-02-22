@@ -1,0 +1,307 @@
+<li> File servers enabled the use of inexpensive client machines by
+	<ol class="answer_list">
+	<li> hosting users' file systems that were remotely connected to by
+		the clients.
+	<li> providing the vast majority of the computational power,
+		displaying the results back to the client (e.g., via X11).
+	<li> performing the virtual memory management for the client - thus
+		greatly simplifying its hardware.
+	<li> treating them as dumb terminals, so that <strong>all</strong> of
+		the processing and information display is controlled by the
+		server. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The purpose of concurrency control, by a file server, is to
+	<ol class="answer_list">
+	<li> enable files to be locked so that only the process with the
+		lock can use the file (until the lock is released).
+	<li> allow true simultaneous actions to occur (even on a single
+		CPU system).
+	<li> achieve serializability, even if operations/actions are
+		interruptible.
+	<li> ensure that operations are <strong>always</strong> performed
+		uninterrupted, by wrapping <strong>all</strong> actions
+		inside of critical sections controlled by semaphores. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Problems can occur when file data is only partially updated (e.g., due
+	to a system failure), as in the case of a bank's transferring money
+	from savings to checking. Which of the following ensures that no
+	partial updates are performed?
+	<ol class="answer_list">
+	<li> Serializability
+	<li> Transactions
+	<li> Concurrency Control
+	<li> Replicated Files
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Replicating files as they are modified (copy-on-write) provides a degree of
+	<ol class="answer_list">
+	<li> concurrency control since each process changing a file gets its own
+		copy.
+	<li> fault tolerance by making copies of files that can be used if the
+		primary server is unavailable.
+	<li> atomic transaction protection, by ensuring that
+		<strong>all</strong> partial updates fail (though some
+		completed updates could also fail).
+	<li> performance improvement over in-place modification, since only the
+		changed parts of the file need to be copied.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Transactions are atomic, which requires that
+	<ol class="answer_list">
+	<li> no actual changes to the file are visible in the file system
+		until the transaction is committed.
+	<li> <strong>all</strong> transactions which change information
+		<strong>must</strong> be kept on a stable store (e.g.,
+		phase-change memory) until the transaction is committed.
+	<li> file system journaling (or something like it)
+		<strong>must</strong> be in place to ensure
+		transactions survive file system failures.
+	<li> file system log structure files <strong>must</strong> be kept
+		to ensure serializability of multiple file system transactions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Network File System (NFS) uses a client-server protocol that works by
+	<ol class="answer_list">
+	<li> copying requested files from the server to the client and then
+		copying them back once the client has finished with them.
+	<li> having the server keep track of a file pointer on behalf of the
+		client, so when the client makes read/write requests, the
+		server knows exactly where in the file to perform the actions.
+	<li> providing the client with a file handle that it uses to retrieve
+		(read) portions of the file from the server or to request file
+		modifications (write) based on file offsets.
+	<li> locking the remote file so that only the client has access to it
+		while it's being used.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Network File System (NFS) uses a client-server protocol
+	<ol class="answer_list">
+	<li> that is stateless, requiring any requested file modifications be
+		committed before the Remote Procedure Call (RPC) returns
+		results.
+	<li> that is stateless, so that failure of the file server won't
+		necessarily impact the client after the file server is
+		recovered.
+	<li> that is stateful, thus enabling the client to fail and then
+		recover <strong>without</strong> impacting any pending file
+		transactions.
+	<li> that is stateful, making the implementation of NFS much simpler.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Network File System (NFS) uses a client-server protocol
+	<ol class="answer_list">
+	<li> that requires any programs that access remote files to be
+		modified and recompiled so that they can use the NFS API.
+	<li> that requires any programs that access remote files to be be	
+		recompiled so that they can use the NFS version of system
+		call implementations (though no program code modifications
+		are necessary).
+	<li> which is incompatible with the Virtual File System (VFS), thus
+		most clients that use NFS are diskless (i.e., they get
+		<strong>all</strong> of their files remotely).
+	<li> that has no impact on user programs since their file access is
+		through the Virtual File System (VFS) of which NFS is just
+		one participating file system.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following file systems can distribute the information
+	from one file system instance across multiple computer systems?
+	<ol class="answer_list">
+	<li> Network File System (NFS)
+	<li> Lustre
+	<li> Hadoop
+	<li> Btrfs
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following file systems are horizontally scalable (i.e., they
+	can handle more files and file operations within the same file system
+	instance by adding more computer systems)?
+	<ol class="answer_list">
+	<li> Network File System (NFS)
+	<li> Lustre
+	<li> Hadoop
+	<li> Btrfs
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Lustre File System (LFS) uses the metadata server to
+	<ol class="answer_list">
+	<li> perform pathname and permission checks
+	<li> store file information (e.g., filenames, directories, file layout,
+		access permissions).
+	<li> store the actual file contents.
+	<li> store which of its object storage targets holds the various parts
+		of the files its responsible for.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Lustre File System (LFS) uses the metadata targets to
+	<ol class="answer_list">
+	<li> perform pathname and permission checks
+	<li> store file information (e.g., filenames, directories, file layout,
+		access permissions).
+	<li> store the actual file contents.
+	<li> store which of its object storage targets holds the various parts
+		of the files its responsible for.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Lustre File System (LFS) uses the object storage target to
+	<ol class="answer_list">
+	<li> perform pathname and permission checks
+	<li> store file information (e.g., filenames, directories, file layout,
+		access permissions).
+	<li> store the actual file contents.
+	<li> store which of its object storage targets holds the various parts
+		of the files its responsible for.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Lustre File System (LFS) uses the object storage servers to
+	<ol class="answer_list">
+	<li> perform pathname and permission checks
+	<li> store file information (e.g., filenames, directories, file layout,
+		access permissions).
+	<li> store the actual file contents.
+	<li> store which of its object storage targets holds the various parts
+		of the files its responsible for.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following Lustre File System (LFS) components is
+	implemented as an enhanced version of ext4?
+	<ol class="answer_list">
+	<li> metadata source
+	<li> metadata target
+	<li> object storage source
+	<li> object storage target
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Hadoop file system uses
+	<ol class="answer_list">
+	<li> only 1 namenode.
+	<li> 1 or more namenodes.
+	<li> only 1 datanode.
+	<li> 1 or more datanodes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Clients using the Hadoop file system work directly with
+	<ol class="answer_list">
+	<li> only the namenode(s).
+	<li> only the datanode(s).
+	<li> both the namenode(s) and datanode(s).
+	<li> neither since <strong>all</strong> interactions with Hadoop
+		<strong>must</strong> be mediated by the Virtual File System
+		(VFS).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Hadoop datanodes get the file data they are to store
+	<ol class="answer_list">
+	<li> only from the namenode(s), which gets it from the client.
+	<li> only from the client.
+	<li> from both the client (1st datanode) and other datanodes.
+	<li> from the client, namenode(s), and other datanodes depending on the
+		circumstances.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Hadoop, the following are responsible for determining how many
+	replicates to make of the file data:
+	<ol class="answer_list">
+	<li> client.
+	<li> namenode(s).
+	<li> datanode(s).
+	<li> both the namenode(s) and datanode(s) via a majority voting
+		algorithm.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Hadoop, the following are responsible for determining which datanodes
+	are to be used for storing the file data:
+	<ol class="answer_list">
+	<li> client.
+	<li> namenode(s).
+	<li> datanode(s).
+	<li> both the namenode(s) and datanode(s) via a majority voting
+		algorithm.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Hadoop writes files using a block size that is determined by 
+	<ol class="answer_list">
+	<li> the client.
+	<li> the namenode(s).
+	<li> the datanode(s).
+	<li> both the namenode(s) and datanode(s) via a majority voting
+		algorithm.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a client wants to access a file stored in Hadoop, it gets the list of
+	file blocks and the nodes on which the file data is stored from:
+	<ol class="answer_list">
+	<li> only the namenode(s).
+	<li> only the datanode(s).
+	<li> either a namenode(s) or datanode(s) depending upon which is able to
+		handle the request first.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In Hadoop, once a client has the list of blocks and nodes on which the
+	file data resides, it retrieves the data by
+	<ol class="answer_list">
+	<li> asking a namenode to get the file data blocks, assemble them,
+		and return them to the client.
+	<li> asking a datanode to get the file data blocks, assemble them,
+		and return them to the client.
+	<li> asking each namenode to get the file blocks from the datanode(s)
+		it's responsible for.
+	<li> retrieving each of the file data blocks directly from datanode(s).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What are the three types of failure that can be seen with the Hadoop
+	(and Lustre) file systems?
+	<ol class="answer_list">
+	<li> Client failure.
+	<li> Node or target/server failure.
+	<li> Communication failure.
+	<li> Data corruption.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following remote file systems have at least one single point
+	of failure?
+	<ol class="answer_list">
+	<li> Network File System (NFS)
+	<li> Lustre
+	<li> Hadoop
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What conditions does Hadoop use to identify network and/or node failures?
+	<ol class="answer_list">
+	<li> A namenode fails to receive a heartbeat message from a datanode
+		for more than 10 minutes.
+	<li> A namenode doesn't hear from one of its clients for more than
+		10 minutes.
+	<li> A datanode reports its unavailability to its namenode.
+	<li> A sender <strong>not</strong> receiving an acknowledgement for
+		a sent message after several retries.
+	<li> None of the above
+	</ol>
+</li><br/>

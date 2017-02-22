@@ -1,0 +1,310 @@
+<li> The following are a type of OS for multiprocessor systems:
+	<ol class="answer_list">
+	<li> OS for each CPU
+	<li> Peer-to-peer
+	<li> Master-Slave
+	<li> Cooperative
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following are a type of OS for multiprocessor systems:
+	<ol class="answer_list">
+	<li> Communal
+	<li> Master-Slave
+	<li> Symmetric Multiprocessors
+	<li> Peer-to-peer
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following are a type of OS for multiprocessor systems:
+	<ol class="answer_list">
+	<li> OS for each CPU
+	<li> Cooperative
+	<li> Peer-to-peer
+	<li> Symmetric Multiprocessors
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> These OS types for multiprocessor systems use CPUs that share both the
+	same memory and the same I/O devices:
+	<ol class="answer_list">
+	<li> Communal
+	<li> Master-Slave
+	<li> OS for each CPU
+	<li> Cooperative
+	<li> Peer-to-peer
+	<li> Symmetric Multiprocessors
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The system calls on these OS types for multiprocessor systems are handled
+	(trap to kernel) on the same CPU that made the system calls: 
+	<ol class="answer_list">
+	<li> Communal
+	<li> Master-Slave
+	<li> OS for each CPU
+	<li> Cooperative
+	<li> Peer-to-peer
+	<li> Symmetric Multiprocessors
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of these OS types for multiprocessor systems is bottlenecked by a
+	single CPU? 
+	<ol class="answer_list">
+	<li> Communal
+	<li> Master-Slave
+	<li> OS for each CPU
+	<li> Cooperative
+	<li> Peer-to-peer
+	<li> Symmetric Multiprocessors
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of these OS types for multiprocessor systems is bottlenecked not
+	by a single CPU, but by shared data structures within the OS? 
+	<ol class="answer_list">
+	<li> Communal
+	<li> Master-Slave
+	<li> OS for each CPU
+	<li> Cooperative
+	<li> Peer-to-peer
+	<li> Symmetric Multiprocessors
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> These OS types for multiprocessor systems are rarely used today:
+	<ol class="answer_list">
+	<li> Communal
+	<li> Master-Slave
+	<li> OS for each CPU
+	<li> Cooperative
+	<li> Peer-to-peer
+	<li> Symmetric Multiprocessors
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> These OS types for multiprocessor systems are the most popularly
+	implemented:
+	<ol class="answer_list">
+	<li> Communal
+	<li> Master-Slave
+	<li> OS for each CPU
+	<li> Cooperative
+	<li> Peer-to-peer
+	<li> Symmetric Multiprocessors
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Processes on these OS types for multiprocessor systems are scheduled
+	to run <strong>only</strong> on the CPU on which they were created:
+	<ol class="answer_list">
+	<li> Communal
+	<li> Master-Slave
+	<li> OS for each CPU
+	<li> Cooperative
+	<li> Peer-to-peer
+	<li> Symmetric Multiprocessors
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The CPU loads on these OS types for multiprocessor systems are generally
+	well balanced:
+	<ol class="answer_list">
+	<li> Communal
+	<li> Master-Slave
+	<li> OS for each CPU
+	<li> Cooperative
+	<li> Peer-to-peer
+	<li> Symmetric Multiprocessors
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> These OS types for multiprocessor systems use a separate private memory
+	for each CPU:
+	<ol class="answer_list">
+	<li> Communal
+	<li> Master-Slave
+	<li> OS for each CPU
+	<li> Cooperative
+	<li> Peer-to-peer
+	<li> Symmetric Multiprocessors
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Disabling interrupts on a CPU for a symmetric multiprocessors OS in order
+	to implement process/thread synchronization
+	<ol class="answer_list">
+	<li> is preferred over using TSL instructions.
+	<li> works, but is wasteful of the CPU resource.
+	<li> works, but only if caching is <strong>not</strong> used.
+	<li> does <strong>not</strong> work since interrupts on the other CPUs
+		aren't disabled.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> To safely implement process synchronization on a symmetric multiprocessors
+	OS, the minimal implementation must use a
+	<ol class="answer_list">
+	<li> simple TSL instruction.
+	<li> TSL instruction that also locks the system bus.
+	<li> TSL instruction that also locks the cache on the issuing CPU.
+	<li> TSL instruction that also locks the system bus and the cache
+		on the issuing CPU.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For a symmetric multiprocessor OS, the cache block holding a TSL lock
+	variable can bounce between different caches because
+	<ol class="answer_list">
+	<li> a failed request still writes the TSL lock variable, causing the
+		cache block to move, but since other variables in the critical
+		section are probably in the same cache block, the lock holder
+		will invalidate the block when the variables are written,
+		causing it to move back.
+	<li> the sleep and wakeup calls of the competing critical section
+		threads must alternate.
+	<li> the separate OS instances running on each CPU must continually
+		reinitialize their cache blocks to keep them synchronized with
+		the shared memory.
+	<li> the system bus is locked by the TSL instruction, requiring that
+		all cache blocks be reinitialized.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For a symmetric multiprocessor OS, the cache block holding a TSL lock
+	variable can bounce between different caches. This can be greatly
+	reduced, while maintaining the correctness and safety of the
+	critical sections, if
+	<ol class="answer_list">
+	<li> <strong>all</strong> caches are write-thru and snoop on the
+		system bus to determine if a cache block has been invalidated
+		by another cache's write-thru.
+	<li> the page frame in which the lock variable is located is pinned.
+	<li> the TSL instruction doesn't also (temporarily) disable the system
+		bus.
+	<li> processes/threads attempting to enter a TSL guarded critical
+		section check the value of the TSL lock variable first, and
+		only issue the TSL instruction if the lock variable value
+		indicates it is <strong>not</strong> locked.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The primary strategies for kernel thread scheduling on a symmetric
+	multiprocessor OS are
+	<ol class="answer_list">
+	<li> Cache sharing.
+	<li> Time sharing.
+	<li> (System) Bus sharing.
+	<li> Gang scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The primary strategies for kernel thread scheduling on a symmetric
+	multiprocessor OS are
+	<ol class="answer_list">
+	<li> (System) Bus sharing.
+	<li> Gang scheduling.
+	<li> Non-preemptive scheduling.
+	<li> Space sharing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The primary strategies for kernel thread scheduling on a symmetric
+	multiprocessor OS are
+	<ol class="answer_list">
+	<li> Cache sharing.
+	<li> (System) Bus sharing.
+	<li> Non-preemptive scheduling.
+	<li> Space sharing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which strategies for kernel thread scheduling on a symmetric
+	multiprocessor OS are best for multiple threads that need to
+	communicate with one another?
+	<ol class="answer_list">
+	<li> Cache sharing.
+	<li> Time sharing.
+	<li> (System) Bus sharing.
+	<li> Gang scheduling.
+	<li> Non-preemptive scheduling.
+	<li> Space sharing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which strategies for kernel thread scheduling on a symmetric
+	multiprocessor OS are best for reducing the amount of TLB and
+	cache data reloads?
+	<ol class="answer_list">
+	<li> Cache sharing.
+	<li> Time sharing.
+	<li> (System) Bus sharing.
+	<li> Gang scheduling.
+	<li> Non-preemptive scheduling.
+	<li> Space sharing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which type of kernel thread scheduling tries to schedule a thread on
+	the same CPU on which it very recently ran?
+	<ol class="answer_list">
+	<li> Smart scheduling.
+	<li> Quasi scheduling.
+	<li> Affinity scheduling.
+	<li> Non-preemptive scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which type of kernel thread scheduling will give a thread additional
+	time in the CPU if it currently holds a lock?
+	<ol class="answer_list">
+	<li> Smart scheduling.
+	<li> Preemptive scheduling.
+	<li> Affinity scheduling.
+	<li> Multi-queue scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The advantages of two-level scheduling are
+	<ol class="answer_list">
+	<li> roughly balances the load between CPUs on a symmetric
+		multiprocessor.
+	<li> leverages cache affinity.
+	<li> greatly reduces the chance that a thread holding a lock will
+		be preempted. 
+	<li> reduces contention on the ready list used for scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which type of scheduling assigns threads to CPUs, but a separate ready
+	list and scheduler dispatches threads to the CPU?
+	<ol class="answer_list">
+	<li> Smart scheduling.
+	<li> Two-level scheduling.
+	<li> Affinity scheduling.
+	<li> Gang scheduling.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Gang scheduling attempts to combine the benefits of
+	<ol class="answer_list">
+	<li> Smart scheduling.
+	<li> Affinity scheduling.
+	<li> Time sharing.
+	<li> Space sharing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are key elements of gang scheduling?
+	<ol class="answer_list">
+	<li> Thread groups are scheduled together.
+	<li> Each thread is scheduled to run on the same CPU that it ran on
+		last.
+	<li> All members of the thread group run at the same time on different
+		CPUs.
+	<li> All members of the thread group start and end their time slices
+		together.
+	<li> None of the above
+	</ol>
+</li><br/>

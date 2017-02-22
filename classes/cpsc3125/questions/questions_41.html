@@ -1,0 +1,102 @@
+<li> Which of the following are part of the 4 layers of I/O software?
+	<ol class="answer_list">
+	<li> Device controller firmware
+	<li> Interrupt handlers
+	<li> Device drivers
+	<li> User level I/O software
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An easy and efficient way to deal with I/O interrupts from devices is to
+	<ol class="answer_list">
+	<li> <strong>always</strong> use Direct Memory Access (DMA) for I/O
+		so that interrupts aren't generated.
+	<li> have the device driver block when I/O is initiated, so the
+		interrupt handler simply unblocks the driver when the interrupt
+		is received.
+	<li> let the device driver run as part of the OS so that a full
+		context switch isn't necessary when an interrupt unblocks a
+		device driver.
+	<li> combine the interrupt handler and device driver into a single
+		user level system call so that <strong>all</strong> parts of
+		the I/O software stack are run as a single unit.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Device driver code, particularly in the consumer market, is most commonly
+	<ol class="answer_list">
+	<li> installed on the device controller.
+	<li> compiled into the OS.
+	<li> dynamically loaded into the OS.
+	<li> no longer needed as all device manufacturers are moving to a
+		single standard API.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The device dependent code for performing I/O resides in which I/O software
+	layer(s)?
+	<ol class="answer_list">
+	<li> Device controller firmware
+	<li> Interrupt handlers
+	<li> Device drivers
+	<li> User level I/O software
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Devices drivers are
+	<ol class="answer_list">
+	<li> normally provided by the device manufacturer, but usually only
+		for the most popular OSs.
+	<li> <strong>always</strong> written to block during an I/O operation.
+	<li> often run as part of the OS kernel, to avoid the overhead of a
+		full context switch.
+	<li> coded using static variables to reduce the size of the run-time
+		stack, since the device driver only services one request at
+		a time.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following help make I/O software independent of the specific
+	device being used?
+	<ol class="answer_list">
+	<li> Using file names as the names for devices.
+	<li> Controlling access to devices through file ownership and access
+		permissions.
+	<li> Adherence to a common and uniform Application Programming
+		Interface (API).
+	<li> Enable user programs, via system calls, to access specialized
+		features of devices via manufacturer specific control codes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Device independent capabilities generally include mechanisms to control:
+	<ol class="answer_list">
+	<li> interrupt delay and timeouts.
+	<li> buffering.
+	<li> error reporting.
+	<li> device acquisition and release.
+	<li> the device data block size.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Spooling (simultaneous peripheral operations on-line) is a technique that
+	<ol class="answer_list">
+	<li> uses buffering to prevent slow devices (e.g., printers) from
+		making the CPU busy wait.
+	<li> allows non-shareable devices to be used serial, but appear to
+		user software as if they are being shared.
+	<li> is only used in conjunction with printing devices.
+	<li> uses a single program to operate a non-shareable device.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> System calls (e.g., read, write) and library routines (e.g., fprintf)
+	are provided by which I/O software layer.
+	<ol class="answer_list">
+	<li> Device controller firmware
+	<li> Interrupt handlers
+	<li> Device drivers
+	<li> User level I/O software
+	<li> None of the above
+	</ol>
+</li><br/>

@@ -1,0 +1,326 @@
+<li> A domain is a set of object-right pairs, in which the
+	<ol class="answer_list">
+	<li> object represents a resource (e.g., file, cpu, disk, software).
+	<li> object represents users and groups of users.
+	<li> right represents the permission to perform a specific operation.
+	<li> right represents one of ADD, DELETE, MODIFY.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When users (and processes) only have access to the resources (and
+	operations) necessary to complete a task, this is known as the
+	<ol class="answer_list">
+	<li> lowest access protocol.
+	<li> least common denominator.
+	<li> principle of necessary privilege.
+	<li> principle of least authority.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> With respect to file objects in a POSIX system, the rights are the
+	<ol class="answer_list">
+	<li> add, remove, modify operations allowed for the file owner.
+	<li> add, remove, modify operations allowed for the file owner
+		and everyone else.
+	<li> read, write, and execute operations allowed for the file owner.
+	<li> read, write, and execute operations allowed for the file owner,
+		the file's group, and everyone else.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The SETUID bit associated with files on a POSIX system are used to
+	<ol class="answer_list">
+	<li> execute the program file with the identity of the file's owner,
+		regardless of who executes the program file.
+	<li> ensure that the file is owned by the file's creator.
+	<li> enable the owner of a file to execute the program it holds.
+	<li> enable anyone to execute the program file.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The SETUID bit associated with files on a POSIX system can create a
+	secruity risk
+	<ol class="answer_list">
+	<li> because it enables someone other than the owner of a file to
+		delete or change the file.
+	<li> if the file owner has the same privileges as the superuser
+		(e.g., root or administrator accounts).
+	<li> since it allows users to change their identity whenever they
+		wish.
+	<li> when the file contains non-executable, but sensitive data.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If the protection matrix is drawn like the below, what information is
+	stored within the matrix locations? 
+<table border="1">
+<tr>
+	<th colspan="2" rowspan="2"></th>
+	<th colspan="8">Objects</th>
+</tr>
+<tr>
+	<th>File 1</th>
+	<th>File 2</th>
+	<th>...</th>
+	<th>File N</th>
+	<th>Domain 1</th>
+	<th>Domain 2</th>
+	<th>...</th>
+	<th>Domain D</th>
+</tr>
+<tr>
+	<th rowspan="4" style="vertical-align: middle">Subjects</th>
+	<th>Domain 1</th>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<th>Domain 2</th>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<th>...</th>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<th>Domain D</th>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</table>
+	<ol class="answer_list">
+	<li> Usernames that are the owners of the object within the subject
+		domain.
+	<li> 1 if the object is owned by the subject, and 0 otherwise.
+	<li> Operations the subject is allowed to perform on the object.
+	<li> Group names that contain both the (user) subject and which are
+		group owners of the object.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The objects within the protection matrix are most often associated with
+	<ol class="answer_list">
+	<li> users.
+	<li> groups of users.
+	<li> processes.
+	<li> files.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The subjects within the protection matrix are most often associated with
+	<ol class="answer_list">
+	<li> users.
+	<li> groups of users.
+	<li> processes.
+	<li> files.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Domains can appear both as objects and subjects within the protection
+	matrix in order to
+	<ol class="answer_list">
+	<li> allow domains to add, remove, or modify themselves.
+	<li> allow domains to add, remove, or modify other domains.
+	<li> support switching from one domain to another domain.
+	<li> enable domains to create new domains. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Because the protection matrix can be quite large, most systems don't
+	store it as a full matrix. When the matrix is stored as sparse
+	rows, it is called
+	<ol class="answer_list">
+	<li> an Object Permissions List.
+	<li> an Access Control List.
+	<li> a Capability List.
+	<li> a Subject Permissions List.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Because the protection matrix can be quite large, most systems don't
+	store it as a full matrix. When the matrix is stored as sparse
+	columns, it is called
+	<ol class="answer_list">
+	<li> an Object Permissions List.
+	<li> an Access Control List.
+	<li> a Capability List.
+	<li> a Subject Permissions List.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> POSIX systems typically store the protection matrix (using 9 bits to
+	store the permissions for 3 domain categories) as a version of
+	<ol class="answer_list">
+	<li> an Object Permissions List.
+	<li> an Access Control List.
+	<li> a Capability List.
+	<li> a Subject Permissions List.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following corresponds most closely to the storage of a
+	protection matrix using a Capability List?
+	<ol class="answer_list">
+	<li>
+<table border="1">
+<tr>
+<th>Write</th>
+<td>File 2: Domain 3, Domain 4</td>
+<td>File 5: Domain 7</td>
+</tr>
+</table>
+	<li>
+<table border="1">
+<tr>
+<th>File 2</th>
+<td>Domain 2: Write</td>
+<td>Domain D: Read/Write</td>
+</tr>
+</table>
+	<li>
+<table border="1">
+<tr>
+<th>Domain 2</th>
+<td>File 2: Write</td>
+<td>File N: Execute</td>
+<td>Domain D: Enter</td>
+</tr>
+</table>
+	<li>
+<table border="1">
+<tr>
+<th>File 3</th>
+<td>Read: Domain 4, Domain 7</td>
+<td>Write: Domain 5</td>
+</tr>
+</table>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following corresponds most closely to the storage of a
+	protection matrix using an Access Control List?
+	<ol class="answer_list">
+	<li>
+<table border="1">
+<tr>
+<th>Write</th>
+<td>File 2: Domain 3, Domain 4</td>
+<td>File 5: Domain 7</td>
+</tr>
+</table>
+	<li>
+<table border="1">
+<tr>
+<th>File 2</th>
+<td>Domain 2: Write</td>
+<td>Domain D: Read/Write</td>
+</tr>
+</table>
+	<li>
+<table border="1">
+<tr>
+<th>Domain 2</th>
+<td>File 2: Write</td>
+<td>File N: Execute</td>
+<td>Domain D: Enter</td>
+</tr>
+</table>
+	<li>
+<table border="1">
+<tr>
+<th>File 3</th>
+<td>Read: Domain 4, Domain 7</td>
+<td>Write: Domain 5</td>
+</tr>
+</table>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Additional advantage(s) that Capability Lists have over Access Control
+	Lists is that they are
+	<ol class="answer_list">
+	<li> themselves objects and can thus be referenced by other
+		Capability Lists.
+	<li> able to more easily add, delete, or change the rights to an
+		object by a specific subject.
+	<li> more efficient in allowing a process to exercise a specific right.
+	<li> able to revoke <strong>all</strong> rights to an object (by
+		<strong>all</strong> subjects) more quickly and easily.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Since Capability Lists are associated with (and "owned" by) subjects
+	(i.e., users), unlike Access Control Lists, they <strong>must</strong>
+	be protected from tampering otherwise
+	<ol class="answer_list">
+	<li> the subject of that Capability List could grant themselves
+		additional capabilities.
+	<li> anyone on the system could remove capabilities from other users.
+	<li> anyone on the system could remove subjects, even those they
+		didn't own.
+	<li> Capability Lists wouldn't be able to reference other Capability
+		Lists.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following ways in which Capability Lists are protected from
+	tampering?
+	<ol class="answer_list">
+	<li> Each user's login shell prevents that user from accessing their
+		own Capability List, even though they own it.
+	<li> Special hardware tag bits in memory to indicate which data are
+		part of a capability list.
+	<li> The Capability Lists are kept in the OS with no direct access by
+		subjects.
+	<li> A one-way hash function is used to prevent alteration, enabling
+		the Capability lists to be stored in user space.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If groups of subjects/users are <strong>not</strong> supported,
+	then Access Control Lists
+	<ol class="answer_list">
+	<li> can become very large if rights are granted to every user.
+	<li> <strong>must</strong> collect objects together into groups instead.
+	<li> are associated with each subject (to make access faster) rather
+		than with the corresponding object. 
+	<li> become extremely slow to use, so Capability Lists should be used
+		instead.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Access Control Lists enable rights to an object by a specific subject to
+	be easily
+	<ol class="answer_list">
+	<li> added.
+	<li> modified.
+	<li> deleted.
+	<li> None of the above
+	</ol>
+</li><br/>

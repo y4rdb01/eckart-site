@@ -1,0 +1,202 @@
+<li> The input redirection provided by the Unix "bash" shell enables
+	<ol class="answer_list">
+	<li> output from one command to be used as input to another command.
+	<li> the contents of a file to be fed as input to a command (as if
+		coming from the keyboard).
+	<li> keyboard input to be captured within a file.
+	<li> keyboard input to be fed directly to a running command.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are example(s) of input redirection using the Unix
+	"bash" shell, where "data_file" is the name of a file containing
+	input data and "command" is the name of a Unix executable?
+	<ol class="answer_list">
+	<li> data_file > command
+	<li> data_file | command
+	<li> command | data_file
+	<li> command < data_file
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The output redirection provided by the Unix "bash" shell enables
+	<ol class="answer_list">
+	<li> output from one command to be used as input to another command.
+	<li> the output of a command to be captured within a file.
+	<li> the output of a command to be displayed on the screen.
+	<li> keyboard "output" to be fed directly as input to a running command.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are example(s) of output redirection using the Unix
+	"bash" shell, where "data_file" is the name of an output file
+        and "command" is the name of a Unix executable?
+	<ol class="answer_list">
+	<li> data_file > command
+	<li> data_file | command
+	<li> command | data_file
+	<li> command < data_file
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Unix "bash" shell concept of pipe enables
+	<ol class="answer_list">
+	<li> the output of a command to be captured within a file.
+	<li> output from one command to be used as input to another command.
+	<li> the contents of a file to be fed as input to a command (as if
+		coming from the keyboard).
+	<li> both the input and output for a command to be associated with the
+		same file.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are example(s) of pipe(s) using the Unix
+	"bash" shell, where "data_file" is the name of a file containing
+        data and "command" is the name of a Unix executable?
+	<ol class="answer_list">
+	<li> data_file > command
+	<li> data_file | command
+	<li> command | data_file
+	<li> command < data_file
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following Unix "bash" shell expression uses which of these
+	capabilities, where "data_file" is the name of a file containing
+        data?
+<pre><code>
+	cmd_1 < data_file | cmd_2 | cmd_3
+</code></pre>
+	<ol class="answer_list">
+	<li> Input redirection
+	<li> Output redirection
+	<li> Pipe(s)
+	<li> The expression is illegal
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following Unix "bash" shell expression uses which of these
+	capabilities, where "data_file" is the name of a file that can
+        hold data?
+<pre><code>
+	cmd_1 | cmd_2 > data_file
+</code></pre>
+	<ol class="answer_list">
+	<li> Input redirection
+	<li> Output redirection
+	<li> Pipe(s)
+	<li> The expression is illegal
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following Unix "bash" shell expression uses which of these
+	capabilities, where "data_file_1" and "data_file_2" are the names
+        of files that can hold data?
+<pre><code>
+	cmd_1 < data_file_1 | cmd_2 | cmd_3 > data_file_2
+</code></pre>
+	<ol class="answer_list">
+	<li> Input redirection
+	<li> Output redirection
+	<li> Pipe(s)
+	<li> The expression is illegal
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The following Unix "bash" shell expression uses which of these
+	capabilities, where "data_file" is the name of a file containing
+        data?
+<pre><code>
+	data_file > cmd_1 | cmd_2
+</code></pre>
+	<ol class="answer_list">
+	<li> Input redirection
+	<li> Output redirection
+	<li> Pipe(s)
+	<li> The expression is illegal
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the Unix "bash" shell, to run a command in the background when it
+	is first started
+	<ol class="answer_list">
+	<li> put a "|" at the end of the command line.
+	<li> place a "&" at the end of the command line.
+	<li> put the parts of the command line to run in the background
+		between "<" and ">".
+	<li> put the parts of the command line to run in the background
+		between two "&".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the Unix "bash" shell, the job control action accomplished by
+	^c (ctl-c) is to
+	<ol class="answer_list">
+	<li> terminate the foreground process.
+	<li> terminate <strong>all</strong> background processes.
+	<li> suspend the foreground process.
+	<li> suspend <strong>all</strong> background processes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In the Unix "bash" shell, the job control action accomplished by
+	^z (ctl-z) is to
+	<ol class="answer_list">
+	<li> terminate the foreground process.
+	<li> terminate <strong>all</strong> background processes.
+	<li> suspend the foreground process.
+	<li> suspend <strong>all</strong> background processes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix "bash" shell command lists <strong>all</strong> (and only)
+	the child processes of the current shell execution?
+	<ol class="answer_list">
+	<li> ps
+	<li> list
+	<li> procs
+	<li> jobs
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix "bash" shell command causes a suspended/background process
+	to run in the foreground?
+	<ol class="answer_list">
+	<li> fore
+	<li> fg
+	<li> &
+	<li> job
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which Unix "bash" shell command causes a suspended process to run in the
+	background?
+	<ol class="answer_list">
+	<li> back
+	<li> bg
+	<li> &
+	<li> job
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> To get a listing of the signals which can be sent to a process in Unix,
+	use this command
+	<ol class="answer_list">
+	<li> signal -list
+	<li> kill -l
+	<li> proc -sig
+	<li> ps -l
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are true about Unix signals?
+	<ol class="answer_list">
+	<li> There is no mechanism to handle multiple signals of the same kind.
+	<li> If a process doesn't specify a handler for a signal, then the OS
+		will handle the signal using the default handler.
+	<li> All signals have the same priority.
+	<li> A process does <strong>not</strong> necessarily run immediately
+		in the CPU when a signal is sent to it.
+	<li> None of the above
+	</ol>
+</li><br/>

@@ -1,0 +1,292 @@
+<li> The primary kinds of devices are
+	<ol class="answer_list">
+	<li> character devices.
+	<li> linear devices.
+	<li> parallel devices.
+	<li> block devices.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What kind of device works with information in fixed size blocks and often
+	provides random access?
+	<ol class="answer_list">
+	<li> character devices.
+	<li> linear devices.
+	<li> parallel devices.
+	<li> block devices.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What kind of device works with information as a sequence of bytes and
+	only provides sequentially access?
+	<ol class="answer_list">
+	<li> character devices.
+	<li> linear devices.
+	<li> parallel devices.
+	<li> block devices.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What software interacts with the device controller to enable the OS to
+	utilize a device?
+	<ol class="answer_list">
+	<li> I/O interface
+	<li> Device driver
+	<li> Interrupt driver
+	<li> Control bus
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The primary nature of an I/O device is
+	<ol class="answer_list">
+	<li> mechanical and based on material properties. 
+	<li> electronic (circuits).
+	<li> software.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The primary nature of an device controller is
+	<ol class="answer_list">
+	<li> mechanical and based on material properties. 
+	<li> electronic (circuits).
+	<li> software.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The primary nature of an device driver is
+	<ol class="answer_list">
+	<li> mechanical and based on material properties. 
+	<li> electronic (circuits).
+	<li> software.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Each device controller
+	<ol class="answer_list">
+	<li> controls only a single device.
+	<li> may control many devices.
+	<li> communicates with its corresponding device driver.
+	<li> <strong>must</strong> have its own dedicated bus to both the CPU
+		and the Direct Memory Access (DMA) controller.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Devices controllers have
+	<ol class="answer_list">
+	<li> support for <strong>all</strong> types of devices, so that any
+		device can utilize any type of device controller.
+	<li> data buffers that can be written to or read from.
+	<li> control registers to communicate with the CPU.
+	<li> their own instruction sets that <strong>must</strong> be
+		supported by the CPU.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Port I/O, used by early computers,
+	<ol class="answer_list">
+	<li> assigns each control register to its corresponding I/O port.
+	<li> is very slow since large data transfers <strong>must</strong>
+		be done by reading/writing data in many small chunks (using
+		the control registers).
+	<li> the I/O ports are separate from memory (requiring protected
+		instructions to read/write the I/O ports).
+	<li> requires some portion of the device drivers to be written in
+		assembly.
+	<li> cannot use device drivers as the OS kernel <strong>must</strong>
+		directly control the device.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The advantages of Memory-Mapped I/O are
+	<ol class="answer_list">
+	<li> reduces the number of CPU executed instructions to put information
+		into control registers.
+	<li> ease of protecting the control registers by <strong>not</strong>
+		putting the mapped memory in a user accessible address space.
+	<li> data can be read/written directly to the device since the device
+		buffer is mapped to memory.
+	<li> device drivers can be written in a higher-level language (e.g.,
+		C) enabling them to be more portable.
+	<li> it makes effective use of both cached memory and the memory bus
+		between main memory and the CPU.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The drawbacks of Port I/O include:
+	<ol class="answer_list">
+	<li> very slow transfers of large data amounts since they
+		<strong>must</strong> read/write data in many small chunks
+		(using the control registers).
+	<li> the device controller data buffers cannot be utilized.
+	<li> increases the number of CPU executed instructions to communicate
+		with the device controller.
+	<li> access to the control registers <strong>must</strong> be
+		restricted/protected.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The drawbacks of Memory-Mapped I/O include:
+	<ol class="answer_list">
+	<li> caching <strong>must</strong> be disabled for memory mapped
+		control registers.
+	<li> the device controller data buffers cannot be utilized.
+	<li> increases the number of CPU executed instructions to communicate
+		with the device controller.
+	<li> the MMU <strong>must</strong> determine which bus to use
+		(based on the address) if there's a dedicated bus between
+		the CPU and main memory in addition to the system bus. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following uses the CPU to copy data into (or out of) memory
+	from a device (e.g., HDD) using a tight read/write loop?
+	<ol class="answer_list">
+	<li> Programmed I/O
+	<li> Memory-Mapped I/O
+	<li> Device to Device copy (D2D)
+	<li> Direct Memory Access (DMA)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following has the CPU setup and initiate the copying of
+	data into (or out of) memory, but the CPU is free to do other actions
+	while the copying occurs?
+	<ol class="answer_list">
+	<li> Programmed I/O
+	<li> Memory-Mapped I/O
+	<li> Device to Device copy (D2D)
+	<li> Direct Memory Access (DMA)
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a system has a Direct Memory Access (DMA) capability, the process of
+	writing a particular set of data directly to memory (or a device),
+	instead of going through the DMA, is called
+	<ol class="answer_list">
+	<li> burst mode.
+	<li> direct mode.
+	<li> fly-by mode.
+	<li> cycle stealing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When the Direct Memory Access (DMA) transfers a chunk of data a single
+	word at a time, by grabbing the system bus for short periods of time,
+	this is called
+	<ol class="answer_list">
+	<li> burst mode.
+	<li> direct mode.
+	<li> fly-by mode.
+	<li> cycle stealing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When the Direct Memory Access (DMA) transfers a chunk of data
+	<strong>all</strong> at once, this is called
+	<ol class="answer_list">
+	<li> burst mode.
+	<li> direct mode.
+	<li> fly-by mode.
+	<li> cycle stealing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following makes efficient use of the system bus when large
+	amounts of data <strong>must</strong> be transferred by the
+	Direct Memory Access (DMA) unit?
+	<ol class="answer_list">
+	<li> burst mode.
+	<li> direct mode.
+	<li> fly-by mode.
+	<li> cycle stealing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following makes efficient use of both the CPU and system bus
+        when a single word of data <strong>must</strong> be
+        transferred by the Direct Memory Access (DMA) unit?
+	<ol class="answer_list">
+	<li> burst mode.
+	<li> direct mode.
+	<li> fly-by mode.
+	<li> cycle stealing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Device controllers generate interrupts by
+	<ol class="answer_list">
+	<li> writing specific values to the control registers.
+	<li> having the CPU periodically check/ping each controller.
+	<li> using the Direct Memory Access (DMA) unit to write a special
+		value into a variable the OS kernel monitors.
+	<li> putting a specific signal on the system bus.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An interrupt is serviced only if
+	<ol class="answer_list">
+	<li> no other interrupts are currently being handled.
+	<li> there's no process currently running in the CPU.
+	<li> no higher-priority interrupts are simultaneously received.
+	<li> the system bus is currently operating in direct mode.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The value that the interrupt controller puts on the system bus address
+	lines represents
+	<ol class="answer_list">
+	<li> an index into the interrupt vector.
+	<li> the priority of the interrupt.
+	<li> the time-stamp of when the interrupt occurred.
+	<li> the beginning address of the interrupt handler.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The interrupt vector is an array that holds
+	<ol class="answer_list">
+	<li> the priorities of the different kinds of interrupts (the
+		interrupt number used as the array index).
+	<li> a list of the currently pending interrupts as a queue.
+	<li> references to the set of control registers associated with
+		the device that generates that interrupt (the interrupt
+		number is used as the array index). 
+	<li> the beginning address of the interrupt handler for
+		<strong>all</strong> possible interrupts (the interrupt number
+		is used as the array index).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When the interrupt controller handles an interrupt it 
+	<ol class="answer_list">
+	<li> interrupts the CPU.
+	<li> prompts the CPU to save the state of the current process
+		<em>before</em> running the interrupt handler.
+	<li> restores the state of the previous process to the CPU
+		<em>after</em> the interrupt handler finishes.
+	<li> runs the next process from the ready "queue"
+		<em>after</em> the interrupt handler finishes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Interrupts for which the instructions <em>before</em> the program counter
+	(PC) have <strong>all</strong> been completed and those
+	appearing <em>after</em> the PC have NOT been completed, are called
+	<ol class="answer_list">
+	<li> precision interrupts.
+	<li> precise interrupts.
+	<li> imprecise interrupts.
+	<li> ambiguous interrupts.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Interrupts for which some instructions <em>before</em> the PC may NOT
+	have completed, while some instructions <em>after</em> the PC may
+	been have completed, are called
+	<ol class="answer_list">
+	<li> precision interrupts.
+	<li> precise interrupts.
+	<li> imprecise interrupts.
+	<li> ambiguous interrupts.
+	<li> None of the above
+	</ol>
+</li><br/>

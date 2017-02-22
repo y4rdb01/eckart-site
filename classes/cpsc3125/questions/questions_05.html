@@ -1,0 +1,125 @@
+<li> The system calls that an OS makes available
+	<ol class="answer_list">
+	<li> can only be used by the OS.
+	<li> <strong>must never</strong> be used by the OS
+	<li> are the OS interface for user programs.
+	<li> are provided as a convenience, but aren't really necessary.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The difference(s) between a program and a process are
+	<ol class="answer_list">
+	<li> programs are static (non-executing).
+	<li> programs are <strong>never</strong> part of the operating system.
+	<li> processes also contain a run-time stack and program counter.
+	<li> processes make use of system calls, but programs don't.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A process
+	<ol class="answer_list">
+	<li> <strong>must</strong> use system calls to accomplish anything
+		useful.
+	<li> usually only directly communicates with its parent (or child)
+		process(es).
+	<li> may create a child process.
+	<li> cannot use system calls unless it is being run by the
+		administrator/root user.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a problem or unusual condition is encountered, a process can send
+	signals to other processes. Processes receiving a signal
+	<ol class="answer_list">
+	<li> are required to provide a signal handler.
+	<li> can specify specific functions to be called when a particular
+		type of signal is received.
+	<li> run the function named "sighand" to handle the signal.
+	<li> run the specified signal handler function, which takes over
+		execution when the signal is received. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Every process is limited by the restrictions placed upon it by the
+	OS as determined by the process' associated
+	<ol class="answer_list">
+	<li> programming language in which the code was written.
+	<li> program source code file.
+	<li> working directory in the file system.
+	<li> user identification (uid).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The address space of a process
+	<ol class="answer_list">
+	<li> is the size of the program file for the process.
+	<li> is the range of addressable bytes starting at 0 up to a maximum, 
+		usually 2^N - 1 (where N is the number of address bits).
+	<li> is the amount of main memory <em>initially</em>
+		requested/needed by the process.
+	<li> can be broken into smaller chunks so that programs larger than
+		the amount of main memory can be executed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> System calls <strong>must</strong> be used to create new
+	<ol class="answer_list">
+	<li> processes.
+	<li> user accounts.
+	<li> programs.
+	<li> files or directories.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Every process has an associated
+	<ol class="answer_list">
+	<li> system call for accessing it.
+	<li> working directory in the file system.
+	<li> user identification (uid).
+	<li> address space.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A file descriptor is a unsigned number that processes use to reference
+	(e.g., read, write)
+	<ol class="answer_list">
+	<li> files that the process currently has open.
+	<li> any file in the file system that the process is permitted to
+		access/open.
+	<li> entries in the process' table of active/open files.
+	<li> <strong>all</strong> directories with the same user
+		identification (uid) as the process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In addition to normal user files (e.g., text files) there are
+	also special files that enable
+	<ol class="answer_list">
+	<li> users to create new file systems.
+	<li> hard disk drives (HDDs) to look like files.
+	<li> keyboards and mice to look like files.
+	<li> processes to directly communicate with one another.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Every OS has an I/O subsystem that
+	<ol class="answer_list">
+	<li> implements the details of <strong>all</strong>
+		read/write operations.
+	<li> performs <strong>all</strong> of the cryptographic functions.
+	<li> manages the devices attached to the computer.
+	<li> enforces <strong>all</strong> of the OS security measures.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The command interpreter which provides the non-GUI interface to the OS is
+	<ol class="answer_list">
+	<li> an ordinary program that uses system calls to access the
+		capabilities of the OS.
+	<li> a special program that directly implements <strong>all</strong>
+		of the available commands.
+	<li> often called the "shell".
+	<li> unique, with each system having only one such program available.
+	<li> None of the above
+	</ol>
+</li><br/>

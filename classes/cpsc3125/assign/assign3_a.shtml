@@ -1,0 +1,119 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>CPSC 3125: Assignment #3</strong>
+</p>
+
+<hr>
+
+<p>
+You are to write a C program that will produce a list of N prime numbers,
+where N is specified on the command line.  Your program must use separate
+processes (<strong>not</strong> threads)
+so that P prime number candidates are always being considered, one by each
+of P worker processes.  The number of worker processes, P, is an optional
+command line argument
+and will appear second (last) on the command line if at all.  If P is not
+given on the command line, a default value of 3 should be used.
+</p>
+
+<p>
+Unlike the previous assignment, you will use <em>pipe</em>s to implement
+message passing between the parent (master) process and each of the worker
+processes. The master process sends different (and successive) candidate
+numbers to each worker process. The worker process then determines whether or
+not the candidate number is prime. If the candidate number is prime, then the
+worker sends the candidate number back to the master process (which adds it
+to a list of primes that it is keeping to be printed after all the desired
+primes have been found). However, if the candidate number is
+<strong>not</strong> prime, then the worker processes send the master process
+a -1 value, indicating that the worker is ready to consider another candidate
+number. The master process should <strong>not</strong> send a candidate
+number to a process that hasn't reported back on a previously assigned
+candidate to test for primality.
+</p>
+
+<p>
+Note that the master process is solely responsible for keeping track of the
+next candidate number (to test for primality) as well as the keeper of the
+list of currently verified prime numbers. This also means that you will need
+a pair of pipes between the master process and each worker process (for
+bi-directional communication). Since <em>scanf</em> blocks waiting for input,
+the master process may service the worker process messages in round-robin
+fashion. Thus the master may be waiting on a message from one worker while
+a message from another worker has already been received.
+</p>
+
+<p>
+As soon as the master process has N confirmed primes, then each of the worker
+processes should be <em>kill</em>ed and the list of N prime numbers printed
+(one prime number per line of output <strong>in sorted order</strong>).
+Your program should incorporate
+principles of good design, and you may use your choice of algorithm for
+determining the primality of a candidate.
+</p>
+
+<p>
+You are responsible for creating your own test data. It's a good idea to
+create your test cases first, building upon your test data, as this will
+help you with your development. Be sure to include a variety of "corner cases"
+to ensure that your program doesn't work for only "normal" data.
+Test driven development (TDD) is a good practice that you should cultivate.
+</p>
+
+</p>
+When testing, be sure to use lots of different examples.  In particular,
+if the value of N given on the command line is negative or zero.
+Your program should be reasonably robust.
+</p>
+
+<p>
+As always, be sure to use good indentation, descriptive constant, variable,
+type, function, procedure, and class names.  Use named constants when
+appropriate.  Also use good commenting style, remembering that the first
+thing in any program file should be a comment that gives a brief overview
+of what the file contains (and should do).  You might find these
+<a href="../../common/comment-guide.shtml">commenting guidelines</a> helpful.
+</p>
+
+<p>
+Finally, please only submit your source code file(s) for the assignment
+(e.g., primes.c). In particular, do <em>not</em> submit zip, jar, tar, or
+other collections/archives.
+</p>
+
+<p>
+<strong>Good luck!</strong>
+</p>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

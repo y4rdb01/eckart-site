@@ -1,0 +1,163 @@
+<li> Arrays in C are indexed starting with
+	<ol class="answer_list">
+	<li> -1
+	<li> 0
+	<li> 1
+	<li> the value indicated when they are declared. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The index given for an array reference in C
+	<ol class="answer_list">
+	<li> only needs to be checked at <em>compile time</em> to ensure that
+		it's within range. 
+	<li> is <strong>always</strong> checked at <em>run time</em> to ensure
+		that it's within range.
+	<li> <strong>never</strong> needs to be checked as it is
+		<strong>always</strong> within range.
+	<li> is <strong>not</strong> checked since it doesn't have to be
+		within its range.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A "string" value in C is really an array of type "char". So the
+	<ol class="answer_list">
+	<li> string value needs to be null terminated.
+	<li> array <strong>must</strong> be exactly as long as the desired
+		string.
+	<li> array should be at least one char longer than the desired string.
+	<li> programer <strong>must</strong> use another variable to keep
+		track of the length of the string.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If an array index in C is outside the bounds of the array, then
+	<ol class="answer_list">
+	<li> an error may or may not occur as a result of accessing the array
+		element.
+	<li> an error <strong>always</strong> occurs and the program stops
+		execution.
+	<li> there may or may not be accessible storage associated with
+		that array location.
+	<li> there is <strong>always</strong> accessible storage associated
+		with that array location.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The declaration of an array (e.g., variables, function formal parameters)
+	<strong>must always</strong> include the
+	<ol class="answer_list">
+	<li> starting index of the array.
+	<li> size of the array.
+	<li> corresponding "#define" declaration for the array size.
+	<li> type of the array elements.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Arrays in C
+	<ol class="answer_list">
+	<li> grow dynamically as more items are added (similar to
+		<em>ArrayList</em>s in Java).
+	<li> <strong>always</strong> have an associated length that can be
+		queried to determine the number of items in the array.
+	<li> are polymorphic, meaning that any mix of items can be stored in
+		the same array.
+	<li> are really just pointers to their item type (e.g., "int x[]" and
+		"int *x" are the same).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A pointer is another name for the
+	<ol class="answer_list">
+	<li> type of values that can be assigned to a variable.
+	<li> forward declaration of a function.
+	<li> declaration of a "struct"ure.
+	<li> address of the memory location holding a desired value.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, pointers are declared
+	<ol class="answer_list">
+	<li> only for declarations of arrays.
+	<li> by giving an asterisk (*) before the variable name declaration.
+	<li> by giving an ampersand (&) before the variable name declaration.
+	<li> for <strong>all</strong> formal parameters of functions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, if "x" and "y" are declared by "int x, *y;", then "y = &x;"
+	<ol class="answer_list">
+	<li> is undefined.
+	<li> assigns "y" the value of "x".
+	<li> makes "y" an alias for "x" so that any value assigned to one
+		is automatically assigned to the other.
+	<li> assigns "y" the memory address where the value for "x" is located.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> This array declaration in C, "char name[10];",
+	<ol class="answer_list">
+	<li> reserves 10 contiguous bytes (characters) of storage for "name".
+	<li> is equivalent to the declaration "string name;".
+	<li> declares "name" as a pointer to the reserved storage.
+	<li> declares each element of the array "name" as a pointer to a "char".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following declarations in C is equivalent to "char *var;"?
+	<ol class="answer_list">
+	<li> char &var;
+	<li> char var[10];
+	<li> char var[];
+	<li> char &var[];
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Strings in C are represented as an array of "char"acters
+	<ol class="answer_list">
+	<li> with the length kept separately so that the size of the string
+		is known (e.g., when printing).
+	<li> that are terminated by a null value to denote their end.
+	<li> and can be referenced via a "char"acter pointer (e.g., "char *").
+	<li> which are immutable, so that the value cannot be changed
+		(only copied).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The address operator in C, ampersand (&),
+	<ol class="answer_list">
+	<li> converts a variable into a pointer, so that "&y" makes "y" a
+		pointer to an "int" when "y" was declared via "int y;".
+	<li> is only used when passing parameters.
+	<li> returns the memory address of any expression it is applied to
+		(e.g., "&(2*x + 3)").
+	<li> returns the memory address of the variable it is applied to
+		(e.g., "&x").
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, if the following declaration/initialization is made,
+	"int *x = &y;", then "x++"
+	<ol class="answer_list">
+	<li> makes "x" point to the next address in memory (following "y")
+		that can hold an "int" value.
+	<li> is undefined and causes a compilation error.
+	<li> is defined but causes a run-time error.
+	<li> increases the value of "y" by 1.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Write a C program that takes a single command line argument and prints
+	"YES" if the argument is a palindrome, and "NO" otherwise. The
+	program should <strong>not</strong> declare any additional arrays
+	other than the one that is a parameter to "main".
+</li><br/>
+<li> Write a C program that reverses the input given to it. So that the last
+	character on the last line of input will be the first one printed.
+	You may assume that the input is no more than 2047 characters long.
+</li><br/>
+<li> Write a C program that reads floats from the input, calculates and prints
+	out their average, and indicates how many of the original values were
+	above and how many were below the average.
+	You may assume that there are no more than 2047 numbers in the input.
+</li><br/>

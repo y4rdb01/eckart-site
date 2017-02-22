@@ -1,0 +1,148 @@
+<li> Computer clocks and timers controlled by the OS are used to
+	<ol class="answer_list">
+	<li> support preemptive process/thread scheduling.
+	<li> control the speed at which the CPU performs instructions.
+	<li> time order independent (serializable) events.
+	<li> prevent any simultaneous actions occurring within the computer.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The computer clock hardware uses a crystal (tuned to a specific frequency) 
+	to
+	<ol class="answer_list">
+	<li> cause a special register to count down to 0, which then
+		generates an interrupt.
+	<li> cause a special register to count the number of ticks since the
+		epoch.
+	<li> directly generate timing interrupts for the computer.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Programmable clocks
+	<ol class="answer_list">
+	<li> can be used as a complete replacement for clock hardware.
+	<li> are able to generate periodic clock interrupts.
+	<li> read the special clock register value, and perform specific
+		actions when particular values are reached.
+	<li> alter the starting value of the special clock register to
+		control the interval between clock generated interrupts.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The calendar date and "wall" clock time are calculated
+	<ol class="answer_list">
+	<li> based on the number of clock ticks (usually in microseconds)
+		since a specific starting date and time.
+	<li> by keeping track of the years, days (0-365), hours (0-24),
+		minutes (0-60), and seconds (0-60)
+		that have elapsed based on regular clock interrupts. 
+	<li> on a daily (24 hour clock) basis at midnight, with the time each
+		day kept as a count of the microseconds since the last day.
+	<li> by contacting an internet based time keeping service whenever
+		the current date and time is needed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are <strong>not</strong> a usual responsibility
+	of a clock (device) driver?
+	<ol class="answer_list">
+	<li> preventing processes from running too long.
+	<li> collecting profiling and statistics information on processes.
+	<li> maintaining the time of day.
+	<li> providing watchdog timers.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are functionality often supported by
+	the clock (device) driver?
+	<ol class="answer_list">
+	<li> Polling of some input devices (e.g., mice, touch screens).
+	<li> CPU accounting.
+	<li> Software profiling.
+	<li> Watchdog timers.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> To keep track of the time of day, the OS typically
+	<ol class="answer_list">
+	<li> keeps track of the year, the day within the year, and
+		the number of milliseconds within the current day.
+	<li> keeps track of the year and counts the number of microseconds
+		 within the current year.
+	<li> keeps track of the year and counts the number of clock ticks
+		 within the current year.
+	<li> counts the number of clock ticks since the epoch.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Watchdog timers often use a direct procedure call rather than causing a
+	signal because
+	<ol class="answer_list">
+	<li> they are just another type of clock, and usually call an alarm
+		procedure that in turn generates the signal.
+	<li> as a special type of alarm, they are only used within the same
+		process.
+	<li> for user processes, it reduces the lag between the timer firing
+		and the associated work being performed.
+	<li> it's faster and the call is for kernel processes so the watchdog
+		doesn't need to do a context switch.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Alarms are set using a system call and are usually implemented as a
+	<ol class="answer_list">
+	<li> sorted queue of times when an interrupt should be generated.
+	<li> special register that holds the next alarm time. However, only
+		one alarm can be set/active at a time.
+	<li> separate process that the clock (device) driver signals on a
+		periodic basis.
+	<li> set of count down registers, with a separate register
+		corresponding to each alarm.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Alarms can be implemented using either absolute or relative times.
+	<ol class="answer_list">
+	<li> Absolute times are more accurate since using relative times allows
+		small inaccuracies in alarm activations to grow over time.
+	<li> Relative times are preferred since even the 64 bit registers of
+		modern computers are <strong>not always</strong> large enough
+		to hold the appropriate absolute time relative to the epoch.
+	<li> Relative times provide greater precision and accuracy than
+		absolute times.
+	<li> The are no advantages of using either absolute or relative times
+		over the other for implementing alarms.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A simple but less accurate way to implement CPU accounting for processes
+	is to have a single counter associated with each process in the
+	proc_table, incrementing the counter for the currently running process
+	whenever
+	<ol class="answer_list">
+	<li> an interrupt handler is started. The counter value divided by the
+		sum of <strong>all</strong> such values, is the proportion of
+		the CPU the process has used.
+	<li> the process uses its full time quantum. Charging the process 1.5
+		times the counter value.
+	<li> the process becomes blocked. Charging the process 0.5 times the
+		counter value.
+	<li> a clock tick occurs.  Charging the currently running process for
+		the full clock tick.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a timer with an additional, but different, frequency than the main
+	system timer is needed, and accuracy to within 20 microseconds is
+	sufficient, which of the following is an efficient solution?
+	<ol class="answer_list">
+	<li> Use an ALARM system call that resets every time it is triggered. 
+	<li> Have a separate process poll the system clock, triggering an
+		event when the desired (recurring) time interval is reached.
+	<li> Use a "soft timer" based on the frequent running of the OS
+		kernel to check for the desired time interval.
+	<li> Adjust the starting value of the programmable clock to correspond
+		to the alternate frequency.
+	<li> None of the above
+	</ol>
+</li><br/>

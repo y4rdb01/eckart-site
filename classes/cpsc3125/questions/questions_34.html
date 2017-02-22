@@ -1,0 +1,216 @@
+<li> File systems that have only a single directory of files, with no
+	sub-directory hierarchies
+	<ol class="answer_list">
+	<li> are called flat file systems.
+	<li> can accommodate larger files than a hierarchical file system.
+	<li> were being used until the mid-1980s.
+	<li> are in common use today, typically for USB flash drives.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The most common type of file system in use today are
+	<ol class="answer_list">
+	<li> flat file systems.
+	<li> linear file systems.
+	<li> indexed file systems.
+	<li> hierarchical file systems.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Hard links to files
+	<ol class="answer_list">
+	<li> require the file to be copied, with future changes to the
+		original being propigated to the copy.
+	<li> maintain a single copy of the file, but accessible from different
+		places/directories within the file system.
+	<li> use "copy on write" to maintain a single copy of the file until
+		a change is made.
+	<li> is the kind used when a file is first created.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Hard links to a directory, from within the current directory,
+	<ol class="answer_list">
+	<li> can be created <strong>without</strong> any issues.
+	<li> are only allowed when the directory being linked to is an
+		ancestor (i.e., occurs in the path of the current location).
+	<li> are only allowed when the directory being linked to is a
+		decendant (e.g., child, grandchild) of the current directory.
+	<li> are <strong>not</strong> allowed since this would create a
+		circular structure that wouldn't be freeable later.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Hard links can be used
+	<ol class="answer_list">
+	<li> to link to files on the same computer but in a different file
+		system.
+	<li> to link to remote files on different computer systems.
+	<li> only to link to files on the same computer, either in the same
+		or a different file system.
+	<li> only to link to files within the same physical file system.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Symbolic (soft) links to files and directories
+	<ol class="answer_list">
+	<li> can link to files and directories in different file
+		systems as well as on different computers.
+	<li> can link to non-existent files.
+	<li> are allowed to create circular structures (e.g., a directory
+		can have itself as its parent/child).
+	<li> are automatically deleted when the orignal file/directory is
+		removed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Absolute path names begin with a
+	<ol class="answer_list">
+	<li> "./" on both Unix/Linux and Windows systems.
+	<li> "../" on both Unix/Linux and Windows systems.
+	<li> slash (/) on Unix/Linux systems.
+	<li> drive letter (e.g., A:) on a Windows system.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Relative path names specify the location of a file or directory
+	<ol class="answer_list">
+	<li> starting from the current working directory.
+	<li> with respect to the root directory of the file system.
+	<li> relative to the user's home directory.
+	<li> starting from the directory where the program requesting the
+		file is located.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which POSIX call is used to create a new directory?
+	<ol class="answer_list">
+	<li> new
+	<li> mkdir
+	<li> dir
+	<li> create
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which POSIX call is used to delete an existing directory?
+	<ol class="answer_list">
+	<li> remove
+	<li> delete
+	<li> rmdir
+	<li> free
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which POSIX call is used to open a directory for examination?
+	<ol class="answer_list">
+	<li> find
+	<li> stat
+	<li> examine
+	<li> opendir
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which POSIX call is used to close a directory and ensure that any
+	changes to it are written back to the disk?
+	<ol class="answer_list">
+	<li> closedir
+	<li> flush
+	<li> finish
+	<li> done
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which POSIX call is used to change the name of a directory?
+	<ol class="answer_list">
+	<li> move
+	<li> rename
+	<li> chname
+	<li> chmod
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which POSIX call is used to create a new directory entry for an existing
+	file?
+	<ol class="answer_list">
+	<li> add2dir
+	<li> direntry
+	<li> link
+	<li> new
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which POSIX call is used to remove the directory entry for a file?
+	<ol class="answer_list">
+	<li> rmfile
+	<li> delete
+	<li> free
+	<li> unlink
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which POSIX call is used to change the current working directory?
+	<ol class="answer_list">
+	<li> pwd
+	<li> chdir
+	<li> cd
+	<li> go2dir
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The key difference(s) between hard links and soft/symbolic links are that
+	<ol class="answer_list">
+	<li> soft links allow files to be accessed randomly while hard linked
+		files are limited to sequential access. 
+	<li> soft links are implemented by software but hard links require
+		hardware support to be implemented.
+	<li> hard links point to a physical (disk) location while soft links
+		give the "directions" (i.e., path) to the linked file.
+	<li> hard links provide copy on write semantics whereas symbolic links
+		do <strong>not</strong>.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Deleting a soft link
+	<ol class="answer_list">
+	<li> <strong>always</strong> deletes the file that the link pointed to.
+	<li> will delete the file the link points to, but only if the file
+		is located on the same file system as the link.
+	<li> will delete the file the link points to, but only if this is
+		the last soft link to the file.
+	<li> <strong>never</strong> deletes the file that the link pointed to.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Deleting a hard link
+	<ol class="answer_list">
+	<li> <strong>always</strong> deletes the file that the link pointed to.
+	<li> will delete the file the link points to, but only if the file
+		is located on the same file system as the link.
+	<li> will delete the file the link points to, but only if this is
+		the last hard link to the file.
+	<li> <strong>never</strong> deletes the file that the link pointed to.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Soft links can point to files
+	<ol class="answer_list">
+	<li> but only when there's <strong>not</strong> another soft link
+		already pointing to them.
+	<li> but only when there's <strong>not</strong> a hard link already
+		pointing to them.
+	<li> that don't actually exist.
+	<li> on different file systems.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Hard links can point to files
+	<ol class="answer_list">
+	<li> but only when there's <strong>not</strong> a soft link already
+		pointing to them.
+	<li> but only when there's <strong>not</strong> another hard link
+		already pointing to them.
+	<li> that don't actually exist.
+	<li> on different file systems.
+	<li> None of the above
+	</ol>
+</li><br/>

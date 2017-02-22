@@ -1,0 +1,64 @@
+<li> The key issues for interprocess communication are
+	<ol class="answer_list">
+	<li> message passing.
+	<li> sharing information.
+	<li> semaphores.
+	<li> sequencing process interactions.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A race condition exists when
+	<ol class="answer_list">
+	<li> two or more processes share the same variable.
+	<li> only user space threads are used for multiprogramming.
+	<li> only kernel space threads are used for multiprogramming.
+	<li> different execution orderings of instructions in multiple
+		threads/processes can produce different results.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Race conditions can occur when
+	<ol class="answer_list">
+	<li> two or more threads/processes can read (but <strong>not</strong>
+		change) the same variable(s).
+	<li> two or more threads/processes can read and write the same
+		variable(s) via UNinterruptible actions.
+	<li> two or more threads/processes can read and write the same
+		variable(s) via interruptible actions.
+	<li> when there is a mix of user space and kernel space threads
+		within the same process, but no shared variable(s).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A critical section is a portion of executable code
+	<ol class="answer_list">
+	<li> that makes system calls.
+	<li> in which only one thread (or process) should be active at a time.
+	<li> that is protected by one or more semaphores.
+	<li> which is shared by multiple threads.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Critical sections should be as small as possible because
+	<ol class="answer_list">
+	<li> larger critical sections run more slowly.
+	<li> this reduces the amount of process blocking.
+	<li> there is a maximum code size for which semaphores will work.
+	<li> they <strong>must</strong> run completely through
+		<strong>without</strong> blocking.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following help to prevent difficulties when simultaneous
+	threads/processes share data?
+	<ol class="answer_list">
+	<li> No 2 threads/processes are in their critical sections at the
+		same time.
+	<li> No assumptions are made about process execution speeds.
+	<li> No thread/process should wait arbitrarily long to enter its
+		critical section.
+	<li> No thread/process outside its critical section should block other
+		threads/processes.
+	<li> None of the above
+	</ol>
+</li><br/>

@@ -1,0 +1,226 @@
+<li> A <em>buffer overflow</em> software bug enables an attacker to
+	<ol class="answer_list">
+	<li> read information outside the boundary of a data structure.
+	<li> write information outside the boundary of a data structure.
+	<li> calculate values that are too large to hold within a register.
+	<li> load in values from memory too large to hold within a register.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A <em>buffer overflow</em> software bug is only possible when
+	<ol class="answer_list">
+	<li> the program code is compiled directly into machine code.
+	<li> the compiled code is part of the OS kernel.
+	<li> the programming language run-time doesn't check variable
+		boundaries (e.g., array bounds).
+	<li> the computer system uses Direct Memory Access (DMA), which
+		can copy large blocks of data.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> <em>Buffer overflow</em> bugs are <strong>not</strong> possible in code
+	<ol class="answer_list">
+	<li> run on a POSIX compliant system.
+	<li> that doesn't use arrays.
+	<li> written in Java and run on a compliant JVM.
+	<li> that avoids using OS system calls.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The <em>Heartbleed</em> attack, in the OpenSSL library, exploits which
+	type of software bug?
+	<ol class="answer_list">
+	<li> Buffer Overflow
+	<li> Format String
+	<li> Dangling Reference
+	<li> Integer Overflow
+	<li> Command Injection
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> a helpful technique for
+	avoiding/defending against a <em>buffer overflow</em> bug?
+	<ol class="answer_list">
+	<li> Stack Canary
+	<li> Address Space Layout Randomization
+	<li> Data Execution Prevention
+	<li> Using strong run-time checked programming languages like Java.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Writing a random (but known) value just below the return address in a
+	function's run-time stack entry and checking it for changes before
+	returning from the function describes which buffer overflow
+	prevention/detection technique?
+	<ol class="answer_list">
+	<li> Stack Canary
+	<li> Address Space Layout Randomization
+	<li> Data Execution Prevention
+	<li> Using strong run-time checked programming languages like Java.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Preventing the execution of code stored in either the heap of the run-time
+	stack of a running process/thread, describes which buffer overflow
+	prevention/detection technique?
+	<ol class="answer_list">
+	<li> Stack Canary
+	<li> Address Space Layout Randomization
+	<li> Data Execution Prevention
+	<li> Using strong run-time checked programming languages like Java.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Locating the stack, heap, libraries, and other portions of the process
+	layout in different parts of the address space each time the program
+	is run, is an example which buffer overflow prevention/detection
+	technique?
+	<ol class="answer_list">
+	<li> Stack Canary
+	<li> Address Space Layout Randomization
+	<li> Data Execution Prevention
+	<li> Using strong run-time checked programming languages like Java.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Format string bugs enable attacks that
+	<ol class="answer_list">
+	<li> are a special kind of null reference attack.
+	<li> typically leverage unchecked user input.
+	<li> can disclose unauthorized data by printing beyond the bounds
+		of an array.
+	<li> are based on a software bug peculiar to C, which enables a
+		printf statement to change variable values.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is a helpful technique for
+	avoiding/defending against a <em>format string</em> bug?
+	<ol class="answer_list">
+	<li> Stack Canary
+	<li> Address Space Layout Randomization
+	<li> Data Execution Prevention
+	<li> Using strong run-time checked programming languages like Java.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Dangling references are created when
+	<ol class="answer_list">
+	<li> a function returns a pointer to one of its local variables as
+		its result.
+	<li> the language run-time does <strong>not</strong> provide
+		garbage collection.
+	<li> dynamic (heap) allocated memory is <strong>not</strong> freed
+		when it's no longer needed.
+	<li> a pointer to a deallocated heap object is retained.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Dangling references occur whenever
+	<ol class="answer_list">
+	<li> dynamic (heap) allocated memory is used.
+	<li> a variable holds the address of unallocated memory.
+	<li> dynamic (heap) allocated memory is <strong>not</strong> freed
+		when it's no longer needed.
+	<li> the language run-time does <strong>not</strong> provide
+		garbage collection.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A dangling reference bug can be exploited by
+	<ol class="answer_list">
+	<li> exhausting the amount of dynamic (heap) storage available.
+	<li> simply writing to the deallocated storage at any time.
+	<li> writing the dangling reference address to the storage it points
+		to, thus creating a circular structure.
+	<li> by changing an unrelated data structure when the deallocated
+		storage pointed to by the dangling reference is part of
+		a new dynamic (heap) allocation.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The <strong>best</strong> defense(s) against dangling reference bugs is to
+	<ol class="answer_list">
+	<li> <strong>always</strong> fill newly allocated dynamic
+		(heap) memory with zeros.
+	<li> use automatic garbage collection.
+	<li> disable the free/deallocate routine so that memory cannot be
+		reused.
+	<li> limit each object referenced by a pointer to be assigned at most
+		twice.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> (De)referencing a null pointer as a function to call usually causes an
+	error since there is no code at address 0 to run, but
+	<ol class="answer_list">
+	<li> if code is mapped to address 0 (e.g., by the <em>mmap</em> system
+		call), then the mapped code will be run instead of crashing.
+	<li> using garbage collection prevents dereferencing null pointers.
+	<li> it is <strong>not</strong> possible to use a pointer as a
+		function to call, except in assembly language, so this is
+		seldom a problem.
+	<li> this can be avoided by using a special (e.g., negative) value
+		to mark uninitialized pointers.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Integer Overflow bugs occur when
+	<ol class="answer_list">
+	<li> a number that is too large is loaded from memory into a register.
+	<li> a number that is too large is stored from a register into memory.
+	<li> the result of an integer operation (e.g., multiplication)
+		is larger than can be stored in a register, and
+		<strong>no</strong> error is generated.
+	<li> the result of an integer operation (e.g., multiplication)
+		is too large, writing beyond the intended variable space
+		(a specific form of the buffer overflow bug).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Command Injection occurs when
+	<ol class="answer_list">
+	<li> the input buffer overflows and writes new commands into the
+		program code.
+	<li> a null pointer is dereferenced and the 0th address has been mapped
+		to unauthorized code.
+	<li> a function call is passed a dangling reference as one of its
+		parameters.
+	<li> unsanitized user input is used as part of an executed action.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> SQL injection is one of the most common forms of command injection. For
+	the following SQL code, which value of <em>$input_name</em> would
+	cause a command injection <strong>without</strong> causing a SQL error?
+<pre>
+	SELECT BirthDate FROM PersonTable WHERE Name = '$input_name';
+</pre>
+	<ol class="answer_list">
+	<li> TRUNCATE TABLE PersonTable;
+	<li> 'TRUNCATE TABLE PersonTable'; --
+	<li> Joe TRUNCATE TABLE PersonTable;
+	<li> Joe'; TRUNCATE TABLE PersonTable; --
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Time of Check to Time of Use (TOCTOU) attacks
+	<ol class="answer_list">
+	<li> exploit the lack of semaphore use in most programs.
+	<li> leverage the race condition between checking that a use will be
+		valid and the actual use.
+	<li> are impossible to prevent since there will
+		<strong>always</strong> be a delay between checking the
+		legality of something and then actually doing it.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Time of Check to Time of Use (TOCTOU) attacks are enabled by
+	<ol class="answer_list">
+	<li> processing delays in the underlying file system(s).
+	<li> the use of preemptive scheduling.
+	<li> poor program design and coding.
+	<li> improperly designed application programming interfaces (APIs).
+	<li> None of the above
+	</ol>
+</li><br/>

@@ -1,0 +1,295 @@
+<li> Which of the following are a primary category of shared memory
+	multiprocessors?
+	<ol class="answer_list">
+	<li> Global Memory Access
+	<li> Non-uniform Memory Access
+	<li> Hierarchical Memory Access
+	<li> Uniform Memory Access
+	<li> Cached Memory Access
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are a primary category of shared memory
+	multiprocessors?
+	<ol class="answer_list">
+	<li> Global Memory Access
+	<li> Non-uniform Memory Access
+	<li> Hierarchical Memory Access
+	<li> Cached Memory Access
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are a primary category of shared memory
+	multiprocessors?
+	<ol class="answer_list">
+	<li> Global Memory Access
+	<li> Hierarchical Memory Access
+	<li> Uniform Memory Access
+	<li> Cached Memory Access
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When every memory word can be read as fast as any other memory word,
+	this is called
+	<ol class="answer_list">
+	<li> Global Memory Access
+	<li> Hierarchical Memory Access
+	<li> Cached Memory Access
+	<li> Uniform Memory Access
+	<li> Non-uniform Memory Access
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When some memory words can be read faster than other memory words,
+	this is called
+	<ol class="answer_list">
+	<li> Global Memory Access
+	<li> Hierarchical Memory Access
+	<li> Cached Memory Access
+	<li> Uniform Memory Access
+	<li> Non-uniform Memory Access
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A symmetric multiproccesor (SMP) system is an example of a
+	<ol class="answer_list">
+	<li> Bus-based Uniform Memory Access architecture (UMA).
+	<li> Bus-based Non-uniform Memory Access architecture (NUMA).
+	<li> Switch-based Uniform Memory Access architecture (UMA).
+	<li> Switch-based Non-uniform Memory Access architecture (NUMA).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The system architecture(s) that work well for a small number of CPUs
+	(< 4) but suffers too much contention as the number of CPUs becomes
+	larger (> 8) is/are
+	<ol class="answer_list">
+	<li> Bus-based Uniform Memory Access architecture (UMA).
+	<li> Bus-based Non-uniform Memory Access architecture (NUMA).
+	<li> Switch-based Uniform Memory Access architecture (UMA).
+	<li> Switch-based Non-uniform Memory Access architecture (NUMA).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A system architecture that divides memory up into smaller equal
+	sized chunks and uses an omega network to CPUs to memories is an
+	example of
+	<ol class="answer_list">
+	<li> Bus-based Uniform Memory Access architecture (UMA).
+	<li> Bus-based Non-uniform Memory Access architecture (NUMA).
+	<li> Switch-based Uniform Memory Access architecture (UMA).
+	<li> Switch-based Non-uniform Memory Access architecture (NUMA).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Contention on a bus-based uniform memory access architecture can be
+	reduced by
+	<ol class="answer_list">
+	<li> adding a small number of additional CPUs.
+	<li> increasing the size of the shared memory.
+	<li> adding a cache to each CPU.
+	<li> reducing the number of address lines on the bus. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A <em>write-thru cache</em> updates memory whenever a cache line is
+	modified.  To maintain cache coherency on a uniform memory access
+	architecture, the
+	<ol class="answer_list">
+	<li> cache doing the write-thru directly updates <strong>all</strong>
+		of the other caches as well.
+	<li> other caches should recognize the update on the system bus
+		and update themselves to reflect the change if they
+		hold the same data.
+	<li> cache doing the write-thru sends a signal out on the system bus
+		causing <strong>all</strong> other caches to be reread from
+		memory.
+	<li> system bus automatically updates any cache(s) containing the
+		same data.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Having caches that <em>snoop</em> on the bus is one way in which a
+	symmetric multiprocessor (SMP) system can
+	<ol class="answer_list">
+	<li> reduce bus contention.
+	<li> increase memory access speeds.
+	<li> synchronize different CPU caches.
+	<li> increase the bus' bandwidth. 
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A common <em>cache-coherence protocol</em> on a bus-based uniform
+	memory access architecture uses
+	<ol class="answer_list">
+	<li> write-thru cache
+	<li> shared CPU caching
+	<li> uniform access bus caching
+	<li> (bus) snooping
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The <em>coherency wall</em>, on a bus-based uniform memory access
+	architecture, refers to the point at which the
+	<ol class="answer_list">
+	<li> combined size of <strong>all</strong> the CPU caches is the
+		same as that of main memory.
+	<li> number of CPUs (and associated caches) causes too much contention
+		on the system bus for effective cache snooping to occur.
+	<li> cost of cache-coherence hardware negates the advantage of having
+		additional cores on a single CPU chip.
+	<li> bus contention for cache writes to memory is greater than the
+		number of collision free writes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The advantage(s) of using crossbar switching (over an omega network)
+	when connecting CPUs to memory chunks in a switch-based uniform memory
+	access architecture are
+	<ol class="answer_list">
+	<li> each CPU can access a different memory chunk at the same time
+		(reduced contention).
+	<li> the number of switches grows as O(n^2) where n is the number of
+		CPUs (and the number of memory chunks).
+	<li> in some situations, it is possible for mulitple CPUs to access
+		the same memory chunk.
+	<li> write-thru caches with snooping can be effectively implemented.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The disadvantage(s) of using crossbar switching (over an omega network)
+	when connecting CPUs to memory chunks in a switch-based uniform memory
+	access architecture are
+	<ol class="answer_list">
+	<li> not all of the CPUs can access a different memory chunk at the
+		same time.
+	<li> the number of switches grows as O(n^2) where n is the number of
+		CPUs (and the number of memory chunks).
+	<li> in some situations, it is possible for mulitple CPUs to access
+		the same memory chunk.
+	<li> write-thru caches with snooping cannot be effectively implemented.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The disadvantage(s) of using an omega network (over crossbar switching)
+	when connecting CPUs to memory chunks in a switch-based uniform memory
+	access architecture are
+	<ol class="answer_list">
+	<li> not all of the CPUs can access a different memory chunk at the
+		same time.
+	<li> the number of switches grows as O(n^2) where n is the number of
+		CPUs (and the number of memory chunks).
+	<li> in some situations, it is possible for mulitple CPUs to access
+		the same memory chunk.
+	<li> write-thru caches with snooping cannot be effectively implemented.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The advantage(s) of using an omega network (over crossbar switching)
+	when connecting CPUs to memory chunks in a switch-based uniform memory
+	access architecture are
+	<ol class="answer_list">
+	<li> each CPU can access a different memory chunk at the same time
+		(reduced contention).
+	<li> the number of switches grows as O(n^2) where n is the number of
+		CPUs (and the number of memory chunks).
+	<li> in some situations, it is possible for mulitple CPUs to access
+		the same memory chunk.
+	<li> write-thru caches with snooping can be effectively implemented.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Since memory references are often consecutive, one way to reduce memory
+	contention in a switch-based uniform memory access architecture that
+	is using an omega network, is to
+	<ol class="answer_list">
+	<li> read data from memory in large chunks (e.g., 4K).
+	<li> write data to memory in large chunks (e.g., 4K).
+	<li> interleave the data between the memory chunks (i.e., consecutive
+		memory words appear in consecutive memory modules). 
+	<li> use snooping caches, but without write-thrus.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Unlike a crossbar switch, a CPU connecting to a memory chunk in an
+	omega network
+	<ol class="answer_list">
+	<li> will almost always be connected through multiple (rather than
+		a single) switch.
+	<li> will <strong>always</strong> be connected through a single
+		(rather than multiple) switch.
+	<li> has lower latency if the same speed switches are used.
+	<li> prevents any other CPU from accessing at least some other memory
+		chunk(s).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Unlike an omega network, a CPU connecting to a memory chunk in using a
+	crossbar switch
+	<ol class="answer_list">
+	<li> will almost always be connected through multiple (rather than
+		a single) switch.
+	<li> will <strong>always</strong> be connected through a single
+		(rather than multiple) switch.
+	<li> has lower latency if the same speed switches are used.
+	<li> prevents any other CPU from accessing at least some other memory
+		chunk(s).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Non-uniform memory access architectures with locally cached memory
+	values, are commonly implemented using a
+	<ol class="answer_list">
+	<li> single global file system, with different directories in the
+		file system corresponding to each of the different nodes
+		(and their memory values).
+	<li> database at each node that keeps track of which caches have
+		copies of the data from this node's memory.
+	<li> message broadcast to <strong>all</strong> nodes, with the first
+		positive response being used for reads (while writes require
+		no response).
+	<li> separate dedicated bus for each grouping of 2-6 nodes, with a
+		crossbar switch connecting the groups to one another.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A non-uniform memory access architecture divides the memory up into
+	chunks just like for uniform memory access systems, except that
+	<ol class="answer_list">
+	<li> individual memory chunks are directly associated with a
+		single CPU (forming a node).
+	<li> accessing the local memory on a node is faster than accessing
+		remote memory (memory associated with another node).
+	<li> local (node) memory is really just a form of cache, with a single
+		global memory used to store most values.
+	<li> each of the local node memories <strong>must</strong> be of
+		different sizes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Gustafson's law indicates the
+	<ol class="answer_list">
+	<li> degree of attainable speedup as the problem size grows (with no
+		limit to the number of processors that can be used).
+	<li> minimum number of memory references (reads and writes) necessary
+		to solve a problem on a set of N nodes.
+	<li> minimum number of CPU "instructions" necessary to solve a problem
+		on a set of N nodes.
+	<li> maximum degree of speedup possible (with no limit to the number
+		of processors that can be used) for a fixed sized problem.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Amdahl's law indicates the
+	<ol class="answer_list">
+	<li> degree of attainable speedup as the problem size grows (with no
+		limit to the number of processors that can be used).
+	<li> minimum number of memory references (reads and writes) necessary
+		to solve a problem on a set of N nodes.
+	<li> minimum number of CPU "instructions" necessary to solve a problem
+		on a set of N nodes.
+	<li> maximum degree of speedup possible (with no limit to the number
+		of processors that can be used) for a fixed sized problem.
+	<li> None of the above
+	</ol>
+</li><br/>

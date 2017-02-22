@@ -1,0 +1,97 @@
+<li> Allowing processes to disable interrupts to prevent their being interrupted
+	while in their critical section(s) is <strong>not</strong> a desirable
+	solution since
+	<ol class="answer_list">
+	<li> it requires process threads to run in kernel space.
+	<li> it requires process threads to run in user space.
+	<li> a user program could use this to hog the CPU.
+	<li> it fails to work if there are multiple CPUs.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Strict alternation of processes can be accomplished by setting and
+	repeatedly checking a shared variable (i.e., spin locking), but this
+	<ol class="answer_list">
+	<li> is only suitable if the expected wait time is very short.
+	<li> solution only works for two processes (or threads).
+	<li> solution only works if there is only a single CPU involved.
+	<li> is wasteful of the CPU resource.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Peterson's solution uses what mechanism(s) to implement mutual exclusion
+	for a critical section?
+	<ol class="answer_list">
+	<li> disabling interrupts.
+	<li> kernel space threads.
+	<li> lock variable(s).
+	<li> busy waiting.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A test and set instruction is special because it
+	<ol class="answer_list">
+	<li> runs with interrupts disabled.
+	<li> does the value copy and set as a single indivisible action.
+	<li> works by performing the busy wait within a single instruction.
+	<li> locks the memory bus (for multiple CPU systems).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The priority inversion problem occurs when a busy waiting solution
+	for critical section access is used and
+	<ol class="answer_list">
+	<li> the busy waiting process/thread has a higher priority.
+	<li> the busy waiting process/thread has a lower priority.
+	<li> the busy waiting process/thread is a user space thread.
+	<li> the busy waiting process/thread is a kernel space thread.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Fill in the rest of the code that implements Peterson's solution:
+<pre><code>
+	int turn;
+	int interested[2];	// Solution for 2 processes.
+
+	void enterRegion(int process) {
+		int other = 1 - process;	// Other process.
+
+		// Missing Code
+
+	}
+
+	void leaveRegion(int process) {
+		interested[process] = 0;	// process NOT interested.
+	}
+</code></pre>
+</li><br/>
+<li> The key feature(s) of the TSL instruction which allows it to implement
+	critical section access is
+	<ol class="answer_list">
+	<li> only being callable by the OS (and <strong>not</strong> by user
+		programs).
+	<li> saving the current value of a register while the register's
+		value is set to a new value.
+	<li> blocks if the value being assigned is different from the current
+		value of the register.
+	<li> that it is atomic (i.e., cannot be interrupted once begun).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Fill in the rest of the code that implements a busy-waiting solution using
+	the TSL (test and set lock) instruction:
+<pre><code>
+	enterRegion:
+
+		// Missing Code
+
+		JNE enterRegion ; if register N isn't 0 then loop ("lock" was set)
+		RET		; if register N is 0 then enter critical section
+
+	leaveRegion:
+
+		// Missing Code
+
+		RET
+</code></pre>
+</li><br/>

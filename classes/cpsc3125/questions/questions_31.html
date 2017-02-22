@@ -1,0 +1,200 @@
+<li> A global allocation policy, with respect to page replacement, is one in
+	which the page frames considered for eviction are associated with
+	<ol class="answer_list">
+	<li> the process that generated the page fault.
+	<li> most (generally all) processes.
+	<li> only those processes in the ready state.
+	<li> the process that generated the page fault along with
+		<strong>all</strong> of its child processes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An advantage that a global allocation policy (GAP) generally has over
+	a local allocation policy (LAP) is that
+	<ol class="answer_list">
+	<li> GAP increases the likelihood of thrashing.
+	<li> LAP increases the likelihood of thrashing.
+	<li> LAP can easily increase/decrease the number of virtual pages in
+		physical memory for a process.
+	<li> GAP can easily increase/decrease the number of virtual pages in
+		physical memory for a process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A global allocation policy can cause thrashing if
+	<ol class="answer_list">
+	<li> the combined virtual address space of <strong>all</strong>
+		processes is 10x larger than physical memory.
+	<li> the pages for a process are nearly always modified.
+	<li> a process' pages are evicted by the time it acquires the CPU.
+	<li> demand paging is also used.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A local allocation policy can cause thrashing if
+	<ol class="answer_list">
+	<li> the combined virtual address space of <strong>all</strong>
+		processes is 10x larger than physical memory.
+	<li> the pages for a process are nearly always modified.
+	<li> demand paging is also used.
+	<li> a process' working set is too small.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following is <strong>not</strong> a way to effectively
+	deal with thrashing while the computer is running?
+	<ol class="answer_list">
+	<li> Swapping a process out to disk and giving its page frames
+		to one or more of the processes left.
+	<li> Add additional physical memory to the computer system.
+	<li> Temporarily "block" the creation of any new processes if the
+		combined working sets of existing processes is close to
+		or exceeds the size of physical memory.
+	<li> Increase the working set of <strong>all</strong> processes to
+		ensure the virtual pages they need will be in page frames
+		when the process gets the CPU.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> On average, the last page of a "segment" containing code or data will
+	be half full. This is a reason to choose
+	<ol class="answer_list">
+	<li> smaller page sizes.
+	<li> larger page sizes.
+	<li> page sizes that are <strong>always</strong> a power of 2.
+	<li> half sized pages (so the last one will be closer to full).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Because the page table grows as the number of pages grows, this is a
+	reason to use
+	<ol class="answer_list">
+	<li> smaller page sizes.
+	<li> larger page sizes.
+	<li> any page size since the page table size doesn't matter.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Although the 4KB page size remains the most commonly used page size,
+	IEEE published results suggest that a more appropriate page size
+	would be
+	<ol class="answer_list">
+	<li> 2KB
+	<li> 8KB
+	<li> 16KB
+	<li> 32KB
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> While large 32 and 64 bit virtual address spaces make this less
+	necessary, having separate address spaces for code and data can
+	still be useful
+	<ol class="answer_list">
+	<li> for page replacement, so that only virtual pages containing data
+		could be loaded into a page frame already holding data (and
+		similarly for code/instructions).
+	<li> to reduce the working set size of processes.
+	<li> to prevent thrashing.
+	<li> for parts of the memory hierarch (e.g., caches) which are small
+		in size.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Apart from interprocess communication, it's possible for different
+	processes to share the same memory page (i.e., page frame) if
+	<ol class="answer_list">
+	<li> the page is read only.
+	<li> any attempted modification to the page causes a copy to be made
+		(and modified) for the writing process.
+	<li> the pages are part of a shared library.
+	<li> when one of the sharing processes is swapped out (or finishes)
+		that the shared pages aren't also evicted.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a change to a shared page causes a copy of the page to
+	first be made, and then the change made to the copy, this is called
+	<ol class="answer_list">
+	<li> write through.
+	<li> copy on write.
+	<li> writable copying.
+	<li> page duping.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Compared to statically linked executables, shared libraries
+	<ol class="answer_list">
+	<li> decreases the demands on physical memory, allowing more
+		processes to execute.
+	<li> enable programs to use updated libraries <strong>without</strong>
+		being recompiled.
+	<li> often reduce the size of executable programs.
+	<li> reduce the chance of thrashing.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Shared libraries and shared memory pages are
+	<ol class="answer_list">
+	<li> related because the code corresponding to a shared library is
+		often held in a shared memory page.
+	<li> interdependent since shared memory pages only exist for
+		implementing shared libraries.
+	<li> completely different since the code for shared libraries is
+		statically linked to each program separately at compile time
+		while shared memory pages are assigned at run-time.
+	<li> there is no relationship except that both can be shared by
+		multiple processes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> <em>Position independent-code</em> is used to solve the problem of using
+	absolute addressing for shared libraries since
+	<ol class="answer_list">
+	<li> different processes could load the shared library at different
+		locations in their virtual address spaces.
+	<li> base offset addressing cannot be used because the offsets will
+		be different for each process.
+	<li> the page table entries of the sharing processes may each point to
+		different page frames.
+	<li> the combined size of the libraries and program code could be
+		larger than physical memory.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> <em>Mapped files</em> enable processes to work with files as if they
+	were large character arrays by 
+	<ol class="answer_list">
+	<li> copying the file contents to shared memory page frames.
+	<li> redirecting the file contents as input to the process.
+	<li> mapping the file to the virtual address space for the process.
+	<li> using pipes to stream the data from the file to the process.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Having multiple processes share the same mapped file, enables
+	<ol class="answer_list">
+	<li> the file to be larger than it would if only mapped by a single
+		process.
+	<li> a larger number of processes to be executing at once.
+	<li> mutual exclusion on the critical sections of each process.
+	<li> fast interprocess communication.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Because page replacement algorithms <strong>must</strong> write modified
+	page frames back to disk before loading in another virtual page, thus
+	slowing down the resolution of a page fault,
+	<ol class="answer_list">
+	<li> many page replacement algorithms give preference to UNmodified
+		pages over modified pages.
+	<li> page modifications are often implemented as <em>write-through</em>
+		so that the dirty page is immediately written out to disk after
+		each change.
+	<li> a <em>paging daemon</em> can be used as a background process to
+		write dirty pages back to disk, reducing the number of dirty
+		page frames.
+	<li> the frequency of page modifications is reduced by translating
+		writes to the page directly into writes out to the disk.
+	<li> None of the above
+	</ol>
+</li><br/>

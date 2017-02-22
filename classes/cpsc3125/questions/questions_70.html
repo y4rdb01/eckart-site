@@ -1,0 +1,139 @@
+<li> For a type 1 hypervisor, which of the following would be running in
+	kernel mode?
+	<ol class="answer_list">
+	<li> User process
+	<li> Guest OS
+	<li> Virtual Machine (VM)
+	<li> Type 1 Hypervisor
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For a type 1 hypervisor, which of the following would be running in
+	user mode within the hypervisor?
+	<ol class="answer_list">
+	<li> User process
+	<li> Guest OS
+	<li> Virtual Machine (VM)
+	<li> Type 1 Hypervisor
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For a type 1 hypervisor, which of the following would be running in
+	virtual kernel mode within the virtual machine?
+	<ol class="answer_list">
+	<li> User process
+	<li> Guest OS
+	<li> Virtual Machine (VM)
+	<li> Type 1 Hypervisor
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> For a type 1 hypervisor, which of the following would be running in
+	virtual user mode within the virtual machine?
+	<ol class="answer_list">
+	<li> User process
+	<li> Guest OS
+	<li> Virtual Machine (VM)
+	<li> Type 1 Hypervisor
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a VM on a type 1 hypervisor receives a sensitive instruction
+	(from a user process) to execute, and the CPU supports virtualization
+	technology, then
+	<ol class="answer_list">
+	<li> the instruction is carried out by the hypervisor on behalf
+		of the guest OS.
+	<li> the hypervisor emulates what the hardware would do if the
+		sensitive (and priveleged) instruction was executed on the
+		hardware in user mode.
+	<li> the instruction is ignored (i.e., treated as a NOP - No Operation).
+	<li> the instruction fails and the calling process crashes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a VM on a type 1 hypervisor receives a sensitive instruction
+	(from the guest OS) to execute, and the CPU supports virtualization
+	technology, then
+	<ol class="answer_list">
+	<li> the instruction is carried out by the hypervisor on behalf
+		of the guest OS.
+	<li> the hypervisor emulates what the hardware would do if the
+		sensitive (and priveleged) instruction was executed on the
+		hardware in user mode.
+	<li> the instruction is ignored (i.e., treated as a NOP - No Operation).
+	<li> the instruction fails and the calling process crashes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a VM on a type 1 hypervisor receives a sensitive instruction
+	to execute, and the CPU does <strong>not</strong> support
+	virtualization technology, then
+	<ol class="answer_list">
+	<li> the instruction is carried out by the hypervisor on behalf
+		of the guest OS.
+	<li> the hypervisor emulates what the hardware would do if the
+		sensitive (and priveleged) instruction was executed on the
+		hardware in user mode.
+	<li> the instruction is ignored (i.e., treated as a NOP - No Operation).
+	<li> the instruction fails and the calling process crashes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A <em>basic block</em> is
+	<ol class="answer_list">
+	<li> the body of a function, procedure, or method.
+	<li> a block of code that always starts at the top/beginning, but
+		can have multiple branches (i.e., JMP) so long as they
+		all jump to a label that is the last instruction in the block.
+		instruction.
+	<li> a straight-line code that ends with a brank (i.e., JMP)
+	<li> any structured programming element that has a single point of
+		entry and a single point of exit.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Before virtualization technology was available on the x86 CPU
+	architecture, its 4 rings of protected execution modes were used
+	by type 1 hypervisors
+	<ol class="answer_list">
+	<li> to separate the hypervisor, guest OS, and user processes
+		from one another based on priviledge by running them in
+		rings 0, 1, and 3 respectively.
+	<li> for preventing virtual machines from interfering with one
+		another, with each guest OS running in a different ring
+		(so the hypervisor was limited to a maximum of 4 VMs).
+	<li> to ensure secure communications between the hypervisor and
+		VMs (running in ring 0), preventing the user processes
+		(running in ring 1) from "ease dropping".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> To perform binary translation, a hypervisor examines each basic block
+	and
+	<ol class="answer_list">
+	<li> interprets <strong>all</strong> of the instructions in the
+		block before examining the next basic block.
+	<li> if it contains any sensitive instructions, replaces them with
+		calls to the corresponding hypervisor routines.
+	<li> replaces the branch instruction(s) with a call into the
+		hypervisor (so that it can examine and rewrite the next
+		basic block).
+	<li> caches any translated code to avoid having to redo the
+		translation.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Using modern virtualization technology (VT) hardware
+	<ol class="answer_list">
+	<li> <strong>always</strong> yields faster execution times than
+		binary translation.
+	<li> can sometimes be slower (in the long-term) than binary
+		translation.
+	<li> creates additional overhead since the generated traps will
+		tend to crowd out needed entries in the TLB and caches.
+	<li> enables hypervisor functionality that are not possible with
+		the binary translation approach.
+	<li> None of the above
+	</ol>
+</li><br/>

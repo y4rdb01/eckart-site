@@ -1,0 +1,142 @@
+<li> Dynamic deadlock avoidance assumes that
+	<ol class="answer_list">
+	<li> it is possible to preempt an otherwise non-preemptable resource
+		if deadlock would otherwise occur.
+	<li> the resource needs of a process can be changed by the OS.
+	<li> processes can be terminated if their resource request would 
+		cause a deadlock.
+	<li> there exists a resource allocation that would allow
+		<strong>all</strong> current processes to complete.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> An <em>UNsafe state</em> with respect to dynamic avoidance of deadlock is
+	one in which
+	<ol class="answer_list">
+	<li> there exists one or more resource allocation scenarios that
+		allow some (but not all) processes to complete.
+	<li> there exists at least one resource allocation scenario that
+		would prevent <strong>all</strong> processes from completing.
+	<li> no resource allocation scenario guarantees <strong>all</strong>
+		processes will complete.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A <em>safe state</em> with respect to dynamic avoidance of deadlock is
+	one in which
+	<ol class="answer_list">
+	<li> <strong>all</strong> resource allocation scenarios allow
+		<strong>all</strong> processes to complete.
+	<li> there exists one or more resource allocation scenarios that
+		allow some (but not all) processes to complete.
+	<li> there exists at least one resource allocation scenario that
+		would allow <strong>all</strong> processes to complete.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> If a set of processes and resources is in an <em>UNsafe state</em> with
+	respect to deadlock, then deadlock
+	<ol class="answer_list">
+	<li> is guaranteed to occur eventually.
+	<li> will occur if <strong>all</strong> processes use their maximum
+		required resources.
+	<li> may still be avoided if some processes use less than their
+		maximum required resources.
+	<li> can <strong>always</strong> be avoided by withholding additional
+		resources from one or more processes.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Banker's algorithm for dynamic deadlock avoidance requires that
+	<ol class="answer_list">
+	<li> there <strong>always</strong> be sufficient
+		resources available to meet <strong>all</strong> processes'
+		maximum requests simultaneously.
+	<li> there <strong>always</strong> be sufficient
+		resources available to meet at least one process' maximum
+		request.
+	<li> the minimum resource needs of <strong>all</strong>
+		processes be known beforehand.
+	<li> the maximum resource needs of <strong>all</strong>
+		processes be known beforehand.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Banker's algorithm for dynamic deadlock avoidance is most applicable
+	to batch processing because
+	<ol class="answer_list">
+	<li> preemptive scheduling is <strong>not</strong> generally used.
+	<li> virtual memory is <strong>never</strong> used.
+	<li> the running time for each process is known from previous
+		executions.
+	<li> the processes and their maximum resource needs are typically
+		known beforehand.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> With respect to the Banker's algorithm, assuming the bank started with
+	100 units of resource, what is true about the system given the
+	following situation?
+	<blockquote>
+	<table style="text-align: center">
+	<tr><th></th><th colspan="2">Allocation</th></tr>
+	<tr><th>Process</th><th>Maximum<br/>Possible</th><th>Current</th></tr>
+	<tr><td>A</td><td>10</td><td>5</td></tr>
+	<tr><td>B</td><td>20</td><td>10</td></tr>
+	<tr><td>C</td><td>30</td><td>15</td></tr>
+	<tr><td>D</td><td>40</td><td>20</td></tr>
+	</table>
+	</blockquote>
+	<ol class="answer_list">
+	<li> The system cannot become deadlocked.
+	<li> The system is in a safe state.
+	<li> The system is in an UNsafe state.
+	<li> The system is deadlocked if <strong>all</strong>
+		processes need even one additional resource.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> With respect to the Banker's algorithm, assuming the bank started with
+	60 units of resource, what is true about the system given the
+	following situation?
+	<blockquote>
+	<table style="text-align: center">
+	<tr><th></th><th colspan="2">Allocation</th></tr>
+	<tr><th>Process</th><th>Maximum<br/>Possible</th><th>Current</th></tr>
+	<tr><td>A</td><td>10</td><td>5</td></tr>
+	<tr><td>B</td><td>20</td><td>10</td></tr>
+	<tr><td>C</td><td>30</td><td>15</td></tr>
+	<tr><td>D</td><td>40</td><td>20</td></tr>
+	</table>
+	</blockquote>
+	<ol class="answer_list">
+	<li> The system cannot become deadlocked.
+	<li> The system is in a safe state.
+	<li> The system is in an UNsafe state.
+	<li> The system is deadlocked if <strong>all</strong>
+		processes need even one additional resource.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> With respect to the Banker's algorithm, assuming the bank started with
+	50 units of resource, what is true about the system given the
+	following situation?
+	<blockquote>
+	<table style="text-align: center">
+	<tr><th></th><th colspan="2">Allocation</th></tr>
+	<tr><th>Process</th><th>Maximum<br/>Possible</th><th>Current</th></tr>
+	<tr><td>A</td><td>10</td><td>5</td></tr>
+	<tr><td>B</td><td>20</td><td>10</td></tr>
+	<tr><td>C</td><td>30</td><td>15</td></tr>
+	<tr><td>D</td><td>40</td><td>20</td></tr>
+	</table>
+	</blockquote>
+	<ol class="answer_list">
+	<li> The system cannot become deadlocked.
+	<li> The system is in a safe state.
+	<li> The system is in an UNsafe state.
+	<li> The system is deadlocked if <strong>all</strong>
+		processes need even one additional resource.
+	<li> None of the above
+	</ol>
+</li><br/>

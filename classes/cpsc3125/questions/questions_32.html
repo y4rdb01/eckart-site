@@ -1,0 +1,157 @@
+<li> When the OS creates a new process, and its corresponding entry in the
+	process table, it <strong>must</strong> also
+	<ol class="answer_list">
+	<li> add it to the set of blocked processes.
+	<li> create a page table for the process.
+	<li> allocate a swap area (on disk) for the process.
+	<li> pre-load its working set into page frames.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a context switch occurs to run a process,
+	<ol class="answer_list">
+	<li> reset <strong>all</strong> of the "present" bits in the process'
+		page table to 0 (showing that they are <strong>not</strong>
+		loaded into page frames).
+	<li> the Memory Management Unit (MMU) <strong>must</strong> be reset.
+	<li> restore the CPU registers to the values they had when the process
+		was last running.
+	<li> the Translation Lookaside Buffer (TLB) <strong>must</strong>
+		be flushed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> What is often one of the easiest (and often cheapest) ways to increase
+	the speed of a computer system?
+	<ol class="answer_list">
+	<li> Upgrade to a faster processor.
+	<li> Add more memory.
+	<li> Add more hard disk space.
+	<li> Add more processors.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When a process terminates, the OS should
+	<ol class="answer_list">
+	<li> release the page frames it was using (unless they were shared
+		and other processes are still using them).
+	<li> release/deallocate the process' page table.
+	<li> free the disk space assigned as the process' swap area.
+	<li> remove its entry from the process table.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following steps are typically done to handle a page fault:
+	<ol class="answer_list">
+	<li> the hardware traps to the OS kernel
+	<li> the program counter (and instruction information) is saved
+	<li> general registers values are saved before calling the OS
+	<li> the faulting process is swapped out to disk
+	<li> the OS determines which virtual page is needed
+	<li> ensure the virtual address is valid
+	<li> Use the Translation Lookaside Buffer (TLB) to find a page frame
+		to use
+	<li> <strong>always</strong> schedule the chosen page frame to be
+		written back to disk
+	<li> update the page table after the page is loaded into the page frame
+	<li> load the swapped out faulting process back into memory
+	<li> set the program counter back to the instruction that caused the
+		page fault
+	<li> schedule the faulting process to run
+	</ol>
+</li><br/>
+<li> Instruction backup is necessary because
+	<ol class="answer_list">
+	<li> while the first part of the instruction was in physical memory
+		the last portion may not be - causing a page fault.
+	<li> a context switch requires that the last instruction attempted
+		by the process being evicted from the CPU <strong>must</strong>
+		be reexecuted when the process runs again.
+	<li> if the instruction causes a page fault, some or all of it will
+		need to be reexecuted.
+	<li> just like for files, you need to ensure that the instruction
+		doesn't get removed accidentally.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Locking a page in memory (i.e., pinning), so that the page replacement
+	algorithm cannot select it for eviction, is necessary because
+	<ol class="answer_list">
+	<li> it reduces the likelihood of thrashing.
+	<li> some operations load file data directly into a page frame, and
+		reassigning the page could expose protected information to
+		another process.
+	<li> most page replacement algorithms would preferentially choose
+		the most recently loaded page again for replacement.
+	<li> if modified, it needs to be written back to disk by the
+		paging daemon before it's reused.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The swap area on disk associated with a process is
+	<ol class="answer_list">
+	<li> only needed if the virtual address space is larger than physical
+		memory.
+	<li> <strong>not</strong> necessary, but can help improve performance.
+	<li> created when a process gets its first page fault.
+	<li> used to store process information <strong>not</strong> currently
+		in memory (e.g., a page frame).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Basic approaches for allocating swap space include allocating space
+	<ol class="answer_list">
+	<li> for the entire process when the process is initially created.
+	<li> for the entire process only after the process
+		generates its first page fault.
+	<li> only for pages <strong>not</strong> currently in physical memory,
+		adding to the allocation as needed (e.g., when the run-time
+		stack grows).
+	<li> only when the run-time stack or heap grow beyond a certain
+		pre-defined limit.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A drawback of initially allocating <strong>all</strong> the swap space
+	for a process is
+	<ol class="answer_list">
+	<li> that a larger than necessary page table <strong>must</strong>
+		also be created.
+	<li> the corresponding process table entry is larger.
+	<li> as the process needs more space (e.g., for the run-time stack)
+		it may need to copy the swap area to a larger chunk of disk
+		space.
+	<li> it can increase the chance of thrashing since there are more
+		virtual pages that might need to be loaded into page frames.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Allocating space in the swap area only for a process' pages
+	<strong>not</strong> currently in physical memory
+	<ol class="answer_list">
+	<li> decreases the size of the page table.
+	<li> often reduces the total amount of swap space needed.
+	<li> reduces the chance of thrashing since there are fewer
+		virtual pages that might need to be loaded into page frames.
+	<li> easily handles the case when a process' address space
+		<strong>must</strong> increase (e.g., for the run-time stack).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The separation of policy and mechanism with respect to virtual memory
+	and page replacement algorithms is
+	<ol class="answer_list">
+	<li> <strong>not</strong> attainable since page replacement algorithms
+		need access to the page tables which are protected data within
+		the OS kernel.
+	<li> can be done by having the MMU and page fault handlers run within
+		the OS kernel while a user space  page loader copies the
+		virtual page to memory (the page fault handler remaps the page
+		frame to the process afterwards). 
+	<li> while theoretically possible, there are no operating systems that
+		currently implement this capability.
+	<li> is possible, though somewhat complicated, and is implemented
+		by the Mach kernel.
+	<li> None of the above
+	</ol>
+</li><br/>

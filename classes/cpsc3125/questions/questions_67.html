@@ -1,0 +1,193 @@
+<li> Middleware is that software which
+	<ol class="answer_list">
+	<li> implements the abstract software layer that provides uniformity
+		of use and operation despite hardware and OS differences.
+	<li> sits between the hypervisor and the virtual machine's OS.
+	<li> provides the abstract machine on which a type 1 hypervisor runs.
+	<li> provides the abstract machine on which a type 2 hypervisor runs.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The original implementation of the World Wide Web is an example of this
+	middleware approach.
+	<ol class="answer_list">
+	<li> Document-based middleware
+	<li> File-System-based middleware
+	<li> Object-based middleware
+	<li> Coordination-based middleware
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Middleware that transfers data from a remote file server to the local
+	system, then operates on the data locally before sending it back for
+	storage on the host is an example of
+	<ol class="answer_list">
+	<li> Document-based middleware
+	<li> File-System-based middleware
+	<li> Object-based middleware
+	<li> Coordination-based middleware
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> When data is collected together into units, is stored on remote servers,
+	and accessed via method calls, this is an example of
+	<ol class="answer_list">
+	<li> Document-based middleware
+	<li> File-System-based middleware
+	<li> Object-based middleware
+	<li> Coordination-based middleware
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Tuple spaces and publish/subscribe systems are examples of
+	<ol class="answer_list">
+	<li> Document-based middleware
+	<li> File-System-based middleware
+	<li> Object-based middleware
+	<li> Coordination-based middleware
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Linda tuple spaces use a share list of time ordered published data
+	that is accessed via the operations
+	<ol class="answer_list">
+	<li> "in" which returns the first matching tuple, blocking until a
+		matching value is found.
+	<li> "read" which returns the first matching tuple, returning no
+		match if no tuple is found (i.e., non-blocking).
+	<li> "out" that publishes a new tuple to the shared list.
+	<li> "delete" which removes the matching tuple from the shared list.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The publish/subscribe model requires that consumers (subscribers)
+	<ol class="answer_list">
+	<li> cannot also be publishers. 
+	<li> register their interest in topics (about which data may be
+		published) with a centralized authority as one way to ensure
+		data receipt.
+	<li> directly acknowledge receipt (to the publisher) of all the data
+		that they receive, regardless of whether this was a topic
+		in which the subscriber was interested.
+	<li> poll publishers periodically to get data that is available on
+		topics that the subscriber has indicated an interest.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The publish/subscribe model requires that publishers
+	<ol class="answer_list">
+	<li> must also be subscribers themselves.
+	<li> make all published data for a topic available to subscribers
+		that have registered an interest in that topic.
+	<li> broadcast the existence of all new published data (though not
+		the actual data itself) to all
+		subscribers (even if the data doesn't belong to a topic in
+		which the subscriber has registered an interest)
+	<li> indicate what topic published data belongs to.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following are examples of object-based middleware?
+	<ol class="answer_list">
+	<li> Simple Object Access Protocol (SOAP).
+	<li> File Transfer Protocol (ftp).
+	<li> Common Object Request Broker Architecture (CORBA).
+	<li> Representational State Transfer (REST).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The Common Object Request Broker Architecture (CORBA) uses which of
+	the following elements to enable data access?
+	<ol class="answer_list">
+	<li> Interface Definition Language (IDL) is used to describe the
+		object access methods and parameter types.
+	<li> Object Request Brokers (ORBs) which enable clients to contact
+		servers (on which objects reside).
+	<li> Object adapters which wrap non-CORBA objects so that they can
+		be used within the CORBA framework.
+	<li> Native Language Translation (NLT) which convert the programming
+		language independent IDL descriptions to those of specific
+		languages (e.g., Java).
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The transfer models most commonly used for File-System-based middleware
+	<ol class="answer_list">
+	<li> send edit commands to the remote server so that the file
+		contents never leave the server.
+	<li> edit parts of the file without downloading the entire file (e.g.,
+		using NFS).
+	<li> download the entire file, alter it, then upload the file (e.g.,
+		using ftp)
+	<li> send the message digest of the file to the client, rather than
+		the file itself. Edits on the message digest are then sent
+		back and reverse applied to the original file on the server.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The principle of <em>location transparency</em> for File-System-based
+	middleware
+	<ol class="answer_list">
+	<li> automatically converts encoding systems as files are moved
+		between systems (e.g., EBCIDIC vs ASCII).
+	<li> uses a system independent encoding for files independent of the
+		file system on which they are stored.
+	<li> tags each file with its current physical location.
+	<li> gives no indication of where the file is physically located.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The principle of <em>location independence</em> for File-System-based
+	middleware
+	<ol class="answer_list">
+	<li> uses a system independent encoding for files independent of the
+		file system on which they are stored.
+	<li> means that the path name of the file does not change when
+		the file's physical location changes.
+	<li> gives no indication of where the file is physically located.
+	<li> enables files to be accessible regardless of their physical
+		location.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Using the original World Wide Web as an example of Document-based
+	middleware
+	<ol class="answer_list">
+	<li> the Uniform Resource Locator (URL) identifies the document to
+		be retrieved.
+	<li> file locations are indicated separately from the URL.
+	<li> only entire documents are delivered.
+	<li> web browsers are the only way of accessing remote documents.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Sequential consistency for File-System-based middleware
+	<ol class="answer_list">
+	<li> requires that files be locked by a single process thread when
+		they are being edited, so that simultaneous changes are
+		<strong>not</strong> possible.
+	<li> ensures that actions on shared resources appear as if they are
+		performed in order (even if they aren't).
+	<li> enforces sequential access for a file so that changes cannot
+		be made in random locations.
+	<li> means that changes to an open file are initially visible only
+		to the process that made the changes. Other processes see
+		the changes only after the file is closed.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Session semantics for File-System-based middleware
+	<ol class="answer_list">
+	<li> ensures that actions on shared resources appear as if they are
+		performed in order (even if they aren't).
+	<li> requires that files be locked by a single process thread when
+		they are being edited, so that simultaneous changes are
+		<strong>not</strong> possible.
+	<li> waits until a process terminates before making the edits to a
+		file by that process permanent. 
+	<li> means that changes to an open file are initially visible only
+		to the process that made the changes. Other processes see
+		the changes only after the file is closed.
+	<li> None of the above
+	</ol>
+</li><br/>

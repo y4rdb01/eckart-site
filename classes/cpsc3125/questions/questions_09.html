@@ -1,0 +1,149 @@
+<li> A "struct" declaration in C can group together
+	<ol class="answer_list">
+	<li> multiple data items.
+	<li> data of the same type.
+	<li> data of different types.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A "struct" declaration in C <strong>always</strong> creates
+	<ol class="answer_list">
+	<li> a new type name that can be used in declaring variables (e.g.,
+		"person bob;").
+	<li> a named structure form that can be referred to by "struct"
+		followed by the structure name (e.g., "struct person").
+	<li> a recursive structure so that linked structures (e.g., lists,
+		graphs) can be coded.
+	<li> a non-recursive structure since recursive structures
+		<strong>must</strong> be declared as types instead of "struct"s.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> A self-recursive "struct" requires that at least one of its elements be
+	declared as
+	<ol class="answer_list">
+	<li> "struct NAME", where "NAME" is the name given the "struct" and the
+		pointer type is inferred.
+	<li> "struct NAME *", where "NAME" is the name given the "struct".
+	<li> "struct" where the current structure and pointer type are inferred.
+	<li> "struct *" where the current structure name is inferred.
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The "typedef" declaration in C declares the new type NAME corresponding
+	to a specified TYPE_DESCRIPTION (either an existing type name or other
+	type specification - such as a "struct") via
+	<ol class="answer_list">
+	<li> "typedef NAME = TYPE_DESCRIPTION;"
+	<li> "typedef TYPE_DESCRIPTION NAME;"
+	<li> "typedef NAME TYPE_DESCRIPTION;"
+	<li> "NAME = typedef TYPE_DESCRIPTION;"
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Assuming the legal C variable declaration "person bob;" then the following
+	declaration <strong>must</strong> also have been previously given
+	("..." represents other appropriate declarations):
+	<ol class="answer_list">
+	<li> "struct bob { ... };"
+	<li> "typedef struct person { ... } bob;"
+	<li> "typedef struct bob bob;"
+	<li> "typedef person bob;"
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Assuming the legal C variable declaration "person bob;" then the following
+	declaration <strong>must</strong> also have been previously given
+	("..." represents other appropriate declarations):
+	<ol class="answer_list">
+	<li> "struct person { ... };"
+	<li> "typedef struct { ... } person;"
+	<li> "typedef struct person bob;"
+	<li> "typedef person bob;"
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Given the following legal C declarations
+<pre><code>
+	typedef struct node {
+		int x;
+		struct node *next;
+	} *nodeType;
+</code></pre>
+	<ol class="answer_list">
+	<li> "nodeType" is a type equivalent to "struct node".
+	<li> "nodeType" is a type equivalent to the type of the "next" field.
+	<li> "nodeType" is <strong>not</strong> a type, but really a variable
+		of type "struct node".
+	<li> "nodeType" is <strong>not</strong> a type, but really a variable
+		of type pointer to a "struct node".
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, the standard way to request heap storage space while a program is
+	running is to use the function
+	<ol class="answer_list">
+	<li> <em>getmem</em>
+	<li> <em>new</em>
+	<li> <em>allocate</em>
+	<li> <em>heap_request</em>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, the standard way to request heap storage space while a program is
+	running is to use the function
+	<ol class="answer_list">
+	<li> <em>malloc</em>
+	<li> <em>new</em>
+	<li> <em>getmem</em>
+	<li> <em>getheap</em>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> The standard way in C to return heap storage that was previously allocated
+	is to use the function
+	<ol class="answer_list">
+	<li> <em>delete</em>
+	<li> <em>return</em>
+	<li> <em>free</em>
+	<li> <em>putmem</em>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> In C, it is possible to determine the size of a type (in bytes) by using
+	the function
+	<ol class="answer_list">
+	<li> <em>getsize</em>
+	<li> <em>sizeof</em>
+	<li> <em>sizeOfType</em>
+	<li> <em>typeSize</em>
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Which of the following C statements is a typical way that dynamic storage
+	might be allocated?
+	<ol class="answer_list">
+	<li> int x = new int();
+	<li> int *x = (int) getmem(int);
+	<li> int x = malloc(typeSize(int));
+	<li> int *x = (int*) malloc(sizeof(int));
+	<li> None of the above
+	</ol>
+</li><br/>
+<li> Write a C program that reads in text of unknown length and prints out
+	"YES" if the text forms a palindrome and "NO" if it does not. The
+	program <strong>must not</strong> assume a maximal length of the text
+	that is read in, and <em>must avoid</em> using arraylist and realloc.
+</li><br/>
+<li> Write a C program that reads in a list of words (given one per line) and
+	prints them out (one word per line) in sorted order. You
+	<strong>must</strong> write your own sorting routine (insertion sort
+	is recommended). The solution may use arrays and malloc, but
+	<strong>must avoid</strong> using arraylist and realloc.
+</li><br/>
+<li> Write a C program that reads floats from the input, calculates and prints
+	out their average, and indicates how many of the original values were
+	above and how many were below the average. The program <strong>must
+	not</strong> assume a maximal numbers of input, and
+	<strong>must avoid</strong> using arraylist and realloc.
+</li><br/>
