@@ -1,0 +1,127 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Forth: Handling Syntax Errors
+</p>
+
+<ol>
+<li> There are some grammatical errors that can be fairly easily seen in
+	Forth programs. These include:
+	<ol>
+	<li> Missing an identifier after the colon (:) which begins a
+		word definition.
+		[ANTLR: Correctly identifies missing ID.]
+	<li> An "ELSE" or "THEN" keyword appearing without first having
+		seen the "IF" keyword.
+		[ANTLR: Recognizes the extraneous "ELSE" (or "THEN"), but
+		doesn't realize it is caused by a missing "IF".]
+	<li> Encountering the "UNTIL" keyword without first having seen "BEGIN".
+		[ANTLR: Confuses missing "BEGIN" for a missing ";" when it
+		encounters "UNTIL".]
+	<li> Seeing "LOOP" without first having seen "DO" in the input.
+		[ANTLR: Recognizes the extraneous "LOOP" when "DO" is missing,
+		but doesn't realize it is caused by the missing "DO".]
+	</ol>
+<li> There are, however, a few types of errors that can be detected, though
+	perhaps not until <strong>long</strong> after the true error was made:
+	<ol>
+	<li> A missing ":" to start a new word definition may not be recognized
+		as an error until an unmatched ";" is encountered. Encountering
+		a compiledExpr will also indicate a problem (before the ";" is
+		seen). 
+		[ANTLR: Behaviour is quite variable depending upon the body
+		of the word definition. May or may not identify missing word
+		definition name.]
+	<li> A missing semi-colon (;) at the end of a word definition
+		won't be noticed until another word definition is begun
+		(with a colon) since word definitions cannot be nested,
+		or the end of the file is reached.
+		[ANTLR: Correctly identifies missing token ";".]
+	<li> Since an "IF" statement may only appear in a word definition,
+		a "THEN" would be recognized as
+		missing if the end of the word definition (semi-colon)
+		were encountered. NOTE: A missing "ELSE" is impossible to
+		detect since it is optional.
+		[ANTLR: Correctly identifies missing token "THEN".]
+	<li> Similarly, an absent "UNTIL" for a "BEGIN" loop statement won't
+		be noticed until the end of the word
+		definition (semi-colon) is encountered.
+		[ANTLR: Expects ";" as the missing token rather than "UNTIL".]
+	<li> Likewise for "DO", if the semi-colon is encountered before
+		seeing "LOOP", then there's a known problem.
+		[ANTLR: Expects ";" as the missing token rather than "LOOP".]
+	</ol>
+<li> Within Forth, with the exception of misspelled keywords, errors are
+	generally caused by missing either the beginning or the end markers
+	of a block style construct (e.g., word definitions, IF-ELSE-THEN,
+	BEGIN-UNTIL, DO-LOOP).
+	<ol>
+	<li> Because of the the use of a stack and reverse polish notation
+		(RPN), most any mix of values and non-block operations
+		(e.g., DUP, SWAP, PICK) are grammatically correct.
+	<li> As a result, in the case of Forth anyway, it is often better to
+		insert missing tokens rather than take the ANTLR default
+		recovery action of consuming tokens until a token in the
+		"following set" is seen.
+	<li> Unfortunately, modifying ANTLR's parser recovery strategy
+		(i.e., <em>DefaultErrorStrategy</em>) is beyond the scope
+		of this course.
+	</ol>
+<li> Some errors should <strong>not</strong> be handled by the parser, but are
+	best handled by the semantics (e.g., listeners, visitors). For example,
+	if an identifier is encountered as an operator, but it doesn't have a
+	definition in the dictionary, let the semantic routine issue an
+	appropriate error message. If the appearance of the ID as an operator
+	is correct, then this isn't a grammatical error at all - and forcing
+	the parser to handle it is inappropriate. The semantic action can
+	handle it quite well (and this is what's done in version 5 and 6 of
+	the Forth example). In fact, it's conceivable that a simple typo was
+	made and the semantic action could attempt to locate a sufficiently
+	similar word spelling to use instead (in addition to printing an
+	appropriate warning message).
+<li> Finally, not all errors are strictly grammatical. For example, if a
+	character sequence not corresponding to any token was encountered
+	(e.g., "!"), ANTLR will indicate a "token recognition error". While
+	the default parser error handling may often deal with this
+	appropriately (i.e., by tossing the unrecognized token), alternatively
+	a lexer rule for a token not used in the grammar (e.g., IllegalChar)
+	can be given. The rule can print out a suitable warning (or not) and
+	skip the input so that it doesn't adversely impact parsing.
+<li> Here is the <a href="../forth/antlr4_v6.zip">zip file</a> that contains
+	the updated example, which calculates the value of expressions.
+	You can use "diff -r" (on Unix/Linux/Cygwin) on the unpacked
+	directories for version 5 and version 6 to compare them
+	and get a better feel for what has changed.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,103 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Office Hours & Class Schedule
+	<br/>
+	<br/>
+	11 Jan - 2 May
+</p>
+
+<br/><p style="text-align: center; margin: auto; font-size: 120%">
+Office: <strong>CCT 434</strong><br/>
+Phone: <strong>706.507.8190</strong>
+</p><br/>
+
+<table border="1" style="text-align: center; vertical-align: center; margin: auto">
+	<tr>
+		<th style="text-align: right">Time</th>
+		<th>Monday</th>
+		<th>Tuesday</th>
+		<th>Wednesday</th>
+		<th>Thursday</th>
+		<th>Friday</th>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			8-9:30am
+		</td>
+		<td rowspan="10"></td>
+		<td><a href="cpsc1302/index.shtml">CPSC 1302</a><br/>(CCT 407)</td>
+		<td rowspan="10"></td>
+		<td><a href="cpsc1302/index.shtml">CPSC 1302</a><br/>(CCT 407)</td>
+		<td rowspan="10"></td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			9:30-11am
+		</td>
+		<td><a href="cpsc5135/index.shtml">CPSC 5135</a><br/>(CCT 407)</td>
+		<td><a href="cpsc5135/index.shtml">CPSC 5135</a><br/>(CCT 407)</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			11am-1:30pm
+		</td>
+		<td rowspan="3">Office Hours<br/>(CCT 434)</td>
+		<td rowspan="3">Office Hours<br/>(CCT 434)</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			1:30-3pm
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			3-4:30pm
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			4:30-6pm
+		</td>
+		<td><a href="cpsc3125/index.shtml">CPSC 3125</a><br/>(CCT 406)</td>
+		<td><a href="cpsc3125/index.shtml">CPSC 3125</a><br/>(CCT 406)</td>
+	</tr>
+	<tr>
+		<td style="text-align: right">
+			6-10pm
+		</td>
+		<td><a href="http://csc.columbusstate.edu/eckart/aikido/">Aikido</a></br>(Auburn)</td>
+		<td><a href="http://csc.columbusstate.edu/eckart/aikido/">Aikido</a></br>(Auburn)</td>
+	</tr>
+</table>
+<br/>
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

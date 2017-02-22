@@ -1,0 +1,99 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Forth: More with Listeners
+</p>
+
+<ol>
+<li> The welcome/goodbye messages for the GoForth interpreter have been moved
+	from the (<em>GoForth</em>) driver class to the
+	<em>StackInterpreter</em> class, consolidating the grammar based
+	actions within that class while making the driver class more generic.
+<li> Previously, a single grammar rule (<em>operator</em>) with many
+	alternative right-hand sides was used, but this required the
+	corresponding listeners (<em>enterOperator</em> / <em>exitOperator</em>)
+	to determine which operator had been encountered. Because a Java
+	<em>String</em> comparison was needed, a long "if-then-else" statement
+	was used (since a "switch" statement cannot be used with
+	<em>String</em>s). This isn't particular efficient, nor is it easy to
+	read, or maintain.
+<li> By providing a "# name" label for each of the alternatives of the
+	<em>operator</em rule(s), the previous <em>enterOperator</em> /
+	<em>exitOperator</em> listener methods are replaced by much shorter
+	(and easier to maintain) listener methods that correspond directly to
+	each operation. This has the additional benefit of making the
+	method calls just a bit faster because the compound "if-then-else"
+	statement is no longer needed
+	since the parser knows from context which method to call.
+<li> In the previous version we had commented out most of the code for the
+	<em>enterOperator</em> method since the new "testData" file included
+	operations/statements that weren't yet implemented. This caused illegal
+	access to the stack. The corresponding method implementations have
+	been added back (i.e., uncommented) in this version, but because not
+	all of the operations/statements have been implemented yet, some
+	numbers have been pushed to the stack at the beginning of the
+	"testData" file in order to prevent the illegal stack access.
+<li> Here is the <a href="../forth/antlr4_v4.zip">zip file</a> that contains
+	the updated example, which calculates the value of expressions.
+	You can use "diff -r" (on Unix/Linux/Cygwin) on the unpacked
+	directories for version 3 and version 4 to compare them
+	and get a better feel for what has changed. This new version of the
+	code implements the semantics for the built-in commands as well
+	as the numeric comparisons and boolean operators. The remaining
+	additions (word definitions, if-else-then, and loops) aren't
+	implemented in this version (although the <em>testData</em> is correct
+	Forth and lists a bunch of prime numbers when run with
+	<a href="https://www.gnu.org/software/gforth/">Gforth</a>).
+<li> While the "testData" file is perfectly legal Forth (and goForth) code,
+	and is the same data that was used in the previous version of this
+	code, it produces a different result. The results from the previous
+	version were:
+<pre><code>
+	0
+
+	-1
+
+	Unknown operator 'isPrime' encountered.
+</code></pre>
+	While the results from this version are:
+<pre><code>
+	0
+
+	3
+</code></pre>
+	There are two differences. Are the differences related?
+	What is causing these differences?
+	[Post your ruminations to the discussion group.]
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

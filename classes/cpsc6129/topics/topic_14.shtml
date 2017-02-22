@@ -1,0 +1,156 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Grammars and (E)BNF
+</p>
+
+<ol>
+<li> A grammar, G, is defined by the collection of (T, Nt, P, S) where:
+	<ol>
+	<li> T is a set of terminals (e.g., identifiers, keywords,
+		literal values);
+	<li> Nt is a set of non-terminals;
+	<li> P is a collection of production rules which relate single
+		non-terminals to a sequence of terminals and non-terminals; and
+	<li> S is a starting non-terminal (an element of Nt).
+	</ol>
+<li> Example grammar, G = (T, Nt, P, S), describes lists of identifiers (IDs)
+	and other lists:
+	<ol>
+	<li> T = { ID, "(", ")" }
+	<li> Nt = { &lt;list>, &lt;items> }
+	<li> S = <list>
+	<li> P contains the following production (or rewrite) rules:
+		<pre><code>
+		&lt;list>  ::= "(" &lt;items> ")"
+		&lt;list>  ::= ID
+		&lt;items> ::= &lt;list> &lt;items>
+		&lt;items> ::= e
+		</code></pre>
+		where <em>e</em> (epsilon) represents the empty string ("").
+	<li> An example string that can be produced/recognized by this
+		grammar is:
+		<pre><code>
+		(ID (ID ID) ID (ID ((ID ID) ID)) ((ID)))
+		</code></pre>
+	<li> In practice, only the production rules of a grammar are generally
+		given as the set of terminals and non-terminals can be gleaned
+		from the rules. By convention, the starting non-terminal is the
+		left-hand side of the first production rule listed.
+	</ol>
+<li> A <a href="https://en.wikipedia.org/wiki/Context-free_grammar">Context-Free	Grammar</a> (CFG) is a grammar in which the
+	application of a production rule (i.e., the subtitution of a
+	single non-terminal that appears on the left of a production rule
+	with the sequence of terminals and non-terminals that appear on
+	the right side of the rule) does <strong>not</strong> depend on
+	the context of the non-terminal to be replaced.
+<li> Grammars can be used as both generators and recognizers.
+	<ol>
+	<li> As a generator, the grammar is able to generate (syntactically)
+		legal strings for the programming language described by the
+		grammar.
+	<li> When used as a recognizer, the grammar determines
+		whether or not a given string is one that could be generated.
+	<li> When using a grammar to recognize strings in a language the
+		choice of production rule to apply does indeed depend upon
+		the surrounding tokens, but this doesn't mean it's not
+		context-free since these tokens don't determine whether or
+		not a production rule <strong>can</strong> be applied,
+		but whether or not it will match/recognize the desired string. 
+	</ol>
+<li> Using the <a href="https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form">Backus-Naur Form</a>
+	(BNF), the above production rules would look like:
+	<pre><code>
+		&lt;list>  ::= "(" &lt;items> ")" | ID
+		&lt;items> ::= &lt;list> &lt;items> | e
+	</code></pre>
+	where the pipe symbol (|) is used to indicate alternative right-hand
+	sides (i.e., production rules) for the non-terminal on the left-hand
+	side.
+<li> <a href="https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form">Extended Backus Naur Form</a>
+	(EBNF) introduces some additional notation that makes it easier to
+	describe the production rules. The most notable of these additions are:
+	<ol>
+	<li> [ ] to indicate option rule part
+	<li> { } to indicate 0 or more repeats
+	<li> { }+ to indicate 1 or more repeats
+	</ol>
+<li> Using the EBNF, the production rules can now be rewritten as:
+	<pre><code>
+		&lt;list>  ::= "(" { &lt;list> } ")" | ID
+	</code></pre>
+<li> A grammar is ambiguous if there are two or more different sequences
+	of production rule applications that can derive the same string.
+	The "if" statement found in C/C++/Java is a classic example of
+	such an ambiguity.
+	<pre><code>
+	&lt;statement> ::= "if" "(" &lt;boolean> ")" "then" &lt;statement> [ "else" &lt;statement> ] | "{" { &lt;statement> } "}" | &lt;statement>
+	</code></pre>	
+<li> Here are some additional EBNF examples:
+	<ol>
+	<li> An <strong>un</strong>ambiguous "if" statement:
+		<pre><code>
+	&lt;statement> ::= if &lt;boolean-expr> then { &lt;statement> }
+			{ elsif &lt;boolean-expr> then { &lt;statement> } }
+			[ else { &lt;statement> } ]
+			end
+		</code></pre>
+	<li> The "case" (also called "switch") statement:
+		<pre><code>
+	&lt;statement> ::= case &lt;expr> is
+			{ { when &lt;discrete-valued-constant>: } { &lt;statement> } }
+			[ otherwise: { &lt;statement> } ]
+			end
+		</code></pre>
+	<li> Conditional "loop" statements:
+		<pre><code>
+	&lt;statement> ::= while &lt;boolean-expr> loop
+				{ &lt;statement> }
+			end
+	&lt;statement> ::= loop
+				{ &lt;statement> }
+			until &lt;boolean-expr>
+		</code></pre>
+	<li> Generalized "for" loop statement:
+		<pre><code>
+	&lt;statement> ::= for &lt;index> &lt;index_val> { ; &lt;index> &lt;index_val> } loop
+				{ &lt;statement> }
+			end
+	&lt;statement> ::= next [ &lt;index> { , &lt;index> } ]
+	&lt;index_val> ::= from &lt;expr> to &lt;expr> by &lt;expr>
+		    ::= in &lt;collection-iterator>
+		</code></pre>
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

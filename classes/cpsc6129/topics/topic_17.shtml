@@ -1,0 +1,114 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Forth: Calculating Arithemtic Expressions
+</p>
+
+<ol>
+<li> Previously, the system was recognizing simple (post-fix) arithmetic
+	expressions using unsigned integers and the four basic arithmetic
+	operations (+, -, *, /). In addition, the dot (.) operation prints
+	the top of the evaluation stack.
+<li> This week, a stack is incorporated for performing the calculations. In
+	addition, methods for pushing numeric values to the stack and
+	performing the arithmetic and printing operations implemented.
+<li> The pre-existing Java class for
+	<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Stack.html">Stack</a>
+	is used for holding arguments and results.
+<li> Note that the grammar was changed from version 1. Before we had:
+<pre><code>
+	valueOrOp       : NUMBER
+                	| operator
+                	;
+</code></pre>
+	but in order to leverage the parse tree listener, this was changed to:
+<pre><code>
+	valueOrOp       : value
+                	| operator
+                	;
+        
+	value           : NUMBER
+                	;
+</code></pre>
+	enabling us to use the ANTLR generate methods "enterValue" and
+	"enterOperator".
+<li> Alternatively the above could have used rule labels (e.g., "# ruleName")
+	on the rule alternatives to distinguish between them, instead of
+	introducing new non-terminals.
+	<ol>
+	<li> While the rule labels allow the use of <em>visitor</em>s in
+		traversing the parse tree, they make no distinction between
+		before entering or after leaving the node.
+	<li> <em>Listener</em>s on the other hand provide this before and
+		after node visitation ability, so they will be used
+		in the Forth example going forward (as this capability may be
+		helpful in handling scope rules, etc).
+	<li> Furthermore, using <em>visitor</em>s means that the visited nodes
+		must themselves call <em>visit()</em> on any child nodes.
+		While this makes the <em>visitor</em>s more flexible,
+		forgetting to do this is probably a more difficult bug to
+		uncover than any corresponding error using <em>listener</em>s.
+	<li> The downside to using <em>listener</em>s instead of
+		<em>visitor</em>s, is that every branch of the parse tree must
+		be visited. Not necessarily a good choice for an interpreter
+		(e.g., since both branches of an "if-then-else" statement would
+		be examined). [NOTE: Even though the example is a Forth
+		interpreter, the <em>listener</em>s style will be used, at
+		least for now.]
+	</ol>
+<li> These listener actions, along with the stack, appear in the
+	<em>StackInterpreter</em> class (in the "src" directory).
+<li> Comments have also been added in the second version of the Forth example.
+	Two additions in the "Forth.g4" file retain the contents of the
+	COMMENTs.
+	<ol>
+	<li> The text of the comments are passed to the hidden channel so that
+		they are ignored by the parser, but still appear in the token
+		stream.
+	<li> The use of the hidden channel is different from the use of the
+		"skip" lexer directive which doesn't pass WHITE_SPACE along
+		as tokens, but simply deletes them from the token stream.
+	<li> Note too the use of the lexer "fragment" directive, which defines
+		a non-token but enables the lexer rule to be given and reused
+		elsewhere. In this case the two types of comments are defined
+		as fragments, with the COMMENT token defined using these two
+		fragments.
+	</ol>
+<li> Here is the <a href="../forth/antlr4_v2.zip">zip file</a> that contains
+	the updated example, which calculates the value of expressions.
+	You can use "diff -r" (on Unix/Linux/Cygwin) on the unpacked
+	directories for version 1 and version 2 to compare them
+	and get a better feel for what has changed.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

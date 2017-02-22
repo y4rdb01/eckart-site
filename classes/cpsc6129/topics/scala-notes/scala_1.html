@@ -1,0 +1,147 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+	<title>Scala Programming Language</title>
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Body	{ font-family: times, serif, courier, monospace }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	Advanced Programming Languages (CPSC 6129)<br/>
+	<strong>Scala Programming Language</strong><br/>
+	Introduction
+</p>
+
+<ol>
+<li> 
+	<b>Overview</b><br/>
+	<ul>
+	<li>Designed by <a href="http://people.epfl.ch/martin.odersky">Martin Odersky</a> at Ecole Polytechnique Federale de Lausanne in 2003
+	<li>Grew out of earlier work on the <a href="http://en.wikipedia.org/wiki/Pizza_(programming_language)">Pizza programming language</a> by Odersky and others, started in 1997
+	<li>Designed with the goal of leveraging and improving Java (but not to simply "make a better Java")
+	<li>These notes assume familiarity with Java, and will mainly focus on where Scala and Java diverge, instead of rehashing their common comparison operators, logical operators, arithmetic operators, etc.
+	</ul>
+	<br/>
+
+<li>
+	<b>What is Scala?</b><br/>
+	<ul>
+	<li>Scala is a general purpose, statically-typed language with strong type inference
+	<li>Scala is <b>expression-oriented</b>, meaning that most things are expressions that are evaluated rather than statements that are executed
+	<li>Compiles to Java byte code and runs on the Java Virtual Machine (JVM), but can also be interpreted
+	<li>Seamless integration with Java (can call external Java code, use Java objects, extend Java classes)
+	<li>Object-oriented, but has very strong support (and even preference) for functional style of programming
+	<li>Odersky actually objects to object-oriented programming being regarded as a paradigm at odds with others, and instead views object-oriented programming as a complementary approach to the 3 programming paradigms of:
+		<ol>
+		<li>Imperative
+		<li>Functional
+		<li>Logic
+		</ol>
+	<li>These promoted functional characteristics make mutability easily achievable (i.e. variables which can not be altered once defined and assigned values)
+	<li>This inherent mutability in turn leads to eased concurrency and distributed development
+	</ul>
+	<br/>
+
+<li>
+	<b>Installing Scala</b><br/>
+	<ul>
+	<li>Since Scala runs on the JVM, a Java Runtime Environment (JRE) must already be installed
+	<li>Scala can be downloaded from the <a href="http://www.scala-lang.org/">Scala website</a>
+	<li>An official build tool, <a href="http://www.scala-sbt.org/">SBT (the Scala Build Tool)</a>, provides build functionality similar to <a href="http://ant.apache.org/">Apache ANT</a> or <a href="http://maven.apache.org/">Maven</a> for Scala projects
+	<li>Scala can be installed on Windows, Mac OSX and Linux operating systems:
+		<ol>
+		<li><b>Windows</b>: Installing Scala and SBT on Windows 7 can be achieved by following <a href="http://fruzenshtein.com/scala-setup-on-windows-7/">this tutorial</a> for Scala, and <a href="http://www.scala-sbt.org/0.13/tutorial/Installing-sbt-on-Windows.html">this one</a> for SBT
+		<li><b>Mac OSX</b>: The same can be accomplished on Mac OSX by using <a href="http://fruzenshtein.com/scala-setup-on-mac-os/">this</a> for Scala, and <a href="http://www.scala-sbt.org/0.13/tutorial/Installing-sbt-on-Mac.html">this</a> for SBT
+		<li><b>Linux</b>: A simple, comprehensive guide for installing Scala and SBT on Ubuntu can be found <a href="https://gist.github.com/visenger/5496675">here</a> (tutorial works for both newer versions of Ubuntu and Scala by replacing Scala version numbers with current ones)
+		</ol>
+	</ul>
+	<br/>
+
+<li>
+	<b>Scala Basics</b><br/>
+	<ul>
+	<li>The Scala intepreted scripting language-style <a href="http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a> is started by typing the following at a command prompt:
+
+	<pre><code>
+	$ scala
+	</code></pre>
+
+	which presents something similar to the following:
+
+	<pre><code>
+	Welcome to Scala version 2.11.2 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_65).
+	Type in expressions to have them evaluated.
+	Type :help for more information.
+
+	scala> 
+	</code></pre>
+
+	<li>Scala does away with much of Java's boilerplate, which is what helps make intepretation more feasible
+	<li>A simple Scala Hello World interpreted "program" can be achieved as follows:
+
+	<pre><code>
+	scala> println("Hello, Scala world!")
+	</pre></code>
+
+	<li>As a compilable program, this is only marginally more verbose:
+
+	<pre><code>
+	object HelloWorld {
+	    def main(args: Array[String]) {
+	        println("Hello, Scala world!")
+	    }
+	}
+	</pre></code>
+	<li>With the exception of the <b>object</b> keyword, most of this should be pretty self-explanatory
+	</ul>
+	<br/>
+
+<li>
+	<b>Scala and Java</b><br/>
+	<ul>
+	<li>Scala uses most of the equivalent primitives (and primitive objects) as Java, though they may not be equal (e.g. Scala's Double and Integer are equivalent but not equal to Java's, while Scala actually directly uses the Java String object)
+	<li>This familiarity makes moving from Java to Scala quite easy, as much of Scala's syntax is inherited directly from Java and other related languages (e.g. curly brace conventions, conditional constructs, numerous familiar object-oriented concepts)
+	<li>In fact, Scala's syntax is quite flexible (much more so than Java), and allows for more conventional Java syntax to be used, though it is optional (e.g. semi-colon ending lines, variable type declarations, parenthesis and '.' dot omissions in many circumstances)
+	<li>Scala casing syntax tends to follow snakeCase like Java
+	<li>Scala source code files generally end in the .scala extension, by convention
+	</ul>
+	<br/>
+
+<li>
+	<b>Some Famous Endorsements of Scala</b><br/>
+	<ul>
+	<li>"If I were to pick a language today other than Java, it would be Scala."<br/>James Gosling, original designer of Java
+	<li>"I can honestly say if someone had shown me the Programming Scala book by Martin Odersky, Lex Spoon & Bill Venners back in 2003 I'd probably have never created Groovy."<br/>James Strachan, creator of <a href="http://en.wikipedia.org/wiki/Groovy_(programming_language)">Groovy</a>
+	<li>"No other language on the JVM seems as capable of being a 'replacement for Java' as Scala, and the momentum behind Scala is now unquestionable."<br/>Charles Nutter, co-creator of <a href="http://en.wikipedia.org/wiki/JRuby">JRuby</a>
+	</ul>
+	<br/>
+
+</ol>
+
+<hr/>
+<address>
+	Scala Notes: <a href="mailto:mayo_matthew@columbusstate.edu?subject="Scala Notes">mayo_matthew@columbusstate.edu</a> &
+				 <a href="mailto:ridings_mark@columbusstate.edu?subject="Scala Notes">ridings_mark@columbusstate.edu</a><br/>
+	Course Professor: <a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages">eckart_dana@columbusstate.edu</a>
+</address>
+
+</body>
+</html>
+
+

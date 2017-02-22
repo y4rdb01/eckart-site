@@ -1,0 +1,83 @@
+<project name="GoForth" default="test" basedir=".">
+
+	<description>
+		Simple example build file for the GoForth ANTLR project.
+	</description>
+
+	<!-- set global properties for this build -->
+	<property name="src" location="${basedir}/src" />
+	<property name="build" location="${basedir}/build" />
+	<property name="dist" location="${basedir}/projectVersions" />
+	<property name="antlr" location="/home/128gbCard/CSU_html/eckart/classes/cpsc6129/antlr-4.4-complete.jar" />
+
+	<target name="init">
+		<!-- Create the time stamp. -->
+		<tstamp />
+
+		<!-- Create the build directory structure used by compile. -->
+		<mkdir dir="${build}" />
+		<mkdir dir="${dist}" />
+	</target>
+
+	<target name="grammar" depends="init">
+		<!-- Run ANTLR4 on the grammar. -->
+
+		<java classname="org.antlr.v4.Tool">
+			<arg line="-o ${build} ${src}/Forth.g4" />
+			<classpath>
+				<pathelement location="${antlr}" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="compile" depends="grammar">
+		<!-- Compile all the source files that are out of date.
+		     NOTE: This needs to be done both for the files in the src
+			   directory as well as for those grammar generated
+			   files that are in the build directory.
+		 -->
+
+		<javac srcdir="${build}" destdir="${build}" includeantruntime="false">
+			<classpath>
+				<pathelement location="${antlr}" />
+				<pathelement path="${build}" />
+			</classpath>
+		</javac>
+		<javac srcdir="${src}" destdir="${build}" includeantruntime="false">
+			<classpath>
+				<pathelement location="${antlr}" />
+				<pathelement path="${build}" />
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="test" depends="compile">
+		<!-- Run tests on the system to see if it's working. -->
+
+		<java classname="GoForth">
+			<classpath>
+				<pathelement location="${antlr}" />
+				<pathelement path="${build}" />
+			</classpath>
+			<redirector input="${basedir}/testData"
+				    output="${basedir}/outputAndErrors" />
+		</java>
+	</target>
+
+	<target name="dist" depends="init">
+		<!-- Package it all up to keep (or submit for grading). -->
+
+		<jar destfile="${dist}/MyProject-${DSTAMP}_${TSTAMP}.jar" basedir="${basedir}" excludes="projectVersions" />
+	</target>
+
+	<target name="clean">
+		<!-- Remove the previous build (e.g., .class files). -->
+		<delete dir="${build}" />
+		<delete file="outputAndErrors" />
+	</target>
+
+	<target name="spotless" depends="clean">
+		<!-- Remove the previous build and any saved distributions. -->
+		<delete dir="${dist}" />
+	</target>
+</project>

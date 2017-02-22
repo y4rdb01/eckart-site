@@ -1,0 +1,149 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Symbol Table
+</p>
+
+<ol>
+<li> Symbol Tables are the means by which a name is associated with a
+	particular set of attributes. For example, in Java, the following:
+	<pre><code>
+	class Example {
+		private int x;
+		public int getX() { return x; }
+	}
+	</code></pre>
+	would add three names to the symbol table: <em>Example</em>,
+	<em>x</em>, and <em>getX</em>. Each name would have various
+	attributes associated with it. Thus, <em>x</em> would have
+	attributes indicating that it is:
+	<ol>
+	<li> A variable;
+	<li> Of type <em>int</em>;
+	<li> Is an attribute of the class <em>Example</em>; and
+	<li> That it is <em>private</em> to the class and thus not
+		visible/usable outside of this class definition.
+	</ol>
+<li> There are a variety of ways to implement symbol tables, but they are
+	often implemented as hash tables because this generally provides
+	a fast way of adding/finding/removing names (and their associated
+	attributes). You want adding/finding/removing names to be fast
+	because these actions occur frequently when interpreting (or compiling)
+	programs in a source language.
+<li> Hash tables are composed of a hash function and an array based data
+	structure.
+	<ol>
+	<li> The hash function takes a string and converts it into a
+		number (hash value) that is used to index the array based data
+		structure. The hash function should be fast to calculate,
+		making indexing into the hash table quick (i.e., close to
+		constant time in the ideal case).
+	<li> The array based data structure (indexed by the hash value)
+		approximates an <a href"https://en.wikipedia.org/wiki/Associative_storage">content addressable memory</a> (CAM).
+		If the array storage is large enough, and the hash function
+		is adept at mapping its input evenly across the the possible
+		array indices, then few if any of the input strings (e.g.,
+		class, variable, or function names) will have the same
+		hash value (and thus map to the same array index).
+	</ol>
+<li> Unfortunately, it's nearly impossible in practice to guarantee the
+	absence of name collisions in a sybmol table (i.e., that every name
+	will have a different hash value). While there are many variants,
+	the two basic ways to deal with the possibility of name collisions
+	in a symbol table are: Bucket Hashing, and Open Addressing.
+	<ol>
+	
+	<li> <a href="https://en.wikipedia.org/wiki/Hash_table#Separate_chaining_with_linked_lists">Bucket Hashing</a>
+		is well suited to situations involving nested scopes. Here are
+		my <a href="../../cpsc5135/topics/topic_26.shtml">class notes
+		</a> from <a href="../../cpsc5135">CPSC 5135</a> along with
+		a <a href="../../cpsc5135/videos/video_26.shtml">recording of
+		the worked example</a>.
+	<li> <a href="https://en.wikipedia.org/wiki/Hash_table#Open_addressing">Open Addressing (with Linear Probing)</a>
+ 		aren't well suited for situations involving nested scopes,
+		but work just fine if the names are all contained within a
+		single scope (i.e., a flat name space). In open addressing,
+		instead of having a linked list associated with each array
+		index, the key-values are stored directly in the array.
+		<ol>
+		<li> Adding Names: The hash value gives the location in the
+			array to store the symbol name (and any associated
+			attributes). If the array location is empty (i.e.,
+			nil), then store it there. If the array location is
+			already occupied, then examine successive array
+			locations until an empty one is found and store the
+			symbol name (and associated attributes) there.
+		<li> Name Lookup: The hash value gives the location of an
+			array index in which to expect to find our symbol
+			name. Unfortunately, due to the way that adding names
+			can cause the entry to be placed at a later position
+			in the array, we have to compare the name we're
+			looking for with the one in the stored entry. If they
+			match, then we've found what we want, otherwise the
+			next array location(s) need to be examined. If an
+			array location with a nil value is encountered, then
+			the name isn't in the hash table (and the search for
+			the name is terminated).  One problem
+			with this approach is that if the array is not sparse,
+			we could end up looking through most (or all) of the
+			array until we find what we're looking for.
+		<li> Removing Names: First do a name lookup to find the entry
+			that should be removed and then set the array location
+			to nil. This simple approach however causes a problem
+			with the name lookup strategy. If when adding a name,
+			there was a name collision and the entry is placed
+			several locations later in the array,
+			<strong>and</strong> if one of those intervening names
+			was removed, then the name lookup would not find it
+			(since the nil value would be encountered and the
+			name search terminated). You can't simply move later
+			contiguous entries in the array back one location when
+			something is removed (since you could be moving them
+			from their proper hash value locations - making them
+			unfindable). One option is to leave a special value
+			in the array location (rather than a nil value) that
+			indicates a value had been here, but was removed.
+			When this special value is encountered during name
+			lookup, the search continues past that location. 
+		</ol>
+		<li> Open Addressing works well if names are never removed,
+			but bucket hasing tends to be preferred if names are
+			often removed. Since
+			<a href="../assign/SimpleLisp.shtml">Simple Lisp</a>
+			doesn't have a means for <strong>UN</strong>defining
+			a function, either implementation technique should work
+			well for keeping track of programmer defined functions.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

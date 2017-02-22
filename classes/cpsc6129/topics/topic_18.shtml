@@ -1,0 +1,150 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Forth: Parsing More Stuff
+</p>
+
+<ol>
+<li> Built-in Commands
+	<ol>
+	<li> BYE - exits the interpreter.
+	<li> CR - prints a carriage return (new-line).
+	<li> DROP - pops the stack.
+	<li> DUP - duplicates the entry on top of the stack.
+	<li> SWAP - swaps the top 2 entries on the stack.
+	<li> ROLL - pops the top item off the stack, looks that far down
+		into the stack, removes the item it finds, pushing it to the
+		top of the stack.
+	<li> PICK - pops the top item off the stack, looks that far down
+		into the stack, and pushes the item it finds onto the
+		top of the stack.
+	<li> .S - displays the stack without changing it.
+	</ol>
+<li> Creating new "words" (functions)
+	<ol>
+	<li> : name &lt;code> ;
+	<li> The above defines name such that when it is invoked the &lt;code>
+		is executed.
+	<li> Within defined "words" a type of print statement can be used.
+		It begins with ." followed by a space, then the string that
+		should be printed, ending with a ". For example:
+<pre><code>
+	: hello CR ." Hello World" CR ;
+</code></pre>
+	</ol>
+<li> Numeric Comparisons
+	<ol>
+	<li> &gt; - if the entry below the top of the stack is greater than
+		the entry on top of the stack, then they are replaced with
+		a value of -1 (on the stack), otherwise they are replaced with
+		a 0 value.
+	<li> &lt; - if the entry below the top of the stack is less than
+		the entry on top of the stack, then they are replaced with
+		a value of -1 (on the stack), otherwise they are replaced with
+		a 0 value.
+	<li> = - if the top two of the stack are equal, then they are replaced
+		with a value of -1 (on the stack), otherwise they are replaced
+		with a 0 value.
+	</ol>
+<li> Boolean
+	<ol>
+	<li> AND - returns the bitwise "and" of the two values on top of the
+		stack, replacing them with the result.
+	<li> OR - returns the bitwise "or" of the two values on top of the
+		stack, replacing them with the result.
+	<li> INVERT - returns the bitwise "not" of the top value on the
+		stack, replacing it with the result.
+	</ol>
+<li> If-Else-Then
+	<ol>
+	<li> Must be given within a "word" definition.
+	<li> When "IF" is encountered, the top of the stack is examined (and
+		removed).
+	<li> If the top of the stack was non-zero, then the statements
+		between the "IF" and "THEN" are performed.
+	<li> Otherwise (when the top of the stack was zero), when the optional
+		"ELSE" part of the statement is given, the statements between
+		the "ELSE" and the "THEN" are performed.
+	<li> Example:
+<pre><code>
+	2 3 < IF 3 2 + THEN .			\ Prints 5
+	3 2 < IF 3 2 + ELSE 3 2 *  THEN .	\ Prints 6
+</code></pre>
+	</ol>
+<li> Loops
+	<ol>
+	<li> Loops must be given within a "word" definition.
+	<li> BEGIN &lt;code> &lt;condition> UNTIL
+		<ol>
+		<li> Performs &lt;code>, then checks &lt;condition>. If the
+			<condition> is non-zero, the loop completes, otherwise
+			it repeats.
+		<li> Example:
+<pre><code>
+	5 BEGIN ." Hello" CR 1 - DUP 1 = UNTIL	\ Print Hello 4 times
+</code></pre>
+		</ol>
+	<li> &lt;MaxCountPlusOne> &lt;StartNumber> DO &lt;code> LOOP
+		<ol>
+		<li> Counts from &lt;StartNumber> adding +1 each time through
+			the loop until &lt;MaxCountPlusOne> is reached.
+		<li> Example:
+<pre><code>
+	5 1 DO ." Hello" CR LOOP	\ Print Hello 4 times
+</code></pre>
+		</ol>
+	</ol>
+<li> In the grammar file, <em>Forth.g4</em> note how the use of the two
+	non-terminals, <em>expression</em> and <em>compiledExpr</em> are
+	used to ensure that some of the constructs (e.g., if-else-then, loops)
+	can only occur within word definitions.
+<li> Here is the <a href="../forth/antlr4_v3.zip">zip file</a> that contains
+	the updated example, which calculates the value of expressions.
+	You can use "diff -r" (on Unix/Linux/Cygwin) on the unpacked
+	directories for version 2 and version 3 to compare them
+	and get a better feel for what has changed. This new version of the
+	code implements the semantics for the built-in commands as well
+	as the numeric comparisons and boolean operators. The remaining
+	additions (word definitions, if-else-then, and loops) aren't
+	implemented in this version (although the <em>testData</em> is correct
+	Forth and lists a bunch of prime numbers when run with
+	<a href="https://www.gnu.org/software/gforth/">Gforth</a>).
+<li> While the "testData" file is perfectly legal Forth (and goForth) code,
+	when the test is run it reports that:
+<pre><code>
+	Unknown operator 'isPrime' encountered.
+</code></pre>
+	Why is that? [Post your ruminations to the discussion group.]
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

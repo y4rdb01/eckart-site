@@ -1,0 +1,92 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Forth: Using Visitors
+</p>
+
+<ol>
+<li> Using listeners worked well when the interpretation only required
+	operations to be executed once (e.g., no looping or defined words).
+	This is because the listeners were triggered by the parsing process
+	itself. However, with if-else-then, loops, and defined words, it is
+	necessary to alter the visitation of the parse tree (e.g., ifs may
+	need to jump ahead to skip code blocks depending upon the test result,
+	loops must go back to language elements that appeared previously, and
+	defined words refer to entire blocks of code that were given earlier).
+<li> The previous listener based methods have been converted into the
+	corresponding visitor methods (whose names have been defined in the
+	grammar via the "# name" rule labels/annotations).
+<li> While the <em>enterStart</em> and <em>exitStart</em> methods remain,
+	note that they are no longer listeners (i.e., they no longer take
+	a context as a formal parameter). However, the methods retain their
+	listener inspired names for consistency.
+<li> A <em>HashMap</em> class has been introduced as a private member of
+	<em>StackInterpreter</em> to store programmer defined words and
+	their code bodies. The code bodies are stored as references to an
+	ANTLR <em>ParserRuleContext</em> so that they can be revisited when
+	called.
+<li> The non-terminal "codeBlock" was introduced to make it easier to
+	refer to groupings of expressions.
+<li> Defining a word, via "visitDefineWord(...)", adds an association in
+	the "dictionary" (the <em>HashMap</em>)) of the word (key) with the
+	codeBlock (value).
+<li> Execution of a defined word, via "visitIdentifier(...)", simply visits
+	the words associated codeBlock that was retrieved from the "dictionary".
+<li> The method "visitIfElseThen(...)" visits one of two possible codeBlock
+	parse trees based on the value that's on top of the stack. Remember
+	that the "ELSE" portion is option, so there may not be a second
+	codeBlock to visit.
+<li> The BEGIN-UNTIL loop executes it's codeBlock and compiledExpr. It then
+	examines the top of the stack (for the compiledExpr result) and
+	continues looping (and revisiting the codeBlock and compiledExpr)
+	based on its value.
+<li> Similarly, the DO-LOOP removes the top two entries off the stack and a
+	Java "for" loop then counts through the indicated values, revisiting
+	the DO-LOOP's codeBlock upon each iteration.
+<li> Here is the <a href="../forth/antlr4_v5.zip">zip file</a> that contains
+	the updated example, which calculates the value of expressions.
+	You can use "diff -r" (on Unix/Linux/Cygwin) on the unpacked
+	directories for version 4 and version 5 to compare them
+	and get a better feel for what has changed. This new version of the
+	code implements the full semantics of the entire grammar (though not
+	for all of Forth, since not all of Forth has been defined in the
+	grammar file). Thus, the "firstPrimes" program in <em>testData</em>
+	now calculates lists of prime numbers.
+<li> The "testData" file for versions 3 and 4 contained ten numbers that were
+	initially pushed onto the stack, whereas this version does not. If
+	you haven't already, go back to version 4 and remove those ten numbers.
+	What happens? Why doesn't the same thing happen in this version without
+	those numbers? [Post your ruminations to the discussion group.]
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

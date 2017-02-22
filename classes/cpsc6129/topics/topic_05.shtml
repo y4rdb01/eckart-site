@@ -1,0 +1,113 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Evaluating "Primitive" Functions
+</p>
+
+<ol>
+<li> The "primitive" functions are those that don't define/create new functions
+	that can be applied (i.e., <em>defun</em> and <em>lambda</em>). Their
+	semantics are programmed into the interpreter - so these are the
+	easiest ones to start out implementing.
+<li> Further restricting ourselves to only those built-in functions that
+	have a fixed number of arguments makes things even easier. It's
+	also the case that this set of primitive functions always evaluate
+	all of their arguments (unlike <em>and</em>, <em>or</em>, and
+	<em>cond</em>), making their evaluation more straightforward.
+<li> Consider arithmetic expressions, which may well be deeply nested
+	because of their composition. For example:
+	<pre><code>
+	2*3 + 12/4 - 6
+	</code></pre>
+	becomes:
+	<pre><code>
+	(- (+ (* 2 3) (/ 12 4)) 6)
+	</code></pre>
+<li> Many languages would implement eager evaluation to evaluate the
+	arguments of the function first, BEFORE establishing an
+	<a href="../../cpsc5135/topics/topic_27.shtml">activation record</a>
+	on the
+	<a href="../../cpsc5135/videos/video_30.shtml">run-time stack</a>
+	for the function. However, it turns out to be a bit easier to be a
+	bit lazier. So we'll create an activation record on the run-time
+	stack when the function is called - evaluating its arguments later.
+<li> The activation record for subtraction (following our example) will
+	need:
+	<ol>
+	<li> A pointer to the function name ("-" in our example);
+	<li> A pointer to the unevaluated arguments (which initially is just
+		the <em>cdr</em> of the list which is the function call);
+	<li> A place to "store" the argument values as they are evaluated; and
+	<li> A means to keep track of how many of the (fixed number of)
+		arguments have been calculated, which determines where to
+		put the next value returned by evaluation (which will come from
+		an activation record just above this one on the run-time
+		stack).
+	</ol>
+<li> As arguments are evaluated, the pointer to the list of unevaluated
+	arguments is "followed" by replacing the current value with its
+	<em>cdr</em>. In this way the pointer will be <em>nil</em> when
+	all of the arguments have been processed.
+<li> The last two items (storage and tracking which argument is being
+	evaluated) can be accomplished in one of two straightforward ways.
+	<ol>
+	<li> The first way is to have a separate location in the activation
+		record to hold the value for each evaluated argument. In the
+		case of primitive functions with a fixed number of arguments,
+		the size of the activation record changes depending upon
+		the function (e.g., <em>not</em> takes a single argument
+		whereas <em>rem</em> takes two arguments). Furthermore, a
+		counter would be needed to determine which argument a new
+		evaluation corresponds to. For functions with only one or
+		two arguments, only a 1 bit counter is needed. However,
+		user defined functions may take many more arguments
+		(still fixed, but unknown until defined) so the size of such
+		a count isn't know before hand. Furthermore, considering
+		<em>lambda</em> forms, which can be created (and evaluated)
+		dynamically by a running program, the size of the count won't
+		be known until you're actually evaluating the <em>lambda</em>
+		form.
+	<li> An alternate way to store and keep track of the arguments is
+		to actually create a list of the evaluated arguments in the
+		heap using <em>cons</em> cell lists. Initially the list of
+		evaluated arguments is <em>nil</em>, but as they are
+		evaluated, the results are <em>cons</em>'ed onto the beginning
+		of the existing list of evaluated arguments (so the list
+		will contain the arguments in reverse order). Keeping track
+		of argument evaluation results this way does away with the
+		counter. <strong>This is the approach that you should use in
+		your Simple Lisp interpreter.</strong>
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

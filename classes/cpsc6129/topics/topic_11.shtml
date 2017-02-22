@@ -1,0 +1,157 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Reference Counting
+</p>
+
+<ol>
+<li> <a href="https://en.wikipedia.org/wiki/Reference_counting">Reference
+	Counting</a> associates a (nearly always fixed sized) counter with
+	each <em>cons</em> cell (or more generally with each allocatable
+	block of memory). These counts may be collocated with the
+	<em>cons</em> cells or it may be aggregated together elsewhere.
+<li> Unallocated (unused) <em>cons</em> cells have a count of zero (0).
+<li> Since all allocatable memory elements in <em>Simple Lisp</em> are the
+	same size, its convenient to keep them in a freelist. The freelist
+	is just a linked list (in the Heap) containing otherwise unused
+	cells. This makes them easy to find and keep track of.
+<li> Actions that change the count of references:
+	<ol>
+	<li> When a <em>cons</em> primitive function is evaluated:
+		<ol>
+		<li> The allocated <em>cons</em> cell gets a count of one (1)
+			since a reference to it is returned by the function.
+		<li> If either of arguments to <em>cons</em> is a pointer to
+			another <em>cons</em> cell, then those <em>cons</em>
+			cells have their corresponding counters increased by
+			one (1).
+		</ol>
+	<li> Both <em>car</em> and <em>cdr</em> operations increase by one (1)
+		the count of the <em>cons</em> cell they return (if they return
+		a number or an atom instead, then there's no change in the
+		reference count).
+	<li> Whenever a <em>cons</em> cell's reference count decreases to zero
+		(0), then add it to the freelist and decrease the reference
+		counts of its <em>car</em> and <em>cdr</em> if they are
+		pointers to <em>cons</em> cells.
+	<li> With the exception of "Function Name", whenever a <em>cons</em>
+		cell pointer is removed from either
+		the run-time stack or the parameter stack, then the count
+		for that cell should be decreased. Be careful, as this
+		includes situations where "List of Unevaluated Arguments"
+		is replaced with its <em>cdr</em>. The <em>cdr</em> is
+		performed first, and the the list itself is removed.
+		<ol>
+		<li> This decreases the count for the first cell in the list.
+			This may well become zero (0) so that it will be
+			readded to the freelist, which will cause the second
+			cell to have its count reduced by one (1). However,
+			the second cell should not be reclaimed because it
+			will have had a count of at least two (2) since
+			the <em>cdr</em> operation just increased it.]
+		<li> Order is important, otherwise you could deallocate the
+			entire list *before* you take the <em>cdr</em>.
+		<li> Note that you don't want to decrease the reference
+			count for a <em>cons</em> cell reference that comes
+			from a "Function Name", since this would wipe out
+			the defintions of our programmer <em>defun</em>ed
+			functions.
+		</ol>
+	<li> Both the <em>rplaca</em> and the <em>rplacd</em> functions
+		should decrease the count of the <em>cons</em> cell
+		pointed to by the item they replace (if it was indeed a
+		<em>cons</em> cell pointer).
+	<li> Finally, recall that at the top-most level, the Lisp interpreter 
+		is really just a read-eval-print loop. When input is read in,
+		a data structure of <em>cons</em> cells is created. Reclaiming
+		(parts of) this structure should happen as a side-effect of
+		the evaluation process.
+		However, after the evaluated result is printed,
+		it too needs to be reclaimed (i.e.,
+		if the value is a pointer to a <em>cons</em> cell,
+		then the reference count for that <em>cons</em> cell should
+		be reduced by one (1)).
+	</ol>
+<li> None of the above actions to adjust the reference count should be
+	performed in the Lisp interpreter "eval" function (a member of the
+	"RunTimeStack" class). Instead, they
+	should be performed by the "getCell", "getCar", "getCdr", "setCar",
+	and "setCdr" member functions of the "Heap" class. You'll need to
+	add at least one additional member function to the "Heap" class
+	so that you can "dereference" <em>cons</em> cells that you pop of
+	a stack (or no longer need, say after printing).
+<li> Benefits:
+	<ol>
+	<li> It's pretty simple to understand (and implement).
+	<li> There are generally no long delays in computation while
+		unused memory is being reclaimed. While the simple approach
+		above could cause a delay proportional to the size of the
+		data structure being reclaimed, it is possible to have
+		every call to "getCell" do a bounded (and small) amount of
+		work to recover a fixed number of <em>cons</em> cells.
+		Though this complicates the implementation slightly as a
+		list of pending work would need to be maintained.
+	</ol>
+<li> Drawbacks:
+	<ol>
+	<li> By itself, Reference Counting cannot reclaim circular structures
+		(which can be created using the <em>rplaca</em> and
+		<em>rplacd</em> functions).
+	<li> The size of the counts are fixed, so that when the maximum
+		count value is reached, it must be maintained at that
+		maximum value (since it can't be made larger, and decreasing
+		the count is dangerous since you could return the storage
+		too early). [That is if only 2 bits were used to store the
+		count value, and additional references were obtained after it
+		had reached its maximum value of 3, then decreasing 3 to 2
+		could cause the count to reach a zero (0) value *before* all
+		of the references were actually gone.]
+	<li> These drawbacks can be overcome by periodically (and
+		hopefully infrequently) running a tracing garbage collector
+		(e.g., Mark & Sweep) to detect cycles and reestablish counts.
+	<li> It turns out that most <em>cons</em> cells end up with very
+		low reference counts (e.g., <= 3) so enabling larger counts
+		is wasteful. If coupled with a tracing garbage collector,
+		as suggested above, then keeping the counts small is workable.
+	</ol>
+<li> Strictly speaking, some people don't consider Reference Counting to be a
+	garbage collection mechanism since memory is reclaimed as soon as it's
+	no longer being used. To be "garbage" it has to have been "discarded",
+	but still taking up space, and not available for reuse. However, in
+	common usage, it's convenient to lump Reference Counting together
+	with all the techniques under the common description of
+	<a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">garbage collection</a>
+	(GC).
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,155 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>CPSC 6129: Simple (dialect of) Lisp</strong>
+</p>
+
+<p>
+The following is the list of built-in functions for the <em>Simple Lisp</em>
+dialect.  Please note that there are no input operations and that only very
+simple output and arithmetic operations are available.  This dialect also
+includes the "lambda" and "defun" functions.  Despite its simplicity the
+<em>Simple Lisp</em> dialect is quite capable (and could be used to teach
+the functional programming paradigm to beginning programmers).  Comments
+begin with the semi-colon (;) character and continue until the end of
+line (everthing within a comment is ignored). Only integer numbers are
+supported. Atoms are alphanumeric character sequences that begin with a
+letter. Atoms containing non-alphanumeric characters must be contained within
+double quotes (").  As is the case for the vast majority of modern programming
+languages, <em>Simple Lisp</em> uses static scoping.
+Here are the <em>Simple Lisp</em> functions:
+</p>
+
+<ul>
+<li> <strong>cons</strong><br>
+	Takes two arguments and returns a pointer to a cons cell whose
+	<em>car</em> is the first argument and whose <em>cdr</em>
+	is the second argument.
+<li> <strong>car</strong><br>
+	Returns the item (cons cell pointer or atom) contained in the
+	<em>car</em> of the cons cell which is the sole argument to the
+	function.  The nil cons cell should be returned if the argument
+	is an atom.
+<li> <strong>cdr</strong><br>
+	Returns the item (cons cell pointer or atom) contained in the
+	<em>cdr</em> of the cons cell which is the sole argument to the
+	function.  The nil cons cell should be returned if the argument
+	is an atom.
+<li> <strong>rplaca</strong><br>
+	The first argument is a cons cell, and the second argument is some
+	other object (i.e., list, number, atom). This function replaces the
+	<em>car</em> of the cons cell (first argument) with the object that
+	is the second argument. The cons cell (first argument) is returned.
+<li> <strong>rplacd</strong><br>
+	The first argument is a cons cell, and the second argument is some
+	other object (i.e., list, number, atom). This function replaces the
+	<em>cdr</em> of the cons cell (first argument) with the object that
+	is the second argument. The cons cell (first argument) is returned.
+<li> <strong>quote</strong><br>
+	Returns its single argument <strong>without</strong> evaluating it.
+<li> <strong>eval</strong><br>
+	Returns its single argument <strong>after</strong> evaluating it.
+<li> <strong>atom</strong><br>
+	Returns t(rue) if its argument is the name of an atom, and nil
+	otherwise.  The special atom name nil, which is the empty list,
+	should return a nil.
+<li> <strong>numberp</strong><br>
+	Returns t(rue) if its argument is a, possibly signed, integer,
+	and nil otherwise.
+<li> <strong>cond</strong><br>
+	Takes one or more lists of pairs as its arguments. The first item
+	within each pair is considered in succession until one is found
+	that returns a non-nil value. If none returns non-nil, then the
+	<em>cond</em> returns nil. Otherwise, <em>cond</em> returns the
+	result of evaluating the
+	second item in the pair whose first element returned a non-nil value.
+<li> <strong>and</strong><br>
+	Takes one or more arguments. Each argument is evaluated in turn.
+	If all arguments return non-nil, the the value of the last argument
+	is returned by <em>and</em>. If an argument returns nil, then
+	<em>and</em> returns a nil value.
+<li> <strong>or</strong><br>
+	Takes one or more arguments. Each argument is evaluated in turn.
+	The value of the first non-nil argument is returned. If all of the
+	arguments return nil, then <em>or</em> returns a nil value.
+<li> <strong>not</strong><br>
+	Returns the logical not operation when applied to its single
+	argument.  If the argument evaluates to nil then a t(rue) is
+	returned, otherwise nil is returned.
+<li> <strong>+</strong><br>
+	Adds together its two arguments, returning the arithmetic sum.
+	If either argument is not a number, nil is returned.
+<li> <strong>-</strong><br>
+	Subtracts the second argument from the first.
+	If either argument is not a number, nil is returned.
+<li> <strong>*</strong><br>
+	Multiplies together its two arguments, returning the product.
+	If either argument is not a number, nil is returned.
+<li> <strong>/</strong><br>
+	Divides the first argument by the second, returning the quotient.
+	If either argument is not a number, nil is returned.
+<li> <strong>rem</strong><br>
+	Divides the first argument by the second, returning the remainder.
+	If either argument is not a number, nil is returned.
+<li> <strong>eq</strong><br>
+	Returns t(rue) if its two arguments are either the same atom,
+	the same number, or the same list (i.e. the cons cell pointers are the
+	same).  The function returns nil otherwise.
+<li> <strong>&lt;</strong><br>
+	Returns t if the first arguement is less than the second argument,
+	and nil otherwise.
+	If either argument is not a number, nil is returned.
+<li> <strong>&gt;</strong><br>
+	Returns t if the first arguement is greater than the second argument,
+	and nil otherwise.
+	If either argument is not a number, nil is returned.
+<li> <strong>lambda</strong><br>
+	Takes two unevaluated arguments, the first being a list of formal
+	parameters, while the second is the function body to evaluate using
+	those formal parameters. Returns a "function" that can be evaluated
+	on actual parameters (corresponding to the indicated formal parameters).
+	The value returned is the result of the function evaluation.
+<li> <strong>defun</strong><br>
+	Declares its first argument as a new function name.  The second
+	argument is a list which contains the names of the arguments for
+	the new function, while the third argument is the body of the
+	new function.  <em>None</em> of the arguments is evaluated.
+	Returns t(rue).
+<li> <strong>write</strong><br>
+	Prints its evaluated argument to the standard output.  No intervening
+	spaces or end of line markers are printed. Returns t(rue).
+<li> <strong>writenl</strong><br>
+	Prints an end-of-line to the standard output.  No arguments should
+	be given to the function. Returns t(rue).
+</ul>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

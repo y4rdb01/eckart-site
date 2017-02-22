@@ -1,0 +1,82 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Extended Example: Forth
+</p>
+
+<ol>
+<li> The book for this course, <a href="http://www.amazon.com/dp/1934356999">The
+	Definitive ANTLR 4 Reference</a> is very detailed and includes
+	numerous examples of how to use the system. In an attempt to avoid
+	repeating those examples, an extended example based on the
+	<a href="https://en.wikipedia.org/wiki/Forth_(programming_language)">Forth</a>
+	programming language will be used. However, please note that no attempt
+	will be made to implement all of Forth, though enough will be done
+	to enable useful computations and to give a substantial introduction
+	to Forth (as well as to ANTLR 4). 
+<li> Why Forth? While it's an older language, dating back to the early 1970s,
+	it's still in use today. Forth's most notable feature is that it's a
+	stack based language, differentiating it from most (all?) of the
+	languages you've likely come in direct contact with. It is certainly
+	different from Lisp, Prolog, C++, Smalltalk, and NetLogo that are
+	covered in <a href="../../cpsc5135">CPSC 5135</a>.  Exposure to yet
+	another programming language paradigm is a great opportunity.
+<li> There are three published standards for Forth, from 1979, 1983, and 1994. 
+	While only a subset of Forth will likely be implemented as an extended
+	example for this course, I'll endeavor to conform to the latest
+	version as much as practical:
+	<ol>
+	<li> <a href="../forth/Forth-79.pdf">Forth-79 Standard</a>
+	<li> <a href="../forth/FORTH83.txt">Forth-83 Standard</a>
+	<li> <a href="../forth/Forth-94.pdf">Forth-94 Standard</a>
+	<li> <a href="../forth/stdref-94.pdf">Standard Forth-94 Reference</a>
+	<li> <a href="../forth/forth-2012-rc2.pdf">Forth-200x (RC2)</a>
+	</ol>
+<li> Learning a language from a reference manual/standard is not generally
+	very easy, so here are some on-line tutorials which should help you
+	get acclimated quickly, making it easier to understand the example
+	ANTLR 4 code for Forth:
+	<ol>
+	<li> <a href="http://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm">
+		A Beginner's Guide to Forth</a>
+	<li> <a href="http://www.forth.com/starting-forth/">Starting FORTH</a>
+	<li> <a href="http://www.softsynth.com/pforth/pf_tut.php">Forth
+		Tutorial</a>
+	<li> <a href="../forth/Forth_Primer.pdf">And so Forth...</a>
+	<li> <a href="../forth/ProgramForth.pdf">Programming Forth</a>
+	<li> <a href="http://www.forth.org/svfig/Len/len.htm">Len's Forth
+		Tutorial</a>
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

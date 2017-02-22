@@ -1,0 +1,476 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Run-time Stack
+</p>
+
+<ol>
+<li> The activation records in your run-time stack will then look like:
+	<table style="border: 1px solid black; text-align: center; margin: auto">
+	<tr>
+	<td style="border: 1px solid black">
+		<strong>Function Name</strong><br/>(String Reference)
+	</td>
+	<td style="border: 1px solid black">
+		<strong>List of Unevaluated Arguments</strong><br/>(Heap Reference)
+	</td>
+	<td style="border: 1px solid black">
+		<strong>List of Argument Evaluations</strong><br/>(Heap References)
+	</td>
+	</tr>
+	</table>
+<li> Here's a step by step representation of the above example so you can see
+	how the run-time stack changes as "(- (+ (* 2 3) (/ 12 4)) 6)" is
+	evaluated. Each activation record is a single line in the table
+	representation of the stack, with the activation record field
+	descriptions reprinted at the bottom of the stack (to keep you
+	oriented):
+	<ol>
+	<style scoped>
+		td { text-align: center; margin: auto; border: 1px solid black }
+	</style>
+	<li> Start evaluation of "(- (+ (* 2 3) (/ 12 4)) 6)":
+		<table style="border: 1px solid black">
+		<tr>
+			<td>-</td>
+			<td>((+ (* 2 3) (/ 12 4)) 6)</td>
+			<td>nil</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> Evaluate the first argument of the "-" function call:
+		<table style="border: 1px solid black">
+		<tr>
+			<td>+</td>
+			<td>((* 2 3) (/ 12 4))</td>
+			<td>nil</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>((+ (* 2 3) (/ 12 4)) 6)</td>
+			<td>nil</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> The "+" function call that's the argument to "-", needs its
+		first argument evaluated:
+		<table style="border: 1px solid black">
+		<tr>
+			<td>*</td>
+			<td>(2 3)</td>
+			<td>nil</td>
+		</tr>
+		<tr>
+			<td>+</td>
+			<td>((* 2 3) (/ 12 4))</td>
+			<td>nil</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>((+ (* 2 3) (/ 12 4)) 6)</td>
+			<td>nil</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> Evaluate 2:
+		<table style="border: 1px solid black">
+		<tr>
+			<td>2</td>
+			<td>nil</td>
+			<td>nil</td>
+		</tr>
+		<tr>
+			<td>*</td>
+			<td>(3)</td>
+			<td>nil</td>
+		</tr>
+		<tr>
+			<td>+</td>
+			<td>((* 2 3) (/ 12 4))</td>
+			<td>nil</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>((+ (* 2 3) (/ 12 4)) 6)</td>
+			<td>nil</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> As a number, 2 evaluates to itself:
+		<table style="border: 1px solid black">
+		<tr>
+			<td>*</td>
+			<td>(3)</td>
+			<td>(2)</td>
+		</tr>
+		<tr>
+			<td>+</td>
+			<td>((* 2 3) (/ 12 4))</td>
+			<td>nil</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>((+ (* 2 3) (/ 12 4)) 6)</td>
+			<td>nil</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> Evaluate 3:
+		<table style="border: 1px solid black">
+		<tr>
+			<td>3</td>
+			<td>nil</td>
+			<td>nil</td>
+		</tr>
+		<tr>
+			<td>*</td>
+			<td>nil</td>
+			<td>(2)</td>
+		</tr>
+		<tr>
+			<td>+</td>
+			<td>((* 2 3) (/ 12 4))</td>
+			<td>nil</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>((+ (* 2 3) (/ 12 4)) 6)</td>
+			<td>nil</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> And 3 evaluates to itself:
+		<table style="border: 1px solid black">
+		<tr>
+			<td>*</td>
+			<td>nil</td>
+			<td>(3 2)</td>
+		</tr>
+		<tr>
+			<td>+</td>
+			<td>((* 2 3) (/ 12 4))</td>
+			<td>nil</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>((+ (* 2 3) (/ 12 4)) 6)</td>
+			<td>nil</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> The result of the "*" is returned and added to the "List of
+		Argument Evaluations":
+		<table style="border: 1px solid black">
+		<tr>
+			<td>+</td>
+			<td>((/ 12 4))</td>
+			<td>(6)</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>((+ (* 2 3) (/ 12 4)) 6)</td>
+			<td>nil</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> Evaluate the next argument to "+":
+		<table style="border: 1px solid black">
+		<tr>
+			<td>/</td>
+			<td>(12 4)</td>
+			<td>nil</td>
+		</tr>
+		<tr>
+			<td>+</td>
+			<td>((/ 12 4))</td>
+			<td>(6)</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>((+ (* 2 3) (/ 12 4)) 6)</td>
+			<td>nil</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> Evaluate 12:
+		<table style="border: 1px solid black">
+		<tr>
+			<td>12</td>
+			<td>nil</td>
+			<td>nil</td>
+		</tr>
+		<tr>
+			<td>/</td>
+			<td>(4)</td>
+			<td>nil</td>
+		</tr>
+		<tr>
+			<td>+</td>
+			<td>((/ 12 4))</td>
+			<td>(6)</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>((+ (* 2 3) (/ 12 4)) 6)</td>
+			<td>nil</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> The number 12 evaluates to 12:
+		<table style="border: 1px solid black">
+		<tr>
+			<td>/</td>
+			<td>(4)</td>
+			<td>(12)</td>
+		</tr>
+		<tr>
+			<td>+</td>
+			<td>((/ 12 4))</td>
+			<td>(6)</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>((+ (* 2 3) (/ 12 4)) 6)</td>
+			<td>nil</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> Evaluate 4:
+		<table style="border: 1px solid black">
+		<tr>
+			<td>4</td>
+			<td>nil</td>
+			<td>nil</td>
+		</tr>
+		<tr>
+			<td>/</td>
+			<td>nil</td>
+			<td>(12)</td>
+		</tr>
+		<tr>
+			<td>+</td>
+			<td>((/ 12 4))</td>
+			<td>(6)</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>((+ (* 2 3) (/ 12 4)) 6)</td>
+			<td>nil</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> And 4 evaluates to 4:
+		<table style="border: 1px solid black">
+		<tr>
+			<td>/</td>
+			<td>nil</td>
+			<td>(4 12)</td>
+		</tr>
+		<tr>
+			<td>+</td>
+			<td>((/ 12 4))</td>
+			<td>(6)</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>((+ (* 2 3) (/ 12 4)) 6)</td>
+			<td>nil</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> The division result is returned (remembering that the "List of
+		Argument Evaluations" are in reversed order): 
+		<table style="border: 1px solid black">
+		<tr>
+			<td>+</td>
+			<td>nil</td>
+			<td>(3 6)</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>((+ (* 2 3) (/ 12 4)) 6)</td>
+			<td>nil</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> The first argument of "-" has been evaluated, so add it to the
+		"List of Argument Evaluations" and proceed to its next
+		argument (the next item in the "List of Unevaluated Arguments"):
+		<table style="border: 1px solid black">
+		<tr>
+			<td>-</td>
+			<td>(6)</td>
+			<td>(9)</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> Now evaluate 6:
+		<table style="border: 1px solid black">
+		<tr>
+			<td>6</td>
+			<td>nil</td>
+			<td>niil</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>nil</td>
+			<td>(9)</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> The number 6 evaluates to itself:
+		<table style="border: 1px solid black">
+		<tr>
+			<td>-</td>
+			<td>nil</td>
+			<td>(6 9)</td>
+		</tr>
+
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	<li> Remembering once again that the "List of Argument Evaluations"
+		are in reversed order, the result returned is "3", leaving an
+		empty run-time stack:
+		<table style="border: 1px solid black">
+		<tr>
+			<td style="border: 1px solid black"><strong>Function Name</strong></td>
+			<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+			<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+		</tr>
+		</table><br/>
+	</ol>
+<li> You may have noticed by now that if we always <em>cons</em> to the
+	front on a list, this is equivalent to a stack's push operation.
+	The equivalent to a stack's top operation is provided by
+	<em>car</em>, and <em>cdr</em> stands in for the pop operation.
+	Thus, the run-time stack could be stored in the heap and these
+	three primitive Lisp operations to implement the run-time stack.
+	Doing so, however, wouldn't work if we had to use the run-time
+	stack in the evaluation of their arguments (infinite recursion),
+	but fortunately in the context of a run-time stack the argument
+	values would already be known (and the interpreter code would
+	need to be written to use the "Heap" class public methods directly
+	to manage the run-time stack without sending them through the
+	"eval" method of "RunTimeStack"). [ NOTE: While it is possible to
+	do this, it is not a requirement for your assignment. I would
+	recommend getting your interpreter to work using the "RunTimeStack"
+	class first (as it should be more straightforward) and then
+	converting this over to a "Heap" based solution if that is of
+	interest to you. ]
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

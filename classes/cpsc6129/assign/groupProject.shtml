@@ -1,0 +1,343 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>CPSC 6129: Group Project</strong>
+</p>
+
+<p>
+There is a (nearly) semester long group project as part of this course.
+The project involves taking a new language, learning how to write
+significant programs in that language, and presenting to the rest of the
+class (via classnotes and video based in large part on the experience
+of your group in learning and using the language) your group's:
+	<ol>
+	<li> Tutorial(s) for programming in the language;
+	<li> Techniques and idioms for efficient use of the language's
+		capabilities;
+	<li> Traps and pitfalls to be wary of when using the language;
+	<li> A critical analysis of the language (the good, the bad, and the
+		ugly);
+	<li> Comparison of major features in the language to counterparts in
+		other languages that members of the group are familiar with
+		(e.g., from CPSC 5132, other courses, work experience); and
+	<li> Suggestions, if any, for how the language might be improved
+		within its design objectives.
+	</ol>
+In order to help keep everyone on track (it's all too easy to postpone
+things) the below schedule must be adhered to (failure to do so will result
+in point deductions):
+	<ol>
+	<li> <a name="experience"></a><em>[Saturday, 23 Aug] Student Experience:</em>
+		<blockquote>
+		Post the list of languages you are fimilar with to the
+		Yahoo group for this course. Include the name of the language,
+		a link to a description of the language, and an indication
+		of your knowledge level:
+		<blockquote>
+			<dl>
+			<dt>Familiar</dt><dd>Have read about the language
+				and am familiar with its capabilities, but
+				not able to pick up code and read it with
+				complete understanding.</dd>
+			<dt>Reader</dt><dd>Able to read code for a significant
+				program written in the language, but have
+				never written a program on your own.</dd>
+			<dt>Novice</dt><dd>Have written simple (i.e., toy)
+				programs in the language, and would be able
+				to augment more complex programs that someone
+				else had written.</dd>
+			<dt>Advanced</dt><dd>Have written significant (and
+				non-trivial) programs in the language.</dd>
+			</dl>
+		</blockquote>
+		</blockquote>
+	<li> <a name="assign"></a><em>[Wednesday, 27 Aug] Group and Language Assignment:</em>
+		<blockquote>
+		Assignment of people (and languages) to groups will be
+		posted by the instructor.
+		</blockquote>
+	<li> <a name="install"></a><em>[Sunday, 7 Sep] Language Install:</em>
+		<blockquote>
+		Groups shall ensure that everyone in their team has downloaded,
+		installed, and confirmed operation of their language system
+		by executing at least one of the sample programs that (nearly?)
+		all languages come with. A link to a "video" transcript of
+		(compilation and) execution of such a program must be emailed
+		to the instructor by each member of the group (you can
+		post your video to youtube.com as "unlisted" if you don't want
+		anyone else to see it - except those to whom you give the
+		link).
+		</blockquote>
+	<li> <a name="descriptions"></a><em>[Saturday, 20 Sep] Program Descriptions:</em>
+		<blockquote>
+		Your group must email to the instructor a list of 3-5 program
+		descriptions for
+		review. These are programs that you feel are sufficiently
+		significant to illustarte all of the major features of your
+		assigned programming langauge. The descriptions should be
+		detailed enough that you could give them to someone else as
+		a programming assignment. Be sure to outline at the top of
+		each program description which of your group's language
+		features it is meant to illustrate.
+		</blockquote>
+	<li> <a name="approvals"></a><em>[Saturday, 4 Oct] Program Approvals:</em>
+		<blockquote>
+		After (perhaps multiple rounds of) feedback from the instructor
+		have been incorporated into the program descriptions, the
+		instructor will approve which should be implemented by the
+		group as part of its project. All approved programs should be
+		incorporated into the group's presentation (though the group is
+		free to include more - and probably smaller - examples within
+		their presentation in order to focus on key issues more
+		directly).
+		</blockquote>
+	<li> <a name="present"></a><em>[Monday of the week prior to your scheduled presentation] Presentation Notes:</em>
+		<blockquote>
+		Email your instructor html versions of your notes suitable for
+		posting on the course web site. These notes must be the basis
+		for your video presentation, but should include more detail
+		than you are likely able to cover in the video. Ideally other
+		students in the class should print these notes and be able to
+		make substantial annotations to them as a result of watching
+		the video presentation. <em>This deadline enables the
+		instructor to make these materials available to the rest
+		of the class in a timely manner.</em>
+		</blockquote>
+	<li> <em>[Friday of the week proir to your scheduled presentation] Presentation Video:</em>
+		<blockquote>
+		Email your instructor the youtube.com link to your presentation
+		video(s). It is <em>strongly</em> recommended that you
+		divide your presentation into more consumable chunks of 10-20
+		minutes each. Please given a short phrase that describes the
+		topic of each video segment.  <em>This deadline enables the
+		instructor to make these materials available to the rest
+		of the class in a timely manner.</em>
+		</blockquote>
+	<li> <a name="programs"></a><em>[Sunday, 23 Nov] Approved Programs:</em>
+		<blockquote>
+		Email the instructor the completed programs that were
+		previously approved for your group. Be sure to include any
+		instructions on how to (compile and) execute your programs,
+		providing descriptions of the desired input along with
+		sample input files.
+		</blockquote>
+	<li> <a name="test"></a><em>[Sunday, 30 Nov] Test Questions:</em>
+		<blockquote>
+		<em>Each member</em> of the group should email the instructor
+		a list of:
+			<ol>
+			<li> 10 true/false questions;
+			<li> 10 multiple choice questions (with 5 choices
+				for each question); and
+			<li> 5 short answer/paragraph questions of a more
+				open-ended nature.
+			</ol>
+		These questions should be specific to the language assigned
+		to your group. <em>You must include what you feel to be the
+		correct answer for each of your questions.</em> The questions
+		should not be trivial, but must be answerable based on your
+		group's presentation (published notes and videos).
+		</blockquote>
+	<li> <a name="assess"></a><em>[Saturday, 6 Dec] Assessments:</em>
+		<blockquote>
+		Each member of every group should email the instructor their
+		own assessment of every group's presentations (including your
+		own group) as well as an assessment of the contributions of
+		the members of their group toward their own group's work
+		(including yourself).
+		Everyone in the class should submit their own assessment (in
+		pdf format) resembling the following organizational structure:
+			<blockquote>
+			<dl>
+			<dt><strong>My Name:</strong></dt>
+				<dd>
+				J Dana Eckart
+				</dd>
+			<dt><strong>My Group (Language):</strong></dt>
+				<dd>
+				Group #0 (C++)
+				</dd>
+			<dt><strong>Group Grades:</strong></dt>
+				<dd>
+					<ul>
+					<li> Group #0: B+
+						<blockquote>
+						While the presentation notes
+						were very complete and our
+						group was able to demonstrate
+						the novel features of C++ using
+						several intriguing examples,
+						our video presentations were
+						poor (just reading from the
+						notes). We should have expanded
+						more on how to effectively use
+						the language rather than just
+						"reading the code". I did think
+						that our Lisp interpreter
+						program was really cool (and
+						well received), even though
+						it was really too large to
+						adequately cover in the time
+						allotted for the video
+						presentations.
+						</blockquote>
+					<li> Group #1: A-
+						<blockquote>
+						A good job with both the notes
+						and videos. The program
+						examples were very engaging
+						and helped me better understand
+						the notes and how (and when) to
+						use this language.
+						</blockquote>
+					<li> Group #2: C-
+						<blockquote>
+						The video presentation was
+						very uninspired and delivered
+						in a monotone. I had to watch
+						it several times because I kept
+						falling asleep. The notes read
+						like the IRS tax code. I would
+						find it <em>very</em> difficult
+						to write a program in this
+						language based on the group's
+						presentation materials.
+						</blockquote>
+					<li> Group #3: A
+						<blockquote>
+						This group did an all around
+						great job. They left me with
+						a real desire to learn the
+						language (I'll be downloading
+						and trying it out after the
+						semester is over) and I feel
+						that I could very quickly
+						start writing significant
+						programs based on their
+						presentation materials.
+						</blockquote>
+					<li> Group #4: B-
+						<blockquote>
+						While the notes and video
+						presentations were pretty good,
+						the programs they used to
+						demonstrate the capabilities
+						of the language seemed too
+						contrived and were very much
+						"toy" programs. While I could
+						begin writing programs based
+						on their presentation materials,
+						I would have a hard time doing
+						anything more significant than
+						a simple input/output based
+						program that included minimal
+						data/computational processing.
+						</blockquote>
+					</ul>
+				</dd>
+			<dt><strong>My Group's Members' Grades:</strong></dt>
+				<dd>
+					<ul>
+					<li> J Dana Eckart: B
+						<blockquote>
+						I felt I did my fair share of
+						the work. I focused most of
+						my effort on the Lisp
+						Interpreter program, along
+						with the corresponding notes
+						and video presentation.
+						</blockquote>
+					<li> Bullwinkle J Moose: C-
+						<blockquote>
+						While a nice guy, Bullwinkle
+						seemed to struggle with the
+						material. He tried to work on
+						one of our group's 4 example
+						programs (the simplest one),
+						but ended up having to hand
+						it over to Rocky to complete.
+						He did most of the work on
+						our video presentation, but
+						unfortunately ended up just
+						reading the notes that Rocky
+						and I had put together.
+						</blockquote>
+					<li> Rocket "Jet" Squirrel: A+
+						<blockquote>
+						Rocky did a fantastic job of
+						helping the group stay focused
+						and making sure that we met
+						our deadlines. He was
+						responsible for most of the
+						remaining example programs.
+						</blockquote>
+					</ul>
+				</dd>
+			<dt><strong>Project Experience & Logistics:</strong></dt>
+				<dd>
+				I really appreciated that the instructor broke
+				the project down into pieces that had due dates
+				throughout the semester. Without this, I think
+				it would have been all to easy to procrastinate
+				and end up in a very difficult spot towards
+				the end of the semester. At times, the
+				communication lag between group members was
+				longer than I felt comfortable with - though
+				this was almost always due to members being
+				time shifted a few hours as well as varying
+				work schedules (and being on-call for work).
+				Not really sure how to make that any better
+				though.
+				</dd>
+			<dt><strong>Feedback to Instructor:</strong></dt>
+				<dd>
+				Overall this was a positive group project
+				experience for me. Group projects are always
+				difficult to organize. I think that 3 people
+				in the group was a perfect size. One group
+				had 4 people and another had 2 (apparently
+				someone dropped the class) and from what I
+				say in the discussion list having 4 people
+				was too many to coordinate with and 2 people
+				had great difficulty in getting the work done.
+				Perhaps you could delay the formation of the
+				groups by a week (to avoid having groups with
+				too few people when someone withdraws from
+				the course).
+				</dd>
+			</dl>
+			<blockquote>
+		</blockquote>
+	</ol>
+</p>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

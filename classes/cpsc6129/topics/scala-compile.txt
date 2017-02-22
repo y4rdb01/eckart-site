@@ -1,0 +1,39 @@
+On the Knapsack program:
+	Unzip into a directory, the code is in src folder.
+	Just use scalac and javac to compile, and run the scala program.
+	The Scala program uses the java class to illustrate how seamlessly
+	scala works with java.
+
+For the Stat and Matrix programs, we used SBT (simple build tool) for scala,
+so you need to have SBT installed to run the programs.  
+
+	SBT can be downloaded and installed here:
+
+	Windows -> http://www.scala-sbt.org/0.13/tutorial/Installing-sbt-on-Windows.html
+
+	Linux -> http://www.scala-sbt.org/0.13/tutorial/Installing-sbt-on-Linux.html
+
+To run the programs, unzip to a directory and navigate to that directory (ie. unzip to ~/stat then cd ~/stat)
+The code is in the src folder but you run sbt from the base folder.
+To run type sbt "<program_name> <args1> <arg2> ..."
+In order to have command line args you must use the quotes.
+
+Both Stat and Matrix accept filename as command line arguments,
+but both can be run without arguments and have files loaded from the REPL
+
+Both Stat and Matrix have a testData folder, with included testData files.
+
+To access type:
+	sbt "Matrix testData/testMatrixA  testData/testMatrixB"
+
+	This will load both files. Matrix can have as many arg files as you
+	want. If it can't find one (or more of the files) it will still load
+	the ones it can find and let you know what was loaded and not loaded.
+	Matirx requires all matrix files be comma delimited.
+
+Stat accecpts both comma delimited and space delimited.  If you use comma
+delimited in Stat it must end in .csv.  If your file has a different extension
+(or no extension) it is assumed to be space delimited.
+
+We wanted to use SBT to demonstrate the tools that are available for Scala
+(much like ANT for java).

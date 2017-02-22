@@ -1,0 +1,91 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Defining & Evaluating Functions
+</p>
+
+<ol>
+<li> When a <em>defun</em> is evaluated, the name of the function, given
+	by the second argument, should be inserted into the symbol table
+	along with its attribute, which is the implementation of the
+	function.
+<li> If the implementation of a function is stored as a <em>lambda</em> form,
+	then when a function is called, the name of the function can be
+	replaced with its corresponding <em>lambda</em> form, leveraging the
+	evaluation semantics of <em>lambda</em> forms.
+	<ol>
+	<li> Since the <em>defun</em> doesn't actually give a complete
+		<em>lambda</em> form, one needs to be constructed. Thus
+		<pre><code>
+		(defun f (x) (+ x 1))
+		</code></pre>
+		should give rise to the <em>lambda</em> form: 
+		<pre><code>
+		(lambda (x) (+ x 1))
+		</code></pre>
+		by <em>cons</em>ing "lambda" onto the <em>cdr</em> of the
+		<em>cdr</em> of the original "defun" for "f".
+	<li> If a function name appears again later in another <em>defun</em>
+		then simply replace the current <em>lambda</em> form
+		defintion of the function with the new one. 
+	</ol>
+<li> A consequence of replacing a function call with its corresponding
+	<em>lambda</em> form is that the if the function definition
+	changes then the new (changed) definition will be used on
+	subsequent evaluations. Consider the following example:
+	<pre><code>
+	(defun f (x)
+		(cond
+			((not x) nil)
+			((not (numberp (car x)))
+			 (and
+			 	(defun f (x)
+					(cond
+						((not x) nil)
+						(t (cons (- (car x) 1) (f (cdr x))))
+					)
+			 	)
+				(f (cdr x))
+			 )
+			)
+			(t (cons (+ (car x) 1) (f (cdr x))))
+		)
+	)
+	</code></pre>
+	when called with "(f (quote (1 2 a 3 4)))". Give this a try in
+	Common Lisp - the semantics are the same for this example as they
+	are in Simple Lisp. [NOTE: Make sure you understand what's happening
+	and why.]
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

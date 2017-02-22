@@ -1,0 +1,87 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Simple Lisp
+</p>
+
+<ol>
+<li> Roughly, the first quarter of the semester (4 or 16 weeks) is devoted
+	to creating a
+	basic interpreter for a simple (mostly functional) dialect of
+	Lisp called <a href="../assign/SimpleLisp.shtml">Simple Lisp</a>.
+<li> The <a href="../assign/SimpleLisp.shtml">Simple Lisp</a> dialect
+	supports the creation of user defined functions using the following
+	types of data (and their associated operations): lists, atoms, and
+	numbers (integers). In addition, you also have boolean operations
+	and conditional execution.
+<li> If you are not already familiar with Lisp, then you can find various
+	materials on-line to get you started. My class notes and recorded
+	lectures from <a href="../../cpsc5135/">CPSC 5135</a> should be a
+	good starting point if you are either new to Lisp (or need to
+	refresh your memory).
+<li> With the exception of division (/), all of the operations in
+	<a href="../assign/SimpleLisp.shtml">Simple Lisp</a> should
+	operate the same way as they do in
+	<a href="http://www.clisp.org">Common Lisp</a>,
+	so you might want to spend time developing your various (and
+	numerous) test cases there first. Knowing what the results
+	should be from Common Lisp should help in testing (and debugging)
+	your Simple Lisp implementations.
+<li> When creating the test data for your interpreter, I would suggest that
+	you do so <strong>before</strong> attempting to implement those
+	capabilities in your interpreter. As a general guideline, I would
+	recommend creating your tests so that you can incrementally test
+	your interpreter's capabilities in the following order:
+	<ol>
+	<li> Comments - because you'll want to document what your test cases
+		<em>should</em> return.
+	<li> +, -, *, /, rem
+	<li> eq, <, >
+	<li> quote
+	<li> eval
+	<li> atom, numberp
+	<li> car, cdr
+	<li> cons
+	<li> write, writeln
+	<li> and, or, not
+	<li> cond
+	<li> lambda
+	<li> defun
+	<li> eq - retest this function now that you have functions (and
+		parameters) to ensure that it works correctly for lists
+		as well as atoms and numbers.
+	<li> rplaca, rplacd
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

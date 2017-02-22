@@ -1,0 +1,116 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Classes
+	<img style="vertical-align:top" src="hacker2.gif" alt="student working at a computer" />
+</p>
+
+<table style="text-align: center; margin: auto">
+	<tr>
+		<th>Course Number</th>
+		<th>Course Name</th>
+		<th>Last Taught</th>
+	</tr>
+	<tr>
+		<td>
+			<a href="http://academics.columbusstate.edu/catalogs/current/course_description.php?CPSC">CPSC 1302</a>
+		</td>
+		<td>Computer Science 2</td>
+		<td>
+			<a href="cpsc1302/">Spring 2016</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="http://academics.columbusstate.edu/catalogs/current/course_description.php?CPSC">CPSC 3125</a>
+		</td>
+		<td>Operating Systems</td>
+		<td>
+			<a href="cpsc3125/">Spring 2016</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="http://academics.columbusstate.edu/catalogs/current/course_description.php?CPSC">CPSC 3555</a>
+		</td>
+		<td>Selected Topics in Computer Science:<br/>Iterated Prisoners Dilemma</td>
+		<td>
+			<a href="cpsc3555/syllabi/syllaubs_spring2014.docx">Spring 2014</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="http://academics.columbusstate.edu/catalogs/current/course_description.php?CPSC">CPSC 5135</a>
+		</td>
+		<td>Programming Languages</td>
+		<td>
+			<a href="cpsc5135/">Spring 2016</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="http://academics.columbusstate.edu/catalogs/current/course_description.php?CPSC">CPSC 6125</a>
+		</td>
+		<td>Advanced Operating Systems</td>
+		<td>
+			<a href="cpsc6125/">Fall 2015</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="http://academics.columbusstate.edu/catalogs/current/course_description.php?CPSC">CPSC 6129</a>
+		</td>
+		<td>Advanced Programming Languages</td>
+		<td>
+			<a href="cpsc6129/">Fall 2014</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="http://academics.columbusstate.edu/catalogs/current/course_description.php?CPSC">CPSC 6899</a>
+		</td>
+		<td>Independent Study:<br/>Language Design & Implementation</td>
+		<td>
+			<a href="cpsc6899/syllabi/syllabus_spring2015.pdf">Spring 2015</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="http://academics.columbusstate.edu/catalogs/current/course_description.php?CPSC">CPSC 6985</a>
+		</td>
+		<td>Research & Thesis:<br/>Enabling GPU Support for Weka</td>
+		<td>
+			<a href="cpsc6985/syllabi/syllabus_spring2016.pdf">Spring 2016</a>
+		</td>
+	</tr>
+</table>
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

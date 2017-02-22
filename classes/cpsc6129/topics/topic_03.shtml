@@ -1,0 +1,113 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Base Interpreter Code
+</p>
+
+<ol>
+<li> You must use this <a href="../assign/lisp.cc">base code</a> to begin
+	your Simple Lisp interpreter. In order to evaluation your final
+	product I must be able to compile it. I'm using the
+	<a href="http://gcc.gnu.org">g++</a> compiler, so regardless of
+	the tooling/compiler you use, it's your responsibility to make sure
+	that it compiles and passes all of your tests using this compiler.
+<li> If you are new to C++, or need to refresh your memory, you can refer
+	to my class notes and lecture recordings from by
+	<a href="../../cpsc5135/">CPSC 5135</a> class to help get you
+	up and running.
+<li> The interpreter base code is comprised of four (4) classes
+	<ol>
+	<li> MemoryReference - provides a tagged value and is what all items
+		are built from. The tag indicates the type of value: number,
+		string/atom, list pointer (into the heap), or indicates a
+		runtime stack entry.
+		<ol>
+		<li> Number values are stored directly as the value
+		<li> Strings/Atoms are stored in the StringTable and the
+			value is a pointer to the beginning of the string/atom
+			in the StringTable (strings/atoms in the StringTable
+			are null terminated so you only need the beginning
+			position)
+		<li> List (or Heap) pointers are the index value within the
+			Heap that identifies the associated <em>cons</em> cell.
+		</ol>
+	<li> Heap - holds the collection of <em>cons</em> cells. Note that
+		we're specifically <strong>not</strong> using the C++ heap
+		for our <em>cons</em> cells as you'll be implementing at
+		least one form or garbage collection for the project. The
+		Heap class will give you complete control over this and
+		make it easier to debug things if (when?) you have errors.
+	<li> StringTable - because atoms of the same name are <em>eq</em>
+		in Lisp, you need to ensure that strings/atoms are only
+		stored once so that when a name appears again you point to
+		the same bit of storage. Thus when you test for
+		<em>eq</em>uality of two atoms, you only need to check that
+		their MemoryReferences are the same.
+	<li> RunTimeStack - holds the MemoryReferences to any arguments
+		for functions that are in the process of being evaluated. 
+	</ol>
+	Two overloaded operators (>> and <<) provide input and output
+	respectively, while
+	the "main" function provides the reader, evaluation, printer loop
+	that is the basic interface for the interpreter.
+<li> Towards the end of the project you will need to add a SymbolTable class
+	to hold the definitions for programmer defined functions (e.g., defun)
+	but that's not included in the <a href="../assign/lisp.cc">base
+	code</a>.
+<li> Note that I've supplied most of the implementation for the Lisp reader
+	(>>) as this is something that a suprising number of students have
+	difficulty with (and often get wrong). [Perhaps mine has a lurking
+	bug as well. ;-)]
+	<ol>
+	<li> You'll want to make sure the reader (and printer which is
+		implemented by <<) is properly reading in atoms, numbers,
+		and lists (including dotted pairs). After all, the rest of
+		your interpreter project will rest upon that foundation.
+	<li> The reader (and writer) are recursive, so when you come to
+		a next item, you call the reader (or writer) again to
+		read (write) that item. This should be pretty obvious since
+		list structures are often nested within one another in Lisp.
+	</ol>
+<li> While the <a href="../assign/lisp.cc">base code</a> has everything in a
+	single .cc file, to make it simpler for those
+	who may not have as much experience with C++.
+	You're free to divide it up into more (and presumably
+	smaller and more managable) files (including .h files) if you like,
+	but if you do so, please be sure to supply the appropriate
+	<em>makefile</em> to ensure that your code is compiled in the
+	proper order - otherwise I'll compile the code with "g++ *.cc" (and
+	if that works for how you break it apart, then don't bother with
+	the <em>makefile</em> unless you really want to).
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

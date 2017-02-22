@@ -1,0 +1,262 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+	<title>Scala Programming Language</title>
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Body	{ font-family: times, serif, courier, monospace }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	Advanced Programming Languages (CPSC 6129)<br/>
+	<strong>Scala Programming Language</strong><br/>
+	Scala Essentials
+</p>
+
+<ol>
+<li>
+	<b>Data Structures</b><br/>
+	<ul>
+	<li>Scala accomodates similar data structures as Java
+	<li>Arrays, maps, lists, sets, etc. are all available in numerous flavors
+	
+	<pre><code>
+	// Create an array, access elements.
+	val myArray = Array(2, 4, 6, 8, 10)
+
+	myArray(0)			// "2"
+	myArray(4)			// "10"
+	myArray(13)			// Exception!
+	
+	// Create a map, access elements.
+	val myMap = Map("Blue Jays" -> "Toronto", "Braves" -> "Atlanta", "Mets" -> "New York", "Angels" -> "Anaheim")
+
+	myMap("Braves")			// "Atlanta"
+	myMap("Blue Jays")		// "Toronto"
+	myMap("Expos")			// Exception!
+
+	// Create a default value
+	val mySafeMap = myMap.withDefaultValue("Not a real team!")
+
+	myMap("Expos")			// "Not a real team!"
+	</code></pre>
+
+	<li>Scala has a useful tuples implementation
+
+	<pre><code>
+	// Make some tuples.
+	val t1 = (a, 2, "three")
+	val t2 = (A, "twenty", 30)
+
+	// Access elements.
+	t1._1				// a
+	t2._2				// "twenty"
+
+	</code></pre>
+
+	<li>Because it can interoperate seamlessly with Java, Scala can also use Java data structures
+	<li>When using Java structures, however, by default they expect Java primitives (as opposed to Scala primitives)
+	<li>Of note, when passing a data structure from Scala to a Java class, a Java structure filled with Java primitives (if it is, in fact, primitives that are being passed) is required
+	<li>This means explicitly filling the structure with something like java.lang.Double as opposed to simply Double 
+	</ul>
+	<br/>
+
+<li>
+	<b>Execution Control</b><br/>
+	<ul>
+	<li>Scala execution control is acheived primarily by:
+		<ol>
+		<li>for loops
+		<li>while loops
+		<li>do while loops
+		</ol>
+	
+	<pre><code>
+	// A for loop.
+	val a = Array(98, 99, 100, 101, 102)
+	val b = 100
+
+	for (i &lt- 0 to a.length - 1) {
+	    if (a(i) > b)
+	        println(a(i) + " is greater than " + b + "!")
+	}
+
+	// A while loop.
+	var i = 95
+	val x = 100
+
+	while (i &lt x) {
+	    println(i + " is less than 100!")
+	    i += 1
+	}
+
+	// A do while loop.
+	var i = 95
+	val x = 100
+
+	do {
+	    println(i + " is less than 100!");
+	    i += 1
+	} while (i &lt x)
+	</code></pre>
+	</ul>
+
+<li>
+	<b>Input & Output</b><br/>
+	<ul>
+	<li>Reading and writing to the console is simplified in Scala
+	<li>Reading from and writing to files is equally simplified
+	
+	<pre><code>
+	import java.io._
+
+	object Test {
+
+	    /** Read user input, output some stuff to file. */
+	    def main(args: Array[String]) {
+	
+	        // Create a file writer.
+	        var writer = new PrintWriter(new File("output.txt"))
+
+	        // Read an int from standard input.
+	        print("Enter the number of lines to read in: ")
+	        val x: Int = scala.io.StdIn.readLine.toInt
+
+	        // Read in x number of lines from standard input.
+	        var i = 0
+	        while (i < x) {
+	            var str: String = scala.io.StdIn.readLine
+	            writer.write(str + "\n")
+	            i = i + 1
+	        }
+	
+	        // Close the writer.
+	        writer.close
+	    }	
+	}
+	</code></pre>
+	</ul>
+
+<li> 
+	<b>Anonymous Functions</b><br/>
+	<ul>
+	<li>An anonymous function:
+
+	<pre><code>
+	(y: Int) => y * 5 
+	</code></pre>
+
+	<li>Anonymous functions can omit their input type, if it can be assumed from context:
+
+	<pre><code>
+	val add5: Int => Int = y => y + 5 
+	</code></pre>
+
+	<li>This above line means the anonymous function takes an Int, adds 5 to it, returns an Int, and assigns this result to the value add5
+	<li>Here's another way to define this, if each of the anonymous function's arguments are used a single time:
+
+	<pre><code>
+	val add5: Int => Int = _ + 5
+
+	// Returns 10. 
+	add5(5)
+	</code></pre>
+
+	<li>The <b>return</b> statement is not required in an anonymous function, nor is it useful (but it is still optionally allowed)
+	<li>Anonymous functions are also utilized to loop over collections
+
+	<pre><code>
+	/** Use anonymous function to fill a list with values 0 to 10.
+	    Then filter out those which are not multiples of 2. */
+	List.range(0, 10).filter(x => (x % 2 == 0))
+
+	// Create a list, and map a function to each element in the list to create a new list.
+	val list = List(1, 2, 3, 4, 5)
+	val newList = list.map(x => x*x)
+
+	// newList is now (1, 4, 9, 16, 25)
+	</code></pre>
+
+	<li>Scala provides numerous functional operations associated with collection objects (arrays, lists, etc.), and this is a very strong aspect of the language
+	<li>Twitter's Scala School provides a <a href="https://twitter.github.io/scala_school/collections.html">concise treatment</a> of this linguistic feature
+
+	</ul>
+	<br/>
+
+<li>
+	<b>Simple Recursion Example</b><br/>
+	<ul>
+	<li>In order to demonstrate a simple recursive function in Scala, we will implement a function which prints out the nth portion of the Fibonacci sequence
+	
+	<pre><code>
+	/** Extending App means that a 'main' function is not required.
+	    Instead, every expression in the object is executed in order. */	
+
+	object Fibonacci extends App {
+
+	    // Outputs the nth Fibonacci number.
+	    def fib(n: Int, first: Int = 0, second: Int = 1): Int = {
+	        if (n == 1)
+	            first
+	        else
+	            first + fib(n - 1, second, first + second)
+	    }
+
+		// Print the 10th Fibonacci number.
+		println(fib(10))
+	}
+
+	</code></pre>
+
+	<li>More on the App trait <a href="http://www.scala-lang.org/api/2.11.1/index.html#scala.App">here</a>
+	</ul>
+	<br/>
+
+<li>
+	<b>Unit</b><br/>
+	<ul>
+	<li>Unit is somewhat comparable to <b>null</b> in Java
+	<li>Unit actually means a return value that is of no significant interest
+	<li>Scala was originally designed with no desire to replicate Java's null; however, it this was quickly rethought since interoperation with existing Java classs and code that used null as a return type would prove fatalistic
+	<li>A tail-recursive function with a return type of Unit (remember, recursive functions <b>require</b> a return type declaration):
+
+	<pre><code>
+	def numbersBetween(x: Int, y: Int): Unit = {
+	    println(x)
+	    if (x &lt y)
+	        numbersBetween(x + 1, y)
+	}
+
+	// Outputs each number from 10 and 20, inclusive, on its own line.
+	numbersBetween(10, 20)
+	</code></pre>
+	</ul>
+
+</ol>
+
+<hr/>
+<address>
+	Scala Notes: <a href="mailto:mayo_matthew@columbusstate.edu?subject="Scala Notes">mayo_matthew@columbusstate.edu</a> &
+				 <a href="mailto:ridings_mark@columbusstate.edu?subject="Scala Notes">ridings_mark@columbusstate.edu</a><br/>
+	Course Professor: <a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages">eckart_dana@columbusstate.edu</a>
+</address>
+
+</body>
+</html>
+
+

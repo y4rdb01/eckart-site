@@ -1,0 +1,114 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Forth: Grammar Embedded Actions
+</p>
+
+<ol>
+<li> A simple, and perhaps helpful, embedded action would be to have our
+	grammar indicate when it was defining a new function.
+	<ol>
+	<li> Refer to the "defineWord" rule in Forth.g4 for the example.
+		However, in this case the action could just have easily (and
+		preferrably) been handled within the "visitDefineWord" method
+		of our <em>StackInterpreter</em> class.
+	<li> Likewise, we could keep track of the number of new word definitions
+		and report this after all of the code has been processed. An
+		embedded action has been added to the "start" rule, and a
+		corresponding "@parser::members" declaration of our counting
+		variable added.
+	<li> Note that both of these print to standard error (System.err in
+		Java) so as to avoid intermixing the the desired output
+		(standard out) with these interpreter provided notifications.
+	</ol>
+<li> While the word definitions of Forth must be completely read before
+	they can be evaluated (recall that invoking a word definition causes
+	its body to be revisited - driving the evaluation through visitation),
+	the same is not true for the non-compiled expressions occurring outside
+	of word definitions. The currently implementation, however, parses the
+	entire input file (Forth program) before it begins interpretation by
+	visiting the parse tree.
+<li> However, we can't just insert semantic actions into the grammar for
+	non-compiled expressions (i.e., those that can appear outside of
+	word definitions). Because non-compiled expressions
+	can also appear within word definitions, these would be evaluated
+	as they were read if actions were embedded into the current grammar.
+	<ol>
+	<li> To accomodate the use of grammar actions like this, it is
+		necessary to duplicate the "expression" rule under an
+		alternate name (e.g., "alternateExpr"), so as to keep it
+		separate.
+	<li> It would also be necessary to have access to the "stack" and
+		"dictionary" that were used in the <em>StackInterpreter</em>
+		class. These could be included via "@parser::members" in
+		the Forth.g4 file, but that means effectively moving the
+		entire contents of the <em>StackInterpreter</em> implementation
+		into Forth.g4 (with the body of each visit method becoming
+		the body of an embedded semantic action).
+	<li> While this would provide a more interactive interface for the
+		goForth, it would be a substantial rewrite of the interpreter.
+		Furthermore, it would greatly complicate the grammar file,
+		making it completely tied to our interpreter so that it
+		couldn't be repurposed (e.g., to create a goForth program
+		formatter).
+	<li> Note that listeners, since they are invoked during parsing (rather
+		than only after all parsing is completed as with visitors),
+		can also perform interactive evaluation.
+	</ol>
+<li> Finally, let's suppose that there was an alternate version of goForth
+	(goForthAlt) that
+	had the additional operator "NDUP". NDUP works much like DUP, except
+	that the top item on the stack indicates how many duplicate entries of
+	the item below that to make (after poping the N, indicating the number
+	of duplicates to make, off the stack).
+	<ol>
+	<li> The lexer has been changed so that NDUP is recognized as a token
+		only when the interpreter is started with the "-goForthAlt"
+		flag on the command line (code for taking the command line
+		argument was added to GoForth.java).
+	<li> A corresponding grammar rule (labeled as "NDup") has been added
+		along with the visitor definition "visitNDup"
+		(in <em>StackInterpreter</em>).
+	<li> The first part of the "testData" file now includes the use of
+		NDUP.
+	<li> Finally, the "-goForthAlt" flag has been added to the build.xml
+		file's "test" target.
+	</ol>
+<li> Here is the <a href="../forth/antlr4_v7.zip">zip file</a> that contains
+	the updated example, which calculates the value of expressions.
+	You can use "diff -r" (on Unix/Linux/Cygwin) on the unpacked
+	directories for version 6 and version 7 to compare them
+	and get a better feel for what has changed.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

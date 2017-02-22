@@ -1,0 +1,674 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Run-time Stack and Parameters
+</p>
+
+<ol>
+<li> Unlike the primitive functions discussed in previous notes, programmer
+	<em>defun</em>ed functions (and <em>lambda</em> forms) introduce
+	parameter names that are bound to values (based as arguments in the
+	function call) which can appear in the body of the function and should
+	be replaced with their bound value.
+	<ol>
+	<li> Example:
+		<pre><code>
+		(defun f (x y)
+			(and (numberp x) (numberp y) (+ x y))
+		)
+		</code></pre>
+	<li> Note that when the <em>+</em> oepration is being evaluated,
+		the <em>lambda</em> form representing the function "f" is
+		<strong>not</strong> the next activation record below it on
+		the stack (the record corresponding to <em>and</em> lies
+		between them in this case). In fact, there could be an
+		arbitrary number of intervening activation records between
+		the one for the <em>lambda</em> form and where its
+		parameters might be used. So, keeping the parameter bindings
+		in the <em>lambda</em> form activation record may not be the
+		best choice (as every activation record would either need to
+		keep a link back to the most recent <em>lambda</em> form
+		activation record <strong>or</strong> atom evaluations would
+		require a backward search through the run-time stack).
+	</ol>
+<li> <a href="https://en.wikipedia.org/wiki/Scope_(computer_science)#Lexical_scope_vs._dynamic_scope">Static vs Dynamic Scoping</a>
+	<ol>
+	<li> Static (or Lexical) Scoping is what most languages use and is
+		the style the vast majority of programmers are familiar (and
+		comfortable) with. Specifically, the scope of a name (e.g.,
+		parameter or variable) is determine by its textual placement
+		in the program. In the case of Lisp, parameters would be
+		visible <strong>only</strong> within the body of the function
+		(or <em>lambda</em> form) they are declared with. Parameters
+		(and variables) with lexical scoping are said to have
+		<strong>early binding</strong> since the association/meaning
+		of the name can be determine prior to execution of the program
+		(i.e., during compilation).
+	<li> Dynamic Scoping relies on the exeuction path of a program to
+		determine the meaning of a name. This is referred to as
+		<strong>late binding</strong> since the meaning of the name
+		isn't known until the last moment (when the name is being
+		used in the actual execution of the function/program). Some
+		(mostly older) dialects of Lisp used dynamic scoping.
+	<li> Example #1: Under static scoping, evaluation of "(g 3)" and
+		"(h 3)" would not be defined (since "f" doesn't have access to
+		"y"), however under dynamic scoping rules, the results would
+		be 15 and 35 repsectively (the value of "y" coming from the
+		context of the most recent calling function).
+		<pre><code>
+		(defun f (x)
+			(* x y)
+		)
+
+		(defun g (y)
+			(f (+ y 2))
+		)
+
+		(defun h (y)
+			(g (+ y 2))
+		)
+		</code></pre>
+	<li> Example #2: Evaluating "(f 5)" using static scoping yields an
+		error since there's no binding for the "z" in the
+		<em>lambda</em> form passed as the first argument to "g".
+		When dynamic scoping is used, however, the value of "z" would
+		be "3" (taken from the second parameter for "g") yielding
+		a result of "6".
+		<pre><code>
+		(defun g (fun z)
+			(eval (cons fun (cons z nil)))
+		)
+
+		(defun f (x)
+			(g (quote (lambda (y) (+ y z))) 3)
+		)
+		</code></pre>
+	<li> As the last example more clearly indicates, dynamic scoping
+		can be trickier to follow than static scoping. This is the
+		primary reason that the vast majority of new languages are
+		lexcially scoped.
+	</ol>
+<li> Implementation of Dynamic Scoping can be accomplished by using a
+	bucket hashing symbol table.
+	<ol>
+	<li> As functions (really their <em>lambda</em> form representations)
+		are evaluated, the parameter names and their corresponding
+		argument values are entered into the symbol table.
+	<li> Since the most recent entries go at the begining of the chains
+		(i.e., buckets), any name collisions that occur will cause
+		the name lookups to get the most recently added name-value
+		pairs. Since these additions to the symbol table are being
+		made at execution time, the values returned (via association
+		with the parameter names) are just what we want for dynamic
+		scoping.
+	<li> When the function (<em>lambda</em> form) execution is complete,
+		then it's corresponding parameter entries within the
+		symbol table should also be removed. This is done by looking
+		up each of the parameter names for the function
+		(<em>lambda</em> form) in the symbol table and removing the
+		first instance encountered within the buckets corresponding to
+		the hash value calculated form the parameter name.
+	</ol>
+<li> As indicated previously, there can be an arbitrary number of
+	intervening activation records on the run-time stack between the
+	funtion with a named parameter and the use of that parameter. Because
+	of this, it is easier (both conceptually and from an implementation
+	perspective) to implement support for static scoping using an
+	additional "parameter" stack.
+	<ol>
+	<li> Create a separate parameter stack whose activation records
+		are simply a list of formal parameter name and argument
+		value associations. Dotted pairs are an easy (and slightly
+		more space efficient) means for maintaining these associations.
+	<li> Whenever a function (i.e., <em>lambda</em> form) is evaluated,
+		the arguments are evaluated using the run-time stack as they
+		are for other functions (i.e., continuing to process items
+		in the "List of Unevaluated Arguments" until it is nil).
+	<li> Once all of the arguments have been evaluated, a new entry is
+		pushed to the parameter stack that represents the formal
+		parameter to evaluated argument associations.
+	<li> Evaluation of the <em>lambda</em> form proceeds by pusing the
+		"body" of the <em>lambda</em> form onto the run-time stack.
+		Thus when a the evaluation is completed and the "List of
+		Unevaluated Arguments" is already nil, then this is the
+		value to be returned by the <em>lambda</em> form (and also
+		indicates that the top record of the parameter stack should
+		also be removed).
+	<li> During the evaluation process of functions (described earlier
+		<a href="topic_05.shtml">here</a>,
+		<a href="topic_07.shtml">here</a>, and above)
+		there will be times when an atom is the argument to a
+		function and needs to be evaluated. When an atom is to
+		be evaluated:
+		<ol>
+		<li> If it is a number it evaluates to itself, but
+		<li> When the atom is not a number, look for an associated
+			value from the list contained as the top record
+			on the parameter stack. If the value is found,
+			substitute it for the atom, otherwise the atom
+			is unbound and an execution error has occurred.
+		</ol>
+	<li> Since the parameter stack is only used by the run-time stack,
+		the definition for "ParameterStack" should be privately
+		nested within the definition of the "RunTimeStack" (in
+		your C++ code for the interpreter).
+	<li> Example:
+		<pre><code>
+		(+ ((lambda (x) (rem x 2)) 5) 3)
+		</code></pre>
+		<ol>
+		<style scoped>
+			td { text-align: center; margin: auto; border: 1px solid black }
+		</style>
+		<li> Begin evaluation of "(+ ((lambda (x) (rem x 2)) 5) 3)"
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>+</td>
+				<td>(((lambda (x) (rem x 2)) 5) 3)</td>
+				<td>nil</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td></td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> Evaluate first argument:
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>(lambda (x) (rem x 2))</td>
+				<td>(5)</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>+</td>
+				<td>(((lambda (x) (rem x 2)) 5) 3)</td>
+				<td>nil</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td></td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> Evaluate 5:
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>5</td>
+				<td>nil</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>(lambda (x) (rem x 2))</td>
+				<td>nil</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>+</td>
+				<td>(3)</td>
+				<td>nil</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td></td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> Numbers evaluate to themselves:
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>(lambda (x) (rem x 2))</td>
+				<td>nil</td>
+				<td>(5)</td>
+			</tr>
+			<tr>
+				<td>+</td>
+				<td>(3)</td>
+				<td>nil</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td></td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> Push new entry onto the parameter stack:
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>(lambda (x) (rem x 2))</td>
+				<td>nil</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>+</td>
+				<td>(3)</td>
+				<td>nil</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td>((x . 5))</td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> Evaluate the body of the <em>lambda</em> form:
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>rem</td>
+				<td>(x 2)</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>(lambda (x) (rem x 2))</td>
+				<td>nil</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>+</td>
+				<td>(3)</td>
+				<td>nil</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td>((x . 5))</td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> Evaluate "x":
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>x</td>
+				<td>nil</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>rem</td>
+				<td>(2)</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>(lambda (x) (rem x 2))</td>
+				<td>nil</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>+</td>
+				<td>(3)</td>
+				<td>nil</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td>((x . 5))</td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> Find the value of "x" on the parameter stack:
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>x</td>
+				<td>nil</td>
+				<td>(5)</td>
+			</tr>
+			<tr>
+				<td>rem</td>
+				<td>(2)</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>(lambda (x) (rem x 2))</td>
+				<td>nil</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>+</td>
+				<td>(3)</td>
+				<td>nil</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td>((x . 5))</td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> Return the value of "x":
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>rem</td>
+				<td>(2)</td>
+				<td>(5)</td>
+			</tr>
+			<tr>
+				<td>(lambda (x) (rem x 2))</td>
+				<td>nil</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>+</td>
+				<td>(3)</td>
+				<td>nil</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td>((x . 5))</td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> Evaluate 2:
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>2</td>
+				<td>nil</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>rem</td>
+				<td>nil</td>
+				<td>(5)</td>
+			</tr>
+			<tr>
+				<td>(lambda (x) (rem x 2))</td>
+				<td>nil</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>+</td>
+				<td>(3)</td>
+				<td>nil</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td>((x . 5))</td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> Numbers evaluate to themselves:
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>rem</td>
+				<td>nil</td>
+				<td>(2 5)</td>
+			</tr>
+			<tr>
+				<td>(lambda (x) (rem x 2))</td>
+				<td>nil</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>+</td>
+				<td>(3)</td>
+				<td>nil</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td>((x . 5))</td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> Evaluate <em>rem</em> (remembering that the arguments are
+			in reverse order):
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>(lambda (x) (rem x 2))</td>
+				<td>nil</td>
+				<td>(1)</td>
+			</tr>
+			<tr>
+				<td>+</td>
+				<td>(3)</td>
+				<td>nil</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td>((x . 5))</td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> Return the value of the <em>lambda</em> form (popping the
+			corresponding entry off the top of the parameter stack):
+			in reverse order):
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>+</td>
+				<td>(3)</td>
+				<td>(1)</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td></td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> Evaluate 3:
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>3</td>
+				<td>nil</td>
+				<td>nil</td>
+			</tr>
+			<tr>
+				<td>+</td>
+				<td>nil</td>
+				<td>(1)</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td></td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> Numbers evaluate to themselves:
+			<blockquote>
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th colspan="3">Run-time Stack</th> </tr>
+			<tr>
+				<td>+</td>
+				<td>nil</td>
+				<td>(3 1)</td>
+			</tr>
+
+			<tr>
+				<td style="border: 1px solid black"><strong>Function Name</strong></td>
+				<td style="border: 1px solid black"><strong>List of Unevaluated Arguments</strong></td>
+				<td style="border: 1px solid black"><strong>List of Argument Evaluations</strong></td>
+			</tr>
+			</table>
+			<!------------------------------------------------->
+			<table style="display: inline-block; border: 1px solid black">
+			<tr> <th>Parameter Stack</th> </tr>
+			<tr>
+				<td></td>
+			</tr>
+			</table>
+			</blockquote>
+		<li> And the result returned by "+" is "4".
+		</ol>
+	</ol>
+<li> <a href="SimpleLisp.shtml">Simple Lisp</a> uses static scoping, so
+	use the appropriate mechanism for your
+	<a href="../assign/assign1_a.shtml">assignment</a>.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

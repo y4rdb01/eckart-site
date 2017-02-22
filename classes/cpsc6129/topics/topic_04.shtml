@@ -1,0 +1,65 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Memory Structure of Lists
+</p>
+
+<ol>
+<li> <em>Cons cells</em> are composed of two (2) items, held in the
+	<em>car</em> and the <em>cdr</em> of the cell respectively.
+<li> The "tag" on each item indicates the type fo the value
+	(e.g., <strong>H</strong>eap, <strong>S</strong>tring,
+	<strong>N</strong>umber).
+<li> Recall that "nil" is typically the first <em>cons</em> cell and thus
+	in the examples it's been given an address location of zero (0)
+	relative to the bottom (or start) of the heap.
+<li> Examples:<br/>
+	<img src="LispMemory.png" alt="Example Lisp lists in memory" width="1280" height="720" />
+<li> To test you understanding of how lists should be represented, try your
+	hand at drawing the detailed picture for:
+	<blockquote>
+	((a b) c (d (e (f . g)) h))
+	</blockquote>
+<li> Some code for the Lisp reader has been given to you, so examine it
+	carefully to see how it operates. Make sure that it handles all
+	cases (including the dot notation for when the cdr holds a
+	string/atom/number rather than a heap pointer).
+<li> The Lisp printer should traverse the memory structures and print out
+	the textual representation. Like the reader, the printer will be
+	recursive. Printing of strings/atoms/numbers should be the base
+	cases in the recursion, while the printing of lists are
+	recursive (with the likely exception of dotted pairs which are
+	a special, and short, list case).
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

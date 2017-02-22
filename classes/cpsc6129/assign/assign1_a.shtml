@@ -1,0 +1,92 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>CPSC 6129: Assignment #1</strong>
+</p>
+
+<hr>
+
+<p>
+Using the C++ programming language, you are 
+to build an interpreter for a simple
+<a href="SimpleLisp.shtml">dialect of lisp</a>.  Your C++ program must
+extend <a href="lisp.cc">this base solution</a>.
+Feel free to use <a href="test.lisp">this test data</a> to aid you in 
+testing your interpreter, but you should also use additional test data of
+your own construction.  Be careful to fully test your
+list printer, in particular you should make sure that dotted pairs are
+read and printed correctly.
+</p>
+
+<p>
+You should start your program with this <a href="lisp.cc">base
+implementation</a> as it includes the class declarations you will want to
+use/extend.  You will need to significantly expand the implementations for
+the reader and printer, as well as to fill out
+nearly all of the implementation for <em>eval</em>uation.
+Finally, you will need to implement one of the two garbage collection
+techniques covered in class notes (i.e., Reference Counting, Mark & Sweep).
+It's your choice about which GC method to implement.
+</p>
+
+<p>
+You should probably finish the reader and implement the printer routines first.
+Fortunately the grammar for Lisp is quite simple:
+<pre>
+	&lt;expr&gt;  -&gt; &lt;list&gt; | &lt;atom&gt;
+	&lt;list&gt;  -&gt; ( &lt;items&gt; )
+	&lt;items&gt; -&gt; &lt;expr&gt; &lt;rest&gt; | e
+	&lt;rest&gt;  -&gt; &lt;items&gt; | DOT &lt;atom&gt;
+	&lt;atom&gt;  -&gt; IDENTIFIER | NUMBER
+</pre>
+</p>
+
+<p>
+You are responsible for creating your own test data. It's a good idea to
+create your test cases first, building upon your test data, as this will
+help you with your development. Be sure to include a variety of "corner cases"
+to ensure that your program doesn't work for only "normal" data.
+Test driven development (TDD) is a good practice that you should cultivate.
+</p>
+
+<p>
+As always, be sure to use good indentation, descriptive constant, variable,
+type, function, procedure, and class names.  Use named constants when
+appropriate.  Also use good commenting style, remembering that the first
+thing in any program file should be a comment that gives a brief overview
+of what the file contains (and should do).  You might find these
+<a href="../../common/comment-guide.shtml">commenting guidelines</a> helpful.
+</p>
+
+Enjoy!
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

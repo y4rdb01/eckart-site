@@ -1,0 +1,257 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+	<title>Scala Programming Language</title>
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Body	{ font-family: times, serif, courier, monospace }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	Advanced Programming Languages (CPSC 6129)<br/>
+	<strong>Scala Programming Language</strong><br/>
+	Getting Started
+</p>
+
+<ol>
+<li> 
+	<b>Values and Variables</b><br/>
+	<ul>
+	<li>Scala supports both mutable and immutable bindings
+	<li>Mutable (alterable) bindings are declared with the <b>var</b> keyword
+
+	<pre><code>
+	// You can change this binding after definition and assignment.
+	var age: Int = 37
+	</code></pre>
+	
+	<li>Immutable (unalterable) bindings are declared with the <b>val</b> keyword
+	
+	<pre><code>
+	// You cannot change this binding after definition and assignment.
+	val name: String = "Alice"
+	</code></pre>
+
+	<li>This would be roughly the equivalent of declaring a variable as <b>final</b> in Java
+	<li>Attempting to change the binding of <b>name</b> is simply not permissible
+	<li>The type declaration, as seen above, is preceded by a colon and comes after the variable or value name
+	<li>This is the opposite of Java, where a variable's type comes before the variable name, which is intentional and representative of the relative importance Scala's developers placed on a descriptive variable or value name 
+	<li>As Scala has strong type inference, the types in both of the above declarations are optional, and can be omitted
+
+	<pre><code>
+	// These assignments are equivalent to the above.
+	var age = 37
+	val name = "Alice"
+	</code></pre>
+	</ul>
+
+<li>
+	<b>Functions and Methods</b><br/>
+	<ul>
+	<li>Thinking back to earlier programming theory and practice courses, functions and methods are similar constructs that have some clear, though distinct, differences (mainly that methods belong to objects), which may become less clear when looking at specific languages
+	<li>When speaking specifically of Scala, this distinction becomes even more muddy, not helped by the somewhat interchangeable use of the two terms in Odersky's definitive language reference work, <a href="http://www.artima.com/pins1ed/">Programming in Scala</a>
+	<li>We'll refer to functions here, but the same goes for methods in general (for the most part)
+	<li>The interested reader can examine the finer details of the distinction between Scala functions and methods <a href="http://jim-mcbeath.blogspot.ca/2009/05/scala-functions-vs-methods.html">here</a>
+	<li>That said, we create functions with the <b>def</b> keyword
+	<li>Reading the top function left to right, we define a function named increaseAge which takes one parameter, age, of type Int, and returns a value of type Int
+	
+	<pre><code>
+	// Define a function.
+	def increaseAge(age: Int): Int = {
+	    return age + 1;
+	}
+
+	// Equivalent function definition (Scala flexibility).
+	def increaseAge(age: Int): Int = age + 1
+	</code></pre>
+
+	<li>These are equivalent because:
+		<ol>
+		<li>Curly braces are optional if a function (or any code block) contains only one statement
+		<li>The <b>return</b> keyword is optional, and the final (in this case, only) expression result is returned if omitted (note that recursive functions require explicit return type declaration)
+		<li>Terminating semi-colon is always optional
+		</ol>
+	<li>Also optional in Scala:
+		<ol>
+		<li>The empty parentheses () when calling functions without arguments
+		<li>The separating dot when calling a single, unchained member function (method) of an object
+		</ol>
+
+	<pre><code>
+	// These are equivalent calls to someObject's aMethod.
+	someObject.aMethod()
+	someObject aMethod
+	</code></pre>
+
+	</ul>
+
+<li>
+	<b>Objects and Classes</b><br/>
+	<ul>
+	<li>Like any object-oriented language, an instance of a class is an object
+	<li>In Scala, we can also explicitly create an <b>object</b>, which can be thought of as a singleton instance of its own class which holds the equivalent of static methods in Java
+	<li>Given the above characteristics, the explicitly created Scala object is similar to a static class in Java
+	<li>By convention, the <b>main</b> function (required of all directly-executable instantiated class instances) is placed within an object
+	<li>In Java, the static main method is placed directly inside of a class, whereas in Scala this main function is placed in a separate singleton object alongside of a class, which itself is static
+	<li>Scala classes are equivalent to Java classes, and can be thought of and treated in the same basic way
+	</ul>
+	<br/>
+
+<li>
+	<b>Constructors</b><br/>
+	<ul>
+	<li>Scala implements constructors different than does Java
+	<li><b>Primary constructors</b> are the code that resides inside of your class body, but outside of any method
+	<li>Parameters for a primary constructor are added to the class signature as opposed to a given their own signature elsewhere
+	<li>This convenience saves time and, while seemingly awkward at first, becomes more intuitive the longer you code in Scala... and its time- and code-saving benefits quickly become apparent if you switch back to Java! 
+	<li>This primary constructor does not preclude the inclusion of additional constructors, referred to as auxiliary constructors
+	<li>An <b>auxiliary constructor</b>, on its first line, must expicitly call a previously defined constructor or the primary constructor
+	<li>Either directly or indirecty, every auxiliary constructor ends up invoking the primary constructor
+	<li>Auxiliary constructors take the form of methods named <b>this</b>
+	</ul>
+	<br/>
+
+<li>
+	<b>Putting it All Together</b><br/>
+	<ul>
+	<li>Let's take a look at an example program which takes into account what has been discussed thus far
+	<li>As a nod to Scala's flexibility, different, but equivalent, approaches will be taken to accomplish some of the same tasks below
+
+	<pre><code>
+	/** Test.scala */
+
+	class Person(val name: String, var age: Int, val hometown: String) {
+
+	    /**
+	     * Auxiliary constructor for no specified hometown.
+	     */
+	    def this(val name: String, var age: Int) = this(name, age, "")
+
+	    /**
+	     * Part of primary constructor, along with parameters in class signature above.
+	     */
+	    var favSport: String = "basketball"
+
+	    // Birthday.
+	    def increaseAge() {
+	        age = age + 1
+	    }
+
+	    // Person toString.
+	    override def toString(): String =
+	        return name + ", " + age + ", of " + hometown + ", who enjoys " + favSport + ","
+
+	}
+
+	class Car(val make: String, val model: String, val year: Int) {
+
+	    /**
+	     * Constructor consists solely of parameters in class signature.
+	     */
+
+	    // Car toString.
+	    override def toString(): String = {
+	        return year + " " + make + " " + model
+	    }
+
+	}
+
+	// Static singleton object, with main function reachable via command line.
+	object Test {
+	
+	    def main(args: Array[String]) {
+
+	        // Create some people.
+	        var personA: Person = new Person("Charlie West", 25, "Atlanta")
+	        var personB = new Person("Pedro McGyver", 36, "New York")
+
+	        // Create some cars.
+	        var carA: Car = new Car("Mazda", "CX-7", 2012)
+	        var carB = new Car("Buick", "Skylark", 1987)
+
+	        // Everybody has a birthday.
+	        personA.increaseAge();
+	        personB increaseAge
+
+	        // Somebody changed their mind.
+	        personB favSport = "football"
+
+	        // Create a person with no hometown.
+	        var personC = new Person("Shoeless Joe", 42)
+
+	        // Print some stuff.
+	        println(personA.toString() + " drives a " + carA.toString() + ".")
+	        println(personB.toString + " drives a " + carB.toString + ".")
+	        println("Shoeless Joe, of no fixed address, walks.")
+
+	    }
+	}
+	</code></pre>
+	<li>This above code is compiled at the command line with:
+	
+	<pre><code>
+	$ scalac Test.scala
+	</code></pre>
+
+	<li>It is then executed with:
+
+	<pre><code>
+	$ scala Test
+	</code></pre>
+
+	<li>The output of this execution is:
+
+	<pre><code>
+	Charlie West, 26, of Atlanta, who enjoys basketball, drives a 2012 Mazda CX-7.
+	Pedro McGyver, 37, of New York, who enjoys football, drives a 1987 Buick Skylark.
+	Shoeless Joe, of no fixed address, walks.
+	</code></pre>
+
+	</ul>
+
+<li>
+	<b>Commenting Guidelines</b><br/>
+
+	<pre><code>
+	// Just in case you haven't guessed by now...
+
+	/** Scala comments == Java coments */
+
+	/**
+	 * ScalaDoc is the equivalent of JavaDoc, and follows the same basic outline
+	 */
+	</code></pre>
+
+	<ul>
+	<li>For more details on Scala commenting conventions, see <a href="http://docs.scala-lang.org/style/scaladoc.html">here</a>
+	</ul>
+	<br/>
+
+</ol>
+
+<hr/>
+<address>
+	Scala Notes: <a href="mailto:mayo_matthew@columbusstate.edu?subject="Scala Notes">mayo_matthew@columbusstate.edu</a> &
+				 <a href="mailto:ridings_mark@columbusstate.edu?subject="Scala Notes">ridings_mark@columbusstate.edu</a><br/>
+	Course Professor: <a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages">eckart_dana@columbusstate.edu</a>
+</address>
+
+</body>
+</html>
+
+

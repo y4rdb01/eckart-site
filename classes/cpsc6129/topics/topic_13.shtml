@@ -1,0 +1,66 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Regular Expressions
+</p>
+
+<ol>
+<li> <a href="https://en.wikipedia.org/wiki/Regular_expression">Regular
+	Expressions</a> are frequently used to describe the various sequences
+	of characters that make up the lexical elements (i.e., tokens) in
+	a programming language.
+<li> Regular expressions have the same expressive power as a
+	<a href="https://en.wikipedia.org/wiki/Deterministic_finite_automaton">
+	Deterministic Finite (State) Automaton</a> (DFSA or DFA).
+<li> Because DFAs have no "memory" of what's been previously recognized, they
+	(along with Regular Expressions since they are equivalent to one
+	another) are <strong>un</strong>able to recognize something as
+	simple as a palindrom of arbitrary length. While you can use the
+	various states in a DFA to "remember" palindromes of a bounded
+	length (say all those less than 5 characters long), you can't use
+	them to determine whether or not strings of arbitrary length are
+	in fact palindromes.
+<li> Despite this limitation, regular exrepssions
+	are well suited for recognizing the keywords, identifiers, literal
+	values (e.g., numbers, strings), and comments found in programming
+	languages.
+<li> Here are several "cheat sheets" that you might find handy for developing
+	regular expressions used by the ANTLR lexer:
+	<ol>
+	<li> <a href="http://www.petefreitag.com/cheatsheets/regex/">Regex Cheat Sheet</a>
+	<li> <a href="http://networking.ringofsaturn.com/Web/regex.php">Regular Expression Reference Sheet</a>
+	<li> <a href="http://meri-stuff.blogspot.com/2011/09/antlr-tutorial-expression-language.html#LexerBasics">ANTLR Lexer Basics</a>
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,165 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Mark & Sweep
+</p>
+
+<ol>
+<li> The basic idea behind <a href="https://en.wikipedia.org/wiki/Mark_and_sweep#Na.C3.AFve_mark-and-sweep">Mark & Sweep</a>
+	is quite simple: When the amount of free (unallocated) heap memory is
+	low; stop processing; mark all the <em>cons</em> cells that are being
+	used (mark phase); then scan the entire heap and add all unmarked
+	cells to the freelist (sweep phase). Together the mark and sweep phases
+	are called a garbage collection (GC) cycle.
+<li> Implementation details:
+	<ol>
+	<li> When should a garbage collection (GC) cycle be initiated? In the
+		worst case you can wait until a request for a <em>cons</em>
+		fails because the freelist is empty, at which point a GC must
+		be done in hopes that some unused memory can be reclaimed in
+		order to satisfy the <em>cons</em> function call. In practice,
+		however, systems don't wait this long. If there's a lull in
+		exeuction (e.g., waiting for input), that's a good time to
+		start the cycle. Also, as discussed below, program exeuction
+		can continue while a GC cycle is underway, so starting the
+		GC cycle before it's critical (e.g., when <= 30% of the heap
+		is in the freelist) can help avoid long delays in program
+		execution.
+	<li> How are <em>cons</em> cells "marked"? In the
+		simpliest scenario, the "marks" are single tag bits associated
+		with each <em>cons</em> cell. As with the reference counts,
+		the tag bits may be collocated with the <em>cons</em> cell
+		or the tags could all be collected together into a single
+		contiguous memory area. A bit value of one (1) indicates that
+		the <em>cons</em> cell is marked (and in use), while a value
+		of zero (0) indicates that it's not being used (i.e., free).
+	<li> How should <em>cons</em> cells be marked? Starting with a 
+		<em>cons</em> cell pointer, recursively visit cells pointed
+		to by its <em>car</em> and <em>cdr</em> and mark them if they
+		haven't been marked yet (if you encounter a cell that's
+		already been marked then stop the recursive visit for that
+		"branch" of the data structure).
+		[NOTE: A recursive marking function uses its own run-time
+		stack in the language in which it's implemented (e.g., C++),
+		so while simple to write, they can end up using a significant
+		amount of space that cannot be reasonably bounded.] 
+	<li> What <em>cons</em> cells should be marked? Everything that's
+		currently in use (or could be used). This means that everything
+		in the symbol table (i.e., function definitions), as well as
+		all entries on the run-time and parameter stacks need to be
+		recursively marked.
+	<li> Can program execution continue while the mark phase is running? 
+		Yes, but it does require that any <em>cons</em> cells which
+		are allocated while the mark phase is still running be
+		automatically marked - otherwise they could miss be marked
+		before the sweep phase begins. Program exeuction can also
+		continue after the mark phase has completed, so long as any
+		<em>cons</em> cell allocations are the result of unallocated
+		memory identified by the sweep phase (see below). Performing
+		marking while program exeuction continues is sometimes called
+		incremental marking - as it is usually performed in small
+		increments during the program exeuction. 
+	<li> When can the sweep begin? Not until <strong>everything</strong>
+		that could still be in use has been marked.
+		If the sweep is started to early,
+		then unmarked <em>cons</em> cells which are still being used
+		would be added to the freelist (causing a program's function
+		definitions and data structures to be altered). Note that
+		program exeuction must be temporarily stopped during the
+		sweep phase so as to prevent the creation of
+		<strong>un</strong>marked data (which would be incorrectly
+		identified as unused by the sweep phase).
+	<li> How is a sweep performed? First, the freelist is set to nil
+		(i.e., a pointer to the predefined nil <em>cons</em> cell).
+		Then, starting at one end of the heap memory, every
+		<em>cons</em> cell's tag bit is examined:
+		<ol>
+		<li> If the cell is marked (i.e., the tag bit is set) then
+			it is reset back to zero (0), in preparation for a
+			future GC cycle.
+		<li> Otherwise, if the tab bit is unset (i.e., 0) then
+			the <em>cons</em> cell is added to the (front of the)
+			freelist.
+		</ol>
+	<li> Does the sweep phase have to complete before program execution
+		resumes? No.
+		<ol>
+		<li> If the program was waiting for a <em>cons</em>
+			cell allocation, then the program must wait
+			until the freelist is non-empty before the allocation
+			can be made and program execution continues. However,
+			most of the heap memory may have to be scanned before
+			an unmarked <em>cons</em> cell is located (and added
+			to the freelist by the sweep phase).
+		<li> Note that this newly allocated <em>cons</em> cell need
+			not be marked since the sweep phase has already
+			examined its tag bit (which is how it was added to
+			the freelist).
+		<li> This means that the sweep phase could be run as a
+			separate thread or performed incrementally
+			(e.g., the "getCell" method of the "Heap" class could
+			continue the sweep from where it left off to find the
+			next available <em>cons</em> cell).
+		<li> Strictly speaking, if the sweep is done incrementally,
+			then the construction of a freelist isn't necessary.
+		</ol>
+	</ol>
+<li> Benefits:
+	<ol>
+	<li> The basic algorithm is pretty simple to understand (and implement),
+		though the complexity increases when marking and sweeping
+		are performed incrementally.
+	<li> Able to collect circular structures (unlike Reference Counting).
+	<li> The impact on the program execution can be minimal (non-existant
+		if incremental marks are sweeps are avoided) in-between
+		GC cycles.
+	</ol>
+<li> Drawbacks:
+	<ol>
+	<li> While usually small, the amount of extra space need to traverse
+		the data structures to mark all currently used <em>cons</em>
+		cells is potentially unbounded.
+	<li> Even when using incremental mark and sweep phases, it is still
+		possible to experience a lengthy delay in program execution
+		while a unused <em>cons</em> cell is being located so that
+		it can satisfy a waiting allocation request.
+	<li> When incremental marking is being done, it is possible that
+		some <em>cons</em> cells that are marked as being used,
+		will no longer be needed by the time the sweep phase begins.
+		However, they won't be deallocated since they are marked
+		(though they will eventually get reclaimed during the next
+		GC cycle).
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

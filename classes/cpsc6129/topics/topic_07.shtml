@@ -1,0 +1,170 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Advanced Programming Languages (CPSC 6129)
+	- Evaluating <em>and</em>, <em>or</em>, and <em>cond</em>
+</p>
+
+<ol>
+<li> The functions <em>and</em>, <em>or</em>, and <em>cond</em> take a variable
+	number of arguments (one or more) and thus have more interesting
+	semantics (not all of their arguments are evaluated) than their fixed
+	argument primitive function bretheren.
+<li> Evaluating <em>or</em>:
+	<ol>
+	<li> Using the same activation record organization that was developed
+		for the fixed argument primitive functions, notice that the
+		"List of Argument Evaluations" need not (and should not)
+		collect the evaluations of all the arguments.
+	<li> Since <em>or</em> returns the first non-nil argument value 
+		the "List of Argument Evaluations" only needs to hold the
+		value of each single argument evaluation.
+	<li> Once an argument is evaluated (and the run-time stack has been
+		popped so that the activation record for <em>or</em> is at
+		the top of the stack) and its value assigned to the
+		"List of Argument Evaluations", check to see whether or not
+		the "List of Argument Evaluations" value is nil or not.
+	<li> If the value is non-nil, then return the value contained in the
+		"List of Argument Evaluations" portion of the activation
+		record.
+	<li> Otherwise, if the value is nil, then evaluate the next argument
+		(i.e., the car of "List of Unevaluated Arguments") if there
+		is one (and go back to step 3 above). If there are no other
+		arguments to evaluate then <em>or</em> should return nil.
+	</ol>
+<li> Evaluating <em>and</em>:
+	<ol>
+	<li> The evaluation of <em>and</em> is very similar to the evaluation
+		of <em>or</em> (described above).
+	<li> Using the same activation record organization that was developed
+		for the fixed argument primitive functions, notice that the
+		"List of Argument Evaluations" need not (and should not)
+		collect the evaluations of all the arguments.
+	<li> Since <em>and</em> returns nil if any of its argument values
+		is nil, then
+		the "List of Argument Evaluations" only needs to hold the
+		value of each single argument evaluation. If all of the
+		argument values are non-nil then <em>and</em> returns the
+		value of its last argument (which should be the value of
+		"List of Argument Evaluations" when "List of Unevaluated
+		Arguments" is empty/nil).
+	<li> Once an argument is evaluated (and the run-time stack has been
+		popped so that the activation record for <em>and</em> is at
+		the top of the stack) and its value assigned to the
+		"List of Argument Evaluations", check to see whether or not
+		the "List of Argument Evaluations" value is nil or not.
+	<li> If the value is nil, then return nil (i.e., the value contained
+		in the "List of Argument Evaluations" portion of the activation
+		record).
+	<li> Otherwise, if the value is non-nil, then evaluate the next
+		argument (i.e., the car of "List of Unevaluated Arguments")
+		if there is one (and go back to step 4 above). If there are
+		no other arguments to evaluate then <em>and</em> should
+		return the value contained in the "List of Argument
+		Evaluations".
+	</ol>
+<li> Evaluating <em>cond</em>:
+	<ol>
+	<li> While similar in some ways to the evaluation of <em>or</em> and
+		<em>and</em>, the evaluation of <em>cond</em> is different
+		in two respects:
+		<ol>
+		<li> The "arguments" to <em>cond</em> are lists and not
+			evaluated directly, rather its the <em>car</em> of
+			each list that is evaluated (in sequence) to
+			provide the "boolean" test.
+		<li> Not all of the items in each list are evaluated. The
+			item in the remainder of the list is evaluated only
+			when the item in the first part of the list evaluated
+			to a non-nil value.
+		</ol>
+	<li> Once again, note that the "List of Argument Evaluations" need
+		not (and should not) collect the evaluations of all the
+		arguments.
+	<li> As each condition list of the <em>cond</em> is considered,
+		evaluate the <em>car</em>. However, this poses a problem
+		with how we've been using our activation records. We can't
+		just replace the "List of Unevaluated Arguments" with its
+		<em>cdr</em> since then we'd lose the reference to the
+		actions that should be performed if the "boolean" expression
+		turns out to be non-nil.
+		<ol>
+		<li> One way to resolve this problem is to add another field
+			to our activation record. While straightforward and
+			simple, its not very space efficient since the extra
+			field is only needed when evaluating a <em>cond</em>
+		<li> Fortunately, there is an alternative.
+			<ol>
+			<li> Rather than immediately replacing the "List of
+				Unevaluated Arguments" with its <em>cdr</em>,
+				wait until the "boolean" expression has been
+				evaluated and the result placed into the
+				"List of Argument Evaluations" (as its sole
+				value - just as we did for both <em>or</em>
+				and <em>and</em>). 
+			<li> If the "boolean" expression was nil, then
+				replace the "List of Unevaluated Arguments"
+				with its <em>cdr</em> and calculate the next
+				"boolean" expression (if there are no more
+				to evaluate, then <em>cond</em> should return
+				nil).
+			<li> Otherwise, if the "boolean" expression evaluates
+				to a non-nil value, then evaluate the
+				second half of the list (i.e., the <em>car</em>
+				of the <em>cdr</em>), but not before setting
+				the value of "List of Unevaluated Arguments"
+				to nil (so you won't try to evaluate any other
+				"boolean" expressions). 
+			<li> When an evaluation completes, leaving the
+				<em>cond</em> activation record as the top
+				item on the run-time stack, and the value of
+				"List of Unevaluated Arguments" is nil, then
+				<em>cond</em> should return the value of
+				"List of Argument Evaluations" (which should
+				contain the evaluation of the action
+				associated with the non-nil "boolean"
+				expression. [NOTE: This is indistinguishable
+				from the case when all of the "boolean"
+				expressions have evaluated to nil, but that's
+				okay since <em>cond</em> should return nil
+				in that case as well.]
+			<li> Yes, this is a bit trickier from a coding
+				standpoint, but it works well, and its not
+				that complicated.
+			</ol>
+		</ol>
+	<li> Repeat the process for each boolean-action list pair in the
+		<em>cond</em>, in order.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

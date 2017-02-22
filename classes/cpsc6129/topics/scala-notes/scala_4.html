@@ -1,0 +1,175 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+	<title>Scala Programming Language</title>
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Body	{ font-family: times, serif, courier, monospace }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	Advanced Programming Languages (CPSC 6129)<br/>
+	<strong>Scala Programming Language</strong><br/>
+	Object-Oriented Scala
+</p>
+
+<ol>
+<li> 
+	<b>Overview</b><br/>
+	<ul>
+	<li>Though Scala has full support for functions and functional programming, functions are not top-level constructs in Scala
+	<li>While we are able to enter unenclosed functions into the Scala REPL, when we are writing program code for compilation, functions must sit inside of a top-level construct
+	<li>Scala supports 4 top-level constructs:
+		<ol>
+		<li>Objects
+		<li>Classes
+		<li>Case classes
+		<li>Traits
+		</ol>
+	</ul>
+	<br/>
+
+<li>
+	<b>Objects</b><br/>
+	<ul>
+	<li>Objects have been given previous treatment
+	<li>The <b>object</b> keyword creates a type and a single instance of it
+	<li>Common Scala practice generally utilizes companion objects, which hold static class behavior, while instance-specific behavior is encapsulated in the classes themselves
+	<li>Related classes and objects can have the same name, which is a common practice in Scala
+	</ul>
+	<br/>
+
+<li>
+	<b>Classes</b><br/>
+	<ul>
+	<li>Classes have been given previous treatment
+	<li>Important points to reiterate include:
+		<ol>
+		<li>Constructor parameters are integrated into the class definition signatures
+		<li>Common practice of "companion objects," which hold static code associated with instance-specific class code
+		</ol>
+	<li>Inheritence works similar to Java, in that classes can be extended to form subclasses
+	<li>Abstract classes are supported
+	<li>Traits and mixins can also be combined to form new classes (see below)
+	</ul>
+	<br/>
+
+<li>
+	<b>Case Classes</b><br/>
+	<ul>
+	<li>Case classes care immutable data objects that depend exclusively on their constructor arguments
+	<li>This is a functional concept, and allows pattern matching to be brought to objects, and implicit equality comparisons to be defined
+	<li>Case classes can be further investigated <a href="http://www.scala-lang.org/old/node/107">here</a>
+	</ul>
+	<br/>
+
+
+<li>
+	<b>Traits & Mixins</b><br/>
+	<ul>
+	<li>Similar to interfaces in Java
+	<li>Collections of attributes and behaviors that can be extended by, or mixed in to, your classes
+	<li>Creating new classes by extending other classes or traits, and adding in additional characteristics by selecting additional traits, is referred to as <b>mixin composition</b>.
+
+	<pre><code>
+	/** Define a few traits. */
+
+	trait SmartPhone {
+	    val make: String
+	    val screenSize: Double
+	}
+
+	trait Android {
+	    val androidVersion: Double
+	}
+
+	// Use a single trait with keyword 'extends'.
+	class Samsung extends SmartPhone {
+	    val make = "Samsung"
+	    val screenSize = 4.8
+	}
+
+	// Use several traits with additional keyword 'with' (mixin composition).
+	class Samsung extends SmartPhone with Android {
+	    val make = "Samsung"
+	    val screenSize = 4.8
+	    val androidVersion = 5.0
+	}
+	</pre></code>
+
+	</ul>
+
+<li>
+	<b>Getters & Setters</b><br/>
+	<ul>
+	<li>Unlike Java, getters and setters are not <b>really</b> required, at least not in the default case
+	<li>The division of vars and vals makes controlling access to, and mutation of, attributes more defined
+	<li>vals are not mutable, and so attempting to access and change them is not possible
+	<li>vars, on the other hand, are mutable, and so direct access to change them is reasonable
+	<li>The default visibility in Scala is <b>public</b>, as it is reasoned that this is the most popular visibility, and so this strategy of expecting direct access to vars and vals is reasonable in the general case
+	<li>Of course, Scala provides different visibility scopes, and so classes and methods can be implemented according to requirements, but as a default, this previously outlined practice works quite well, and cuts down on unnecessary and repetitive typing (excessive use of <b>final</b>, <b>public</b>, and constant implementations of setVar, getVar, getVal, etc.)
+	<li>For more on visibility scopes in Scala, see <a href="http://www.tutorialspoint.com/scala/scala_access_modifiers.htm">here</a>
+	</ul>
+	<br/>
+
+<li>
+	<b>The Uniform Access Principle</b><br/>
+	<ul>
+	<li>The Uniform Access Policy states that, "[a]ll services offered by a module should be available through a uniform notation, which does not betray whether they are implemented through storage or through computation." [<a href="http://joelabrahamsson.com/learning-scala-part-nine-uniform-access/">here</a>]
+	<li>Simply put, the syntax used to access some part of a class should be the same whether an attribute or a method
+	<li>In Java, this does not hold:
+
+	<pre><code>
+	// Create an instance of MyClass.
+	MyClass a = new MyClass();
+
+	// Access myVar and myMethod.
+	int i = a.myVar;
+	String s = a.myMethod();
+	</pre></code>
+
+	<li>As you can see, the empty parentheses at the end of the method call are not present at the end of the method call, != Uniform Access Principle
+	<li>However, thanks to its flexible syntax, this is true of Scala:
+
+	<pre><code>
+	// Create an instance of MyClass.	
+	val a: MyClass = new MyClass
+	
+	// Access myVar and myMethod.
+	val i = a.myVar
+	val s = a.myMethod
+	</pre></code>
+
+	<li>The imprints of both of these calls match, and therefor stasify the Uniform Access Principle
+	<li>While not a practical requirement of an effective language, that Scala satsifies this principle is a testament to its academic and functional roots
+	</ul>
+	<br/>
+
+</ol>
+
+<hr/>
+<address>
+	Scala Notes: <a href="mailto:mayo_matthew@columbusstate.edu?subject="Scala Notes">mayo_matthew@columbusstate.edu</a> &
+				 <a href="mailto:ridings_mark@columbusstate.edu?subject="Scala Notes">ridings_mark@columbusstate.edu</a><br/>
+	Course Professor: <a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages">eckart_dana@columbusstate.edu</a>
+</address>
+
+</body>
+</html>
+
+
