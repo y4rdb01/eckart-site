@@ -1,0 +1,117 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Resources and Deadlock
+</p>
+
+<ol>
+<li> Resources
+	<ol>
+	<li> Resources can be an I/O device, memory, or even other software.
+	<li> Preemptable resources can be (temporarilly) taken away from
+		a process without causing a problem (e.g., memory in
+		a paged virtual memory system).
+	<li> Non-preemptable resources can NOT be even temporarilly taken
+		away from a process without potentially causing the process
+		to fail.
+	<li> Resources must be:
+		<ol>
+		<li> Requested
+			<ol>
+			<li> Some OS's automatically block a process when the
+				request for a resource fails, others simply
+				return an error code and make the calling
+				program handle the situation.
+			<li> What are the (dis)advantages of each approach?
+			</ol>
+		<li> Granted
+			<ol>
+			<li> Deadlock can only occur when the resource(s)
+				are non-preemptable. 
+			</ol>
+		<li> Used
+		<li> Released
+		</ol>
+	<li> Blocks of code can also be viewed as a resource.
+		<ol>
+		<li> Semaphores are typically used to ensure non-preemtiveness.
+		<li> A "down" on the semaphore requests the resource (and
+			blocks until the resource is granted).
+		<li> An "up" on the semaphore releases the resource (i.e.,
+			enables other processes to gain access to the code
+			block).
+		</ol>
+	</ol>
+<li> Deadlock
+	<ol>
+	<li> A set of processes is <em>deadlocked</em> if each process in the
+		set is waiting for an event that only another process in the
+		set can cause.
+	<li> Four (4) condition <strong>must</strong> hold to have a deadlock:
+		<ol>
+		<li> Mutually exclusive use of resources 
+		<li> Processes currently holding resources granted
+			earlier can request new resources
+		<li> Resources previously granted cannot be forcibly
+			taken away (no preemption).
+		<li> Circular wait condition.
+		</ol>
+	</ol>
+<li> Deadlock Modeling
+	<ol>
+	<li> The 4 conditions can be modeled as directed graphs:
+		<ol>
+		<li> Circles represent processes.
+		<li> Squares represent resources.
+		<li> Arrows from squares to circles indicate the resource
+			has been granted to the process.
+		<li> Arrows from circles to squares indicate that the process
+			is blocked on the resource (resource was requested
+			but has not yet been granted).
+		</ol>
+	<li> A cycle in the graph indicates deadlock!
+	</ol>
+<li> Four (4) strategies for dealing with deadlocks:
+	<ol>
+	<li> Ignore the problem
+	<li> Detection and recovery
+	<li> Prevention (negate one of 4 necessary conditions)
+	<li> Dynamic avoidance by careful resource allocation
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_47.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,208 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Paging Design Issues
+</p>
+
+<ol>
+<li> Local vs. Global Allocation Policies
+	<ol>
+	<li> In replacing a page, should the OS consider only pages
+		assigned to the faulting process (local allocation), or
+		might it "take"
+		page frames away from other processes (global allocation)?
+	<li> In general, global algorithms work better (after all a
+		processes working set size could increase over time,
+		causing thrashing with local allocation even if there
+		are free pages -- or it will waste pages if the working
+		set size decreases). Though note that some algorithms
+		(e.g., WSClock) already take this into account.
+	<li> However, global allocation could cause thrashing of
+		processes if their pages are swapped out by the time
+		their turn at the CPU comes around again.
+		<ol>
+		<li> Ensuring that each process gets a minimum number of
+			pages reduces this possibility.
+		<li> The number of page frames "reserved" for a process
+			can be adjusted (starting with the minimum allotment)
+			using the <em>Page Fault Frequency</em>.
+			If the page fault rate for a process
+			becomes to high, assign the process more pages frames
+			which (except for algorithms like FIFO) reduces
+			the page fault rate.
+		</ol>
+	</ol>
+<li> Load Control
+	<ol>
+	<li> If the working set size of all the running processes exceeds
+		the number of page frames, then thrashing will almost
+		certainly occur (unless, perhaps, several processes are
+		blocked for long periods of time).
+	<li> When thrashing starts to occur, swapping a process out to disk
+		and dividing its page frames among those processes
+		left can reduce (and hopefully stop) thrashing. It may be
+		necessary to swap several processes out to disk.
+	<li> It might be reasonable to proactively look at the working set
+		sizes of existing processes (compared to the total number of
+		page frames) and to block any newly begun
+		processes until some other process(es) finish (freeing up
+		page frames).
+	</ol>
+<li> Page Size
+	<ol>
+	<li> The OS designer usually has a fair bit of freedom in
+		choosing a page size.  On average though, half of the
+		last page of a "segment" containing code/data will
+		not be used and represents <em>internal fragmentation</em>.
+	<li> N segments with pages of size <em>PageSize</em> bytes will thus
+		waste N * PageSize / 2
+		bytes on average. An argument for smaller page sizes.
+	<li> Large page sizes may cause more unneeded/unused stuff to
+		be in memory.
+	<li> Small pages mean programs need more pages in memory, and
+		since transfers are a page at a time, this can
+		increase the time spent handling page faults.  Also
+		the page map table increases in size as page size
+		decreases. Suggesting a larger page size.
+	<li> If each page requires <em>EntryBytes</em> additional bytes of
+		info, and given the average <em>ProcessSize</em>, then
+		average number of pages
+		needed per process is ProcessSize / PageSize with
+		ProcessSize * EntryBytes / PageSize in the page map
+		table.
+	<li> The overhead per process segment is then
+		<pre>
+		Overhead(PageSize) = ProcessSize * EntryBytes / PageSize + PageSize / 2
+		</pre>
+		which we minimize by setting the derivative to 0 and
+		solving for <em>PageSize</em> to get
+		<pre>
+		PageSize = (ProcessSize * EntryBytes / 2)^(1/2)
+		</pre>
+	<li> While page sizes vary across commercially available computers,
+		4 KB pages is a common size (though
+		<a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=5211562&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D5211562">16 KB may be more appropirate</a>).
+	</ol>
+<li> Separate Instruction and Data Spaces
+	<ol>
+	<li> Originally used to increase the amount of addressable space in
+		smaller memory machines (instructions and data each got their
+		own address space, say from 0 to 2^16 - 1).
+	<li> While less necessary in today's 32-bit and 64-bit world, this
+		technique can still be useful for those parts of the memory
+		hierarchy that are still small (e.g., cache).
+	<li> Virtual memory works much the same except that:
+		<ol>
+		<li> The program linker needs to know the difference
+			between I-space and D-space; and
+		<li> The hardware must know that to get instructions use
+			I-space page tables, and D-space page tables for the
+			data.
+		</ol>
+	</ol>
+<li> Shared Pages
+	<ol>
+	<li> It's possible that different processes share the same read-only
+		memory pages.
+	<li> When sharing instruction pages, care must be taken when one
+		process is swapped out (or finishes) that the shared pages
+		aren't also evicted (since a process is likely still using
+		them). Special data structures are needed to track this.
+	<li> If data pages are shared (as happens after a Unix <em>fork</em>
+		system call) then each process can get its own page table,
+		but not copies of the pages themselves. Only when a page
+		is changed, is a copy made so that each process gets its
+		own version. Otherwise, the <em>fork</em> would take longer
+		to execute while all the pages were copied (and even then,
+		most copies won't be changed). This is called <em>copy on
+		write</em>
+	</ol>
+<li> Shared Libraries
+	<ol>
+	<li> Called Dynamic Link Libraries (DLLs) on Windows
+	<li> Shared libraries can greatly reduce the size of executable
+		programs (over statically linking in the library routines
+		they use).
+	<li> When a program is compiled to use shared libraries, a small stub
+		is used to call the actual shared routine (rather than copying
+		the code for the shared routine into the executable). These
+		stubs are generally quite small by comparison.
+	<li> Besides smaller executables, and less physical memory needed when
+		programs share the same library code, shared libraries also
+		mean that any library updates are automatically used by
+		programs compiled to use shared libraries.
+	<li> One problem is that each loaded process may have the shared
+		library at a different location within its virtual address
+		space. This is a problem for absolute addressing, but since
+		the compiler/linker knows that shared libraries are to be
+		used, it can generate relative addresses (e.g., JUMP N bytes
+		forward from the present location), and the resulting
+		executable is called <em>position-independent code</em> .  
+	</ol>
+<li> Mapped Files
+	<ol>
+	<li> Enable processes to map files to their virtual address space,
+		thus working with a file as if it were a large character
+		array in memory.
+	<li> If muliple processes share a mapped file, this makes for faster
+		communication between them.
+	<li> Shared Libraries are just a special case of mapped files.
+	<li> While
+		<a href="http://www.unix.com/man-page/posix/0/shmget">shmget</a>
+		/
+		<a href="http://www.unix.com/man-page/posix/0/shmat">shmat</a>
+		aren't, strictly speaking, mapped files (mapped files are
+		created using
+		<a href="http://www.unix.com/man-page/posix/0/mmap">mmap</a>),
+		the idea is the same.
+	</ol>
+<li> Cleaning Policy
+	<ol>
+	<li> Rather than wait for a page fault to write a dirty page back
+		to disk, use a background process to write modified pages
+		back to memory when resources permit.
+	<li> By running as a background process, a <em>paging daemon</em>
+		doesn't unnecessarily slow down other processing.
+	<li> By writing dirty pages back to memory before a page fault,
+		the <em>paging daemon</em> increases the likelihood of
+		the page replacement algorithm finding a clean (UNmodified)
+		page, thus reducing the time that the waiting process
+		will be blocked.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_31.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

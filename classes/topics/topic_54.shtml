@@ -1,0 +1,167 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Secure System Models
+</p>
+
+<ol>
+<li> Protection Models
+	<ol>
+	<li> Protection commands are used by processes (e.g., user programs)
+		to change the protection matrix.
+		<ol>
+		<li> Create Object
+		<li> Delete Object
+		<li> Create Subject (Domain)
+		<li> Delete Subject (Domain)
+		<li> Insert Right (Privilege)
+		<li> Remove Right (Privilege)
+		</ol>
+	<li> There's a difference between the protection mechanism and 
+		the protection policy - i.e., does the mechanism enforce
+		the policy?
+	<li> The protection matrix indicates what Subjects <em>can</em> do,
+		not what they are authorized to do. Authorization is a
+		management policy.
+	</ol>
+<li> Multi-level Security
+	<ol>
+	<li> <em>Discretionary access control</em> allows the owner of an
+		object to determine who should have access to it (and what
+		type of access to grant).
+	<li> <em>Mandatory access control</em> are organizational rules that
+		determine which subjects have rights to various objects
+		(often based on the subject's role in the organization).
+	<li> Bell-LaPadula Model
+		<ol>
+		<li> Designed for handling military security, and is often
+			based on the organizational structure.
+		<li> Both objects and subjects are assigned a security
+			level (e.g., confidential, secret, top secret).
+		<li> Simple Security Property (read down):
+			Subjects may only read objects at or BELOW their
+			security level. E.g., someone with only a confidential
+			clearance cannot read top secret documents.
+		<li> * Property (write up):
+			Subjects may only write to objects at or ABOVE
+			their security level. E.g., someone with a secret
+			clearance cannot write (to) a confidential document
+			over concerns that secret information could be
+			added to a confidential document - violating the
+			security of the secret information since it could
+			then be accessed by persons with only a confidential
+			clearance.
+		<li> Designed to keep secrets, but not necessarily the
+			integrity of data (since lower security levels can
+			alter documents at a higher level). Note that since
+			you can't read items at a strictly higher level of
+			security, those writes must really be appends.
+		</ol>
+	<li> Biba Model
+		<ol>
+		<li> Effectively the reverse of the Bell-LaPadula model (based
+			on a corporate model).
+		<li> Simple Security Property (write down):
+			Subjects may only write to objects at or BELOW their
+			security level. E.g., vice-presidents can write to
+			documents owned by their subordinate managers.
+		<li> * Property (read up):
+			Subjects may only read objects at or ABOVE
+			their security level. E.g., managers can read
+			the plans of the vice-president, but cannot change
+			them.
+		<li> Designed to allow managers to actively direct their
+			subordinates (e.g., by adding things to the calendar).
+		</ol>
+	<li> In practice some combination of the Bell-LaPadula and Biba
+		models is desired, with the model used depending upon the
+		nature of the object (e.g., document) being secured.
+	</ol>
+<li> Covert Channels
+	<ol>
+	<li> Confinement problem: How to keep information gleaned from a
+		client process within a server process (with which it was
+		working)? Can the server be prevented from passing any of
+		the client information on to a third party (i.e., a
+		collaborator process)?
+	<li> Preventing the direct passing of information from the server
+		to a collaborator can be accomplished by restricting the
+		server from writing files (that could be read by the
+		collaborator) or sending messages (to the collaborator).
+	<li> Covert channels are "underhanded" ways of relaying information.
+		Examples include:
+		<ol>
+		<li> I/O vs cpu intensive computing over some period of
+			time to indicate either a 0 or a 1.
+		<li> Use the paging rate or the aquistion of resources
+			(e.g., file locking, tape drive) to relay information.
+		<li> Information can be directly leaked to the human user
+			of the server via altering (or adding) low-significance
+			data. For example if the server reports temperatures
+			to the human, then an additional decimal place (e.g.,
+			report 70.15F for 70.1F) is added with even digits
+			representing 1 and odd values representing 0. 
+		<li> <a href="http://aabgu.org/bitwhisper-putting-the-heat-on-air-gapped-computers/">BitWhisper</a>
+			uses changes in the heat generated by a computer to
+			transmit bits (about 8 bits per hour) to a nearby
+			computer (no more than 15 inches away).
+		</ol>
+	<li> Covert channels are noisy but information can still be reliably
+		sent (e.g., error correction can be used).
+	<li> Steganography is the art of hiding (via clever encoding)
+		information within other unrelated information (e.g., encoding
+		text within the lowest bit of the RGB values of a color
+		image). This technique can be used to smuggle information
+		past censors (or outside a restrictive government) or to
+		put watermarks on images to help detect (and prosecute) theft.
+	</ol>
+<li> Design Principles for Security
+	<ol>
+	<li> System designs should be public.
+	<li> The default should be NO access (read, write, or execute).
+	<li> Check for the CURRENT rights (users can keep files open
+		a long time, during which permissions could have been changed).
+	<li> Give each process the LEAST privilege possible.  E.g. a file
+		editor can only change the file it was called with.
+	<li> The protection mechanism should be simple, uniform, and
+		built into the lowest levels of the OS.
+	<li> The security scheme chosen must be psychologically acceptable
+		(e.g., simple to understand, user friendly).
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_54.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

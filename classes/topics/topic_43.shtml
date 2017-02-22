@@ -1,0 +1,210 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- User Interfaces
+</p>
+
+<ol>
+<li> Input Software
+	<ol>
+	<li> Keyboard
+		<ol>
+		<li> Keyboards contain a microprocessor that communicates with
+			the device controller (e.g., USB controller).
+		<li> Interrupts are generated on key press and release.
+		<li> The key number (<em>scan code</em>) is that data passed
+			in the I/O register (and is keyboard dependent). This
+			is NOT the same as the ASCII
+			code. Usually the scan code only needs 7 bits, so the
+			8th bit can be used to indicate whether the key has
+			been pressed (0) or released (1).
+		<li> The keyboard device driver uses the sequence of interrupts
+			and data to determine what information (e.g., ASCII
+			character) to pass on (e.g.,
+			ctrl-a, ctrl-A, or Z). This gives the most flexibility
+			to keyboard use, and keeps the keyboard microprocessor
+			VERY simple.
+		<li> Two device driver approaches:
+			<ol>
+			<li> The <em>Character oriented</em>
+				(or <em>raw mode</em>, also called
+				<em>non-canonical mode</em> in POSIX)
+				approach passes
+				along every ASCII character. Thus the sequence:
+<pre><code>
+d  s  t  &lt;-  &lt;-  a  t  e
+</code></pre>
+				delivers all of the characters (including the
+				"s", repeated "t", and the backspaces &lt;-)
+				not just "date".
+			<li> The <em>Line oriented</em>
+				(or <em>cooked mode</em>, also called
+				<em>canonical mode</em> in POSIX)
+				approach passes
+				along only completed (and edited) lines of
+				input. So the above would return "date" without
+				the "s", repeated "t", or the backspaces
+				(&lt;-).
+			<li> The character oriented approach works well for
+				editors like <em>vi</em> and <em>emacs</em>.
+			<li> The line oriented approach is good for command line
+				programs (like shell).
+			<li> In cooked/canonical mode, the device driver must
+				hold the input (altering the buffer based on
+				keystrokes) until the end of line (return)
+				is seen.
+			</ol>
+		<li> The keyboard driver is responsible for mapping special
+			key combinations to their relevant codes (e.g.,
+			ctrl-d for end-of-file, enter/return for line feed).
+		<li> <em>Echoing</em> (in which typed characters are displayed
+			on the screen) is not strictly part of the input
+			process. Most systems will echo all information (as
+			if in raw mode) but pass the data in cooked mode form.
+		</ol>
+	<li> Mouse
+		<ol>
+		<li> Generate an interrupt whenever
+			a mouse button is pressed, released, or the mouse
+			has traveled a predetermined minimal distance.
+			Generally a maximum of about 40 interrupts per
+			second are supported.
+		<li> The data sent upon an interrupt are the status of the
+			various mouse buttons, along with the change in
+			<em>x</em> and <em>y</em> positions.
+		<li> Unlike keyboards, there is no editing of mouse inputs,
+			so all input is effectively in raw mode.
+		</ol>
+	<li> <a href="/eckart/classes/cpsc3125/topics/content/touchScreen.png">Touch Pads &amp; Screens</a>
+		<ol>
+		<li> Touch pads may use either absolute positions (corresponding
+			to screen locations) or relative positions (like mice). 
+			Touch screens use absolute positioning since they
+			exactly mirror the screen.
+		<li> Touch pad interrupts, like mice, pass the change in
+			<em>x</em> and <em>y</em> positions. In addition,
+			the "press" and "release" of the touch can also be
+			noted.
+		<li> Absolute position (provided by touch screens and some
+			touch pads) provide the exact <em>x</em> and <em>y</em>
+			positions, rather than the change in those values.
+		<li> <em>Multitouch</em> is best supported by touch devices
+			that can provide a continuous stream of position
+			data to avoid <em>ghosting</em> (a phenomena in which
+			the position of a touch is ambiguous).
+		</ol>
+	</ol>
+<li> Output Software
+	<ol>
+	<li> Text Windows (or terminal windows, e.g., xterm, cmd)
+		<ol>
+		<li> All text is the same size and font style (and often the
+			same color), simplifying character writing and
+			placement.
+		<li> Terminals use special character (escape) sequences to
+			move the cursor around and control the insertion or
+			delection of characters on the screen.
+		<li> Originally these escape sequences varied by manufacturer.
+		<li> Termcap (terminal capability) library and databases
+			mapped different manufacturer escape sequences into
+			a single form that could be used to write device
+			independent software (e.g., text editors like
+			<em>vi</em> and <em>emacs</em>).
+		<li> <a href="https://en.wikipedia.org/wiki/Bill_Joy">Bill Joy</a>
+			(one of the co-founders of Sun Microsystems a few years
+			later) wrote <em>vi</em> back in 1976 and
+			developed the first Termcap database in 1978, enabling
+			<em>vi</em> to work with a wider range of terminals.
+		</ol>
+	<li> X Window System
+		<ol>
+		<li> Used by many Unix/Linux based systems (notable exceptions
+			are Mac OS X and Android). Commonly
+			referred to as X11 (the latest major version is X11
+			released in 1987), X-Windows, or simply X.
+		<li> X11 provides the basic capabilities for creating windows,
+			and various operations on them (e.g., moving, resizing,
+			drawing), along with keyboard and mouse interactions.
+		<li> Programs provide the user interface style. For example,
+			the popular Linux window systems Gnome and KDE are X11
+			systems with different window managers (programs that
+			control the look and feel of X11).
+		<li> X11 uses a client-server model, separating the display
+			window of the program from the rest of it's workings.
+			This means that a program can be run on one machine
+			with it's interface displayed on another (potentially
+			very distant) computer.
+		<li> The remote display is created and controled by X11 so
+			that the program can be written as if it were all
+			happening locally.
+		<li> X11 is event driven, and takes the keyboard and mouse
+			inputs from the client
+			(display) and sends them to the server (traditional
+			process) so that the programmer doesn't have to code
+			for this (other than using the Xlib library for
+			coding their graphics - the library takes care of
+			the client-server and communication details).
+		<li> The separation of the various elements of X11 into
+			different components and layers (X client, X server,
+			Xlib, etc) make it relatively easy to maintain as
+			well as portable (e.g., it can be run on top of
+			Microsoft Windows and is included as part of Cygwin).
+		<li> Microsoft Windows, in contrast, combines the windowing
+			and GUI elements together and implements them in the
+			OS. This makes them harder to maintain, and completely
+			non-portable.
+		</ol>
+	<li> Graphical User Interfaces (GUIs)
+		<ol>
+		<li> Defined by WIMP (Windows, Icons, Menus, Pointing device).
+		<li> Unlike text windows, GUIs (and the windowing systems that
+			enable them) rely on graphics adapters (video card)
+			that contains a graphics processing unit (GPU) which
+			is a dedicated CPU, and associated memory (video RAM).
+		<li> If the graphics adapter is built into the motherboard or
+			the CPU it's referred to as <em>integrated
+			graphics</em> (or "on-board video").
+		<li> Graphics adapters support a variety of screen sizes and
+			they use their video RAM to determine what to display
+			on the screen (including the actual screen image).
+		<li> Graphics adapter device drivers often support multiple
+			APIs (e.g., OpenGL, Direct3D, and Mantle).
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_43.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,79 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Unix Command Exercises
+</p>
+
+<ol>
+<li> Capture your interaction with bc as you determine the the average
+	of the numbers 2, 3, 5, 7, 11, 13, and 17
+	(for which you should get 8.28571428571428571428).
+<li> Use the calendar to determine what day of the week
+	31 Decemeber 2050 will be.
+<li> Start the editor and then suspend it.
+<li> List all of the current processes (associated with a terminal).
+<li> List the current (unfinished) jobs.
+<li> Kill the editor job.
+<li> Make a new directory named "Kumquat".
+<li> Move into the new directory and create a file named "heck",
+	that contains your full name on the first and only line
+	in the file.
+<li> Go back one directory level, and change the name of the new
+	directory from "Kumquat" to "silly".
+<li> Make a copy of directory "silly", called "sillier".
+<li> List the contents of both "silly" and "sillier" using a single
+	command.
+<li> Determine what directory you are currently in.
+<li> Remove both "silly" and "sillier" using a single command.
+<li> Using <em>pwd</em> and <em>df</em> determine how much space is
+	left on the disk upon which your account is located.
+<li> Determine how much space your files take up.
+<li> Use <em>find</em> to determine if there are any filenames
+	beginning with "ps" in the directory /usr/man/man1.
+<li> Use <em>find</em> and <em>head</em> to print the first line of
+	each file under the directory /usr/man/man1.
+<li> Use <em>more</em> to look at the file /usr/man/man1/yacc.1
+<li> Save to the file "sortedUsers" a list of the lognames of those
+	people currently logged in, sorted alphabetically.
+<li> Examine the file "sortedUsers" and then remove it.
+<li> Count the number of files in your home directory.
+<li> Count the number of files in your home directory that contain
+	the word "the".
+<li> Still having trouble? Here's another
+	<a href="http://www.ee.surrey.ac.uk/Teaching/Unix/">Unix tutorial</a>
+	that may be helpful.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

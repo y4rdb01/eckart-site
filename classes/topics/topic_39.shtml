@@ -1,0 +1,247 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Principles of I/O Hardware
+</p>
+
+<ol>
+<li> I/O Hardware - How an I/O device operates is intimately tied into how
+	it is designed, its command set, and how it must be controlled.
+<li> I/O Devices
+	<ol>
+	<li> Kinds of devices
+		<ol>
+		<li> Block devices
+			<ol>
+			<li> Store info in fixed size blocks (e.g.,
+				1024 bytes).
+			<li> Generally provide random access (but not
+				always, e.g., tape drives).
+			<li> Read/Write each block independently.
+			<li> Examples (from Ubuntu):
+				<ol>
+				<li> /dev/loop0 (...7) are loopback devices (used to interpret files as devices, e.g., disks)
+				<li> /dev/sda (sda1, sda2) are disk partitions
+				<li> /dev/ram0 (...15) are ramdisks
+				</ol>
+			</ol>
+		<li> Character devices
+			<ol>
+			<li> A stream of characters
+			<li> Sequential access only
+			<li> Not addressable
+			<li> Examples (from Ubuntu):
+				<ol>
+				<li> /dev/console is the system command terminal
+				<li> /dev/random is a blocking pseudorandom number generator
+				<li> /dev/mei is the Intel Management Engine Interface
+				<li> /dev/ tty0 (..63) are the (virtual) consoles/terminals
+				<li> /dev/ttyS0 (..31) are the serial ports
+				</ol>
+			</ol>
+		</ol>
+	<li> device drivers are software that control devices
+	<li> The two broad categories aren't always clear cut (e.g., is a
+		monitor a block or character device?), nor are they all
+		encompassing (e.g., what is a clock that generates periodic
+		interrupts?) but the 2 categories work well for most cases.
+	</ol>
+<li> Device Controllers
+	<ol>
+	<li> Device controller (adapter) - electonic component
+	<li> Device itself - mechanical component
+	<li> A single controller may be able to handle multiple
+		devices.  Device drivers typically deal with the device 
+		controller.
+	</ol>
+<li> Device I/O
+	<ol>
+	<li> Control registers are used by a device controller to communicate 
+		with the CPU
+	<li> Device controllers also have data buffers that the OS can write
+		to and/or read from.
+	<li> Two device communication styles:
+		<ol>
+		<li> Port I/O - used by early computers and most mainframes
+			<ol>
+			<li> Control registers are assigned an
+				<em>I/O port</em> number.
+			<li> Only the OS can access the set of
+				<em>I/O ports</em>.
+				(called the <em>I/O port space</em>).
+			<li> The I/O ports are separate from the memory
+				(address space). Instructions are used
+				to read/write information from/to the
+				I/O ports.
+			<li> Requires special instructions for reading/writing
+				the control registers, expressed in assembly
+				code.
+			<li> Special protections are needed to prevent
+				non-kernel use of control registers.
+			</ol>
+		<li> Memory-Mapped I/O
+			<ol>
+			<li> Control registers are assigned unique memory
+				addresses (that don't correspond to memory -
+				usually at the top of the address space).
+			<li> CPU Reads/writes of the control registers are
+				carried out the same as any other memory
+				operation.
+			<li> Doesn't require special instructions 
+			<li> Device drivers can be written in C (or other
+				"high-level" language) since no special
+				assembly code is required.
+			<li> Protecting the control registers is easily
+				accomplished by not putting the mapped memory
+				in the address space of any user process (or
+				more generally in the address space of any
+				process that shouldn't have access).
+			<li> Saves instructions since instructions that can
+				access memory can also access control registers.
+				Under Port I/O, the contents of control
+				registers must be copied to memory first before
+				memory access instructions can be used.
+			<li> Caching must be disabled for the memory mapped
+				control registers! Otherwise programs (e.g.,
+				device drivers) wouldn't see new values written
+				to the control registers by device controllers.
+			<li> If there is a special memory bus (between the
+				CPU and memory) then device controllers won't
+				see these memory mapped references and can't
+				respond. A good way to deal with this issue
+				is to have the MMU use specific pre-loaded
+				register values to filter which addresses
+				are queried on the memory bus versus
+				the I/O bus.
+			</ol>
+		</ol>
+	</ol>
+<li> Direct Memory Acess (DMA)
+	<ol>
+	<li> Is an alternative to a tight read/write loop in the OS
+		to copy info to memory (1 byte at a time). Having the
+		CPU manage this process (referred to as <em>Programmed I/O</em>)
+		reduces the time it can spend
+		on "real" computation.
+	<li> Most systems have a DMA controller that's shared by the
+		various I/O devices.
+	<li> The DMA must have direct access to both the system bus and
+		to memory.
+	<li> DMA transfers
+		<ol>
+		<li> DMA takes the starting memory address and number of bytes
+			to copy (from its buffer) onto the device (or vice
+			versa if data is coming from the device into memory).
+			E.g., writing memory to HDD, the DMA takes the starting
+			address in memory and the number of bytes to copy, and
+			the address of the disk block to write to.
+		<li> The DMA (rather than the CPU) performs the tight loop of
+			asking the device controller to write data (e.g., a
+			word at a time) into memory. Thus freeing the CPU to
+			do other work.
+			<ol>
+			<li> <em>Fly-by mode</em> is when the data is directly
+				written to memory (or the device) without going
+				through the DMA.
+			<li> Alternatively, data can go through the DMA on its
+				way from source to target. This is more
+				flexible since it allows memory to memory
+				transfers as well as transfers from one device
+				to another (e.g., a physical disk copy), but
+				requires more bus operations than fly-by mode.
+			</ol>
+		<li> <em>Cycle stealing</em> is when the DMA transfers occur
+			a word at a time, "stealing" the bus (so the CPU can't
+			use it) for a very short time period.
+		<li> <em>Burst mode</em> happens when a large block of data
+			(e.g., disk block) is transfered by the DMA all at
+			once. This locks the bus so that the CPU can't use it
+			(and may cause a delay in the CPU's actions). Burst
+			mode is more bus efficient for large data transfers
+			than cycle stealing, since acquiring the bus takes time.
+		</ol>
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+	<li> Interleaving is the process of skipping over (not reading/
+		writing) blocks on disk, so as to allow a current DMA to
+		finish (otherwise the contents of the buffer would be
+		overwritten before they had been transfered to memory).
+		The blocks are numbered during formatting of the device with
+		interleaving in mind.  So as to allow maximum use of the
+		device.
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+	</ol>
+<li> Interrupts
+	<ol>
+	<li> Device controllers generate interrupts by putting a specific
+		signal on part of the <em>system bus</em>.
+	<li> The <em>interrupt controller</em> detects interrupts on the
+		system bus. If no other interrupts are pending (i.e., actively
+		being dealt with), and no higher-priority interrupts are 
+		simultaneously received, then the interrupt is serviced.
+	<li> When the <em>interrupt controller</em> handles an interrupt,
+		the number it puts on the system bus address lines indicates
+		the index in the <em>interrupt vector</em> that gives the
+		program counter that is the beginning of the interrupt
+		handler (aka interrupt service procedure/routine) code.
+	<li> When the <em>interrupt controller</em> interrupts the CPU,
+		the CPU saves the current state of the running process (e.g.,
+		program counter, registers) before beginning execution of
+		the interrupt handler.
+	<li> After the interrupt handler completes, the state of the previous
+		process is restored.
+	<li> Interrupt types
+		<ol>
+		<li> Are less about interrupts and more about how the CPU
+			executes instructions (or whether instructions are
+			allowed "to finish" before the interrupt proceeds).
+		<li> <em>Precise Interrupts</em> are characterized by the
+			instructions "before" the program counter (PC)
+			having all been completed, and those "after" the PC
+			NOT completed. The instruction the PC points to may or
+			may not have completed - but which is clearly indicated
+			by the CPU. This makes saving the current state of
+			an interrupted process MUCH easier.
+		<li> <em>ImPrecise Interrupts</em> occur when some instructions
+			"before" the PC MAY NOT have completed, while some
+			instructions "after" the PC MAY have completed. This
+			<strong>greatly</strong> complicates saving the
+			current state of the running process.
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_39.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

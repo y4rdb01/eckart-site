@@ -1,0 +1,144 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Structure of an OS
+</p>
+
+<ol>
+<li> Monolithic Systems
+	<ol>
+	<li> Most common organization (until about 1990), could
+		also be termed "The Big Mess".
+
+	<li> No information hiding.
+
+	<li> System calls are done by placing items on the stack and
+		trapping to kernel/supervisor mode.  This mode then
+		figures out what to do (from what is on the stack), does
+		it and leaves results (if any) on the stack and then
+		switches back to user mode.
+
+	<li> This use of kernel vs user modes keeps certain instructions
+		and resources from being arbitrarily used by anyone. 
+
+	<li> The basic structure of a monolithic OS consists of 3 parts:
+		<ol>
+		<li> A set of service procedures that perform the system calls;
+		<li> Utility procedures used to help implement the service
+			procedures; and
+		<li> A main program that calls the requested service procedure.
+		</ol>
+	</ol>
+<li> Layered Systems
+	<ol>
+	<li> THE system (Dijkstra) was built in layers.  Layers were
+		a design aid only.
+
+	<li> MULTICS generalized this simple notion of layers, using
+		concentric rings of permissions.  This was NOT just a
+		design aid, as protection was provided between rings.
+		Inner most rings had "more" permission than outer ones.
+	</ol>
+<li> Microkernels
+	<ol>
+	<li> Layered systems have historically included all of the layers
+		within the kernel (i.e., to be run in kernel/supervisor
+		mode).
+	<li> By having the fewest layers running in kernel mode, greater
+		confidence is possible in the "core" part of the OS. It
+		might even be conceivable to formally prove its correctness.
+	<li> The remaining layers would run in user mode. While the average
+		number of bugs per 1000 lines of code (approximately 2-10
+		on average) will remain and will cause failures in these
+		user layers from time to time, only those components will
+		crash - and not the microkernel.
+	<li> The <a href="https://en.wikipedia.org/wiki/MINIX">Minix OS</a>
+		uses a microkernel. Linux was a
+		<a href="https://www.cs.cmu.edu/~awb/linux.history.html">reimplementation of Minix v1</a>
+		(prompted by Minix's licensing restrictions)
+		but it ended up including all of the layers within the kernel
+		rather than sticking to the Minix microkernel design. 
+	<li> The microkernel design supports the separation of <em>policy</em>
+		from <em>mechanism</em>. For example, a non-kernel program
+		can assign priorities to processes (indicating what should
+		run next - the policy), but the microkernel selects the highest
+		priority process to actually run next (mechanism).
+	</ol>
+<li> Client-Server Model
+	<ol>
+	<li> Allows all client and servers to run in user mode, with
+		a minimal kernel arranging for communication (service)
+		between them.  In this way, the kernel provides protection
+		by limiting the use of a service.
+
+	<li> This scheme is easily adapted to distributed systems
+		(inter-process communication extended to inter-processor
+		communciations).
+	</ol>
+<li> Virtual Machines
+	<ol>
+	<li> A design which provides duplicate "copies" of the hardware,
+		so that multiple (and perhaps different OS's) can run
+		on each hardware "copy".
+	<li> The copy is true, in that all actual hardware traps are
+		delivered to the paritcular copy that caused them.
+	<li> A <em>hypervisor</em> provides a virtual machine on which
+		one or more (possibly different) OSes can run.
+		<ol>
+		<li> A type 1 hypervisor runs directly on the hardware with
+			the OSes running on top of the hypervisor.
+		<li> A type 2 hypervisor runs on top of a host OS (that
+			is running on top of the physical hardware). Thus
+			incurring the extra cost of the intervening OS.
+			However, a type 2 hypervisor can run in user mode
+			and take advantage of the file system from the
+			underlying host OS (making them somewhat simpler
+			than a type 1 hypervisor which has no underlying
+			file system to fall back on).
+		</ol>
+	</ol>
+<li> Exokernels are similar to virtual machines, but rather than all the OSes
+	operating as if they are the only ones running, the exokernel divides
+	the resources of the physical hardware between the various OSes. As
+	a result, it doesn't have to implement a mapping layer (between the OSes
+	and they physical resources they use) though it does have to enforce
+	the restrictions of each OS using only its assigned portion of the
+	physical machine. Without the mapping layer, exokernels have less
+	overhead thus using the hardware more efficiently.
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_06.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

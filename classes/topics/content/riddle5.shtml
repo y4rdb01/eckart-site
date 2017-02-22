@@ -1,0 +1,46 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+
+<h1 align=center>Riddle Answer</h1>
+
+<em>find &nbsp; . &nbsp; -type &nbsp; f &nbsp; -printf &nbsp; "%T@ &nbsp; %p\n" &nbsp; | &nbsp; sort &nbsp; -n &nbsp; +0 &nbsp; -1 &nbsp; | &nbsp; head &nbsp; -1</em>
+
+<p>
+Locates the least recently modified file in the current directory structure.
+Find returns the modify times of files along with the file names, by using
+the <em>-printf</em> option.  These are then sorted with respect to the time,
+latest times first, thus giving the answer as the first line of the sorted
+list.
+</p>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

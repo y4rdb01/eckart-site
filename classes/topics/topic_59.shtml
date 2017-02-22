@@ -1,0 +1,445 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Other Attacks
+</p>
+
+<ol>
+<li> Vectors:
+	<ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Trojan_horse_(computing)">Trojan Horse</a>
+		<ol>
+		<li> The malware is embedded in a (seemingly?) useful program
+			that is given away for free.
+		<li> Users willingly (albeit unknowingly) install the program
+			(and its accompanying malware) on their computer.
+		<li> Running the program runs the malware as well.
+		<li> Since the user gave permission for the installation and
+			running of the program, a Trojan Horse attack can be
+			difficult to distinguish from non-malware programs.
+		<li> In 2009, Trojan Horses constituted 83% of detected
+			malware.
+		<li> Approximately 15% of all computers are members of a
+			botnet. Most were recruited via a Trojan Horse.
+		<li> Another type of Trojan Horse attack is to use the Unix
+			(or Windows) path environment variable.
+			<ol>
+			<li> This variable provides a list of places to look
+				for executable programs (e.g., <em>ls</em>).
+			<li> The path variable is searched in order (left to
+				right) and executes the first version of the
+				command it finds.
+			<li> Placing a trojan program either in a commonly
+				used system directory (that's been left
+				"open") might cause many other users to run
+				this program by mistake.
+			<li> Alternatively, user could place the trojan in
+				her own directory and attempt to get others
+				to run the program (e.g., by inviting them
+				to <em>cd</em> to that directory to run another
+				program). If their path variable looks in
+				the current directory first - then the trojan
+				will be seen and run.
+			<li> NOTE: This scenario is why path variables should
+				<strong>always</strong> list the current
+				directory last.
+			</ol>
+		<li> <a href="http://www.wired.com/2014/07/usb-security">USB micro-controller based attacks</a>
+			hide their malicious cargo in the micro-controller's
+			firmware. Furthermore, it enables infected devices to
+			impersonate other USB devices - including keyboards!
+		</ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Computer_virus">Virus</a>
+		<ol>
+		<li> A virus spreads by attaching itself to another program,
+			much like a biological virus replicates by invading
+			another cell.
+		<li> A virus is different from a Trojan Horse in that the user
+			isn't aware that any code is being installed (whereas
+			the user is directly installing the program in which
+			the Trojan Horse resides). 
+		<li> Types of viruses:
+			<ol>
+			<li> Companion virus
+				<ol>
+				<li> Doesn't actually infect a program, but
+					runs whenever a particular (companion)
+					program runs.
+				<li> Is dependent upon MS-DOS which, when
+					<em>someCmd</em> is run from a
+					prompt, first runs <em>someCmd.com</em>
+					and then runs <em>someCmd.exe</em>.
+					This only works if the file name
+					extension is left off.
+				<li> Technically this is a Trojan Horse attack
+					similar to the one that used the
+					path environment variable.
+				</ol>
+			<li> Executable program virus
+				<ol>
+				<li> Add, alter, or replace code in an existing
+					program.
+				<li> An <em>overwrite virus</em> replaces an
+					existing program with new code. However
+					these are often easy to detect as the
+					program will no longer do the task it
+					did before.
+				<li> A <em>parasitic virus</em> alters (e.g.,
+					appending to) existing programs
+					with a copy of itself. This allows the
+					infected program to keep doing what it
+					did before, hopefully avoiding detection
+					longer (while still allowing the virus
+					to spread further).
+				</ol>
+			<li> Memory-Resident virus
+				<ol>
+				<li> Rather than infecting program files, this
+					type of virus infects the program
+					execution (process).
+				<li> It does this by staying in memory, perhaps
+					as part of an interrupt handler so that
+					it can run in kernel mode (with full
+					privileges to everything).
+				<li> Furthermore, if the virus is resident as
+					an interrupt handler for system calls,
+					it can insert itself into (nearly?)
+					ALL processes since every process but
+					the first is (in POSIX) created via a
+					fork-exec pair of system calls.
+				</ol>
+			<li> Boot Sector virus
+				<ol>
+				<li> Since the boot sector contains the program
+					that loads the OS (or loads the program
+					that loads the OS), gaining control at
+					this point in the process is hard to
+					beat. 
+				<li> A boot sector virus can:
+					<ol>
+					<li> Replace the boot program, calling
+						the real (and relocated boot
+						loader) after the virus code
+						is done; or
+					<li> It can modify the boot loader to
+						call the virus code which can
+						be hidden elsewhere on the disk
+						(e.g., inside a good sector
+						that's been placed in the bad
+						sector list).
+					</ol>
+				<li> These viruses often are a means of making
+					the virus memory-resident after the
+					computer has been booted (see above).
+					<ol>
+					<li> This can be done by ensuring that
+						all interrupt vector entries
+						point to a copy of the virus
+						(overwriting those that are
+						loaded).
+					<li> As long as the OS doesn't load the
+						entire interrupt vector at once
+						there will always be an entry
+						that points to the virus - and
+						when that interrupt is handled
+						the virus can ensure that all
+						of the interrupts continue to
+						point to the virus code.
+					<li> When everything is loaded, the
+						virus code restores the
+						interrupt vector to the values
+						that it should have (except for
+						the system call trap that it
+						needs to be a memory-resident
+						virus).
+					</ol>
+				</ol>
+			<li> Device Driver virus
+				<ol>
+				<li> The virus infects the device driver code,
+					which typically runs in kernel mode
+					and is loaded at boot time.
+				<li> Because of this, MINIX 3 was designed to
+					run device drivers in user space (to
+					prevent any virus infected drivers
+					from using this technique to gain
+					control over the system calls via the
+					interrupt vector technique).
+				</ol>
+			<li> Macro virus
+				<ol>
+				<li> Some user programs (e.g., Microsoft Word)
+					allow general-purpose programs to
+					be attached to actions in the program. 
+				<li> This makes it easy to write and distribute
+					the virus, by sending others a file
+					that receivers will generally open.
+				<li> Once the file is opened, probably
+					activating the virus, the virus may
+					then be able to infect other files
+					of the same type.
+				<li> While such viruses may seem relatively
+					benign, they can still remove other
+					files/directories - which can have
+					larger consequences if a more
+					privileged user opens the file in the
+					targeted program.
+				</ol>
+			<li> Source Code virus
+				<ol>
+				<li> Rather than infecting executable code,
+					the virus targets program source code.
+					Adding a few lines to run the virus.
+				<li> When the program is recompiled, the
+					virus source code is compiled along
+					with everything else.
+				<li> The jackpot is when the infected program
+					is a compiler, which can then insert
+					the virus into any program that it
+					compiles.
+				</ol>
+			</ol>
+		</ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Computer_worm">Worm</a>
+		<ol>
+		<li> Worms are standalone programs that replicate themselves.				This distinguishes them from both a Trojan Horse and
+			a virus which attach their malicious code to existing
+			programs.
+		<li> The <a href="https://en.wikipedia.org/wiki/Morris_worm">Morris worm</a>,
+			released on 2 Nov 1988, is the most well known example.
+			Because it created too many copies of itself on
+			infected machines, it was quickly discovered, though it
+			took a several days to expunge it from the network.
+		</ol>
+	</ol>
+<li> Putting it together
+	<ol>
+	<li> Some (apparently well funded) groups are able to combine exploits
+		and vectors to make it nearly impossible to defend against them.
+	<li> <a href="http://arstechnica.com/security/2015/02/how-omnipotent-hackers-tied-to-the-nsa-hid-for-14-years-and-were-found-at-last/">The Equation Group</a>
+	</ol>
+<li> Gaining Access:
+	<ol>
+	<li> Spyware
+		<ol>
+		<li> Has 4 characteristics
+			(<a href="http://calhoun.nps.edu/bitstream/handle/10945/7146/06paper_spyware.pdf">Barwinski et al. 2006</a>):
+			<ol>
+			<li> Hide to avoid detection;
+			<li> Collect information from the infected host;
+			<li> Communicate the collected information to a remote
+				server; and
+			<li> Survive by being difficult to remove.
+			</ol>
+		<li> <em>Keyloggers</em> are a common type of spyware that
+			records a user's keyboard (and mouse) data entry.
+			The log is periodically sent elsewhere (unbeknownst
+			to the user) in  hopes that it contains financial or
+			other private information (e.g., account lognames and
+			passwords) that might be valuable.
+		</ol>
+	<li> Rootkits
+		<ol>
+		<li> A term to describe malware that is particularly
+			effective in concealing its existence, that strongly
+			resists removal, AND that provides privileged (root)
+			access to the system.
+		<li> Types of rootkits:
+			<ol>
+			<li> Firmware - replaces/modifies the BIOS
+				[NOTE: BIOS is now being completely phased out by
+				<a href="http://www.howtogeek.com/56958/">UEFI</a>.]
+				so that it becomes active whenever the machine
+				is booted. The malware exists outside the OS.
+			<li> Hypervisor - modifies the boot sequence so that
+				an infected hypervisor is started in which
+				the OS is run.
+				The malware exists outside the OS.
+			<li> Kernel - the most common, and hides in a device
+				driver or loadable kernel module (hence the
+				name).
+			<li> Library - resides in a common program library
+				(e.g., libc) so that it becomes part of all
+				programs (either through statically or
+				dynamic linking).
+			<li> Application - the code resides as part of a
+				program (i.e., application), typically one
+				that creates or modifies many files.
+			</ol>
+		<li> If a rootkit is discovered on a system, reverting to
+			the last clean backup is best. Failing that, a
+			completely reinstall is safest.
+		</ol>
+	</ol>
+<li> Denying Access:
+	<ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Denial-of-service_attack">Denial of Service</a> (DoS)
+		<ol>
+		<li> Attempts to render the targeted system (or network)
+			unusable by flooding it with requests for service.
+		<li> If enough requests are sent, the system (or network) is
+			unable to dispense with them quickly enough,
+			overwhelming the infrastructure. Targeted systems
+			are so slow as to be unusable (even if they don't
+			truly become unavailable).
+		<li> The service requests for DoS attack are issued from a
+			single source, making this type of attack easier to
+			recover from by simply blocking service requests
+			from the attack source somewhere along the network
+			path from the source to the targeted system/network.
+		</ol>
+	<li> Distributed DoS (DDoS)
+		<ol>
+		<li> Source service requests come from multiple parties (e.g.,
+			bots in a botnet).
+		<li> Multiple sources for service requests:
+			<ol>
+			<li> Allows a much larger volume of requests to be
+				generated (important for targeting large
+				corporate systems);
+			<li> Makes it harder to filter out the offending
+				requests, particularly if they come from a
+				wide range of IP addresses; and
+			<li> It provides another market for botnets.
+			</ol>
+		<li> If a botnet is being used to conduct the DDoS, then
+			since the attacker probably has administrator rights
+			on each bot, a
+			<a href="https://en.wikipedia.org/wiki/Ping_flood">ping flood</a>
+			is a quick way to generate an enormous amount of
+			traffic. The downside of such an attack is that the
+			traffic is much easier to filter out.
+		</ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Smurf_attack">Smurfing</a>
+		<ol>
+		<li> Is a specific type of DDoS.
+		<li> A message is broadcast to a large set of intermediary
+			systems with the IP address of the targeted system
+			given as the (incorrect) message source IP address.
+		<li> When the intermediary systems get the message, they
+			respond to the (incorrect) source IP address (which
+			is the IP address of the targeted system),
+			flooding it with responses. 
+		<li> Few networks remain vulnerable to smurfing since system
+			administrators can do the following to mitigate them.
+			<ol>
+			<li> Configure networked systems so that they do not
+				respond to broadcasts;
+			<li> Configure network routers so that they do not
+				forward packets sent to broadcast addresses
+				(forwarding such packets was the standard
+				until 1999); and
+			<li> Use <a href="https://en.wikipedia.org/wiki/Ingress_filtering">ingress filtering</a>
+				(in-bound filtering) to prevent the spoofing
+				of the IP address for message sources. 
+			</ol>
+		</ol>
+	</ol>
+<li> Communication attacks:
+	<ol>
+	<li> Network sniffing
+		<ol>
+		<li> Passively listen in on traffic using a
+			<a href="https://en.wikipedia.org/wiki/Packet_analyzer">packet analyzer</a>
+			such as <a href="https://www.wireshark.org">WireShark</a>. 
+		<li> Sniffing is particularly effective on unencrypted wireless
+			(WiFi) networks since no physical connection is needed.
+		<li> Simple ways to defend against sniffing are:
+			<ol>
+			<li> Use a VPN (to encrypted all communications); or
+			<li> Only use https when logging into web sites.
+			</ol>
+		</ol>
+	<li> WiFi Man-in-the-Middle attack
+		<ol>
+		<li> A man-in-the-middle attack occurs when Alice tries to
+			communicate with Bob, but unbeknownst to either,
+			Mallory "sits" in between them:
+			<ol>
+			<li> When Alice sends a message to Bob,
+			<li> Mallory receives it instead,
+			<li> Mallory may use the message contents to gain
+				access to other services (web sites) using
+				lognames/passwords that appear in the message,
+				or change the message, before relaying the
+				message to Bob.
+			<li> If all traffic between Alice and Bob is
+				intercepted by Mallory, then neither Alice nor
+				Bob may ever become aware of his presence.
+			</ol>
+		<li> Free public WiFi has become the expectation among many
+			people.
+			<ol>
+			<li> While the site may be legitimate (in which case
+				you're still vulnerable to network sniffing),
+				it could have been setup solely for the purpose
+				of creating Man-in-the-Middle attacks.
+			<li> Even connecting via https (so that Secure Sockets
+				Layer, SSL, encryption is used) may not be
+				enough. Check out 
+				<a href="http://www.howtogeek.com/178696/why-using-a-public-wi-fi-network-can-be-dangerous-even-when-accessing-encrypted-websites/">this article</a>
+				for a slightly more detailed description.
+		<li> Many businesses offer free WiFi access with a purchase,
+			for example giving you the network name and password
+			when you buy a cup of coffee.
+			<ol>
+			<li> Many people will then assume that when they
+				connect to an access point with that name
+				and password, that everything is as advertised.
+			<li> However, using a
+				<a href="https://hakshop.myshopify.com/collections/wifi-pineapple-kits">WiFi Pineapple</a>
+				anyone in the vicinity could setup an alternate
+				network with the same name and password.
+				[Information they can easily get for the price
+				of a coffee, and most shops don't change their
+				passwords very often either.]
+			<li> With a competing network of the same name that
+				uses the same password, many patrons are
+				unlikely to notice the difference (or care),
+				and may even think that they shop has multiple
+				hotspots for better coverage (what a nice
+				coffee shop - they must really care about their
+				customers).
+			<li> When shop patrons login to the attacker's hotspot
+				then <a href="https://blog.malwarebytes.org/privacy-2/2013/09/healthy-wi-fi-habits-why-you-shouldnt-connect-to-just-any-access-point">carrying out a man-in-the-middle attack</a>
+				becomes almost trivial.
+			</ol>
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_59.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

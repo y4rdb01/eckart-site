@@ -1,0 +1,363 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Process Scheduling
+</p>
+
+<ol>
+<li> The scheduler is the part of the OS that manages the CPU resource,
+	by following a specified scheduling algorithm.
+<li> A scheduling algorithm should try to address many of the following
+	concerns:
+	<ol>
+	<li> Fairness - everybody gets their fair share (and a chance)
+	<li> Efficiency - keep the CPU busy (its expensive!)
+	<li> Response Time - minimized for interactive users
+	<li> Proportionality - actions response times should correspond to
+		the users expectations for different actions
+	<li> Policy Enforcement - ensure "highest priority" item is running
+	<li> Turnaround (time to finish once submitted) - minimized for batch users
+	<li> Throughput - maximize the jobs per hour
+	<li> Meeting Deadlines - avoid losing data and ensure results are
+		ready when needed
+	<li> Achieve VERY FAST process switching! 
+	</ol>
+<li> Unfortunately, some of the above are contradictory. :-(
+	Furthermore, the task of scheduling is difficult since predicting
+	process behaviour is at best risky! (and at worst COMPLETELY WRONG!)
+<li> Processes can be viewed as alternating sequences of CPU usage and waiting
+	for I/O.
+	<ol>
+	<li> CPU bound processes are that where the CPU usage is relative
+		long compared to the I/O waiting periods, and there are fewer
+		times when the CPU is waiting for I/O. Most of the time is
+		spent in the <em>running</em> state.
+	<li> I/O bound processes use relatively little CPU time and spend
+		most of their time waiting on I/O operations to complete (so
+		the processes are in the <em>blocked</em> state most of the
+		time). This is not because their I/O takes longer, but because
+		their computation occurs quickly (either because it is simple,
+		or because the processor is particularly fast compared to the
+		I/O devices).
+	</ol>
+<li> Preemptive vs Non-Preemptive Scheduling
+	<ol>
+	<li> Non-preemptive scheduling allows a process to run to completion,
+		until it blocks for I/O, or until it voluntarily give up the
+		processor.
+	<li> Preemptive schedule requires a hardware clock that can generate
+		interrupts (e.g., 50-60 Hz) to allow the scheduler to run
+		(preempting the running process by booting it out of the CPU
+		if it has exceeded some predetermined time limit).
+	</ol>
+<li> Batch Scheduling - reduced process switching
+	<ol>
+	<li> First Come, First Served
+		<ol>
+		<li> A single queue of processes is kept.
+		<li> Processes are added to the queue in the order they are
+			started (received).
+		<li> The first process on the queue is run, and runs until
+			it either completes, or blocks (e.g., waiting for I/O).
+		<li> Once a process becomes ready again (after being blocked),
+			it goes to the end of the queue.
+		<li> This algorithm favors CPU bound over I/O bound processes.
+		</ol>
+	<li> Shortest Job First
+		<ol>
+		<li> In a batch system where the run times are known in advance,
+			running the shortest jobs first improves the average
+			turnaround time.
+		<li> Aging can be used (e.g., weighted sum of last and current
+			time a job took, based on input size) to estimate how
+			long it will take in the
+			future. This can be a good approach for batch jobs that
+			are run frequently (e.g., nightly).
+		<li> This is optimal if all the jobs are known in advance
+			which is true for the nightly batch cycle of many
+			companies (e.g., banks).
+		<li> This algorithm also favors CPU bound over I/O bound
+			processes.
+		</ol>
+	<li> Shortest Remaining Time
+		<ol>
+		<li> A preemptive version of Shortest Job First
+		<li> If a waiting process would take less (estimated) time to
+			finish than the currently running process, then
+			preempt the current job and let the shorter one
+			run.
+		<li> This benefits short jobs as they get to run realtively
+			quickly (improving throughput and perhaps the average
+			turn around time).
+		<li> Care must be taken when a number of jobs with similar
+			amounts of remaining time are ready. A minimum amount
+			of running time should be allowed otherwise jobs will
+			continually preempt one another.
+		</ol>
+	</ol>
+<li> Interactive Scheduling - better response times
+	<ol>
+	<li> Round Robin Scheduling
+		<ol>
+		<li> Each process can run a max time called a quantum.  It may
+			block before that though (e.g. for I/O).  As
+			processes become ready, they go to the end of the
+			(single) queue of ready processes.
+		<li> Context (process) switch - the act of changing the process
+			running on the CPU. This involves saving the state of
+			the process that's "exiting" and restoring the state
+			for the process that's "entering" the CPU.
+		<li> The primary issue for round robin is how long to make the
+			quantum (given the time it takes to do a context
+			switch). In practice, a quantum of 20-50 milliseconds
+			(ms) works well - allowing many processes to block on
+			their own (only preempting those that really need it).
+		</ol>
+	<li> Priority Scheduling
+		<ol>
+		<li> Assumes that not all processes have the same priority
+			(e.g., payroll is more important than inventory)
+		<li> Each process has a priority, the ready process with the
+			highest priority runs next.
+		<li> Priority may be set statically (when begun) or dynamically
+			(as it runs).  For instance, the longer a process waits
+			to run, the higher its priority.  Or you could assign
+			processes that didn't use their entire time quantum
+			higher priorities (e.g., I/O bound processes might
+			finish quickly if allowed to do so - their priorities
+			would tend to be higher since they would generally
+			block before using all of their time quantum).
+		<li> User assignable priorities might cost extra for higher
+			priority. Such policies are often used to spread the
+			load out. For example charging interactive users more
+			during the day and less at night (particularly Friday
+			and Saturday nights) might push more people to work at
+			less busy times.
+		<li> You can also mix priority and round robin scheduling, with
+			a set of priority classes each of which does round robin
+			for that class.
+			<ol>
+			<li> Such schemes could be used with dynamically
+				adjusted priorities, moving processes to
+				higher priorities if they blocked for I/O
+				before using up their time quantum (and
+				decreasing their priority otherwise).
+			<li> How much, if any, care should be taken to avoid
+				starving low priority processes?
+			<li> This is nearly as straightforward to
+				implement as round robin.
+			</ol>
+		</ol>
+	<li> Multiple Queues
+		<ol>
+		<li> Each queue corresponds to a different max time quantum to
+			run.  If a process used all of its time quantum, it
+			would move to the next highest quantum.  If it used
+			less, it would move to the next lowest one.
+		<li> To keep things "fair", the processes in queues for larger
+			quantum are run less frequently.
+		<li> This is similar to priority scheduling with round robin
+			(discussed above) but it's NOT the same since the
+			larger quantum queues will always run (just less
+			frequently), while there's no guarantee that the lowest
+			priority processes won't starve.
+		<li> This scheme is good if context switching is VERY SLOW.
+		</ol>
+	<li> Guaranteed Scheduling
+		<ol>
+		<li> Based on adhering to an advertised policy.
+		<li> For example:
+			<ol>
+			<li> Each of N processes gets 1/N of the CPU time.
+				Keeping track of each process' share of CPU
+				time used, then the process with the lowest
+				ratio (of time used to time entitled) gets
+				run next. Thus processes that block more
+				are run more often.
+			<li> A process is guaranteed to finish by a particular
+				time (e.g., Monday at 5pm). Knowing the
+				distribution of completion times for previous
+				executions, the process may run at a lower
+				priority at first, but with increasing priority
+				as the deadline nears.
+			</ol>
+		</ol>
+	<li> Lottery Scheduling
+		<ol>
+		<li> Each process (in the ready queue) is given a (probably
+			different) number of "lottery tickets".
+		<li> When picking the next process to run, a ticket is chosen
+			and the winning process is run.
+		<li> This is similar to priority scheduling, but with better
+			fairness as no process is starved (though it may have
+			a low chance of being picked during any single
+			context switch).
+		<li> Rather than actually keeping track of multiple "tickets"
+			for each process:
+			<ol>
+			<li> All that's necessary is to keep track of the
+				number range of the tickets that a process
+				holds. So, for example, P1 holds tickets 1-10,
+				P2 holds 11-45, and P3 holds tickets 46-100. 
+				Picking a uniformly distributed random number
+				between 1 and 100 inclusive determines what
+				process runs next.
+			<li> Storing ticket number ranges isn't actually
+				necessary (and requires lots of adjustment
+				when the ranges change). Instead, each process
+				just keeps the number of tickets that it's
+				assigned. So the ready queue for our previous
+				example would look like:
+				<table> 
+				<tr>
+				<th>P3</th>
+				<th>P1</th>
+				<th>P2</th>
+				</tr>
+				<tr>
+				<td>55</td>
+				<td>10</td>
+				<td>35</td>
+				</tr>
+				</table> 
+				These implicitly define ranges of 1-55, 56-65,
+				and 66-100 respectively. The downside is that
+				the scheduler has to sequentially step through
+				the list to find the process to pick. That's
+				fine if the list is short, but might need
+				a tree structure if the ready queue is large. 
+				[Remember, the scheduler should be VERY FAST!]
+			</ol>	
+		</ol>
+	<li> Fair-Share Scheduling
+		<ol>
+		<li> Takes into account users rather than just processes,
+			so each user gets an equal share of CPU resource
+			rather than just each process (the latter favoring
+			the user with more processes).
+		<li> Guaranteed scheduling can implement this by allocating
+			each of N users 1/N of the CPU resource, and then
+			dividing that 1/N share among the processes for that
+			user.
+		<li> Lottery scheduling supports this quite easily as well
+			by allocating each user the same number of tickets
+			which are then apportioned among their respective
+			processes.
+		</ol>
+	<li> NOTE: Scheduling cannot overcome poor user choices. For example,
+		if a user needs to run 4 independent CPU bound jobs, then
+		running them serially rather than at the same time is often
+		best as there would be less contention for the CPU and thus
+		less context switching (and thus the possibility of thrashing
+		if memory is limited).
+	</ol>
+<li> Real-time Scheduling - ensures "quick" (just-in-time) response to events
+	<ol>
+	<li> Ensures quick response, often to real world events, such that
+		the results are available when they are needed (e.g., to
+		control an aircraft or surgical robot).
+	<li> Hard Real-time systems MUST meet absolute deadlines (e.g., within
+		1 second of an external event, by 1pm every day) or something
+		dire happens.
+	<li> Soft Real-time systems SHOULD meet deadlines, but if they are
+		occassionally missed, there might be a slight degradation of
+		some external system performance, but nothing catastrophic
+		happens (e.g., video playback).
+	<li> Real-time systems have a known fixed set of possible processes
+		and maximum times that each will take. Many of the processes
+		will be periodic, although some could be intermittent with
+		unknown frequency. If all of the periodic processes can't be
+		completed within the desired time frame on the indicated CPU
+		then the system canNOT be real-time. Furthermore, intermittent
+		processes require extra CPU capacity to avoid missing the
+		deadlines for the periodic processes.
+	</ol>
+<li> Scheduling Mechanism vs Scheduling Policy
+	<ol>
+	<li> The scheduling mechanism is owned by the kernel and determines
+		<ol>
+		<li> How the highest "priority" ready process is located;
+		<li> The saving of the currently running process' state; and
+		<li> (Re)storing the state of the process chosen to run next.
+		</ol>
+	<li> The scheduling policy occurs outside of the kernel (i.e., in
+		user mode). User processes know more about the task at hand
+		(e.g., the relationships between child processes) and can
+		set more appropriate "priorities" for their processes. In this
+		way, different sets of user processes might use different
+		policies to set their priorities, giving the OS more
+		flexibility in process scheduling.
+	</ol>
+<li> Thread Scheduling
+	<ol>
+	<li> Process scheduling
+		<ol>
+		<li> The kernel picks/schedules a process.
+		<li> The scheduled process then schedules it's own threads
+		<li> If a thread blocks, then the entire process blocks and
+			no other threads from the process can be run (until
+			the block is "cleared").
+		<li> Switching between threads is much faster since a smaller
+			amount of information (e.g., program counter,
+			run-time stack) must be changed (e.g., the
+			memory and other state for the process remains the
+			same).
+		<li> However, the process knows what its threads do and what
+			the relationships between them are, so is equipped to
+			make better scheduling choices between them.
+		</ol>
+	<li> Kernel scheduling
+		<ol>
+		<li> The kernel picks/schedules a thread (from any process).
+		<li> If the thread blocks, then the kernel picks/schedules
+			another thread that can be from the same or another
+			process.
+		<li> Switching between threads is much slower when a thread
+			from a different process is picked/scheduled.
+		<li> The kernel has no process specific knowledge that it
+			can use in selecting the best thread to schedule 
+			next.
+		</ol>
+	</ol>
+<li> This <a href="https://www.utdallas.edu/~ilyen/animation/cpu/program/prog.html">Java Applet</a>
+	provides simulation of several of the above process scheduling
+	algorithms. Use it to compare how scheduling impacts the throughput,
+	turn around time, response time, CPU utilization, fairness, and other
+	aspects of process execution.
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_21.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

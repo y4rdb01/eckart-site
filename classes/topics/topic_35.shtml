@@ -1,0 +1,387 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- File System Design & Implementation
+</p>
+
+<ol>
+<li> File System Layout
+	<ol>
+	<li> Nearly always stored on disk (hard disk drive - HDD or
+		solid state drive - SSD).
+	<li> The disk is divided into 1 or more partitions, with each
+		partition holding an independent file system.
+<a href="http://www.minix3.ru/docs/slides/Ch5.pdf"><img src="/eckart/classes/cpsc3125/topics/content/fsDiskLayout2.png" alt="Layout of a file system on a disk" width="512" height="213" style="float: right" /></a>
+	<li> The <em>Master Boot Record</em> (MBR) is stored in a fixed place on
+		the disk (e.g., sector 0).
+		<ol>
+		<li> The MBR is used to boot the computer (hence the name).
+		<li> The disk's <em>partition table</em> is stored at the end
+			of the MBR.
+			[If the computer has multiple disks, then one is
+			designated as the boot device.]
+		<li> On boot up, the program located in the MBR (e.g.,
+			GRUB Bootloader) is loaded
+			and executed. The MBR program reads in the first
+			block of the active partition (i.e., the
+			<em>boot block</em>) and runs it.
+			The boot block program then loads the
+			OS from that partition.
+		</ol>
+	<li> Each disk partition contains its own:
+		<ol>
+		<li> Boot block (even if it isn't used).
+		<li> Superblock contains the key file system parameters.
+		<li> Free space management maps free blocks in the file
+			system as a bit map or list of pointers.
+		<li> I-nodes containing information about each file in the
+			file system (one I-node per file).
+		<li> Root directory
+		<li> Files and Directories
+		</ol>
+	</ol>
+<li> Implementing Files is primarily about knowing which disk blocks are
+	associated with which files. The basic approaches are:
+	<ol>
+	<li> Contiguous Allocation
+		<ol>
+		<li> Store the file in contiguous disk blocks, so only the
+			last block has any wasted space.
+		<li> Pros:
+			<ol>
+			<li> Easy to implement - the directory entry only needs
+				to keep track of the first block and the
+				number of blocks used.
+			<li> Reads are fast since the blocks will be one
+				after another as they rotate under the
+				read/write head of a HDD (minimizing the number
+				of time consuming seek operations too).
+			</ol>
+		<li> Cons:
+			<ol>
+			<li> As files are deleted (or reduced in size) holes
+				of free blocks appear, but no compaction is
+				done since this is time consuming.
+			<li> As files grow, they need to be moved to a new
+				larger set of contiguous blocks if there
+				are not enough free blocks after the present
+				set.
+			<li> The above can easily result in a highly fragmented
+				disk.
+			</ol>
+		<li> CD-ROMs use contiguous allocation since the size of all
+			the files is known beforehand, and files are never
+			deleted (nor do they grow in size - though additional
+			files can be added).
+		</ol>
+	<li> Linked List Allocation
+		<ol>
+		<li> Instead of using contiguous blocks, have the first word
+			of each block point to the next block. With the rest
+			of the block holding the file data.
+<a href="http://www.cs.ucla.edu/classes/spring12/cs111/scribe/12a/"><img src="/eckart/classes/cpsc3125/topics/content/FATfs.png" alt="Diagram of a FAT file system" width="605" height="270" style="float: right" /></a>
+		<li> Pros:
+			<ol>
+			<li> File growth, shrinkage, and deletion don't lead
+				to external disk fragmentation.
+			<li> Only need to store the first block in the directory
+				entry.
+			<li> Sequential file access is still reasonably good
+				(though not as good as for contiguous allocation
+				if the blocks end up being scattered all over
+				a HDD).
+			</ol>
+		<li> Cons:
+			<ol>
+			<li> Random access is slow since the desired block
+				can only be found by following the linked
+				list starting at the beginning. This could
+				be improved slightly by keeping back pointers
+				in the second word of each block - but it
+				doesn't help much.
+			<li> There's a VERY small bit of lost space (one
+				word per block), but this means that
+				block sizes (used to hold actual file data) are
+				no longer a power of 2 (which is something
+				that many programs take advantage of - thus
+				requiring additional blocks be read and
+				concatentated).
+			</ol>
+		<li> Moving the block pointers and putting them into a
+			separate table (that is relatively small and can fit
+			entirely in memory - meaning no additional disk reads
+			in order to follow the chain for random access)
+			alleviates the disadvantages
+			of linked list allocation. Such tables are called
+			<em>File Allocation Tables</em> (FAT) and are the
+			basis for the various FAT file systems.
+		<li> While FAT file systems work well for smaller disks,
+			the tables become quite large as the size of the disk
+			increases. This is not practical for
+			<a href="http://www.seagate.com/about/newsroom/press-releases/Seagate-ships-worlds-first-8TB-hard-drives-pr-master/">8 TB disks</a>.
+		</ol>
+	<li> I-nodes (Index-nodes)
+<a href="http://www.cs.ucla.edu/classes/spring12/cs111/scribe/12a/"><img src="/eckart/classes/cpsc3125/topics/content/InodeFS.png" alt="Diagram of an i-node file system" width="848" height="640" style="float: right" /></a>
+		<ol>
+		<li> Each file is assigned an i-node that holds its attributes
+			and the addresses of the disk blocks that contain its
+			data.
+		<li> The i-nodes essentially break up the FAT into a bunch
+			of smaller tables. Only the i-nodes for the files
+			currently open need to be in memory (whereas the FAT
+			brings in the block addresses for ALL files in the
+			file system - regardless of which ones are open).
+		<li> Pros:
+			<ol>
+			<li> Keeps the flexibility of a linked structure.
+			<li> Slightly faster random access than when
+				using file allocation tables (FAT). 
+			<li> Only needs to hold the allocation table for
+				open files (not the entire file system).
+			</ol>
+		<li> Cons:
+			<ol>
+			<li> Each i-node has a fixed number of allocation
+				table entries for listing physical disk
+				blocks.
+			</ol>
+		<li> One way to mitigate the fixed size of an i-node is to
+			allow the last disk block entry to point to another
+			allocation table (rather than a block containing
+			more file data). This additional allocation table
+			can then point to many more physical disk blocks
+			that hold file data. The physical disk blocks pointed
+			to by the i-node are called <em>direct blocks</em>
+			and those pointed to by the last block in the i-node
+			are called <em>indirect blocks</em>.
+		<li> The above idea can be expanded to multiple levels of
+			indirection depending upon how many blocks the
+			maximum file size would need.  This allows an i-node
+			to give gradually decreasing performance the larger
+			a file gets.  (The i-node is retreived and kept
+			in memory when the file is opened).
+		</ol>
+	</ol>
+<li> Implementing Directories
+	<ol>
+	<li> Directories indicate where files (and other directories) are
+		located (on physical disk).
+	<li> A pointer to the root directory is kept in a known location since
+		all file system navigation begins from that point. For FAT
+		based systems, the root is probably the first entry. For
+		i-nodes, the i-node for the root directory could be stored
+		as the first entry in the superblock (similarly, this is
+		where the FAT is placed). 
+	<li> Since files (and directories) have attributes, one choice
+		is where to store these:
+		<ol>
+		<li> In the directory entry, which contiguous allocation and
+			linked list (including FAT) generally rely on; or
+		<li> In the i-nodes associated with each file.
+		<li> Either way, the amount of storage needed is generally
+			fixed in size.
+		</ol>
+	<li> Every file (and every directory except the root) has a name. How
+		should names be stored?
+<a href="http://www.cs.rpi.edu/~goldsd/docs/fall2013-csci4210/file-systemMOS3e_ch4-week10-11.pdf"><img src="/eckart/classes/cpsc3125/topics/content/DirectoryEntries.png" alt="Diagram of a directory entry" width="600" height="397" style="float: right" /></a>
+		<ol>
+		<li> Short fixed names (e.g., 8.3 file names) are easily
+			stored in fixed sized directory entries as not very
+			much space is likely to be wasted.
+		<li> Modern file systems, however, generally support much
+			longer file names. Both
+			<a href="https://en.wikipedia.org/wiki/Ext4">ext4</a>
+			(used by Linux) and
+			<a href="https://en.wikipedia.org/wiki/NTFS">NTFS</a>
+			(used by Windows) file names can be up to 255
+			characters. Thus reserving space for the longest
+			possible names would likely be much more wasteful.
+		</ol>
+	<li> Storing names for directory entries can be done using:
+		<ol>
+		<li> Variable length records, with the first part of the
+			record indicating its size, followed by the attributes,
+			then the variable length name (stored in-line as part
+			of the record). Unfortunately this
+			is problematic as directory entries are deleted, or
+			even when names are changed (analogous to the
+			contiguous allocation storage of files), though
+			compacting a relatively small directory isn't nearly
+			as time consuming - so this is feasible if the size
+			of the directory entries isn't too large (either by
+			having VERY many files, files with VERY long names,
+			or a combination of both).
+		<li> Alternatively, each directory entry could be a fixed
+			size with a pointer to a shared string space (containing
+			the file names). Fragmentation can still occur in
+			the string space as files are deleted (or file names
+			changed) but less data would have to be compacted.
+			[But don't forget to change the pointers in the
+			directory entries if compaction is done.]
+		<li> Both of the above methods rely on a sequential search
+			to find files (by name) within a directory. If
+			directories are expected to have hundreds of files
+			(or directories), then using a hash table to index
+			them can greatly speed search (and can be used with
+			either name storage method).
+		</ol>
+	</ol>
+<li> Shared Files
+	<ol>
+	<li> Sharing a file might mean having it appear in two or more
+		different places in the file tree.  Links (hard or soft)
+		can be used to do this, creating a <em>Directed Acyclic
+		Graph</em> (DAG) rather than a tree.
+	<li> Hard links use i-node numbers (and increase the number
+		of references to the file).  Care must be taken when one
+		but not all of the links are removed.  This can create
+		potential problems for accounting, since the ownership
+		of the file remains unchanged.
+	<li> Soft links use a special link file type.  The entry then
+		indicates the "real" file to lookup.  Soft links need
+		not be made to existing files, and they can be chained
+		together.
+	<li> Soft links are slower than hard links (why?)
+		but are more flexible as they can point across file
+		system boundaries (unlike hard links).
+	<li> Links can cause a problem when doing things like copy! Copying
+		a directory with multiple hard or soft links to the same
+		file will generally make multiple copies of that file. So
+		edits to one will no longer change the "shared" file in the
+		copy. In Unix/Linux, soft links can be preserved by doing
+<pre><code>
+	(cd x; tar -cf - ) | tar -xf -
+</code></pre>
+		instead of
+<pre><code>
+	cp -r x .
+</code></pre>
+	</ol>
+<li> Log Structured File Systems
+	<ol>
+	<li> As HDDs get bigger, they have NOT gotten any faster (seek times
+		of ~ 10 milliseconds and rotational latency of ~ 4 milliseconds
+		are still common).
+	<li> File system operations generally require many small writes to
+		different physical disk blocks.
+	<li> To speed this up, log structure file systems buffer the writes
+		in memory and write them to disk as a single unit (at the
+		end of the <em>log</em>) once the
+		buffer is sufficiently full. Though this does slightly increase
+		the risk of some writes not making it to disk in the event
+		of system failures.
+	<li> This improves the write efficiency to the HDD and reduces wait
+		time for processes writing to disk (since most reads are
+		satisfied out of the file system cache based on read ahead
+		strategies).
+	<li> This makes it harder to find information within the log, but
+		a map of the log is kept on disk to make this easier (and
+		faster).
+	<li> As time passes, some of the items in the log are no longer
+		needed, so log structured file systems have a <em>cleaner</em>
+		process/thread that removes debris and compacts the log.
+	<li> While SSDs are currently much more expensive than HDDs, as
+		<a href="https://en.wikipedia.org/wiki/Racetrack_memory">race track</a>,
+		<a href="https://en.wikipedia.org/wiki/Memristor">memristor</a>,
+		<a href="https://en.wikipedia.org/wiki/Phase-change_memory">phase-change memory</a>,
+		and other technologies overtake
+		<a href="https://en.wikipedia.org/wiki/Flash_memory#NAND_memories">NAND flash memories</a>,
+		the need for log structured file systems will disappear.
+	</ol>
+<li> Journaling File Systems
+	<ol>
+	<li> To prevent file system problems in the presence of system failures,
+		journaling file systems write a description of what they
+		intend to do before actually doing it. The actions to be
+		performed are written to a log (on disk).
+	<li> After the actions are performed, then the log entry is removed.
+	<li> If the system crashes, the log is read, and any uncompleted
+		actions are performed. This ensures that:
+		<ol>
+		<li> The file system is kept in a consistent state, and
+		<li> All intended file system operations are eventually
+			performed.
+		</ol>
+	<li> It's important that the logged actions are <em>idempotent</em>
+		(meaning that the operation can be repeated multiple times
+		without changing the result from the initial successful
+		application), since rapidly repeated crashes may cause some
+		of the pending log entries to be (re)tried many times before
+		the log entry is removed.
+	<li> Both <a href="https://en.wikipedia.org/wiki/Ext4">ext4</a>
+		(used by Linux) and
+		<a href="https://en.wikipedia.org/wiki/NTFS">NTFS</a>
+		(used by Windows) are journaling file systems.
+	</ol>
+<a href="http://e2fsprogs.sourceforge.net/ext2intro.html"><img src="/eckart/classes/cpsc3125/topics/content/LinuxVFS.gif" alt="Diagram of the Virtual File System" width="461" height="496" style="float: right" /></a>
+<li> Virtual File Systems (VFS)
+	<ol>
+	<li> An OS often will have multiple file system types running at the
+		same time (e.g., FAT32 for a USB flash drive, UDF for a DVD). 
+	<li> Windows gives a different drive letter (e.g., A:, D:, H:) for
+		each different file system. There is no attempt to make
+		everything look as if it were part of the same "single" file
+		system. Thus navigating between file systems breaks the
+		use of relative paths when used across file systems (at least
+		in Windows). Products like the
+		<a href="https://www.eldos.com/cbfs/">Callback File System</a>
+		(CBFS) can be run in user space to create a VFS on Windows, but
+		programs must be written using it's API.
+	<li> Unix allows other file systems to be mounted at various
+		(mount) points within an existing file system. This preserves
+		the illusion of a single file system (from a user program
+		perspective) so that relative paths work seamless across the
+		different file systems.
+	<li> Use the <a href="http://www.unix.com/man-page/posix/1/df/">df</a>
+		command on Unix/Linux (and Cygwin) to see the different file
+		systems and their <em>mount points</em>.
+	<li> To prevent programs from having to know whether VFS (or any other
+		file system type) is being used, the POSIX system calls
+		provide an abstract file system interface to programs.
+		<ol>
+		<li> These system calls, in turn, use the file system specific
+			counterparts to perform the needed actions depending
+			on which file system is being referenced.
+		<li> Be aware that a single "open" system call by a program
+			may require calls to multiple corresponding calls for
+			different file system as different directories are
+			traversed.
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_35.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

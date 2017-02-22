@@ -1,0 +1,124 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Principles of I/O Software
+</p>
+
+<ol>
+<li> Goals
+	<ol>
+	<li> Device independence - programs shouldn't depend on the actual
+		device being used (e.g., keyboard, disk, screen).
+	<li> Uniform naming - the name of a file (or device) should be
+		independent of the device used (e.g., a dvd mounted as
+		/dev/dvd looks like other directories/files)
+	<li> Error handling - should be handled at as low a level as
+		possible (e.g. a checksum error on a disk block read may
+		benefit from a retry of the disk read -- but this is better
+		done at the controller level, NOT by the OS).
+	<li> Synchronous vs asynchronous transfers - DMA enables much I/O
+		to be asynchronous. Synchronous I/O is often easier to
+		program with. The OS can make asynchronous I/O
+		look synchronous (recall that the process probably
+		blocks on an I/O operation -- hiding the use of
+		interrupts).
+	<li> Buffering - temporarily storing data (in a buffer) is often
+		necessary before it is delivered. HDD controllers buffer
+		disk block reads in order to check for (and correct) errors
+		before transferring the block to memory (via DMA). Such
+		copying can slow I/O operations and isn't always desirable
+		(e.g., a real-time system may choose NOT to buffer sensor
+		data since old data may not be useful and can cause a backup
+		- clogging the system).
+	<li> Shareable vs dedicated - some devices are easily shared (e.g.,
+		HDD) while others are not (e.g., printers). Dedicated devices
+		introduce the problem of deadlock (a topic this class will
+		soon consider).
+	</ol>
+<li> Programmed I/O
+	<ol>
+	<li> The CPU directly performs the reading/writing of data from/to
+		devices.
+	<li> While the simplest mechanism in design, it means the CPU can't
+		be doing other work while it's performing I/O.
+	<li> Data may have to be copied from a user's (process) address space
+		to kernel space, before the OS can write the data to a
+		device (e.g., printer, screen, disk). 
+	<li> Data reads/writes from/to a device are often a byte at a time.
+	<li> After each byte is written, the CPU has to constantly <em>poll</em>
+		the device to see if it's ready for the next piece of data
+		to be written (or read). Such <em>busy waiting</em>, as was
+		seen with IPC earlier in the semester, is wasteful of the
+		CPU resource.
+	<li> Note that more error handling will likely be done by the OS
+		if it is controlling I/O.
+	</ol>
+<li> Interrupt-Driven I/O
+	<ol>
+	<li> The scenario is much the same as for Programmed I/O, but instead
+		of busy waiting for the device to be ready for more data to
+		be written (or read), the process (P1) blocks and the next
+		ready process (P2) is run.
+	<li> When the the write (or read) of the single byte is complete,
+		an interrupt is generated.
+	<li> The interrupt temporarily stops the current running process (P2)
+		and the OS writes (or reads) the next byte in the buffer,
+		returning control to process P2.
+	<li> When the OS has finished writing (reading) all of the I/O for
+		the P1 process data, then the OS moves P1 from the blocked
+		state to the ready state (so that it can run again).
+	<li> Interrupt-Driven I/O makes more efficient use of the CPU.
+	</ol>
+<li> I/O via DMA
+	<ol>
+	<li> Character at a time interrupt-driven I/O requires LOTS of
+		interrupts to be generated (and handled)!
+	<li> Handling an interrupt requires saving (at least some of) the
+		state of the currently running process. This takes time away
+		from running other processes (in the CPU).
+	<li> As was seen with Hardware I/O, DMA reduces the number of
+		generated interrupts since larger blocks of data can be
+		directly read/written between memory and devices (or between
+		two devices for more sophisticated DMA controllers).
+	<li> DMA is really a type of I/O sub-processor. It's actions are
+		initiated by the CPU, but it autonomously carries out those
+		actions, reporting back to the CPU when they are completed
+		(via an interrupt). 
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_40.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

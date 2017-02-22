@@ -1,0 +1,315 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- File System Management
+</p>
+
+<ol>
+<li> Disk Space Management
+	<ol>
+	<li> Either store n bytes of a file consecutively or in a
+		number of (possibly non-contiguous) blocks.  (The difference
+		is analogous to that between variable sized partitions and
+		paging).
+	<li> Since files tend to grow in size, and since moving information
+		on a disk is relatively slow, most systems break files into
+		fixed sized (probably non-contiguous) blocks.
+	<li> The size of these blocks should be chosen carefully, too large
+		a size and lots of disk space will be wasted; to small and the
+		data rate is to slow (more blocks are needed for same amount
+		of data).
+	<li> 1KB - 4KB are historically common block sizes, but with HDDs
+		of 8TB on the market (at very competitive prices per GB)
+		worrying about wasted space in the form of internal
+		fragmentation is a much smaller concern than the data rate
+		(which improves with larger blocks). A block size of 64KB
+		would likely enable 80-90% of files to be stored within a
+		single block.
+	<li> Free blocks are tracked by either:
+		<ol>
+		<li> Keeping a linked (block) list of free blocks, with 
+			each block in the list tracking a large number of 
+			free blocks.
+		<li> A bit map can also be used, requiring far fewer
+			blocks on average.  This method is particularly
+			nice if there is enough room in memory to hold the
+			bit map.
+		<li> For either method, only one block (of the bit map, or
+			the first of the list of free blocks) need be kept
+			in memory.
+		<li> For the list of free blocks, if the number of free
+			blocks in a block is very small, split the entries
+			in the next block so that roughly half are in each.
+			This reduces the number of disk accesses if lots of
+			temprorary files are created and removed (or existing
+			files are growing and shrinking rapidly).
+		<li> For a LARGE and nearly full disk, the linked block
+			version is probably better since it enables more of
+			the disk's storage to be used for file data.
+		</ol>
+	<li> Bad blocks do occur and must be avoided, the hardware solution
+		is to have the controller maintain a bad block list on a 
+		pre-specified sector, and chooses spare blocks to replace the
+		bad ones.  In software we can remove bad blocks from the
+		free list indicating that they are being used.  Though we want 
+		to be careful never to read from these blocks (e.g. disk
+		backups).
+	</ol>
+<li> Disk Quotas
+	<ol>
+	<li> Prevent users in multi-user systems from using more than their
+		fair share of the file system capacity (starving out everyone
+		else).
+	<li> A <em>hard limit</em> is the amount of disk space that a user
+		may not exceed, with any attempt to do so causing a failure
+		of their write requests.
+	<li> A <em>soft limit</em> may be exceeded, but users get a warning
+		when they do so. Besides being annoying, these warnings let
+		the user know that if they continue using more space they
+		will hit their <em>hard limit</em> and be unable to save
+		any additional information.
+	<li> Quotas can be applied to the number of files as well.
+	<li> A separate quota table is needed to keep track of each users
+		disk usage. Files that a user has open have a pointer to their
+		quota table entry, so that the <em>hard limit</em> can be
+		checked upon each write (otherwise, if the limits were only
+		checked before a file was opened or after it was closed, a
+		run-away program - or malicious user - could fill the file
+		system).
+	<li> QUOTE: The steady state of disks is full. (Ken Thompson)
+	<li> NOTE: Some file systems even try to protect the user from himself
+		by allowing files to be UNremoved (don't reuse blocks until
+		absolutely necessary) or by keeping versions of files.
+		<ol>
+		<li> Should "hidden" removals count against your quota?
+		<li> In the Unix/Linux shell it is best to alias the
+			<a href="http://www.unix.com/man-page/posix/0/rm/">rm</a>
+			command so that the "-i" option is
+			always used (e.g., alias rm='rm -i').
+		</ol>
+	</ol>
+<li> File System Backups
+	<ol>
+	<li> Backups protect against disaster as well as user mistakes (which
+		often feel like a special form of disaster).
+	<li> Products like
+		<a href="http://www.code42.com/crashplan/">CrashPlan</a>
+		keep a relatively up-to-date copy of all your files. This
+		protects against catestophic failure (e.g., you dropped
+		your laptop into a lava flow).
+		<ol>
+		<li> Such services provide off-site storage for the file
+			copies, an important advantage over keeping the
+			copies on another local disk (or in a desk draw
+			next to your computer, if there's a fire).
+		<li> However, such services only keep the latest version of a
+			file, so if you want to go back to a previous version
+			because you recognized that you had accidentally
+			removed critical information - you're probably
+			out of luck.
+		</ol>
+	<li> Traditional backups are like a snapshot of the file system taken
+		at various times.
+		<ol>
+		<li> A <em>full backup</em> is a complete copy of the current
+			state of the file system.
+		<li> Since many files don't change over long periods of time,
+			<em>incremental backup</em>s are used to make copies
+			of only those files (and directories) that have changed
+			since the last backup.
+		<li> Incremental backups take less space and complete more
+			quickly than full backups.
+		<li> A simple strategy might be to take a full backup every
+			week, and do incremental daily backups (that keep
+			copies of files changed since the last full backup).
+			<ol>
+			<li> If a directory needs to be restored to the state
+				it had in the middle of the week, simply get
+				the files from the full backup,
+			<li> Then look at each incremental backup (up to the
+				desired time period) and get any files in the
+				directory.
+				[Don't forget that incrementals can also
+				indicate that files were removed too.]
+			</ol> 
+		</ol>
+	<li> Physical dumps copy the contents of disk blocks to
+		some archive storage (e.g., Blu-ray disk).
+		<ol>
+		<li> Pros:
+			<ol>
+			<li> Fast
+			<li> Simple to implement
+			</ol>
+		<li> Cons:
+			<ol>
+			<li> Can't make incremental backups
+			<li> Unable to restore select files (restore
+				the entire file system or none at all)
+			<li> Might be unable to restore to media
+				different from the original (e.g.,
+				restore a HDD backup to an SSD).
+			</ol>
+		</ol>
+	<li> Logical dumps recursively traverses a directory (e.g., "/"). 
+		<ol>
+		<li> Bits in the i-node indicate if a level K
+			dump of a file/directory has been done.
+		<li> The logical dump process determines which files					and directories have been changed (modified
+			since the last dump of level K), and thus
+			which must be backed up (along with any
+			ancestor directories).
+		<li> Pros:
+			<ol>
+			<li> Can restore select files and directories
+			<li> Only dumps changed files/directories
+				(along with ancestor directories).
+			</ol>
+		<li> Cons:
+			<ol>
+			<li> More complex than a physical dump
+			<li> Becomes slower than a physical dump as
+				the file system becomes more full.
+			</ol>
+		</ol>
+	</ol>
+<li> File System Consistency
+	<ol>
+	<li> The file system can be left in an inconsistent state
+		if the machine went down, or for some other reason,
+		the i-node, directory, or free list blocks were not
+		written back to disk when they should have been.
+		[Should have used a journaling file system!]
+	<li> Times like these are meant for
+		<a href="http://www.unix.com/man-page/all/0/fsck/">fsck</a>
+		(file system check)!
+	<li> Block consistency check
+		<ol>
+		<li> A table with two counters per block is kept,
+			all equal to 0 initially.
+		<li> All the in use blocks are found (e.g., via the
+			i-nodes) and their 1st counter incremented.
+		<li> All blocks in the free list have their 2nd
+			counter incremented.
+		<li> There is a problem if:
+			<ol>
+			<li> both counters are 0 (neither used nor free),
+			<li> both are &gt;= 1 (used AND free), or if
+			<li> either is &gt; 1 (multiply used/free).
+			<li> NOTE: Hard links are shared i-nodes, NOT shared
+				disk blocks.
+			</ol>
+		</ol>
+	<li> File consistency check
+		<ol>
+		<li> Traverse the directory tree, keeping a count
+			associated with each file (i-node).
+		<li> When complete, the new count should agree with
+			the reference count for the i-node.
+		</ol>
+	</ol>
+<li> File System Performance
+	<ol>
+	<li> Because HDD can be up to 1,000,000 times slower to access than
+		memory,
+		filesystems usually try to optimize disk access so that it
+		is done as little as possible.
+	<li> A block (or buffer) cache allows a number of disk blocks to
+		be kept in memory (though this might be hidden by the driver 
+		or the controller) permiting faster access. Bucket hashing
+		(using the device and disk address as a combined key)
+		is useful in quickly determining whether or not a desired
+		physical disk block is already in the cache.
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+	<li> If the cache needs to bring a new block in, then we encounter
+		the same set of problem we saw with paging.  Unfortunately
+		LRU doesn't work well when considering crashes and file
+		system consistency.  LRU can be modified to distinguish
+		i-node, indirect, directory, and (partly) full data blocks
+		so that the first in the list are put onto the front of the
+		list for sooner reuse.  In addition, blocks needed to maintain
+		the consistency of the file system (i.e. i-node) can be
+		written back immediately.
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+	<li> Since many files are accessed sequentially, reading in the next
+		file block in anticipation of needing it. The file system can
+		do this adaptively if it keeps track of the file's access
+		pattern (e.g., set a sequential_access bit if N number of
+		writes are done without an intervening seek).
+	<li> To write data blocks back in a timely fashion (though they
+		may not need to be via the rules of LRU)
+		U<font size=-2>NIX</font> uses
+		<a href="http://www.unix.com/man-page/posix/3/sync/">sync</a>
+		which is called every 30 seconds by update.  Windows use to
+		write everything immediately upon being changed (this is called
+		a write-through cache). [ In this later case, what would be
+		the advantage of having a cache? ] Today, Windows uses
+		<em>FlushFileBuffers</em> as an equivalent approach to
+		<em>sync</em>.
+	<li> Performance can also be enhanced by allocating free blocks
+		for the same file so that they are close together (perhaps
+		on the same HDD cylinder).  This is easier to do with bit maps
+		than it is with a free list (linked block list).  Free lists
+		can be improved in this regard by having them keep track of
+		groups (of fixed size) of consecutive blocks (called block 
+		clusters).  The controller still reads and writes a block
+		at a time, but this reduces the number of seeks.  Rotational
+		positioning can also be used to permit the next desired
+		block to be read in when the first has been transferred to
+		memory from the buffer.
+	<li> When i-nodes are used, it takes at least 2 disk accesses
+		to get a file.  By spreading i-nodes out over the HDD,
+		and by having the associated direct, indirect, and data
+		blocks close by, the amount of seeking can be reduced
+		(though watch out for the disk arm scheduling algorithm!)
+	</ol>
+<li> Defragmenting Disks
+	<ol>
+	<li> Contiguous allocation file systems can lead to
+		lots of external fragmentation over time.
+	<li> Defrag programs compact the file system, placing all of the free
+		disk blocks at the end of the partition. This increases the
+		amount of usable space in contiguous allocation file systems.
+	<li> Defrag can also improve performance on an HDD even if contiguous
+		allocation isn't used. The defrag can place the file's disk
+		blocks (mostly) contiguously so that during the disk rotation,
+		block read ahead can be done without additional disk seeks.
+	<li> <a href="http://www.howtogeek.com/115229/htg-explains-why-linux-doesnt-need-defragmenting/">Why Windows needs defragmentation while Linux doesn't?</a>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_36.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

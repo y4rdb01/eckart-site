@@ -1,0 +1,145 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Unix History
+</p>
+
+<ol>
+<a href="https://en.wikipedia.org/wiki/Unix-like#mediaviewer/File:Unix_history.svg"><img src="/eckart/classes/cpsc3125/topics/content/UnixHistory.png" alt="Unix history diagram" width="655" height="558" style="float: right" /></a>
+<li> The following was compiled from the Wikipedia articles:
+	<a href="https://en.wikipedia.org/wiki/History_of_Unix">History of Unix</a>,
+	<a href="https://en.wikipedia.org/wiki/Berkeley_Software_Distribution">Berkeley Software Distribution</a>,
+	<a href="https://en.wikipedia.org/wiki/GNU_Project">GNU Project</a>,
+	<a href="https://en.wikipedia.org/wiki/SunOS">SunOS</a>,
+	<a href="https://en.wikipedia.org/wiki/Linux">Linux</a>,
+	<a href="https://en.wikipedia.org/wiki/Minix">MINIX</a>,
+	<a href="https://en.wikipedia.org/wiki/Mach_(kernel)">Mach kernel</a>,
+	and
+	<a href="https://en.wikipedia.org/wiki/Android_(operating_system)">Android</a>.
+<li> Bell Labs, frustrated by the size and complexity of Multics, but
+	not the aims, slowly pulled out of the project. Their last
+	researchers to leave Multics, Ken Thompson, Dennis Ritchie,
+	Doug McIlroy, and Joe Ossanna, decided to redo the work on a
+	much smaller scale.
+<li> In 1969, on a little used PDP-7 at Bell Labs, a team of Bell Labs
+	researchers led by Thompson and Ritchie developed a
+	hierarchical file system, the concepts of computer processes
+	and device files, a command-line interpreter, and some small
+	utility programs.
+<li> In 1970, Peter Neumann coined the project name UNICS (UNiplexed
+	Information and Computing Service) as a pun on Multics
+	(Multiplexed Information and Computer Services): the new
+	operating system was an emasculated Multics.
+<li> When the Computer Science Research Group at Bell Labs wanted to
+	use Unix on a machine much larger than the PDP-7, Thompson
+	and Ritchie traded the promise of adding text processing
+	for a PDP-11/20 machine.
+<li> In 1970, the Unix operating system was officially named and ran
+	on the PDP-11/20. A text formatting program called roff and
+	a text editor were added. All three were written in PDP-11/20
+	assembly language.
+<li> The UNIX Programmer's Manual was published on 3 November 1971.
+<li> The first commercial instance of Unix worldwide was installed in
+	early 1972 at New York Telephone Co. Systems Development Center.
+<li> In 1972, Unix was rewritten in the C programming language.
+	resulting in a much more portable system, requiring only a
+	relatively small amount of machine-dependent code to be
+	replaced when porting Unix to other computing platforms.
+<li> Under a 1956 consent decree in settlement of an antitrust case,
+	AT&T (the parent organization of Bell Labs) was forbidden from
+	entering the computer business. Unix could not, therefore, be
+	turned into a product but, under the terms of the decree,
+	Bell Labs was required to license its non-telephone technology
+	to anyone that asked.
+<li> AT&T made Unix available to universities and commercial firms,
+	as well as the United States government, under licenses. The
+	licenses included all source code including the
+	machine-dependent parts of the kernel, which were written
+	in PDP-11 assembly language.
+<li> Versions of the Unix system were determined by editions of its
+	user manuals. Versions 4, 5, and 6 were released by 1975,
+	adding the concept of pipes, which led to the development
+	of a more modular code base, and quicker development cycles.
+<li> The University of California at Berkeley was one licensee.
+	The first Unix system at Berkeley was a PDP-11 installed in
+	1974, and the computer science department used it for
+	extensive research thereafter.
+<li> In 1977 Bill Joy (and a later cofounder of SUN Microsystems),
+	then a graduate student at Berkeley, started compiling the
+	first Berkeley Software Distribution (1BSD), which was
+	released on March 9, 1978.
+<li> The Berkeley Software Distribution (BSD, sometimes called Berkeley
+	Unix) was developed and distributed from 1977 to 1995.
+<li> Many contributions to Unix first appeared in BSD releases,
+	notably the C shell with job control and the addition of
+	TCP/IP network code to the mainstream Unix kernel. The
+	accompanying Berkeley sockets API is a de facto standard for
+	networking APIs and has been copied on many platforms.
+<li> SunOS is released in 1983 for SUN Microsystems computers (based
+	on BSD with thanks to Bill Joy).
+<li> The GNU (a recursive acronym meaning "GNU's not Unix") Project
+	was founded in 1983 by Richard Stallman to develop a free
+	(as in freedom) computing software stack based on Unix.
+<li>  In 1984, several companies established the X/Open consortium
+	with the goal of creating an open system specification based
+	on UNIX. Despite early progress, the standardization effort
+	collapsed into the "Unix wars", with various companies forming
+	rival standardization groups. The most successful Unix-related
+	standard turned out to be the IEEE's POSIX specification,
+	published in 1988 and soon mandated by the United States
+	government for many of its own systems.
+<li> MINIX (mini-Unix), created by Andrew S. Tanenbaum, is released
+	in 1987 as an independent Unix-like system designed to run on
+	IBM PCs. It is a rewrite of Unix to avoid copyright and
+	trademark problems with AT&T.
+<li> In April 1991, Linus Torvalds begins writing Linux as an
+	improvement over MINIX.
+<li> The Linux kernel is released in 1992 under the GNU license,
+	it has grown to become a full-featured and stable Unix OS.
+<li> Carnegie Mellon University released the Mach kernel in 1985, which
+	is the basis for FreeBSD, released in 1993, and Mac OS X,
+	released in 1999 (based on NeXTSTEP released in 1989).
+<li> Android, based on the Linux kernel, is released by Google in 2008.
+
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ???
+
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_22.html">self-assessment questions</a>.
+
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE-->
+
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,132 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- IPC: Message Passing
+</p>
+
+<ol>
+<li> Deals with the case of distributed sharing - multiple
+	CPUs and multiple memories
+<li> Send and receive are system calls (like semaphores) not
+	language constructs like monitors.
+	<ol>
+	<li> SEND(dest, &msg) - sends a message (msg) to the destination
+		(dest).
+	<li> RECEIVE(src, &msg) - retrieves a message (storing it in
+		msg) from a particular source (src).
+		May block (or return immediately with a response code)
+		for messages depending on design/implementation.
+	</ol>
+<li> Design Issues
+	<ol>
+	<li> How to deal with lost messages?  Send acknowledgements?
+		If a process doesn't hear back within a certain amount
+		of time, either retransmit or report failure.
+	<li> Now what happens if the acknowledgement is lost?  The
+		message might get retransmitted.  So we have to be
+		able to distinguish retransmissions (use sequence #s).
+	<li> How is a process on a remote machine referenced.
+		process@machine?
+	<li> Authentication allows processes to ensure that they
+		are communicating with the correct process(es).  How
+		do you distinguish an imposter from the desired
+		process?  Encryption techniques
+		can help here.  (public key encryption)
+	<li> What if the processes are on the same machine?  What
+		can be done to speed things up so that communications
+		happen as fast as possible?
+	<li> Do messages arrive in the order sent?
+	</ol>
+<li> Producer-Consumer with Message Passing
+	<ol>
+	<li> Use messages like boxes (tokens).
+	<li> The consumer sends empty boxes for the producer to fill
+		and send back.
+	<li> No shared memory and no busy waiting.
+	<li> Example
+<pre><code>
+	#define N 100
+
+	void producer() {
+		while (1) {
+			ITEM item = produceItem();
+			MESSAGE msg;
+			receive(consumer, &msg);
+			addItem(&msg, item);
+			send(consumer, &msg);
+		}
+	}
+
+	void consumer() {
+		MESSAGE msg;
+		for (i = 0; i < N; i++) send(producer, &msg);
+
+		while (1) {
+			ITEM item;
+			receive(producer, &msg);
+			item = removeItem(msg);
+			send(producer, &msg);
+			consumeItem(item);
+		}
+	}
+</code></pre>
+	<li> POSIX pipes can be used to send undelineated messages with
+		blocking semantics for reads (and writes when the pipe is
+		full).
+		<a href="/eckart/classes/cpsc3125/C/sample6.c">This example</a>
+		passes messages back and forth between a parent and its child.
+	<li> <a href="https://en.wikipedia.org/wiki/Message_Passing_Interface">Message Passing Interface</a>
+		(MPI) was developed in the early 1990s, and has
+		gained wide acceptance.
+	</ol>
+<li> Implementations
+	<ol>
+	<li> Messages can be buffered as in a mailbox that can
+		hold a prespecified max number of messages.
+	<li> Messages can be directly copied from sender to
+		receiver (a rendezvous) whereby the sender blocks
+		until the receiver wakes up to accept the message.
+		(this is easier to implement)
+	<li> Pipes in unix are essentially mailboxes.  The
+		pipe has a predetermined max size which when filled
+		will block senders. Here's an
+		<a href="/eckart/classes/cpsc3125/C/sample2.c">example
+		program that uses pipes</a> for process communication.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_17.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

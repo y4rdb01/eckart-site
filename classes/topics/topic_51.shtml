@@ -1,0 +1,111 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Related Deadlock Issues
+</p>
+
+<ol>
+<li> Two-Phase Locking
+	<ol>
+	<li> Commonly used in databases and other transactional systems.
+	<li> First phase requests all of the desired resources (e.g., locks on
+		database records). If not all locks are granted, then any
+		granted locks are released and the first phase is repeated
+		(until all requested locks are granted).
+	<li> The second phase performs the updates and releases the locks.
+	<li> This is essentially the same as the prevention method that
+		required obtaining ALL resources up front (and all at once),
+		before any processing began.
+	</ol>
+<li> Communication Deadlocks
+	<ol>
+	<li> Physical devices (and even semaphores) are resources. While
+		<em>resource deadlock</em> is the most common type of deadlock,
+		deadlock can also occur on communications.
+	<li> If process A is waiting to hear from process B, and process B
+		is waiting to hear from process A, then both are deadlocked
+		since neither A nor B will proceed further. This is a
+		<em>communication deadlock</em>.
+	<li> Communication deadlocks can occur when messages are lost in
+		transit (never arriving at their destination).
+	<li> A common mechanism to help avoid communication deadlocks is
+		acknowledgements with timeouts. If an acknowledgement of a
+		messages receipt isn't received within a predetermined period
+		of time (the timeout), then the message can be resent (and/or
+		the sending process notified of the failure).
+	</ol>
+<li> Livelock
+	<ol>
+	<li> Well behaved processes may give up their existing resources/locks
+		and try again later if they are unable to get the remaining
+		resources/locks they need.
+	<li> For example, if processes A and B are both requesting resources
+		X and Y, then
+		<ol>
+		<li> A may be granted resource X.
+		<li> B may be granted resource Y.
+		<li> A requests Y, but can't get it, while B requests X and
+			is unsuccessful.
+		<li> A and B release their granted resources (X and Y), then
+			wait before retrying.
+		<li> If A and B end up waiting the same amount of time, their
+			retry can lead to exactly the same situation - causing
+			them to once again release their granted resources and
+			start over.
+		<li> If this continues, then neither A nor B will progress.
+		</ol>
+	<li> Situations like this are called <em>Livelock</em>.  The processes
+		don't progress, but they don't meet the four (4) conditions
+		of deadlock either.
+	</ol>
+<li> Starvation
+	<ol>
+	<li> Occurs when a process is consistently unable to obtain a resource.
+	<li> For example, if the
+		<a href="/eckart/classes/cpsc3125/topics/topic_21.shtml">Shortest Job First</a>
+		(non-preemptive process scheduling algorithm) is used, then
+		a particularly long job might never be run if there are a
+		constant stream of shorter jobs coming in.
+	<li> Starvation can generally be avoided if a FIFO (i.e., queue)
+		resource sharing policy is used.
+	<li> While starvation can prevent the forward progress of a process,
+		like Livelock, it is not a form of deadlock since the four (4)
+		conditions of deadlock do not hold. 
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_51.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

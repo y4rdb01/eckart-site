@@ -1,0 +1,212 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Computer Hardware Basics
+</p>
+
+<ol>
+<li> Architecture
+	<ol>
+	<li> Bus is the most common type (particularly in small computer
+		systems), as illustrated by the diagram below.<br/>
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Computer_system_bus.svg/640px-Computer_system_bus.svg.png" alt="Simple computer architecture" width="640" height="469" />
+	<li> In its most straightforward implementation, when a component is
+		communicating on the bus, no other component can be using the
+		bus at that time. Thus causing some communications to be
+		delayed. To avoid this, some components may have an additional
+		(dedicated) bus for their communications (e.g., between the
+		Processor and Memory).
+	<li> Some systems use switched backplane archticetures, enabling
+		packets of information to be sent between the various
+		computer system components. In fact some pairs of components
+		can communicate simultaneously depending on the components
+		and how the switch is designed.
+	</ol>
+<li> Processor
+	<ol>
+	<li> While processors differ in their specific details, the diagram
+		below corresponds to the vast majority of processor
+		designs at a high level.<br/>
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/CPU_block_diagram.svg/433px-CPU_block_diagram.svg.png" alt="CPU" width="433" height="600" />
+	<li> Some of the registers may be dedicated to hold specific types of
+		values (e.g., program counter, stack pointer, program status
+		word).
+	<li> Speeding up computation:
+		<ol>
+		<li> Pipelining - enables some overlap in processing.
+			For example, while the n<sup>th</sup> instruction is
+			being decoded, the n+1<sup>th</sup> is being fetched.
+			This capability, known as <em>pipelining</em> keeps
+			more of the processor busy and reduces the overall
+			time of execution (even though the time to execute
+			each instruction may be no shorter - with regards to
+			the circuit path length - than it has traditionally
+			been).
+		<li> Superscalar designs are a step above pipelining in that
+			multiple copies of the various components exist on the
+			chip so that actions can truly occur simultaneously
+			(e.g., decoding 4 instructions, adding 3 pairs of
+			numbers).
+		<li> Multithreaded/hyperthreaded processors duplicate not only
+			the functional (Arithmetic Logic Unit - ALU) portions,
+			but some of the control logic as well. Only one
+			thread is active at a time, but switching between the
+			threads is <em>much</em> faster.
+		<li> Multicore processors replicate the entire structure of the
+			processor multiple times on the same chip, enabling
+			true multiprocessing.
+		</ol>
+	</ol>
+<li> Memory Hierarchy
+	<ol>
+	<li> There are many technologies used within a single computer for
+		storing information. While there are many differences that
+		distinguish these technologies from one another (e.g.,
+		volatility, size, mean-time-to-failure) the biggest two
+		that drive their inclusion within a computer design are
+		price and speed.
+		<table width="80%">
+		<tr style="text-align: center">
+			<th>Technology</th>
+			<th>Quantity</th>
+			<th>Access Time</th>
+			<th>Cost/Byte</th>
+		</tr>
+		<tr style="text-align: center">
+			<td>Register</td>
+			<td>< 1 KB</td>
+			<td>< 1 nano sec</td>
+			<td>-</td>
+		</tr>
+		<tr style="text-align: center">
+			<td>Cache (L1 - L4)</td>
+			<td>32 KB - 128 MB</td>
+			<td>1 - 7 nano sec</td>
+			<td>$25.00 / GB</td>
+		</tr>
+		<tr style="text-align: center">
+			<td>RAM</td>
+			<td>4 - 128 GB</td>
+			<td>11 nano sec</td>
+			<td>$10.00 / GB</td>
+		</tr>
+		<tr style="text-align: center">
+			<td>SSD</td>
+			<td>64 - 512GB</td>
+			<td>10_000 - 100_000 nano sec</td>
+			<td>$0.50 / GB</td>
+		</tr>
+		<tr style="text-align: center">
+			<td>HDD</td>
+			<td>512 GB - 4 TB</td>
+			<td>4_000_000 - 10_000_000 nano sec</td>
+			<td>$0.05 / GB</td>
+		</tr>
+		</table>
+		[ The access times above assume local access. Remote access
+		over a network will add <em>considerable</em> overhead. ]
+	<li> L1 cache is part of the CPU and dedicated to a single core,
+		while L2 cache may be dedicated or shared depending upon
+		the choice of the processor designers. L3 and L4 caches
+		are almost always off-chip.
+	<li> SSDs (Solid State Disks) provide faster access time than
+		HDDs (Hard Disk Drives) mostly by avoiding the seek time
+		of mechanically positioning the arm over the disk (rotational
+		latency is also significant, but much less than the seek time).
+	</ol>
+<li> I/O Devices
+	<ol>
+	<li> Devices accessed through their associated <em>controller</em>,
+		which the OS communicates with via a <em>device driver</em>
+		(typically supplied by the device manufacturer for various
+		OSes).
+	<li> Three approaches to "installing" a device driver:
+		<ol>
+		<li> Relink the kernel with the device driver code and reboot
+			(used by older Unix systems).
+		<li> Add the device driver to a OS config file and reboot
+			(typically used by Windows).
+		<li> Dynamically load the driver (increasingly popular,
+			especially for USB devices).
+		</ol>
+	<li> Device Communication styles:
+		<ol>
+		<li> Busy Waiting: The device driver starts the I/O then sits
+			in a tight loop, continually asking if the operation
+			is complete.
+		<li> Interrupt Driven: The device driver starts the I/O, then
+			returns control so that other work can be done. The
+			blocked calling program is signalled that the operation
+			is complete when an <em>interrupt</em> is generated
+			by the <em>controller</em>. The <em>interrupt
+			handler</em> (part of the <em>device driver</em>) for
+			this controller is then called to deal with the
+			interrupt.
+		<li> Direct Memory Access (DMA): Utilizes special hardware to
+			enable values to flow into (from) memory to a device
+			control. The CPU initiates the data transfer, but the
+			DMA handles the rest, freeing the CPU to continue
+			working on other tasks. The DMA generates an
+			<em>interrupt</em> when the transfer is complete.
+		</ol>
+	<li> When an <em>interrupt</em> is being handled, the CPU disables
+		other (lower priority) interrupts from preempting this one
+		(otherwise an endless stream of interrupts could prevent
+		the CPU from ever getting any more work done). Since there
+		are a small finite number of interrupt priorities there should
+		be few interruptions while an <em>interrupt</em> is being
+		handled.
+	</ol>
+<li> Boot Process
+	<ol>
+	<li> The BIOS (Basic Input Output System) is started when the computer
+		is powered on. It checks how much memory is available and the
+		devices attached to the computer (configuring any new ones).
+		[NOTE: BIOS is now being completely phased out by
+		<a href="http://www.howtogeek.com/56958/">UEFI</a>.]
+	<li> The boot device is then determined by the BIOS (e.g., SSD/HDD,
+		USB flash drive, CD/DVD). The first partition is read from
+		the device, loaded into memory, and executed.
+	<li> The first program read from the boot device, indicates a second
+		program from the boot device to load. It is the second
+		program that reads in and starts the OS.
+	<li> The OS reads any needed information from the BIOS and then starts
+		the various services of the OS.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_04.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

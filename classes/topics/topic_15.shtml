@@ -1,0 +1,120 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- IPC: Semaphores
+</p>
+
+<ol>
+<li> Introduced by Edgar W. Dijkstra (1965) 
+<li> Keep a count of the number of available resources.
+	<ol>
+	<li> P/DOWN decreases the count if > 0, otherwise it sleeps
+		(decreasing the count when it awakens).
+	<li> V/UP increases the count.  If a process was sleeping
+		because the count was 0, then one such process is
+		woken up (which one is determined by the system).
+	</ol>
+<li> The starting value of count indicates the number of avialable items
+	of that resource.  A different count is kept for each (kind)
+	of resource to be shared.
+<li> Semaphores are like having multiple copies of a book in a library.
+	No one waits to check out a book so long as there are copies
+	available. However, once all the copies are checked out, you
+	are put on a waiting list for the next copy that gets checked
+	in. The semaphore count is the number of copies of the book.
+<li> UP and DOWN are atomic actions, otherwise changing the
+	value of count would introduce race conditions.  This can
+	be done by disabling (and reenabling) interrupts on a single
+	CPU system, or by using a TSL instruction to prevent multiple
+	CPUs from accessing the same storage area at once.
+<li> If the count is originally 1, the semaphore is called a
+	binary semaphore. Mutex is a binary semaphore that has an
+	implementation optimized for only 2 values of the count.
+<pre><code>
+	mutexLock:
+		TSL regN, mutex	; copy "mutex" into register N, set "mutex" to 1
+		CMP regN, #0
+		JZE ok 		; if register N was 0, then not locked so return
+		CALL threadYield
+		JMP mutexLock	; try again (after thread resumed)
+	    ok: RET		; if register N is 0 then enter critical section
+
+	mutexUnlock:
+		MOV mutex, #0	; set "mutex" to 0
+		RET
+</code></pre>
+	Unlike the previous solution (enterRegion), mutexLock yields
+	the thread so that there is no busy waiting. While both
+	solutions work for kernel managed threads, user managed
+	threads don't get clock interrupts so the previous version would busy
+	wait forever!
+<li> The producer-consumer solution using semaphores:
+<pre><code>
+	#define N 100
+	int mutex = 1;			// Only one thread in the critical section at a time.
+	int empty = N, full = 0;	// Number of empty and full buffer slots.
+
+	void producer() {
+		while (1) {
+			ITEM item = produceItem();
+			down(&empty);	// Make sure there's an empty slot
+			down(&mutex);
+			insertItem(item);
+			up(&mutex);
+			up(&full);	// One more filled slot
+		}
+	}
+
+	void consumer() {
+		while (1) {
+			down(&full);	// Make sure there's something to get
+			down(&mutex);
+			item = removeItem();
+			up(&mutex);
+			up(&empty);	// One more empty slot
+			consumeItem(item);
+		}
+	}
+</code></pre>
+<li> Here's an example C program
+	(<a href="/eckart/classes/cpsc3125/C/sample5.c">sample5.c</a>)
+	that illustrates the use of semaphores and shared memory.
+<li> The <a href="/eckart/classes/cpsc3125/C/sample4.c">threads example</a>
+	that we saw previously includes an example of pthread mutex.
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_15.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

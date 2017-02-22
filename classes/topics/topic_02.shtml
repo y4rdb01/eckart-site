@@ -1,0 +1,107 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- What's an Operating System?
+</p>
+
+<ol>
+<li> Operating Systems (OSes) provide a clean and simple model of the computer
+	to better support the creation and use of user programs. They also
+	manage the various resources of the computer (e.g., processor(s),
+	memory, "disk" storage, i/o devices, network interfaces) so that
+	users (and user programs) don't have to. An OS does this by providing
+	a set of abstractions that sit between the computer hardware and
+	the user (programs).
+<li> Program types and layering
+	<ol>
+	<li> system programs - manage computer opeations
+	<li> applications programs - solve user problems
+	<li> bare machines are hard to deal with, the OS software
+		layer aids in the use of the machine by presenting the
+		user with an abstract machine (via implemented interfaces).
+	<li> example layering of a system:
+		<table border="1">
+		<tr>
+			<td style="text-align: center">banking system</td>
+			<td style="text-align: center">airline reservation</td>
+			<td style="text-align: center">adventure games</td>
+		</tr>
+		<tr>
+			<td style="text-align: center">compilers</td>
+			<td style="text-align: center">editors</td>
+			<td style="text-align: center">command interpreter</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: center">Operating System</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: center">Machine Language</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: center">Microprogramming (Microcode)</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: center">Physical Devices</td>
+		</tr>
+		</table>
+
+	<li> Machine languages often use device registers for holding
+		data and addresses for later use.
+	<li> The OS is that part which runs in supervisor
+	      (or kernel) mode.  Such modes protect against
+	      the use of certain instructions and/or devices
+	      (including memory).
+	</ol>
+<li> How does the OS support the upper layers?
+	<ol>
+	<li> The OS (viewed as an abstract machine) hides
+		the details of low level facilities such as
+		reading or writing data to a disk, receiving chars
+		from a keyboard or putting info to a monitor.
+	<li> Basically the idea is the same as data abstraction,
+		which allows you to look at something in/at a more
+		convenient way/level.
+	<li> The OS (viewed as a resource manager) coordinates
+		the different parts of a computer that are often shared by
+		different programs (and users).  E.g.
+		prevents printouts from being shuffled together when
+		programs get a chance to run.  The OS allows programs
+		to share the computer hardware (i.e., play nicely together).
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_02.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,252 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- C: Functions & Statements
+</p>
+
+<ol>
+<li> The <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a>
+	programming language was developed in the early 1970s primarily as
+	means for rewriting the original version of the Unix OS when it was
+	being ported to the PDP-11.
+<li> These lectures will not cover all of C, and much of what is covered will
+	not be in great detail as many aspects should be familiar to you via
+	Java - essentially the grandchild of C via C++. While there's a lot
+	of C syntax that won't be needed for this course, for those that are
+	interested here's <a href="https://en.wikipedia.org/wiki/C_syntax">a
+	more complete summary of C's syntax</a>.
+<li> Primitive Types
+	<ol>
+	<li> Like Java, C has a number of primitive types. The basic
+		primitive types are <em>int</em>, <em>float</em>,
+		<em>double</em>, and <em>char</em>.
+	<li> The value range of these primitive types can be modified using
+		<em>unsigned</em>, as in "unsigned int" and "unsigned char".
+		By default, types are "signed" (i.e., can have positive and
+		negative values).
+	<li> The amount of storage used to hold the value of primitive types
+		can also be changed using the <em>short</em> and <em>long</em>
+		modifiers, as in "short int" and "unsigned long int".
+	<li> While there is a <em>bool</em> (for boolean) type which was
+		introduced to the language in the 1999 standard, many programs
+		you come across may not use it. Note that 
+		a zero (0) value is used to represent "false" while any
+		non-zero value represents "true".
+	<li> Check out more details about
+		<a href="https://en.wikipedia.org/wiki/C_data_types">C's
+		primitive types</a>.
+	</ol>
+<li> Statements and Expressions
+	<ol>
+	<li> C's "if" statements, "while" and "for" loops, and "break" and
+		"continue" statements work just as they do in Java.
+	<li> In C, "&&" (and "||") are the short-circuit logical
+		operators (just like in Java), however "&" and "|" are
+		bitwise operators (not full-boolean evaluators as they are
+		in Java - although because of the way zero and non-zero
+		values represent false and true respectively in C, they can
+		appear to be the same in some cases though not always with
+		identical results, consider "1 & 2").
+	<li> Logical not is performed by "!".
+	<li> The comparison operations (==, !=, <, <=, >, >=) work as expected.
+	<li> Assignment is "=", but unlike in Java the assignment operator
+		in C returns a value (the one that was assigned). This
+		enables the assignment of the same value to multiple variables
+		in a succinct manner "a = b = c = d = 3". In addition, it
+		enables some interesting idioms, particularly with respect to
+		loops, in which the boolean expressions have side-effects.
+	<li> Be particularly careful not to confuse "=" and "==" in your
+		expressions. Using "=" in place of "==" won't be flagged by
+		the C compiler if the left-hand side is a variable, and the
+		semantics may be quite different that what was expected!
+	<li> Like Java, C also has many compound assignment operators (e.g.,
+		"a += 7", "b %= 2").
+	<li> C also has the pre and post increment/decrement operations that
+		are also found in Java (e.g., "a++", "--c").
+	<li> I/O and various other operations are supported by standard
+		libraries. The
+		<a href="https://en.wikipedia.org/wiki/Stdio">stdio</a>
+		library contains the
+		"<a href="http://www.cplusplus.com/reference/cstdio/scanf/">scanf</a>"
+		and
+		"<a href="http://www.cplusplus.com/reference/cstdio/printf/">printf</a>"
+		which are some of the most popular for input and output
+		respectively.
+	<li> Here are some common idioms that may not be obvious at first
+		glance:
+<pre><code>
+	// Copy stdin to stdout.
+	int c;
+	while ((c = getc(stdin)) != EOF) fprintf(stdout, "%c", c);
+
+	// Print all prime numbers, one per line of output.
+	long int candidate, test;
+	printf("%d\n", 2);
+	for (candidate = 3; ; candidate += 2) {
+		for (test = 3; test * test <= candidate; test += 2)
+			if (!(candidate % test)) break;
+		if (test * test > candidate) printf("%d\n", candidate);
+	}
+</code></pre>
+	</ol>
+<li> Functions
+	<ol>
+	<li> Every C program needs exactly one "main" function. While there
+		are a variety of formal parameters that may be declared, the
+		following is the typical signature:
+<pre><code>
+	int main(int argc, char* argv[])
+</code></pre>
+		The "int" return type is used to indicate success (or failure)
+		of the program to the caller (e.g., shell). A zero (0) return
+		value indicates success, while a non-zero value indicates
+		failure, with the particular non-zero value used to indicate
+		the nature of the failure as determined by the program's
+		designer/developer. The formal parameters indicate the number
+		and values of the command line arguments supplied to the
+		program (more about these later).
+	<li> Function declarations in C look much like those in Java except
+		that they do NOT occur within a class (C is "class"less).
+	<li> Functions can be declared without an implementation (the
+		implementation being given later or in another file):
+<pre><code>
+	void doSomething(int, float);
+</code></pre>
+		Note that such declarations only need to include the types
+		of the formal parameters (not their names). Functions should
+		be declared before used.
+	<li> Or functions can include the implementation as part of their
+		declaration:
+<pre><code>
+	void doSomething(int arg1, float arg2) {
+		printf("arg1 = %d, but arg2 = %f\n", arg1, arg2);
+	}
+
+	int fibonacci(int n) {
+		if (n <= 1) return 1;
+		else return fibonacci(n-1) + fibonacci(n-2);
+	}
+</code></pre>
+	<li> While function declarations can be given inside of another
+		function, function implementation may NOT be nested.
+	</ol>
+<li> Static Variables
+	<ol>
+	<li> Like Java, C is lexically scoped with variables being accessible
+		only within the code block in which they are declared (i.e.,
+		appearing within { }s, declared as formal parameters for a
+		function, or declared as part of a loop).
+	<li> <em>Static</em> variables are similar to those in Java. For
+		example, the following code assigns the static variable its
+		initial value the first time the function is called (but not
+		on subsequent calls) and is visible only within the function,
+		however the variable "survives" the return of the function
+		and its previous value is retained and can be used on
+		subsequent calls to the function:
+<pre><code>
+	int counter() {
+		static unsigned long int count = 0;
+		return count++;
+	}
+</code></pre>
+	<li> Variables can be declared outside the context of a function.
+		Such variables are automatically implemented as <em>static</em>
+		variables and are accessible by all the functions that can
+		"see" the variable declaration (typically those functions
+		declared after and within the same file as the variable
+		declaration). Such variables are often referred to as global
+		variables.
+	</ol>
+<li> Separate Header (.h) and Code (.c) Files
+	<ol>
+	<li> When programs become large, it is often convenient (or
+		necessary if you value your own sanity) to divide our
+		code up into separate chunks (files). 
+	<li> By convention, files ending in ".h" only contain declarations
+		while those ending in ".c" contain the implementations.	
+	<li> The ".c" files may contain declarations, but any declarations
+		that should be visible/used by multiple ".c" files should
+		be placed in separate ".h" file(s).
+	<li> Implementation files (those ending in ".c") should include the
+		".h" files they will need by doing:
+<pre><code>
+	#include "fileName.h"
+</code></pre>
+		By convention these should appear near the beginning of
+		the ".c" file, but they don't have to. The semantics are
+		as if the ".h" file were textually included at this point
+		in the ".c" file. The inclusion of the header files for
+		the standard libraries has a slightly differnet form (the
+		<>s indicate the file can be found in a special location
+		known to the compiler):
+<pre><code>
+	#include &lt;stdio.h>
+</code></pre>
+	<li> If you want to include a global variable declaration within
+		a ".h" file, you need to be careful. Since an "include" is
+		semantically equivalent to textually including the file,
+		then a declaration like "int x = 1;" would create a new
+		variable "x" in each ".c" file in which it was included.
+	<li> To declare a variable without setting aside storage for it,
+		use <em>extern</em>.  Thus in your ".h" file you would have
+		"extern int x;" and in only one of your ".c" files you
+		would have "int x = 1" to set aside the storage for the
+		variable "x".
+	<li> All function declarations and implementations are automatically
+		created as <em>extern</em>, so you only have to be careful
+		when declaring variables that are to be used across multiple
+		".c" files.
+	</ol>
+<li> Compiling Programs
+	<ol>
+	<li> To compile a ".c" file, use "gcc -c fileName.c". The "-c" flag
+		to the compiler indicates that only compilation is to
+		be performed (no linking is done and no executabe file
+		is generated). A corresponding "fileName.o" file is
+		generated if the compilation is successful. Header files
+		(those ending in ".h") should not be compiled.
+	<li> To link together all the ".o" files found in the current
+		directory into an executable program use "gcc *.o".
+		This will create a corresponding "a.out" (or "a.exe" under
+		Cygwin on Windows) that can be run via the command
+		"./a.out arg1 arg2 ... argn", where "arg*" are the various
+		command line arguments that you may want to pass to your
+		program.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_07.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,144 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- IPC: The Dining Philosophers Problem
+</p>
+
+<ol>
+<li> <a href="/eckart/classes/cpsc3125/java/Dining/DiningPhilosophers.html">The Dining
+	Philosophers Problem</a>
+<li> Posed by Dijkstra in 1965 to demonstrate the use of
+	semaphores.  It is now a popular benchmark problem for
+	synchronization techniques.
+<li> The problem:
+	<ol>
+	<li> 5 philosophers sitting at a round table
+	<li> each has a plate of slippery pasta, that requires 2
+		forks to eat
+	<li> Between each plate is a fork (5 forks total)
+	<li> A philosopher alternates between thinking and eating
+	<li> Since a philospher must acquire 2 forks to eat (picking
+		up one at a time), how should each philosopher behave
+		in order to eventually get food and yet not starve his
+		colleauges?
+	</ol>
+<li> Deadlock - no process can run (all are blocked but waiting for others
+	to release resources which they cannot do because they are blocked).
+<li> Livelock - well behaved processes may continually give up their existing
+	resources/locks and try again later if they are unable to get the
+	remaining resources/locks they need. If the timing is just right (or
+	just wrong - depending on your point of view) the processes may
+	continually acquire and release resources. While the processes aren't
+	blocked, they are also not making any progress.
+<li> Starvation - is similar to livelock, except that where processes in
+	livelock are running (executing instructions), starved processes
+	are either blocked or not given the chance to execute instructions.
+	Thus, some of the processes in a set may make progress, but at
+	least some do not because they are waiting on resources being used
+	by other processes (probably the ones making progress). A starved
+	process could be blocked waiting for a resource that is continually
+	be given to other processes, or it might not be blocked but the
+	resource is consistently being given to other processes (e.g., a
+	starved process could be in the "ready" state, but never scheduled
+	for the CPU so that it can be "running").
+<li> Solutions?
+	<ol>
+	<li> Grab forks arbitrarily (can deadlock)
+	<li> Grab a fork, if the other is taken put it down
+		and wait before retrying (livelock)
+	<li> mutex eating, but then only one person at a time
+		can eat (when really 2 could)
+	<li> Use 3 states: thinking, hungry (waiting for a fork), 
+		eating.  A philosopher transitions from thinking
+		to hungry, hungry to eating, and eating to thinking.
+		So a hungry philosopher eats only when those 
+		beside him are not eating. [See page 170 in the
+		textbook. Note that the solution doesn't actually
+		keep track of forks, but only the states of
+		philosophers.]
+<pre><code>
+	#define N 5
+	int state[N]; 	// All start out THINKING (value = 0).
+	int mutex = 1;
+	int eating[N];	// All start out with value of 0
+
+	void philosopher(int i) {	// Philosphers are numbered 0 thru N-1
+		while (1) {
+			think();
+			acquireForks(i);
+			eat();
+			releaseForks(i);
+		}
+	}
+
+	void acquireForks(int i) {
+		down(&mutex);
+		state[i] = HUNGRY;
+
+		tryToEat(i);
+
+		up(&mutex);
+		down(&eating[i]);	// Blocks if no forks acquired.
+	}
+
+	void releaseForks(int i) {
+		down(&mutex);
+		state[i] = THINKING;
+
+		/* The following two statements are what enable a philospher 
+		   block on the down in acquireForks to continue (rather than
+		   being stuck forever.
+		*/
+		tryToEat((i-1+N)%N);	// Check if philospher on left can eat
+		tryToEat((i+1)%N);	// Check if philospher on right can eat
+
+		up(&mutex);
+	}
+
+	void tryToEat(int i) {
+		if (/* I'm hungry and those next to me aren't eating. */) {
+			state[i] = EATING;
+			up(&eating[i]);	// Up enables the down in acquireForks
+		}
+	}
+</code></pre>
+	<li> <a href="http://www.doc.ic.ac.uk/~jnm/book/book_applets/Diners.html">Java Applet</a> animation
+	<li> <a href="http://www.cs.fsu.edu/~baker/realtime/restricted/notes/philos.html">C solution</a> using pthreads.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_19.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

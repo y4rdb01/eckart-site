@@ -1,0 +1,200 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Operating Systems Security
+</p>
+
+<ol>
+<li> Terminology
+	<ol>
+	<li> A <em>Vulnerability</em> is a software bug that can be used to
+		subvert the security of a system.
+	<li> An <em>exploit</em> is a particular set of actions taken against
+		a vulnerability to gain access to information or capabilities
+		that would otherwise be unavailable.
+	<li> <em>Security</em> refers to overall problem of ensuring that
+		only authorized persons are allowed access to the data and
+		capabilities of a system.
+	<li> <em>Protection mechanisms</em> refers to the specific OS mechanisms
+		used to provide security.
+	<li> A <em>hacker</em> is someone who enjoys the creativity and
+		challenge in solving problems (often working around the
+		limitations of existing tools). With respect to computing,
+		these tools may be existing APIs, system architectures,
+		and system designs.
+	<li> A <em>cracker</em> is someone who attempts to gain unauthorized
+		access to data or systems. Within computing, this is a
+		generalization of the term "safe cracker".
+	</ol>
+<li> Threats
+	<ol>
+	<li> Passive (read only) vs active (read/write) intruders.
+	<li> Confidentiality - explicitly determines who can see/do what.
+		<ol>
+		<li> Issues of privacy also play an important role in security.
+			Many people object to widespread:
+			<ol>
+			<li> Surveillance by the NSA,
+			<li> Data collection by credit card companies, and
+			<li> Tracking of web browser use across a wide range of
+				activities.
+			</ol>
+		<li> Passive intruders may not even need electronic "access"
+			to the machine:
+			<ol>
+			<li> Pick up and deocde the elctro-magnetic patterns
+				produced by the machine.
+			<li> Use accelerometers in tablets and phones to
+				determine what's being clicked/typed.
+			<li> Use of sound and reflections to determine (at
+				a distance) what's being clicked/typed.
+			</ol>
+		<li> Recent breaches in data are reminders about how much
+			information (e.g., contact, financial, medical)
+			are available on-line:
+			<ol>
+			<li> <a href="https://www.forbes.com/sites/maggiemcgrath/2014/01/10/target-data-breach-spilled-info-on-as-many-as-70-million-customers/">Target</a>
+			<li> <a href="https://www.forbes.com/sites/paularosenblum/2014/09/19/home-depot-data-breach-banks-response-is-critical-to-consumer-reaction/">The Home Depot</a>
+			<li> <a href="https://www.bloomberg.com/news/2014-10-02/jpmorgan-says-data-breach-affected-76-million-households.html">JP Morgan Chase</a>
+			<li> <a href="http://www.slate.com/blogs/moneybox/2014/11/11/usps_data_breach_chinese_hackers_suspected_of_targeting_u_s_postal_service.html">USPS</a>
+			</ol>
+		</ol>
+	<li> Integrity - unauthorized persons cannot remove or change data.
+	<li> Availability - unauthorized persons are not able to make a system
+		unusable or reduce its performance.
+		<ol>
+		<li> (Distributed) Denial-of-Service attacks
+		<li> Protecting against data loss (usually dealt with via
+			backups).  Check out the
+			<a href="http://www.taobackup.com/">Tao
+			of Backups</a>.
+		</ol>
+	<li> Implicit in the above threats is the ability to correctly
+		determine the identity of persons, and whether or not they
+		are authorized. Conflicts between the need for identification,
+		desires for personal privacy, and the potential for broad
+		surveillance/tracking can easily occur.
+		<ol>
+		<li> <a href="https://en.wikipedia.org/wiki/Caller_ID">Caller ID</a>
+			and
+			<a href="https://www.fcc.gov/guides/caller-id-and-spoofing">spoofing</a>
+		<li> <a href="https://en.wikipedia.org/wiki/REAL_ID_Act">Real ID</a>
+			and
+			<a href="https://www.eff.org/issues/real-id">privacy</a>
+		</ol>
+	</ol>
+<li> Attack(er)s
+	<ol>
+	<li> <em>Active</em> attacks attempt to alter data or change the
+		actions/behavior of a computer system. Whereas, <em>passive</em>
+		attacks focus on simply obtaining information (often
+		making them far harder to detect).
+	<li> While most efforts focus on attacks conducted by <em>outsiders</em>
+		(i.e., persons external to an organization), <em>insider</em>
+		attacks are often the most difficult to protect against (and
+		can be the most devasting -
+		<a href="https://en.wikipedia.org/wiki/Edward_Snowden">Edward Snowden</a>).
+	<li> <a href="https://en.wikipedia.org/wiki/Cyberwarfare">Cyberwarfare</a>
+		not only encompasses hacking by government agents (e.g.,
+		<a href="https://en.wikipedia.org/wiki/PLA_Unit_61398">PLA Unit 61398</a>)
+		into computer systems of interest (whether private, public, or
+		governmental) but also includes the development and release
+		of computer worms/viruses
+		(e.g., <a href="https://en.wikipedia.org/wiki/Stuxnet">Stuxnet</a>),
+		<a href="http://www.forbes.com/sites/erikkain/2013/12/29/report-nsa-intercepting-laptops-ordered-online-installing-spyware/">spyware</a>,
+		and similar softwares.
+	<li> <a href="https://en.wikipedia.org/wiki/Script_kiddie">Script-kiddie</a>
+		is a pejorative term used to describe unskilled persons that
+		use software (scripts) developed by others to gain
+		unauthorized access to computer systems and their data.
+	<li> <a href="https://en.wikipedia.org/wiki/Port_scanner">Port scanning</a>
+		is a common method to discover computer systems and their
+		potential vulnerabilities. It queries port numbers on a range
+		of IP addresses to discover open ports and infer what software
+		is running on that port. Once this is known, specific attacks
+		tailored to the known vulnerabilities of that software can
+		be conducted.
+	<li> A <a href="https://en.wikipedia.org/wiki/Botnet">botnet</a> is
+		a group of networked zombie (compromised) computers that are
+		used to conduct illegal activities on a massive scale.
+		Activities can be more mundane (e.g., sending of spam email)
+		to extraordinary (e.g., distributed denial-of-service attacks
+		upon critical infrastructure).
+	</ol>
+<li> Trusted Computing Base (TCB)
+	<ol>
+	<li> It is possible to build (more) secure systems, but they are
+		generally:
+		<ol>
+		<li> More expensive to create (due to more careful development
+			practices and more extensive testing);
+		<li> Provide less functionality - e.g., passive vs dynamic
+			web pages (increased complexity increases
+			the amount of testing needed to ensure correctness);
+		<li> Would likely require the replacement of a customer's
+			existing software (an expensive proposition); and
+		<li> Are seen as uncertain investments since a security breach
+			isn't a certainty (and many organizations are willing
+			to make the - often short term - gamble that the cost
+			of a breach will be less than the cost of making
+			their systems secure).
+		</ol>
+	<li> A <em>trusted sytem</em> is one that meets a formally stated set
+		of security requirements.
+	<li> The TCB is a set of hardware and software that provides the
+		basis for a <em>trusted system</em>. This includes:
+		<ol>
+		<li> Most of the hardware (except I/O devices not involving
+			security);
+		<li> Portions of the OS kernel (e.g., process creation,
+			process switching, memory management, interrupt
+			handling, some file and I/O management functions); and
+		<li> Programs that run with superuser (administrator or root)
+			permissions.
+		</ol>
+	<li> The TCB is not the entire OS, but is the minimal part upon which
+		everything else depends. By keeping the TCB as small as
+		practical, it's correctness is easier to verify.
+	<li> The <em>reference monitor</em> within a TCB intercepts all system
+		calls with a potential impact on security, enabling all
+		security decisions to occur in a single place.
+	<li> If an existing system can be redesigned to include a TCB, then
+		many of the impediments to secure systems might be avoided.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_52.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

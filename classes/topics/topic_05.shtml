@@ -1,0 +1,179 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Operating System Concepts
+</p>
+
+<ol>
+<li> System calls
+	<ol>
+	<li> Provide an interface between user programs and
+		the OS.
+	<li> Although these differ between OS's (and OS
+		versions -- sysV and BSD are slightly different)
+		the concepts and capabilities are fairly consistent.
+	</ol>
+<li> Processes
+	<ol>
+	<li> A process is a program in execution, consisting of the
+		code, data, stack program counter, stack pointer and
+		various program registers (and all other information
+		needed to run the program).
+
+	<li> Since a process may temporarily cease execution while
+		waiting for I/O or other programs, all information needed
+		to continue the process must be kept in the process table.
+		A process consists of its process table entry and its
+		core image (address space).
+		
+	<li> Any process may create a child process, and in this way
+		build a process tree.  In U<font size=-2>NIX</font>,
+		all processes are directly or indirectly children of pid 0.
+
+	<li> When you type commands to the command interpreter (shell),
+		you are telling the shell to create a child process that
+		corresponds to the command.
+
+	<li> Ordinarily, communication between processes is between
+		child and parent (though the parent can easily pass on 
+		information about its parents too, so communication is
+		between the child and its ancestors!)
+
+	<li> Sometimes a process runs into a problem and never completes
+		(at least not in a timely fashion).  Signals can be generated
+		for predetermined conditions (including at predetermined 
+		times).  Signal handlers can also be specified, which "take
+		over" when the specified signal is received.
+
+	<li> Every process has an associated uid (user identification).
+		The uid (either real or effective) determine the restrictions,
+		if any, which are placed on the process.  The super-user id
+		(<em>root</em> on Unix, <em>administrator</em> on Windows),
+		has the fewest restrictions.
+	</ol>
+<li> Address Spaces
+	<ol>
+	<li> In the simplest case, entire programs are loaded into the
+		main memory of the computer and executed. When the program
+		completes, the next program, in its entirety, is loaded.
+		However, this strategy limits programs to be no bigger than
+		the amount of memory (and tends to waste processor time).
+	<li> The memory to be used by a program execution is its <em>Address
+		Space</em>. By breaking the <em>address space</em> up into
+		smaller chunks, it is possible to execute a program that
+		takes more memory than the computer physically has.
+	<li> The <em>address space</em> available for a process starts at 0
+		(lowest address) up to a maximum generally determined by
+		the number of address bits supported by the processor
+		(e.g., a 64 bit processor would have a highest address of
+		2^64 - 1 = 18446744073709551615).
+	</ol>
+<li> Files
+	<ol>
+	<li> System calls are needed to create, remove, open, close,
+		read and write files (among others).  Directories are
+		used to group files together, which also require system
+		calls for creation, removal, etc.  Directories may
+		contain files or directories, giving rise to a hierarchical
+		(tree) structure.  [NOTE: both files and processes are
+		organized hierarchically.]
+
+	<li> The base of the file system tree is the root directory (/).  Any
+		file in the file system can be determined by giving its
+		full (absolute) path name (/ separate components in Unix,
+		\ separates them in Windows).
+
+	<li> Every process has an associated working directory (normally
+		the one from which it was invoked), so that path names can
+		be given relative to the working directory.
+
+	<li> A file descriptor is a number (supplied by a system call)
+		by which a file may be referred by a process.  Essentially
+		it is an unsigned number pointing to an entry in a table
+		of open/active files.  When a process is started,
+		<em>fd 0</em> is standard input (stdin),
+		<em>fd 1</em> is standard output (stdout), and
+		<em>fd 2</em> is standard error (stderr).
+
+	<li> File systems must be mounted in order to be accessed.
+
+	<li> Special files allow many things, such as I/O devices, to
+		look like files.  Block special files model things like
+		disks (with a collection of randomly addressable blocks)
+		while character special files model devices that consist
+		of character streams (like terminals).
+		Special files have a major and minor device number,
+		which specify the device class (e.g. disk, terminal) and 
+		which device of that class respectively.
+
+	<li> Pipes are pseudo-files used to connect processes together.
+		This makes certain forms of interprocess communication
+		easier to do.
+	</ol>
+<li> Input / Output -
+	Every OS has an I/O subsystem, that manages the various
+	devices attached to the computer. In particular, it
+	must keep track of the various device drivers and their
+	association with the various special files (see above)
+	that correspond to those devices.
+<li> Protection
+	<ol>
+	<li> Controlling access to files is one of the most common (and
+		visible) aspect of security.
+	<li> In Unix, files (and directories) use 3 3-bit fields to provide
+		protection.  Roughly organized as u(ser)g(roup)o(ther)
+		the bits are rwx (421), which determines who has what abilities.
+		Every file also has an associated user and group to which
+		it belongs.
+	</ol>
+<li> The "Shell"
+	<ol>
+	<li> The shell is a command interpreter, and is a program like
+		any other.
+	<li> When a user logs in, a shell (called a login shell) is started
+		for them.
+	<li> Shells make use of a number of system calls, and provide the
+		interface to the OS that the user "sees".  In fact, it is
+		possible to write shells to mimic other systems... such as
+		MS-DOS or VMS.
+	<li> Restricted and beginner shells can also be implemented
+		to provide more appropriate interfaces for different
+		classes of users.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_05.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

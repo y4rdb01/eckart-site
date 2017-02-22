@@ -1,0 +1,337 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Page Replacement Strategies
+</p>
+
+<ol>
+<li> Page Replacement
+	<ol>
+	<li> Shortly after system startup, all (physical) page frames will
+		contain the (virtual) page of some process.
+	<li> If a process needs a (virtual) page loaded into a page frame (so
+		that it can be referenced/used), then a page frame must be
+		chosen.
+	<li> The (virtual) page in the chosen page frame must be saved back
+		to disk (if its modify bit is set - otherwise don't bother).
+	<li> The desired (virtual) page can then be loaded into the
+		(physical) page frame.
+	</ol>
+<li> Optimal Page Replacement
+	<ol>
+	<li> Although impossible to implement, replace the page that
+		will not be used again for the longest period of time.
+	<li> This serves only as a comparison for realizable algorithms!
+	</ol>
+<li> Not-Recently-Used (NRU) Page Replacement
+	<ol>
+	<li> Most hardware supplies a Reference and a Modified bit.
+		<ol>
+		<li> The Modified bit tells you if the page MUST be copied
+			back before being replaced.  It is set to one whenever
+			a write to the page occurs.
+		<li> The reference bit is set on either a write or a read.
+			The reference bits can be set to 0 at intervals of
+			time.  Thus a page with a 0 Reference bit hasn't been				recently used and thus we might argue that it is less
+			likely to be used in the near future.  Thus such
+			pages are better candidates for replacement.
+		</ol>
+	<li> Taking both bits together, and since we would like to take
+		care of page faults with the least amount of effort,
+		consider pages in the following order:
+		<ol>
+		<li> not referenced, not modified [Lowest classification]
+		<li> not referenced, modified
+		<li> referenced, not modified
+		<li> referenced, modified [Highest classification]
+		</ol>
+	<li> Pages are removed at random from the lowest numbered
+		classification.
+	<li> Class 2 can occur when a class 4 has the R flag cleared
+		(as is done periodically) by the OS.
+	<li> Class 1 can occur when a class 3 has the R flag cleared
+		(as is done periodically) by the OS.
+	<li> Normally the R and M bits are supported and set in
+		hardware, though they can be simulated in software.
+	<li> NRU is easy to understand and implement, performance is
+		often adequate.
+	</ol>
+<li> First-In, First-Out Page Replacement
+	<ol>
+	<li> The oldest page is removed (imagine a queue of pages, so the
+		oldest are at the front of the queue).
+	<li> This unfortunately can get rid of much needed pages!
+		To fix this use the R and M flags of NRU,
+		if the oldest page is say in class 3, go to the next
+		oldest page instead.
+	<li> FIFO can actually do worse (more page faults) with more 
+		memory (Belady's anomaly).
+	</ol>
+<li> Second-Chance Page Replacement
+	<ol>
+	<li> Is a variation of FIFO which looks at the R bit.
+	<li> If the R = 0, then the page frame is selected,
+		otherwise if R = 1 it sets R to 0 and
+		puts the page frame at the end of the list (as if it were a
+		new page).
+	<li> The queue can be efficiently implemented with a
+		circular queue and a single pointer to the "head" node.
+	<li> In the worst case (all R bits are 1 initially), this devolves
+		to FIFO (after all the R bits have been reset to 0 and
+		all entries in the queue have cycled through).
+	<li> While this gives reasonably good results, there's a lot of
+		queue manipulation going on.
+	</ol>
+<li> Clock Page Replacement
+	<ol>
+	<li> Similar to Second-Chance Page Replacement but with a fixed
+		queue of page frames, as if they had been arranged around
+		the face of an analog clock.
+	<li> Rather than actually keeping a queue of page frames in the
+		order loaded, use a counter that uses modulo arithmetic
+		based on the number of page frames. [Viewing the counter
+		as a clock hand with the pages ringed around it gives the
+		impression of a clock.] 
+	<li> The counter points to the page frame to consider evicting.
+		<ol>
+		<li> If R = 0 replace the page frame and advance the counter.
+		<li> If R = 1, reset R to 0, advance the counter, and repeat
+			until a suitable page is found.
+		</ol>
+	<li> This gives better queue performance than second-chance page
+		replacement, but the page selection process can be slow
+		in the worst case (e.g., you may have to cycle through the
+		entire queue).
+	</ol>
+<li> Least Recently Used (LRU) Page Replacement
+	<ol>
+	<li> Throw out the page that has been UNused the longest, under
+		the assumption that it will be a long time before it is 
+		needed again.
+	<li> Although it is possible to implement this,
+		it can be quite expensive.  For example, an ordered list
+		could be kept, but the ordering could change
+		after EVERY memory reference!
+	<li> HARDWARE
+		<ol>
+		<li> In hardware, each page could have a counter (time since an
+			epoch) that gets its value from a global clock tick
+			counter each time the page is referenced.  Special
+			hardware (e.g., associative memory) could then look at
+			the associated page counters to find the LRU (smallset
+			counter value) page.
+		<li> An alternative hardware solution is to use a matrix of
+			n x n bits (for n page frames), initially all 0.
+			<ol>
+			<li> When page frame k is referenced, all bits in row k
+				are set to 1 and all bits in column k are set
+				to 0.
+			<li> It turns out that the binary value of each row
+				gives the pages in LRU order (lowest value
+				is the oldest).
+			</ol>
+		</ol>
+	<li> SOFTWARE
+		<ol>
+		<li> Not Frequently Used (NFU) Page Replacement (see below).
+		<li> Aging Page Replacement (see below).
+		</ol>
+	</ol>
+<li> Not Frequently Used (NFU) Page Replacement.
+	<ol>
+	<li> Requires a software counter (initially 0) for each page.
+	<li> At each clock interrupt, the R bit of each page is added to the
+		counter associated with that page.
+	<li> The page with the lowest counter is replaced upon page faults.
+	<li> The problems with this approach are that:
+		<ol>
+		<li> The page frame counter is never re-zeroed (as long as the
+			virtual page remains the same)!
+		<li> Frequency may not predict recency. For example, if a
+			loop examines array elements repetively,
+			then finishes; the page will have a high frequency
+			though it may not have been used for quite some time.
+			This might cause useful pages to be swapped out instead!
+		</ol>
+	</ol>
+<li> Aging Page Replacement
+	<ol>
+	<li> Rather than simply counting the R bit values as in NFU, shift
+		the counter 1 bit to the right before inserting/adding the
+		R bit to the leftmost (highest order) position. The page with
+		the lowest counter value is evicted.
+		<ol>
+		<li> This can eventual zero out the counter if the page frame
+			is no longer used; and
+		<li> Pages used more recently and more consistently
+			will have higher count values.
+		</ol>
+	<li> One problem is that there are only n bits and thus you
+		can only distinguish events in the last n clock ticks!
+	<li> It is NOT identical to LRU since pages last
+		referenced during the same clock tick might still be
+		distinguished depending on when during previous clock ticks
+		each was referenced. It then becomes a trade-off between more
+		counter update cycles and the benefits for page eviction.
+	</ol>
+<li> The Working Set Model
+	<ol>
+	<li> <em>Demand paging</em> only loads pages when they are needed (even
+		when the process first begins).
+	<li> <em>Locality of reference</em> is a property of most programs,
+		whereby
+		the parts of the virtual address space they need
+		are usually close to the last ones used.  (e.g. 
+		programs aren't composed of jumps all over the address
+		space, or use variables allocated in vastly different
+		parts of the address space).
+	<li> <em>Working set</em> are the pages that a process is currently
+		using.
+	<li> Programs that cause page faults often (e.g. every few 
+		instructions), perhaps because there is not enough
+		physical memory to hold their working set, are said to
+		be <em>thrashing</em>.
+	<li> The <em>working set model</em> tries to keep track of each
+		processes working set, and to have it in memory when the
+		process gets ready to take the CPU.  It tries to reduce the
+		page fault rate by <em>prepaging</em>.
+	<li> Thrashing can also occur in multi-tasking systems, when
+		the next process to run has almost always had most of
+		its page frames reassigned by the time it gets another
+		turn to run.
+	<li> If the total size of the working sets of
+		all the runnable processes exceeds physical memory,
+		then thrashing will likely occur.
+	<li> Influence of <em>Working Set</em> on Page Replacement
+		<ol>
+		<li> For each process, keep track of the last k pages (or
+			memory references) made - and use this as the
+			working set. This turns out to be more difficult
+			than keeping the list of pages used recently.
+		<li> The <em>current virtual time</em> of a process is the
+			amount of time it's been running in the CPU since
+			it started.
+		<li> The <em>working set</em> for a process is the list of
+			pages used by that process within the last portion
+			(e.g., T seconds) of its <em>current virtual time</em>. 
+		<li> When choosing pages to evict, give preference to those
+			NOT in the working set for any process (and if there
+			are none, then NOT used by any <em>ready</em> process).
+		<li> Working Set Model Page Replacement
+			<ol>
+			<li> The current virtual time for each process is kept.
+			<li> Each page table entry contains a field to hold
+				the R(eference) bit and the last virtual
+				reference time (time of last use).
+			<li> Reference bits are still reset based on a regular
+				clock interrupt.
+			<li> When a page fault occurs, every entry (note that
+				this is cause for concern) in the
+				page table is examined:
+				<ol>
+				<li> If R = 1, then the process' current
+					virtual time is recorded in the page
+					table (as the time_of_last_use). Also
+					it's clearly in the working set and
+					shouldn't be evicted.
+				<li> If R = 0 and the elapsed time since last
+					used (current_virtual_time -
+					time_of_last_use) is greater than a
+					predetermined cutoff, then it's
+					not in the working set and is evicted.
+				<li> If R = 0 but the elapsed time since used
+					isn't great enough, the page isn't
+					evicted (at least not yet), but the
+					page with the largest elapsed time
+					since used is noted, and that page will
+					be evicted if no other suitable page
+					has been found. Otherwise a random
+					page is selected (preferable
+					unmodified).
+				</ol>
+			</ol>
+		<li> Working Set Clock (WSClock) Page Replacement
+			<ol>
+			<li> Is widely used in practice due to relatively simple
+				implementation and good performance.
+			<li> The above working set page replacement must scan
+				the entire page table, making it slow.
+			<li> Similar to the Clock Page Replacement, but with
+				the time_last_used field from Working Set
+				Page Replacement.
+			<li> When a page fault occurs:
+				<ol>
+				<li> If R = 1, set the time_last_used, reset
+					R, and advance the clock hand to
+					the next page frame for consideration.
+				<li> If R = 0, age > t (predetermined
+					cutoff), and the page is UNmodified,
+					then it's chosen for replacement.
+				<li> If R = 0, age > t (predetermined
+					cutoff), and the page is modified,
+					scehdule the page to be written to
+					disk, but move clock hand to the
+					next page frame for consideration
+					(to avoid a context switch). [To avoid
+					too many scheduled disk writes, a
+					limit may be set.]
+				<li> If the clock hand has gone all the way
+					around without finding a suitable page,
+					then:
+					<ol>
+					<li> If at least one write has been
+						scheduled, keep advancing the
+						clock hand until a clean page
+						(with R = 0 and age > t) is
+						found.
+					<li> If no writes were scheduled, then
+						all pages are in the working
+						set so use the first clean
+						page (preferably with R = 0)
+						found.
+					<li> Otherwise, all pages are in the
+						working set and are modified,
+						so pick the current page since
+						any is an equally poor choice.
+					</ol>
+				</ol>
+			</ol>
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_30.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

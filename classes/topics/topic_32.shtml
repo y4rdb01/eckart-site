@@ -1,0 +1,232 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Paging Implementation Issues
+</p>
+
+<ol>
+<li> OS Involvement
+	<ol>
+	<li> Process creation -
+		The OS must create and initialize the page table and ensure
+		that it is resident in memory when the process is running. A
+		corresponding swap area on disk must also be created (and
+		initialized) for the process. Information about the page
+		table and swap area must be placed into the process table.
+	<li> Process execution -
+		The MMU must be reset and the TLB flushed when a new process
+		begins using the CPU (otherwise remnants of the previous
+		process could cause problems). The process' page table must
+		be made active (perhaps by updating an address in a special
+		register), and some set of pages brought into memory (to
+		reduce page faults). 
+	<li> Page fault -
+		Determine which virtual address space caused the fault,
+		find the page needed and locate it on disk, find a page
+		frame to vacate (and save that page if necessary), load
+		the page, and finally move the program counter back to the
+		previous instruction so it can reexecute (now that the needed
+		page is available). Wow that's a lot of things - and why
+		adding more physical memory is one of the cheapest ways
+		to speed up your computer. :-)
+	<li> Process termination -
+		Release the page table, all of the page frames it was using,
+		and free the disk space used for swapping. But only release
+		the page frames and disk if no other process is left sharing
+		them.
+	</ol>
+<li> Page Fault Handling - these are the actions that happen on a page fault.
+	Remember, more memory reduces the number of times this occurs.
+	<ol>
+	<li> Hardware traps to kernel, saving program counter (and perhaps
+		other instruction information).
+	<li> Assembly code routine saves general registers and other
+		information before calling OS.
+	<li> OS recognizes the page fault and tries to determine which virtual
+		page is needed.
+		<ol>
+		<li> If a hardware register has the info, then done.
+		<li> Else retrieve the program counter to get the instruction
+			that caused the fault. Parse the instruction to find
+			out what it was doing that caused the fault.
+		</ol>
+	<li> Check to ensure the virtual address is valid and
+		its permissions allow access.
+		<ol>
+		<li> If address or permissions are bad, then process is
+			signaled (possibly killed).
+		<li> Else if a page frame is free, use it.
+		<li> Otherwise (no free page frames) select page frame to
+			use via the page replacement algorithm. 
+		</ol>
+	<li> If the selected page frame holds a dirty (modified) page, then
+		schedule it to be saved to disk and block the faulting process
+		(to enable others to run while slow disk I/O is done).
+	<li> When the disk interrupt is received (indicating the page has been			loaded), the page tables are updated.
+	<li> Put the program counter back to the instruction that caused
+		the page fault (and reset the processor state to what it
+		was just before the instruction executed).
+	<li> The faulting process is scheduled to run, and the OS returns
+		to the assembly code that called it (step 2 above).
+	<li> The assembly routine reloads the saved registers and other
+		state information before returning to user space to resume
+		execution.
+	</ol>
+<li> Instruction Backup
+	<ol>
+	<li> Since instructions can extend over page boundaries
+		the second (or third) part of an instruction may not be in
+		memory and thus generated the page fault.
+	<li> The value of the program counter at the time of fault could be
+		at the beginning of this instruction, at the beginning of the
+		next instruction, or somewhere in-between. This depends on
+		the CPU (and varies between instructions for the same CPU
+		model).
+	<li> On some CPUs this would require undoing anything that the
+		first part of the instruction did.
+	<li> Sometimes there is hardware support to assist with these issues,
+		but not always.
+	</ol>
+<li> Locking Pages in Memory
+	<ol>
+	<li> Suppose that a process started a DMA from disk
+		for reading a file.  The requesting process has
+		blocked, but the next process may generate a 
+		page fault.  You wouldn't want the page the DMA
+		goes to to be the page chosen for replacement!
+	<li> Besides causing the page fault generating process
+		an obvious problem, this type of situation can
+		also violate security if the DMA was of sensitive
+		information!
+	<li> One way to solve this problem is to have the
+		device driver lock the page down (<em>pinning</em> it in
+		memory), until the DMA is complete.
+	</ol>
+<li> Backing Store
+	<ol>
+	<li> Reserve room in a special "swap" area on disk (usually separate
+		from other files).
+	<li> The swap area on disk is used to store process information that
+		isn't currently in memory.
+	<li> There are two basic approaches:
+		<ol>
+		<li> Allocate space for the entire process in the swap area.
+			<ol>
+			<li> Each process is assigned a free chunk of space
+				that can hold its core image (e.g., code,
+				static variables, constants, and some space
+				for the run-time stack and heap allocations).
+			<li> The location of the swap area is stored in the
+				process table.
+			<li> Initialize the swap area (e.g., by copying the
+				core image into the swap area and using demand
+				paging to have pages loaded into physical
+				memory).
+			<li> As the run-time stack grows, the disk chunk for
+				this process may need to "grow" (or more likely,
+				the process copied to a larger chunk).
+			<li> Separate allocations for the code, static
+				variables, and constants vs the run-time and
+				heap can help (the former generally being
+				fixed in size).
+			</ol>
+		<li> Allocate space in the swap area only for pages not
+			currently in physical memory.
+			<ol>
+			<li> This reduces the amount of swap space needed.
+			<li> It also solves the process growth problem,
+				since swap space pages can be "allocated"
+				as needed.
+			<li> This requires a disk map in physical memory to
+				keep track of where each virtual address
+				space page is on disk (if it's not in a
+				physical memory page frame).
+			</ol>
+		</ol>
+	</ol>
+<li> Policy vs Mechanism Separation
+	<ol>
+	<li> Just as we saw with process scheduling, it's possible to separate
+		recognizing and handling page faults from the task of selecting
+		and loading pages.
+	<li> Memory management is composed of (in Mach):
+		<ol>
+		<li> Low-level MMU handler
+			<ol>
+			<li> The MMU handler is machine dependent code written
+				in assembler.
+			<li> Raises the page fault.
+			<li> Remaps loaded page into faulting processes
+				address space at the correct location.
+			</ol>
+		<li> Page fault handler in the kernel
+			<ol>
+			<li> The page fault handler is machine independent.
+			<li> If a new page is needed, sends a message to the
+				external pager.
+			<li> When notified by the external pager that the
+				page is available, the handler unmaps that
+				page from the external pager's address space
+				and asks the MMU to remap it to the address
+				space of the faulting process (which can then
+				restart).
+			</ol>
+		<li> External pager running in user space
+			<ol>
+			<li> The external pager sets up the process' page map
+				and allocates backing store (if needed).
+			<li> Mapping new objects into the address
+				space is done by the external pager too.
+			<li> Loads pages from disk into a portion of the
+				external pager's own address space (buffer).
+			</ol>
+		</ol>
+	<li> The page replacement algorithm:
+		<ol>
+		<li> It would be nice to have the external pager picking the
+			page to replace, but this requires access to the page
+			table R and M bits (and perhaps other information)
+			making it problematic to run in user space.
+		<li> This could be accomplished by sharing the page frame
+			containing these bits (as a separate side table to
+			the process table) with the kernal having read/write
+			access and the external pager having only read access.
+		</ol>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_32.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

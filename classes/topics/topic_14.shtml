@@ -1,0 +1,88 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- IPC: Sleep and Wakeup
+</p>
+
+<ol>
+<li> "sleep" and "wakeup" are system calls.  "Wakeup" takes an address
+	of a function which indicates which process to awaken.
+<li> The producer-consumer problem (aka bounded-buffer problem)
+<pre><code>
+	#define N 100
+	int count = 0;
+
+	void producer() {
+		while (1) {
+			ITEM item = produceItem();
+			if (N == count) sleep();
+			insertItem(item);
+			count++;
+			if (1 == count) wakeup(consumer);
+		}
+	}
+
+	void consumer() {
+		while (1) {
+			if (0 == count) sleep();
+			item = removeItem();
+			count--;
+			if (N - 1 == count) wakeup(producer);
+			consumeItem(item);
+		}
+	}
+</code></pre>
+<li> sleep and wakeup allow strict alternation to be implemented
+	without the overhead of busy waiting.
+<li> Unless strict alternation is used, a race condition still
+	exists between the producer and consumer over the "count"
+	variable.  The above code allows them
+	both to sleep forever --- if the consumer sees a count of
+	0, then gets interupted, the producer puts items in the
+	buffer, wakes up the consumer and eventually goes to sleep
+	itself.  Unfortunately, since the consumer wasn't asleep
+	yet, the wakeup is lost, so when the consumer really does
+	go to sleep (because of the 0 count), it will sleep forever
+	(provided the producer added N items before the consumer
+	went to sleep).
+<li> The above problem arises because wakeup signals sent to a
+	process that is NOT asleep are lost.  A waiting bit can
+	be added to keep from losing the wakeup signal, but
+	examples can always be constructed that need one more such bit.
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_14.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

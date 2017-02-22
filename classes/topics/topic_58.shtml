@@ -1,0 +1,150 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Insider Attacks
+</p>
+
+<ol>
+<li> Insider attacks differ from other attacks in that the attacker has
+	specialized knowledge of, and access to, the environment.
+<li> Logic Bombs
+	<ol>
+	<li> While these may "explode" after the person has left the company,
+		they are implemented while they are still an employee (and
+		are generally intended either as insurance against being
+		unemployed, or revenge at having been "let go"). 
+	<li> A program is designed to create havoc either:
+		<ol>
+		<li> at a particular pre-programmed time (time bombs);
+		<li> when it fails to receive a heartbeat
+			(i.e., a deadman switch), probably in the form of
+			an entered password; or
+		<li> upon the occurrence of an observable event (e.g., the
+			employee's name fails to appear in the payroll).
+		</ol>
+	<li> A bomb's actions can take many forms:
+		<ol>
+		<li> Removal of (or changes to) random files;
+		<li> Subtle changes in important programs;
+		<li> Encryption of key data (often for purposes of
+			extortion).
+		</ol>
+	<li> If revenge is the goal, insider knowledge can enable random
+		changes to data over a period of time so the "good data"
+		on backups will slowly be replaced. It may be possible that
+		the issue won't be discovered until the backups contain
+		a significant amount of the corrupted data, making an
+		effective recovery nearly impossible. NOTE: This is another
+		excellent reason why keeping backups for a longer period of
+		time is crucial.
+	</ol>
+<li> Back Doors
+	<ol>
+	<li> Most often this takes the form of a special login that is
+		checked separately from normal processing - thus ensuring
+		that those that know about it can always gain access to the
+		system.
+	<li> This doesn't have to be a login, it can also take the form of
+		special commands that enable access above and beyond what
+		would normally be available.
+	<li> In a more subtle way, back doors can take the form of
+		intentionally introduced software weaknesses (bugs).
+		<ol>
+		<li> Such bugs could be exploited using the techniques discussed
+			in the <a href="/eckart/classes/cpsc3125/topics/topic_57.shtml">previous topic</a>.
+		<li> These bugs can be <em>extremely</em> subtle. The
+			introduction of a weakness in a
+			<a href="https://en.wikipedia.org/wiki/Dual_EC_DRBG">random bit generator</a>
+			by the NSA is an excellent example.
+		</ol>
+	</ol>
+<li> Spoofing
+	<ol>
+	<li> Unlike a back door attack, spoofing often doesn't require any
+		special privileges or access.
+	<li> Login spoofing involves an ordinary user creating a program that
+		looks just like the normal login screen:
+		<ol>
+		<li> The program prompts for the logname and password
+			(remembering them for later use); and
+		<li> Then the program kills itself, starting the REAL login
+			screen. The user thinks they made a typo and logs in
+			again, none the wiser.
+		</ol>
+	<li> Web browser pop-ups can spoof a system message about having
+		found a problem (e.g., virus).
+		<ol>
+		<li> Such messages often seem to be about selling you a
+			product, but it doesn't really have to stop there and
+			clicking them can download malicious software (more
+			often as part of a trojan horse attack).
+		<li> While a reasonable inspection can often thwart such
+			attempts, enough people are either caught off-guard or
+			cannot discern the differene that such attacks are
+			successful.
+		</ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Phishing">Phishing</a>
+		attacks (often via email, but can also occur via voice
+		calls, texts, etc) are an attempt to glean information from
+		someone by pretending that the sender is a legitimate
+		representative of an organization that the
+		receiver does business with. Phishing attacks on social
+		networks can have success rates as high as 70%.
+	<li> Spoof attacks (particularly phishing attacks) are some of the
+		most difficult to defend against.
+		<ol>
+		<li> User education is currently the best general defense; but
+		<li> Socially based spoofs prey upon our desire to help other
+			people, and people are often the weakest link in any
+			security system.
+		</ol>
+	</ol>
+<li> Defending against insider attacks generally requires a
+	organizational/social solution:
+	<ol>
+	<li> Separation of duties - so that one person doesn't have control
+		over too much (enabling them to pull off the attack by
+		themselves).
+	<li> Code reviews - with more eyes on what's being done, it's harder
+		to sneak in an obvious problem.
+	<li> Rotation of personel - makes it harder to collude with someone
+		else to accomplish an attack if an attacker is never certain
+		who they might be working with (or depending on).
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_58.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

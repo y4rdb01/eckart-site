@@ -1,0 +1,207 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Structures & the Heap
+</p>
+
+<ol>
+<li> Struct and Typedef
+	<ol>
+	<li> Provide a means for grouping different kinds of data together.
+		In other languages these are known as records (similar to
+		classes in Java but without methods or inheritance):
+<pre><code>
+	struct person_rec {
+		char *lastName, *firstNames;
+		int birthYear, birthMonth, birthDate;
+	};
+
+	void function() {
+		struct person_rec p;	// "p" is a variable of type "struct person".
+		p = { "Moose", "Bullwinkle J.", 1959, 11, 19 };	// Values are assigned in order.
+		printf("Last name: %s\nFirst names: %s\nBorn: %d-%d-%d\n",
+			p.lastName, p.firstNames,
+			p.birthYear, p.birthMonth, p.birthDate);
+	}
+</code></pre>
+	<li> However having to use the <em>struct</em> keyword when using
+		"person" is inconvenient. Declaring the structure as a
+		type enables it to be used in the familiar manner:
+<pre><code>
+	typedef struct person_rec person;
+
+	typedef struct { float x, y; } point;
+</code></pre>
+		So now "person" and "point" can be used to declare variables
+		just as you would with the primitive types (e.g., "person p;").
+	<li> For many data structures, like linked lists, it is necessary to
+		have a reference to itself. This can be accomplished via:
+<pre><code>
+	typedef struct list_node {
+		int data;
+		struct list_node *next;
+	} *list;
+</code></pre>
+		This defines "list" as a type that is a pointer to
+		"struct list_node" which itself contains pointers to
+		"struct list_node" so that chains of nodes can be created.
+	</ol>
+<li> Malloc, sizeof, and free.
+	<ol>
+	<li> The above illustrates how to declare a recursive type that
+		can be used to create linked lists (and by extension,
+		any dynamic structure such as trees and graphs).
+	<li> Use the "malloc" function to allocate space from the heap.
+<pre><code>
+	#include &lt;stdio.h>
+	int main(int argc, char* argv[]) {
+		int *x = (int*) malloc(sizeof(int));
+		*x = 3;
+		printf("The number %d is stored in the heap at address %u\n",
+			*x, x);
+		free(x);	// Return the storage pointed to by "x" to the heap.
+		return 0;
+	}
+</code></pre>
+		Note that the argument to "malloc" indicates the amount of
+		space (in bytes) to allocate from the heap. Furthermore,
+		the pointer returned by "malloc" should be cast to the type
+		of the object that will be assigned ("int *" in this case).
+	</ol>
+<li> Putting it all together - the following example takes two optional
+	command line arguments. If only one is given, it is the name of the
+	file in which to find the input. If two are given, the first is the
+	name of the input file and the second is the name of the output file.
+	If no command line arguments are given, then input comes from "stdin"
+	and output goes to "stdout". The program reads the input line by line
+	(each line is no more than 80 characters long) and writes the lines
+	in reverse order to the output (so the last line of input appears
+	first in the output, though the characters in the line itself appear
+	in the same order).
+<pre><code>
+	#include &lt;stdio.h>
+	#include &lt;stdlib.h>
+
+	#define SIZE 80
+
+	typedef struct list_node {
+		char line[SIZE];
+		struct list_node *next;
+	} *list;
+
+	// Create a linked list with each node holding a single line of input text.
+	list readLines(FILE *file) {
+		list text = NULL, first = NULL;
+		int c;
+		while ((c = getc(file)) != EOF) {
+			int i = 0;
+
+			// Read a line of text.
+			list new = (list) malloc(sizeof(struct list_node));
+			if (text != NULL) {
+				text->next = new; // "text->next" is equivalent to "(*text).next"
+			}
+			text = new;
+			if (first == NULL) first = text;
+			do {
+				text->line[i++] = c;
+			} while ((c = getc(file)) != '\n' && c != EOF); 
+			text->line[i] = '\0'; // Ensure the lines are null terminated.
+		}
+		return first;
+	}
+
+	// Use recursion to print the last node in the chain first.
+	void writeLines(FILE *file, list text) {
+		if (text) {
+			writeLines(file, text->next);
+			fprintf(file, "%s\n", text->line);
+		}
+	}
+
+	// Recursively delete the list.
+	void deleteList(list text) {
+		if (text) {
+			deleteList(text->next);
+			free(text);
+		}
+	}
+
+	int main(int argc, char* argv[]) {
+		FILE *input = stdin, *output = stdout;
+
+		// Process the command line arguments. Remember that the command
+		// itself counts as the first argument.
+		if (argc == 2) {
+			input = fopen(argv[1], "r"); // open 1st argument for reading.
+		} else if (argc == 3) {
+			input = fopen(argv[1], "r"); // open 1st argument for reading.
+			output = fopen(argv[2], "w"); // open 2nd argument for writing.
+		} else if (argc > 3) {
+			fprintf(stderr, "%s: Too many arguments.\n", argv[0]);
+			return 1;
+		}
+
+		// Read and reverse the lines of text.
+		list lines = readLines(input);
+		fclose(input);
+		writeLines(output, lines);
+		fclose(output);
+
+		// Deallocate the linked list.
+		deleteList(lines);
+
+		return 0;
+	}
+</code></pre>
+<li> Exercise/Demonstration:
+	<blockquote>
+	Write a C program that reads "words" (contiguous groups of
+	non-whitespace characters) from standard input and prints out
+	the unique occurences of each word (one per line) in the order
+	seen. If the command line argument "-c" is given, then each
+	word in the output will be preceeded by the number of times
+	that it occurred in the input.
+	<br/>
+	<br/>
+	<strong>NOTE:</strong> Use an array to retieve words (assuming
+	that no word is longer than 64 characters long). Use a linked
+	list to store the sequence of words (and their associated counts).
+	</blockquote>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_09.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

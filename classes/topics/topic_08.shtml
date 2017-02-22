@@ -1,0 +1,184 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- C: Pointers & Arrays
+</p>
+
+<ol>
+<li> Arrays
+	<ol>
+	<li> A simple array declaration indicates the element type, array
+		size, and the name of the array. Note that the first element
+		of an array is at index 0 (so the last is at the location
+		1 less than the size of the array).
+<pre><code>
+	// Use array to remember input and determine if it is NOT a palindrome.
+	#define SIZE 80
+	int length = 0, i;
+	char letters[SIZE];
+	while ((letters[length++] = getchar()) != EOF);
+	letters[length] = '\0';		// Strings should be null terminated.
+	for (i = 0; i < length/2; i++)
+		if (letters[i] != letters[length - 1 - i])
+			printf("Sorry, '%s' is NOT a palindrom.", letters);
+</code></pre>
+	Note the use of "#define SIZE 80" above. This is not a statement
+	within C, but instead leverages the C preprocessor (cpp) to substitute
+	"80" for occurrences of the token "SIZE" in the program code.
+	<li> C doesn't bounds check array references, so it's up to the
+		programmer to keep careful track of this. A consequence of
+		this is that strings (which are just arrays of char) use
+		null character termination to indicate the end of a string,
+		otherwise functions like "printf" wouldn't know when to
+		stop when printing a string. 
+	<li> Thus, it is possible to reference "letters[-1]" and "letters[SIZE]"
+		in the above example (corresponding to the position just before
+		and just after the storage actually allocated for the
+		"letters" array). Depending on the compiler, "letters[-1]"
+		may actually reference part of the storage for "length", and
+		"letters[SIZE]" may reference part of the storage for "i".
+		Such errors can be easy to make (and overlook) so be careful.
+		Doing this on purpose will almost certainly give different
+		results on different systems, so the code won't be portable.
+	</ol>
+<li> Pointers
+	<ol>
+	<li> A pointer is simply the memory address of where a particular
+		value can be found.
+<pre><code>
+	int *x;			// Declare "x" to point to the location of an "int" value.
+	printf("%d", *x);	// Follow the pointer "x" and retrieve the "int" value it points to.
+</code></pre>
+	<li> In C, an array name (e.g., "letters" in the above example) is
+		a pointer to a block of values. Since C doesn't maintain
+		knowledge about the size of arrays, the type "char letters[42];"
+		is the same as "char letters[];" which is the same as
+		"char *letters;". However, while the first case allocates
+		storage for 42 characters, the second doesn't allocate any
+		space, but the name "letters" refers to a memory
+		location/address, while the last one allocates space to store
+		the memory address (pointer) to a character but doesn't set
+		aside any space for the character itself.
+	<li> The "strcpy" (string copy) function (use "#include <stdlib.h>")
+		is an excellent example of this dual nature of arrays:
+<pre><code>
+	char *strcpy(char *dest, const char *src) {
+		char *save = dest;
+		while(*dest++ = *src++);
+		return save;
+	}
+
+	int main(int argc, char* argv[]) {
+		char name[80];
+		strcpy(name, "Hello World!");
+		printf("%s\n", name);
+		return 0;
+	}
+</code></pre>
+		Notice that a "char*" (char pointer) is used instead of an
+		array in the delcaration and implementation of "strcpy",
+		yet an array is passed when it was called. Furthermore,
+		the "while" loop within "strcpy" doesn't index an array
+		but increments the pointer. C automatically increments the
+		pointers by the size of the "base" type (char) to get to the
+		next item - just as going to the next index in the
+		corresponding array would.
+	<li> Recall that the declaration for the "main" function of our
+		programs includes an array of pointers to char (holding
+		the values for any passed command line arguments). The
+		following prints each of the command line arguments.
+<pre><code>
+	int main(int argc, char* argv[]) {
+		int i;
+		for (i = 0; i < argc; i++) {
+			printf("argv[%d] = '%s'\n", i, argv[i]);
+		}
+		return 0;
+	}
+</code></pre>
+	</ol>
+<li> The Address Operator 
+	<ol>
+	<li> It is sometimes necessary to get the address of a variable
+		(array location, or some other item) in order to accomplish
+		a particular task. For example, strings are represented as
+		a character pointer, so how would you print a substring
+		(e.g., part of an array of char)?
+	<li> C has a special operation, denoted by "&" that returns the
+		address of the specified item.
+<pre><code>
+	int x = 3;
+	int *y = &x; // "y" holds the address of the variable "x" (not 3).
+	printf("Memory address %u holds the value %d\n", y, *y);
+</code></pre>
+	<li> Coming back to the string example, suppose an array
+		of characters holds a line of text read from intput (stdin).
+		Spaces separate the various text segments, and each
+		segment should be printed on a separate line of output
+		(stdout). The code might look like:
+<pre><code>
+	#include &lt;stdio.h>
+
+	#define SIZE 80
+
+	/* Read a single line of input from stdin. Note that if the line is
+	   too long then the array bounds could be exceeded.
+	*/
+	void read(char text[]) {
+		while ((*(text++) = getchar()) != '\n');
+		*(--text) = '\0';   // replace '\n' to null terminate the string.
+	}
+
+	int main(int argc, char *argv[]) {
+		char line[SIZE], *previous;
+		int i;
+		read(line);
+		for (i = 0, previous = line; line[i]; i++) {
+			if (line[i] == ' ' || line[i] == '\0') {
+				line[i] = '\0';
+				printf("'%s'\n", previous);
+				previous = &line[i+1];
+			}
+		}
+		printf("'%s'\n", previous);
+		return 0;
+	}
+</code></pre>
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_08.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

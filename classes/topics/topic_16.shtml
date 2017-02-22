@@ -1,0 +1,104 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- IPC: Monitors
+</p>
+
+<ol>
+<li> Introduced by Per Brinch Hansen (1973) and C. A. R. Hoare (1974).
+<li> Monitors were designed to be easier/safer to use than
+	semaphores and event counters.  They are collections of
+	subprograms grouped together into a module (and thus are
+	a programming language concept).  Mutual
+	exclusion is provided by allowing only one process to be
+	active in the monitor at a time.
+<li> Programming languages that support modules, packages and classes 
+	can be easily adapted (syntactically anyway) to allow
+	monitors to be easily written.
+<li> The <em>synchronized</em> capability of Java, is used to ensure
+	that a particular object (i.e., class instance) only has
+	one of its <em>synchronized</em> methods (or code blocks)
+	active at any one time (for that object). The receiving object
+	is the locus of "control".
+<pre><code>
+	public class Library {
+		private List<Book> stack = new ArrayList<Book>();
+
+		public synchronized void bookReturn(Book bk) {
+			stack.add(bk);
+		}
+
+		public synchronized void bookCheckOut(Book bk) {
+			stack.remove(bk);
+		}
+	}
+</code></pre>
+<li> NOTE: The book's example (on page 142) is long and complex
+	looking because it includes the creation of the threads as
+	well as the buffer implementation, neither of which were
+	present in the earlier producer-consumer example solutions.
+	Stripping away this "boilerplate" and keeping it more similar
+	to what we had previously:
+<pre><code>
+	class BoundedBuffer {
+		private ITEM buffer[N];
+
+		public synchronized void insertItem(ITEM item) { ... }
+		public synchronized ITEM removeItem() { ... }
+	}
+
+	class ProducerConsumer {
+		private BoundedBuffer buffer = new BoundedBuffer();
+
+		public void producer() {
+			while (true) {
+				ITEM item = produceItem();
+				buffer.insertItem(item);
+			}
+		}
+
+		public void consumer() {
+			while (true) {
+				ITEM item = buffer.removeItem();
+				consumeItem(item);
+			}
+		}
+	}
+</code></pre>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_16.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+

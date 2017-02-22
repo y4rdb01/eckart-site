@@ -1,0 +1,203 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Operating Systems (CPSC 3125)
+	- Processes and System Calls
+</p>
+
+<ol>
+<li> Pseudoparallelism - the illusion that multiple processes are
+	running at the same time. Is achieved by having a single
+	processor rapidly switching between processes. Sharing a
+	processor in this fashion reduces the time the CPU spends
+	waiting (e.g., for slow disk access) without doing anything
+	useful.
+
+<li> The Process Model
+	<ol>
+	<li> The rapid switching of the CPU between processes is
+		called multiprogramming.
+	<li> A process is a program in execution. There is an important
+		though subtle difference between the two (e.g., programs are to
+		recipes as processes are to baking).
+	<li> Programs sometimes are written that need to meet time
+		critical requirements, these programs must
+		run in real-time (so named because the process
+		is constrained by what happens in the real-world).
+	</ol>
+<li> Process Creation & Termination
+	<ol>
+	<li> Processes can be created by one of the following:
+		<ol>
+		<li> System initialization/start-up
+		<li> Process creation system call (by existing process)
+		<li> User request (really a special case of #2 above)
+		<li> Initiation of a batch job (also a special case of #2)
+		</ol>
+	<li> Existing processes can be viewed by:
+		<ol>
+		<li> ps (Unix/Linux/Posix)
+		<li> task manager (Windows)
+		</ol>
+	<li> Process terminate for the following reasons:
+		<ol>
+		<li> Normal exit (voluntary)
+		<li> Error exit (voluntary)
+		<li> Fatal error (INvoluntary)
+		<li> Killed by another process (INvoluntary)
+		</ol>
+	</ol>
+<li> Process Hierarchies
+	<ol>
+	<li> In Unix/Linix the init/boot process is pid 0, it start all other
+		processes (including those associated with terminals,
+		called gettys, which in turn start logins, etc).
+	<li> In (Ubuntu) Linux we have:
+		<pre>
+                % ps -e
+		  PID TTY          TIME CMD
+		    1 ?        00:00:00 init
+		    2 ?        00:00:00 kthreadd
+		    3 ?        00:00:00 ksoftirqd/0
+		    4 ?        00:00:00 kworker/0:0
+		    5 ?        00:00:00 kworker/0:0H
+		    6 ?        00:00:00 kworker/u8:0
+		    7 ?        00:00:00 rcu_sched
+		    8 ?        00:00:00 rcuos/0
+		    9 ?        00:00:00 rcuos/1
+                            ...
+		 2867 ?        00:00:00 ubuntuone-login
+		 2882 ?        00:00:00 python
+		 2910 ?        00:00:00 xterm
+		 2913 pts/0    00:00:00 bash
+		 2971 pts/0    00:00:00 script
+		 2972 pts/0    00:00:00 script
+		 2973 pts/1    00:00:00 bash
+		 3030 pts/1    00:00:00 ps
+		</pre>
+	</ol>
+<li> <a href="https://en.wikipedia.org/wiki/Process_state">Process States</a>
+<a href="http://www.technologyuk.net/computing/operating_systems/process_management.shtml"><img src="/eckart/classes/cpsc3125/topics/content/ProcessStateDiagram.gif" alt="Process state diagram" width="400" height="250" style="float: right" /></a>
+	<ol>
+	<li> Running - process actively using CPU
+	<li> Blocked - unable to run until some event occurs
+	<li> Ready - runnable, waiting for the CPU to be available
+	<li> Transitioning between Process States
+		<ol>
+		<li> Four possible transitions between these:
+			<ol>
+			<li> running -> blocked
+			<li> running -> ready
+			<li> ready -> running
+			<li> blocked -> ready
+			</ol>
+		<li> Transitions 2 and 3 are done by the scheduler
+		<li> Transition 4 occurs on receipt of an event (i.e., signal)
+		<li> Thus the scheduler really forms the core of the OS
+			with processes doing the work.  (Under this view,
+			the scheduler also handles signals and interprocess
+			communication).
+		</ol>
+	</ol>
+<li> Implementation of Processes
+	<ol>
+	<li> The <em>process table</em> is an array of structures, each of
+		which corresponds to a unique process and ALL of its
+		associated information!
+	<li> Process table entries are divided into 3 portions, 1 each
+		for process, memory, and file management (see page 95)
+	<li> Low (fixed) addresses in memory typically contain
+		<em>interrupt vectors</em> which
+		point to interrupt service procedures.  A hardware
+		interrupt places information on the stack and jumps
+		to the appropriate interrupt service procedure.  From 
+		then on, it is up to the software.
+	</ol>
+<li> System calls are often implemented in assembly since they may
+	deal with hardware specific issues.  They invariablly
+	return a condition code indicating the relative success
+	of the call.
+<li> POSIX System Calls for Process Management
+	<ol>
+	<li> <a href="http://www.unix.com/man-page/posix/0/fork/">fork</a>
+		- is the only way to create a new process, and does
+		so by making a copy of the current one.  The result
+		returned is 0 if this is the child and the pid
+		of the child if this is the parent.
+	<li> <a href="http://www.unix.com/man-page/posix/0/waitpid/">waitpid</a>
+		- causes the parent to suspend execution until the
+		child process has terminated.  It also provides
+		the exit status of the child process.
+	<li> <a href="http://www.unix.com/man-page/posix/0/execve/">execve</a>
+		- replace the current process with a new one.  This
+		is one of the most complex calls.
+	<li> <a href="http://www.unix.com/man-page/posix/3/exit/">exit</a>
+		- causes the process to halt and return the specified
+		exit status (0-255).
+	<li> <a href="http://www.unix.com/man-page/posix/3/getpid/">getpid</a>
+		- returns the caller's process ID (pid).
+	</ol>
+<li> System Calls for Signaling
+	<ol>
+	<li> Signals are the software counterpart to hardware interrupts.
+	<li> If some signals are not "handled" then the receiving process dies.
+	<li> Signals can be sent from the keyboard (e.g. DEL) or by using the
+		<a href="http://www.unix.com/man-page/posix/3/kill/">kill</a>
+		call (used by
+		<a href="http://www.unix.com/man-page/posix/1/kill/">kill</a>
+		program).
+	<li> Signals can also be sent by the
+		<a href="http://www.unix.com/man-page/posix/3/alarm/">alarm</a>
+		call, which sends a sigalrm after the specified number of
+		seconds.
+	<li> The
+		<a href="http://www.unix.com/man-page/posix/3/signal/">signal</a>
+		call indicates that the process is willing to accept the named
+		signal.  If the signal is received, then the indicated handler
+		function is called.
+			<ol>
+			<li> Signal handlers are usually short.
+			<li> After the a signal is caught, signal catching
+				must be re-enabled with another signal call.
+			</ol>
+	<li> The use of the
+		<a href="http://www.unix.com/man-page/posix/3/pause/">pause</a>
+		call, places the process in the blocked queue (not running).  It
+		will go in the ready queue when a signal is received.
+	</ol>
+<li> Test your understanding of the above by answering these
+	<a href="/eckart/classes/cpsc3125/questions/questions_10.html">self-assessment questions</a>.
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc3125" style="float: right">CPSC 3125</a>
+</em>
+
+</body>
+</html>
+
