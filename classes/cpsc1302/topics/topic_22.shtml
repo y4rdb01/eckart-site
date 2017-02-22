@@ -1,0 +1,98 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Object Oriented Design (OOD)
+</p>
+
+<ol>
+<li> Class and method discovery: Nouns and action verbs from from the problem
+	statement (requirements) are excellent first candidates for the
+	classes and methods your ultimate solution might need. You won't
+	necessarily use all the classes (and methods) suggested by this
+	approach (and you might need additional ones) - but it's a good
+	starting point.
+<li> 5 key concepts of object-oriented design:
+	<ol>
+	<li> Object/Class: A tight coupling/association of data with the
+		methods that act on it. Each instance of a class (i.e., object)
+		is defined by its properties and what it can do.
+	<li> Information hiding: The ability to protect (hide) details of the
+		implementation (information) from external users of the object.
+	<li> Inheritance: A classes ability to extend and/or override
+		functionality of another class.
+	<li> Interface: Describes the actions (methods) of a "class" of
+		"objects" without providing an immediate implementation.
+	<li> Polymorphism: The ability to have a single variable or parameter
+		take on a variety of (object) values of different types
+		(classes). Usually accomplished through the superclass of
+		subclasses.
+	<li> NOTE: Programming languages that "build in" the above are
+		object-oriented programming languages. Languages that
+		"build in" only the first two are called object-based.
+	</ol>
+
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+
+<li> CRC card method: Classes, Responsibilities, and Collaborators
+	<ol>
+	<li> For each class (suggested by nouns) write the name on
+		separate index cards (or slips of paper).
+	<li> For each method (suggested by verbs) write the name
+		on the class index card that should be responsible for
+		that action. These responsibilities should be at a high
+		level and their number kept small (no more than about 5).
+	<li> If the class will need assistance in performing
+		the action, write the names of the assisting classes
+		(collaborators) on the right hand side of the card.
+	<li> To ensure that you have responsibilities and collaborators
+		correct, talk through how the responsibilities would be
+		done (not in code, but in English). Do the actions mostly
+		use information and capabilities from the class represented
+		by the card, or from another source (perhaps the responsibility
+		belongs to a collaborator instead).
+	</ol>
+	Sample CRC card;
+	<table style="text-align: center; margin: auto">
+	<tr><th colspan="2">ClassName</th></tr>
+	<tr><td>Responsibility #1</td><td>Collaborator #1</td></tr>
+	<tr><td>Responsibility #2</td><td>Collaborator #2</td></tr>
+	<tr><td>Responsibility #3</td><td></td></tr>
+	<tr><td>Responsibility #4</td><td></td></tr>
+	</table>
+
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

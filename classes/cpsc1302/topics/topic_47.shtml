@@ -1,0 +1,79 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Mutual Recursion
+</p>
+
+<ol>
+<li> What is it? How do you know you have it?
+	<ol>
+	<li> Create a diagram with each different method represented 
+		by a single labeled circle (or box).
+	<li> Draw arrows between the labeled circles so that if "f"
+		calls "g", then draw the arrow from circle "f" to
+		circle "g". Even draw an arrow from a circle to itself
+		if the function calls itself.
+	<li> If there is a cycle (a directed path that comes back onto
+		itself) in this graph, then the functions along that
+		path participate in a recursion.
+	<li> If there is only one function in the path, that's
+		"self recursion".
+	<li> If there are two or mroe functions in the path, that's
+		"mutual recursion".
+	</ol>
+<li> An unrealistic, but simple example of mutual recursion:
+<pre><code>
+boolean isEven(int n) {
+	if (n == 0) {
+		return true;
+	} else {
+		return is_odd(n - 1);
+	}
+}
+ 
+boolean isOdd(int n) {
+	if (n == 0) {
+		return false;
+	} else {
+		return is_even(n - 1);
+	}
+}
+</code></pre>
+
+<li> A more realistic (and common) example of mutual recursion
+	is for recognizing programming language constructs
+	(recursive descent parsing).
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

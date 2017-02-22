@@ -1,0 +1,220 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Randomness
+</p>
+
+<ol>
+<li> The class "Random" (in the <em>java.util</em> package) enables a sequence
+	of pseudorandom values to be generated.
+<li> An initial "seed" can be used to change the pseudorandom sequence generated.
+<li> Here's the implementation of classes that generate a shuffled deck of
+	52 playing cards.
+<code><pre>
+import java.io.*;
+import java.util.*;
+
+/**
+ * One of the 52 playing cards in a deck of cards.
+ */
+class Card {
+	public enum Suit { Heart, Diamond, Club, Spade }
+	public enum Rank { Ace, Two, Three, Four, Five, Six, Seven, Eight,
+				Nine, Ten, Jack, Queen, King }
+
+	// Keep these private so that they can't be changed.
+	private Suit suit;
+	private Rank rank;
+
+	/**
+	 * Creates a new card of the indicated suit and value/rank.
+	 *
+	 * @param suit is the suit of the card.
+	 * @param rank is the value of the card.
+	 */
+	public Card(Suit suit, Rank rank) {
+		this.suit = suit;
+		this.rank = rank;
+	}
+
+	/**
+	 * Returns the suit of the card.
+	 *
+	 * @return the suit of the card.
+	 */
+	public Suit getSuit() {
+		return suit;
+	}
+
+	/**
+	 * Returns the value/rank of the card.
+	 *
+	 * @return the value/rank of the card.
+	 */
+	public Rank getRank() {
+		return rank;
+	}
+
+	/**
+	 * Determines if this card matches (same suit as) the passed card.
+	 *
+	 * @return true iff the suits of the two cards match.
+	 */
+	public boolean match(Card card) {
+		return suit == card.getSuit();
+	}
+
+	/**
+	 * Determines if this card beats (higher rank than) the passed card.
+	 *
+	 * @param card is the opponent's card to compare to.
+	 * @return true iff the rank of the this is higher than card.
+	 */
+	public boolean beats(Card card) {
+		return rank.ordinal() > card.getRank().ordinal();
+	}
+
+	/**
+	 * Printable version of the card's suit and rank.
+	 *
+	 * @return String representing the card suit and rank.
+	 */
+	public String toString() {
+		return rank.name() + " of " + suit.name() + "s";
+	}
+}
+
+/**
+ * Represents a complete deck of 52 playing cards.
+ */
+class CardDeck {
+	private ArrayList&ltCard> deck = new ArrayList&ltCard>();
+	private Random randomGen = new Random();
+
+	/**
+	 * Shuffles the deck of cards.
+	 */
+	public void shuffle() {
+		for (int i = 0; i < 1024; i++) {
+			int random = randomGen.nextInt(deck.size());
+			Card card = deck.remove(random);
+			deck.add(card);
+		}
+	}
+
+	/**
+	 * Pick up a card from the top of the deck.
+	 *
+	 * @return the Card from the top of the deck.
+	 */
+	public Card pick() {
+		return deck.remove(0);
+	}
+
+	/**
+	 * Add a card to the bottom of the deck.
+	 *
+	 * @param card is added to the bottom of the deck.
+	 */
+	public void addBottom(Card card) {
+		deck.add(card);
+	}
+
+	/**
+	 * Add a card to the top of the deck.
+	 *
+	 * @param card is added to the top of the deck.
+	 */
+	public void addTop(Card card) {
+		deck.add(0, card);
+	}
+
+	/**
+	 * Returns the top card on the deck without removing it. This is
+	 * helpful for games in which you need to look at the top card in a
+	 * discard pile (e.g., Gin Rummy, Uno).
+	 *
+	 * @return the card on the top of the deck.
+	 */
+	public Card peek() {
+		return deck.get(0);
+	}
+
+	/**
+	 * Determines if a deck is empty or not.
+	 *
+	 * @return true iff there are no more cards in the deck.
+	 */
+	public boolean empty() {
+		return deck.isEmpty();
+	}
+}
+
+/**
+ * Test the Card and CardDeck classes.
+ */
+class ShuffledDeck {
+	/**
+	 * Creates a standard deck of playing cards, shuffles it, then prints
+	 * it out.
+	 *
+	 * @param args is not used.
+	 */
+	public static void main(String args[]) {
+		// Create a deck of cards.
+		CardDeck deck = new CardDeck();
+		for (Card.Suit suit : Card.Suit.values()) {
+			for (Card.Rank rank : Card.Rank.values()) {
+				deck.addBottom(new Card(suit, rank));
+			}
+		}
+
+		// Print out the shuffled deck.
+		deck.shuffle();
+		while (!deck.empty()) {
+			// Note the automatic use of Card.toString()
+			System.out.println(deck.pick());
+		}
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Update the <a href="topic_27.shtml">RPSgame</a> so that the
+		computer's move is randomly generated.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

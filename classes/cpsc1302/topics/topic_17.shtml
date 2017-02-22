@@ -1,0 +1,74 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Imports &amp; Packages
+</p>
+
+<ol>
+<li> Importing Packages
+	<ol>
+	<li> "import java.util.Math;" imports a single class (Math).
+	<li> "import java.util.*;" imports all the classes within the package
+		(java.util).
+	<li> "import static java.util.Math.*;" imports a single class (Math) -
+		so how does it differ from "import java.util.Math;"?
+		[Hint: less typing to use "public static" members.]
+	</ol>
+<li> Static imports (e.g., import static java.lang.Math.*;) enable you to use
+	the static methods and variables without the fully qualified package
+	name (e.g., sqrt(4)) - unless required for disambiguation.
+<li> Creating/Declaring Packages
+	<ol>
+	<li> A file should contain a single (top-level) class definition
+	<li> The class can be declared as part of a package by putting the
+		following as the first non-comment within the file:
+		<blockquote>
+			package <em>packageName</em>;
+		</blockquote>
+	<li> The class file must be in a directory that matches the packageName.
+		So the classes in the package "edu.cpsc1302.assign1" should be
+		in the directory "edu/cpsc1302/assign1".
+	<li> Notice that package names go from least to most specific
+		categories as read from left to right (the opposite of
+		hostnames in URLs).
+	<li> Organizing your classes into packages allows you to avoid name
+		clashes in your applications. You can have classes of the same
+		name if they are in different packages (and then you can use
+		the fully qualified names to distinguish between them).
+	<li> If you don't explicitly declare a package for the class, then the
+		class is placed in the default package (which has no name).
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

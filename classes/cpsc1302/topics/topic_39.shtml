@@ -1,0 +1,113 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Unhandled Exceptions &amp; Propigation
+</p>
+
+<ol>
+<li> If an uncaught exception is raised/thrown in the "try" block (e.g.,
+	IndexOutOfBoundsException in the above example), then
+	the exception is propigated outward until either an appropriate
+	handler (i.e., "catch" block with matching exception class) is
+	found, or the "main" method is reached and the program
+<pre><code>
+try {
+	...
+	try {
+		...
+		try {
+			...
+			try {
+				...
+				int myArray[10];
+				int i = 20;
+				...
+				System.out.println(myArray[i]);
+				...
+			} catch (NumberFormatException ex) {
+					...
+			}
+			...
+		} catch (IOException ex) {
+			...
+		}
+	} catch (IndexOutOfBoundsException ex) {
+		...
+	}
+} catch (Exception ex) {
+	// If all else fails, then this catches everything.
+	ex.printStackTrace();
+}
+</code></pre>
+
+<li> In addition to being able to nest try-catch blocks (and have exceptions
+	propigate out until a suitable exception handler is found), exceptions
+	can also propigate outside of (beyond) methods:
+<pre><code>
+class ClassA {
+	float myArray[5];
+	public methodA(int amt) {
+		... myArray[amt] ...
+	}
+}
+
+class ClassB {
+	public methodB() {
+		ClassA a;
+		a.methodA(10);
+		...
+	}
+}
+
+class ClassC {
+	static ClassB b;
+	public static void main(String args[]) {
+		try {
+			b.methodB();
+		} catch (Exception ex) {
+			// How did this happen?
+			ex.printStackTrace();
+		}
+	}
+}
+</code></pre>
+
+	If there is <strong>no</strong> handler for the exception, then
+	the exception will propigate outside of "main" and the program
+	will stop and print out a strack trace (whether you want it to
+	or not). So, if it matters to you, make sure your program catches
+	the exception.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

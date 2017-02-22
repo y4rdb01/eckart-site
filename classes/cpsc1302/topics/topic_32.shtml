@@ -1,0 +1,118 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Event Handling
+</p>
+
+<ol>
+<li> Moving from program control (synchronous i/o) to user control
+	(asynchronous user actions).
+<li> Critical for graphical user interfaces (GUIs).
+<li> Event handlers are a type of "callback" (as discussed last week)
+	called listeners.
+<li> Implementation of the callback interface is usually best done as
+	an inner class (so that it can easily access the surrounding
+	variables).
+<li> An Example:
+<code><pre>
+import java.awt.event.*;
+import javax.swing.*;
+
+/**
+ * Two clickable buttons vying for your attention.
+ */
+public class Example {
+        
+	/**
+	 * Creates two buttons that change their text when clicked.
+	 *
+	 * @param args is not used.
+	 */
+        public static void main(String args[]) {
+                final JButton button_1 = new JButton("Click me!");
+                final JButton button_2 = new JButton("or me????");
+
+		/**
+		 * Callback listener for button clicks.
+		 */
+                class MyListener implements ActionListener {
+                        public void actionPerformed(ActionEvent event) {
+                                String tempText = button_1.getText();
+                                button_1.setText(button_2.getText());
+                                button_2.setText(tempText);
+                        }
+                } 
+
+		// Create the panel with 2 buttons.
+		JPanel panel = new JPanel();
+                panel.add(button_1);
+                panel.add(button_2);
+        
+		// Setup the even listener for each button.
+                ActionListener listener = new MyListener();
+                button_1.addActionListener(listener);
+                button_2.addActionListener(listener);
+                
+		// Create the window frame that displays everything.
+                JFrame frame = new JFrame();
+		frame.add(panel);
+		frame.pack();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+        }
+}
+</pre></cdoe>
+
+<li> NOTE: The MyListener class in the above example can only reference
+	"final" variables in the enclosing block/class.
+<li> Alternative, you can also use an anonymous class definition:
+<code><pre>
+button_1.addActionListener(
+	new ActionListener() {
+		public void actionPerformed(ActionEvent event) {
+			String tempText = button_1.getText();
+			button_1.setText(button_2.getText());
+			button_2.setText(tempText);
+		}
+	}
+);
+</pre></code>
+
+<li> The general consensus among many developers is that anonymous inner
+	classes in Java should be short and generally restricted to
+	event handling and runnables - otherwise they tend to make the
+	code unnecessarily complex and difficult to read/understand.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

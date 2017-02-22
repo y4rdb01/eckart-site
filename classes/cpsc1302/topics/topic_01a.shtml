@@ -1,0 +1,285 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- <a href="https://www.cygwin.com/">Cygwin</a> Command Line
+</p>
+
+<ol>
+<li> While you're free to use any IDE installed on the machines in the
+	classroom, I'll demonstrate everything using the Cygwin command line
+	and a basic text editor.
+<li> I would <strong>strongly</strong> recommend avoiding any tools not
+	installed on the machines in the classroom,
+	since they won't be available during your tests.
+<li> Listing Files (and Directories)
+	<ol>
+	<li> <strong>ls</strong> lists the items in the current directory.
+		Using the "-F" option distinguishes files and directories
+		from one another. For example:
+<pre><code>
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302
+$ ls
+academicObjectives.html  questions                   studyQuestions_1.shtml
+assign                   schedule_NEW.html           studyQuestions_2.shtml
+foot.html                schedule_OLD_SPRING.html    studyQuestions_3.shtml
+index.shtml              schedule_SPRING.html        syllabi
+minesweeper              schedule_SUMMER.html        syllabus.shtml
+minesweeper.zip          softwareRequirements.html   topics
+NOTES                    softwareRequirements.shtml
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302
+$ ls -F
+academicObjectives.html*  questions/                   studyQuestions_1.shtml*
+assign/                   schedule_NEW.html*           studyQuestions_2.shtml*
+foot.html*                schedule_OLD_SPRING.html*    studyQuestions_3.shtml*
+index.shtml*              schedule_SPRING.html*        syllabi/
+minesweeper/              schedule_SUMMER.html*        syllabus.shtml*
+minesweeper.zip*          softwareRequirements.html*   topics/
+NOTES*                    softwareRequirements.shtml*
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302
+$
+</code></pre>
+	<li> For both absolute and relative paths, "/" is used to separate
+		different directory (or file) names from one another.
+		<ol>
+		<li> Absolute paths begin with the root directory (denoted by
+			"/") and indicate a location from this single starting
+			point.
+<pre><code>
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/topics
+$ ls -F /home/dana/CSU_html/eckart/classes/cpsc1302
+academicObjectives.html*  questions/                   studyQuestions_1.shtml*
+assign/                   schedule_NEW.html*           studyQuestions_2.shtml*
+foot.html*                schedule_OLD_SPRING.html*    studyQuestions_3.shtml*
+index.shtml*              schedule_SPRING.html*        syllabi/
+minesweeper/              schedule_SUMMER.html*        syllabus.shtml*
+minesweeper.zip*          softwareRequirements.html*   topics/
+NOTES*                    softwareRequirements.shtml*
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/topics
+$
+</code></pre>
+		<li> Relative paths indicate a location starting from the
+			current directory.
+			<ol>
+			<li> "." indicates the current directory (and is not
+				normally used as relative paths start with
+				the current directory); and
+			<li> ".." indicates the parent directory (one up in
+				the hierarchy).
+			</ol>
+<pre><code>
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/topics
+$ ls -F ..
+academicObjectives.html*  questions/                   studyQuestions_1.shtml*
+assign/                   schedule_NEW.html*           studyQuestions_2.shtml*
+foot.html*                schedule_OLD_SPRING.html*    studyQuestions_3.shtml*
+index.shtml*              schedule_SPRING.html*        syllabi/
+minesweeper/              schedule_SUMMER.html*        syllabus.shtml*
+minesweeper.zip*          softwareRequirements.html*   topics/
+NOTES*                    softwareRequirements.shtml*
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/topics
+$ ls -F ../minesweeper
+manifest.txt*    minesweeper.jar*   minesweeper.jnlp*
+MinePatch.java*  MineSweeper.java*
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/topics
+$
+</code></pre>
+		</ol>
+	<li> * (splat) matches 0 or more characters and is a good way of
+		listing a subset of files/directories that have a common
+		pattern to their naming.  For example:
+<pre><code>
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/topics
+$ ls -F ..
+academicObjectives.html*  questions/                   studyQuestions_1.shtml*
+assign/                   schedule_NEW.html*           studyQuestions_2.shtml*
+foot.html*                schedule_OLD_SPRING.html*    studyQuestions_3.shtml*
+index.shtml*              schedule_SPRING.html*        syllabi/
+minesweeper/              schedule_SUMMER.html*        syllabus.shtml*
+minesweeper.zip*          softwareRequirements.html*   topics/
+NOTES*                    softwareRequirements.shtml*
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/topics
+$ ls -F ../*html
+../academicObjectives.html*   ../softwareRequirements.html*
+../foot.html*                 ../softwareRequirements.shtml*
+../index.shtml*               ../studyQuestions_1.shtml*
+../schedule_NEW.html*         ../studyQuestions_2.shtml*
+../schedule_OLD_SPRING.html*  ../studyQuestions_3.shtml*
+../schedule_SPRING.html*      ../syllabus.shtml*
+../schedule_SUMMER.html*
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/topics
+$
+</code></pre>
+	</ol>
+<li> Navigating and Making Directories
+	<ol>
+	<li> The command prompt always indicates where you are in the
+		directory structure. If you are in your default "home"
+		directory it will indicate the location as "~".
+	<li> <strong>cd</strong> changes the current directory (location
+		within the directory structure). For example:
+<pre><code>
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/topics
+$ cd ../minesweeper/
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper
+$ ls
+manifest.txt    minesweeper.jar   minesweeper.jnlp
+MinePatch.java  MineSweeper.java
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper
+$ cd /home/dana/CSU_html/eckart/classes/cpsc1302/minesweeper/
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper
+$ ls
+manifest.txt    minesweeper.jar   minesweeper.jnlp
+MinePatch.java  MineSweeper.java
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper
+$
+</code></pre>
+	<li> <strong>mkdir</strong> creates a new directory. For example:
+<pre><code>
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper
+$ ls
+manifest.txt    minesweeper.jar   minesweeper.jnlp
+MinePatch.java  MineSweeper.java
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper
+$ mkdir TMP
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper
+$ cd TMP
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper/TMP
+$ ls
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper/TMP
+$
+</code></pre>
+	</ol>
+<li> Copying, Renaming, Removing Files (and Directories)
+	<ol>
+	<li> <strong>cp</strong> creates a copy of a file (or directory).
+	<li> <strong>mv</strong> renames a file/directory.
+	<li> <strong>rm</strong> removes a file. The "-r" option can be used
+		to remove a directory and EVERYTHING in that directory. Note
+		the unlike some other systems you may have used, removal is
+		forever. There is no trash can from which you can grab a file
+		you didn't mean to remove. Once you've removed a file, it is
+		gone. [NOTE: Backups and other measures can sometimes recover
+		files/directories that shouldn't have been removed, but there
+		are no guarantees.] Because of this, be VERY careful when
+		removing things as it's easy to make a typo that can be
+		disastrous: "rm this*" is VERY different from "rm this *".
+	<li> For example:
+<pre><code>
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper/TMP
+$ ls
+MyProgram.java
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper/TMP
+$ cp MyProgram.java MyProgram.java.backup
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper/TMP
+$ mv MyProgram.java NewerProgram.java
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper/TMP
+$ ls
+MyProgram.java.backup  NewerProgram.java
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper/TMP
+$ rm MyProgram.java.backup
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper/TMP
+$ ls
+NewerProgram.java
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper/TMP
+$ cd ..
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper
+$ ls
+manifest.txt    minesweeper.jar   minesweeper.jnlp
+MinePatch.java  MineSweeper.java  TMP
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper
+$ rm -r TMP
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper
+$ ls
+manifest.txt    minesweeper.jar   minesweeper.jnlp
+MinePatch.java  MineSweeper.java
+
+dana@nowhere ~/CSU_html/eckart/classes/cpsc1302/minesweeper
+$
+</code></pre>
+	</ol>
+<li> Miscellaneous
+	<ol>
+	<li> Tab completion for commands and file/directory names is a very
+		handy feature that not only saves a good bit of typing, but
+		also shows you what files/directories match the prefix that
+		you've already typed.
+	<li> Use ctl-c (holding the "Ctrl" key down while hitting the "c"
+		key) to kill/abort a running process.
+	</ol>
+<li> Things to try:
+	<ol>
+	<li> Navigate to your home drive (H: on Windows)
+	<li> Make a subdirectory for this class (e.g., cpsc1302_spring_2016)
+	<li> Navigate to the subdirectory for this class and create
+		subdirectories called:
+		<ol>
+		<li> class_practice
+		<li> test_1_practice
+		<li> test_2_practice
+		<li> final_exam_practice
+		</ol>
+	<li> Use the Notepad++ editor to create a file (hello.py),
+		in the class_practice directory you just create,
+		that writes out "Hello World". Run the program
+		(i.e., "python hello.py") to make sure you got it correct.
+	<li> Change the program name from "hello.py" to "helloWorld.py".
+	<li> Remove everything and do it all again. ;-)
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

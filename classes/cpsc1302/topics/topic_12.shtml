@@ -1,0 +1,215 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Method Design &amp; Overloading
+</p>
+
+<ol>
+<li> Thus far we've done everything within a single method (or function) called
+	"main". The "main" method is special in that when a program is run,
+	this is the starting point for the program.
+<li> Methods can be called from multiple places within a program and thus
+	represent a way to reuse code. Such reuse typically makes programs
+	<ol>
+	<li> Shorter;
+	<li> Easier to read and understand; and
+	<li> Quicker to modify.
+	</ol>
+<li> New methods should be created when:
+	<ol>
+	<li> you find yourself writing substantial the same code again,
+		particularly if you catch yourself copy-pasting code, then
+		the pasted code should probably be put into a separate method;
+	<li> the amount of code within a method doesn't fully fit on a
+		page/screen, making it hard to read through (e.g., scrolling
+		up and down to review parameter and variable declarations);
+		or
+	<li> the logic within a portion of code is becoming to complex to
+		easily trace through, in which case new methods should
+		create new abstractions that make thinking about the solution
+		easier.
+	</ol>
+<li> Method declarations <strong>must</strong> appear within a class.
+<li> All methods have a chosen visibility.
+	<ol>
+	<li> "private" means the method can only be called by other methods
+		in the same class.
+	<li> "public" means that the method can be called by methods outside
+		of the class in which it is declared.
+	<li> If no visibility indicator is given, then the method can be called
+		by methods outside of this class, but only by methods in
+		classes that are declared within the same package.
+	<li> There's one more kind visibility, called "protected". More on that
+		later.
+	</ol>
+<li> All methods have a return type. If the method doesn't return a value,
+	then the return type should be "void".
+<li> Methods have a name, just like people, so that when they are called, the
+	compiler can figure out which method you are talking about. 
+<li> Finally, methods will generally have a body which gives the statements
+	to perform when the method is called.
+<li> Identify the parts of these simple method declarations:
+	<ol>
+	<li>
+<code><pre>
+/**
+ * Prints the name of a cartoon character.
+ */
+public void printName() {
+	System.out.println("Bullwinkle J Moose");
+}
+</pre></code>
+
+	<li>
+<code><pre>
+/**
+ * Calculates the the average of the numbers in "list".
+ *
+ * @return floating point number that is the average of values in "list".
+ */
+private float averageOfList() {
+	float sum = 0;
+	for (float num : list) {
+		sum += num;
+	}
+	return sum / list.size;
+}
+</pre></code>
+
+	<li>
+<code><pre>
+/**
+ * Finds the largest value in "list".
+ *
+ * @return int value that is the largest one in "list".
+ */
+int largestNumber() {
+	int largest = 0;
+	boolean seenFirst = false;
+	for (int num : list) {
+		if (!seenFirst) largest = num;
+		else if (num > largest) largest = num;
+	}
+	return largest;
+}
+</pre></code>
+	</ol>
+
+<li> Most of the time, however, methods will be declared with parameters.
+	Parameters, as we've seen with the array of <em>String</em>s passed
+	to "main", are a way of passing data into a method. A method can
+	be declared with 0, 1, or more parameters. Parameters consist of
+	a type name following by the parameter name (which is used much
+	like a variable in the body of the method).
+
+<li> Identify the parts of these method declarations:
+	<ol>
+	<li>
+<code><pre>
+/**
+ * Prints a personalized greeting.
+ *
+ * @param name is the name of the person to print the greeting for.
+ */
+public void printGreeting(String name) {
+	System.out.println("Hello " + name + ".");
+}
+</pre></code>
+
+	<li>
+<code><pre>
+/**
+ * Calculates the the average of the numbers in a list of values.
+ *
+ * @param list is the set of numbers to find the average of.
+ * @return floating point number that is the average of values in list.
+ */
+private float averageOfList(float list[]) {
+	float sum = 0;
+	for (float num : list) {
+		sum += num;
+	}
+	return sum / list.size;
+}
+</pre></code>
+
+	<li>
+<code><pre>
+/**
+ * Adds the specified amount to every value in a list of numbers.
+ *
+ * @param list is the set of numbers to increase.
+ * @param shiftAmount is the amount to add to each number in the list.
+ */
+void shiftValues(int list[], int shiftAmount) {
+	// Note: This doesn't do what you expect.
+	//
+	for (int num : list) {
+		num += shiftAmount;
+	}
+
+	// But this does!
+	//
+	for (int i = 0; i < list.length; i++) {
+                list[i] += shiftAmount;
+        }
+
+	// Why?
+}
+</pre></code>
+
+	</ol>
+
+<li> While the name of a method is generally how it is identified, it is
+	possible to have methods with the same name. When methods in the
+	same class have the same name, that's called overloading.
+<li> When methods are overloaded, Java determines which one to use based on
+	the number AND types of the parameters. For example, here's an
+	overloaded declaration for "shiftValues":
+<code><pre>
+/**
+ * Adds 2 to every value in a list of numbers.
+ *
+ * @param list is the set of numbers to increase.
+ */
+void shiftValues(int list[]) {
+	for (int i = 0; i < list.length; i++) {
+                list[i] += 2;
+        }
+}
+</pre></code>
+
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,93 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Concerning Assignments</strong>
+</p>
+
+<ol>
+<li> Programming assignments must be written using the specified programming
+     language and approved compiler/interpreter for execution. Assignments
+     are evaluated not only for the extent to which the programs produce
+     the desired results, but also for programming "style".  In particular,
+     the programs should be well designed and self-documenting with meaningful
+     and informative comments and identifier names.  In additional they should
+     also make proper use of the ideas discussed in class.
+<li> You must comment your code appropriately. These
+     <a href="comment-guide.shtml">code commenting guidelines</a> should
+     help you understand what's desired. Generally your comments should
+     bridge the gap between the the problem statement and the solution.
+     Comments should not simply restate the program code in English (unless
+     the technique used is non-obvious or particularly difficult to understand).
+<li> Here's an <a href="ListPrimes.html">example application</a> of the
+     commenting guidelines as applied to a Java program.
+<li> Assignments will nearly always include examples as a means of describing
+     what's intended. These examples <strong>should not</strong> be the sole
+     extent of your test data. An implicit part of any assignment is for you
+     to practice and demonstrate your ability to create a wide variety of test
+     data sufficient to ensure that your program works correctly in all
+     circumstances compatible with the assignment statement. This is an
+     important practice as it will be expected of you in any programming
+     job you have in the future.
+	<ul>
+	<li> My purpose when grading assignments is determining how many
+	     different ways I can break your program.
+	<li> Experience indicates that I'm quite good at it.
+	<li> Your job is to thwart my efforts to find fault.
+	</ul>
+<li> <strong>Please</strong> compile and run your programs immediately before
+     submitting them.  Never make a change to the code file(s) and turn it in
+     without compiling and running all of your test cases.  It is <em>very</em>
+     easy to make last minute mistakes that introduce syntax or other errors,
+     so checking before submitting can save you an unnecessary grade of 0.
+<li> You must <a href="submit.shtml">submit your assignments</a> through
+     CougarView. You can submit multiple times, but I will only grade the
+     latest on-time submission.
+<li> The grading criteria for assignments will vary somewhat between
+     classes and assignments, however the following are basic guidelines
+     which will always apply to programming assingments:
+	<ul>
+        	<li> Late assignments will receive a grade of 0.
+        	<li> Programs with "compilation" errors will receive a grade of 0.
+        	<li> Programs with run-time errors will receive a grade no greater than 75.
+        	<li> Programs which run "to completion" but give incorrect results will receive a grade no greater than 90.
+	</ul>
+<li> <strong>Caution</strong>: Assignments will generally require more time
+     for completion than you might assume at first glance.  In fact, some
+     assignments may seem down right easy, but you will find it even easier
+     to underestimate the time required to complete them.  Since the penalty
+     for being late is rather severe, you should begin working on each
+     assignment as soon as it is distributed.  Remember to allow time for
+     unexpected problems and difficulties; such as minor computer (or network)
+     downtime.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

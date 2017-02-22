@@ -1,0 +1,155 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Enumerated Types
+</p>
+
+<ol>
+<li> Enumerated types create a new type along with the complete and specific
+	set of values associated with that type. Each of the values must be
+	an identifier.
+<li> Enumerated types are useful when the set of values is small and typically
+	associated with a name rather than a numeric value. For example:
+	<ol>
+	<li> <em>enum Semester { Fall, Spring, Summer }</em>
+	<li> <em>enum CardSuit { Heart, Diamond, Club, Spade }</em>
+	<li> <em>enum Fruits { Apple, Bannana, Cherry, Grape, Mango }</em>
+	</ol>
+<li> Each value of the enumerated type has a corresponding integer (ordinal)
+	value associated with it, starting with zero (0).
+<li> Compile and run this program to see how enumerated types work:
+<code><pre>
+import java.io.*;
+import java.util.*;
+
+/**
+ * Implements an interactive game of Rock, Paper, Scissors.
+ */
+class RPSgame {
+	private enum Choice { rock, paper, scissors }
+
+	// Keep track of how well both sides do.
+	private static int winCount = 0, lossCount = 0;
+
+	/**
+	 * Determines when one play beats another.
+	 *
+	 * @returns true iff val_1 would defeat val_2.
+	 */
+	private boolean beats(Choice val_1, Choice val_2) {
+		return (val_2.ordinal() + 1) % Choice.values().length
+				== val_1.ordinal();
+	}
+
+	/**
+	 * Plays a "fixed" game of rock, paper, scissors.
+	 *
+	 * @param args is not used.
+	 */
+	public void play(Scanner scan) {
+		boolean keepPlaying = true;
+		
+		// Play multiple rounds of the game.
+		//
+		while (keepPlaying) {
+			Choice computerMove = Choice.rock, humanMove;
+
+			// Get the human's choice.
+			while (true) {
+				System.out.print("What's your move (R, P, S)? ");
+				String move = scan.next();
+				if (move.equals("R")) {
+					humanMove = Choice.rock;
+					break;
+				} else if (move.equals("P")) {
+					humanMove = Choice.paper;
+					break;
+				} else if (move.equals("S")) {
+					humanMove = Choice.scissors;
+					break;
+				} else {
+					System.out.println("Invalid choice, "
+								+ "try again.");
+				}
+			}
+
+			// Determine who won.
+			if (beats(computerMove, humanMove)) {
+				System.out.println(computerMove.name()
+							+ " beats "
+							+ humanMove.name());
+				System.out.println("I won!");
+				winCount++;
+			} else if (beats(humanMove, computerMove)) {
+				System.out.println(humanMove.name()
+							+ " beats "
+							+ computerMove.name());
+				System.out.println("Dang! You won.");
+				lossCount++;
+			} else {
+				System.out.println("Tie game. What a bore.");
+			}
+
+			// Play again?
+			System.out.print("Want to play again? (Y|N) ");
+			if (scan.next().charAt(0) == 'N') keepPlaying = false;
+		}
+
+		System.out.println("Thanks for playing.");
+	}
+
+	/**
+	 * Plays a "fixed" game of rock, paper, scissors.
+	 *
+	 * @param args is not used.
+	 */
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+
+		new RPSgame().play(input);
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Add another weapon, "dynamite", that defeats both "rock" and
+		"paper", but loses to "scissors".
+	<li> Add Spock and lizard "weapons" to the game in order to implement
+		this <a href="http://en.wikipedia.org/wiki/Rock-paper-scissors#Additional_weapons">common variation</a>.
+	</ol>
+
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,182 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Self Recursion
+</p>
+
+<ol>
+<li> Recursion - the process of solving a bigger problem by solving smaller
+	a smaller version(s) of the same problem and then extending that
+	solution to the bigger problem.
+	<ol>
+	<li> Recursion follows the same ideas and principles that you
+		see in mathematical induction.
+	<li> A Recursive solution requires:
+		<ol>
+		<li> A base case - the smallest version of the problem and
+			one that cannot be broken down into smaller pieces.
+		<li> A (generally small and simple) set of steps that
+			enables the solution of a slightly smaller version
+			of a problem to be extended so that it solves the
+			larger problem.
+		<li> A programming language that supports the continued
+			breakdown of a larger complex problem into successively
+			smaller versions until the base case is reached. At
+			this point, the language system then repeatedly applies
+			the set of steps to expand the base case into a
+			solution for the orignal (larger) problem.
+		</ol>
+	</ol>
+<li> Self Recursion - the simplest and most common form of recursion in
+	which a problem is solved by converting it into smaller versions
+	of <em>itself</em>.
+	<ol>
+	<li> Counting down (or up) - special form of recursion called
+		<em>tail recursion</em> which "smarter" compilers can
+		automatically turn into loops.
+		<ol>
+		<li> Iterative solution
+<pre><code>
+	class Example {
+		void countDown(int count) {
+			for ( ; count >= 0; count--) {
+				System.out.println(count);
+			}
+		}
+
+		public static void main(String args[]) {
+			Example e = new Example();
+			e.countDown(7);
+		}
+	}
+</code></pre>
+		<li> Recursive solution
+<pre><code>
+	class Example {
+		void countDown(int count) {
+			System.out.println(count);	// Simple step(s)
+			if (count == 0) {
+				// Base case - stop!
+			} else {
+				count--;
+				countDown(count);	// Recursive call
+			}
+		}
+
+		public static void main(String args[]) {
+			Example e = new Example();
+			e.countDown(7);
+		}
+	}
+</code></pre>
+		</ol>
+	<li> Factorial
+		<ol>
+		<li> Iterative solution
+<pre><code>
+	class Example {
+		int factorial(int x) {
+			int result = 1;
+			while (x > 0) result *= x--;
+			return result;
+		}
+
+		public static void main(String args[]) {
+			Example e = new Example();
+			System.out.println(e.factorial(7));
+		}
+	}
+</code></pre>
+		<li> Recursive solution
+<pre><code>
+	class Example {
+		int factorial(int x) {
+			if (x == 0) {
+				return 1;			// Base case
+			} else {
+				return x * factorial(x-1);	// Recursive call
+			}
+		}
+
+		public static void main(String args[]) {
+			Example e = new Example();
+			System.out.println(e.factorial(7));
+		}
+	}
+</code></pre>
+		</ol>
+	<li> Fibonacci
+		<ol>
+		<li> Iterative solution
+<pre><code>
+	class Example {
+		int fib(int n) {
+			int last = 1;
+			int next2last = 1;
+			while (n-- > 1) {
+				int newLast = last + next2last;
+				next2last = last;
+				last = newLast;
+			}
+			return last;
+		}
+
+		public static void main(String args[]) {
+			Example e = new Example();
+			System.out.println(e.fib(17));
+		}
+	}
+</code></pre>
+		<li> Recursive solution
+<pre><code>
+	class Example {
+		int fib(int n) {
+			if (n == 0 || n == 1) {
+				return 1;			// Base case(s)
+			} else {
+				return fib(n-1) + fib(n-2);	// Recursive call
+			}
+		}
+
+		public static void main(String args[]) {
+			Example e = new Example();
+			System.out.println(e.fib(17));
+		}
+	}
+</code></pre>
+		</ol>
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,48 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Submitting Assignments
+</p>
+
+<ol>
+<li> Login to <a href="https://colstate.view.usg.edu">CougarView</a>
+<li> Select the course you're submitting the assignment for
+<li> Click on the "Dropbox" button (4th from the left) in the big blue bar at the top of the page.<br/>
+	<img style="text-align: center; margin: auto" src="CougarViewBlueBar.png" alt="CougarView blue menu bar">
+<li> Click on the appropriate <em>Assignment #</em> folder.
+<li> If your submission is composed of multiple files, please <em>zip</em> them up (remember to specify recursive traversal of directories if appropriate). If you don't already have <em>zip</em>, <a href="http://www.gzip.org">gzip</a> is free and should do the trick.
+<li> Click the "Add a File" button.
+<li> No comment is necessary
+<li> Click submit and then go have a nice hot cup of <a href="http://www.journeykitchen.com/2011/02/masala-chai-indian-spiced-milk-tea.html">Indian Chai Tea</a> (if you're so inclined).
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

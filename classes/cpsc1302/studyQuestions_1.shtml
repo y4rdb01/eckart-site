@@ -1,0 +1,170 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Study Questions for Test #1
+</p>
+
+<style type="text/css">
+	ol.question_list {list-style-type: none;}
+	ol.question_list li:before {content: counter(question, decimal) ") ";}
+	ol.question_list li { counter-increment: question;}
+
+	ul.bullet_list {list-style-type: disc;}
+        ul.bullet_list li:before {content: "";}
+        ul.bullet_list li { counter-increment: bogus;}
+</style>
+
+<p>
+Your test will be to complete one or more questions from the following list
+of questions. I <em>encourage</em> you to work through all of these questions
+before the test. You are free to work with others from the class on these
+questsion, but no code, notes, or other artifacts from those efforts can be
+utilized during the test. Please also be aware that the questions as they
+appear on the test may have changes in wording, expanded descriptions or
+examples of the desired input/output, as well as additional constraints on
+the solution (e.g., your program must include a method that takes two
+parameters).
+</p>
+
+
+<h3>General Requirements</h3>
+<blockquote>
+Each of the following programs should be constructed using at least:
+<ol>
+<li> one array (<strong>not</strong> an <em>ArrayList</em>);
+<li> two distinct top-level class definitions (<strong>not</strong> nested
+	classes);
+<li> one constructor;
+<li> two methods (in addition to "main"), one of which takes parameters and
+	one which must return a value (can be the same method that does both);
+	and
+<li> one data attribute for at least one of the classes.
+</ol>
+Program input will be given via standard input (e.g., keyboard or redirected
+file) and command line argument usage as described by each problem.
+As always, you should use appropriate indentation and identifier names to make
+your program easier to read and understand. Also be sure to document your
+program using both commenting styles - including appropriate JavaDoc comments.
+</blockquote>
+
+<h3>Test Questions</h3>
+<ol class="question_list">
+<li>
+Write a program that Counts the number of words in the input and reports the
+total occurences of each word along with the percentage of times that word was
+seen. If command line arguments are given, they indicate words that should
+<strong>not</strong> be included in the statistics (i.e., these words should
+be ignored - as if they hadn't appeared in the input).
+</li><br/>
+
+<li>
+Given a list of numbers, implement a program that reports the smallest and
+largest values in the set of numbers, mean (average),
+and the number of values above and below the mean (average). If command line
+arguments are given, the first command line argument is taken as the lower
+bound cutoff, with any values strictly <strong>less</strong> than that
+value being ignored (i.e., as if they had not appeared in the input). Similarly,
+if a second command line argument is given, it is the upper bound cutoff, with
+any values strictly <strong>greater</strong> than that value being ignored.
+</li><br/>
+
+<li>
+Develop a program that reads a single line of input from the keyboard and
+determines whether or not the entire input line of text represents a palindrome.
+Your program should ignore the case of letters (e.g., 'a' and 'A' are treated
+as the same) and should completely ignore whitespace and punctuation (i.e., any
+non-alphanumeric character).  Thus your program should indicate that
+"This is a test." <strong>is not</strong> a palindrome, but that
+"Madam I'm adam." <strong>is</strong> a palindrome.
+</li><br/>
+
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+
+<li>
+Write a program that calculates the grade point average (GPA) of a student. The
+input lists courses (as a separate department code and course number), the
+corresponding letter grade, and the number of credit hours - one per line. For
+example "CPSC 1301L B 3" or "MATH 2125 A 3". Students are allowed to take a
+course multiple times, but only the highest grade earned is used in calculating
+their GPA. The GPA is the number of grade points divided by the total number
+of different course hours attempted (although taking the same course twice is
+two attempts, the hours are only counted once). Grade points are calculate by
+multiplying the grade by the course hours (e.g., the above CPSC course
+earned 9 points while the MATH course earned 12 grade points). If a course was
+taken multiple times, it should only be counted once (using the highest earned
+grade). The allowed letter grades and their corresponding point values are:
+"A" = 4; "B" = 3; "C" = 2; "D" = 1; "F" = 0. You do not need to worry about any
+other grade classifications. Your program should work for any department and
+course number designations. You can also safely assume that the credit hours for
+a course will always be non-negative. Finally, an optional command line argument,
+if given, limits the number of courses for which a grade can be replaced. Thus
+if "3" was given on the command line, then only the first 3 courses repeated by
+the student could have their grades replaced by a subsequent attempt (though
+any number of attempts could have been made for those 3 courses).
+</li><br/>
+
+<li>
+Design and implement a program that flips a two-sided coin multiple times. The
+single command line argument to the program is a string of "H" and "T" values
+(indicating heads and tails respectively). Your program should keep flipping the
+coin until that sequence of head and tail values is seen. Thus, if the user
+runs the program with the command line argument of "HTHTHT" the program will run
+until heads and tails have alternately been chosen 3 times in a row. Once the
+pattern has been seen, then the program should print the number of coin tosses
+that it took in order to see the pattern before quitting.
+</li><br/>
+
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+
+</ol>
+
+<h3>Grading Guidelines</h3>
+<ul>
+<li> -100 points for programs that fail to compile.
+<li> -25 points if a run-time error occurs with expected legal input.
+<li> -20 points if an array is not used.
+<li> -10 points if there are not two distinct top-level class definitions.
+<li> -5 points if there is no explicit constructor declared.
+<li> -10 points if there are not two methods in addition to "main".
+<li> -5 points if there is not a method (in addition to "main") that takes at
+	least one parameter.
+<li> -5 points if there is not a method that returns a non-"void" type.
+<li> -5 points if there is not a data attribute for at least one of the classes.
+<li> -10 points for poor indentation and lack of documentation/comments.
+<li> Correct output is worth up to 25 points of the grade (depending upon how
+	close to the desired output it is).
+</ul>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

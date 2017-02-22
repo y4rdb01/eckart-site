@@ -1,0 +1,95 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Polymorphism
+</p>
+
+<ol>
+<li> Polymorphism (poly = "many" + morphism = "forms"):
+<li> A superclass (type) represents many forms (e.g., many types of Workers).
+<li> Variables (or parameters) declared with a superclass type can
+	"hold" instances of any of its subclasses.
+<li> When members of an object are referenced (e.g.,
+	worker.earnedWages()) the actual Object is examined to
+	determine its class - and not just the type declaration of
+	the variable (or parameter) being dereferenced (e.g., Worker).
+<li> Because there can be a long chain of subclassing, Java must follow
+	that chain backwards from the specific object instance it is
+	using in order to determine which of the (possibly) overridden
+	methods to use (it picks the first matching method definition
+	it finds as it travels from the subclass "up" towards the
+	superclass).
+<li> Example:
+<code><pre>
+Worker temp;
+SalaryWorker beth = new SalaryWorker("Beth");
+SalaryWorker george = new SalaryWorker("George");
+HourlyWorker sam = new HourlyWorker("Sam");
+ArrayList&lt;Worker> list = new ArrayList&lt;Worker>();
+	
+temp = beth;
+beth = george;
+george = (SalaryWorker) temp;
+
+sam = temp;	// Why is this a problem?
+
+list.add(beth);
+list.add(sam);
+list.add(george);
+for (Worker w : list) {
+	System.out.println(w.earnedWages());
+}
+</pre></code>
+
+<li> The polymorphism of superclasses is quite powerful, particularly
+	if there are a number of common members - so that "shared
+	actions" can be applied without our Java code having to
+	explicitly know which subclass we're working with.
+<li> What if you need to find just the HourlyWorkers in a collection?
+	In that case use the "instanceof" operator;
+<code><pre>
+	for (Worker w : list) {
+		if (w instanceof HourlyWorker) {
+			... ((HourlyWorker) w).overtimeWages() ...
+		}
+	}
+</pre></code>
+
+	However, don't use "instanceof" to undo the power of
+	polymorphism. You should only need "instanceof" when needing
+	to access the unique members of a subclass not present in
+	the superclass.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

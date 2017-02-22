@@ -1,0 +1,122 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Searching an Array
+</p>
+
+<ol>
+<li> Linear search can be quite slow, as you have to look through each element
+	of the list to ensure an item isn't there - and on average you have to
+	look through have the items if it is in the list.
+<pre><code>
+	static final int SIZE = 128;
+	int list[] = new int[SIZE];
+	...
+	int i = 0;
+	while (i < SIZE) if (list[i++] == item) break;
+	if (list[i-1] == item) {
+		System.out.println("Found item at location " + (i - 1));
+	} else {
+		System.out.println("Item NOT found.");
+	}
+</code></pre>
+
+<li> Binary Search: Iterative vs recursive solution
+<pre><code>
+import java.util.Random;
+
+class Example {
+        static final int SIZE = 128;
+        int list[] = new int[SIZE];
+
+        int iSearch(int item, int lb, int ub) {
+                int location = -1;      // assume you wont find it
+                while (lb <= ub) {
+                        int mid = (lb + ub) / 2;
+                        if (item == list[mid]) {
+                                location = mid;
+                                break;
+                        } else if (item < list[mid]) {
+                                ub = mid - 1;
+                        } else {
+                                lb = mid + 1;
+                        }
+                }
+                return location;
+        }
+
+        int rSearch(int item, int lb, int ub) {
+		if (lb > ub) return -1;
+
+		int mid = (lb + ub) / 2;
+		if (item == list[mid]) {
+			return mid;
+		} else if (item < list[mid]) {
+			return rSearch(item, lb, mid - 1);
+		} else {
+			return rSearch(item, mid + 1, ub);
+		}
+        }
+
+	void populateList(Random gen) {
+                list[0] = gen.nextInt(5);
+                for (int i = 1; i < SIZE; i++) {
+                        list[i] = list[i-1] + gen.nextInt(5);
+                }
+	}
+
+	void report(int location) {
+                if (location < 0) {
+                        System.out.print("not in the list.\n");
+                } else {
+                        System.out.print("in the list!\n");
+                        System.out.print("list[" + location + "] = " + list[location] + "\n");
+                }
+	}
+
+        public static void main(String args[]) {
+                Example e = new Example();
+                Random gen = new Random();
+		e.populateList(gen);
+                int find = gen.nextInt(e.list[SIZE - 1]);
+                System.out.print("The number " + find + " is ");
+                e.report(e.iSearch(find, 0, SIZE - 1));
+                System.out.print("The number " + find + " is ");
+                e.report(e.rSearch(find, 0, SIZE - 1));
+        }
+}
+</code></pre>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,294 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Abstract (vs Final) Methods &amp; Classes
+</p>
+
+<ol>
+<li> Abstract methods and classes
+	<ol>
+	<li> As in our Worker class above, you may not have a good
+		implementation for all the superclass methods:
+<code><pre>
+	// Returns total wages YTD in increments of $0.01
+	public int earnedWages() {
+		return 0;
+	}
+</pre></code>
+		In this case, you can declare the superclass method as
+		"abstract", which forces the programmer of the subclass to
+		define an implementation for the method. Which is sometimes
+		better than having a default implementation that doesn't
+		always make sense.
+<code><pre>
+	public abstract int earnedWages();
+</pre></code>
+	<li> If a class contains an abstract method, then the class is abstract
+		as well.
+<code><pre>
+	public abstract class Worker {
+		public abstract int earnedWages();
+		...
+	}
+</pre></code>
+	<li> Java prevents the creation of class instances (aka objects) for
+		abstract classes. You can only create instances of concrete
+		classes (i.e., no abstract methods - either directly declared
+		or inherited).
+	<li> However, you can still declare and use static members of an
+		abstract class!
+	</ol>
+
+<li> Final classes, methods, and attributes/variables
+	<ol>
+	<li> In contrast to <em>abstract</em> classes and methods:
+		<ol>
+		<li> <em>final</em> classes cannot be extended; and
+		<li> <em>final</em> methods cannot be overridden (but they can be
+			overloaded).
+		</ol>
+	<li> Variables (and class attributes) can also be declared as final -
+		which means that their values cannot be changed (they are
+		constants). 
+	<li> A non-<em>final</em> class may contain <em>final</em> attributes
+		and/or <em>final</em> methods. 
+	<li> Furthermore, an <em>abstract</em> class may contain <em>final</em>
+		methods and attributes.
+	<li> Is there any value in declaring attributes or methods in a
+		<em>final</em> class as <em>protected</em>?
+	</ol>
+
+<li> To illustrate, suppose we want two kinds of bank accounts: savings and
+	checking. Since both kinds of accounts can have a balance and enable
+	deposits and withdraws, we'd like to use inheritance to share these
+	aspects (from a parent "BankAccount" class). However, we only want to
+	be able to create instanced of savings and checking accounts - not
+	generic BankAccount. In addition to creating accounts with an initial
+	balance and allowing deposits and withdraws, it should also provide a
+	means for checking the current balance. Finally, all accounts are
+	numbered, so we need a way automatically assign unique account numbers
+	to new accounts and provide users a way of getting their account number.
+	We'll use the Java features we've seen thus far to reduce code
+	redundancy and to hide as much detail of the implementation as we can.
+<code><pre>
+import java.io.*;
+
+/**
+ * The basis for all types of bank accounts and contains all the elements common
+ * to all types of accounts. However, there should never be an instance of this
+ * class.
+ */
+abstract class BankAccount {
+	// Keeps track of the next account number to assign to new accounts.
+	private static int nextAccountNumber = 1;
+
+	// Is the account number for "this" account.
+	private int accountNumber;
+
+	// Amount of money in the account (in pennies).
+	private int balance = 0;
+
+	// Some basic account stats.
+	protected int numberOfDeposits = 0;
+	protected int numberOfWithdrawals = 0;
+
+	/**
+	 * Creates a new bank account with an account number and balance.
+	 *
+	 * @param amount is the initial balance in the account.
+	 */
+	public BankAccount(int amount) {
+		accountNumber = nextAccountNumber++;
+		balance = amount;
+	}
+
+	/**
+	 * Report the account number.
+	 *
+	 * @return the unique number for this account.
+	 */
+	public final int getAccountNumber() {
+		return accountNumber;
+	}
+
+	/**
+	 * Report the current account balance.
+	 *
+	 * @return the current balance of the account (in pennies). 
+	 */
+	public final int getBalance() {
+		return balance;
+	}
+
+	/**
+	 * Deposits money into the account.
+	 *
+	 * @param amount is the number of pennies to add to the balance.
+	 */
+	public void deposit(int amount) {
+		balance += amount;
+		numberOfDeposits++;
+	}
+
+	/**
+	 * Withdraws money from the account.
+	 *
+	 * @param amount is the number of pennies to subtract from the balance.
+	 */
+	public void withdraw(int amount) {
+		balance -= amount;
+		numberOfWithdrawals++;
+	}
+
+	/**
+	 * Prints a simple report on the account status.
+	 */
+	abstract public void report();
+}
+
+/**
+ * A particular type of bank account specific to savings.
+ */
+class SavingsAccount extends BankAccount {
+	/**
+	 * Creates a new savings account with amount as the initial balance.
+	 */
+	public SavingsAccount(int amount) {
+		super(amount);
+	}
+
+	/**
+	 * Prints a simple report on the account status.
+	 */
+	public void report() {
+		System.out.println("Checking (Account #" + getAccountNumber()
+					+ ") has a balance of $"
+					+ getBalance() / 100.0
+					+ " after " + numberOfDeposits
+					+ " deposts and " + numberOfWithdrawals
+					+ " withdrawals."
+		);
+	}
+}
+
+/**
+ * A particular type of bank account specific to checking.
+ */
+class CheckingAccount extends BankAccount {
+	// Keeps track of the next check number (for withdraws).
+	private int checkNumber = 0;
+
+	/**
+	 * Creates a new checking account with amount as the initial balance.
+	 */
+	public CheckingAccount(int amount) {
+		super(amount);
+	}
+
+	/**
+	 * Withdraws money from the account.
+	 *
+	 * @param amount is the number of pennies to subtract from the balance.
+	 */
+	public void withdraw(int amount) {
+		checkNumber++;
+		super.withdraw(amount);
+	}
+
+	/**
+	 * Report the next check number.
+	 *
+	 * @return the unique number that will be given to the next withdrawal.
+	 */
+	public int getNextCheckNumber() {
+		return checkNumber;
+	}
+
+	/**
+	 * Prints a simple report on the account status.
+	 */
+	public void report() {
+		System.out.println("Savings (Account #" + getAccountNumber()
+					+ ") has a balance of $"
+					+ getBalance() / 100.0
+					+ " after " + numberOfDeposits
+					+ " deposts and " + numberOfWithdrawals
+					+ " withdrawals. "
+					+ "The next check number will be "
+					+ checkNumber
+		);
+	}
+}
+
+/**
+ * A simple "driver" to illustrate how bank accounts work.
+ */
+class Driver {
+	/**
+	 * Creates checking and savings accounts and allows operations on them.
+	 */
+	public static void main(String args[]) {
+		SavingsAccount sa = new SavingsAccount(50000);		// $500
+		CheckingAccount ca = new CheckingAccount(20000);	// $200
+
+		// Transfer $100 from savings to checking.
+		sa.withdraw(10000);					// $100
+		ca.deposit(10000);
+
+		// Buy a color TV. :-)
+		ca.withdraw(25000);					// $250
+
+		sa.report();
+		ca.report();
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Enable the CheckingAccount to remember all withdrawals. Change the
+		"withdraw" method for CheckingAccount to return the check number
+		associated with the withdrawal, and finally add a new method
+		that returns the amount of a check given the check number.
+	<li> Change the driver to be interactive and allow the creation
+		of multiple accounts (both checking and savings). Implement
+		a "Bank" class that can hold multiple accounts to keep track of
+		all of the accounts that might be created. You'll also need
+		to change your driver so that it tells you the account number
+		of new accounts and you'll need to give the account number
+		whenever a deposit or withdrawal is made.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

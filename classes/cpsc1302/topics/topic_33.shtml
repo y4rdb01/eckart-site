@@ -1,0 +1,90 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Timed Events
+</p>
+
+<ol>
+<li> Using a timer to change a label's text every second.
+<code><pre>
+import java.awt.event.*;
+import javax.swing.*;
+
+/**
+ * Displays a simple count up timer.
+ */
+public class Example {
+
+	/**
+	 * Creates a label that counts up (timer).
+	 *
+	 * @param args is not used.
+	 */
+        public static void main(String args[]) {
+                final JLabel label = new JLabel("1");
+
+		JPanel panel = new JPanel();
+                panel.add(label);
+
+                Timer t = new Timer(100, new ActionListener() {
+                        public void actionPerformed(ActionEvent event) {
+                                label.setText("" + (Integer.parseInt(label.getText()) + 1));
+                        }
+                });
+                t.start();
+
+		// Create the window frame that displays everything.
+                JFrame frame = new JFrame();
+		frame.add(panel);
+                frame.pack();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+        }
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Add a "pause" button that stops the counter. The text of the button
+		should change to "resume" when clicked (and back to "pause"
+		when clicked again to resume the counter).
+	<li> Change the action of the pause/resume button so that it works like
+		a split on a stopwatch. That is, the time keeps counting, but
+		it doesn't change the number in the display until its resumed.
+		You might want to change the text of the "pause" button to
+		"split" to better reflect the new functionality.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase= "http://csc.columbusstate.edu/eckart/classes/cpsc1302/minesweeper" href="minesweeper.jnlp">
+    <information>
+        <title>MineSweeper</title>
+        <vendor>J Dana Eckart</vendor>
+    </information>
+    <resources>
+        <j2se version="1.7+" href="http://java.sun.com/products/autodl/j2se"/>
+        <jar href="minesweeper.jar" main="true" />
+    </resources>
+    <application-desc
+         name="MineSweeper"
+         main-class="MineSweeper"
+         width="840"
+         height="480">
+     </application-desc>
+     <update check="background"/>
+</jnlp>

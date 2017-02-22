@@ -1,0 +1,84 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- (Named) File Input
+</p>
+
+<ol>
+<li> Suppose we wanted to create a program that would make a copy of a file.
+	If the command line argument pairing "-i fileName" was given, then the
+	input would be taken from "fileName" (otherwise the standard input
+	would be used). Likewise, "-o fileName" would indicate that the output
+	should be written to "fileName" (otherwise the standard output would
+	be used). The command line argument "-h" would print a reminder of
+	how to use the command. The following code implements this:
+<code><pre>
+import java.io.*;
+import java.util.*;
+        
+public class Example {
+        public static void main(String args[]) throws FileNotFoundException, IOException {
+                InputStream input = System.in;
+                OutputStream output = System.out;
+
+                for (int i = 0; i < args.length; i++) {
+                        if (args[i].equals("-i")) {
+                                input = new FileInputStream(args[++i]);
+                        } else if (args[i].equals("-o")) {
+                                output = new FileOutputStream(args[++i]);
+                        } else if (args[i].equals("-h")) {
+                                System.err.println("command [-i input_file_name] [-o output_file_name]");
+				return;
+                        } else {
+                                System.err.print("Unknown command line argument '");
+                                System.err.print(args[i]);
+                                System.err.println("'.");
+                        }
+                }
+
+                copy(input, output);
+                input.close();
+                output.close();
+        }
+
+        private static void copy(InputStream in, OutputStream out) throws IOException {
+                while (in.available() > 0) {
+                        out.write(in.read());
+                }
+        }
+}
+</pre></code>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

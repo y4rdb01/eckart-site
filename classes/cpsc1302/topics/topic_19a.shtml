@@ -1,0 +1,103 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Animal Example
+</p>
+
+<ol>
+<li> <a href="https://en.wikipedia.org/wiki/Taxonomy_(biology)">Biological
+	taxonomies</a> are an excellent example of an inheritance hierarchy.
+<li> Consider the following set of Java classes and draw a diagram (i.e.,
+	taxonomic tree) that depicts the organization of the classes. Be sure
+	to include the <em>Object</em> class.
+<code><pre>
+class Animal { 
+	public String identify() { return "Animal"; }
+}
+
+class Mammal extends Animal { }
+
+class Bird extends Animal { }
+
+class Fish extends Animal { }
+
+class Canine extends Mammal { }
+
+class Sparrow extends Bird { }
+
+class Feline extends Mammal { }
+
+class Hominid extends Mammal { }
+
+class Trout extends Fish { }
+
+class HomoSapien extends Hominid { }
+
+class Shark extends Fish { }
+
+class HammerHead extends Shark { }
+</pre></code>
+<li> Things to try:
+	<ol>
+	<li> Add another type of Shark, 3 types of Dogs (Canine), and
+		2 kinds of Cats (Feline) to the above.
+	<li> Write a <em>Driver</em> class that contains the "main" method.
+		The "main" should create an instance of each class and
+		have it print the result of calling the "identify"
+		method.
+	<li> Add appropriate versions of the "identify" method to
+		the other classes, overriding the "identify" method
+		in the <em>Animal</em> class.
+	<li> In your "main" method, you probably declared a new variable
+		for each different kind of animal
+		(e.g., "Feline myCat = new Feline();"). If you did, change
+		all of the types to <em>Animal</em> (e.g., Animal myCat =
+		new Feline();"). Does the behavior of the program change?
+	<li> Do you even need to declare variables for each animal?
+		What does "(new Feline()).identify();" do? Can you rewrite
+		your "main" method so that it doesn't contain any variable
+		declarations?
+	<li> Add a new method, "locomotion", to <em>Animal</em>. Override
+		the "locomotion" method in ONLY those classes have a different
+		way of moving (e.g., swim, walk, fly).
+	<li> Adjust your "main" method to print each animal's means of movement
+		after its identity (e.g., "Fish (Swim)"). Note that you should
+		NOT have to override "locomotion" in every class in order to
+		get the correct output.
+	<li> Add a new class for <em>Bat</em>. What does it extend? Which, if
+		any, of its superclass methods does it need to override?
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

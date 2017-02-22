@@ -1,0 +1,108 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- GUI Layout with <em>Box</em>es
+</p>
+
+<ol>
+<li> Laying out GUI elements with <em>Box</em>es
+<code><pre>
+import javax.swing.*;
+import static javax.swing.Box.*;
+
+/**
+* Example of using boxes to do more complex GUI layouts.
+*/
+public class Example {
+	/**
+	 * Creates buttons corresponding to the 8 compass directions
+	 * plus one more for the center.
+	 *
+	 * @param args is not used.
+	 */
+        public static void main(String args[]) {
+                JButton north = new JButton("North");
+                JButton south = new JButton("South");
+                JButton east = new JButton("East");
+                JButton west = new JButton("West");
+                JButton north_east = new JButton("North-East");
+                JButton north_west = new JButton("NW");
+                JButton south_east = new JButton("SE");
+                JButton south_west = new JButton("South-West");
+                JButton central = new JButton("Central");
+
+                Box left = createVerticalBox();
+                left.add(north_west);
+                left.add(west);
+                left.add(south_west);
+
+                Box middle = createVerticalBox();
+                middle.add(north);
+		Box center = createHorizontalBox();
+		center.add(createGlue());
+		center.add(central);
+		center.add(createGlue());
+                middle.add(center);
+                middle.add(south);
+
+                Box right = createVerticalBox();
+                right.add(north_east);
+                right.add(east);
+                right.add(south_east);
+
+		Box panel = createHorizontalBox();
+                panel.add(left);
+                panel.add(middle);
+                panel.add(right);
+
+		// Create the window frame that displays everything.
+                JFrame frame = new JFrame();
+                frame.add(panel);
+                frame.pack();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+        }
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Now add a handler for button clicks that displays "Got me!" in
+		the center button if the user was able to click on the button
+		with the "*" before it moved. After 5 seconds, remove the "Got
+		me!" text and resume the random display of "*" in each button.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,199 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Reading Simple Input
+</p>
+
+<ol>
+<li> The simplest way to consume input is to read data a token at a time.
+<li> Tokens are often just contiguous sets of non-whitespace characters. [The
+	concept of whitespace comes from reading text on a white sheet of
+	paper. The gaps between words are called thus the whitespace.]
+<li> The standard input (System.in) is what the program gets from the keyboard
+	(or when file input redirection is used in the shell).
+<li> An instance of the <em>Scanner</em> class is used to recognize tokens
+	and retrieve them, one at a time, from the input.
+<li> The following program is the <a href="">ConvertTemps program</a> but
+	instead of getting the three inputs from the command line, they are
+	interactively prompted for and read from the keyboard:
+<code><pre>
+import java.io.*;
+import java.util.*;
+
+/**
+ * Converts Farhenheit temperatures to Celsius, and vice versa.
+ *
+ * @author Dr. J Dana Eckart
+ * @version 2015-06-01
+ */
+class ConvertTemps {
+
+	/**
+         * Converts Farhenheit temps to Celsius and vs.
+	 *
+	 * @param args holds the command line arguments (not currently used).
+	 */
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+
+		// Get the temperature
+		//
+		System.out.print("Please enter the temperature (e.g., 72): ");
+		float temperature = Float.parseFloat(input.next());
+
+		// Get the temperature scale
+		//
+		System.out.print("Please enter the original temperature scale (e.g., F, C): ");
+		String originalScale = input.next();
+
+		// Get the scale to convert to.
+		//
+		System.out.print("Please enter the desired temperature scale (e.g., F, C): ");
+		String desiredScale = input.next();
+
+
+		System.out.print(temperature + originalScale + " = ");
+
+		// Perform the desired numeric conversion.
+		//
+		if (originalScale.equals("F") && desiredScale.equals("C")) {
+			// Fahrenheit -> Celsius
+			temperature = (temperature - 32) * 5 / 9;
+		} else if (originalScale.equals("C") && desiredScale.equals("F")) {
+			// Celsius -> Fahrenheit
+			temperature = (temperature * 9 / 5) + 32;
+		} else {
+			System.err.println("ERROR: This should never happen.");
+		}
+
+		System.out.println(temperature + desiredScale);
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Add appropriate error messages and quit if an unsupported
+		temperature scale is entered.
+	<li> What happens if all of the data (e.g., "-40 F C") is given at
+		the first prompt? Why does it do this?
+	</ol>
+
+<li> Alternatively, it is sometimes best (or easiest) to read the input a
+	single character at a time. The following program compiles stats on
+	what characters are in the input. Note that the declaration for "main"
+	is a bit different here in that it declares that it <em>throws</em> 
+	an exception - we'll learn more about this later.
+<code><pre>
+import java.io.*;
+
+/**
+ * Read the contents of a file one character at a time and report on the
+ * number (and percentage) occurence of various character classes.
+ *
+ * @author Dr. J Dana Eckart
+ * @version 2015-06-01
+ */
+class FileStats {
+
+	/**
+	 * Implements the entire process (reading and reporting).
+	 *
+	 * @param args is not used.
+	 */
+	public static void main(String args[]) throws IOException {
+		// Variables to hold the various character class counts.
+		int lowerCase = 0;
+		int upperCase = 0;
+		int whiteSpace = 0;
+		int otherChars = 0;
+		int totalChars = 0;
+
+		// Read the (standard) input
+		while (true) {
+			// Quit if there's no more input.
+			int input = System.in.read();
+			if (input < 0) break;
+
+			// Cast the input to a character.
+			char c = (char) input;
+
+			// Tally up the statistics.
+
+			totalChars++;
+
+			if ('a' <= c && c <= 'z') {
+				lowerCase++;
+			} else if ('A' <= c && c <= 'Z') {
+				upperCase++;
+			} else if (' ' == c || '\t' == c || '\n' == c) {
+				whiteSpace++;
+			} else {
+				otherChars++;
+			}
+		}
+
+		// Report the statistics
+		System.out.println(totalChars + " Total Characters");
+		System.out.println(lowerCase + " Lower-Case Characters");
+		System.out.println(upperCase + " Upper-Case Characters");
+		System.out.println(whiteSpace + " White-Space Characters");
+		System.out.println(otherChars + " Other Characters");
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Extend the above program so that it also counts how many digits
+		(i.e., one of 0, 1, 2, 3, 4, 5, 6, 7, 8, 9) appeared in the file.
+	<li> Add the following <em>optional</em> command line arguments so
+		that only the corresponding statistics are reported if that
+		argument is given:
+		<ol>
+		<li> "-l" report on lower-case characters.
+		<li> "-u" report on upper-case characters.
+		<li> "-d" report on digits characters.
+		<li> "-w" report on white-space characters.
+		<li> "-o" report on all other characters.
+		</ol>
+
+		If no command line arguments are given, then all of the stats
+		should be reported. The total number of characters should
+		<strong>always</strong> be reported.
+	</ol>
+	
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

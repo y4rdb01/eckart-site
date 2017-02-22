@@ -1,0 +1,101 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Run-Time Stack
+</p>
+
+<ol>
+<li> Simplified Process Memory Model
+       	<div>
+       	<img src="../../cpsc5135/topics/SimpleProcessMemoryLayout.png" alt="Layout of process in memory" width="302" height="400" />
+       	</div>
+<li> Stack is like a stack of dishes (of papers).
+	<ol>
+	<li> You can put things on the top (push).
+	<li> You can take things off the top (pop).
+	<li> You can examine examing the top thing on the stack (top).
+	<li> BUT, you canNOT put things into or take them out of the
+		stack at any other position (e.g., bottom, middle).
+	</ol>
+<li> Each call to a function pushes an entry onto the run-time stack
+	that holds:
+	<ol>
+	<li> The values of the input parameters
+	<li> Reserved space for local variables
+	<li> Space to hold a returned result (for non-void return types only)
+	<li> Place (address) in code to return when function completes
+	<li> and other stuff you'll learn about in
+		<a href="../../cpsc5135/index.shtml">CPSC 5135</a> (just
+		after the middle of the term).
+	</ol>
+<li> When a function finishes, it's entry (which will be at the
+	top of the run-time stack) is removed.
+<li> This is why an infinite recursion (generally caused by a missing
+	or incorrect base case) causes a "stack overflow" - function
+	calls keep getting pushed onto the run-time stack until the
+	computer runs out of room for them (raising an exception and
+	generally causing your program to halt).
+</ol>
+
+<li> Follow through with the factorial (and then fibonacci) recursive examples
+	following the detailed happenings on the run-time stack. Note that
+	recursive fibonacci is inefficient in that it does a great deal of
+	recalculation.
+<li> Suppose that I changed factorial and fibonacci so that their
+	parameter value was an attribute of the Example class
+	(perhaps set by the constructor) instead of a passed parameter.
+	Would the iterative solution still give the same result? What
+	about the recursive version? Why or why not?
+<pre><code>
+class Example {
+	int x;
+	Example(int y) { x = y; }
+
+	int factorial() {
+		if (x == 0) {
+			return 1;			// Base case
+		} else {
+			return (x--) * factorial();	// Recursive call
+		}
+	}
+
+	public static void main(String args[]) {
+		Example e = new Example(7);
+		System.out.println(e.factorial());
+	}
+}
+</code></pre>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

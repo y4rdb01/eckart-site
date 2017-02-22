@@ -1,0 +1,81 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Command Line Arguments
+</p>
+
+<ol>
+<li> Provide a way to pass names of files to use for I/O.
+<li> Can replace some interactive input (e.g., # of prime numbers to list)
+<li> Used to indicate alternate actions be the same program
+	(e.g., encrypt vs decrypt, zip vs extract).
+<li> "Command line flags" are sometimes used to allow command line arguments
+	to be given in different orders. For example, the "-cp" flag for the
+	<em>javac</em> Java compiler immediately preceeds the classpath list
+	(a ";" separated list of places to look for java classes).
+	What other <em>javac</em> command line flags are there?
+<li> Example:
+<code><pre>
+	import java.util.*;
+
+	public class Example {
+		public static void main(String args[]) {
+			System.out.print(args.length);
+			System.out.println(" command line arguments given:");
+
+			for (int i = 0; i < args.length; i++) {
+				System.out.print("args[");
+				System.out.print(i);
+				System.out.print("] = '");
+				System.out.print(args[i]);
+				System.out.println("'");
+			}
+		}
+	}
+</pre></code>
+
+<li> What happens if a quoted string is given as an argument? Is there a
+	difference between single and double quotes?
+<li> Things to try:
+	<ol>
+	<li> Alter the HelloWorld program so that it takes a single command
+		line argument (e.g., a person's name) and prints a personalized
+		hello message (e.g., "Hello Jason").
+	<li> Write a new program that takes two command line arguments
+		and prints a personalized goodbye message to the first name
+		given, and hello to the second name given.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,88 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Unified Modeling Language (UML)
+</p>
+
+<ol>
+<li> Depicting Class/Interface Relationships in Class Diagrams
+	<ol>
+	<li> Interface: Represents a collection of behaviors (methods)
+		that represent a commonality of function/capability.
+		For example, LinkedList and Stack are kinds of
+		(implement) the Collection interface.
+			<div style="text-align: center; margin: auto">
+			<img src="UMLinterface.png" alt="UML interface diagram" width="456" height="111" />
+			</div>
+	<li> Inheritance: Represents the specialization of a set of
+		values described by a class. The inheriting class is
+		called a child, sub, or derived class of the parent,
+		super, or base class. For example, an airplane (subclass)
+		"is-a" kind of vehicle (superclass).
+		The diagram shows "Vehicle" which is the superclass
+		of "Airplane" (the subclass):
+			<div style="text-align: center; margin: auto">
+			<img src="UMLinheritance.png" alt="UML inheritance diagram" width="458" height="114" />
+			</div>
+	<li> Aggregation: Characterized by one class having ("has-a")
+		storing instances (objects) of another class. For
+		example, an airplane "has-a" cockpit (and wings,
+		landing gear, vertical and horizontal stabilizers, engines).
+		The diagram shows "Airplane" which aggregates values
+		(objects) of "LandingGear":
+			<div style="text-align: center; margin: auto">
+			<img src="UMLaggregation.png" alt="UML aggregation diagram" width="462" height="116" />
+			</div>
+	<li> Dependency: This is usually represented by the dependent
+		class using constants defined by another class or using
+		a type (i.e., class name) to describe parameters (or
+		local variables) in the methods of the dependent class.
+		The diagram shows "Airplane" which depends on "Pilot":
+			<div style="text-align: center; margin: auto">
+			<img src="UMLdependency.png" alt="UML dependency diagram" width="455" height="121" />
+			</div>
+	</ol>
+<li> UML diagram of Collection framework:
+	<div style="text-align: center; margin: auto">
+	<figure sytle="vertical-align: top">
+		<img width="768" height="363" src="Collection_ListImplementation.png" alt="List classes and interfaces" />
+		<figcaption>
+		Original from:  
+		<a href="http://pervasive2.morselli.unimo.it/~nicola/courses/IngegneriaDelSoftware/java/images/Collection_ListImplementation.png">http://pervasive2.morselli.unimo.it/~nicola/courses/IngegneriaDelSoftware/java/images/Collection_ListImplementation.png</a>
+		</figcaption>
+	</figure>
+	</div>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

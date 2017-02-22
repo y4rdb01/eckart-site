@@ -1,0 +1,86 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- <a href="http://www.sorting-algorithms.com/merge-sort">MergeSort</a>
+</p>
+
+<pre><code>
+import java.util.*;
+
+class MergeSort {
+	static List&lt;String> merge(List&lt;String> left, List&lt;String> right) {
+		ArrayList&lt;String> result = new ArrayList&lt;String>();
+		int leftPosition = 0;
+		int rightPosition = 0;
+		while (true) {
+			if (leftPosition == left.size() &&
+						rightPosition == right.size()) {
+				break;
+			} else if (leftPosition == left.size()) {
+				result.add(right.get(rightPosition++));
+			} else if (rightPosition == right.size()) {
+				result.add(left.get(leftPosition++));
+			} else if (left.get(leftPosition).compareTo(right.get(rightPosition)) < 0) {
+				result.add(left.get(leftPosition++));
+			} else {
+				result.add(right.get(rightPosition++));
+			}
+		}
+		return result;
+	}
+
+	static List&lt;String> mergeSort(List&lt;String> list) {
+		if (list.size() > 1) {
+			// Divide into 2 lists
+			int size = list.size();
+			List<String> bottom = list.subList(0, size/2);
+			List<String> top = list.subList(size/2, size);
+
+			// Sort each new list then merge them.
+			return merge(mergeSort(bottom), mergeSort(top));
+		} else {
+			return list;
+		}
+	}
+
+	public static void main(String args[]) {
+		ArrayList&lt;String> list = new ArrayList&lt;String>();
+		...
+		for (String obj : mergeSort(list)) System.out.println(obj);
+		...
+	}
+}
+</code></pre>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

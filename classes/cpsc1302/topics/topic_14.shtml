@@ -1,0 +1,76 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Abstract Data Types
+</p>
+
+<ol>
+<li> Object Oriented Design (OOD) - the process of planning a system of
+	interacting objects for the purpose of solving a software problem,
+	where objects contain encapsulated data and procedures grouped
+	together to represent entities.
+	<ol>
+	<li> Classes represent a single concept generally associated with
+		nouns, usually things and actors (e.g., <em>Person</em>).
+	<li> Methods are the actions performed on those nouns (so look for
+		the verbs associated with those concepts).
+	<li> Properties are internal states of objects that are maintained by
+		class instance variables (sometimes mutiple instance variables
+		are needed to represent a single property - e.g., longitude and
+		lattitude for a location on Earth's surface).
+	<li> Getters/Setters are methods used to get and set the values of an
+		object's properties - <em>getProperty</em> and
+		<em>setProperty</em> (e.g., <em>getName</em>,
+		<em>setBirthdate</em>).
+	<li> Property methods return a boolean response to a query (e.g.,
+		<em>isStudent</em>, <em>isAdult</em>) and aren't necessarily
+		named for a property.
+	<li> Non-property based methods usually represent more natural
+		(non-technical) actions associated with the object (e.g.,
+		<em>eatLunch</em>, <em>combHair</em>). These methods will
+		still change object property values, but perhaps in less
+		straightforward ways (e.g., <em>eatLunch</em> may increase
+		the <em>weight</em> property - at least until the
+		<em>exercise</em> action is taken).
+	</ol>
+<li> Sample classes:
+	<ol> 
+	<li> Person
+	<li> Car
+	<li> University Class (vs Course)
+	<li> Country (political, geographic)
+	</ol> 
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

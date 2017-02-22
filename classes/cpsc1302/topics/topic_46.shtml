@@ -1,0 +1,69 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- <a href="https://en.wikipedia.org/wiki/Towers_of_hanoi#Origins">Towers of Hanoi</a>
+</p>
+
+<ol>
+<li> Carefully walk through the run-time stack changes for 4 disks. This
+	<a href="http://www.numerit.com/samples/hanoi/fig3.gif"> animation</a>
+	will help you understand the problem.
+<pre><code>
+class TowersOfHanoi {
+        void moveDisks(int nDisks, int fromPeg, int toPeg, int tmpPeg) {
+                if (nDisks > 0) {
+                        moveDisks(nDisks-1, fromPeg, tmpPeg, toPeg);
+                        System.out.println("Move the top disk from the "
+                                                + fromPeg 
+                                                + " peg to the "
+                                                + toPeg
+                                                + " peg.");
+                        moveDisks(nDisks-1, tmpPeg, toPeg, fromPeg);
+                }
+        }
+
+	// This "facade" is what the book calls a helper function.
+        void moveDisks(int nDisks, int fromPeg, int toPeg) {
+                moveDisks(nDisks, fromPeg, toPeg, 6 - fromPeg - toPeg);
+	}
+                
+        public static void main(String args[]) {
+                TowersOfHanoi toh = new TowersOfHanoi();
+                toh.moveDisks(4, 1, 3);
+        }
+}
+</code></pre>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

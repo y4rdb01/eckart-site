@@ -1,0 +1,161 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- ArrayLists &amp; Iteration
+</p>
+
+<ol>
+<li> <em>ArrayList</em>s are similar to arrays but with the advantage that the
+	number of items that they hold can be increased.
+<li> Unlike arrays, which are built into the Java language, <em>ArrayList</em>s
+	are a new capability that was created using the facilities provided
+	by Java. We'll see how to do this next time.
+<li> The following program is a reimplementation of the
+	<a href="topic_10.shtml">Histogram</a> solution. Notice that in this
+	version of the solution, we have to use <em>Integer</em> and
+	<em>Character</em> instead of <em>int</em> and <em>char</em>. This
+	program also adds code to print the highest grades (after the histogram
+	is printed).
+<code><pre>
+import java.io.*;
+import java.util.*;
+
+/** 
+ * Prints a histogram of As, Bs, Cs, Ds, and Fs on a 10-point scale. The
+ * histogram is printed "sideways" with the different categories listed
+ * along the left hand side.
+ *
+ * @author Dr. J Dana Eckart
+ * @version 2015-06-03
+ */
+class Histogram2 {
+
+	/**
+	 * Reads numeric scores and prints a histogram of the letter grades.
+	 *
+	 * @param args is not used.
+	 */
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+
+		ArrayList<Character> label = new ArrayList<Character>();
+
+			label.add('A');	// Note: 'A' is autoboxed to Character.
+			label.add('B');
+			label.add('C');
+			label.add('D');
+			label.add('F');
+
+		ArrayList<Integer> count = new ArrayList<Integer>();
+
+			count.add(0);	// Note: 0 is autoboxed to Integer.
+			count.add(0);
+			count.add(0);
+			count.add(0);
+			count.add(0);
+
+		ArrayList<Float> scoreList = new ArrayList<Float>();
+
+		// Read and count the grade categories.
+		//
+		while (input.hasNext()) {
+			float grade = input.nextFloat();
+			scoreList.add(grade);
+
+			if (grade >= 90)
+				// Count As (note autoboxing)
+				count.set(0, count.get(0).intValue() + 1);
+			else if (grade >= 80)
+				// Count Bs
+				count.set(1, count.get(1).intValue() + 1);
+			else if (grade >= 70)
+				// Count Cs
+				count.set(2, count.get(2).intValue() + 1);
+			else if (grade >= 60)
+				// Count Ds
+				count.set(3, count.get(3).intValue() + 1);
+			else
+				// Count Fs
+				count.set(4, count.get(4).intValue() + 1);
+		}
+
+		// Print out the histogram.
+		//
+		int maxCount = 0;
+		for (int i = 0; i < count.size(); i++) {
+			// Print the category label.
+			System.out.print(label.get(i) + "s |");
+			for (int j = 0; j < count.get(i).intValue(); j++)
+				System.out.print("*");
+			System.out.println();
+
+			if (maxCount < count.get(i).intValue())
+				maxCount = count.get(i).intValue();
+		}
+
+		// Print the bottom axis (unlabeled).
+		//
+		System.out.print("---");
+		for (int i = 0; i <= maxCount; i++)
+			if (i%5 == 0) System.out.print("+");
+			else System.out.print("-");
+		System.out.println();
+
+		// Print out all of the "A" scores, one per line.
+		//
+		System.out.println("\n\nThese are all of the \"A\"s:");
+		for (Float score : scoreList)
+			if (score.floatValue() >= 90) System.out.println(score);
+	}
+}
+</pre></code>
+
+<li> NOTE: The special iterator form of the <em>for</em> loop can also be used
+	with ordinary arrays. Why didn't we use this in the first <em>for</em>
+	loop (instead of using a loop on index values)?
+<li> Things to try:
+	<ol>
+	<li> Add a new grade category, "O", for outstanding. The lower cutoff
+		value for "O" is 96.
+	<li> Add command line arguments to indicate the lower cutoffs for
+		Os, As, Bs, Cs, and Ds.
+	<li> After the histogram is printed, print all of the scores in each
+		of the category of scores (not just the As), and print all of
+		the scores from each separate category together on the same
+		line of output.
+	</ol>
+<li> 
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

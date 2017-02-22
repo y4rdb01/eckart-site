@@ -1,0 +1,266 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Making a Telephone Directory
+</p>
+
+<ol>
+<li> Suppose we have a <strong>really</strong> large number of friends and we
+	want to keep track of their phone numbers and be able to find them
+	quickly. To solve this problem, let's develop a program that allows
+	us to add new entries as well as lookup the phone numbers of people
+	that should already be in the directory.
+<code><pre>
+import java.io.*;
+import java.util.*;
+
+/**
+ * Represents a single phone number.
+ */
+class PhoneNumber {
+	private int areaCode;
+	private int exchange;
+	private int subscriber;
+
+	/**
+	 * Parses the string for digits to find the various parts of the
+	 * phone number. Assumes that there is non-whitespace separators
+	 * between the three parts of the phone number.
+	 *
+	 * @param number is the string representing the phone number.
+	 */
+	public PhoneNumber(String number) {
+		Scanner scan = new Scanner(number).useDelimiter("[^\\d]");
+		areaCode = scan.nextInt();
+		exchange = scan.nextInt();
+		subscriber = scan.nextInt();
+	}
+
+	/**
+	 * Formats phone numbers with dots (.) between the three fields.
+	 */
+	public String toString() {
+		return areaCode + "." + exchange + "." + subscriber;
+	}
+}
+
+/**
+ * Pairs a person's name with a phone number.
+ */
+class Entry {
+	private String name;
+	private PhoneNumber number;
+
+	/**
+	 * Creates a pairing between a person's name and their phone number.
+	 *
+	 * @param name is the person's name.
+	 * @param number is the person's phone number.
+	 */
+	public Entry(String name, String number) {
+		this.name = name;
+		this.number = new PhoneNumber(number);
+	}
+
+	/**
+	 * Determines whether or not the entry matches the specified name.
+	 *
+	 * @param name is the person's name.
+	 * @return true iff the name given matches the entry.
+	 */
+	public boolean nameMatch(String name) {
+		return this.name.compareToIgnoreCase(name) == 0;
+	}
+
+	/**
+	 * Determines whether or not the entry's name is lexiographically
+	 * greater than the specified name.
+	 *
+	 * @param entry is the person-phonenumber Entry instance to compare
+	 * 	names with.
+	 * @return true iff the entry's name is greater than the specified name.
+	 */
+	public boolean greaterThan(Entry entry) {
+		return this.name.compareToIgnoreCase(entry.name) > 0;
+	}
+
+	/**
+	 * Creates a string representation of the entry.
+	 *
+	 * @return String representing the name and phone number of the entry.
+	 */
+	public String toString() {
+		return number + " (" + name + ")";
+	}
+}
+
+/**
+ * The directory of all people and phone number pairings.
+ */
+class Directory {
+	private Entry list[];
+	private int last;
+
+	/**
+	 * Creates an empty directory that can hold up to "size" entries.
+	 *
+	 * @param size is the maximum entries the directoy can hold.
+	 */
+	public Directory(int size) {
+		list = new Entry[size];
+		last = -1;
+	}
+
+	/**
+	 * Adds a new entry to the directory.
+	 *
+	 * @param name is the person's name.
+	 * @param number is the person's phone number.
+	 */
+	public void addEntry(String name, String number) {
+		Entry entry = new Entry(name, number);
+
+		// Use insertion sort to add the entry to list.
+		last++;
+		if (last <= list.length) {
+			int index = last;
+			while (index > 0 && list[index-1].greaterThan(entry)) {
+				list[index] = list[index-1];
+				index--;
+			}
+			list[index] = entry;
+		}
+	}
+
+	/**
+	 * Uses linear search to find the name in the list of entries.
+	 *
+	 * @param name of the person's entry to return;
+	 * @return String representing the entry, otherwise null if not found.
+	 */
+	public String findName(String name) {
+		for (int i = 0; i <= last; i++) {
+			if (list[i].nameMatch(name)) return list[i].toString();
+		}
+		return null;
+	}
+}
+
+/**
+ * An interactive phone book that allows new entries to be added as well as
+ * fast lookup.
+ */
+class InteractivePhoneBook {
+	private Directory book = new Directory(10);
+	private Scanner scan = new Scanner(System.in);
+
+	/**
+	 * Queries the user for the name and phone number of the person to add.
+	 */
+	public void addEntry() {
+		System.out.print("Please enter the person's name: ");
+		String name = scan.next();
+		System.out.print("Please enter the person's phone number: ");
+		String number = scan.next();
+		book.addEntry(name, number);
+	}
+
+	/**
+	 * Queries the user for the name of the person to find the phone number
+	 * for.
+	 */
+	public void lookupPerson() {
+		System.out.print("Please enter the person's name: ");
+		String name = scan.next();
+		String result = book.findName(name);
+		if (result != null) {
+			System.out.println(result);
+		} else {
+			System.out.println("Sorry, but I couldn't find '" + name
+						+ "' in the phone book.");
+		}
+	}
+
+	/**
+	 * Allows users to interactively add new entries or query for phone
+	 * numbers.
+	 *
+	 * @param args is not used.
+	 */
+	public static void main(String args[]) {
+		InteractivePhoneBook pb = new InteractivePhoneBook();
+
+		while (true) {
+			// Ask what to do?
+			System.out.print("Which operation: "
+						+ "A(dd) new entry "
+						+ "or L(ookup) existing entry"
+						+ "? ");
+			switch (pb.scan.next()) {
+				case "A":
+					pb.addEntry();
+					break;
+				case "L":
+					pb.lookupPerson();
+					break;
+				default:
+					System.out.println(
+						"NOT a recognized operation."
+					);
+			}
+		}
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Add an interactive command that prints out the entire "Directory".
+	<li> Add exceptional handling for problems in reading in numbers or
+		names, or when the "Directory" overflows.
+	<li> Change the search from iterative search to binary search.
+	<li> Change the implementation of "Directory" from an array to an
+		<em>ArrayList</em>.
+	<li> Add a command line argument that is the name of a file of number
+		name pairings (given one per line), from which to initially
+		populate the "Directory".
+	<li> How would you do reverse lookups (i.e., lookup someone's name
+		using their phone number)?
+	<li> What would have to be changed or added to the implementation to
+		allow reverse lookups to be done just as fast as lookups by
+		name?
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

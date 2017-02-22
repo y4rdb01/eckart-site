@@ -1,0 +1,140 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Pairwise Combinations
+</p>
+
+<ol>
+<li> The following implementation takes an array of String and creates all
+	possible pairwise combinations of the items (order doesn't matter).
+	Pairing problems arise in competitions (e.g., chess and bridge
+	tournaments), dancing, and mating (to name just a few).
+<code><pre>
+/**
+ * Illustrates recursion in order to create all pairwise combinations of a
+ * list of items.
+ */
+import java.io.*;
+import java.util.*;
+
+class Pairs {
+	/**
+	 * The list of items to pair up.
+	 */
+	private String list[] = { "a", "b", "c", "d" };
+
+	/**
+	 * Nested class to keep track of each pair/couple.
+	 */
+	class Couple {
+		private String item1, item2;
+
+		/**
+		 * Creates a new Couple value given two items.
+		 *
+		 * @param arg1 is the first item in the pair.
+		 * @param arg2 is the second item in the pair.
+		 */
+		public Couple(String arg1, String arg2) {
+			item1 = arg1;
+			item2 = arg2;
+		}
+
+		/**
+		 * Prints a Couple on a line.
+		 */
+		public void println() {
+			System.out.println(item1 + " & " + item2);
+		}
+	}
+
+	/**
+	 * The list of pairings.
+	 */
+	private ArrayList<Couple> pairings = new ArrayList<Couple>();
+
+	/**
+	 * Uses recursion to examine all possible pairings of list. The
+	 * lowerBound and upperBound indicate which part of the list should
+	 * be paired.
+	 *
+	 * @param lowerBound is the lower index of the (sub)list to pair.
+	 * @param upperBound is the higher index of the (sub)list to pair.
+	 */
+	private void pair(int lowerBound, int upperBound) {
+		if (lowerBound > upperBound) {
+			// Base case (0 items) - nothing more to pair.
+			return;
+		} else {
+			// Recursive case
+
+			// Pair the first item in the (sub)list with the rest
+			// of the in bounds items.
+			for (int i = lowerBound+1; i <= upperBound; i++) {
+				pairings.add(new Couple(list[lowerBound],
+							list[i]));
+			}
+			// Pair the remainder of the list.
+			pair(lowerBound+1, upperBound);
+		}
+	}
+
+	/**
+	 * Finds all pairings of a list of items.
+	 *
+	 * @params args is not used.
+	 */
+	public static void main(String args[]) {
+		Pairs p = new Pairs();
+		p.pair(0, p.list.length-1);
+
+		// Print the pairings.
+		for (Couple pair : p.pairings) {
+			pair.println();
+		}
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Alter the implementation of "pair" so ALL combinations are
+		reported, including those that contain the same items,
+		but in a different order. The above solution reports
+		"a & b", but not "b & a". Change the implementation so
+		that it reports both.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

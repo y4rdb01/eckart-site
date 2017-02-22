@@ -1,0 +1,65 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Throwing Exceptions
+</p>
+
+<ol>
+<li> Exceptions are created (thrown) when either the Java language system
+	(or your program) recognizes that something has gone wrong.
+<li> Exceptions correspond to unusual, uncommon, and generally unexpected
+	situations that can occur during the exeuction of a program. Examples
+	of such situations are:
+	<ol>
+	<li> Division by 0 (zero).
+	<li> Results of arithmetic operations are too large to store.
+	<li> Unexpected input error (note that reaching the end of a file is
+		not unusual and unexpected in and of itself).
+	<li> An indicated/chosen file wasn't found.
+	<li> An output error occurred (e.g., the disk was full, file was too large).
+	<li> Part of the program (e.g., a class file) couldn't be located.
+	<li> The program has run out of memory and can't continue processing.
+	</ol>
+<li> Exceptions are created by a "throw" statement:
+<pre><code>
+	if (checkingAccount.balance() < 0) {
+		throw new Exception("OMG, what happened?!?");
+	}
+</code></pre>
+	Note that exceptions are instances of classes (i.e., objects), which
+	can carry information with them about the nature and cause of the
+	error that prompted the exception.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

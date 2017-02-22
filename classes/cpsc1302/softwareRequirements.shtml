@@ -1,0 +1,89 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	<br/>Software Requirements
+</p>
+
+<p>
+To complete all lessons, assignments, labs, and tests, you will need to
+access a computer with the following installed:
+<ol>
+<li> Operating System (need at least one):
+	<ol>
+	<li> Linux (try <a href="https://help.ubuntu.com/community/Lubuntu/">Lubuntu</a>)
+	<li> Windows 7/8.x
+	<li> Mac OSX
+	<li> NOTE: Regardless of the OS you choose, you'll almost certainly need
+		to set the appropriate environment variable(s). For Linux/Unix
+		and MacOS systems this will probably be in your own shell
+		run command file (e.g., .bashrc), while on Windows it's a bit
+		different. <a href="http://docs.oracle.com/javase/tutorial/essential/environment/paths.html">This tutorial</a> should help.
+	</ol>
+<li> Web Browser (need at least one):
+	<ol>
+	<li> <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a>
+	<li> <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>
+	<li> <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Internet Explorer</a>
+	</ol>
+<li> Environment (recommended if using Windows):
+	<ol>
+	<li> <a href="https://www.cygwin.com/">Cygwin</a> provides a Unix-like
+		environment on Windows, including many programming languages
+		(e.g., C, C++, Lisp, Prolog). It's highly recommended that you
+		install this as it will include some of the items from the
+		next two sections below). NOTE: The full install will
+		take a long time (e.g., 24 hours).
+	</ol>
+<li> <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Platform, Standard Edition (JSE)</a>
+<li> Java IDE (need at least one):
+	<ol>
+	<li> <a href="http://www.jgrasp.org/">jGRASP</a>
+	<li> <a href="http://www.eclipse.org/downloads/">Eclipse</a>
+	<li> And for those who just can't stand using an IDE, the following
+		may be helpful:
+		<ol>
+			<li> <a href="http://www.vim.org/">Vim</a> for text editing
+			<li> <a href="https://ant.apache.org/">Ant</a> for application builds
+		</ol>
+	</ol>
+<li> Code Source Versioning (recommended):
+	<ol>
+	<li> <a href="https://subversion.apache.org/">Subversion</a> server
+	<li> <a href="http://tortoisesvn.net/">TortoiseSVN</a> web client
+	</ol>
+<li> Java Source Code and Program Files from the textbook materials
+</ol>
+
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

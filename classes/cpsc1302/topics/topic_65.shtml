@@ -1,0 +1,102 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- <a href="https://en.wikipedia.org/wiki/Minesweeper_(video_game)">Minesweeper</a>
+</p>
+
+<ol>
+<li> <a href="../minesweeper/minesweeper.jnlp">Launch Minesweeper Application</a>
+
+<li> The above link points to a ".jnlp" file that contains
+<pre><code>
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;jnlp spec="1.0+" codebase= "http://csc.columbusstate.edu/eckart/classes/cpsc1302/minesweeper" href="minesweeper.jnlp">
+    &lt;information>
+        &lt;title>MineSweeper&lt;/title>
+        &lt;vendor>J Dana Eckart&lt;/vendor>
+    &lt;/information>
+    &lt;resources>
+        &lt;j2se version="1.7+" href="http://java.sun.com/products/autodl/j2se"/>
+        &lt;jar href="minesweeper.jar" main="true" />
+    &lt;/resources>
+    &lt;application-desc
+         name="MineSweeper"
+         main-class="MineSweeper"
+         width="840"
+         height="480">
+     &lt;/application-desc>
+     &lt;update check="background"/>
+&lt;/jnlp>
+</code></pre>
+
+	where the <a href="../minesweeper/minesweeper.jar">minesweeper.jar</a>
+	file was created using the command in the directory that contained the
+	compiled source files:
+<pre><code>
+	jar -cfm minesweeper.jar manifest.txt *.class
+</code></pre>
+
+	The two source files are:
+	<ol>
+	<li> <a href="../minesweeper/MineSweeper.java">MineSweeper.java</a>
+	<li> <a href="../minesweeper/MinePatch.java">MinePatch.java</a>
+	</ol>
+	Or you can get the source and the jar file bundled together in this
+	<a href="../minesweeper.zip">zip file</a>.
+
+<li> You can also run the game as an application (outside of the browser) using:
+<pre><code>
+	java -jar minesweeper.jar 20 10 25
+</code></pre>
+
+	where the numbers 20, 10, and 25 are the width and height of the
+	minefield as well as the number of placed mines, respectively.
+
+<li> Things to try:
+	<ol>
+	<li> What happens if you mark more mines than actually exist? What does
+		the mine counter do? Does the game end? Is this a bug, and if
+		so, discuss how it could be fixed.
+	<li> Is it possible to place more mines than there are locations? How
+		would you test this type of situation. If this is a bug, how
+		could it be remedied?
+	<li> What happens when other extremes are used? For example, if the
+		minefield is one (1) cell wide and/or tall? What if no mines
+		are placed? Or just a single mine? Are the behaviors seen bugs,
+		or do you think the game should work that way? If a bug,
+		discuss how you might prevent it?
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

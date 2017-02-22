@@ -1,0 +1,72 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Output Formatting
+</p>
+
+<ol>
+<li> <em>java.io.PrintStream</em> has <em>printf</em> (identical to
+	<em>format</em>) for fine control of output.
+<li> <em>printf</em> (and <em>format</em>) are far more flexible than
+	<em>print</em> and <em>println</em> and no harder to use.
+<li> Simplest use is <em>outputStream.printf(formatString, arg_1, ...
+	arg_n);</em> where the <em>formatString</em> contains the format
+	specifications (along with other text) and the args are the
+	corresponding values (in order) to be printed according to those
+	specifications.
+<li> A format element:
+	<ol>
+	<li> Begins with a "%" and ends with a format type (e.g., "d" for
+		integer, "f" for floating point, "s" for string, "n" for
+		newline).
+	<li> Between these 2 elements are a flag and a width. Some common
+		flags are:
+		<table border="1">
+		<tr><td>-</td><td>Print left-justified</td></tr>
+		<tr><td>+</td><td>Show plus sign for positive numbers</td></tr>
+		<tr><td>0</td><td>Print leading zeros</td></tr>
+		<tr><td>,</td><td>Show 1000s separators</td></tr>
+		<tr><td>(</td><td>Enclose negative values in ()</td></tr>
+		</table>
+	</ol>
+<li> Format specifications and more examples:
+	<ol>
+	<li> <a href="http://www.cs.gsu.edu/csc2010/f13/assignments/h4/printf.pdf">Quick Reference</a>
+	<li> <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html">Complete Specification</a>
+	<li> <a href="http://www.homeandlearn.co.uk/java/java_formatted_strings.html">Some Examples</a> and
+		<a href="http://www.braju.com/docs/IntroductionToPrintf/">More Examples</a> and
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

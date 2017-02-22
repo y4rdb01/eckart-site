@@ -1,0 +1,172 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Transforming Input
+</p>
+
+<ol>
+<li> Now that we know how to create more classes (and methods), let's look
+	a more  complex transformation style program. In this case it will
+	be a text formatter. Text formatters take text that may not be
+	nicely indented or spaced, and converts it into something more
+	suitable for viewing on the screen (or even printing out on paper).
+<li> The "man" command for displaying manual pages on Unix/Linux systems is
+	built upon "nroff" which is a text formatter.
+<li> Let's start with a "Word" class since all text is composed of words.
+	However in our case, rather than focusing only on English words, we'll
+	define a word as any sequence of non-whitespace characters.
+<code><pre>
+import java.io.*;
+import java.util.*;
+
+/**
+ * Is a word of text (contiguous non-whitespace characters).
+ */
+class Word {
+	private static Scanner input = null;
+	private String value = null;
+
+	/**
+	 * Setups words to be read from the indicated Scanner instance.
+         *
+	 * @param input is the Scanner instance to read words from.
+	 */
+	public Word(Scanner input) {
+		this.input = input;
+		nextWord();
+	}
+
+	/**
+	 * Gets the next word from the currently identified Scanner instance.
+         */
+	public void nextWord() {
+		value = null;
+		if (input != null && input.hasNext()) value = input.next();
+	}
+
+	/**
+	 * Returns the size of the word.
+	 *
+	 * @return the number of characters in the word value.
+	 */
+	public int length() {
+		if (value == null) return 0;
+		else return value.length();
+	}
+
+	/**
+	 * Prints the word to the standard output.
+	 */
+	public void print() {
+		if (value != null) System.out.print(value);
+	}
+}
+</pre></code>
+
+<li> Now that we have a "Word" class, lets use it to take input but to write
+	the input out so that each line of output is as close to 80 characters
+	as possible without going over. In addition, each word should be
+	separated by a single space, but there should be no spaces before the
+	first word or after the last word.
+<code><pre>
+import java.io.*;
+import java.util.*;
+
+/**
+ * Formats text for output to the screen or printer.
+ */
+class Formatter {
+	private Word currentWord = null;
+	private int lineLength = 0;
+
+	/**
+	 * Prints the first word of a new line of formatted text.
+	 */
+	private void printFirstWord() {
+		currentWord.print();
+		lineLength += currentWord.length();
+	}
+
+	/**
+	 * Reads words from the input and writes full lines of output (up to a
+	 * maximum of 80 characters long.
+	 */
+	private void formatText() {
+		Scanner input = new Scanner(System.in);
+		currentWord = new Word(input);
+		while (currentWord.length() > 0) {
+			if (lineLength == 0) {
+				printFirstWord();
+				currentWord.nextWord();
+			} else if (currentWord.length() + 1 + lineLength <= 80) {
+				System.out.print(" ");
+				currentWord.print();
+				lineLength += 1 + currentWord.length();
+				currentWord.nextWord();
+			} else {
+				System.out.println();
+				lineLength = 0;
+			}
+		}
+	}
+
+	/**
+	 * The main driver for transforming the input to formatted text.
+	 */
+	public static void main(String args[]) {
+		new Formatter().formatText();
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Add a special command word, ".nl", that when it is seen in the
+		input starts a new line of output regardless of how full the
+		current line of output is. The command should
+		<strong>not</strong> be included in the output. How could
+		you do this so that only the "Word" class needed to be changed?
+	<li> Create a new class, "Line", that represents a line of output
+		Words should be added to the line, and the line prints itself
+		out when it gets to be long enough. The "Formatter" class will
+		then use "Line" instead of using "Word" to format text.
+	<li> Add two new special commands, ".cs" and ".ce" (for center start
+		and center end). Any text appearing between these two lines
+		should be centered on a single 80 character line of output.
+		You can assume that the text between these two commands will
+		always fit on a single line.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

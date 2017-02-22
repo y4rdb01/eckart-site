@@ -1,0 +1,322 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Study Questions for Test #2
+</p>
+
+<style type="text/css">
+	ol.question_list {list-style-type: none;}
+	ol.question_list li:before {content: counter(question, decimal) ") ";}
+	ol.question_list li { counter-increment: question;}
+
+	ul.bullet_list {list-style-type: disc;}
+        ul.bullet_list li:before {content: "";}
+        ul.bullet_list li { counter-increment: bogus;}
+</style>
+
+<p>
+Your test will be to complete one or more questions from the following list
+of questions. I <em>encourage</em> you to work through all of these questions
+before the test. You are free to work with others from the class on these
+questsion, but no code, notes, or other artifacts from those efforts can be
+utilized during the test. Please also be aware that the questions as they
+appear on the test may have changes in wording, expanded descriptions or
+examples of the desired input/output, as well as additional constraints on
+the solution (e.g., your program must include a method that takes two
+parameters).
+</p>
+
+
+<h3>General Requirements</h3>
+<blockquote>
+Each of the following programs should be constructed using at least:
+<ol>
+<li> one array (<strong>not</strong> an <em>ArrayList</em>);
+<li> two named class definitions;
+<li> one constructor;
+<li> two methods (in addition to "main"), one which takes parameters and
+	one which returns a value; and
+<li> one data attribute for at least one of the classes.
+</ol>
+Program interaction should be via a graphical user interface (no keyboard input
+or command line arguments are used).
+Data attributes declared within a class should not be visible outside of the
+class. Any helper methods not used by other classes should also appropriately
+limit their visibility.
+As always, you should use appropriate indentation and identifier names to make
+your program easier to read and understand. Also be sure to document your
+program using both commenting styles - including appropriate JavaDoc comments.
+</blockquote>
+
+<h3>Test Questions</h3>
+<ol class="question_list">
+<li>
+Write a program that enables a human to play the computer a game of tic-tac-toe.
+The program should use a graphical user interface that looks like:
+<pre>
+	+---------+---------+---------+
+	|         |         |         |
+	|    X    |         |    O    |
+	|         |         |         |
+	+---------+---------+---------+
+	|         |         |         |
+	|    X    |    O    |         |
+	|         |         |         |
+	+---------+---------+---------+
+	|         |         |         |
+	|    O    |    X    |    O    |
+	|         |         |         |
+	+---------+---------+---------+
+	|  I won, want to play again? |
+	+-----------------------------+
+
+</pre>
+The nine squares in the top of the interface are the clickable playing area.
+The computer always gets to go first, and should always start by taking the
+center spot. After that, the computer places its moves in random untaken
+squares until either it or the human has won (3 moves in a row either
+horizontally, vertically, or diagonally), or all of the squares have been
+taken. Use "O" to represent the computer and "X" to represent the human, and
+prevent either the human or computer from picking a square that has already
+been taken. Once the game is over the text of the large button at the bottom
+should change from being empty/blank to one of (as appropriate):
+<ul class="bullet_list">
+	<li> Tie game, want to play again?
+	<li> You won, want to play again?
+	<li> I won, want to play again?
+</ul>
+In any case, once the bottom button is clicked a new game should begin.
+</li></br>
+
+<li> Wack-a-mole is a mindless but enjoyable game for all ages. Use a 4 x 4
+	grid of squares. Randomly display a mole's head (using an asterisk,
+	"*"). When the user clicks on the square, the mole's head should
+	disappear. To make the game a bit easier to play, only one mole head
+	should appear at a time, but the next mole head should pop-up as
+	soon as the user whacks one. The game should go on forever - or
+	until the player gets tired and quits. A button, labeled "Quit",
+	should display below the 4 x 4 grid (and should extend across the
+	entire bottom of the grid). When this bottom button is clicked, the
+	program should end. The game display should look like:
+<pre>
+	+---+---+---+---+
+	|   |   |   |   |
+	+---+---+---+---+
+	|   |   |   | * |
+	+---+---+---+---+
+	|   |   |   |   |
+	+---+---+---+---+
+	|   |   |   |   |
+	+---+---+---+---+
+	|     Quit      |
+	+---------------+
+</pre>
+</li></br>
+
+<li>
+Design and implement a basic 4 function calculator with a graphical user
+interface. The graphical layout should look like:
+<pre>
+	+---------------+
+	|               |
+	+---+---+---+---+
+        | 1 | 2 | 3 | + |
+	+---+---+---+---+
+        | 4 | 5 | 6 | - |
+	+---+---+---+---+
+        | 7 | 8 | 9 | * |
+	+---+---+---+---+
+        | R | C | 0 | / |
+	+---+---+---+---+
+</pre>
+The top element displays the current value of the calculation (and is not
+clickable - so use a label). The remaining elements are all clickable buttons.
+Clicking a digit button appends that to the current value being entered. When
+an operation button (one of +, -, *, /) is clicked the number in the display
+is combined with the calculator's accumulator and the display updated to
+show the result (e.g., if the accumulator value is 12 and 3 is showing in the
+display as the number entered and "-" is clicked, then 3 is subtracted from
+12 and 9 is shown in the display). The "R" button resets to the display and
+accumulator to 0, while the "C" button keeps the accumulator value, but resets
+the display (entered) number to 0 so the user can correct their data entry.
+</li></br>
+
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+
+<li>
+Implement a program that plays Black Jack with a single human player. You will
+need to create a deck of 52 playing cards, which are shuffled at the beginning.
+A single card is dealt "face down" to the human player and to the computer,
+then a second "face up" (visible) card is dealt to each player.
+Your program should implement a graphical user interface that looks like: 
+<pre>
+	+---------------+---------------+
+	|    Computer   |    Human      |
+	|               |               |
+	|    UNKNOWN    |   UNKNOWN     |
+	| ten of clubs  | two of hearts |
+	|               |               |
+	|               |               |
+	|               |               |
+	|               |               |
+	+---------------+---------------+
+	|             HOLD              |
+	+---------------+---------------+
+</pre>
+The left side corresponds to the computer player while the right side is for the
+human, with their drawn cards indicated as text. The computer's side is a label
+(and thus not clickable) while the human's side is a button. Clicking the button
+indicates that the human wants another face up card. When the human doesn't
+want to draw any more cards, then click the bottom button (bar across the
+bottom - marked "HOLD").  Notice that the computer displays what cards are
+showing (face up) for both the computer and the human after any card is dealt
+(show "UNKNOWN" for cards that are face down). After the human has stopped,
+then the computer should give itself a face up card until the total rank of its
+cards is equal or greater to 16. [Count aces as either 1 or 11, whichever
+brings the total card value closest to 21 without going over.] Once the
+computer stops taking cards, then the computer declares the winner and shows
+the final hands with the face down cards revealed. The text of the bottom button
+changes to either "You Won" or "I Won" depending upon whether the human or
+computer won the game respectively. Clicking the bottom "Won" button will start
+a new game (with a new shuffled deck of cards).
+</li></br>
+
+<li>
+<a href="http://en.wikipedia.org/wiki/Kalah">Kalah</a>
+is a Mancala type game played in the US. It is played on a board
+containing 14 depressions - 6 in pairs (called "houses") down the length of the
+board with one extra depression at each end (called "stores") of the row of
+6 paired depressions. There are two players, each sitting with 6 of the paired
+depressions going from right to left in front of them. Initially, each house
+contains 4 seeds (a seed is often represented by a stone or similar object).
+Each player controls the six houses and their seeds on their side of the board.
+The player's score is the number of seeds in the store to their right.
+The rules are:
+<ul class="bullet_list">
+<li> Players alternate turns.
+<li> On their turn, a player removes all seeds from one of the houses under
+	their control, then moving counter-clockwise, the player drops one
+	seed in each house in turn, including the player's own store but not
+	their opponent's store. This is called sowing.
+<li> If the last sown seed lands in the player's store, the player gets an
+	additional move.
+<li> There is no limit on the number of moves a player can make in their turn.
+<li> If the last sown seed lands in an empty house owned by the player, and the
+	opposite house contains seeds, both the last seed and the opposite
+	seeds are captured and placed into the player's store.
+<li> When one player no longer has any seeds in any of their houses, the game
+	ends.
+<li> The other player moves all remaining seeds to their store, and the player
+	with the most seeds in their store wins.
+</ul>
+You program should create a graphical user interface that resembles the
+following layout:
+<pre>
+	+---+---+---+---+---+---+---+---+
+	|   |   |   |   |   |   |   |   |
+	+   +---+---+---+---+---+---+   +
+	|   |   |   |   |   |   |   |   |
+	+---+---+---+---+---+---+---+---+
+</pre>
+The human player clicks on one of their houses to sow their seeds (the computer
+carries out the actual distribution of seeds). The computer shows the number of
+seeds as the text for each house and store (but only the human players houses
+are clickable - the others are represented by labels). The computer should
+play by picking one of its houses at random, and continue alternating play
+with the human play until there is a winner, indicating who won by replacing
+the text in the store of the winner with either "You won" or "I won" depending
+upon if the human or computer won the game respectively.
+</li></br>
+
+<li>
+Develop a program that plays a variant of
+<a href="http://en.wikipedia.org/wiki/Mastermind_(board_game)">mastermind</a>,
+with the human always taking the role of the codebreaker. The graphical user
+interface for your program should look like:
+<pre>
+	+---+---+---+---+---+
+	| A | A | A | A |   |
+	+---+---+---+---+---+
+	| B | B | B | B |   |
+	+---+---+---+---+---+
+	| C | C | C | C |   |
+	+---+---+---+---+---+
+	| D | D | D | D |   |
+	+---+---+---+---+---+
+	|     Make Guess    |
+	+-------------------+
+</pre>
+Each of the buttons labeled with an A, B, C, or D is clickable. Clicking on a
+button makes it active (a guess), but on any particular column only one of the
+buttons can be active.  If another button in that column is clicked then the
+previously clicked button in that column is deactivated in the new button
+activated. Active buttons change their text to an asterisk (*) to show that
+they are active. When the human player has indicated their complete guess
+(each of the four columns on the left side has an active guess) they can click
+the "Make Guess" button to have the computer indicate how close it is to the
+secret code. The column of scoring labels (not clickable) on the right hand
+side are filled in by the computer. Scoring labels are filled with a "?"
+the secret code contains the letter from that row anywhere within it, but if
+at least one of the guessed letters in that row is in the correct place in the
+secret code, then the label is filled with a "!". If the player gets all "!"
+in the last column, then the human has correctly guessed the secret code and the
+computer will display the number of guesses it took (e.g., "14 Guesses").
+After the human has guessed the secret code, they can click on the bottom button
+again to start a new game with a new (random) secret code.
+</li></br>
+
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+
+</ol>
+
+<h3>Grading Guidelines</h3>
+<ul>
+<li> -100 points for programs that fail to compile.
+<li> -25 points if a run-time error occurs with expected legal input.
+<li> -10 points if an array is not used.
+<li> -10 points if there are not at least two distinct named class definitions.
+<li> -5 points if there are not two methods in addition to "main".
+<li> -5 points if there is not a method (in addition to "main") that takes at
+	least one parameter.
+<li> -5 points if there is not a method that returns a non-"void" type.
+<li> -5 points if there is not a data attribute for at least one of the classes.
+<li> -5 points if attributes or methods  do not have restricted visibility.
+<li> -5 points for explicitly defining a constructor for at least one of the classes.
+<li> -5 points for poor indentation and lack of documentation/comments.
+<li> -20 points for construction of the desired GUI layout.
+<li> -10 points for implementation of GUI actions using listeners.
+<li> -15 points for correct operation of the GUI actions.
+</ul>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

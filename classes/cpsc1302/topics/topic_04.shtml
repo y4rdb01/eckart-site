@@ -1,0 +1,70 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Simple Conversions
+</p>
+
+<ol>
+<li> Two different kinds of conversions are illustrated here:
+	<ol>
+	<li> Convert a String to a number.
+	<li> Convert one numeric value to another numeric value.
+	</ol>
+<li> Java program to convert a temperature on the Fahrenheit scale to one on
+	the Celcius scale. Put the following code in a file named
+	"ConvertTemp.java".
+<code><pre>
+import java.io.*;
+
+class ConvertTemp {
+	public static void main(String args[]) {
+		float farhenheit = Float.parseFloat(args[0]);
+		System.out.println(farhenheit + "F"
+					+ " = "
+					+ (farhenheit - 32) * 5 / 9 + "C");
+	}
+}
+</pre></code>
+<li> To pass command line arguments be sure to run the program using
+	"java ConvertTemp -40", where "-40" is the temperature to be converted.
+<li> Things to try:
+	<ol>
+	<li> Change the program to convert Farhenheit to Kelvin.
+	<li> Write a new program to change US Dollars into Euro. Google
+		"currency exchange rates dollar vs euro" to find today's
+		rate of exchange.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

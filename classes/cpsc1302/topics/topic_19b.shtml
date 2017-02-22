@@ -1,0 +1,81 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Vehicle Example
+</p>
+
+<ol>
+<li> While perhaps not as obvious as the biology taxonomy, vehicles also
+	have a taxonomy that we tend to use (even if we don't write it down
+	in a formal way).
+<li> Define a set of Java classes for the following, extending the appropriate
+	ones to achieve the hierarchy relationships commonly used. Note that
+	the following are mixed up a bit, so you should probably read through
+	the list first before starting to write any class definitions.
+	<ol>
+	<li> Submarine
+	<li> Truck
+	<li> Spacecraft
+	<li> Airplane
+	<li> Quadracycle
+	<li> Helicopter
+	<li> Boeing747
+	<li> Aircraft
+	<li> Watercraft
+	<li> SurfaceVessel
+	<li> Car
+	<li> Destroyer
+	<li> Vehicle
+	<li> SpaceShuttle
+	<li> Landcraft
+	<li> Soyuz
+	<li> Bicycle
+	<li> Blimp
+	</ol>
+<li> Create an "identify" method as we did with the <em>Animal</em> example
+	and override it as appropriate in any other classes that need it.
+<li> Write "main" method inside a <em>Driver</em> class that creates an
+	instance of each class and prints out its identification.
+<li> Create a "primaryCharacteristic" method that returns a <em>String</em>
+	which is describes the most distinguishing characteristic of that
+	type of vehicle (e.g., "travels underwater"). If you cannot think
+	of one, then return an empty <em>String</em>.
+<li> Adjust the "main" method to print out both the identification and the
+	corresponding distinguishing characteristic.
+<li> Add 2 new types of vehicles, your choice, and update your "main" method
+	to create instances of these new vehicles and print out their
+	identification and corresponding distinguishing characteristics.
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

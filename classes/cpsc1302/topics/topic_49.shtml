@@ -1,0 +1,135 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Backtracking (Permutations)
+</p>
+
+<ol>
+<li> The following implementation takes an array of String and creates all
+	possible permutations of the items. The style of the solution lends
+	itself well to solving a number of problems that require examining
+	all possibilities before deciding on an answer (e.g., 
+	<a href="https://en.wikipedia.org/wiki/Knapsack_problem">Knapsack problem</a>
+	<a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">Traveling Salesperson problem</a>).
+<code><pre>
+/**
+ * Illustrates recursion with backtracking in order to create all permutations
+ * of a list of items.
+ */
+import java.io.*;
+
+class Permute {
+	/**
+	 * The list of items to permute.
+	 */
+	private String list[] = { "a", "b", "c", "d" };
+
+	/**
+	 * Swaps the values of the items at the two indicated list indices.
+	 *
+	 * @param j is the first index of the two items to swap.
+	 * @param k is the second index of the two items to swap.
+	 */
+	private void swapItems(int j, int k) {
+		if (j != k) {
+			String tmp = list[j];
+			list[j] = list[k];
+			list[k] = tmp;
+		}
+	}
+
+	/**
+	 * Performs some action using the permutation of the original list,
+	 * now contained in list.
+	 */
+	private void usePermutation() {
+		for (String str : list) {
+			System.out.print(str);
+		}
+		System.out.println();
+	}
+
+	/**
+	 * Uses backtracking to recursively examine all possible permutations
+	 * of list. The lowerBound and upperBound indicate which part of the
+	 * list should be permuted.
+	 *
+	 * @param lowerBound is the lower index of the (sub)list to permute.
+	 * @param upperBound is the higher index of the (sub)list to permute.
+	 */
+	private void permute(int lowerBound, int upperBound) {
+		if (lowerBound > upperBound) {
+			// Base case (0 items) - nothing more to permute.
+			usePermutation();
+		} else {
+			// Recursive case
+
+			// Give every element in the (sub)list an opportunity
+			// to appear first in a permutation.
+			for (int i = lowerBound; i <= upperBound; i++) {
+				// Swap first item with the ith item.
+				swapItems(lowerBound, i);
+
+				// Permute the remainder of the list with the
+				// new (swapped) "first" element.
+				permute(lowerBound+1, upperBound);
+
+				// Swap the ith item with the first item.
+				swapItems(i, lowerBound);
+			}
+		}
+	}
+
+	/**
+	 * Permutes a list of items.
+	 *
+	 * @params args is not used.
+	 */
+	public static void main(String args[]) {
+		Permute p = new Permute();
+		p.permute(0, p.list.length-1);
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Alter the "list" and the implementation of "usePermutation" so
+		that this checks for solutions to the magic square problem
+		(from the <a href="../studyQuestions_3.shtml">final exam
+		study questions</a>).
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

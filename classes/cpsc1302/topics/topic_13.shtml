@@ -1,0 +1,131 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Creating New Classes
+</p>
+
+<ol>
+<li> Variables and methods declared within a class are sometimes collectively
+	referred to as "members".
+<li> Class Instance (aka Object) variables are created on a per
+	instance/object basis. E.g.,
+	<ol>
+	<li> "name" for a <em>Person</em>
+	<li> "description" for a <em>Course</em>
+	<li> "make" and "model" for a <em>Car</em>
+	</ol>
+<li> Instance (object) variables are created for each instance of a class.
+	<ol>
+	<li> Useful for values that can (though aren't required) to be
+		different for instances of a class. E.g.,
+		<ol>
+		<li> Name, birthdate, height, and weight of a person
+		<li> Keeping track of bank account balances
+		<li> Remembering student scores on assignments and tests
+		</ol>
+	<li> What are other examples of good instance variables?
+	<li> Not everything should be an instance variable. Some aspects of
+		state may be common to every instance of the class. E.g.,
+		<ol>
+		<li> Species of a <em>Person</em>
+		<li> Components of a <em>Eukaryote</em> cell
+		<li> Fine ranges for <em>MovingViolations</em>
+		</ol>
+	<li> What are some additional examples of non-instance properties?
+	</ol>
+<li> Mutable vs Immutable Objects
+	<ol>
+	<li> Ideally, only the object receiving the message (method) call
+		should have the opportunity to change state.
+	<li> "Side effects" are when a method parameter changes state.
+	<li> Side effects are not obvious at the point of call, and can easily
+		introduce (or hide) errors that are difficult to track down.
+	<li> Remember that reading from and writing to files is a side effect!
+	<li> Historic convention is for access methods to avoid side effects.
+		That is, they should be idempotent.
+	<li> Immutable objects can be passed as method parameters without the
+		opportunity for state changes via side effects.
+	<li> Immutable objects can be safely shared (particularly useful if
+		simultaneous actions are possible - as with multi-threaded
+		applications).
+	<li> Examples of immutable objects: String, Integer, Color, Fruit, ...
+	<li> What are examples of objects that SHOULD be mutable?
+	<li> CAUTION: While some books state that "As a rule of thumb, a method
+		that returns a value should not be a mutator." However,
+		the <em>add</em> for ArrayList returns a "boolean" regarding
+		its success. We'll revisit this issue when we cover exceptions.
+	</ol>
+<li> A new class definition needs a name and generally has attributes,
+	methods, and constructors. Here's an example for a new <em>Person</em>
+	class:
+<code><pre>
+/**
+ * Represents a single human being.
+ */
+class Person {
+	private String name;
+	private int age;
+
+        /**
+         * Creates a person with a name and age.
+         *
+         * @param name is the name of the person.
+         * @param currentAge is the person's age in years.
+         */
+	public Person(String name, int currentAge) {
+		this.name = name;
+		age = currentAge;
+	}
+
+        /**
+         * Prints a pleasant greeting for the person.
+         */
+	public void greet() {
+		System.out.println("Hello " + name + ".");
+	}
+
+        /**
+         * Indicates whether or not the person is allowed to purchase/drink
+         * alcohol.
+         *
+         * @return true iff the person is at least 21 years old.
+         */
+	public boolean canDrink() {
+		return age >= 21;
+	}
+}
+</pre></code>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

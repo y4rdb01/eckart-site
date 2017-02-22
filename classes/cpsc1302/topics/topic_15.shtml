@@ -1,0 +1,88 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Static Variables &amp; Methods
+</p>
+
+<ol>
+<li> (Static) Class variables belong to the class (so there's only one
+	occurence) and can be shared by all instances of that class. E.g.,
+	<ol>
+	<li> "nextAccountNumber" for a <em>BankAccount</em>.
+	<li> Various fees and tuition rates for a <em>Student</em>.
+	<li> Number of calories for each <em>Muffin</em> object.
+	<li> Count of number of class instances created.
+	</ol>
+<li> Variable initialization: Class vs Instance/Object
+	<ol>
+	<li> <code><pre>private int nextNumber = 4;</pre></code>
+	<li> <code><pre>private static int nextNumber = 4;</pre></code>
+	<li>
+<code><pre>
+private int nextNumber;
+{
+	nextNumber = 4;
+}
+</pre></code>
+
+	<li>
+<code><pre>
+private static ArrayList<Integer> numbers;
+static {
+	numbers = new ArrayList<Integer>();
+	numbers.add(4);
+}
+</pre></code>
+
+	<li> A good practice is to use constructors for Instance/Object variable
+		initialization as it keeps all the initialization in a single
+		place (making it harder to miss something that could make it
+		harder to identify the source of a bug).
+	</ol>
+<li> Static methods may only use passed parameters and any static (class)
+	variables.
+	<ol>
+	<li> Useful for utility functions (e.g., various Math functions).
+	<li> Enable access to class variables without needing an instance
+		(e.g., there are no more active instances of <em>Sudent</em>
+		but we'd like to know how many have ever been created).
+	<li> The familiar "public static void main(String args[])" method is
+		static. Why?
+	<li> As a general rule, only use static methods as really necessary.
+		You could code everything as static within a single class - but
+		that would defeat the (entire?) purpose of using Java.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,152 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Repeated Actions
+</p>
+
+<ol>
+<li> <em>While</em> and <em>For</em> loops are the most commonly used
+	statements for doing something repeatedly.
+<li> <em>While</em> loops perform a set of actions as long as a particular
+	condition is true.
+<li> <em>For</em> loops should be used when the number of times a set of
+	actions should be performed is known beforehand (though it doesn't
+	necessarily have to be a fixed/constant number of times).
+<li> The following program reads all the numbers from the input and calculates
+	the average value:
+<code><pre>
+import java.io.*;
+import java.util.*;
+
+/**
+ * Finds the average of the input numbers.
+ *
+ * @author Dr. J Dana Eckart
+ * @version 2015-06-01
+ */
+class Average {
+
+	/**
+         * Calculates the average of numbers in the input.
+	 *
+	 * @param args holds the command line arguments (not currently used).
+	 */
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+
+		float sum = 0;
+		int count = 0;
+
+		// Read in all the input.
+		//
+		while (input.hasNext()) {
+			count++;
+			sum += input.nextFloat();
+		}
+
+		System.out.println("average = " + sum/count);
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Change the program so that it also reports both the lowest value
+		contained in the input. Be careful however, you shouldn't
+		assume that the lowest number is greater than 0 (or any other
+		specific value).
+	<li> If there are no numbers in the input, then have the program
+		print out an appropriate message to that effect.
+	<li> Write a new program that takes a new base, B, and a base 10 number, N,
+		both given on as command line arguments, and prints out the value
+		of N in base B. Now use the program and convert the following
+		numbers into their
+		<a href="https://www.youtube.com/watch?v=b6vHZ95XDwU">base 2</a>
+		equivalents: 2, 3, 4, 5, 82_000.
+	</ol>
+
+<li> This program creates a square box using asterisks (*). The size of the
+	box is given on the command line.
+<code><pre>
+import java.io.*;
+import java.util.*;
+
+/** SquareBox - Prints out an empty square box using asterisks (*).
+ *
+ * @author Dr. J Dana Eckart
+ * @version 2015-06-01
+ */
+class SquareBox {
+
+	/** main - prints a square box.
+	 *
+	 * @param args should have only one element which is the box size.
+	 */
+	public static void main(String args[]) {
+		int size = Integer.parseInt(args[0]);
+
+		// Print top edge
+		for (int i = 0; i < size; i++) System.out.print("*");
+		System.out.println();
+
+		// Print sides (and empty inside).
+		for (int i = 1; i < size-1; i++) {
+			System.out.print("*");
+			for (int j = 1; j < size-1; j++) System.out.print(" ");
+			System.out.println("*");
+		}
+
+		// Print bottom edge
+		for (int i = 0; i < size; i++) System.out.print("*");
+		System.out.println();
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> The above does not correctly draw a box of size 0 or 1. Alter
+		the program to print these sizes as well. [Note: A box of
+		size 0 shouldn't print anything.]
+	<li> Add a check so that if a negative size is indicated then the
+		program will print a helpful message to the user about
+		what sizes are appropriate.
+	<li> Write a new program that prints out a right triangle instead of a
+		square box. The left and bottom edges of the triangle should
+		be of "size" length, with the hypotenuse going from the
+		upper-left to the lower-right. 
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

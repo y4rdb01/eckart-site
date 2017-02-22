@@ -1,0 +1,78 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Edit, Compile, Run, Debug
+</p>
+
+<ol>
+<li> Use a text editor to create a file named "HelloWorld.java" that contains
+	the following Java source code:
+<code><pre>
+import java.io.*;
+
+class HelloWorld {
+	public static void main(String args[]) {
+		System.out.println("Hello World.");
+	}
+}
+</pre></code>
+	Note that the name of the file (before ".java") should match the
+	class name given in the source code.
+
+<li> Compile the code using "javac HelloWorld.java".
+
+<li> Run the compiled program using "java HelloWorld".
+
+<li> If there were problems with the output, then you would
+	<ol>
+	<li> Generate several hypothesies about what the problem might be.
+	<li> Run the program with different inputs to test each hypothesis,
+		discarding those that turn out to be invalid, and perhaps
+		generating new hypothesies in the process.
+	<li> When one or more hypothesies are supported by the available
+		data, then devise adjustments to the program design and code
+		to fix the problem(s) and return to step 1 (using the editor
+		to adjust the program source code).
+	</ol>
+<li> Things to try:
+	<ol>
+	<li> Alter the program to print out a different message.
+	<li> Alter the program to print out multiple messages, each on a
+		different line.
+	<li> Without referring back to this code, can you create a program
+		from scratch that prints out your name?
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

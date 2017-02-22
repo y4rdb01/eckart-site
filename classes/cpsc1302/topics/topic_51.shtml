@@ -1,0 +1,74 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Insertion Sort
+</p>
+
+<ol>
+<li> <a href="http://www.sorting-algorithms.com/insertion-sort">Demonstration</a>
+<li> Implementation:
+<pre><code>
+import java.util.*;
+
+class InsertionSort {
+	public static void main(String args[]) {
+		ArrayList&lt;String> list = new ArrayList&lt;String>();
+		int last = -1; // Indicates location of last array item.
+		Scanner scan = new Scanner(System.in);
+		while (scan.hasNext()) {
+			String item = scan.next();
+
+			// Find position in list where item should go.
+			int i = 0;
+			while ((i <= last) && (item.compareTo(list.get(i)) > 0)) i++;
+
+			// Insert item BEFORE location i
+			list.insert(i, item);
+			last++;
+		}
+		...
+	}
+}
+</code></pre>
+
+<li> What assumptions does the above code make?
+	<ol>
+	<li> That the items are Objects and not primitive types
+		(e.g. int, float) since we're using ArrayList.
+	<li> That short-circuit boolean evaluation protects the
+		reference to "list.get(i)" in the while loop.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

@@ -1,0 +1,123 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Conditional Actions
+</p>
+
+<ol>
+<li> Choosing to do something different (action) based on the answer to a
+	yes/no question (condition) is fundamental to most programs.
+<li> <em>If-then-else</em> statements are the most common form of conditional
+	statement.
+<li> Another type of conditional action is the <em>switch</em> statement.
+	Although less commonly used, in some circumstances it can be more
+	efficient and make the program meaning easier to discern.
+<li> The following program takes three command line arguments. The first is
+	the temperature to convert, the second is the scale used for that
+	temperature, and the third command line argument is the temperature
+	scale to convert to. A small amount of input data checking is also
+	done.
+<code><pre>
+import java.io.*;
+
+class ConvertTemps {
+	public static void main(String args[]) {
+		if (args.length < 3) {
+			System.err.println("ERROR: Too few arguments were "
+						+ "given on the command line.");
+			System.err.println("USAGE: java ConvertTemp "
+						+ " temperature "
+						+ " [F|C] "
+						+ " [F|C]");
+			return;
+		}
+
+		switch (args[1]) {
+			case "F": case "C":
+				break;
+			default:
+				System.err.println("ERROR: Improper "
+							+ " temperature scale "
+							+ "'" + args[1] + "'");
+				System.err.println("Temp scale must be: "
+							+ "F (Fahrenheit), or "
+							+ "C (Celsius).");
+				return;
+		}
+
+		switch (args[2]) {
+			case "F": case "C":
+				break;
+			default:
+				System.err.println("ERROR: Improper "
+							+ " temperature scale "
+							+ "'" + args[1] + "'");
+				System.err.println("Temp scale must be: "
+							+ "F (Fahrenheit), or "
+							+ "C (Celsius).");
+				return;
+		}
+
+		float temperature = Float.parseFloat(args[0]);
+
+		System.out.print(temperature + args[1] + " = ");
+
+		if (args[1].equals("F") && args[2].equals("C")) {
+			temperature = (temperature - 32) * 5 / 9;
+		} else if (args[1].equals("C") && args[2].equals("F")) {
+			temperature = (temperature * 9 / 5) + 32;
+		} else {
+			System.err.println("ERROR: This should never happen.");
+		}
+
+		System.out.println(temperature + args[2]);
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Add temperature conversions to and from the Kelvin scale.
+	<li> Add temperature conversions to and from the Rankine scale.
+	<li> Write a program that converts Liters to Gallons.
+	<li> Extend your Liters to Gallons conversion program to take a unit
+		indicator (like the temperature conversion program above) and
+		convert Liters to Gallons OR Gallons to Liters depending upon
+		which unit is given on the command line.
+	<li> Modify your Liters to Gallons program so that it assumes the
+		value given is in Gallons unless otherwise specified.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

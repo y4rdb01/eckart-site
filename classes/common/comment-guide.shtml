@@ -1,0 +1,73 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Code Commenting Guidelines</strong>
+</p>
+
+<p>
+The following guidelines are due to Bjarne Stroustrup and appear on page 105
+(2nd edition) of his book <a href="http://www.amazon.com/The-Programming-Language-4th-Edition/dp/0321563840/ref=sr_1_1?ie=UTF8&qid=1387753139&sr=8-1&keywords=Bjarne+Stroustrup">The C++ Programming Language</a>.
+Comments in <em>[emphasis and brackets]</em> are my own.
+</p>
+
+<blockquote>
+Stroustrup's preference is for:
+<ol>
+	<li> a comment for each source file stating what the declarations
+		in it have in common, references to manuals, general hints
+		for maintenance, etc.;
+	<li> a comment for each class <em>[module of package]</em> or
+		template <em>[generic]</em>;
+	<li> a comment for each nontrivial function stating its purpose,
+		the algorithm used (unless it is obvious), and maybe
+		something about the assumptions it makes about its
+		environment;
+	<li> a comment for each global variable;
+	<li> a few comments in places where the code is nonobvious and/or
+		nonportable; and
+	<li> very little else.
+</ol>
+</blockquote>
+
+<p>
+I would also add to the above that comments should bridge the gap between
+problem and code.  That is, comments should help the reader of the program
+understand how the code solves the problem.
+</p>
+
+<p>
+This
+<a href="ListPrimes.java">program</a> illustrates the kind
+of commenting style I want you to use.
+</p>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+

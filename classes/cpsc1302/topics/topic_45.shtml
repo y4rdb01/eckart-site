@@ -1,0 +1,210 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Optimizing Binary Search
+</p>
+
+<ol>
+<li> NOTE: This tutorial introduction is based solely upon the presentation of
+	the same example by Jon Bentely in his book "Programming Pearls".
+
+<li> Problem Statement:
+	<blockquote>
+	Determine whether or not a sorted array, X, of N elements (indexed from
+	1 to N) contains the element T.  N is guaranteed to be 0 or larger,
+	where N = 0 indicates an empty array.  The answer should be indicated
+	using the variable P (for position).  If P equals 0 then T was not in
+	the array, otherwise P is the index of T in the array.  That is, if P
+	is greater than 0 then X[P] = T.
+	</blockquote>
+
+<li> A Sobering Lesson:
+	<blockquote>
+	While the above problem description seems rather straightforward, it
+	may not be sufficient to directly generate code.  To help convince you
+	of this fact, the instructor assigned this problem during the last
+	class meeting.  You were to write code implementing your solution
+	in your favorite language (or pseudo-code based therein).  It is
+	likely that your solution is incorrect in at least some small, albeit
+	important, detail.  Typically, 90% of professional programmers generate
+	erroneous programs.
+	</blockquote>
+
+<li> Writing a Correct Program:
+	<blockquote>
+	We will present a method for generating a correct program which solves
+	the given problem.  The method consists of making assertions which must
+	be true at various places in the program.   Notice first that the focus
+	of the program will be to shrink the range in which T must appear.  We
+	use the predicate MustBe(range) to indicate that if T is in the array,
+	then it must be in the range of the array.  A program sketch based on
+	this description appears below.
+
+<code><pre>
+    initialize range to 1..N
+    loop
+        { Invariant: MustBe(range) }
+        if range is empty,
+            return that T is nowhere in the array
+        compute M, the middle of the range
+        use M as a probe to shrink the range
+        if T is found during the shrinking process,
+            return its position
+</pre></code>
+
+	To insure that MustBe(range) is true when the program completes, it must
+	be true after the initialization, it must be maintained for each loop
+	of the iteration and it must be true upon termination of the loop.
+	When expanded, the above program sketch becomes:
+
+<code><pre>
+    { MustBe(1,N) }
+    L := 1; U := N
+    { MustBe(L,U) }
+    loop
+         { MustBe(L,U) }
+         if L > U then
+         { L > U and MustBe(L,U) }
+             { T is nowhere in the array }
+             P := 0; exit loop
+         { MustBe(L,U) and L <= U }
+         M := (L+U)/2
+         { MustBe(L,U) and L <= M <= U }
+         case
+             X[M] < T:
+                { MustBe(L,U) and Not MustBe(1,M) }
+                { MustBe(M+1,U) }
+                L := M+1
+                { MustBe(L,U) }
+             X[M] = T:
+                { X[M] = T }
+                P := M; exit loop
+             X[M] > T:
+                { MustBe(L,U) and Not MustBe(M,N) }
+                { MustBe(L,M-1) }
+                U := M-1
+                { MustBe(L,U) }
+         { MustBe(L,U) }
+</pre></code>
+	</blockquote>
+
+<li>An Unbelievable Path to Optimization:
+	<blockquote>
+	The solution to binary search given above locates an occurrence of T in
+	the array X.  If the problem statement is modified so that the first
+	occurrence of T is desired, and if we further assume that X[L] &lt; T,
+	X[U] &gt;= T and L &lt; U then the code can be rewritten as:
+<code><pre>
+    L := 0; U := N+1
+    while L+1 <> U do
+        -- Invariant: X[L] < T and X[U] >= T and L < U
+        M := (L+U)/2
+        if X[M] < T then L := M
+        else U := M
+     -- assert L+1 = U and X[L] < T and X[U] >= T
+     P := U
+     if P > N or else X[P] <> T then P := 0
+</pre></code>
+	Note that the elements X[0] and X[N+1] were never actually referenced
+	but are used only to maintain our assertions used to insure program
+	correctness.
+
+	This solution can again be transformed.  The transformation centers on
+	using L and an increment I to represent the range.  Further, the code
+	will ensure that I is a power of two at all times.   To further simplify
+	the problem, suppose also that N = 1000.  The previous program now
+	becomes:
+<code><pre>
+    I := 512
+    if X[512] >= T then L := 0
+    else L := 1000+1-512
+    while I <> 1 do
+        -- Invariant: X[L] < T and X[L+I] >= T and I = 2**j
+        NextI := I/2
+        if X[L+NextI] < T then L := L + NextI; I := NextI;
+        else I := NextI
+     -- assert I = 1 and X[L] < T and X[L+I] >= T
+     P := L+1
+     if P > 1000 or else X[P] <> T then P := 0
+</pre></code>
+
+	A few of you may have noticed that the above code may be somewhat
+	slower, but it allows some further optimizations.
+	A smart compiler might transform the above program into:
+<code><pre>
+    I := 512; L := 0
+    if X[512] < T then L := 1000+1-512
+    while I <> 1 do
+        -- Invariant: X[L] < T and X[L+I] >= T and I = 2**j
+        I := I/2
+        if X[L+I] < T then L := L+I
+     -- assert I = 1 and X[L] < T and X[L+I] >= T
+     P := L+1
+     if P > 1000 or else X[P] <> T then P := 0
+</pre></code>
+
+	At this point, by unrolling the loop we arrive at the following,
+	optimized version of the program:
+<code><pre>
+    L := 0
+    if X[512]   < T then L := 1000+1-512
+        -- assert X[L] < T and X[L+512] >= T
+    if X[L+256] < T then L := L+256
+        -- assert X[L] < T and X[L+256] >= T
+    if X[L+128] < T then L := L+128
+    if X[L+64]  < T then L := L+64
+    if X[L+32]  < T then L := L+32
+    if X[L+16]  < T then L := L+16
+    if X[L+8]   < T then L := L+8
+    if X[L+4]   < T then L := L+4
+    if X[L+2]   < T then L := L+2
+        -- assert X[L] < T and X[L+2] >= T
+    if X[L+1]   < T then L := L+1
+        -- assert X[L] < T and X[L+1] >= T
+    P := L+1
+    if P > 1000 or else X[P] <> T then P := 0
+</pre></code>
+
+	The final program is 1.6 to 4.5 faster than the original solution.
+	While the path taken is not one that a programmer might normally "see",
+	the method of maintaining correctness of the program was vital in its
+	derivation.
+
+	This particular program has a history dating back to the early 1960's.
+	Bentley sketches some of that history on page 93 in the February
+	1984 issue of Communications of the ACM.
+	</blockquote>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

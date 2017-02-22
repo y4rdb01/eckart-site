@@ -1,0 +1,243 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Study Questions for Final Exam
+</p>
+
+<style type="text/css">
+	ol.question_list {list-style-type: none;}
+	ol.question_list li:before {content: counter(question, decimal) ") ";}
+	ol.question_list li { counter-increment: question;}
+
+	ul.bullet_list {list-style-type: disc;}
+        ul.bullet_list li:before {content: "";}
+        ul.bullet_list li { counter-increment: bogus;}
+</style>
+
+<p>
+Your test will be to complete one or more questions from the following list
+of questions. I <em>encourage</em> you to work through all of these questions
+before the test. You are free to work with others from the class on these
+questsion, but no code, notes, or other artifacts from those efforts can be
+utilized during the test. Please also be aware that the questions as they
+appear on the test may have changes in wording, expanded descriptions or
+examples of the desired input/output, as well as additional constraints on
+the solution (e.g., your program must include a method that takes two
+parameters).
+</p>
+
+
+<h3>General Requirements</h3>
+<blockquote>
+Each of the following programs should be constructed using at least:
+<ol>
+<li> one array (<strong>not</strong> an <em>ArrayList</em>);
+<li> two distinct named class definitions;
+<li> one constructor;
+<li> two methods (in addition to "main"), one of which takes parameters and
+	one which must return a value (can be the same method that does both);
+	and
+<li> one data attribute for at least one of the classes.
+</ol>
+Data attributes declared within a class should not be visible outside of the
+class. Any helper methods not used by other classes should also appropriately
+limit their visibility.
+As always, you should use appropriate indentation and identifier names to make
+your program easier to read and understand. Also be sure to document your
+program using both commenting styles - including appropriate JavaDoc comments.
+</blockquote>
+
+<p>
+Finally, <em>after</em> completing your program, you should draw the UML
+class diagram(s) that correspond to your solution. You should indicate all
+of the relationships (i.e., interface, inheritance, aggregation, dependency)
+that you used. It must include the classes and interfaces that you created
+as well as any elements of the Java libraries that you directly used.
+</p>
+
+<h3>Test Questions</h3>
+<ol class="question_list">
+<li>
+Write a program that reads in a list of floating point (real) numbers and
+prints out various statistics about those numbers. The statistics must
+include:
+<pre>
+	* The number of values.
+	* The sum of all the values.
+	* The mean (average) of all the values.
+	* Indicate whether or not the mean (average) was one of the values.
+	* The median (middle value) of all the values.
+	* The 1/3 highest value (e.g., the 4th largest for a list of 12 numbers).
+	* The 1/3 lowest value (e.g., the 4th smallest for a list of 12 numbers).
+</pre>
+You program should implement one of the sorting techniques discussed in class
+in order to determine the median, 1/3 highest, and 1/3 lowest values. In
+addition, you should implement binary search (either an iterative or recursive
+implementation is acceptable) to determine whether or not the mean (average)
+is one of the values that was read in.
+Finally, the list of values should be read in from the file whose name is
+a required command line argument to the program. However, the output should
+still be written to the screen.
+</li><br/>
+
+<li>
+You're trying to save some money so you decide to implement a simple bank
+account simulation. The standard input file contains in order:
+<pre>
+	* The yearly interest rate.
+	* The initial balance in the account.
+	* The number of days between regular deposits.
+	* The regular deposit amount.
+	* The number of days between regular withdrawals.
+	* The regular withdrawal amount.
+	* The number of days between bank statements.
+	* The number of bank statements to calculate and display.
+</pre>
+Your bank simulation should work on a per day schedule. If deposits and
+withdrawals occur on the same day during the simulation, then make sure the
+deposit occurs first.  The bank statements (with each bank statement printed
+on a single line) should be printed in reverse order (most recent bank
+statement printed first) and include:
+<pre>
+	* The day of the simulation
+	* The current balance.
+	* The interest earned since the last bank statement.
+	* The number and total amount of deposits since the last bank statement was printed. 
+	* The number and total amount of withdrawals since the last bank statement was printed. 
+</pre>
+In addition, your program output should also include the median statement
+balance. Note that the median balance is not necessarily the value of the
+mid-point statement, but rather the middle value of the sorted balances.
+For example:
+<pre>
+	The median statement balance was $104.24
+
+	Day 730: Balance = $104.24, Interest = $2.24, 1 deposits = $10.00, 1 withdrawls = $20.00
+	Day 365: Balance = $112.00, Interest = $2.00, 1 deposits = $10.00, 0 withdrawls = $0.00
+	Day 0: Balance = $100.00, Interest = $0.00, 0 deposits = $0.00, 0 withdrawls = $0.00
+</pre>
+</li><br/>
+
+<li>
+Write a program that finds and prints <strong>all</strong> solutions for
+a magic square of
+size N x N, where N is given as the single command line argument. A magic
+square is a numeric puzzle in which the numbers 1 through N x N are used to
+fill in each square of an N x N matrix. Each number can only be used once.
+The sum of the numbers for each row and column in the square must all be the
+same value (e.g., 15 in a 3 x 3 square).  [While magic squares of odd size,
+like a 5 x 5, also require the long diagonals to also sum to this same
+value - your program shouldn't worry about this aspect of the puzzle.] When
+your program finds a solution, it should print it out in the form of
+a square, e.g., when called with a command line argument of 3 it would print
+the solutions in this format:
+<pre>
+2  7  6
+9  5  1
+4  3  8
+</pre>
+And if there is no solution, it should simply print nothing.
+</li><br/>
+
+<!-- REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE ??????????????
+
+<li>
+In planning your next vacation, you have a list of cities that you'd like to
+visit. Since you want to reduce your travel time (thus increasing the amount
+of time you have to enjoy each city you visit), you are to develop a program
+that reads from standard input a list of city names and their locations (given
+as x and y coordinates). Starting from the first city given in the input, use
+recursion and backtracking to determine the order in which you should visit
+each city so as to minimize the total distance traveled (calculated as a
+Euclidian distance). You should not visit a city more than once (including the
+starting city - so you're flying into one city, renting a car, and then flying
+home from the final city that you visit). The output of your program should be
+a list of the city names given in the order that you visit them along with the
+total travel distance of your route.
+</li><br/>
+
+<li>
+Design and implement a basic 4 function RPN (Reverse Polish Notation) calculator
+with a graphical user interface. The graphical layout should look like:
+<pre>
+	+---------------+
+	|               |
+	+---+---+---+---+
+        | 1 | 2 | 3 | + |
+	+---+---+---+---+
+        | 4 | 5 | 6 | - |
+	+---+---+---+---+
+        | 7 | 8 | 9 | * |
+	+---+---+---+---+
+        | P | E | 0 | / |
+	+---+---+---+---+
+</pre>
+The top element displays the current value of the top of the computation stack
+(and is not clickable - so use a label). The remaining elements are all
+clickable buttons.  Clicking a digit button appends that to the current value
+being entered. The displayed value is pushed to the computation stack when the
+"E" (enter) button is clicked. When an arithmetic operation button
+(one of +, -, *, /) is clicked the top two items in the computation stack are
+removed and the result is pushed back onto the stack. For example, if the
+stack holds the values (reading from top to bottom) 5, 3, 14; then clicking
+"-" will remove the 5 and 3 from the top of the stack, subtract the 5 from 3
+(i.e., 3 - 5) and push the result back onto the stack, so that the stack now
+holds: -2, 14. Thus -2 should show in the display. The "P" button pops the
+top entry from the computation stack.
+Your program should use a <em>MyStack</em> class that you define.
+</li><br/>
+
+REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE REMOVE -->
+
+</ol>
+
+<h3>Grading Guidelines</h3>
+<ul>
+<li> -100 points for programs that fail to compile.
+<li> -25 points if a run-time error occurs with expected legal input.
+<li> -10 points if an array is not used.
+<li> -10 points if there are not two distinct named class definitions.
+<li> -5 points if there is no explicit constructor declared.
+<li> -5 points if there are not two methods in addition to "main".
+<li> -5 points if there is not a method (in addition to "main") that takes at
+	least one parameter.
+<li> -5 points if there is not a method that returns a non-"void" type.
+<li> -5 points if there is not a data attribute for at least one of the classes.
+<li> -5 points if attributes or methods  do not have restricted visibility.
+<li> -5 points for poor indentation and lack of documentation/comments.
+<li> -35 points for correct program operation.
+<li> -5 points for the correct corresponding UML class diagram(s).
+</ul>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

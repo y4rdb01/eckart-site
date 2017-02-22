@@ -1,0 +1,76 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Selection Sort
+</p>
+
+<ol>
+<li> <a href="http://www.sorting-algorithms.com/selection-sort">Demonstration</a>
+<li> In-place Implementation:
+<pre><code>
+class SelectionSort {
+	public static void main(String args[]) {
+		String list[] = new String[SIZE];
+		...
+		int marker = 0; // Everything BEFORE "marker" in "list" is sorted.
+		while (marker < SIZE) {
+			int smallest = marker;
+
+			// Look for largest item in (remainder) of list
+			for (int i = marker ; i < SIZE; i++) {
+				if (list[i].compareTo(list[smallest]) < 0) smallest = i;
+			}
+
+			// Swap item at marker with smallest item found
+			String tmp = list[marker];
+			list[marker] = list[smallest];
+			list[smallest] = tmp;
+			marker++;
+		}
+		...
+	}
+}
+</code></pre>
+
+<li> What assumptions does the above code make?
+	<ol>
+	<li> All items are known and available for searching.
+	<li> The "list" array is full (i.e., meaningful items
+		are stored up to the last element at SIZE-1).
+	</ol>
+<li> While loop only needs to go to "marker < SIZE - 1". Why?
+<li> What happens if the list is already sorted (smallest to largest)?
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

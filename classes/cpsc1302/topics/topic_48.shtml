@@ -1,0 +1,220 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Backtracking (N-Queens)
+</p>
+
+<ol>
+<li> What is it?
+	<ol>
+	<li> When solving a problem using recursion, we may have
+		multiple possibilities for simplifying the problem
+		(for the recursive call).
+	<li> You can't try all of the possibilities at once, and there
+		may be no way of determining which is better than the
+		other.
+	<li> In this case, try one of the possibilities and continue
+		with the recursion. If you reach the solution, you're
+		done!
+	<li> If you aren't able to reach the solution, then return from
+		that recursive call, and then try each of the other
+		possibilities in turn (continuing on with the recursion
+		for each possibility).
+	<li> If none of the possibilities work, then return from that
+		recursive call, so the parent recursive call can try
+		additional possibilities.
+	<li> This process continues until either a solution is found or
+		all possibilities have been tried (and failed to work).
+		recognize.
+	</ol>
+<li> Typical examples:
+	<ol>
+	<li> <a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle#Exercise_in_algorithm_design">8 Queens problem</a>
+	<li> <a href="http://www.geeksforgeeks.org/backtracking-set-1-the-knights-tour-problem/">Knights tour</a>
+	<li> <a href="https://en.wikipedia.org/wiki/Maze_solving_algorithm#Recursive_Algorithm">Maze solving</a>
+	<li> <a href="https://en.wikipedia.org/wiki/Sudoku_solving_algorithms#Backtracking">Sudoku</a>
+	<li> <a href="https://en.wikipedia.org/wiki/Knapsack_problem">Knapsack problem</a>
+	</ol>
+
+<li> This implementation for the N Queens problem illustrates backtracking.
+<code><pre>
+import java.io.*;
+import java.util.*;
+
+/**
+ * Finds solutions to the N queens problem.
+ */
+class Queens {
+	private int board[][] = null;
+	private int size;
+	private int queensToPlace;
+
+	/**
+	 * Indicates queen placement on the chess board.
+	 */
+	private class Point {
+		private int x, y;
+
+		/**
+		 * Creates location of queen on the chess board.
+		 *
+		 * @param x is the x coordinate of the queen on the chess board.
+		 * @param y is the y coordinate of the queen on the chess board.
+		 */
+		public Point(int x, int y) {
+			this.x = x;
+			this.y = y;
+		}
+
+		/**
+		 * Converts queen location to printable String.
+		 */
+		public String toString() {
+			return "Queen @ (" + x + ", " + y + ")";
+		}
+	}
+
+	// Holds the placement of queens in the current possible solution.
+	private ArrayList&lt;Point> solution = new ArrayList&lt;Point>();
+
+	/**
+	 * Creates the initial board on which to place queens.
+	 *
+	 * @param boardSize is the number of squares on each side of the board.
+	 */
+	public Queens(int boardSize) {
+		board = new int[boardSize][boardSize];
+		size = queensToPlace = boardSize;
+	}
+
+	/**
+	 * Adds value to each board square that a queen could attack from
+	 * location (x, y).
+	 *
+	 * @param x coordinate of the placed queen.
+	 * @param y coordinate of the placed queen.
+	 * @param value is the amount to increment each attacked board square.
+	 */
+	private void markSpots(int x, int y, int value) {
+		for (int i = 0; i < size; i++) {
+			// Horizontals and Verticals
+			board[x][i] += value;
+			board[i][y] += value;
+
+			// Both diagonals
+			if (0 <= x+i && x+i < size && 0 <= y+i && y+i < size)
+				board[x+i][y+i] += value;
+			if (0 <= x-i && x-i < size && 0 <= y-i && y-i < size)
+				board[x-i][y-i] += value;
+			if (0 <= x+i && x+i < size && 0 <= y-i && y-i < size)
+				board[x+i][y-i] += value;
+			if (0 <= x-i && x-i < size && 0 <= y+i && y+i < size)
+				board[x-i][y+i] += value;
+		}
+	}
+
+	/**
+	 * Recursively searches for a solution to the N queens problem.
+	 *
+	 * @return true iff a solution is found.
+	 */
+	public boolean findSolution() {
+		if (queensToPlace == 0) {
+			return true;
+		} else {
+			for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				if (board[i][j] == 0) {
+					solution.add(new Point(i, j));
+					queensToPlace--;
+					markSpots(i, j, 1);
+
+					// Recurse to find placement for
+					// remaining queens.
+					if (findSolution()) {
+						return true;
+					} else {
+						// Backtrack to look for
+						// other possibilities.
+						solution.remove(
+							solution.size()-1
+						);
+						queensToPlace++;
+						markSpots(i, j, -1);
+					}
+				}
+			}}
+			return false;
+		}
+	}
+
+
+	/**
+	 * Prints the solution (or at least as much of the solution as was
+	 * discovered).
+	 */
+	public void printSolution() {
+		// Print a solution.
+		System.out.println("A solution to " + size + " queens:");
+		for (Point p : solution) {
+			System.out.println(p);
+		}
+		System.out.println();
+	}
+
+	/**
+	 * Figures out how to place N queens on an N x N chess board.
+	 *
+	 * @param args[0] contains the size of the chess board. 
+	 */
+	public static void main(String args[]) {
+		Queens q = new Queens(Integer.parseInt(args[0]));
+
+		if (q.findSolution()) {
+			q.printSolution();
+		} else {
+			System.out.println("Sorry, no solution found.");
+		}
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Alter "main" and "findSolution" so that every solution is printed
+		instead of stopping after the first solution is found.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

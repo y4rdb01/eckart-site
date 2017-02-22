@@ -1,0 +1,175 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Inheritance
+</p>
+
+<ol>
+<li> Inheritance:
+	<ol>
+	<li> Subclass of a superclass is a specialization of the superclass.
+	<li> A child (subclass) can only inherit from a single parent
+		(superclass).
+	<li> Subclasses <em>inherit</em> all the members of the super class,
+		though they can't directly utilize any non-visible items (e.g.,
+		private or package visibility from a different package).
+	<li> Additional members can be added to subclasses that aren't present
+		(or appropriate) in the superclass.
+	<li> Because methods are inherited, the subclass is automatically able
+		to reuse code that was written for the superclass!
+	<li> Another form of reuse happens as a consequence of this code reuse,
+		namely that the subclass gets to leverage the
+		<em>interface</em> (e.g., the interaction mechanisms) of the
+		superclass.
+	<li> Examples:
+		<ol>
+		<li> Student (transcript): Undergraduate, Graduate (qualifiers
+			passed), NonDegree
+		<li> Vehicles (range, max speed): Landcraft, Aircraft,
+			Watercraft, Spacecraft (What additional sub-subclasses
+			might you create?)
+		<li> ElectricLight (lumens): Incandescent, Flourescent,
+			Halogen, LED (NOTE: There don't have to be any "new"
+			members in the subclasses).
+		<li> Book (publisher): Paper (size, weight), Electronic (size)
+		</ol>
+	</ol>
+<li> Extended Code Example:
+<code><pre>
+public class Worker {
+	private String name = null;
+	protected int minutesWorked = 0;	// Why isn't this "private"?
+	protected Date startDate = new Date();	// Assume today.
+	protected Date endDate = null;
+
+	public Worker(String workerName) {
+		name =  workerName;
+	}
+
+	// Returns total wages YTD in increments of $0.01
+	public int earnedWages() {
+		return 0;
+	}
+
+	// What type of worker am I?
+	public String workerType() {
+		return "Worker";		
+	}
+}
+
+public class HourlyWorker extends Worker {
+	private int hourlyRate = 0;	// in US $0.01 increments
+
+	// ...
+	public int earnedWages() {
+		return minutesWorked*hourlyRate/60 + overtimeWages();
+	}
+
+	public int overtimeWages() {
+		return ...;
+	}
+
+	public String workerType() {
+		return "Hourly " + super.workerType();
+	}
+}
+
+public class SalaryWorker extends Worker {
+
+	public SalaryWorker(String workerName) {
+		super(workerName);
+		...
+	}
+
+	private int annualRate = 0;	// in US $0.01 increments
+
+	// ...
+	public int earnedWages() {
+		int yearDay = ...;	// Current day of the year
+		int daysInYear = ...;	// Account for leap years
+		return annualRate*yearDay // daysInYear;
+	}
+
+	public String workerType() {
+		return "Salaried " + super.workerType();
+	}
+}
+
+public class Volunteer extends Worker {
+
+	public String workerType() {
+		return "Volunteer";
+	}
+}
+</pre></code>
+
+<li> Concepts of note:
+	<ol>
+	<li> Use of visible superclass members
+	<li> Method overriding (as opposed to overloading).
+	<li> Explicit call of superclass method 
+	<li> Specify the specific superclass constructor to use
+	</ol>
+<li> Inheritance provides code reuse (i.e., data attributes and non-overridden
+	methods from superclasses are automatically part of subclasses).
+<li> Classes and their subclasses form an "Is-A" hierarchy. This is different
+	from the "Has-A" hierarchy created by composition
+	(e.g. <em>member</em>ship). 
+<li> Review of visibility types:
+	<ol>
+	<li> public
+	<li> private
+	<li> package
+	<li> protected
+	</ol>
+<li> The uber superclass: Object
+	<ol>
+	<li> If a class declaration doesn't explicitly use "extends", then
+		implicitly it extends Object.
+	<li> All Java library classes extend Object (directly or indirectly).
+	<li> Object provides:
+		<ol>
+		<li> public String toString(...);
+		<li> public boolean equals(...); [NOTE: Not the same as "=="
+			which only checks for the same object reference or
+			primitive values.]
+		<li> public Object clone(...);
+		<li> public int hashCode(...);
+		</ol>
+	<li> You'll almost certainly need to override the Object
+		implementation in order to get what you desire.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

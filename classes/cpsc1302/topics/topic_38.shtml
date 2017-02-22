@@ -1,0 +1,147 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Exception Handling
+</p>
+
+<ol>
+<li> Exceptions can be recognized (caught) and appropriate actions taken
+	(handled). Sometimes an the cause of the problem can be corrected
+	or a suitable workaround used, and processing can continue. At other
+	times, processing must stop, but a suitable error message can be
+	displayed to the user before the program ends.
+<li> When an exception is raised/thrown, the normal flow of statement
+	processing stops and the "nearest" enclosing exception handler
+	that matches this exception takes over, the statements in the
+	handler ("catch" block) are executed, and processing continues
+	normally starting with the statements after the handler.
+<pre><code>
+	int i;	// Declared outside of try so that it is accessible in catch (separate blocks)
+	try {
+		...
+		String input = System.in.readLine();
+		i = Integer.parseInt(input);
+		...
+	} catch (NumberFormatException ex) {
+		System.error.println("Integer has incorrect format, using 0.");
+		i = 0;
+	} catch (IOException ex) {
+		System.error.println("Unable to read integer value.");
+	}
+	...
+</code></pre>
+	Statements which might cause an exception are given in the "try"
+	block. Each "catch" block corresponds to a class of exceptions
+	that it handles (indicated by the "class" parameter for the "catch").
+	The first "catch" that matches the thrown exception will be used.
+	Only the statements in at most one of the "catch" blocks will be
+	performed.
+<li> Notice in the above example that "IOException" is a superclass, and
+	thus can match thrown exception object of this class or any of
+	its subclasses (e.g., FileNotFoundException).
+<li> An exception handler (i.e., "catch" block) can itself "throw" an exception.
+	This can be useful if the original exception was raised as the by
+	product of a particular (hidden) implementation - and propigating that
+	exception wouldn't make sense at the higher level. For example, matrix
+	multiplication may cause an IndexOutOfBoundsException, but for code
+	that was attempting to multiple matrices this is less useful than
+	an exception like MismatchedMatrixSizes.
+<pre><code>
+	Class MismatchedMatrixSizes extends Exception {}
+	...
+	try {
+		Matrix A, B, C;
+		...
+		C.multiply(A, B);
+		...
+	} catch (IndexOutOfBoundsException ex) {
+		System.error.println("Internal Error: " + ex.getMessage());
+		throw new MismatchedMatrixSizes();
+	}
+</code></pre>
+<li> Despite what exceptions may or may not be thrown, sometimes there are
+	actions that should <strong>always</strong> take place. The "finally"
+	block of a try-catch-finally statement does this.
+<pre><code>
+	File input;	// Declared here so it's accessible in "finally".
+	try {
+		input = new File("data_file.txt");
+		Scanner scan = new Scanner(input);
+		String str = input.next();
+		...
+	} catch (IOException ex) {
+		System.error.println("There's a problem with the input data");
+		throw ex;	// You can (re)propigate the original exception.
+	} finally {
+		input.close();	// How could this fail?!
+	}
+</code></pre>
+	The above ensures that the input file is properly closed, even if
+	there was a problem either opening or reading from it.
+
+	<p>
+	NOTE: Some book authors will
+	recommend against this practice (having both a "finally" and
+	one or more "catch" blocks in a single "try") as being harder to read
+	and maintain (nest a try-finally block inside the try-catch block
+	instead). The primary advantage of this nested style is when the
+	"finally" block can give rise to the same exceptions that can be
+	thrown within the "try" block. Nesting them "try" blocks ensures that
+	any exceptions thrown in the "finally" block will also be handled.
+	This situation is more commone with java.io, for example closing
+	a file can itself cause an exception that wouldn't be handled by the
+	above. For example, the following is safer in this regard:
+	</p>
+<pre><code>
+	try {
+		File input;	// Declared here so it's accessible in "finally".
+		try {
+			input = new File("data_file.txt");
+			Scanner scan = new Scanner(input);
+			String str = input.next();
+			...
+		} finally {
+			input.close();
+		}
+	} catch (IOException ex) {
+		System.error.println("There's a problem with the input data");
+		throw ex;	// You can (re)propigate the original exception.
+	} catch (Exception ex) {
+		System.error.println("Somthing's not right?!");
+		ex.printStackTrace();
+	}
+</code></pre>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

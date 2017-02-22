@@ -1,0 +1,76 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Exception Hierarchy
+</p>
+
+<ol>
+<li> 3 types of exceptions:
+	<ol>
+	<li> Internal errors (extend "Error").
+	<li> Unchecked exceptions (extend "RuntimeException").
+	<li> Checked exceptions (All other exceptions). Java requires that
+		<em>all</em> checked exceptions have handlers. Furthermore,
+		if a method could throw a checked exception, but doesn't
+		contain a handler for it, then it must itself declare that
+		it can throw the exception.
+<pre><code>
+	class MyException extends RuntimeException {}
+
+	class ClassA {
+		public methodA() throws FileNotFoundException, MyException {
+			File input = new File("data_file.txt");
+			...
+		}
+	}
+</code></pre>
+
+		While methods <em>must</em> indicate which checked exceptions
+		they don't handle (and could thus be propigated), they can
+		also list unchecked exceptions.
+	</ol>
+<li> Java has a number of predefined exceptions, arranged in an inheritance
+	hierarchy:<br/>
+	<div style="text-align: center; margin: auto">
+	<figure sytle="vertical-align: top">
+		<img src="exceptions.gif" alt="map of exception type hierarchy" width="502" height="628" />
+		<figcaption>
+		Original from:  
+		<a href="http://rosemary.umw.edu/~finlayson/class/spring13/cpsc401/notes/images/exceptions.gif">http://rosemary.umw.edu/~finlayson/class/spring13/cpsc401/notes/images/exceptions.gif</a>
+		</figcaption>
+	</figure>
+	</div>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+

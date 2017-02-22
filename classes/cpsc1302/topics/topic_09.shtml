@@ -1,0 +1,184 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<p style="text-align: center; margin: auto; font-size: 150%">
+	<strong>Dr. J Dana Eckart</strong>: Computer Science 2 (CPSC 1302)
+	- Arrays
+</p>
+
+<ol>
+<li> Arrays can hold many elements of the same kind.
+<li> The first element in Java arrays is indexed by 0.
+<li> Array indices in Java are checked at run-time to ensure that the index
+	used is within the bounds of the array. If the index is too large (or
+	too small) then Java will throw an exception.
+<li> Findings the average of a set of numbers, or the smallest or largest
+	number in that set, doesn't require remembering all of the numbers.
+	However, some types of statistics do requiring remembering all of the
+	values. For example, finding the median value (middle value if the
+	numbers were all sorted) does require remembering all of the values.
+	However, since sorting is a topic later in the course, we'll use an
+	array to create a
+	<a href="http://en.wikipedia.org/wiki/Histogram">histogram</a> of
+	letter grades (A, B, C, D, F). Numeric grades will be read from input,
+	but we don't know how many grades there will be. A 10-point scale
+	will is used for determining letter grades (i.e., >= 90 is an A, >=80
+	and < 90 is a B, ...).
+<code><pre>
+import java.io.*;
+import java.util.*;
+
+/**
+ * Prints a histogram of As, Bs, Cs, Ds, and Fs on a 10-point scale. The
+ * histogram is printed "sideways" with the different categories listed
+ * along the left hand side.
+ *
+ * @author Dr. J Dana Eckart
+ * @version 2015-06-03
+ */
+class Histogram {
+
+	/**
+	 * Reads numeric scores and prints a histogram of the letter grades.
+	 *
+	 * @param args is not used.
+	 */
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+
+		char label[] = { 'A', 'B', 'C', 'D', 'F' };
+		int  count[] = {  0,   0,   0,   0,   0  };
+
+		// Read and count the grade categories.
+		//
+		while (input.hasNext()) {
+			float grade = input.nextFloat();
+
+			if (grade >= 90) count[0]++;		// Count As
+			else if (grade >= 80) count[1]++;	// Count Bs
+			else if (grade >= 70) count[2]++;	// Count Cs
+			else if (grade >= 60) count[3]++;	// Count Ds
+			else count[4]++;			// Count Fs
+		}
+
+		// Print out the histogram.
+		//
+		int maxCount = 0;
+		for (int i = 0; i < count.length; i++) {
+			// Print the category label.
+			System.out.print(label[i] + "s |");
+			for (int j = 0; j < count[i]; j++)
+				System.out.print("*");
+			System.out.println();
+
+			if (maxCount < count[i]) maxCount = count[i];
+		}
+
+		// Print the bottom axis (unlabeled).
+		//
+		System.out.print("---");
+		for (int i = 0; i <= maxCount; i++)
+			if (i%5 == 0) System.out.print("+");
+			else System.out.print("-");
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Reverse the order of the histogram, so that Fs are printed at
+		the top and As are printed at the bottom. Think about how to
+		do this with the <em>fewest</em> changes to the code.
+	<li> Add command line arguments to indicate the lower cutoffs for
+		As, Bs, Cs, and Ds.
+	<li> Calculate the average numeric score and report this and the
+		lowest and highest scores after the histogram has printed.
+	<li> Print all of the "A" scores after the historgram has been printed.
+	</ol>
+
+<li> Here's another example of array usage, but this time notice that we have
+	to create a "new" array of the desired maximum size (whereas above,
+	the size was determined by Java since all of the initial values were
+	given).
+<code><pre>
+import java.io.*;
+import java.util.*;
+
+/**
+ * Print input in reverse order.
+ *
+ * @author Dr. J Dana Eckart
+ * @version 2015-06-19
+ */
+class ReverseWords {
+	/**
+	 * Reads up to 20 words from the input and prints them out in
+	 * reverse order.
+	 *
+	 * @param args is not used.
+	 */
+	public static void main(String args[]) throws IOException {
+		Scanner input = new Scanner(System.in);
+
+		// Use array to keep track of words.
+		String words[] = new String[20];
+		int lastWord = -1;
+
+		// Read the (standard) input
+		while (input.hasNext()) {
+			words[++lastWord] = input.next();
+		}
+
+		// Print the remembered words in reverse order.
+		for (int i = lastWord; i >= 0; i--) {
+			System.out.print(words[i]);
+			if (i > 0) System.out.print(" ");
+		}
+	}
+}
+</pre></code>
+
+<li> Things to try:
+	<ol>
+	<li> Try running the above program with a large file (e.g., on the
+		program's own text). What happens?
+	<li> Adjust the above code so that if too many words appear in the
+		input, only the first 20 are remembered and printed in
+		reverse.
+	<li> Change the program so that the maximum number of words that can
+		be remembered is given as an optional command line argument.
+		If the command line argument isn't given, then use 20 as the
+		default number of words to remember.
+	</ol>
+</ol>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+<a href="/eckart/classes/cpsc1302" style="float: right">CPSC 1302</a>
+</em>
+
+</body>
+</html>
+
