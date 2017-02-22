@@ -1,0 +1,256 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<style>
+        Body    { background-color: #ffffff; color: #000000 }
+</style>
+
+
+<table width="100%">
+<tr>
+<td vstyle="text-align: top" width="130">
+<table>
+
+<tr><th style="font-size:140%">Aikido of<br/> East Alabama</th></tr>
+
+<tr><td style="text-align: center" valign="middle">
+<img src="kaiso.gif" alt="O'Sensei" border="0" width="90" height="128" /><img src="aikidoimages.jpeg" alt="Kanji for Aikido" border="0" width="62" height="97" />
+</td></tr>
+
+<tr><td>&nbsp;</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Dojo Info</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="index.shtml">Home</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="yudansha.shtml">Yudansha</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="classInfo.shtml">Class Schedule</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="directions.shtml">Directions</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="tests.shtml">Testing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="seminars.shtml">Seminars</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Organizations</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikikai.or.jp/">Aikikai</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.asu.org/">ASU</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.usaikifed.com/">USAF</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Gear</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.bujindesign.com/">Bu Jin Design</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.e-bogu.com/Aikido_s/39.htm">E-Bogu</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://kingfisherwoodworks.com/">Kingfisher Woodworks</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.budogu.com/">BudoGu</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.budostuff.com/">Budostuff</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.swordstore.com">SwordStore</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.valleymartialarts.com">Valley Martial Arts Supply</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikido3d.com/">Aikido 3D</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="hakama.shtml">Hakama Notes</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Links</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.sccs.swarthmore.edu/org/aikido/docs/technames.html">Aikido Terminology</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://blog.aikidojournal.com/">Aikido Journal (Blog)</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="asuhandbook.pdf">ASU Handbook</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikiweb.com/">AikiWeb</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidofaq.com/">Aikido FAQ</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidojournal.com/">Aikido Journal</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.101zenstories.com/">101 Zen Stories</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://martialartsandcraftsjewelry.com/">Aikido Jewelry</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="breathing.html">Breathing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="aikidoThesis.html">US Aikido</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidoofnorthalabama.org">Aikido of North Alabama</a>
+</td></tr>
+
+</table>
+</td>
+
+<td vstyle="text-align: top">
+
+<blockquote>
+
+
+<p align="center">
+	<font size="+1"><strong>Aikido of East Alabama</strong></font><br/>
+	An <a href="http://www.asu.org/" target="_new">ASU</a> affiliated</a> Dojo<br/>
+<br/>
+	<img align="center" src="kanji.gif" alt="Kanji for Aikido" border="0" width="300" height="93" />
+<br/><br/>
+Contact Jim Novak (<a href="mailto:novakjl@auburn.edu">novakjl@auburn.edu</a> or 334-275-5711) for more information.
+</p>
+
+<br/>
+
+<table align="center"><tr><td align="left">
+If karate is fission then aikido is fusion.
+</td></tr><tr><td align="right">
+<em>Jim Novak</em>
+</td></tr></table>
+
+<!--
+<table align="center"><tr><td align="left">
+The most perfect technique is that which is not noticed at all.
+</td></tr><tr><td align="right">
+<em>Pablo Casals (1876-1973)</em>
+</td></tr></table>
+-->
+
+<br/>
+
+<p>
+Developed in Japan by Morihei Ueshiba in the 1930s, Aikido focuses not on
+punching or kicking opponents, but rather on using their own energy to gain
+control of them or to guide them away from you (often resulting in a throw).
+Because of the need for energy from the opponent, techniques depend upon
+movement and often appear to flow with the attack looking more like a dance
+than a defense.  This is perhaps why Aikido is often described as "the art
+of stepping out of the way, gracefully".
+Learning to blend with an opponent's dynamic attack is what makes Aikido
+so challenging.  It generally takes about 8
+years of regular practice to reach Shodan (1st black belt rank).
+</p>
+
+<p>
+Aikido practice is <strong>not</strong> about competition.  We practice to
+improve our understanding of principles and our ability to carry
+them out.  Thus the attacks that are given are appropriate (e.g., slower) to
+the level of the defender.  As the defender (Nage) increases in proficiency,
+the attacks made by the opponent (Uke) become increasingly realistic.
+In this way, the safety of practice is maintained
+and students are able to progress at the rate appropriate to them.
+</p>
+
+<p>
+We are a small but dedicated group with approximately 8 active members.
+Classes mix beginners with advanced students so that everyone practices
+together.  Non-segregated classes are not only of tremendous benefit to
+new students, but also help to keep advanced students honest since we
+are always in danger of becoming trained Ukes (attackers), suspecting
+what is coming and moving as we expect to rather than reacting to what
+Nage (defender) is doing.
+</p>
+
+</blockquote>
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+

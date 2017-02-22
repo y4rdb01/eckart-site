@@ -1,0 +1,945 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<style>
+        Body    { background-color: #ffffff; color: #000000 }
+</style>
+
+
+<table width="100%">
+<tr>
+<td vstyle="text-align: top" width="130">
+<table>
+
+<tr><th style="font-size:140%">Aikido of<br/> East Alabama</th></tr>
+
+<tr><td style="text-align: center" valign="middle">
+<img src="kaiso.gif" alt="O'Sensei" border="0" width="90" height="128" /><img src="aikidoimages.jpeg" alt="Kanji for Aikido" border="0" width="62" height="97" />
+</td></tr>
+
+<tr><td>&nbsp;</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Dojo Info</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="index.shtml">Home</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="yudansha.shtml">Yudansha</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="classInfo.shtml">Class Schedule</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="directions.shtml">Directions</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="tests.shtml">Testing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="seminars.shtml">Seminars</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Organizations</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikikai.or.jp/">Aikikai</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.asu.org/">ASU</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.usaikifed.com/">USAF</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Gear</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.bujindesign.com/">Bu Jin Design</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.e-bogu.com/Aikido_s/39.htm">E-Bogu</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://kingfisherwoodworks.com/">Kingfisher Woodworks</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.budogu.com/">BudoGu</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.budostuff.com/">Budostuff</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.swordstore.com">SwordStore</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.valleymartialarts.com">Valley Martial Arts Supply</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikido3d.com/">Aikido 3D</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="hakama.shtml">Hakama Notes</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Links</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.sccs.swarthmore.edu/org/aikido/docs/technames.html">Aikido Terminology</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://blog.aikidojournal.com/">Aikido Journal (Blog)</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="asuhandbook.pdf">ASU Handbook</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikiweb.com/">AikiWeb</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidofaq.com/">Aikido FAQ</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidojournal.com/">Aikido Journal</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.101zenstories.com/">101 Zen Stories</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://martialartsandcraftsjewelry.com/">Aikido Jewelry</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="breathing.html">Breathing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="aikidoThesis.html">US Aikido</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidoofnorthalabama.org">Aikido of North Alabama</a>
+</td></tr>
+
+</table>
+</td>
+
+<td vstyle="text-align: top">
+
+<blockquote>
+
+
+<h3 align="center">Upcoming Regional Seminars</h3>
+<br/>
+
+<!-- BEGIN PAST SEMINARS
+
+23-25 Mar 2007
+<blockquote>
+	Nashville, TN<br/>
+	Dennis Hooker Sensei<br/>
+	<a href="http://admin.aikidoatbushindojo.com/news/uploads/Hooker_Sem_07.jpg">http://admin.aikidoatbushindojo.com/news/uploads/Hooker_Sem_07.jpg</a>
+</blockquote>
+<br/><br/>
+
+
+16-18 Apr 2007
+<blockquote>
+	Atlanta, GA<br/>
+	Endo Seishiro Shihan<br/>
+	<a href="http://www.aikidoschools.com/nss-folder/folder/2007%20Endo%20Sensei%20in%20Atlanta.gif">http://www.aikidoschools.com/nss-folder/folder/2007%20Endo%20Sensei%20in%20Atlanta.gif</a>
+</blockquote>
+<br/><br/>
+
+
+27-29 Apr 2007
+<blockquote>
+	Nashville, TN<br/>
+	Hiroshi Ikeda Sensei<br/>
+	<a href="http://www.asu.org/NashAikikai/seminars.html">http://www.asu.org/NashAikikai/seminars.html</a>
+</blockquote>
+<br/><br/>
+
+1-3 Jun 2007
+<blockquote>
+	Tallahassee, FL<br/>
+	Dennis Hooker Sensei<br/>
+	<a href="http://nfa.asu.org/seminars/HOOKER07.doc">http://nfa.asu.org/seminars/HOOKER07.doc</a>
+</blockquote>
+<br/><br/>
+
+
+9-11 Nov 2007
+<blockquote>
+	Birmingham, AL<br/>
+	Hiroshi Ikeda Sensei<br/>
+	<a href="http://www.ed.uab.edu/kenmcgrew/upcomingevents.htm">http://www.ed.uab.edu/kenmcgrew/upcomingevents.htm</a>
+</blockquote>
+<br/><br/>
+
+
+21-23 Mar 2008
+<blockquote>
+	Nashville, TN<br/>
+	Mitsugi Saotome Sensei<br/>
+	<a href="http://www.asu.org/NashAikikai/seminars.html">http://www.asu.org/NashAikikai/seminars.html</a>
+</blockquote>
+<br/><br/>
+
+
+25-27 Apr 2008
+<blockquote>
+	Orlando, FL<br/>
+	Mitsugi Saotome Sensei<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+9-11 May 2008
+<blockquote>
+	Seneca, SC<br/>
+	Hiroshi Ikeda Sensei<br/>
+	<a href="http://aikidooflakekeowee.com/seminars.php">http://aikidooflakekeowee.com/seminars.php</a>
+</blockquote>
+<br/><br/>
+
+
+6-8 Jun 2008
+<blockquote>
+	Tallahassee, FL<br/>
+	Dennis Hooker Sensei<br/>
+	<a href="http://northfloridaaikido.org/aikikai/Seminars/tabid/61/Default.aspx">http://northfloridaaikido.org/aikikai/Seminars/tabid/61/Default.aspx</a>
+</blockquote>
+<br/><br/>
+
+
+18-20 Jul 2008
+<blockquote>
+	Orlando, FL<br/>
+	George Ledyard Sensei<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+5-7 Sep 2008
+<blockquote>
+	Nashville, TN<br/>
+	Kevin choate Sensei<br/>
+	<a href="http://www.asu.org/NashAikikai/seminars.html">http://www.asu.org/NashAikikai/seminars.html</a>
+</blockquote>
+<br/><br/>
+
+
+14-16 Nov 2008
+<blockquote>
+	Orlando, FL<br/>
+	Hiroshi Ikeda Sensei<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+6-8 Feb 2009
+<blockquote>
+	Seneca, SC<br/>
+	George Ledyard Sensei<br/>
+	<a href="http://www.aikidooflakekeowee.com/seminars.php">http://www.aikidooflakekeowee.com/seminars.php</a>
+</blockquote>
+<br/><br/>
+
+
+6-8 Feb 2009
+<blockquote>
+	Panama City, FL<br/>
+	John Messores Sensei<br/>
+	<a href="http://aikidopc.org/">http://aikidopc.org/</a>
+</blockquote>
+<br/><br/>
+
+
+6-9 Feb 2009
+<blockquote>
+	Orlando, FL<br/>
+	Henry Kono Sensei<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+27 Feb - 1 Mar 2009
+<blockquote>
+	Orlando, FL<br/>
+	Kevin Choate Sensei<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+3-5 Apr 2009
+<blockquote>
+	Nashville, TN<br/>
+	Hiroshi Ikeda Shihan<br/>
+	<a href="http://www.asu.org/NashAikikai/seminars.html">http://www.asu.org/NashAikikai/seminars.html</a>
+</blockquote>
+<br/><br/>
+
+
+24-26 Apr 2009
+<blockquote>
+	Orlando, FL<br/>
+	Mitsugi Saotome Shihan<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+15-17 May 2009
+<blockquote>
+	Seneca, SC<br/>
+	Hiroshi Ikeda Shihan<br/>
+	<a href="http://www.aikidooflakekeowee.com/seminars.php">http://www.aikidooflakekeowee.com/seminars.php</a>
+</blockquote>
+<br/><br/>
+
+
+9-12 Oct 2009
+<blockquote>
+	Tallahassee, FL<br/>
+	George Ledyard Sensei<br/>
+	<a href="http://www.aikieast.com/intensiv.htm">http://www.aikieast.com/intensiv.htm</a>
+</blockquote>
+<br/><br/>
+
+
+6-8 November 2009
+<blockquote>
+	Birmingham, AL<br/>
+	Hiroshi Ikeda Shihan<br/>
+	<a href="http://www.utsusemiaikikai.com/IkedaSeminar2009.pdf">http://www.utsusemiaikikai.com/IkedaSeminar2009.pdf</a>
+</blockquote>
+<br/><br/>
+
+
+6-8 November 2009
+<blockquote>
+	Nashville, TN<br/>
+	Dennis Hooker Sensei<br/>
+	<a href="http://bushinaikido.com/AikidoatBushinDojo/News.html">http://bushinaikido.com/AikidoatBushinDojo/News.html</a>
+</blockquote>
+<br/><br/>
+
+
+13-15 November 2009
+<blockquote>
+	Orlando, FL<br/>
+	Hiroshi Ikeda Shihan<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+4-6 Dec 2009
+<blockquote>
+	Orlando, FL<br/>
+	Mary Heiny Sensei<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+12 Dec 2009  - 1 Jan 2010
+<blockquote>
+	Largo, FL<br/>
+	Mitsugi Saotome Shihan<br/>
+	<a href="http://winterintensive.com/">http://winterintensive.com/</a>
+</blockquote>
+<br/><br/>
+
+
+5-7 Feb 2010
+<blockquote>
+	Seneca, SC<br/>
+	George Ledyard Sensei<br/>
+	<a href="http://www.aikidooflakekeowee.com/seminars.php">http://www.aikidooflakekeowee.com/seminars.php</a>
+</blockquote>
+<br/><br/>
+
+
+19-21 Mar 2010
+<blockquote>
+	Nashville, TN<br/>
+	Mitsugi Saotome Shihan<br/>
+	<a href="http://www.asu.org/NashAikikai/seminars.html">http://www.asu.org/NashAikikai/seminars.html</a>
+</blockquote>
+<br/><br/>
+
+
+23-25 Apr 2010
+<blockquote>
+	Orlando, FL<br/>
+	Mitsugi Saotome Shihan<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+21-23 May 2010
+<blockquote>
+	Seneca, SC<br/>
+	Hiroshi Ikeda Shihan<br/>
+	<a href="http://www.aikidooflakekeowee.com/seminars.php">http://www.aikidooflakekeowee.com/seminars.php</a>
+</blockquote>
+<br/><br/>
+
+
+4-6 Jun 2010
+<blockquote>
+	Tallahassee, FL<br/>
+	Dennis Hooker Sensei<br/>
+	<a href="http://northfloridaaikido.org/">http://northfloridaaikido.org/</a>
+</blockquote>
+<br/><br/>
+
+
+20-21 Aug 2010
+<blockquote>
+	Sarasota, FL (2010 Rokudan)<br/>
+	Patty Saotome Sensei<br/>
+	Wendy Whited Sensei<br/>
+	John Messores Sensei<br/>
+	Duane 'Pee wee' Jones<br/>
+	<a href="http://www.asusarasota.com/Rokudan.htm">http://www.asusarasota.com/Rokudan.htm</a>
+</blockquote>
+<br/><br/>
+
+
+12-14 Nov 2010
+<blockquote>
+	Orlando, FL<br/>
+	Hiroshi Ikeda Shihan<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+3-5 Dec 2010
+<blockquote>
+	Orlando, FL<br/>
+	Mary Heiny Sensei<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+26 Dec 2010 - 1 Jan 2011
+<blockquote>
+	Tampa Bay, FL<br/>
+	Shihan Mitsugi Saotome<br/>
+	+ Kevin Choate Sensei<br/>
+	+ Dennis Hooker Sensei<br/>
+	+ Duane 'Pee wee' Jones Sensei<br/>
+	+ George Ledyard Sensei<br/>
+	+ John Messores Sensei<br/>
+	+ Patty Saotome Sensei<br/>
+	<a href="http://winterintensive.com/">http://winterintensive.com/</a>
+</blockquote>
+<br/><br/>
+
+
+4 - 6 Feb 2011
+<blockquote>
+	Orlando, FL<br/>
+	Henry Kono Sensei<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+4 - 6 Feb 2011
+<blockquote>
+	Seneca, SC<br/>
+	George Ledyard Sensei<br/>
+	<a href="http://www.aikidooflakekeowee.com/seminars.php">http://www.aikidooflakekeowee.com/seminars.php</a>
+</blockquote>
+<br/><br/>
+
+
+18 - 20 Feb 2011
+<blockquote>
+	Tampa, FL<br/>
+	Jim Alvarez Sensei<br/>
+	<a href="http://usfaikido.com/portal.php?link=seminar">http://usfaikido.com/portal.php?link=seminar</a>
+</blockquote>
+<br/><br/>
+
+
+11 - 13 Mar 2011
+<blockquote>
+	Orlando, FL<br/>
+	Bruce Bookman Sensei (6th Dan) /Tenzan Aikido/Seatle, WA<br/>
+	+ Kayla Feder Sensei (6th Dan) /Aikido of Berkeley/ Richmond, CA<br/>
+	+ George Ledyard Sensei (6th Dan)/Aikido Eastside/Bellvue, WA<br/>
+	+ Greg O'Connor Sensei (6th Dan) / Aikido Centers/ Patterson, NJ<br/>
+	+ Dennis Hooker Sensei (6th Dan)/Shindai Aikido Dojo, Orlando/ FL<br/>
+	+ Rich Waggoner Sensei (6th Dan)/Palm Beach Aikikai, Palm Beach, FL<br/>
+	+ Todd Jones Sensei (5th Dan) / American Butokukan, Tampa/FL<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+18 - 20 Mar 2011
+<blockquote>
+	Nashville, TN<br/>
+	Mitsugi Saotome Shihan<br/>
+	<a href="http://www.asu.org/nashaikikai/seminars.html">http://www.asu.org/nashaikikai/seminars.html</a>
+</blockquote>
+<br/><br/>
+
+
+22 - 24 Apr 2011
+<blockquote>
+	Orlando, FL<br/>
+	Mitsugi Saotome Shihan<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+20 - 22 May 2011
+<blockquote>
+	Seneca, SC<br/>
+	Hiroshi Ikeda Shihan<br/>
+	<a href="http://www.aikidooflakekeowee.com/seminars.php">http://www.aikidooflakekeowee.com/seminars.php</a>
+</blockquote>
+<br/><br/>
+
+
+10 - 12 Jun 2011
+<blockquote>
+	Tallahassee, FL<br/>
+	Dennis Hooker Sensei<br/>
+	<a href="http://www.shindai.com/events_other.htm">http://www.shindai.com/events_other.htm</a>
+	Or contact: Richard Moore, 850.528.7666 (<a href="mailto:info@northfloridaaikido.org">info@northfloridaaikido.org</a>)
+</blockquote>
+<br/><br/>
+
+
+23 - 25 Sep 2011
+<blockquote>
+	Orlando, FL<br/>
+	Kevin Choate Sensei<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+21 - 23 Oct 2011
+<blockquote>
+	Panama City, FL<br/>
+	Gregory Olson Sensei<br/>
+	<a href="http://web.me.com/jmo/aopc/seminar-details/autumn-2011-seminar-21-23.html">http://web.me.com/jmo/aopc/seminar-details/autumn-2011-seminar-21-23.html</a>
+</blockquote>
+<br/><br/>
+
+
+28 - 30 Oct 2011
+<blockquote>
+	Seneca, SC<br/>
+	Carl Long Kyoshi<br/>
+	<a href="http://www.aikidooflakekeowee.com/seminars/Carl.Long.Kyoshi.Seminar.pdf">http://www.aikidooflakekeowee.com/seminars/Carl.Long.Kyoshi.Seminar.pdf</a>
+</blockquote>
+<br/><br/>
+
+
+11 - 13 Nov 2011
+<blockquote>
+	Orlando, FL<br/>
+	Hiroshi Ikeda Shihan<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+26 Dec 2011 -1 Jan 2012
+<blockquote>
+	St. Pete Beach, FL (International Winter Intensive)<br/>
+	Mitsugi Saotome Shihan (+ many others)<br/>
+	<a href="http://winterintensive.com/">http://winterintensive.com/</a>
+</blockquote>
+<br/><br/>
+
+
+17 - 19 Feb 2012
+<blockquote>
+	Seneca, SC<br/>
+	Dan Messisco Sensei<br/>
+	<a href="http://www.aikidooflakekeowee.com/seminars/Dan.Messisco.Sensei.Seminar.pdf">http://www.aikidooflakekeowee.com/seminars/Dan.Messisco.Sensei.Seminar.pdf</a>
+</blockquote>
+<br/><br/>
+
+
+16 - 18 Mar 2012
+<blockquote>
+	Nashville, TN<br/>
+	Mitsugi Saotome Shihan<br/>
+	<a href="http://www.asu.org/cgi-bin/display-seminar.cgi/i=MSaotome&d=20120316NSH">http://www.asu.org/cgi-bin/display-seminar.cgi/i=MSaotome&d=20120316NSH</a>
+</blockquote>
+<br/><br/>
+
+
+20 - 22 Apr 2012
+<blockquote>
+	Orlando, FL<br/>
+	Mitsugi Saotome Shihan<br/>
+	<a href="http://www.shindai.com/events.htm">http://www.shindai.com/events.htm</a>
+</blockquote>
+<br/><br/>
+
+
+18 - 20 May 2012
+<blockquote>
+	Seneca, SC<br/>
+	Hiroshi Ikeda Shihan<br/>
+	<a href="http://www.aikidooflakekeowee.com/seminars.php">http://www.aikidooflakekeowee.com/seminars.php</a>
+</blockquote>
+<br/><br/>
+
+11 - 13 September 2012
+<blockquote>
+	Gulf Breeze, FL<br/>
+	Hiroshi Kato Sensei<br/>
+	<a href="http://www.falbosfamilykarate.com/home_calendar.html">http://www.falbosfamilykarate.com/home_calendar.html</a>
+</blockquote>
+<br/><br/>
+
+
+21 - 23 September 2012
+<blockquote>
+	Seneca, SC<br/>
+	Carl Long Shihan<br/>
+	<a href="http://www.sakurabudokan.com/news/iaido-at-aikido-of-lake-keowee">http://www.sakurabudokan.com/news/iaido-at-aikido-of-lake-keowee</a>
+</blockquote>
+<br/><br/>
+
+
+19 - 21 October 2012
+<blockquote>
+	Orlando, FL<br/>
+	Hiroshi Ikeda Shihan<br/>
+	<a href="http://www.shindai.com/events/">http://www.shindai.com/events/</a>
+</blockquote>
+<br/><br/>
+
+
+26 December 2012 - 1 January 2013
+<blockquote>
+	St. Pete Beach, FL<br/>
+	Mitsugi Saotome Shihan (Winter Camp)<br/>
+	<a href="http://winterintensive.com/">http://winterintensive.com/</a>
+</blockquote>
+<br/><br/>
+
+
+22 - 24 February 2013
+<blockquote>
+	Seneca, SC<br/>
+	Dan Messisco Sensei<br/>
+	<a href="http://www.aikidooflakekeowee.com/seminars.php">http://www.aikidooflakekeowee.com/seminars.php</a>
+</blockquote>
+<br/><br/>
+
+
+29 - 31 March 2013
+<blockquote>
+	Nashville, TN<br/>
+	Mitsugi Saotome Shihan<br/>
+	<a href="http://nashvilleaikikai.org/seminars/">http://nashvilleaikikai.org/seminars/</a>
+</blockquote>
+<br/><br/>
+
+
+24 - 27 May 2013
+<blockquote>
+	Orlando, FL<br/>
+	George Ledyard Sensei<br/>
+	<a href="http://www.eventsbot.com/events/eb684131745">http://www.eventsbot.com/events/eb684131745</a>
+</blockquote>
+<br/><br/>
+
+
+8 - 10 November 2013
+<blockquote>
+	Seneca, SC<br/>
+	Hiroshi Ikeda Shihan<br/>
+	<a href="http://www.aikidooflakekeowee.com/seminars.php">http://www.aikidooflakekeowee.com/seminars.php</a>
+</blockquote>
+<br/><br/>
+
+
+6 - 8 December 2013
+<blockquote>
+	Atlanta, GA<br/>
+	George Ledyard Sensei<br/>
+	<a href="http://ledyard2013.eventsbot.com/">http://ledyard2013.eventsbot.com/</a>
+</blockquote>
+<br/><br/>
+
+
+14 December 2013
+<blockquote>
+	Nashville, TN<br/>
+	Tom and Mary McIntire Sensei<br/>
+	<a href="http://nashvilleaikikai.org/seminars/upcoming-seminars/">http://nashvilleaikikai.org/seminars/upcoming-seminars/</a>
+</blockquote>
+<br/><br/>
+
+
+24 - 26 January 2014 (UNCONFIRMED)
+<blockquote>
+	Atlanta, GA<br/>
+	Dan Harden Sensei<br/>
+	<a href=""></a>
+</blockquote>
+<br/><br/>
+
+
+7 - 9 Mar 2014
+<blockquote>
+	Nashville, TN<br/>
+	Mike Page Sensei<br/>
+	<a href="http://bushinaikido.com">http://bushinaikido.com</a>
+</blockquote>
+<br/><br/>
+
+
+28 - 30 March 2014
+<blockquote>
+	Nashville, TN<br/>
+	Mitsugi Saotome Shihan<br/>
+	<a href="http://nashvilleaikikai.org/seminars/upcoming-seminars/">http://nashvilleaikikai.org/seminars/upcoming-seminars/</a>
+</blockquote>
+<br/><br/>
+
+
+23 - 25 May 2014
+<blockquote>
+	Nashville, TN<br/>
+	Hiroshi Ikeda Sensei<br/>
+	<a href="http://nashvilleaikikai.org/seminars/upcoming-seminars/">http://nashvilleaikikai.org/seminars/upcoming-seminars/</a>
+</blockquote>
+<br/><br/>
+
+
+29 May - 1 June 2014
+<blockquote>
+	Largo, FL<br/>
+	Mitsugi Saotome Shihan<br/>
+	<a href="http://www.asu.org/cgi-bin/display-seminar.cgi/i=&d=20150529SPA">http://www.asu.org/cgi-bin/display-seminar.cgi/i=&d=20150529SPA</a>
+</blockquote>
+<br/><br/>
+
+
+2 - 6 July 2014
+<blockquote>
+	Washington, DC<br/>
+	Mitsugi Saotome Shihan - Hiroshi Ikeda Shihan
+William Gleason Shihan - John Messores Shihan - George Ledyard Shihan - Melissa Bell Sensei - Gary Small Sensei<br/>
+	<a href="http://www.aikido-shobukan.org/seminars/?seminarid=97">http://www.aikido-shobukan.org/seminars/?seminarid=97</a>
+</blockquote>
+<br/><br/>
+
+
+15-17 Aug 2014
+<blockquote>
+	Orlando, FL<br/>
+	Saotome Shihan, Patty Saotome Sensei, PeeWee Jones Sensei, and John Messores Sensei<br/>
+	<a href="http://shindai.com/events/florida-shihan-seminar/">http://shindai.com/events/florida-shihan-seminar/</a>
+</blockquote>
+<br/><br/>
+
+
+5 - 7 September 2014
+<blockquote>
+	Nashville, TN<br/>
+	Tres Hofmester Sensei<br/>
+	<a href="http://nashvilleaikikai.org/seminars/upcoming-seminars/">http://nashvilleaikikai.org/seminars/upcoming-seminars/</a>
+</blockquote>
+<br/><br/>
+
+
+19-21 Sep 2014
+<blockquote>
+	Orlando, FL<br/>
+	Joe Brogna Sensei & Dimitri Deglas Sensei<br/>
+	<a href="http://shindai.com/events/daito-ryu-ginjukai-seminar-with-howard-popkin-sensei-friends/">http://shindai.com/events/daito-ryu-ginjukai-seminar-with-howard-popkin-sensei-friends/</a>
+</blockquote>
+<br/><br/>
+
+
+18 Oct 2014
+<blockquote>
+	Orlando, FL<br/>
+	Hooker Shihan Memorial Seminar<br/>
+	<a href="http://shindai.com/events/hooker-shihan/">http://shindai.com/events/hooker-shihan/</a>
+</blockquote>
+<br/><br/>
+
+
+14-16 Nov 2014
+<blockquote>
+	Orlando, FL<br/>
+	Hiroshi Ikeda Shihan<br/>
+	<a href="http://shindai.com/events/hiroshi-ikeda-shihan-3/">http://shindai.com/events/hiroshi-ikeda-shihan-3/</a>
+</blockquote>
+<br/><br/>
+
+
+5 - 7 Dec 2014
+<blockquote>
+	Atlanta, GA<br/>
+	George Ledyard Sensei<br/>
+	<a href="http://www.aikidosouth.com/joomla/index.php/menu-contact-us/category-news/125-george-ledyard-seminar">http://www.aikidosouth.com/joomla/index.php/menu-contact-us/category-news/125-george-ledyard-seminar</a>
+</blockquote>
+<br/><br/>
+
+
+26 Dec 2014 - 1 Jan 2015
+<blockquote>
+	St. Pete Beach, FL<br/>
+	ASU International Winter Intensive<br/>
+	Saotome Shihan, John Messores Shihan, Patty Saotome Shihan, George Ledyard Sensei, Duane Jones Sensei, Steve McPeck Sensei, Raso Hultgren Sensei, Wendy Whited Sensei, Dan Messisco Sensei, Jim Alvarez Sensei, and Greg Olson Sensei<br/>
+	<a href="http://asu.org/seminar/asu-international-winter-intensive-at-tampa-bay-2/">http://asu.org/seminar/asu-international-winter-intensive-at-tampa-bay-2/</a>
+</blockquote>
+<br/><br/>
+
+
+27 - 29 March 2015
+<blockquote>
+	Nashville, TN<br/>
+	Mitsugi Saotome Shihan<br/>
+	<a href="http://nashvilleaikikai.org/seminars/upcoming-seminars/">http://nashvilleaikikai.org/seminars/upcoming-seminars/</a>
+</blockquote>
+<br/><br/>
+
+
+22 - 24 May 2015
+<blockquote>
+	Nashville, TN<br/>
+	Hiroshi Ikeda Shihan<br/>
+	<a href="http://nashvilleaikikai.org/seminars/upcoming-seminars/">http://nashvilleaikikai.org/seminars/upcoming-seminars/</a>
+</blockquote>
+<br/><br/>
+
+END PAST SEMINARS -->
+
+
+11 - 13 Sep 2015
+<blockquote>
+	Nashville, TN<br/>
+	Tres Hofmeister Sensei<br/>
+	<a href="https://nashvilleaikikai.files.wordpress.com/2013/11/tres-hofmeister-sensei-flyer-20142.jpg">https://nashvilleaikikai.files.wordpress.com/2013/11/tres-hofmeister-sensei-flyer-20142.jpg</a>
+</blockquote>
+<br/><br/>
+
+
+9 - 12 Oct 2015
+<blockquote>
+	Orlando, FL<br/>
+	George Ledyard Sensei<br/>
+	<a href="http://www.eventsbot.com/events/eb486005631">http://www.eventsbot.com/events/eb486005631</a>
+</blockquote>
+<br/><br/>
+
+
+26 Dec 2015 - 1 Jan 2016 (limited to 150 registrants)
+<blockquote>
+	St. Pete Beach, FL<br/>
+	Winter Intensive<br/>
+	<a href="http://winterintensive.com/">http://winterintensive.com/</a>
+</blockquote>
+<br/><br/>
+
+
+<!--
+<br/><br/>
+
+
+1-3 Dec 2006
+<blockquote>
+	Orlando, FL<br/>
+	Instructor Shihan<br/>
+	<a href=""></a>
+</blockquote>
+<br/><br/>
+
+
+-->
+
+</blockquote>
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+

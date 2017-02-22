@@ -1,0 +1,222 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<style>
+        Body    { background-color: #ffffff; color: #000000 }
+</style>
+
+
+<table width="100%">
+<tr>
+<td vstyle="text-align: top" width="130">
+<table>
+
+<tr><th style="font-size:140%">Aikido of<br/> East Alabama</th></tr>
+
+<tr><td style="text-align: center" valign="middle">
+<img src="kaiso.gif" alt="O'Sensei" border="0" width="90" height="128" /><img src="aikidoimages.jpeg" alt="Kanji for Aikido" border="0" width="62" height="97" />
+</td></tr>
+
+<tr><td>&nbsp;</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Dojo Info</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="index.shtml">Home</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="yudansha.shtml">Yudansha</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="classInfo.shtml">Class Schedule</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="directions.shtml">Directions</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="tests.shtml">Testing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="seminars.shtml">Seminars</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Organizations</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikikai.or.jp/">Aikikai</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.asu.org/">ASU</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.usaikifed.com/">USAF</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Gear</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.bujindesign.com/">Bu Jin Design</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.e-bogu.com/Aikido_s/39.htm">E-Bogu</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://kingfisherwoodworks.com/">Kingfisher Woodworks</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.budogu.com/">BudoGu</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.budostuff.com/">Budostuff</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.swordstore.com">SwordStore</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.valleymartialarts.com">Valley Martial Arts Supply</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikido3d.com/">Aikido 3D</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="hakama.shtml">Hakama Notes</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Links</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.sccs.swarthmore.edu/org/aikido/docs/technames.html">Aikido Terminology</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://blog.aikidojournal.com/">Aikido Journal (Blog)</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="asuhandbook.pdf">ASU Handbook</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikiweb.com/">AikiWeb</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidofaq.com/">Aikido FAQ</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidojournal.com/">Aikido Journal</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.101zenstories.com/">101 Zen Stories</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://martialartsandcraftsjewelry.com/">Aikido Jewelry</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="breathing.html">Breathing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="aikidoThesis.html">US Aikido</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidoofnorthalabama.org">Aikido of North Alabama</a>
+</td></tr>
+
+</table>
+</td>
+
+<td vstyle="text-align: top">
+
+<blockquote>
+
+
+<h3 align="center">Class Schedule &amp; Information</h3>
+
+<br/>
+
+<dt><strong>Schedule (starting 1 June 2013):</strong></dt>
+<dd><ul>
+<li> Tuesday, 6.30-8.30pm Central Time
+<li> Thursday, 6.30-8.30pm Central Time
+</ul></dd>
+
+<br/>
+
+<dt><strong>Registration &amp; Fees:</strong></dt>
+<dd><ul>
+<li> $40/quarter ($20 for students)
+<li> Register with Instructor during first class.
+</ul></dd>
+
+<br/>
+
+<strong>Location:</strong><br/>
+<blockquote>
+	<a href="http://www.auburnalabama.org/parks/Default.aspx?PageID=659" target="_new">Boykin Community Center Auditorium</a>
+	<br/>400 Boykin Street<br/>Auburn, AL 36832<br/>
+	(334) 501-2961
+
+</blockquote>
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+

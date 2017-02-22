@@ -1,0 +1,238 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<style>
+        Body    { background-color: #ffffff; color: #000000 }
+</style>
+
+
+<table width="100%">
+<tr>
+<td vstyle="text-align: top" width="130">
+<table>
+
+<tr><th style="font-size:140%">Aikido of<br/> East Alabama</th></tr>
+
+<tr><td style="text-align: center" valign="middle">
+<img src="kaiso.gif" alt="O'Sensei" border="0" width="90" height="128" /><img src="aikidoimages.jpeg" alt="Kanji for Aikido" border="0" width="62" height="97" />
+</td></tr>
+
+<tr><td>&nbsp;</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Dojo Info</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="index.shtml">Home</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="yudansha.shtml">Yudansha</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="classInfo.shtml">Class Schedule</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="directions.shtml">Directions</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="tests.shtml">Testing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="seminars.shtml">Seminars</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Organizations</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikikai.or.jp/">Aikikai</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.asu.org/">ASU</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.usaikifed.com/">USAF</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Gear</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.bujindesign.com/">Bu Jin Design</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.e-bogu.com/Aikido_s/39.htm">E-Bogu</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://kingfisherwoodworks.com/">Kingfisher Woodworks</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.budogu.com/">BudoGu</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.budostuff.com/">Budostuff</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.swordstore.com">SwordStore</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.valleymartialarts.com">Valley Martial Arts Supply</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikido3d.com/">Aikido 3D</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="hakama.shtml">Hakama Notes</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Links</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.sccs.swarthmore.edu/org/aikido/docs/technames.html">Aikido Terminology</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://blog.aikidojournal.com/">Aikido Journal (Blog)</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="asuhandbook.pdf">ASU Handbook</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikiweb.com/">AikiWeb</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidofaq.com/">Aikido FAQ</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidojournal.com/">Aikido Journal</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.101zenstories.com/">101 Zen Stories</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://martialartsandcraftsjewelry.com/">Aikido Jewelry</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="breathing.html">Breathing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="aikidoThesis.html">US Aikido</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidoofnorthalabama.org">Aikido of North Alabama</a>
+</td></tr>
+
+</table>
+</td>
+
+<td vstyle="text-align: top">
+
+<blockquote>
+
+
+<h3 align="center">Dojo Directions</h3>
+
+<img align="right" src="../personal/gif89a/yinyangbw.gif" alt="Spinning Yin Yang Circle" border="0" width="128" height="128" />
+<dl>
+<dt><strong>Via I-85:</strong></dt>
+<dd><ul>
+<li> Take US-280 West (towards Opelika), exit 58
+<li> Travel 0.4 miles
+<li> Turn RIGHT onto Gateway Drive/US-280
+<li> Travel 1.5 miles
+<li> Turn LEFT onto Pepperell Parkway/AL-14/AL-15/AL-38
+<li> Travel 4.5 miles
+<li> Turn LEFT onto North Gay Street
+<li> Take 1st RIGHT onto Mitcham Avenue
+<li> Take 1st LEFT onto North College Street
+<li> Take 2nd RIGHT onto West Glenn Avenue
+<li> Take 1st RIGHT onto North Donahue Drive
+<li> Tkae 2nd LEFT onto Martin Luther King Drive
+<li> Take 2nd RIGHT onto Boykin Street
+<li> Boykin Community Center is on the right
+</ul></dd>
+
+<br/>
+
+<dt><strong>From Columbus:</strong></dt>
+<dd><ul>
+<li> From I-185, take exit 10 onto US-80 WEST
+<li> Travel 6 miles
+<li> Bear RIGHT onto US-431/US-280 North
+<li> Travel 22.1 miles
+<li> Take the I-85 south bound exit, see "Via I-85" instructions above.
+</ul></dd>
+
+<br/>
+
+<p>
+<strong>Local area map:</strong>
+<blockquote>
+<iframe width="640" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=Columbus+Pkwy&amp;daddr=400+Boykin+Street,+Auburn,+AL&amp;hl=en&amp;geocode=FVYa8gEdCKDp-g%3B&amp;mra=dme&amp;mrcr=0&amp;mrsp=0&amp;sz=15&amp;sll=32.640025,-85.359349&amp;sspn=0.025803,0.037336&amp;ie=UTF8&amp;ll=32.629256,-85.406685&amp;spn=0.138787,0.219727&amp;z=12&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=d&amp;source=embed&amp;saddr=Columbus+Pkwy&amp;daddr=400+Boykin+Street,+Auburn,+AL&amp;hl=en&amp;geocode=FVYa8gEdCKDp-g%3B&amp;mra=dme&amp;mrcr=0&amp;mrsp=0&amp;sz=15&amp;sll=32.640025,-85.359349&amp;sspn=0.025803,0.037336&amp;ie=UTF8&amp;ll=32.629256,-85.406685&amp;spn=0.138787,0.219727&amp;z=12" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+</blockquote>
+</p>
+
+</blockquote>
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+

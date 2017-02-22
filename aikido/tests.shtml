@@ -1,0 +1,736 @@
+<!doctype HTML public "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+<head>
+<title>Dr. J Dana Eckart</title>
+<link rev="mail" href="mailto:eckart_dana@columbusstate.edu">
+</head>
+<body>
+
+<!--
+	This is the primary overall style for the web site.
+-->
+<style>
+	A:link    { color: #007a00; text-decoration: underline }
+	A:visited { color: #7a0000; text-decoration: none }
+	A:hover   { text-decoration: none }
+	A:active  { color: #ff0000; text-decoration: none }
+	Body	{ background-color: #ffffe5; color: #000000 }
+	Body	{ font-size: 12pt }
+	Address	{ font-size: 10pt }
+	Table	{ font-size: 12pt }
+	Th, Td	{ vertical-align: top }
+	Th, Td	{ padding: 5px }
+</style>
+
+<style>
+        Body    { background-color: #ffffff; color: #000000 }
+</style>
+
+
+<table width="100%">
+<tr>
+<td vstyle="text-align: top" width="130">
+<table>
+
+<tr><th style="font-size:140%">Aikido of<br/> East Alabama</th></tr>
+
+<tr><td style="text-align: center" valign="middle">
+<img src="kaiso.gif" alt="O'Sensei" border="0" width="90" height="128" /><img src="aikidoimages.jpeg" alt="Kanji for Aikido" border="0" width="62" height="97" />
+</td></tr>
+
+<tr><td>&nbsp;</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Dojo Info</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="index.shtml">Home</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="yudansha.shtml">Yudansha</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="classInfo.shtml">Class Schedule</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="directions.shtml">Directions</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="tests.shtml">Testing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="seminars.shtml">Seminars</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Organizations</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikikai.or.jp/">Aikikai</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.asu.org/">ASU</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.usaikifed.com/">USAF</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Gear</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.bujindesign.com/">Bu Jin Design</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.e-bogu.com/Aikido_s/39.htm">E-Bogu</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://kingfisherwoodworks.com/">Kingfisher Woodworks</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.budogu.com/">BudoGu</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.budostuff.com/">Budostuff</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.swordstore.com">SwordStore</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.valleymartialarts.com">Valley Martial Arts Supply</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikido3d.com/">Aikido 3D</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="hakama.shtml">Hakama Notes</a>
+</td></tr>
+
+<tr><td style="text-align: left">
+<strong>Links</strong>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.sccs.swarthmore.edu/org/aikido/docs/technames.html">Aikido Terminology</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://blog.aikidojournal.com/">Aikido Journal (Blog)</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="asuhandbook.pdf">ASU Handbook</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikiweb.com/">AikiWeb</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidofaq.com/">Aikido FAQ</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidojournal.com/">Aikido Journal</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.101zenstories.com/">101 Zen Stories</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://martialartsandcraftsjewelry.com/">Aikido Jewelry</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="breathing.html">Breathing</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="aikidoThesis.html">US Aikido</a>
+</td></tr>
+
+<tr><td style="text-align: right">
+<a href="http://www.aikidoofnorthalabama.org">Aikido of North Alabama</a>
+</td></tr>
+
+</table>
+</td>
+
+<td vstyle="text-align: top">
+
+<blockquote>
+
+
+<h3 align="center">Testing Standards</h3>
+<p align="center">
+Here are <a href="tests_print.html">web</a> and
+<a href="refCards/asu_aikido.pdf">pdf</a> printable versions.
+</p>
+<blockquote>
+
+<table>
+<tr valign="top">
+	<th></th>
+	<th colspan="6" align="center">Kyu</th>
+	<th colspan="2" align="center">Dan</th>
+	<th></th>
+</tr>
+
+<tr valign="top">
+	<th>Technique</th>
+	<th width="40" nowrap>6th</th>
+	<th width="40" nowrap>5th</th>
+	<th width="40" nowrap>4th</th>
+	<th width="40" nowrap>3rd</th>
+	<th width="40" nowrap>2nd</th>
+	<th width="40" nowrap>1st</th>
+	<th width="40" nowrap>1st</th>
+	<th width="40" nowrap>2nd</th>
+</tr>
+
+<tr><td colspan="9" align="right"><hr/></td></tr>
+
+<tr valign="top">
+	<th align="right">Kokyu tanden ho</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr><td colspan="9" align="right"><hr/></td></tr>
+
+<tr valign="top">
+	<th align="right">Katate Dori: Tenkan</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">shihonage</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">ryote mochi kokyu tanden ho</th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr><td colspan="9" align="right"><hr/></td></tr>
+
+<tr valign="top">
+	<th align="right">Shomen Uchi: iriminage</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">ikkyo</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">nikyo</th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">sankyo</th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">yonkyo</th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr><td colspan="9" align="right"><hr/></td></tr>
+
+<tr valign="top">
+	<th align="right">Mune Tsuki: kotogaeshi</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">kaitenage</th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr><td colspan="9" align="right"><hr/></td></tr>
+
+<tr valign="top">
+	<th align="right">Kata Dori: ikkyo</th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">nikyo</th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<!-- These aren't on the test?????
+<tr valign="top">
+	<th align="right">sankyo</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+</tr>
+
+<tr valign="top">
+	<th align="right">yonkyo</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+</tr>
+
+<tr valign="top">
+	<th align="right">shihonage</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+-->
+
+<tr><td colspan="9" align="right"><hr/></td></tr>
+
+<tr valign="top">
+	<th align="right">Yokomen Uchi: shihonage</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">kotegaeshi</th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">iriminage</th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">ikkyo</th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">nikyo</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">sankyo</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">yonkyo</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr><td colspan="9" align="right"><hr/></td></tr>
+
+<tr valign="top">
+	<th align="right">Ryote Dori: tenchinage</th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">shihonage</th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr><td colspan="9" align="right"><hr/></td></tr>
+
+<tr valign="top">
+	<th align="right">Ushiro: ryokata dori ikkyo</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">ryote dori shihonage</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">kubi shime kotegaeshi</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">waza kokyunage</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr><td colspan="9" align="right"><hr/></td></tr>
+
+<tr valign="top">
+	<th align="right" nowrap>Koshinage<br/>(Shomenuchi, Yokomenuchi, Katate dori, Menetsuki)</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right" nowrap>Hanmi handachi<br/>(Katate Dori shihonage, Ryote Dori ikkyo)</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right" nowrap>Suwariwaza - ikkyo<br/>(Shomenuchi, Kata dori, Yokomenuchi)</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr><td colspan="9" align="right"><hr/></td></tr>
+
+<tr valign="top">
+	<th align="right" nowrap>Jiyu waza: one uche<br/>(Tashiwaza, Hanmi handachi, Suwariwaza)</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th>+</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right" nowrap>Tanto Dori<br/>(Munetsuki, Shomenuchi, Yokomenuchi, Ushiro)</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th>+</th>
+	<th>*</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr><td colspan="9" align="right"><hr/></td></tr>
+
+<tr valign="top">
+	<th align="right" nowrap>Tachi Dori: Bokken</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th>+</th>
+	<th>+</th>
+	<th>+</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">Jo</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th>+</th>
+	<th>+</th>
+	<th>+</th>
+	<th>*</th>
+	<th>*</th>
+</tr>
+
+<tr><td colspan="9" align="right"><hr/></td></tr>
+
+<tr valign="top">
+	<th align="right">Randorie: # uche</th>
+	<th>(1)</th>
+	<th>(2)</th>
+	<th>(3)</th>
+	<th>(4)</th>
+	<th>(4)</th>
+	<th>(4)</th>
+	<th>2</th>
+	<th>3</th>
+</tr>
+
+<tr><td colspan="9" align="right"><hr/></td></tr>
+
+<tr valign="top">
+	<th align="right">Kumi Tachi kata 1-5</th>
+	<th></th>
+	<th>(1-5)</th>
+	<th>(1-5)</th>
+	<th>(1-5)</th>
+	<th>(1-5)</th>
+	<th>(1-5)</th>
+	<th>1-5</th>
+	<th>1-12</th>
+</tr>
+
+<tr valign="top">
+	<th align="right">Kumi Jo kata 1-6</th>
+	<th></th>
+	<th></th>
+	<th>(1-6)</th>
+	<th>(1-6)</th>
+	<th>(1-6)</th>
+	<th>(1-6)</th>
+	<th>(1-6)</th>
+	<th>1-6</th>
+</tr>
+
+</table>
+<p>
+<strong>*</strong> ASU standard testing requirement.<br/>
+<strong>+</strong> or <strong>()</strong> Dojo standard imposed to better prepare students for their dan tests.
+</p>
+
+</blockquote>
+
+<p>
+NOTE:
+Students testing for Shodan need to submit a
+<a href="DanApplication1.pdf">Application for Dan Grades</a> and
+<a href="passport1.pdf">Application for International Yudansha Card (Passport)</a>
+to ASU. Further details are contained in this
+<a href="asu_shodan_ltr.pdf">letter</a> from ASU Headquarters.
+</p>
+
+</blockquote>
+</td>
+</tr>
+</table>
+
+<hr/>
+<em>
+<a href="mailto:eckart_dana@columbusstate.edu?subject=web_pages" style="float: left">eckart_dana@columbusstate.edu</a>
+</em>
+
+</body>
+</html>
+
+
